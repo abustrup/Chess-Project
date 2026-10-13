@@ -40,8 +40,8 @@ export default function App() {
   return (
     <div className="app">
       <ZenToggle />
-      <nav className="sidebar" aria-label="Main">
-        <NavLink to="/" className="brand">
+      <header className="topbar">
+        <NavLink to="/" className="brand" aria-label="Chess Coach home">
           <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden>
             <path
               fill="currentColor"
@@ -50,18 +50,20 @@ export default function App() {
           </svg>
           <span>Chess Coach</span>
         </NavLink>
-        {NAV.map(({ to, label, icon: Icon, end }) => (
-          <NavLink key={to} to={to} end={end} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-            <Icon size={20} />
-            <span>{label}</span>
+        <nav className="topnav" aria-label="Main">
+          {NAV.map(({ to, label, icon: Icon, end }) => (
+            <NavLink key={to} to={to} end={end} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+              <Icon size={18} />
+              <span>{label}</span>
+            </NavLink>
+          ))}
+          <div className="nav-spacer" />
+          <NavLink to="/settings" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+            <SettingsIcon size={18} />
+            <span>Settings</span>
           </NavLink>
-        ))}
-        <div className="nav-spacer" />
-        <NavLink to="/settings" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-          <SettingsIcon size={20} />
-          <span>Settings</span>
-        </NavLink>
-      </nav>
+        </nav>
+      </header>
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />

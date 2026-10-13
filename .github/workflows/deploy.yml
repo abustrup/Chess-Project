@@ -1,0 +1,62 @@
+# Puts the website online on GitHub Pages every time you save changes to the "main" branch.
+# You can also start it by hand: GitHub -> Actions -> "Deploy to GitHub Pages" -> Run workflow.
+#
+# One-time setup in GitHub: Settings -> Pages -> Build and deployment -> Source: "GitHub Actions".
+# The site is built with relative links (base './') and uses "#" addresses, so it works under
+# https://<you>.github.io/<repository-name>/ without any extra configuration.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# The permissions GitHub Pages needs.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deployment at a time; a newer push replaces a deployment that is still waiting.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install the packages
+        run: npm ci
+
+      - name: Build the website
+        run: npm run build
+
+      - name: Prepare GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the built website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
