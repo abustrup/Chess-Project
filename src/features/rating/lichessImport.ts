@@ -123,7 +123,10 @@ export interface FetchOptions {
 export async function fetchLichessGames(rawName: string, opts: FetchOptions = {}): Promise<LichessImportResult> {
   const username = cleanUsername(rawName)
   if (!username) {
-    throw new LichessImportError('invalid-name', 'That does not look like a Lichess username. Use letters, numbers, "_" or "-" only.')
+    throw new LichessImportError(
+      'invalid-name',
+      'That does not look like a Lichess username. Use letters, numbers, "_" or "-" only.',
+    )
   }
   const params = new URLSearchParams({ max: String(opts.max ?? 30), moves: 'true', opening: 'true', pgnInJson: 'true' })
   if (opts.skipBullet !== false) params.set('perfType', 'blitz,rapid,classical')
@@ -139,10 +142,16 @@ export async function fetchLichessGames(rawName: string, opts: FetchOptions = {}
       res = await fetch(url, { headers: { Accept: 'application/x-ndjson' }, signal: timeout.signal })
     } catch (e) {
       if (opts.signal?.aborted) throw e
-      throw new LichessImportError('network', 'I could not reach Lichess. Check your internet connection and try again.')
+      throw new LichessImportError(
+        'network',
+        'I could not reach Lichess. Check your internet connection and try again.',
+      )
     }
     if (res.status === 404) {
-      throw new LichessImportError('not-found', `Lichess does not know a player called "${username}". Please check the spelling.`)
+      throw new LichessImportError(
+        'not-found',
+        `Lichess does not know a player called "${username}". Please check the spelling.`,
+      )
     }
     if (res.status === 429) {
       throw new LichessImportError(
@@ -151,14 +160,20 @@ export async function fetchLichessGames(rawName: string, opts: FetchOptions = {}
       )
     }
     if (!res.ok) {
-      throw new LichessImportError('server', `Lichess had a problem (code ${res.status}). Please try again in a little while.`)
+      throw new LichessImportError(
+        'server',
+        `Lichess had a problem (code ${res.status}). Please try again in a little while.`,
+      )
     }
     let body: string
     try {
       body = await res.text()
     } catch (e) {
       if (opts.signal?.aborted) throw e
-      throw new LichessImportError('network', 'The connection to Lichess broke while the games were coming in. Please try again.')
+      throw new LichessImportError(
+        'network',
+        'The connection to Lichess broke while the games were coming in. Please try again.',
+      )
     }
     return parseLichessNdjson(body, username)
   } finally {

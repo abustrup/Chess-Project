@@ -90,11 +90,6 @@ export function lessonMove(book: Book, ucis: string[]): { node: PgnNode; chapter
   return null
 }
 
-/** Chapters the game is still inside (for the little status line). */
-export function liveChapters(book: Book, ucis: string[]): OpeningChapter[] {
-  return liveNodes(book, ucis).map((l) => l.chapter)
-}
-
 /** "1.d4 d5 2.Bf4 Nf6" - the first few moves of a chapter's main line, for the setup screen. */
 export function previewMoves(course: OpeningCourse, chapter: OpeningChapter, plies = 8): string {
   const tree = treeOf(course, chapter)
@@ -102,6 +97,6 @@ export function previewMoves(course: OpeningCourse, chapter: OpeningChapter, pli
   return formatMoves(mainLine(tree.root).slice(0, plies).map((n) => n.san))
 }
 
-export function formatMoves(sans: string[]): string {
+function formatMoves(sans: string[]): string {
   return sans.map((san, i) => (i % 2 === 0 ? `${i / 2 + 1}.${san}` : san)).join(' ')
 }

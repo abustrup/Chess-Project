@@ -29,7 +29,6 @@ function forgetSeen(ids: Iterable<string>): void {
 
 export interface Pick {
   puzzle: Puzzle
-  entry: PuzzleIndexEntry
   /** True when every puzzle of the choice had been seen, so the memory was cleared and we start over. */
   startedOver: boolean
 }
@@ -69,7 +68,7 @@ export async function pickNext(entries: PuzzleIndexEntry[], options: PickOptions
     const puzzle = pickPuzzle(puzzles, { targetRating, excludeIds: exclude, window })
     if (!puzzle) continue
     const gap = Math.abs(puzzle.rating - targetRating)
-    if (!best || gap < best.gap) best = { puzzle, entry, startedOver: false, gap }
+    if (!best || gap < best.gap) best = { puzzle, startedOver: false, gap }
     if (gap <= window) break
   }
   if (best) return best
@@ -78,7 +77,6 @@ export async function pickNext(entries: PuzzleIndexEntry[], options: PickOptions
   const everything = loaded.flat()
   if (everything.length === 0) return null
   if (startOverWhenEmpty) forgetSeen(everything.map((p) => p.id))
-  const entry = order[0]
   const puzzle = pickPuzzle(loaded[0], { targetRating, window })
-  return puzzle ? { puzzle, entry, startedOver: true } : null
+  return puzzle ? { puzzle, startedOver: true } : null
 }

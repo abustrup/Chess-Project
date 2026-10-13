@@ -1,5 +1,5 @@
 import type { RatingEstimate } from '../../types'
-import { MAX_ELO, MIN_ELO, eloFromAcpl, eloPerAcpl } from './calibration'
+import { MAX_ELO, MIN_ELO, SLOW_GAME_FACTOR, eloFromAcpl, eloPerAcpl } from './calibration'
 
 // The rating estimate. Pure maths, no browser code, so it can be checked in Node (estimate.check.ts).
 //
@@ -23,6 +23,8 @@ export interface GameEvidence {
   userElo?: number
   /** User's average centipawn loss (every move capped, see MAX_MOVE_LOSS) when the game was analysed */
   acpl?: number
+  /** True when there was plenty of time to think (rapid, classical, no clock): the same player then loses less per move */
+  slow?: boolean
   /** How many moves the user made in the analysed game */
   userMoves: number
 }
@@ -56,7 +58,7 @@ export interface EstimateDetail extends RatingEstimate {
   /** Details for the "how I worked this out" section */
   parts: (RatingEstimate['parts'][number] & EstimatePart)[]
   results?: { games: number; scorePct: number; avgOpp: number; shift: number; botGames: number }
-  moves?: { games: number; acpl: number }
+  moves?: { games: number; acpl: number; slowGames: number }
   /** The rating the user had on average in these games (e.g. their Lichess rating), if shown in the games */
   avgListedRating?: number
   perGame: GamePoint[]
@@ -102,32 +104,57 @@ export function shiftFromScore(p: number): number {
   return Math.max(-MAX_SHIFT, Math.min(MAX_SHIFT, 400 * Math.log10(q / (1 - q))))
 }
 
-export function resultsPart(games: GameEvidence[]) {
+/** The Elo formula: how many points a player rated `rating` is expected to score against `opponent` (0..1). */
+export function expectedScore(rating: number, opponent: number): number {
+  return 1 / (1 + 10 ** ((opponent - rating) / 400))
+}
+
+/** 400 / ln(10): turns "number of games" statistics into Elo points. */
+const ELO_PER_LOGIT = 173.7
+
+/**
+ * "Performance rating": the rating at which the expected total score equals the real one.
+ * Against opponents who all have the same rating this is exactly "their rating + a shift from the score %".
+ * One imaginary draw is added, so winning 10 of 10 means "very strong" and not "infinitely strong".
+ */
+export function resultsPart(games: GameEvidence[], selfRating: number) {
   const usable = games.filter((g) => g.score !== undefined && g.oppElo !== undefined)
   if (!usable.length) return null
-  let nEff = 0
-  let points = 0
-  let oppSum = 0
-  for (const g of usable) {
-    const w = g.oppIsBot ? BOT_GAME_WEIGHT : 1
-    nEff += w
-    points += w * g.score!
-    oppSum += w * g.oppElo!
+
+  const entries = usable.map((g) => ({ w: g.oppIsBot ? BOT_GAME_WEIGHT : 1, score: g.score!, opp: g.oppElo! }))
+  const nEff = entries.reduce((s, e) => s + e.w, 0)
+  const avgOpp = entries.reduce((s, e) => s + e.w * e.opp, 0) / nEff
+  entries.push({ w: 1, score: 0.5, opp: avgOpp })
+
+  // the expected score rises with the rating, so a simple bisection finds where it matches the real score
+  const surplus = (rating: number) => entries.reduce((s, e) => s + e.w * (e.score - expectedScore(rating, e.opp)), 0)
+  let lo = avgOpp - MAX_SHIFT
+  let hi = avgOpp + MAX_SHIFT
+  for (let i = 0; i < 40; i++) {
+    const mid = (lo + hi) / 2
+    if (surplus(mid) > 0) lo = mid
+    else hi = mid
   }
-  const avgOpp = oppSum / nEff
-  // one imaginary draw is added: 10 wins out of 10 is "very strong", not "infinitely strong"
-  const p = (points + 0.5) / (nEff + 1)
-  const shift = shiftFromScore(p)
-  const pc = Math.min(0.85, Math.max(0.15, p))
-  const seElo = 173.7 / Math.sqrt(pc * (1 - pc) * (nEff + 1)) // 400 / ln(10) / sqrt(p (1-p) n)
+  const performance = clampElo((lo + hi) / 2)
+
+  // How sure can we be? A game against someone far stronger or weaker than you says little (the result is
+  // nearly certain either way), so we measure the information at a rating between this result and your own guess.
+  const where = (performance + selfRating) / 2
+  const information = entries.reduce((s, e) => {
+    const p = expectedScore(where, e.opp)
+    return s + e.w * p * (1 - p)
+  }, 0)
+  const seElo = ELO_PER_LOGIT / Math.sqrt(Math.max(information, 1e-9))
+
+  const points = entries.slice(0, -1).reduce((s, e) => s + e.w * e.score, 0)
   return {
-    elo: clampElo(avgOpp + shift),
+    elo: performance,
     se: Math.sqrt(seElo ** 2 + POOL_SD ** 2),
     games: usable.length,
     nEff,
     scorePct: (points / nEff) * 100,
     avgOpp,
-    shift,
+    shift: performance - avgOpp,
     botGames: usable.filter((g) => g.oppIsBot).length,
   }
 }
@@ -164,13 +191,17 @@ export function movesPart(games: GameEvidence[]) {
   const usable = games.filter((g) => g.acpl !== undefined && g.userMoves >= MIN_MOVES_FOR_QUALITY)
   if (!usable.length) return null
   const weights = usable.map((g) => Math.min(1, g.userMoves / FULL_WEIGHT_MOVES))
+  // the reference table comes from fast games, so a game with lots of time is first converted to "fast game" terms
   const { acpl, sd, nEff } = robustAcpl(
-    usable.map((g) => g.acpl!),
+    usable.map((g) => g.acpl! * (g.slow ? SLOW_GAME_FACTOR : 1)),
     weights,
   )
   // a handful of games shows a spread that can easily be too small by luck, so mix in the typical spread
   const typical = ACPL_SPREAD_SHARE * acpl
-  const spread = Math.sqrt((SPREAD_PRIOR_GAMES * typical ** 2 + Math.max(0, nEff - 1) * sd ** 2) / (SPREAD_PRIOR_GAMES + Math.max(0, nEff - 1)))
+  const spread = Math.sqrt(
+    (SPREAD_PRIOR_GAMES * typical ** 2 + Math.max(0, nEff - 1) * sd ** 2) /
+      (SPREAD_PRIOR_GAMES + Math.max(0, nEff - 1)),
+  )
   const seAcpl = spread / Math.sqrt(nEff)
   const seElo = eloPerAcpl(acpl) * seAcpl
   return {
@@ -178,7 +209,12 @@ export function movesPart(games: GameEvidence[]) {
     se: Math.sqrt(seElo ** 2 + CALIBRATION_SD ** 2),
     games: usable.length,
     nEff,
-    acpl,
+    /** the typical ACPL as it really was, for showing to the user */
+    acpl: robustAcpl(
+      usable.map((g) => g.acpl!),
+      weights,
+    ).acpl,
+    slowGames: usable.filter((g) => g.slow).length,
   }
 }
 
@@ -193,7 +229,7 @@ export function confidenceWord(gamesUsed: number): string {
 }
 
 export function estimateRating(games: GameEvidence[], selfRating: number, now: Date = new Date()): EstimateDetail {
-  const a = resultsPart(games)
+  const a = resultsPart(games, selfRating)
   const b = movesPart(games)
   const prior = {
     elo: clampElo(selfRating),
@@ -231,8 +267,10 @@ export function estimateRating(games: GameEvidence[], selfRating: number, now: D
     computedAt: now.toISOString(),
     selfRating,
     se,
-    results: a ? { games: a.games, scorePct: a.scorePct, avgOpp: a.avgOpp, shift: a.shift, botGames: a.botGames } : undefined,
-    moves: b ? { games: b.games, acpl: b.acpl } : undefined,
+    results: a
+      ? { games: a.games, scorePct: a.scorePct, avgOpp: a.avgOpp, shift: a.shift, botGames: a.botGames }
+      : undefined,
+    moves: b ? { games: b.games, acpl: b.acpl, slowGames: b.slowGames } : undefined,
     avgListedRating: listed.length ? listed.reduce((s, g) => s + g.userElo!, 0) / listed.length : undefined,
     perGame: [...games]
       .sort((x, y) => (x.date < y.date ? -1 : x.date > y.date ? 1 : 0))
@@ -242,7 +280,10 @@ export function estimateRating(games: GameEvidence[], selfRating: number, now: D
         score: g.score,
         oppElo: g.oppElo,
         userElo: g.userElo,
-        moveElo: g.acpl !== undefined && g.userMoves >= MIN_MOVES_FOR_QUALITY ? Math.round(clampElo(eloFromAcpl(g.acpl))) : undefined,
+        moveElo:
+          g.acpl !== undefined && g.userMoves >= MIN_MOVES_FOR_QUALITY
+            ? Math.round(clampElo(eloFromAcpl(g.acpl)))
+            : undefined,
       })),
   }
   return detail
@@ -251,9 +292,12 @@ export function estimateRating(games: GameEvidence[], selfRating: number, now: D
 function buildNotes(games: GameEvidence[], used: number, hasA: boolean, hasB: boolean, botGames: number): string[] {
   const notes: string[] = []
   if (used === 0) notes.push('No games to work with yet, so this is just your own guess.')
-  else if (used < 20) notes.push(`Only ${used} game${used === 1 ? '' : 's'} so far. About 20 or more make the estimate meaningful.`)
-  if (games.length && !hasA) notes.push('These games have no opponent ratings, so your results could not be compared with anyone.')
-  if (games.length && !hasB) notes.push('No game has been analysed yet. Analysing the games adds the quality of your moves.')
+  else if (used < 20)
+    notes.push(`Only ${used} game${used === 1 ? '' : 's'} so far. About 20 or more make the estimate meaningful.`)
+  if (games.length && !hasA)
+    notes.push('These games have no opponent ratings, so your results could not be compared with anyone.')
+  if (games.length && !hasB)
+    notes.push('No game has been analysed yet. Analysing the games adds the quality of your moves.')
   if (botGames) notes.push('Games against the computer count less, because its strength is only approximate.')
   return notes
 }

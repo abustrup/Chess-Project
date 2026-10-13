@@ -2,15 +2,17 @@
 // evaluation questions. Jobs run one after another, and nothing here can leave the game stuck:
 // a search that takes too long is stopped, and the computer then plays a simple fallback move.
 
-import { UciEngine, type SearchResult } from '../../engine/uci'
+import { ENGINE_URL, UciEngine, type SearchResult } from '../../engine/uci'
 import type { BotLevel } from './botLevels'
 import { chooseBotMove, fallbackMove, type BotChoice } from './botMove'
 
 /** How deep hints, the coach and the evaluation bar look. Deep enough to be right, quick enough to feel instant. */
-export const ANALYSIS_DEPTH = 12
+const ANALYSIS_DEPTH = 12
 
-const START_TIMEOUT_MS = 20_000
-const MAX_START_TRIES = 3
+/** How long we wait for the engine to wake up before the computer plays simple moves instead. */
+const START_TIMEOUT_MS = 25_000
+/** If the engine keeps stopping answering, stop trying. */
+const MAX_RESTARTS = 3
 
 interface Job {
   kind: 'move' | 'analysis'
@@ -36,7 +38,8 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
 export class BotEngine {
   private engine: UciEngine | null = null
   private starting: Promise<UciEngine | null> | null = null
-  private startTries = 0
+  private gaveUp = false
+  private restarts = 0
   private disposed = false
   private chain: Promise<unknown> = Promise.resolve()
   private running: Job | null = null
@@ -53,35 +56,46 @@ export class BotEngine {
 
   private ensure(): Promise<UciEngine | null> {
     if (this.engine) return Promise.resolve(this.engine)
-    if (this.disposed || this.startTries >= MAX_START_TRIES) return Promise.resolve(null)
-    if (!this.starting) {
-      this.startTries++
-      const creating = UciEngine.create()
-      this.starting = withTimeout(creating, START_TIMEOUT_MS).then(
-        (engine) => {
-          this.starting = null
-          if (this.disposed) {
-            engine.terminate()
-            return null
-          }
-          this.engine = engine
-          return engine
-        },
-        () => {
-          this.starting = null
-          // if it turns up late, switch it off so no worker is left running
-          creating.then((late) => late.terminate(), () => undefined)
-          return null
-        },
-      )
-    }
+    if (this.disposed || this.gaveUp) return Promise.resolve(null)
+    if (!this.starting) this.starting = this.start()
     return this.starting
+  }
+
+  private start(): Promise<UciEngine | null> {
+    const creating = (async () => {
+      // a missing engine file would otherwise leave us waiting for the whole timeout
+      for (const url of [ENGINE_URL, ENGINE_URL.replace(/\.js$/, '.wasm')]) {
+        const res = await fetch(url, { method: 'HEAD' })
+        if (!res.ok) throw new Error(`engine file missing: ${url}`)
+      }
+      return UciEngine.create()
+    })()
+    // a slow machine may need longer than we waited: use the engine anyway once it is there
+    creating.then(
+      (engine) => {
+        if (this.disposed || this.engine) engine.terminate()
+        else {
+          this.engine = engine
+          this.gaveUp = false
+        }
+      },
+      () => undefined,
+    )
+    return withTimeout(creating, START_TIMEOUT_MS).then(
+      () => this.engine,
+      () => {
+        this.gaveUp = true
+        return null
+      },
+    )
   }
 
   /** Throw the current engine away (it stopped answering); the next job starts a fresh one. */
   private restart() {
     this.engine?.terminate()
     this.engine = null
+    this.starting = null
+    if (++this.restarts > MAX_RESTARTS) this.gaveUp = true
   }
 
   private enqueue<T>(job: Job, work: (engine: UciEngine) => Promise<T>, timeoutMs: number): Promise<T | null> {

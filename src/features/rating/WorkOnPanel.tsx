@@ -4,10 +4,22 @@ import { PHASE_LABEL, type Insights } from './insights'
 
 // "What to work on": the useful part. Habits found in the analysed games, and three things to do about them.
 
-function Stat({ value, label, hint, tone }: { value: string; label: string; hint: string; tone?: 'good' | 'warn' | 'bad' }) {
+function Stat({
+  value,
+  label,
+  hint,
+  tone,
+  compact,
+}: {
+  value: string
+  label: string
+  hint: string
+  tone?: 'good' | 'warn' | 'bad'
+  compact?: boolean
+}) {
   return (
     <div className={`rt-stat ${tone ?? ''}`} title={hint}>
-      <div className="rt-stat-value">{value}</div>
+      <div className={`rt-stat-value ${compact ? 'small-text' : ''}`}>{value}</div>
       <div className="small muted">{label}</div>
     </div>
   )
@@ -24,8 +36,9 @@ export default function WorkOnPanel({ insights }: { insights: Insights }) {
       <section className="card zen-hide">
         <h2>What to work on</h2>
         <p className="muted">
-          Once some of your games are analysed, I will show you your habits here: where you lose points, whether you leave pieces hanging, which
-          chances you miss, and how you do in your openings. Then I suggest three things to practise.
+          Once some of your games are analysed, I will show you your habits here: where you lose points, whether you
+          leave pieces hanging, which chances you miss, and how you do in your openings. Then I suggest three things to
+          practise.
         </p>
       </section>
     )
@@ -35,7 +48,9 @@ export default function WorkOnPanel({ insights }: { insights: Insights }) {
   return (
     <section className="card zen-hide" aria-labelledby="rt-work">
       <h2 id="rt-work">What to work on</h2>
-      <p className="muted small">Based on {n} analysed game{n === 1 ? '' : 's'} and {insights.userMoves} of your moves.</p>
+      <p className="muted small">
+        Based on {n} analysed game{n === 1 ? '' : 's'} and {insights.userMoves} of your moves.
+      </p>
 
       <div className="rt-suggestions">
         {insights.suggestions.map((s, i) => (
@@ -77,6 +92,7 @@ export default function WorkOnPanel({ insights }: { insights: Insights }) {
           tone={missedChances.count / n >= 0.5 ? 'bad' : missedChances.count / n >= 0.2 ? 'warn' : 'good'}
         />
         <Stat
+          compact
           value={`${insights.blunders} / ${insights.mistakes} / ${insights.inaccuracies}`}
           label="blunders / mistakes / inaccuracies"
           hint="Totals over all analysed games."
@@ -98,7 +114,10 @@ export default function WorkOnPanel({ insights }: { insights: Insights }) {
               </div>
             ))}
           </div>
-          <p className="faint small">Opening = the first 10 moves. Endgame = few pieces left. Accuracy says how close your moves were to the computer's choices.</p>
+          <p className="faint small">
+            Opening = the first 10 moves. Endgame = few pieces left. Accuracy says how close your moves were to the
+            computer's choices.
+          </p>
         </>
       )}
 
@@ -131,7 +150,8 @@ export default function WorkOnPanel({ insights }: { insights: Insights }) {
             ))}
           </div>
           <p className="faint small">
-            <Lightbulb size={12} /> Score = points won out of games played (a win is 1, a draw is a half). Avg. loss = average centipawn loss per move, lower is better.
+            <Lightbulb size={12} /> Score = points won out of games played (a win is 1, a draw is a half). Avg. loss =
+            average centipawn loss per move, lower is better.
           </p>
         </>
       )}

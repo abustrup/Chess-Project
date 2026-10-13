@@ -131,7 +131,7 @@ export default function PromptCard({ run, topic, delta, rating, busy, themes, on
             </button>
           )}
           <button className="btn" onClick={onHint}>
-            <Lightbulb size={17} aria-hidden /> {run.hint === 0 ? 'Hint' : 'Show the move'}
+            <Lightbulb size={17} aria-hidden /> {run.hint === 0 ? 'Hint' : 'Show move'}
           </button>
           <button className="btn ghost" onClick={onShowSolution}>
             <Eye size={17} aria-hidden /> Solution

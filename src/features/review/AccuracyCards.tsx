@@ -27,13 +27,17 @@ function SideCard({ game, analysis, side }: { game: GameRecord; analysis: GameAn
         <span className="big-number">{Math.round(analysis.accuracy[side])}%</span>
         <span className="faint small">accuracy</span>
       </div>
-      <div className="small muted" title="Average centipawn loss: how much the evaluation dropped per move, on average. 100 centipawns = about one pawn. Lower is better.">
+      <div
+        className="small muted"
+        title="Average centipawn loss: how much the evaluation dropped per move, on average. 100 centipawns = about one pawn. Lower is better."
+      >
         Average loss per move: <strong>{(analysis.acpl[side] / 100).toFixed(2)}</strong> pawns
       </div>
       <ul className="ac-counts">
         {(['blunder', 'mistake', 'inaccuracy'] as const).map((c) => (
           <li key={c} className={count(c) ? `q-${c}` : 'faint'}>
-            <b>{symbolFor(c)}</b> {count(c)} {c === 'inaccuracy' ? (count(c) === 1 ? 'inaccuracy' : 'inaccuracies') : count(c) === 1 ? c : `${c}s`}
+            <b>{symbolFor(c)}</b> {count(c)}{' '}
+            {c === 'inaccuracy' ? (count(c) === 1 ? 'inaccuracy' : 'inaccuracies') : count(c) === 1 ? c : `${c}s`}
           </li>
         ))}
       </ul>

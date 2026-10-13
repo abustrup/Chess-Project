@@ -45,7 +45,8 @@ function LichessForm() {
       const result = await fetchLichessGames(name, { max, skipBullet, signal: mine.signal })
       const { added, skipped } = addGames(result.games)
       const username = cleanUsername(name)
-      if (username && remember && username !== profile.lichessUsername) setProfile((p) => ({ ...p, lichessUsername: username }))
+      if (username && remember && username !== profile.lichessUsername)
+        setProfile((p) => ({ ...p, lichessUsername: username }))
       const left: string[] = []
       if (result.skipped.computer) left.push(`${result.skipped.computer} against the computer`)
       if (result.skipped.otherVariant) left.push(`${result.skipped.otherVariant} of other chess variants`)
@@ -72,7 +73,8 @@ function LichessForm() {
   return (
     <form className="rt-add-form" onSubmit={submit}>
       <p className="muted">
-        Type your Lichess username and I will fetch your latest games. It is free, needs no password, and only public information is used.
+        Type your Lichess username and I will fetch your latest games. It is free, needs no password, and only public
+        information is used.
       </p>
       <div className="rt-add-fields">
         <div className="field">
@@ -117,7 +119,10 @@ function LichessForm() {
         <span className="faint small">One request at a time, to be kind to Lichess.</span>
       </div>
       {message && (
-        <div className={`callout ${message.kind === 'bad' ? 'warn' : ''}`} role={message.kind === 'bad' ? 'alert' : 'status'}>
+        <div
+          className={`callout ${message.kind === 'bad' ? 'warn' : ''}`}
+          role={message.kind === 'bad' ? 'alert' : 'status'}
+        >
           {message.text}
         </div>
       )}
@@ -150,7 +155,9 @@ function PasteForm() {
     if (!parsed) return
     const records = ready.map((g) => toRecord(g, sides[g.id]!))
     const { added, skipped } = addGames(records)
-    setDone(`Added ${added} game${added === 1 ? '' : 's'}${skipped ? ` (${skipped} ${skipped === 1 ? 'was' : 'were'} already saved)` : ''}.`)
+    setDone(
+      `Added ${added} game${added === 1 ? '' : 's'}${skipped ? ` (${skipped} ${skipped === 1 ? 'was' : 'were'} already saved)` : ''}.`,
+    )
     setParsed(null)
     setText('')
   }
@@ -162,7 +169,8 @@ function PasteForm() {
   return (
     <div className="rt-add-form">
       <p className="muted">
-        Paste one game or many (PGN text, for example from Lichess "Share &amp; export" or chess.com "Download"). I will ask which side you played if I cannot tell.
+        Paste one game or many (PGN text, for example from Lichess "Share &amp; export" or chess.com "Download"). I will
+        ask which side you played if I cannot tell.
       </p>
       <div className="field">
         <label htmlFor="rt-pgn">PGN text</label>
@@ -217,9 +225,16 @@ function PasteForm() {
               <li key={g.id} className="rt-paste-row">
                 <span className="rt-paste-title">
                   {g.white} <span className="faint">vs</span> {g.black}
-                  <span className="faint small"> · {g.result} · {Math.ceil(g.plies / 2)} moves</span>
+                  <span className="faint small">
+                    {' '}
+                    · {g.result} · {Math.ceil(g.plies / 2)} moves
+                  </span>
                 </span>
-                <span className="rt-seg" role="radiogroup" aria-label={`Which side were you in ${g.white} versus ${g.black}?`}>
+                <span
+                  className="rt-seg"
+                  role="radiogroup"
+                  aria-label={`Which side were you in ${g.white} versus ${g.black}?`}
+                >
                   {(['white', 'black'] as const).map((s) => (
                     <button
                       key={s}
@@ -254,10 +269,18 @@ export default function AddGames({ mode, onMode }: { mode: AddMode; onMode: (m: 
   return (
     <div className="rt-add">
       <div className="row wrap">
-        <button className={`btn ${mode === 'lichess' ? 'primary' : ''}`} aria-expanded={mode === 'lichess'} onClick={() => onMode(mode === 'lichess' ? null : 'lichess')}>
+        <button
+          className={`btn ${mode === 'lichess' ? 'primary' : ''}`}
+          aria-expanded={mode === 'lichess'}
+          onClick={() => onMode(mode === 'lichess' ? null : 'lichess')}
+        >
           <Download size={16} /> Import from Lichess
         </button>
-        <button className={`btn ${mode === 'paste' ? 'primary' : ''}`} aria-expanded={mode === 'paste'} onClick={() => onMode(mode === 'paste' ? null : 'paste')}>
+        <button
+          className={`btn ${mode === 'paste' ? 'primary' : ''}`}
+          aria-expanded={mode === 'paste'}
+          onClick={() => onMode(mode === 'paste' ? null : 'paste')}
+        >
           <ClipboardPaste size={16} /> Paste PGN
         </button>
       </div>

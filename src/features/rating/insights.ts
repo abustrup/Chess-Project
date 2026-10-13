@@ -128,9 +128,7 @@ function openingRows(games: GameRecord[]): OpeningRow[] {
       draws,
       losses,
       scorePct: finished ? ((wins + draws / 2) / finished) * 100 : null,
-      acpl: analysed.length
-        ? analysed.reduce((s, g) => s + g.analysis!.acpl[side], 0) / analysed.length
-        : null,
+      acpl: analysed.length ? analysed.reduce((s, g) => s + g.analysis!.acpl[side], 0) / analysed.length : null,
       course: name === 'Unknown opening' ? undefined : courseFor(name, side),
     })
   }
@@ -257,9 +255,12 @@ function suggest(ins: Insights): Suggestion[] {
     const gap = otherAvg - worst.accuracy
     if (gap >= 5) {
       const text: Record<Phase, string> = {
-        opening: 'You lose the most in the first moves. Learning one opening well gives you safe, easy moves and a calm start.',
-        middlegame: 'The middle of the game is where you lose the most. Make a plan, keep your pieces protected, and look for your opponent’s threats.',
-        endgame: 'Endgames are where you lose the most. A few basic ideas (king activity, passed pawns, rook endings) are worth a lot of points.',
+        opening:
+          'You lose the most in the first moves. Learning one opening well gives you safe, easy moves and a calm start.',
+        middlegame:
+          'The middle of the game is where you lose the most. Make a plan, keep your pieces protected, and look for your opponent’s threats.',
+        endgame:
+          'Endgames are where you lose the most. A few basic ideas (king activity, passed pawns, rook endings) are worth a lot of points.',
       }
       const links: Record<Phase, { to: string; label: string }[]> = {
         opening: [{ to: '/openings', label: 'Opening courses' }],
@@ -276,7 +277,9 @@ function suggest(ins: Insights): Suggestion[] {
     }
   }
 
-  const weakRepertoire = ins.openings.find((o) => o.course?.yours && o.games >= 2 && o.scorePct !== null && o.scorePct < 45)
+  const weakRepertoire = ins.openings.find(
+    (o) => o.course?.yours && o.games >= 2 && o.scorePct !== null && o.scorePct < 45,
+  )
   if (weakRepertoire?.course) {
     found.push({
       id: 'repertoire',

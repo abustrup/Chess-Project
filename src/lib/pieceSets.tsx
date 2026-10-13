@@ -24,7 +24,50 @@ export const PIECE_SETS: PieceSetInfo[] = [
     description: 'The familiar tournament look.',
     credit: 'react-chessboard built-in pieces (MIT)',
   },
-  // more sets are registered here by the assets step
+  // The sets below are the pieces from the Lichess project (https://github.com/lichess-org/lila).
+  // Full credits with links: docs/pieces-credits.md
+  {
+    id: 'merida',
+    name: 'Book',
+    description: 'Traditional Staunton pieces with soft shading, like the diagrams in chess books.',
+    credit: 'Merida by Armando Hernandez Marroquin (GPL-2.0 or later)',
+    dir: 'merida',
+  },
+  {
+    id: 'fresca',
+    name: 'Friendly',
+    description: 'Soft, rounded pieces with a warm, easygoing look.',
+    credit: 'Fresca by sadsnake1 (CC BY-NC-SA 4.0)',
+    dir: 'fresca',
+  },
+  {
+    id: 'mpchess',
+    name: 'Modern',
+    description: 'Clean, flat line drawings with nothing extra to distract you.',
+    credit: 'MPChess by Maxime Chupin (GPL-3.0 or later)',
+    dir: 'mpchess',
+  },
+  {
+    id: 'icpieces',
+    name: 'Bold',
+    description: 'Thick outlines, pure black and white. The easiest to read at a glance, especially on blue boards.',
+    credit: 'IC Pieces by sadsnake1 (CC BY-NC-SA 4.0)',
+    dir: 'icpieces',
+  },
+  {
+    id: 'letter',
+    name: 'Letters',
+    description: 'Just the letters K, Q, R, B, N and a dot for pawns. Handy while you learn the piece names.',
+    credit: 'Letter by usolando (AGPL-3.0 or later), white outlines made thicker for this app',
+    dir: 'letter',
+  },
+  {
+    id: 'rhosgfx',
+    name: 'Warm clay',
+    description: 'Cream and terracotta pieces that look lovely on the warm boards.',
+    credit: 'Pieces by RhosGFX (CC0 1.0, public domain)',
+    dir: 'rhosgfx',
+  },
 ]
 
 export function getPieceSet(id: string): PieceSetInfo {

@@ -147,7 +147,11 @@ async function evaluatePosition(fen: string, engine: EngineLike, depth: number):
   const line = result.lines[0]
   const whiteToMove = fen.split(' ')[1] === 'w'
   const stmScore = line ? scoreToCp(line) : 0
-  const found: PositionEval = { cp: whiteToMove ? stmScore : -stmScore, best: result.bestMove, depth: result.depth || depth }
+  const found: PositionEval = {
+    cp: whiteToMove ? stmScore : -stmScore,
+    best: result.bestMove,
+    depth: result.depth || depth,
+  }
   if (evalCache.size > MAX_CACHED_POSITIONS) evalCache.clear()
   evalCache.set(key, found)
   return found

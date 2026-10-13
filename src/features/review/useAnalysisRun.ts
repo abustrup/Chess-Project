@@ -68,7 +68,11 @@ export function useAnalysisRun() {
       })
     } catch (e) {
       if (controller.current !== mine) return // a newer run took over
-      setState(isAbortError(e) ? IDLE : { ...IDLE, error: e instanceof Error ? e.message : 'The analysis stopped unexpectedly.' })
+      setState(
+        isAbortError(e)
+          ? IDLE
+          : { ...IDLE, error: e instanceof Error ? e.message : 'The analysis stopped unexpectedly.' },
+      )
     }
   }, [])
 

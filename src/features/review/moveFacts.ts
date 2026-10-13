@@ -19,10 +19,6 @@ export function sideOfPly(ply: number): Side {
   return ply % 2 === 1 ? 'white' : 'black'
 }
 
-export function otherSide(side: Side): Side {
-  return side === 'white' ? 'black' : 'white'
-}
-
 /** +1 when White made the move, -1 for Black: multiplies a White's-view score into the mover's view. */
 function signOf(m: AnalysedMove): 1 | -1 {
   return m.ply % 2 === 1 ? 1 : -1
@@ -87,6 +83,9 @@ export function mateIn(cp: number): number | null {
 export interface CaptureFact {
   piece: string // 'n' of the captured piece
   square: string
+  /** The piece that captures, and whether the other side can capture it back right away. */
+  attacker: string
+  recapturable: boolean
   /** Material the capturer wins in points: the captured piece, minus the capturing piece when it can be recaptured. */
   netGain: number
 }
@@ -104,18 +103,33 @@ export function captureFact(fen: string, uci: string): CaptureFact | null {
   const recapturable = game.moves({ verbose: true }).some((m) => m.to === move.to)
   const victim = PIECE_VALUE[move.captured] ?? 0
   const attacker = PIECE_VALUE[move.piece] ?? 0
-  return { piece: move.captured, square: move.to, netGain: victim - (recapturable ? attacker : 0) }
+  return { piece: move.captured, square: move.to, attacker: move.piece, recapturable, netGain: victim - (recapturable ? attacker : 0) }
+}
+
+/** Points of material the mover took with this very move (0 for a quiet move). */
+function materialTaken(move: AnalysedMove): number {
+  try {
+    const taken = new Chess(move.fenBefore).move({ from: move.uci.slice(0, 2), to: move.uci.slice(2, 4), promotion: move.uci[4] }).captured
+    return taken ? (PIECE_VALUE[taken] ?? 0) : 0
+  } catch {
+    return 0
+  }
 }
 
 /**
  * Did this move leave a piece to be taken for nothing? We look at what the opponent's best reply would be
- * (it is stored on the NEXT analysed move) and check that it wins at least two points of material,
- * and that the engine agrees the move was really costly.
+ * (it is stored on the NEXT analysed move) and check that, after counting what the move itself took and any
+ * recapture, it wins at least two points of material, and that the engine agrees the move was really costly.
  */
 export function hungPiece(move: AnalysedMove, reply: AnalysedMove | undefined): CaptureFact | null {
   if (!reply?.bestUci || move.cpLoss < 100) return null
   const fact = captureFact(move.fenAfter, reply.bestUci)
-  return fact && fact.netGain >= 2 ? fact : null
+  if (!fact) return null
+  // a pawn that has just promoted is worth a pawn to its owner, not a queen
+  const promoted = move.uci.length === 5 && fact.square === move.uci.slice(2, 4)
+  const victim = promoted ? PIECE_VALUE.p : (PIECE_VALUE[fact.piece] ?? 0)
+  const net = victim - materialTaken(move) - (fact.recapturable ? (PIECE_VALUE[fact.attacker] ?? 0) : 0)
+  return net >= 2 ? { ...fact, netGain: net } : null
 }
 
 /**

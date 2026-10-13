@@ -1,7 +1,16 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { Chess } from 'chess.js'
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, Copy, FlipVertical2, Microscope, Sparkles } from 'lucide-react'
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+  Copy,
+  FlipVertical2,
+  Microscope,
+  Sparkles,
+} from 'lucide-react'
 import type { BoardArrow, GameRecord, Side } from '../../types'
 import Board from '../../components/Board'
 import EvalBar from '../../components/EvalBar'
@@ -33,7 +42,9 @@ function describeResult(game: GameRecord): string {
 
 function dateText(iso: string): string {
   const d = new Date(iso)
-  return Number.isNaN(d.getTime()) ? '' : d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })
+  return Number.isNaN(d.getTime())
+    ? ''
+    : d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })
 }
 
 function uciArrow(uci: string | undefined, color: string): BoardArrow[] {
@@ -112,7 +123,8 @@ function ReviewGame({ game, autoStart }: { game: GameRecord; autoStart: boolean 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const t = e.target as HTMLElement | null
-      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable)) return
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable))
+        return
       if (e.ctrlKey || e.metaKey || e.altKey) return
       if (e.key === 'ArrowLeft') goTo(ply - 1)
       else if (e.key === 'ArrowRight') goTo(ply + 1)
@@ -147,7 +159,8 @@ function ReviewGame({ game, autoStart }: { game: GameRecord; autoStart: boolean 
 
   /* --- what the board shows ------------------------------------------------------------- */
   let fen = ply === 0 ? replayed.startFen : plies[ply - 1].fenAfter
-  let lastMove: [string, string] | null = ply > 0 ? [plies[ply - 1].uci.slice(0, 2), plies[ply - 1].uci.slice(2, 4)] : null
+  let lastMove: [string, string] | null =
+    ply > 0 ? [plies[ply - 1].uci.slice(0, 2), plies[ply - 1].uci.slice(2, 4)] : null
   let arrows: BoardArrow[] = []
   let hintSquares: string[] = []
   let interactive: Side | false = false
@@ -161,7 +174,8 @@ function ReviewGame({ game, autoStart }: { game: GameRecord; autoStart: boolean 
       fen = acceptedFen ?? before
     } else if (status === 'revealed') {
       const g = new Chess(before)
-      if (tryMove.bestUci) g.move({ from: tryMove.bestUci.slice(0, 2), to: tryMove.bestUci.slice(2, 4), promotion: tryMove.bestUci[4] })
+      if (tryMove.bestUci)
+        g.move({ from: tryMove.bestUci.slice(0, 2), to: tryMove.bestUci.slice(2, 4), promotion: tryMove.bestUci[4] })
       fen = g.fen()
       arrows = uciArrow(tryMove.bestUci, 'green')
     } else {
@@ -169,7 +183,13 @@ function ReviewGame({ game, autoStart }: { game: GameRecord; autoStart: boolean 
       interactive = game.userSide
       if (hint && tryMove.bestUci) hintSquares = [tryMove.bestUci.slice(0, 2)]
     }
-  } else if (current && current.bestUci && current.classification !== 'best' && current.classification !== 'good' && current.classification !== 'book') {
+  } else if (
+    current &&
+    current.bestUci &&
+    current.classification !== 'best' &&
+    current.classification !== 'good' &&
+    current.classification !== 'book'
+  ) {
     arrows = uciArrow(current.bestUci, 'green')
   }
 
@@ -266,26 +286,53 @@ function ReviewGame({ game, autoStart }: { game: GameRecord; autoStart: boolean 
           </div>
           {strip(orientation)}
           <div className="board-nav" role="group" aria-label="Move navigation">
-            <button className="btn icon" onClick={() => goTo(0)} disabled={ply === 0} aria-label="Go to the start (up arrow)">
+            <button
+              className="btn icon"
+              onClick={() => goTo(0)}
+              disabled={ply === 0}
+              aria-label="Go to the start (up arrow)"
+            >
               <ChevronsLeft size={20} />
             </button>
-            <button className="btn icon" onClick={() => goTo(ply - 1)} disabled={ply === 0} aria-label="Previous move (left arrow)">
+            <button
+              className="btn icon"
+              onClick={() => goTo(ply - 1)}
+              disabled={ply === 0}
+              aria-label="Previous move (left arrow)"
+            >
               <ChevronLeft size={20} />
             </button>
             <span className="board-nav-count faint small">
               {ply} / {lastPly}
             </span>
-            <button className="btn icon" onClick={() => goTo(ply + 1)} disabled={ply === lastPly} aria-label="Next move (right arrow)">
+            <button
+              className="btn icon"
+              onClick={() => goTo(ply + 1)}
+              disabled={ply === lastPly}
+              aria-label="Next move (right arrow)"
+            >
               <ChevronRight size={20} />
             </button>
-            <button className="btn icon" onClick={() => goTo(lastPly)} disabled={ply === lastPly} aria-label="Go to the end (down arrow)">
+            <button
+              className="btn icon"
+              onClick={() => goTo(lastPly)}
+              disabled={ply === lastPly}
+              aria-label="Go to the end (down arrow)"
+            >
               <ChevronsRight size={20} />
             </button>
-            <button className="btn icon ghost zen-hide" onClick={() => setFlipped((v) => !v)} aria-label="Flip the board (F)" title="Flip the board (F)">
+            <button
+              className="btn icon ghost zen-hide"
+              onClick={() => setFlipped((v) => !v)}
+              aria-label="Flip the board (F)"
+              title="Flip the board (F)"
+            >
               <FlipVertical2 size={18} />
             </button>
           </div>
-          <p className="faint small review-keys zen-hide">Keys: ← → step through moves · ↑ ↓ start / end · F flip the board</p>
+          <p className="faint small review-keys zen-hide">
+            Keys: ← → step through moves · ↑ ↓ start / end · F flip the board
+          </p>
         </div>
 
         <div className="side-col">
@@ -330,7 +377,9 @@ function ReviewGame({ game, autoStart }: { game: GameRecord; autoStart: boolean 
               <div className="card zen-hide">
                 <div className="card-title">Who was winning</div>
                 <EvalGraph moves={moves} ply={ply} onSelect={goTo} userSide={game.userSide} />
-                <div className="faint small graph-legend">Light area: White is better. Dark area: Black is better. Click to jump.</div>
+                <div className="faint small graph-legend">
+                  Light area: White is better. Dark area: Black is better. Click to jump.
+                </div>
               </div>
               <div className="zen-hide">
                 <AccuracyCards game={game} analysis={analysis} />
@@ -352,7 +401,8 @@ function ReviewGame({ game, autoStart }: { game: GameRecord; autoStart: boolean 
               <KeyMoments analysis={analysis} userSide={game.userSide} ply={ply} onSelect={goTo} />
               <p className="faint small analysis-meta">
                 Checked by Stockfish at depth {analysis.depth} in your browser
-                {runState.durationMs ? ` (${(runState.durationMs / 1000).toFixed(1)} s)` : ''}. The computer is very strong, but not perfect.
+                {runState.durationMs ? ` (${(runState.durationMs / 1000).toFixed(1)} s)` : ''}. The computer is very
+                strong, but not perfect.
               </p>
             </div>
           )}

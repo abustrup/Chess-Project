@@ -10,6 +10,13 @@ import AddGames, { type AddMode } from './AddGames'
 // "Your games": every stored game with a checkbox (counts for the estimate or not), plus the buttons to add and analyse games.
 
 const SHOWN_AT_FIRST = 10
+/** Typical time to analyse one game on a normal laptop (measured: 4 to 9 seconds for a 40-move game). */
+const SECONDS_PER_GAME = 6
+
+function roughTime(seconds: number): string {
+  if (seconds < 90) return `${Math.max(5, Math.round(seconds / 5) * 5)} seconds`
+  return `${Math.round(seconds / 60)} minutes`
+}
 
 function resultOf(g: GameRecord): { text: string; tone: 'green' | 'red' | 'gold' | '' } {
   if (g.result === '1/2-1/2') return { text: 'Draw', tone: 'gold' }
@@ -73,7 +80,12 @@ function GameRow({
             Sure?
           </button>
         ) : (
-          <button className="btn small ghost icon" aria-label="Delete this game" title="Delete this game" onClick={() => setConfirm(true)}>
+          <button
+            className="btn small ghost icon"
+            aria-label="Delete this game"
+            title="Delete this game"
+            onClick={() => setConfirm(true)}
+          >
             <Trash2 size={15} />
           </button>
         )}
@@ -131,14 +143,19 @@ export default function GamesPanel({
             ) : (
               <div className="row wrap">
                 <button className="btn primary" onClick={onAnalyseAll} disabled={todo === 0}>
-                  <Zap size={16} /> {todo === 0 ? 'All games analysed' : `Analyse ${todo === games.length ? 'all' : 'the other'} ${todo} game${todo === 1 ? '' : 's'}`}
+                  <Zap size={16} />{' '}
+                  {todo === 0
+                    ? 'All games analysed'
+                    : `Analyse ${todo === games.length ? 'all' : 'the other'} ${todo} game${todo === 1 ? '' : 's'}`}
                 </button>
                 {todo === 0 ? (
                   <span className="faint small row">
                     <Check size={14} /> Nothing left to do.
                   </span>
                 ) : (
-                  <span className="faint small">About {Math.max(5, Math.round(todo * 9))} seconds, in your browser. You can cancel at any time.</span>
+                  <span className="faint small">
+                    About {roughTime(todo * SECONDS_PER_GAME)}, in your browser. You can cancel at any time.
+                  </span>
                 )}
               </div>
             )}
@@ -158,7 +175,8 @@ export default function GamesPanel({
 
           {storedSize > GAMES_SIZE_WARNING && (
             <div className="callout warn" role="alert">
-              Your saved games are getting big for the browser's storage. Please delete some old games, or new ones may not be saved.
+              Your saved games are getting big for the browser's storage. Please delete some old games, or new ones may
+              not be saved.
             </div>
           )}
 
@@ -174,7 +192,13 @@ export default function GamesPanel({
           </div>
           <ul className="rt-games">
             {visible.map((g) => (
-              <GameRow key={g.id} game={g} counted={!off.has(g.id)} onToggle={() => onToggle(g.id)} onDelete={() => onDelete(g.id)} />
+              <GameRow
+                key={g.id}
+                game={g}
+                counted={!off.has(g.id)}
+                onToggle={() => onToggle(g.id)}
+                onDelete={() => onDelete(g.id)}
+              />
             ))}
           </ul>
           {games.length > SHOWN_AT_FIRST && (

@@ -82,6 +82,12 @@
 .pl-chapter-title {
   font-weight: 600;
 }
+.pl-choice-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
 .pl-elo {
   font-family: var(--mono);
   font-weight: 700;
@@ -529,6 +535,19 @@
 }
 :root[data-zen='on'] .player-strip.pl-strip {
   min-height: 44px;
+}
+
+/* On a wide screen, zen mode shows the coach's messages beside the board instead of below it,
+   so the board never has to move or shrink when a message appears. */
+@media (min-width: 1100px) {
+  :root[data-zen='on'] .play-page .pl-messages {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(50% + min(418px, (100vh - 255px) / 2) + 28px);
+    width: min(340px, calc(50vw - min(418px, (100vh - 255px) / 2) - 44px));
+    z-index: 30;
+  }
 }
 
 /* ============================================================== small screens */

@@ -30,7 +30,7 @@ export const backRankMateLesson: TacticLesson = {
       type: 'board',
       fen: 'k3r3/pp6/2b5/8/8/4Q3/2R2PPP/6K1 w - - 0 1',
       caption:
-        'Sometimes a guard is in the way. Qxe8+ forces Bxe8, which drags the bishop off the c-file. Then Rc8 is mate.',
+        'Sometimes a guard is in the way. Qxe8+ forces Bxe8, which drags the bishop off the c-file (the c column). Then Rc8 is mate.',
       arrows: [
         { from: 'e3', to: 'e8', color: 'blue' },
         { from: 'c2', to: 'c8', color: 'blue' },
@@ -45,7 +45,7 @@ export const backRankMateLesson: TacticLesson = {
       type: 'board',
       fen: '5r1k/1pp3pp/pb3R1q/8/2B3b1/2Nr1N2/PP3PPP/R5K1 w - - 1 21',
       caption:
-        "Real games are crowded, but the idea is the same. Black's king has no air, so Rxf8 is mate, even though Black has more pieces on the board.",
+        "Real games are crowded, but the idea is the same. Black's king has no air, so Rxf8 is mate, even with all these pieces around.",
       arrows: [{ from: 'f6', to: 'f8', color: 'blue' }],
       highlights: [
         { square: 'g7', color: 'yellow' },
@@ -54,7 +54,7 @@ export const backRankMateLesson: TacticLesson = {
     },
     {
       type: 'tip',
-      text: "How to protect yourself: make 'luft', the German word for air. That means giving your king a flight square with a pawn move, like h3 for White or h6 for Black. Before you move your last back-row defender, check that the other side can't land a rook there.",
+      text: "How to protect yourself: make 'luft', the German word for air. That means giving your king a square to escape to with a pawn move, like h3 for White or h6 for Black. Before you move your last back-row defender, check that the other side can't land a rook there.",
     },
     {
       type: 'board',
@@ -188,7 +188,7 @@ export const backRankMateLesson: TacticLesson = {
       solution: ['f4c1', 'f3e1', 'c1e1'],
       hint: 'White has no air on h1. Which check along the bottom row forces a piece to block?',
       explanation:
-        "Qc1+ is check, and only the knight can block, on e1. Then Qxe1 is mate, because the king is stuck behind g2 and h2.",
+        'Qc1+ is check, and only the knight can block. After Ne1, Qxe1 is mate, because the king is stuck behind g2 and h2.',
       difficulty: 3,
     },
     {

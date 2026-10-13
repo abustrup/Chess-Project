@@ -47,7 +47,7 @@ export const removingTheDefenderLesson: TacticLesson = {
       fen: 'r3kb1r/ppp2ppp/2n1pn2/q5B1/6b1/2NP1N1P/PPP1BPP1/R2Q1RK1 b kq - 0 9',
       orientation: 'black',
       caption:
-        "This happens a lot in the opening. White's bishop on g5 is protected only by the knight on f3. Black plays Bxf3, and after Bxf3 the queen takes the bishop with Qxg5.",
+        "This happens a lot in the opening. White's bishop on g5 is protected only by the knight on f3. Black takes that knight, White takes back, and then Black's queen wins the bishop on g5.",
       arrows: [
         { from: 'g4', to: 'f3', color: 'blue' },
         { from: 'a5', to: 'g5', color: 'blue' },
@@ -79,7 +79,7 @@ export const removingTheDefenderLesson: TacticLesson = {
       fen: '4r1k1/pp3p1p/2p3p1/4bb2/3B4/2P1R1P1/PP2P1BP/6K1 b - - 1 22',
       moves: ['e5d4', 'c3d4', 'e8e3'],
       explanations: [
-        "The white rook on e3 is protected only by the bishop on d4, so Black takes that bishop. This also opens the e-file, so Black's rook now attacks the white rook.",
+        "The white rook on e3 is protected only by the bishop on d4, so Black takes that bishop. This also opens the e-file (the e column), so Black's rook now attacks the white rook.",
         "White takes back, which looks natural. But a pawn on d4 doesn't protect the rook on e3.",
         'The rook is now unprotected, and Black takes it. Black traded bishop for bishop and won a whole rook.',
       ],
@@ -151,7 +151,7 @@ export const removingTheDefenderLesson: TacticLesson = {
       solution: ['c3d5', 'd7d5', 'e3e7'],
       hint: 'The black bishop on e7 has two protectors. Find a way to drag one of them away.',
       explanation:
-        'Nxd5 takes the knight, and the queen must take back. But the queen has left d7, so nothing protects the bishop on e7 any more and Qxe7 wins it.',
+        'Nxd5 takes the knight, and Black takes back with the queen. But the queen has left d7, so nothing protects the bishop on e7 any more and Qxe7 wins it.',
       difficulty: 2,
     },
     {
@@ -205,7 +205,7 @@ export const removingTheDefenderLesson: TacticLesson = {
       solution: ['d1d4', 'e5d4', 'f1f4'],
       hint: "Black's knight on f4 has two protectors. Can you force one of them to leave?",
       explanation:
-        'Rxd4 takes the rook that protects the knight along the fourth row. The pawn on e5 has to take back, and when it does, it stops protecting the knight. Then Rxf4 wins it.',
+        'Rxd4 takes the rook that protects the knight along the fourth row. The pawn on e5 takes back, and when it does, it stops protecting the knight. Then Rxf4 wins it.',
       difficulty: 3,
     },
     {
@@ -214,7 +214,7 @@ export const removingTheDefenderLesson: TacticLesson = {
       solution: ['h2d6', 'e4d6', 'd4c5'],
       hint: 'The knight on c5 is protected by the queen and by the knight on e4. Is there one trade that drags both away?',
       explanation:
-        'Qxd6 trades queens, and the knight on e4 has to take back. That leaves the knight on c5 without a protector, so Bxc5 wins it.',
+        'Qxd6 trades queens, and the knight on e4 takes back. That leaves the knight on c5 without a protector, so Bxc5 wins it.',
       difficulty: 3,
     },
   ],

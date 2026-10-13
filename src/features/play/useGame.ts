@@ -12,6 +12,7 @@ import { getCourse } from '../../data/openings'
 import { BotEngine } from './BotEngine'
 import { buildBook, isInBook, lessonMove, liveNodes, pickBookMove, type Book } from './book'
 import { getLevel } from './botLevels'
+import { fallbackMove } from './botMove'
 import { describeMove, reviewUserMove, type CoachWarning } from './coach'
 import { GameClock } from './GameClock'
 import { buildRecord, saveRecord } from './gameRecord'
@@ -153,8 +154,10 @@ export function useGame(initial: SavedGame, coachOn: boolean, evalOn: boolean) {
       ucisRef.current = next
       setUcis(next)
       setHint(null)
-      setNote(null)
-      if (by === 'user') setViewPly(null)
+      if (by === 'user') {
+        setNote(null)
+        setViewPly(null)
+      }
 
       // "you left the lesson" note, so the player learns what the prepared move was
       if (by === 'user' && book && config.mode === 'practice' && isInBook(book, before) && !isInBook(book, next)) {
@@ -291,7 +294,11 @@ export function useGame(initial: SavedGame, coachOn: boolean, evalOn: boolean) {
       if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait))
       if (cancelled) return
       setThinking(false)
-      applyMove(uci, 'bot')
+      if (!applyMove(uci, 'bot')) {
+        // should never happen, but a game must never get stuck: play a simple move instead
+        const backup = fallbackMove(fenNow)
+        if (backup) applyMove(backup, 'bot')
+      }
     })()
 
     return () => {

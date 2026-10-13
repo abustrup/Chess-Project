@@ -55,7 +55,8 @@ export function useTryIt(moves: AnalysedMove[]) {
   /** Hand this to the Board's `onMove`. Returns true when the move should stay on the board. */
   const attempt = useCallback(
     (played: BoardMove): boolean => {
-      if (!state || state.status === 'right' || state.status === 'alternative' || state.status === 'revealed') return false
+      if (!state || state.status === 'right' || state.status === 'alternative' || state.status === 'revealed')
+        return false
       const target = moves[state.ply - 1]
       if (!target) return false
 

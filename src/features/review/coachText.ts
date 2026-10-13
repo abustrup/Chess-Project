@@ -64,7 +64,11 @@ function whatWentWrong(move: AnalysedMove, reply: AnalysedMove | undefined, pov:
   return null
 }
 
-export function explainMove(move: AnalysedMove, reply: AnalysedMove | undefined, pov: 'you' | 'opponent'): CoachMessage {
+export function explainMove(
+  move: AnalysedMove,
+  reply: AnalysedMove | undefined,
+  pov: 'you' | 'opponent',
+): CoachMessage {
   const w = moverWinChances(move)
   const cls = move.classification
   const who = pov === 'you' ? 'You' : 'Your opponent'
@@ -82,7 +86,8 @@ export function explainMove(move: AnalysedMove, reply: AnalysedMove | undefined,
     if (wrong) why.push(wrong)
     const better = whyBetter(move)
     if (better) why.push(better)
-    if (pov === 'opponent' && winLoss(move) >= 10) why.push('Mistakes like this are your chances. Look for how to punish it!')
+    if (pov === 'opponent' && winLoss(move) >= 10)
+      why.push('Mistakes like this are your chances. Look for how to punish it!')
   } else if (cls === 'best') {
     summary = `${who} played ${move.san}, the move the computer likes most.`
   } else if (cls === 'book') {
@@ -90,7 +95,8 @@ export function explainMove(move: AnalysedMove, reply: AnalysedMove | undefined,
     why.push('Moves like this have been played in thousands of games, so they are safe.')
   } else {
     summary = `${who} played ${move.san}. A good move.`
-    if (move.bestSan && move.bestSan !== move.san) why.push(`The computer slightly prefers ${move.bestSan}, but this is fine too.`)
+    if (move.bestSan && move.bestSan !== move.san)
+      why.push(`The computer slightly prefers ${move.bestSan}, but this is fine too.`)
   }
 
   const showChances = bad && Math.abs(w.before - w.after) >= 3
@@ -100,5 +106,11 @@ export function explainMove(move: AnalysedMove, reply: AnalysedMove | undefined,
       : `Their winning chances went from ${Math.round(w.before)}% to ${Math.round(w.after)}%.`
     : null
 
-  return { headline, summary, why, chances, scoreLine: `${formatEval(move.evalBefore)} → ${formatEval(move.evalAfter)}` }
+  return {
+    headline,
+    summary,
+    why,
+    chances,
+    scoreLine: `${formatEval(move.evalBefore)} → ${formatEval(move.evalAfter)}`,
+  }
 }

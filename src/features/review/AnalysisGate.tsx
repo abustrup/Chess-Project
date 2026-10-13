@@ -28,8 +28,8 @@ export default function AnalysisGate({
     <>
       <h3>This game has not been checked yet</h3>
       <p className="muted">
-        The computer (Stockfish) will look at every move and show you where the game turned. It runs inside your browser,
-        costs nothing and takes about {seconds} seconds.
+        The computer (Stockfish) will look at every move and show you where the game turned. It runs inside your
+        browser, costs nothing and takes about {seconds} seconds.
       </p>
       {state.error && <div className="callout bad">{state.error}</div>}
       <button className="btn primary big" onClick={onStart} disabled={plyCount === 0}>

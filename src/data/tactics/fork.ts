@@ -9,7 +9,7 @@ export const forkLesson: TacticLesson = {
   intro: [
     {
       type: 'text',
-      text: 'A fork is when one piece attacks two (or more) enemy pieces at the same time. Your opponent can only fix one problem per move, so you win the other piece. It is one of the first tactics every player learns.',
+      text: 'A **fork** is when one piece attacks two (or more) enemy pieces at the same time. Your opponent can only fix one problem per move, so you win the other piece. It is one of the first tactics every player learns.',
     },
     {
       type: 'board',
@@ -25,7 +25,7 @@ export const forkLesson: TacticLesson = {
     },
     {
       type: 'tip',
-      text: 'How to spot a fork: look for two enemy pieces that one of your pieces could attack together. A fork with a check is the strongest, because your opponent must answer the check first. Before you jump, make sure the forking piece can’t simply be captured.',
+      text: '**How to spot a fork:** look for two enemy pieces that one of your pieces could attack together. A fork with a check is the strongest, because your opponent must answer the check first. Before you jump, make sure the forking piece can’t simply be captured.',
     },
     {
       type: 'board',
@@ -56,7 +56,7 @@ export const forkLesson: TacticLesson = {
     },
     {
       type: 'tip',
-      text: 'Safety check before every move: “After my move, can any enemy piece attack two of my pieces at once?” Pay extra attention to knights, because they jump to squares you don’t expect.',
+      text: '**Safety check before every move:** “After my move, can any enemy piece attack two of my pieces at once?” Pay extra attention to knights, because they jump to squares you don’t expect.',
     },
   ],
   examples: [
@@ -65,9 +65,9 @@ export const forkLesson: TacticLesson = {
       fen: '2r3k1/pp3ppp/8/3N4/8/8/PPP2PPP/6K1 w - - 0 1',
       moves: ['d5e7', 'g8f8', 'e7c8'],
       explanations: [
-        'Ne7+ The knight jumps to e7. From there it checks the king on g8 and attacks the rook on c8 at the same time. That is a fork.',
+        'The knight jumps to e7. From there it checks the king on g8 and attacks the rook on c8 at the same time. That is a fork.',
         'Black has to get out of check, so the king steps aside. There is no time to save the rook.',
-        'Nxc8 The knight takes the rook. White has won a whole rook for free.',
+        'The knight takes the rook. White has won a whole rook for free.',
       ],
     },
     {
@@ -75,9 +75,9 @@ export const forkLesson: TacticLesson = {
       fen: '8/1p6/1k1n4/8/2PP4/2K5/PP6/8 w - - 4 47',
       moves: ['c4c5', 'b6c6', 'c5d6'],
       explanations: [
-        'c5+ The pawn steps forward. It checks the king on b6 and attacks the knight on d6 at the same time.',
+        'The pawn steps forward. It checks the king on b6 and attacks the knight on d6 at the same time.',
         'The king has to move out of check. Black steps to c6.',
-        'cxd6 The pawn takes the knight. Black’s king can take the pawn back, but White has won a knight for a pawn.',
+        'The pawn takes the knight. Black’s king can take the pawn back, but White has won a knight for a pawn.',
       ],
     },
     {
@@ -85,9 +85,9 @@ export const forkLesson: TacticLesson = {
       fen: '6k1/1b3pp1/pp3q1p/8/P1p5/2P3Q1/1P3NPP/5K2 w - - 0 31',
       moves: ['g3b8', 'g8h7', 'b8b7'],
       explanations: [
-        'Qb8+ The queen swings to the back row. It checks the king on g8 and attacks the bishop on b7 next to it.',
+        'The queen swings to the back row. It checks the king on g8 and attacks the bishop on b7 next to it.',
         'Black must answer the check. The king steps to h7 and the bishop is left alone.',
-        'Qxb7 The queen takes the bishop for free.',
+        'The queen takes the bishop for free.',
       ],
     },
     {
@@ -95,11 +95,11 @@ export const forkLesson: TacticLesson = {
       fen: '2R5/5Rpk/p3r3/1p2p2p/7q/4P1N1/PP3P2/6K1 w - - 0 34',
       moves: ['f7g7', 'h7g7', 'g3f5', 'g7f6', 'f5h4'],
       explanations: [
-        'Rxg7+ White gives up a rook to pull the king onto g7. It looks strange, but it is a plan.',
+        'White gives up a rook to pull the king onto g7. It looks strange, but it is a plan.',
         'The king takes the rook. Now it stands on g7, exactly where White wants it.',
-        'Nf5+ The knight checks the king on g7 and also attacks the black queen on h4. Another fork!',
+        'The knight checks the king on g7 and also attacks the black queen on h4. Another fork!',
         'The king has to move out of check, so the queen is left alone.',
-        'Nxh4 The knight takes the queen. White gave a rook, but won a queen.',
+        'The knight takes the queen. White gave a rook, but won a queen.',
       ],
     },
   ],
@@ -209,7 +209,7 @@ export const forkLesson: TacticLesson = {
       solution: ['c1c8', 'd7c8', 'd5e7', 'g8h8', 'e7c8'],
       hint: 'Can you drag the black queen onto a square where a knight can fork it with the king?',
       explanation:
-        'Rxc8+ forces the queen to take on c8. Then Ne7+ forks the king and the queen. After the king moves, Nxc8 wins the queen.',
+        'Rxc8+ takes a rook, and the queen has to take back on c8. Then Ne7+ forks the king and the queen. After the king moves, Nxc8 wins the queen.',
       difficulty: 3,
     },
   ],

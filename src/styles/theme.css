@@ -728,6 +728,9 @@ button.chip.selected,
   .topbar {
     padding: 0 76px 0 16px;
     gap: 12px;
+    /* a blurred (backdrop-filter) parent would trap the fixed bottom nav inside the top bar */
+    backdrop-filter: none;
+    background: var(--bg-0);
   }
   .brand span {
     display: none;

@@ -38,9 +38,9 @@ export const BOT_LEVELS: BotLevel[] = [
     elo: 700,
     blurb: 'Still learning. Often leaves pieces hanging and misses simple threats.',
     search: { depth: 1, multipv: 8, movetime: 400 },
-    temperature: 140,
-    maxLoss: 700,
-    oversight: 0.08,
+    temperature: 300,
+    maxLoss: 1500,
+    oversight: 0.25,
     safety: 'none',
   },
   {
@@ -48,10 +48,10 @@ export const BOT_LEVELS: BotLevel[] = [
     name: 'Casual',
     elo: 900,
     blurb: 'Plays sensible-looking moves but overlooks a lot of tactics.',
-    search: { depth: 2, multipv: 7, movetime: 400 },
-    temperature: 150,
-    maxLoss: 600,
-    oversight: 0.07,
+    search: { depth: 1, multipv: 8, movetime: 400 },
+    temperature: 240,
+    maxLoss: 900,
+    oversight: 0.16,
     safety: 'mate-and-queen',
   },
   {
@@ -59,10 +59,10 @@ export const BOT_LEVELS: BotLevel[] = [
     name: 'Club',
     elo: 1100,
     blurb: 'A friendly club player. A fair fight at your level.',
-    search: { depth: 3, multipv: 6, movetime: 500 },
-    temperature: 100,
-    maxLoss: 450,
-    oversight: 0.05,
+    search: { depth: 1, multipv: 8, movetime: 500 },
+    temperature: 150,
+    maxLoss: 700,
+    oversight: 0.09,
     safety: 'mate-and-queen',
   },
   {
@@ -70,10 +70,10 @@ export const BOT_LEVELS: BotLevel[] = [
     name: 'Improver',
     elo: 1300,
     blurb: 'Spots most simple tactics. Mistakes are rarer, so keep your pieces safe.',
-    search: { depth: 4, multipv: 5, movetime: 600 },
-    temperature: 70,
-    maxLoss: 350,
-    oversight: 0.03,
+    search: { depth: 2, multipv: 7, movetime: 600 },
+    temperature: 130,
+    maxLoss: 550,
+    oversight: 0.06,
     safety: 'mate-and-queen',
   },
   {
@@ -81,10 +81,10 @@ export const BOT_LEVELS: BotLevel[] = [
     name: 'Strong',
     elo: 1600,
     blurb: 'Rarely gives anything away. You will need a real plan to win.',
-    search: { depth: 6, multipv: 4, movetime: 700 },
-    temperature: 45,
-    maxLoss: 250,
-    oversight: 0.01,
+    search: { depth: 3, multipv: 5, movetime: 700 },
+    temperature: 100,
+    maxLoss: 450,
+    oversight: 0.05,
     safety: 'mate-and-queen',
   },
   {
@@ -92,10 +92,10 @@ export const BOT_LEVELS: BotLevel[] = [
     name: 'Expert',
     elo: 1900,
     blurb: 'Sharp and careful. Punishes almost every mistake.',
-    search: { depth: 9, multipv: 3, movetime: 900 },
-    temperature: 25,
-    maxLoss: 120,
-    oversight: 0,
+    search: { depth: 5, multipv: 4, movetime: 900 },
+    temperature: 50,
+    maxLoss: 280,
+    oversight: 0.012,
     safety: 'mate-and-queen',
   },
   {
@@ -110,8 +110,6 @@ export const BOT_LEVELS: BotLevel[] = [
     safety: 'mate-and-queen',
   },
 ]
-
-export const DEFAULT_LEVEL_ID = 'club'
 
 export function getLevel(id: string): BotLevel {
   return BOT_LEVELS.find((l) => l.id === id) ?? BOT_LEVELS[2]

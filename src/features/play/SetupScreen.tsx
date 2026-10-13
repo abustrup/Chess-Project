@@ -1,3 +1,4 @@
+import { Chess } from 'chess.js'
 import { Play as PlayIcon, RotateCcw, Trash2 } from 'lucide-react'
 import { OPENING_COURSES } from '../../data/openings'
 import { KEYS, removeStored, useStored } from '../../lib/storage'
@@ -25,7 +26,13 @@ interface Props {
 }
 
 function isUsable(saved: SavedGame | null): saved is SavedGame {
-  return !!saved && !!saved.config && Array.isArray(saved.ucis) && saved.ucis.length > 0
+  if (!saved || !saved.config || !Array.isArray(saved.ucis) || saved.ucis.length === 0) return false
+  try {
+    new Chess(saved.config.startFen) // a damaged save must not crash the page
+    return true
+  } catch {
+    return false
+  }
 }
 
 function ResumeCard({ saved, onResume }: { saved: SavedGame; onResume: () => void }) {

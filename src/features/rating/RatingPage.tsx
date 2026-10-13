@@ -62,7 +62,8 @@ export default function RatingPage() {
   // keep the saved estimate (used by the Home page) in step with what is shown here
   useEffect(() => {
     const next = detail.gamesUsed > 0 ? toStored(detail) : null
-    if (!sameEstimate(readStored<RatingEstimate | null>(KEYS.ratingEstimate, null), next)) writeStored(KEYS.ratingEstimate, next)
+    if (!sameEstimate(readStored<RatingEstimate | null>(KEYS.ratingEstimate, null), next))
+      writeStored(KEYS.ratingEstimate, next)
   }, [detail])
 
   const toggle = useCallback(
@@ -80,7 +81,10 @@ export default function RatingPage() {
 
   const openAdd = (mode: 'lichess' | 'paste') => {
     setAddMode(mode)
-    window.setTimeout(() => document.getElementById('rt-games')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50)
+    window.setTimeout(
+      () => document.getElementById('rt-games')?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+      50,
+    )
   }
 
   const analyseAll = () => void startRun(games.filter((g) => !g.analysis))
@@ -96,7 +100,17 @@ export default function RatingPage() {
       </div>
 
       <div className="rt-stack">
-        <EstimateHero detail={detail} onAdd={openAdd} />
+        <EstimateHero
+          detail={detail}
+          games={{
+            saved: games.length,
+            counted: counted.length,
+            waitingForAnalysis: counted.filter((g) => !g.analysis).length,
+            analysing: run.running,
+          }}
+          onAdd={openAdd}
+          onAnalyse={() => void startRun(counted.filter((g) => !g.analysis))}
+        />
         <GamesPanel
           games={games}
           off={off}

@@ -19,7 +19,13 @@ export interface CoachBoxProps {
   onExitTry: () => void
 }
 
-function TryPanel({ move, tryState, onHint, onReveal, onExitTry }: { move: AnalysedMove; tryState: TryState } & Pick<CoachBoxProps, 'onHint' | 'onReveal' | 'onExitTry'>) {
+function TryPanel({
+  move,
+  tryState,
+  onHint,
+  onReveal,
+  onExitTry,
+}: { move: AnalysedMove; tryState: TryState } & Pick<CoachBoxProps, 'onHint' | 'onReveal' | 'onExitTry'>) {
   const best = move.bestSan ?? 'the best move'
   const { status, lastSan } = tryState
   const done = status === 'right' || status === 'alternative' || status === 'revealed'
@@ -30,7 +36,8 @@ function TryPanel({ move, tryState, onHint, onReveal, onExitTry }: { move: Analy
       </div>
       {status === 'waiting' && (
         <p>
-          You are back <strong>before</strong> your move {moveLabel(move.ply, move.san)}. Can you find a better move? Click or drag a piece.
+          You are back <strong>before</strong> your move {moveLabel(move.ply, move.san)}. Can you find a better move?
+          Click or drag a piece.
         </p>
       )}
       {status === 'checking' && <p className="muted">Checking {lastSan}…</p>}
@@ -66,7 +73,13 @@ function TryPanel({ move, tryState, onHint, onReveal, onExitTry }: { move: Analy
           </>
         )}
         <button className={`btn small ${done ? 'primary' : 'ghost'}`} onClick={onExitTry}>
-          {done ? 'Continue' : (<><X size={14} /> Stop</>)}
+          {done ? (
+            'Continue'
+          ) : (
+            <>
+              <X size={14} /> Stop
+            </>
+          )}
         </button>
       </div>
     </div>
@@ -80,7 +93,8 @@ function GameSummary({ game, analysis, onJump }: Pick<CoachBoxProps, 'game' | 'a
   return (
     <>
       <p>
-        You played with <strong>{accuracy}% accuracy</strong>. That is how close your moves were to the computer's choices.
+        You played with <strong>{accuracy}% accuracy</strong>. That is how close your moves were to the computer's
+        choices.
       </p>
       {mine ? (
         <p>
@@ -109,7 +123,15 @@ export default function CoachBox(props: CoachBoxProps) {
   const move = ply > 0 ? analysis.moves[ply - 1] : undefined
 
   if (tryState && analysis.moves[tryState.ply - 1]) {
-    return <TryPanel move={analysis.moves[tryState.ply - 1]} tryState={tryState} onHint={props.onHint} onReveal={props.onReveal} onExitTry={props.onExitTry} />
+    return (
+      <TryPanel
+        move={analysis.moves[tryState.ply - 1]}
+        tryState={tryState}
+        onHint={props.onHint}
+        onReveal={props.onReveal}
+        onExitTry={props.onExitTry}
+      />
+    )
   }
 
   if (!move) return <GameSummary game={game} analysis={analysis} onJump={props.onJump} />

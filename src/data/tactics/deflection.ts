@@ -64,7 +64,7 @@ export const deflectionLesson: TacticLesson = {
       type: 'board',
       fen: '5b2/1p2rp2/p4k2/8/6P1/7K/PP2RP2/8 w - - 0 37',
       caption:
-        'This is the first position again, but now the rook on e7 is also protected by a bishop. After g5+ Kxg5, Rxe7 Bxe7 is just a trade of rooks.',
+        'This is the first position again, but the black bishop now stands on f8, so the rook on e7 is protected twice. After g5+ Kxg5 Rxe7 Bxe7, it is just a trade of rooks.',
       arrows: [
         { from: 'g4', to: 'g5', color: 'red' },
         { from: 'e2', to: 'e7', color: 'red' },
@@ -193,7 +193,7 @@ export const deflectionLesson: TacticLesson = {
       id: 'deflection-9',
       fen: '3qr1k1/5pp1/7p/2PQ4/N1n5/7P/5PP1/3R2K1 b - - 0 28',
       solution: ['e8e1', 'd1e1', 'd8d5'],
-      hint: "White's queen on d5 is protected only by the rook on d1. Give a check that this rook must answer.",
+      hint: "White's queen on d5 is protected only by the rook on d1. Give a check, and think about which white piece will want to take it.",
       explanation:
         'Re1+ is check. If the rook on d1 takes it, that rook stops protecting the queen, and Qxd5 wins the queen. If White steps aside instead, Rxd1 wins the rook.',
       difficulty: 3,
@@ -204,7 +204,7 @@ export const deflectionLesson: TacticLesson = {
       solution: ['c6g6', 'e5g7', 'g6e8'],
       hint: "Black's queen is the only protector of the rook on e8. Start with a check that forces it to move.",
       explanation:
-        "Qxg6+ is check, and Black's queen has to block on g7. That takes it off the e-file, so the rook on e8 loses its protector and Qxe8+ wins it with check.",
+        "Qxg6+ is check, and Black's queen has to block on g7. That takes it off the e-file (the e column), so the rook on e8 loses its protector and Qxe8+ wins it with check.",
       difficulty: 3,
     },
     {

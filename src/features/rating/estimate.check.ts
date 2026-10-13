@@ -1,7 +1,16 @@
 // Quick self-check of the rating maths:   npx tsx src/features/rating/estimate.check.ts
 // It exits with an error when a property that must always hold is broken.
 import { eloFromAcpl, ACPL_ANCHORS, MAX_ELO, MIN_ELO } from './calibration'
-import { MIN_HALF_RANGE, estimateRating, movesPart, resultsPart, robustAcpl, shiftFromScore, type GameEvidence } from './estimate'
+import { isSlowGame } from './evidence'
+import {
+  MIN_HALF_RANGE,
+  estimateRating,
+  movesPart,
+  resultsPart,
+  robustAcpl,
+  shiftFromScore,
+  type GameEvidence,
+} from './estimate'
 
 let failures = 0
 function check(name: string, ok: boolean, detail = '') {
@@ -10,7 +19,10 @@ function check(name: string, ok: boolean, detail = '') {
 }
 
 /** n synthetic games with the same quality, to see how the estimate reacts to the amount of evidence */
-function games(n: number, opts: { acpl?: number; score?: number; opp?: number; bot?: boolean; moves?: number } = {}): GameEvidence[] {
+function games(
+  n: number,
+  opts: { acpl?: number; score?: number; opp?: number; bot?: boolean; moves?: number } = {},
+): GameEvidence[] {
   const { acpl, score = 0.5, opp = 1100, bot = false, moves = 35 } = opts
   return Array.from({ length: n }, (_, i) => ({
     id: `g${i}`,
@@ -19,7 +31,7 @@ function games(n: number, opts: { acpl?: number; score?: number; opp?: number; b
     score: (i + 0.5) / n < score ? 1 : 0,
     oppElo: opp,
     oppIsBot: bot,
-    acpl: acpl === undefined ? undefined : acpl * (0.8 + 0.4 * ((i * 7) % 5) / 4),
+    acpl: acpl === undefined ? undefined : acpl * (0.8 + (0.4 * ((i * 7) % 5)) / 4),
     userMoves: moves,
   }))
 }
@@ -33,30 +45,59 @@ for (let acpl = 200; acpl >= 5; acpl -= 1) {
   previous = elo
 }
 check('better ACPL gives a higher (or equal) Elo along the whole curve', monotonic)
-check('curve passes through every anchor', ACPL_ANCHORS.every(([a, e]) => Math.abs(eloFromAcpl(a) - e) < 1e-6))
-check('curve is clamped for extreme ACPL', eloFromAcpl(1000) === ACPL_ANCHORS[0][1] && eloFromAcpl(0.1) === ACPL_ANCHORS[ACPL_ANCHORS.length - 1][1])
+check(
+  'curve passes through every anchor',
+  ACPL_ANCHORS.every(([a, e]) => Math.abs(eloFromAcpl(a) - e) < 1e-6),
+)
+check(
+  'curve is clamped for extreme ACPL',
+  eloFromAcpl(1000) === ACPL_ANCHORS[0][1] && eloFromAcpl(0.1) === ACPL_ANCHORS[ACPL_ANCHORS.length - 1][1],
+)
 
 // 2. the whole estimate: better moves -> higher estimate
 const byQuality = [120, 90, 70, 50, 35, 25].map((acpl) => estimateRating(games(20, { acpl, score: 0.5 }), 1100).elo)
-check('better moves give a higher estimate', byQuality.every((v, i) => i === 0 || v >= byQuality[i - 1]), byQuality.join(' < '))
+check(
+  'better moves give a higher estimate',
+  byQuality.every((v, i) => i === 0 || v >= byQuality[i - 1]),
+  byQuality.join(' < '),
+)
 
 // 3. better results -> higher estimate
 const byScore = [0.1, 0.3, 0.5, 0.7, 0.9].map((s) => estimateRating(games(20, { score: s }), 1100).elo)
-check('better results give a higher estimate', byScore.every((v, i) => i === 0 || v >= byScore[i - 1]), byScore.join(' < '))
+check(
+  'better results give a higher estimate',
+  byScore.every((v, i) => i === 0 || v >= byScore[i - 1]),
+  byScore.join(' < '),
+)
 
 // 4. more games -> narrower range
 const widths = [0, 3, 6, 12, 25, 50, 100].map((n) => {
   const e = estimateRating(games(n, { acpl: 60, score: 0.5 }), 1100)
   return e.high - e.low
 })
-check('more games give a narrower (or equal) range', widths.every((w, i) => i === 0 || w <= widths[i - 1]), widths.join(' > '))
-check('the range is never narrower than +-60', widths.every((w) => w >= 2 * MIN_HALF_RANGE))
+check(
+  'more games give a narrower (or equal) range',
+  widths.every((w, i) => i === 0 || w <= widths[i - 1]),
+  widths.join(' > '),
+)
+check(
+  'the range is never narrower than +-60',
+  widths.every((w) => w >= 2 * MIN_HALF_RANGE),
+)
 
 // 5. extreme results are clamped, never infinite
 const allWins = estimateRating(games(10, { score: 1, opp: 1500 }), 1100)
 const allLosses = estimateRating(games(10, { score: 0, opp: 1500 }), 1100)
-check('100% wins stay finite and below the maximum', Number.isFinite(allWins.elo) && allWins.elo < MAX_ELO, String(allWins.elo))
-check('0% wins stay finite and above the minimum', Number.isFinite(allLosses.elo) && allLosses.elo > MIN_ELO, String(allLosses.elo))
+check(
+  '100% wins stay finite and below the maximum',
+  Number.isFinite(allWins.elo) && allWins.elo < MAX_ELO,
+  String(allWins.elo),
+)
+check(
+  '0% wins stay finite and above the minimum',
+  Number.isFinite(allLosses.elo) && allLosses.elo > MIN_ELO,
+  String(allLosses.elo),
+)
 check('shift for 100% / 0% is finite', Number.isFinite(shiftFromScore(1)) && Number.isFinite(shiftFromScore(0)))
 check('shift is 0 at 50%', Math.abs(shiftFromScore(0.5)) < 1e-9)
 
@@ -71,20 +112,43 @@ const withDisaster = [...normal, ...games(1, { acpl: 400 }).map((g) => ({ ...g, 
 const a = estimateRating(normal, 1100).elo
 const b = estimateRating(withDisaster, 1100).elo
 check('one disastrous game moves the estimate only a little', Math.abs(a - b) < 80, `${a} vs ${b}`)
-check('robust ACPL ignores an outlier', robustAcpl([60, 62, 58, 61, 600]).acpl < 90, robustAcpl([60, 62, 58, 61, 600]).acpl.toFixed(1))
+check(
+  'robust ACPL ignores an outlier',
+  robustAcpl([60, 62, 58, 61, 600]).acpl < 90,
+  robustAcpl([60, 62, 58, 61, 600]).acpl.toFixed(1),
+)
 
 // 8. games vs the computer count less than games against people
-const human = resultsPart(games(10, { score: 0.8, bot: false }))!
-const bot = resultsPart(games(10, { score: 0.8, bot: true }))!
-check('bot games give a wider error bar than human games', bot.se > human.se, `${bot.se.toFixed(0)} vs ${human.se.toFixed(0)}`)
+const human = resultsPart(games(10, { score: 0.8, bot: false }), 1100)!
+const bot = resultsPart(games(10, { score: 0.8, bot: true }), 1100)!
+check(
+  'bot games give a wider error bar than human games',
+  bot.se > human.se,
+  `${bot.se.toFixed(0)} vs ${human.se.toFixed(0)}`,
+)
+
+// 8b. a single win against a monster says almost nothing, and many equal opponents give "rating + shift"
+const fluke = estimateRating(games(1, { score: 1, opp: 3000 }), 1100)
+check('one win against a 3000 does not make you a 2000', fluke.elo < 1300, String(fluke.elo))
+const equal = resultsPart(games(20, { score: 0.5, opp: 1400 }), 1100)!
+check('50% against 1400 players means about 1400', Math.abs(equal.elo - 1400) < 5, equal.elo.toFixed(0))
 
 // 9. short games are ignored for move quality
 check('games with very few moves are not used for move quality', movesPart(games(5, { acpl: 40, moves: 4 })) === null)
 
+// 9b. fast and slow games are told apart by the clock
+check('3+0 and 5+0 are fast', !isSlowGame('[TimeControl "180+0"]') && !isSlowGame('[TimeControl "300+0"]'))
+check('10+0 and 15+10 are slow', isSlowGame('[TimeControl "600+0"]') && isSlowGame('[TimeControl "900+10"]'))
+check('no clock counts as slow', isSlowGame('[Event "x"]') && isSlowGame('[TimeControl "-"]'))
+check('a slow game is judged a bit more strictly', estimateRating(games(12, { acpl: 60 }).map((g) => ({ ...g, slow: true })), 1100).elo < estimateRating(games(12, { acpl: 60 }), 1100).elo)
+
 // 10. weights are shares
 const mixed = estimateRating(games(15, { acpl: 60, score: 0.6 }), 1200)
 check('weights add up to 1', Math.abs(mixed.parts.reduce((s, p) => s + p.weight, 0) - 1) < 1e-9)
-check('the prior counts less when there are many games', estimateRating(games(60, { acpl: 60, score: 0.6 }), 1200).parts.at(-1)!.weight < mixed.parts.at(-1)!.weight)
+check(
+  'the prior counts less when there are many games',
+  estimateRating(games(60, { acpl: 60, score: 0.6 }), 1200).parts.at(-1)!.weight < mixed.parts.at(-1)!.weight,
+)
 
 console.log(failures ? `\n${failures} check(s) FAILED` : '\nAll checks passed')
 process.exit(failures ? 1 : 0)

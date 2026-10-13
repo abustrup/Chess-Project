@@ -74,7 +74,7 @@ export function boardOutcome(chess: Chess): Outcome | null {
 
 const VALUE: Record<string, number> = { p: 1, n: 3, b: 3, r: 5, q: 9 }
 const START_COUNT: Record<string, number> = { p: 8, n: 2, b: 2, r: 2, q: 1 }
-export const CAPTURE_ORDER = ['q', 'r', 'b', 'n', 'p'] as const
+const CAPTURE_ORDER = ['q', 'r', 'b', 'n', 'p'] as const
 
 export interface MaterialInfo {
   /** Pieces each side has taken from the other, e.g. captured.white = black pieces white has captured. */

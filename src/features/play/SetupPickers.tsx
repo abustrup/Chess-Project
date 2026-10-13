@@ -74,10 +74,10 @@ export function ColourPicker({
         {options.map((o) => (
           <Choice key={o.id} selected={shown === o.id} disabled={lockedTo !== null} onSelect={() => patch({ colour: o.id })}>
             {o.visual}
-            <strong>{o.label}</strong>
-            {o.id === 'white' && <span className="faint small">You move first</span>}
-            {o.id === 'black' && <span className="faint small">The bot moves first</span>}
-            {o.id === 'random' && <span className="faint small">A surprise</span>}
+            <span className="pl-choice-text">
+              <strong>{o.label}</strong>
+              <span className="faint small">{o.id === 'white' ? 'You move first' : o.id === 'black' ? 'The bot moves first' : 'A surprise'}</span>
+            </span>
           </Choice>
         ))}
       </div>
@@ -178,8 +178,10 @@ export function OpeningPicker({
             }}
           >
             <span className="pl-mode-icon">{m.icon}</span>
-            <strong>{m.title}</strong>
-            <span className="small muted">{m.text}</span>
+            <span className="pl-choice-text">
+              <strong>{m.title}</strong>
+              <span className="small muted">{m.text}</span>
+            </span>
           </Choice>
         ))}
       </div>
@@ -221,12 +223,14 @@ export function OpeningPicker({
               <label id="pl-chapter-label">{practising ? 'Which variation?' : 'Which variation should the bot play?'}</label>
               <div className="pl-chapters" role="radiogroup" aria-labelledby="pl-chapter-label">
                 <Choice selected={setup.chapterId === ANY_CHAPTER} onSelect={() => patch({ chapterId: ANY_CHAPTER })} className="chapter">
-                  <span className="pl-mode-icon small">
-                    <Shuffle size={18} />
-                  </span>
-                  <span>
-                    <strong>Surprise me</strong>
-                    <span className="small muted"> – any variation</span>
+                  <span className="row" style={{ gap: 12 }}>
+                    <span className="pl-mode-icon small">
+                      <Shuffle size={18} />
+                    </span>
+                    <span>
+                      <strong>Surprise me</strong>
+                      <span className="small muted"> – any variation</span>
+                    </span>
                   </span>
                 </Choice>
                 {course.chapters.map((c) => (

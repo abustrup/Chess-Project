@@ -45,3 +45,10 @@ export function eloPerAcpl(acpl: number): number {
   const better = a / 1.05
   return Math.max(1, (eloFromAcpl(better) - eloFromAcpl(worse)) / (worse - better))
 }
+
+/**
+ * With more time to think, the same player loses fewer centipawns per move. The table above was measured on
+ * fast games (blitz, 3 to 5 minutes); an analysed rapid / classical / untimed game is multiplied by this before
+ * it is looked up. PROVISIONAL value, replaced by the measured one.
+ */
+export const SLOW_GAME_FACTOR = 1.1
