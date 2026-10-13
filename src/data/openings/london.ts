@@ -209,5 +209,41 @@ export const londonCourse: OpeningCourse = {
 9... Bb7
 `,
     },
+    {
+      id: 'pins-and-pokes',
+      title: 'Black pins your knight or pokes the centre (...Bg4, ...Nc6, ...e5)',
+      summary:
+        'Black develops a bishop to g4 to pin your knight, or plays ...Nc6 and ...e5 to fight for the centre. You keep your pieces safe and win a pawn if Black overreaches.',
+      difficulty: 2,
+      pgn: `
+1. d4 { Your usual first move. [%cal Gd2d4] }
+1... d5
+2. Bf4 { The London bishop comes out first. [%cal Gc1f4] }
+2... Nf6
+( 2... Nc6 { Black develops the knight first. It eyes d4 and e5. } 3. e3 { Support d4 and free the f1-bishop. [%cal Ge2e3,Gf1d3] } 3... Nf6 ( 3... e5? { Black hits the centre at once, but it does not work yet. } 4. dxe5 { Take the pawn. Black has no strong follow-up. [%cal Gd4e5] } 4... Nge7 5. Nc3 { Bring a knight out. You are a pawn up and simply need to keep it. [%cal Gb1c3] } 5... Be6 6. Nf3 { The knight protects the pawn on e5 and gets ready for Bd3. [%cal Gg1f3,Gf3e5] } 6... Qd7 7. Bd3 { Develop with a bishop. Black has nothing to show for the pawn. [%cal Gf1d3] } 7... Ng6 8. Bg3 { Retreat to g3 so the knight on g6 cannot win your bishop. [%cal Gf4g3] } 8... O-O-O ) ( 3... Bg4?? { Black forgets that the bishop is not protected. } 4. Qxg4 { A free bishop! [%cal Rd1g4] } 4... e5 5. Bxe5 { Take the pawn too. [%cal Gf4e5] } 5... h5 6. Qd1 { The queen goes home safely. [%cal Gg4d1] } 6... f6 ) 4. c3 { Support d4 and prepare Qb3 ideas. [%cal Gc2c3] } 4... Bf5 { Black develops the bishop outside the pawn chain. } ( 4... e6 { Black builds a solid centre. } 5. Nd2 { Bring the knight out so that the c-pawn stays on c3. [%cal Gb1d2] } 5... Bd6 6. Ngf3 { The other knight comes to f3. [%cal Gg1f3] } 6... O-O 7. Bg3 { Keep the bishop alive on g3. [%cal Gf4g3,Gg3d6] } 7... Qe7 8. Bb5 { Pin the knight on c6 against the king's side. If it moves, you win a piece. [%cal Gf1b5,Rb5c6] } 8... a6 9. Bxc6 { Take the knight before it takes the bishop. [%cal Gb5c6] } 9... bxc6 10. Ne5 { Land on e5 where Black's pawns are broken. [%cal Gf3e5] } 10... c5 ) 5. Qb3 { Attack the pawn on b7 and the pawn on d5 at the same time. [%cal Gd1b3,Rb3b7,Rb3d5] } 5... Na5 ( 5... Rb8 { Black defends b7 with the rook, which is passive but safe. } 6. Nd2 { Bring the knight out. [%cal Gb1d2] } 6... e6 7. Ngf3 { Develop. [%cal Gg1f3] } 7... Bd6 8. Bxd6 { Swap the dark-squared bishops. [%cal Gf4d6] } 8... cxd6 9. Nh4 { Hit the bishop on f5. [%cal Gf3h4,Rh4f5] } 9... Be4 ) ( 5... e6? { Black forgets about b7! } 6. Qxb7 { Free pawn, and it is not easy for Black to trap your queen. [%cal Gb3b7] } 6... Na5 7. Qxc7 { And another pawn. Trade queens to stay safe. [%cal Gb7c7] } 7... Qxc7 8. Bxc7 Nc4 ) 6. Qa4+ { Check! The queen goes to a safe square and keeps Black busy. [%cal Gb3a4] } 6... c6 7. Nf3 { Develop. [%cal Gg1f3] } 7... b5 8. Qd1 { The queen steps back; Black's knight on a5 is now far from the game. [%cal Ga4d1] } 8... e6 9. Nbd2 { The last knight comes out. [%cal Gb1d2] } 9... Nd7 10. a4 { Hit the b5 pawn and open lines. [%cal Ga2a4] } 10... Bd6 )
+3. e3 { Support d4 and free the f1-bishop. [%cal Ge2e3,Gf1d3] }
+3... Bg4 { Black pins your future knight to the queen. }
+4. Nf3 { Develop the knight. It is pinned to the queen for now, but that is no problem. [%cal Gg1f3] }
+4... e6 { Black adds a pawn to the centre. }
+( 4... Bxf3 { Black takes the knight and gives you the bishop pair. } 5. Qxf3 { Recapture with the queen. Now you own two bishops. [%cal Gd1f3] } 5... e6 6. Nd2 { Bring the last knight out. [%cal Gb1d2] } 6... Bd6 7. Bxd6 { Trade the dark-squared bishops to keep Black from attacking your king. [%cal Gf4d6] } 7... Qxd6 8. O-O-O { Castle long. Your king is safe and the rooks are ready. [%cal Ge1c1] } 8... O-O 9. g4 { A little pawn storm! Black has castled short, so your attack is real. [%cal Gg2g4] } 9... c5 10. g5 { Push the knight away. [%cal Gg4g5,Rg5f6] } 10... Ne8 11. e4 { Open the centre while your king is safe. [%cal Ge3e4] } 11... Nc6 )
+5. Nbd2 { Bring the last knight out. [%cal Gb1d2] }
+5... Bd6 { Black offers to trade the London bishop. }
+6. h3 { Ask the bishop on g4 what it wants to do. [%cal Gh2h3,Rh3g4] }
+6... Bh5
+( 6... Bxf3 7. Nxf3 { Recapture with the knight. Your bishop pair is not important here, but your structure is perfect. [%cal Gd2f3] } 7... O-O 8. Bd3 { Develop. [%cal Gf1d3] } 8... Nbd7 9. O-O { King to safety. [%cal Ge1g1] } 9... Bxf4 10. exf4 { Take back with the pawn. Your structure is a bit changed, but you have an open e-file. [%cal Ge3f4] } 10... c5 11. c3 { Support the centre and get ready for Qe2. [%cal Gc2c3] } 11... Qb6 )
+7. Be2 { Break the pin and get ready to castle. [%cal Gf1e2] }
+7... O-O
+8. Ne5 { Land on e5. The knight attacks the bishop on h5 indirectly, because the bishop on e2 has support. [%cal Gf3e5] }
+8... Bxe2
+9. Qxe2 { Recapture with the queen. Your pieces are active. [%cal Gd1e2] }
+9... Nbd7
+10. Nxd7 { Trade the knight for the one on d7. [%cal Ge5d7] }
+10... Nxd7
+11. O-O { King to safety. [%cal Ge1g1] }
+11... Bxf4
+12. exf4 { Take back with the pawn. The e-file is yours. [%cal Ge3f4] }
+12... Qf6
+`,
+    },
   ],
 }

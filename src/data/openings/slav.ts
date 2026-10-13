@@ -712,14 +712,30 @@ const slavAccepted = `
 6. e5 {White pushes the pawn and attacks your knight.}
 6... Nd5 {The knight jumps to a strong square. It is protected by the c6-pawn and it attacks the knight on c3. [%cal Gd5c3]}
 7. a4 {White attacks your pawn chain.}
-7... e6 {Protect the knight on d5 once more and open the bishop's diagonal. White's pieces have no clear attack. [%csl Gc6,Gd5,Ge6]}
+7... e6 {Close the pawn chain and open the diagonal for your bishop. The knight on d5 is also protected once more. [%csl Gc6,Gd5,Ge6]}
 8. Be2 {White develops.}
-8... a5 {Support the b5-pawn so that axb5 is no longer a worry. Your extra pawn is safe. [%cal Ga5b4]}
+8... a5 {Support the b4-square and keep the queenside pawns together. Your extra pawn is hard to attack now. [%cal Ga5b4]}
 9. O-O {White castles.}
 9... Be7 {Develop the bishop and get ready to castle. [%cal Ge7h4]}
-10. h4 {White prepares to attack on the king-side.}
-10... O-O {Castle! Your king is safe, and your pieces are ready to answer any attack.}
-11. Bg5 {White pins the knight? No, the bishop attacks your bishop on e7, so the game gets sharper.}
+10. axb5 {White trades pawns to open the a-file.}
+(10. Ng5? {A mistake! White hopes to attack h7 but this loses a piece.}
+10... Nxc3 {Take the knight first! You remove the defender of the g5-knight.}
+11. bxc3 {White recaptures.}
+11... Bxg5 {Now the knight on g5 is yours.}
+12. Bxg5 {White takes your bishop.}
+12... Qxg5 {You take the bishop. You have won a whole piece. [%cal Gd8g5]}
+13. Qb1 {White gets some threats against b5, but you are far ahead in material.}
+)
+10... Nxc3 {Trade knights first, so that the pawn recapture opens the c-file for you instead.}
+11. bxc3 {White recaptures.}
+11... cxb5 {Recapture with the c-pawn. You are a pawn up, with three connected pawns on a5, b5 and c4. White has an isolated pawn on c3. [%csl Ga5,Gb5,Gc4,Rc3]}
+12. Rb1 {White attacks the b5-pawn.}
+12... Ba6 {Protect the b5-pawn with the bishop and put it on a good diagonal. [%cal Ga6b5,Ga6e2]}
+13. d5 {White opens the position to get play.}
+13... Qxd5 {Take the pawn! Your queen is protected by the e6-pawn and lands in the centre.}
+14. Nd4 {White attacks the b5-pawn and the e6-pawn, and prepares Bf3 against your queen.}
+14... Qd7 {Step back to a safe square. From d7 the queen guards both b5 and e6. [%cal Gd7b5,Gd7e6]}
+15. Bf3 {White develops. You are a pawn up and your king is safe: trade pieces and win.}
 )
 5... b5 {The key move: keep the pawn! Your pawn on b5 protects the c4-pawn. The c4-pawn also cramps White: it controls b3 and d3. [%cal Gb5c4]}
 6. a4 {White attacks your b5-pawn.}
@@ -728,14 +744,16 @@ const slavAccepted = `
 7. O-O {White castles.}
 7... e6 {Close the centre. Your pieces are well coordinated.}
 8. a4 {White attacks b5 again.}
-8... b4 {Push the pawn! It attacks the knight on c3. Your pawn chain a6, b4... gains space on the queenside. [%cal Gb4c3]}
-9. Nb1 {The knight retreats.}
-9... Be7 {Develop the bishop and prepare to castle. [%cal Ge7h4]}
-10. Nbd2 {White develops the knight.}
-10... c5 {Now is the time to strike in the centre, even if it means giving the pawn back. You get a healthy position and your pieces are active. [%cal Gc5d4]}
-11. Nxc4 {White takes the c4-pawn back.}
-11... O-O {Castle! The extra pawn is gone, but your game is solid and equal.}
-12. b3 {White opens the bishop. The position is balanced.}
+8... a6 {Support the b5-pawn with the a-pawn. Now your pawn chain stays solid and the c4-pawn stays protected. [%cal Ga6b5]}
+9. Na2 {White heads for b4 with the knight.}
+9... Nbd7 {Develop the last minor piece. It supports ...Nb6 and ...Nd5. [%cal Gd7b6]}
+10. b3 {White attacks your c4-pawn.}
+10... cxb3 {Take the pawn first. Do not let White capture on c4 for free.}
+11. Qxb3 {White recaptures.}
+11... Rb8 {Put the rook on the b-file, where it protects the b5-pawn and looks at White's queen. [%cal Gb8b3]}
+12. Bd2 {White develops.}
+12... Be7 {Develop the bishop and prepare to castle. [%cal Ge7h4]}
+13. Rfc1 {White takes the c-file. You have a solid, healthy position.}
 )
 (6. b3 {White sacrifices a pawn for lines. Take it!}
 6... cxb3 {Take the pawn with your c-pawn. You are now two pawns up for the moment. White gets some open lines, so be careful. [%cal Gc4b3]}

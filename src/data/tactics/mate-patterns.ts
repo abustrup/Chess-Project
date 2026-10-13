@@ -5,12 +5,12 @@ import type { TacticLesson } from '../../types'
 export const matePatternsLesson: TacticLesson = {
   id: 'mate-patterns',
   name: 'Checkmate patterns',
-  tagline: 'Five famous mating pictures. Learn to recognise them and you will start to see mates before they happen.',
+  tagline: 'Five famous mating pictures that help you see checkmates before they happen.',
   puzzleTheme: 'mateIn2',
   intro: [
     {
       type: 'text',
-      text: 'Checkmates come in shapes. Strong players do not work out every mate from scratch. They **recognise a picture** they have seen before. Here are five patterns that every club player should know, and each one needs only a few pieces.',
+      text: 'Checkmates come in shapes. Strong players do not work out every mate from scratch, they **recognise a picture** they have seen before. Here are five patterns that every club player should know.',
     },
     {
       type: 'board',
@@ -26,9 +26,9 @@ export const matePatternsLesson: TacticLesson = {
     },
     {
       type: 'board',
-      fen: '7k/8/5N2/8/8/8/7R/6K1 w - - 0 1',
+      fen: '7k/R7/5N2/8/8/8/8/6K1 w - - 0 1',
       arrows: [
-        { from: 'h2', to: 'h7', color: 'blue' },
+        { from: 'a7', to: 'h7', color: 'blue' },
         { from: 'f6', to: 'h7', color: 'red' },
         { from: 'f6', to: 'g8', color: 'red' },
       ],
@@ -120,16 +120,6 @@ export const matePatternsLesson: TacticLesson = {
         'The bishop recaptures on a6 with check. The bishop on d6 covers b8 and c7, and Black\'s own knight and rook block d7 and d8. That is Boden\'s mate.',
       ],
     },
-    {
-      title: 'Hook mate: rook, knight and pawn',
-      fen: '2kr1r2/p2n2p1/2n1p2p/qNppP3/P2P2P1/3Q4/2K1N3/RR6 w - - 2 27',
-      moves: ['b5d6', 'c8c7', 'b1b7'],
-      explanations: [
-        'The knight jumps to d6 with check. The pawn on e5 guards it, so Black cannot capture it.',
-        'The king steps to c7. Black has no good alternative.',
-        'The rook lands on b7, next to the king. The knight on d6 protects the rook, and the pawn on e5 protects the knight. That is the hook, and the king has no squares left.',
-      ],
-    },
   ],
   exercises: [
     {
@@ -156,7 +146,7 @@ export const matePatternsLesson: TacticLesson = {
       solution: ['d3a6'],
       hint: 'Your bishop on d6 already takes away b8 and c7. Can your other bishop give check from a different diagonal?',
       explanation:
-        'Ba6 is checkmate. It attacks the king along the diagonal, and the bishop on d6 covers the escape squares. Black\'s own pieces block d7 and d8. This is Boden\'s mate.',
+        'Ba6 is checkmate. It checks along the diagonal while the bishop on d6 covers the escape squares, and Black\'s own pieces block d7 and d8. This is Boden\'s mate.',
       difficulty: 1,
     },
     {
@@ -174,7 +164,7 @@ export const matePatternsLesson: TacticLesson = {
       solution: ['h1h7'],
       hint: 'Your pawn guards your knight on f6. Now find a check for your rook that the knight can protect.',
       explanation:
-        'Rh7 is checkmate. The knight protects the rook, and the pawn on g5 protects the knight, so the king cannot take either of them. Black\'s own rook blocks f8. This is a hook mate.',
+        'Rh7 is checkmate. The knight protects the rook and the pawn on g5 protects the knight, so the king cannot take either one. Black\'s own rook blocks f8, which makes it a hook mate.',
       difficulty: 1,
     },
     {
@@ -183,7 +173,7 @@ export const matePatternsLesson: TacticLesson = {
       solution: ['g4f2'],
       hint: 'White\'s king in the corner is boxed in by its own rook and pawns. Your knight can jump with check.',
       explanation:
-        'Nf2 is checkmate. The knight checks the king on h1, and White\'s own rook and pawns on g1, g2 and h2 take away every square. Nothing can capture the knight. This is a smothered mate, this time with the black pieces.',
+        'Nf2 is checkmate. The knight checks the king on h1, and White\'s own rook and pawns on g1, g2 and h2 take away every square. It is a smothered mate, this time with the black pieces.',
       difficulty: 2,
     },
     {
@@ -210,7 +200,7 @@ export const matePatternsLesson: TacticLesson = {
       solution: ['e7a3', 'a4a3', 'f8a3'],
       hint: 'Give up your queen to pull the white queen onto a3. Then your other bishop finishes the job.',
       explanation:
-        'Qa3+ forces White to take the queen. Then Bxa3 is checkmate: this bishop checks the king, and the bishop on f5 covers b1 and c2. White\'s own pieces block d1 and d2. This is Boden\'s mate.',
+        'Qa3+ forces White to take the queen. Then Bxa3 is checkmate: it checks the king, the bishop on f5 covers b1 and c2, and White\'s own pieces block d1 and d2. This is Boden\'s mate.',
       difficulty: 2,
     },
     {
@@ -237,7 +227,7 @@ export const matePatternsLesson: TacticLesson = {
       solution: ['e4f6', 'g8h8', 'h4h7', 'g7h7', 'h1h7'],
       hint: 'A knight check puts the king in the corner. Then give up your queen on h7 so that your rook can mate there.',
       explanation:
-        'Nf6+ drives the king into the corner. Qxh7+ takes away the black queen\'s protection of h7, and after Qxh7 the rook takes back with Rxh7. The knight protects the rook and covers g8, so it is an Arabian mate.',
+        'Nf6+ drives the king into the corner. Qxh7+ is a queen sacrifice that drags the black queen onto h7, and then Rxh7 takes her with mate. The knight protects the rook and covers g8, so it is an Arabian mate.',
       difficulty: 3,
     },
   ],
