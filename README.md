@@ -4,6 +4,8 @@ A calm, free place to **learn chess**, made for one player: you. It runs in your
 
 **Open it here: https://abustrup.github.io/Chess-Project/** (bookmark it on your computer and your phone)
 
+On this Mac you can also double-click **Open Chess Coach.command** in this folder: it opens the app in your browser without the internet.
+
 ## What it does
 
 | Where | What you can do |

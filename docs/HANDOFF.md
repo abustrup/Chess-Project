@@ -1,12 +1,24 @@
-# Handover note — Chess Coach (continue in a local session)
+# Handover note — Chess Coach
 
-Written by the cloud session so a local Claude Code session can pick up exactly where it stopped.
-Branch: `claude/sleepy-lovelace-2fnxsd` · Draft PR: https://github.com/abustrup/Chess-Project/pull/1
+Branch history: built on `claude/sleepy-lovelace-2fnxsd` (PR #1), merged to `main` on 2026-10-13.
 
-## CLOUD STATUS
-**STOPPED / HANDED OVER.** The owner asked to continue in a local session. The branch `claude/sleepy-lovelace-2fnxsd` is the source of truth.
-Caveat: the cloud session could **not** stop its background helper teams (the stop command did not recognise them), so for a while they may still be editing files *inside the cloud container*. The cloud session will **not push anything more to this branch**. If those helpers finish with useful work, the cloud session may push it to a separate branch named `claude/sleepy-lovelace-2fnxsd-cloud-final` — a local session can diff that branch and take files from it (it is only ever *newer* for the files owned by the unfinished helpers: `src/data/openings/london.ts`, QA fixes inside `src/features/**`).
-The local session is free to edit anything on the main branch.
+## STATUS (2026-10-13, local session)
+Finished in one local session with ~53 parallel agents (two independent passes per item):
+- **London course complete**: tagline, overview, 7 key ideas, 6 common mistakes, 12 Lichess names, 14 chapters
+  (`london.ts` + `london-more-a.ts` + `london-more-b.ts`).
+- **Content audits done** for all 3 courses and all 12 tactics lessons (auditor 1 + auditor 2, Stockfish + chess.js claim checks).
+  Engine depth was 12-18 (not always 18) because ~30 agents shared 10 CPU cores; see "Open items".
+- **QA + breaker passes done** for puzzles, play, openings UI, tactics UI, rating/review, home/settings.
+- **Design polish, code-splitting, production check under `/Chess-Project/`, manifest, README** done.
+- Checks at merge: `tsc` 0 errors, `check-openings` 0 errors, 6/6 `*.check.ts` pass, `e2e-smoke` 40/40 pages clean on the built site.
+
+## Open items (next session)
+1. GitHub Pages is not switched on (owner's click: Settings -> Pages -> Source: GitHub Actions, then Actions -> Deploy -> Run workflow).
+2. `middlegame-plans` (london-more-b) is thin; King's Indian / Grünfeld chapters have 4-5 lines.
+3. Re-run the opening/tactics engine audits at depth 20+ on a quiet machine.
+4. Drill: a move made before the opponent's first move lands is ignored (needs a Board.tsx change to queue it).
+5. Board.tsx: promotion menu stays open after Solution/Skip; arrow colours may all render the same.
+6. Home rating card still shows a single number (rating page now shows a range under 5 games).
 
 ## The product in one paragraph
 **Chess Coach** is a free, static web app (React + TypeScript + Vite, no server) that teaches its owner chess. The owner is a **non-coder, ~1100 Lichess Elo**; their openings are the **London System (White)**, **Caro-Kann** and **Slav (Black)**.
