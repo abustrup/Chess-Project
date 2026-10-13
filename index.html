@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess Coach</title>
+    <meta
+      name="description"
+      content="Your own chess coach: play the computer, learn the London, Caro-Kann and Slav, solve puzzles and track your rating."
+    />
+    <meta name="color-scheme" content="dark" />
+    <!-- the app sets this to the chosen theme's page colour once it starts -->
+    <meta name="theme-color" content="#0d111c" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="Chess Coach" />
+    <script>
+      // Use the saved colour theme and zen mode before anything is drawn, so the page never flashes in the wrong colours.
+      try {
+        var saved = JSON.parse(localStorage.getItem('cc.profile') || '{}')
+        if (saved.appTheme) document.documentElement.dataset.appTheme = saved.appTheme
+        if (saved.zenMode) document.documentElement.dataset.zen = 'on'
+      } catch (e) {
+        /* private browsing or blocked storage: the default theme is fine */
+      }
+    </script>
+    <style>
+      /* The calm "setting up the board" state: shown while the app starts and while a page is being fetched.
+         It lives here so it works before the main stylesheet has loaded; the fallbacks match the Ocean theme. */
+      html {
+        background: var(--bg-0, #0d111c);
+      }
+      .route-loading {
+        min-height: calc(100vh - 160px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        color: var(--text-faint, #74829f);
+        font: 500 14px/1.4 var(--font, system-ui, -apple-system, 'Segoe UI', sans-serif);
+        animation: cc-fade-in 0.4s ease 0.25s both;
+      }
+      .route-loading.boot {
+        min-height: 100vh;
+      }
+      .route-loading-mark {
+        color: var(--accent, #6aa5ff);
+        filter: drop-shadow(0 8px 24px rgba(106, 165, 255, 0.35));
+        animation: cc-breathe 1.8s ease-in-out infinite;
+      }
+      .route-error {
+        max-width: 520px;
+        margin: 48px auto;
+        text-align: center;
+      }
+      .route-error p {
+        color: var(--text-dim, #aab6d3);
+        margin: 8px 0 20px;
+      }
+      @keyframes cc-fade-in {
+        from {
+          opacity: 0;
+        }
+      }
+      @keyframes cc-breathe {
+        50% {
+          transform: translateY(-4px) scale(1.05);
+          opacity: 0.7;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .route-loading-mark {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="route-loading boot" role="status">
+        <svg class="route-loading-mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M36 8c11 2 20 11 20 24 0 7-2 11-3 16H21c0-6 4-8 8-12 2-3 2-5-1-6-4-1-9 3-14 8l-5-5c3-5 7-10 12-13l-2-7c5-1 8 0 11 2l3-2zM16 52h36v8H16z"
+          />
+        </svg>
+        <span>Setting up the board…</span>
+      </div>
+    </div>
+    <noscript>
+      <p style="color: #eaf0ff; text-align: center; font-family: system-ui, sans-serif">
+        Chess Coach needs JavaScript. Please turn it on in your browser settings and reload the page.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,737 @@
+/* Puzzles page. Built on the tokens from theme.css, so both app themes (Ocean / Ember) work. */
+
+.page.puzzles-page {
+  padding-top: 22px;
+}
+.puzzles-page .page-head {
+  margin-bottom: 14px;
+  align-items: center;
+}
+.puzzles-page .page-head h1 {
+  font-size: 30px;
+  margin-bottom: 0;
+}
+/* A little taller than the shared rule allows for, because the heading here is only one line. */
+.puzzles-page .board-col {
+  width: min(100%, calc(100vh - 176px));
+}
+
+.rating-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-2));
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+  color: var(--accent-hi);
+}
+.rating-pill strong {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.puzzle-notice {
+  margin-bottom: 14px;
+}
+.puzzle-error {
+  max-width: 560px;
+}
+
+/* ---------------------------------------------------------------- the board */
+.puzzle-board.is-empty {
+  opacity: 0.55;
+  filter: saturate(0.6);
+}
+.board-skeleton {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--bg-2), var(--bg-3));
+  animation: puzzle-pulse 1.6s ease-in-out infinite;
+}
+@keyframes puzzle-pulse {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+/* -------------------------------------------------------------- prompt card */
+.prompt-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 190px;
+  padding: 20px 22px;
+  border-left: 4px solid var(--bg-4);
+}
+.prompt-card h2 {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+.prompt-card p {
+  margin: 0;
+  color: var(--text-dim);
+}
+.prompt-main {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.prompt-icon {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--bg-3);
+  color: var(--text-dim);
+}
+.prompt-card.tone-neutral {
+  border-left-color: var(--accent);
+}
+.prompt-card.tone-neutral .prompt-icon {
+  background: color-mix(in srgb, var(--accent) 16%, var(--bg-2));
+  color: var(--accent-hi);
+}
+.prompt-card.tone-good {
+  border-left-color: var(--good);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--good) 9%, var(--bg-2)), var(--bg-2));
+}
+.prompt-card.tone-good .prompt-icon {
+  background: color-mix(in srgb, var(--good) 20%, var(--bg-2));
+  color: var(--good);
+}
+.prompt-card.tone-bad {
+  border-left-color: var(--red);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--red) 9%, var(--bg-2)), var(--bg-2));
+}
+.prompt-card.tone-bad .prompt-icon {
+  background: color-mix(in srgb, var(--red) 20%, var(--bg-2));
+  color: var(--red);
+}
+.prompt-card.tone-info {
+  border-left-color: var(--gold);
+}
+.prompt-card.tone-info .prompt-icon {
+  background: color-mix(in srgb, var(--gold) 18%, var(--bg-2));
+  color: var(--gold);
+}
+.prompt-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.prompt-buttons .btn:not(.big) {
+  padding: 9px 13px;
+}
+.prompt-buttons .btn-cost {
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.75;
+}
+.prompt-topic .chip {
+  white-space: normal;
+}
+.prompt-details {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+.stats-heading {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+/* The shared "faint" grey is a little too pale for small text on the dark Ocean cards (about 4:1, we want 4.5:1),
+   so on this page small labels use the dim grey instead. */
+.puzzles-page .faint,
+.puzzles-page .card-title {
+  color: var(--text-dim);
+}
+.theme-notes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+.theme-notes strong {
+  color: var(--text);
+}
+.line-details summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.line-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+.line-list li {
+  display: grid;
+  grid-template-columns: 38px auto 1fr;
+  column-gap: 8px;
+  align-items: baseline;
+}
+.line-list li.yours strong {
+  color: var(--accent-hi);
+}
+.line-list li > span.muted {
+  font-size: 13px;
+}
+.line-no {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.prompt-foot,
+.prompt-keys {
+  margin: 0;
+}
+/* Keyboard keys mean nothing on a phone or tablet without a keyboard. */
+@media (hover: none) and (pointer: coarse) {
+  .prompt-keys {
+    display: none;
+  }
+}
+.prompt-foot a {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+kbd {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+}
+
+/* ------------------------------------------------------------ training card */
+.training-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 20px;
+}
+.training-card .card-title {
+  margin-bottom: 0;
+}
+.training-now {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.training-now .btn {
+  flex: none;
+}
+.rush-start {
+  width: 100%;
+}
+
+/* -------------------------------------------------------------- stats panel */
+.stats-panel {
+  padding: 0;
+  overflow: hidden;
+}
+.stats-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+}
+.stats-toggle:hover {
+  background: var(--bg-3);
+}
+.stats-toggle .card-title {
+  margin: 0;
+}
+.stats-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 18px;
+}
+.chev {
+  color: var(--text-faint);
+  transition: transform 0.15s ease;
+}
+.chev.open {
+  transform: rotate(180deg);
+}
+.stats-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 20px 20px;
+}
+.stats-body p {
+  margin: 0;
+}
+.stats-rating {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.stats-rating .big-number {
+  font-size: 34px;
+  line-height: 1.1;
+}
+.rating-chart {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 56px;
+}
+.rating-chart svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+.rating-chart-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.rating-chart-area {
+  fill: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+.rating-chart-dot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  border-radius: 50%;
+  background: var(--accent-hi);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+.stat-tiles {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.stat-tiles > div {
+  background: var(--bg-3);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  min-width: 0;
+}
+.stat-tiles dt {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+.stat-tiles dd {
+  margin: 2px 0 0;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.stats-records {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+.stats-records span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.weak-box {
+  background: color-mix(in srgb, var(--gold) 9%, var(--bg-2));
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+.weak-box .stats-heading {
+  color: var(--gold);
+}
+.weak-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 0;
+}
+.weak-row + .weak-row {
+  border-top: 1px solid var(--line);
+}
+.theme-bars {
+  list-style: none;
+  margin: 0;
+  padding: 0 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+.theme-bars li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr) 40px;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+}
+.theme-bars-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.theme-bars-count {
+  text-align: right;
+}
+.theme-bars li.is-weak .progress > span {
+  background: var(--gold);
+}
+
+/* ------------------------------------------------------------- topic picker */
+.picker-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(5, 8, 16, 0.62);
+  backdrop-filter: blur(4px);
+}
+.picker {
+  width: min(940px, 100%);
+  max-height: min(800px, 100%);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.picker:focus {
+  outline: none;
+}
+.picker-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.picker-head h2 {
+  margin: 0 0 2px;
+}
+.picker-head p {
+  margin: 0;
+}
+.picker-search {
+  position: relative;
+  display: block;
+}
+.picker-search svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-faint);
+  pointer-events: none;
+}
+.picker-search .input {
+  padding-left: 42px;
+  border-radius: 999px;
+}
+.picker-scroll {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-right: 4px;
+}
+.picker-section {
+  font-family: var(--font);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  margin: 0 0 10px;
+}
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+}
+.topic-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 14px 16px;
+  text-align: left;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s, transform 0.12s;
+}
+.topic-card:hover {
+  background: var(--bg-3);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+}
+.topic-card.selected {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 13%, var(--bg-2));
+}
+.topic-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.topic-card-icon {
+  flex: none;
+  color: var(--accent-hi);
+}
+.topic-card-check {
+  margin-left: auto;
+  color: var(--accent-hi);
+}
+.topic-card-text {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-dim);
+}
+.topic-card-count {
+  margin-top: auto;
+  font-size: 11.5px;
+}
+
+/* -------------------------------------------------------------- puzzle rush */
+.rush-board {
+  position: relative;
+}
+.rush-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--bg-0) 72%, transparent);
+  backdrop-filter: blur(3px);
+}
+.rush-dialog {
+  width: min(380px, 100%);
+  max-height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 22px 20px;
+  background: var(--bg-1);
+  box-shadow: var(--shadow);
+}
+.rush-dialog h2 {
+  margin: 0;
+}
+.rush-dialog p {
+  margin: 0;
+  font-size: 14px;
+}
+.rush-icon {
+  color: var(--accent-hi);
+}
+.rush-score {
+  font-size: 18px;
+}
+.rush-score strong {
+  font-family: var(--font-display);
+  font-size: 44px;
+  line-height: 1;
+  margin-right: 6px;
+}
+.rush-buttons {
+  justify-content: center;
+  margin-top: 8px;
+}
+.rush-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: stretch;
+}
+.rush-clock {
+  font-family: var(--mono);
+  font-size: 52px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+.rush-clock.low {
+  color: var(--red);
+}
+.rush-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  text-align: center;
+}
+.rush-stat-value {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.rush-strikes {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  height: 34px;
+  align-items: center;
+}
+.strike {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--bg-3);
+  color: var(--text-faint);
+}
+.strike.used {
+  background: color-mix(in srgb, var(--red) 25%, var(--bg-2));
+  color: var(--red);
+}
+.rush-status {
+  margin: 0;
+  text-align: center;
+  min-height: 1.5em;
+  color: var(--text-dim);
+}
+
+/* ---------------------------------------------------------------- zen mode */
+/* The prompt card stays (zen-keep); the extra details inside it are hidden by .zen-hide.
+   The board is a bit smaller than elsewhere so the message and the buttons fit under it without scrolling. */
+:root[data-zen='on'] .puzzles-page .board-col {
+  width: min(100%, calc(100vh - 250px));
+}
+:root[data-zen='on'] .prompt-card {
+  border-left-color: transparent;
+  min-height: 0;
+  padding-top: 4px;
+  text-align: center;
+}
+:root[data-zen='on'] .prompt-icon {
+  display: none;
+}
+:root[data-zen='on'] .prompt-main {
+  justify-content: center;
+}
+:root[data-zen='on'] .prompt-card.tone-good h2 {
+  color: var(--good);
+}
+:root[data-zen='on'] .prompt-card.tone-bad h2 {
+  color: var(--red);
+}
+:root[data-zen='on'] .prompt-buttons {
+  justify-content: center;
+}
+:root[data-zen='on'] .rush-card {
+  padding: 8px;
+}
+
+/* ------------------------------------------------------------- responsive */
+@media (max-width: 1100px) {
+  /* The card with "Your move" sits under the board here, so on a short laptop window keep the board short enough for it to show. */
+  .puzzles-page .board-col {
+    width: min(100%, 640px, max(320px, calc(100vh - 260px)));
+  }
+}
+@media (max-width: 820px) {
+  .page.puzzles-page {
+    padding-top: 14px;
+  }
+  /* In zen mode the round zen button floats in the top corner, so leave it a little room above the board. */
+  :root[data-zen='on'] .page.puzzles-page {
+    padding-top: 58px;
+  }
+  :root[data-zen='on'] .puzzles-page .board-col {
+    width: 100%;
+  }
+  .puzzles-page .page-head h1 {
+    font-size: 24px;
+  }
+  .rating-pill .small {
+    display: none;
+  }
+  .prompt-card {
+    min-height: 0;
+    padding: 16px;
+  }
+  .prompt-card h2 {
+    font-size: 19px;
+  }
+  .stat-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .picker-backdrop {
+    padding: 0;
+    align-items: end;
+  }
+  .picker {
+    max-height: 92%;
+    border-radius: var(--radius) var(--radius) 0 0;
+    padding: 18px 16px;
+  }
+  .topic-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rush-dialog {
+    padding: 14px;
+    gap: 6px;
+  }
+  .rush-dialog p {
+    font-size: 13px;
+  }
+  .rush-clock {
+    font-size: 40px;
+  }
+}

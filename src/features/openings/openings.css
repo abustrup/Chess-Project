@@ -1,0 +1,765 @@
+/* ==========================================================================
+   Openings trainer. Only colour variables from theme.css are used, so both
+   app themes (Ocean and Ember) work. This file is loaded BEFORE theme.css, so
+   rules that must beat a theme rule use two classes (for example .board-col.op-board-col).
+   ========================================================================== */
+
+.op-page kbd {
+  display: inline-block;
+  min-width: 20px;
+  padding: 0 5px;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text);
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+}
+
+/* ------------------------------------------------------------- small parts */
+.op-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--text-faint);
+}
+.op-crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.op-crumb a {
+  color: var(--text-dim);
+}
+.op-crumb [aria-current] {
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.op-side-icon {
+  flex: none;
+  display: block;
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.14), 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+.op-side-icon.white {
+  background: var(--sq-dark);
+}
+.op-side-icon.black {
+  background: var(--sq-light);
+}
+.op-side-icon > * {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.op-moves {
+  width: fit-content;
+  max-width: 100%;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-3);
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.op-mastery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px 10px;
+}
+.op-mastery-label {
+  grid-column: 1 / -1;
+}
+.op-page .progress {
+  background: color-mix(in srgb, var(--text) 13%, transparent);
+}
+.op-mastery-pct {
+  min-width: 40px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.op-difficulty {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+.op-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+.op-dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg-4);
+}
+.op-dots i.on {
+  background: var(--accent);
+}
+
+.op-glyph {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.5em;
+  height: 1.5em;
+  padding: 0 0.35em;
+  margin-left: 0.3em;
+  border-radius: 6px;
+  font-family: var(--font);
+  font-size: 0.72em;
+  font-weight: 800;
+  vertical-align: middle;
+  background: var(--bg-4);
+}
+.op-glyph.good {
+  background: color-mix(in srgb, var(--good) 24%, transparent);
+  color: var(--good);
+}
+.op-glyph.bad {
+  background: color-mix(in srgb, var(--red) 24%, transparent);
+  color: var(--red);
+}
+.op-glyph.warn {
+  background: color-mix(in srgb, var(--gold) 24%, transparent);
+  color: var(--gold);
+}
+.op-glyph.interesting {
+  background: color-mix(in srgb, var(--blue) 24%, transparent);
+  color: var(--blue);
+}
+
+.op-notice {
+  max-width: 560px;
+  margin: 40px auto;
+}
+
+.op-footnote {
+  margin-top: 28px;
+  color: var(--text-faint);
+  font-size: 13px;
+}
+
+/* ------------------------------------------------------------- overview */
+.page.op-page .op-intro {
+  max-width: 68ch;
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+.op-intro strong {
+  color: var(--text);
+}
+
+.op-course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+.op-course-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 11%, var(--bg-2)) 0%, var(--bg-2) 60%);
+}
+.op-course-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.op-course-top h2 {
+  margin: 0;
+  font-size: 22px;
+}
+.op-course-top .op-side-icon {
+  width: 56px;
+  height: 56px;
+}
+.op-you-play {
+  margin-bottom: 2px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-hi);
+}
+.op-tagline {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+.op-course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.op-course-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+}
+.op-course-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+.op-next {
+  text-align: center;
+  /* room for two lines in every card, so the Start buttons line up across the row */
+  min-height: 3em;
+}
+.op-soon {
+  align-self: center;
+}
+
+/* ------------------------------------------------------------- course home */
+.op-course-hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  padding: 24px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 13%, var(--bg-2)) 0%, var(--bg-2) 65%);
+}
+.op-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+.op-hero-text h1 {
+  margin: 0;
+}
+.op-hero-progress {
+  width: min(100%, 380px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+}
+.op-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0 8px;
+}
+.op-actions-note {
+  max-width: 78ch;
+}
+.op-section {
+  margin-top: 38px;
+}
+.op-section > h2 {
+  margin-bottom: 14px;
+}
+.op-prose p {
+  max-width: 70ch;
+  font-size: 16.5px;
+  line-height: 1.7;
+}
+.op-idea-grid {
+  align-items: start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 16px;
+}
+.op-idea {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.op-idea h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 0;
+}
+.op-idea p {
+  margin: 0;
+  line-height: 1.55;
+}
+.op-mini-board {
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto 6px;
+}
+.op-mistake {
+  border-left: 4px solid var(--q-mistake);
+}
+.op-mistake h3 svg {
+  color: var(--q-mistake);
+  flex: none;
+}
+
+.op-chapter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.op-chapter {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) 270px;
+  align-items: center;
+  gap: 18px;
+}
+.op-chapter-no {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-3);
+  font-weight: 800;
+  color: var(--text-dim);
+}
+.op-chapter-main h3 {
+  margin-bottom: 4px;
+}
+.op-chapter-main p {
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+.op-chapter-meta {
+  gap: 14px;
+}
+.op-chapter-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.op-chapter-buttons {
+  justify-content: flex-end;
+}
+
+/* ------------------------------------------------------------ study + drill */
+.op-mode-head h1 {
+  margin-bottom: 2px;
+  font-size: 28px;
+}
+.op-mode-head > div:first-child {
+  flex: 1;
+  min-width: 0;
+}
+/* a long summary may take two lines, not more, so the board always starts high on the page */
+.op-mode-head p {
+  max-width: 80ch;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.op-seg {
+  display: inline-flex;
+  padding: 3px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 11px;
+}
+.op-seg a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+.op-seg a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+.op-seg a.on {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* the board leaves room for the buttons under it */
+.board-col.op-board-col {
+  width: min(100%, calc(100vh - 300px));
+}
+.op-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+.op-controls .op-next-btn {
+  flex: 1;
+}
+.op-controls .btn {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.op-controls .btn.icon {
+  padding: 10px 12px;
+}
+
+.op-coach,
+.op-prompt {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 150px;
+}
+.op-prompt.done {
+  min-height: 0;
+}
+.op-coach-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+}
+.op-tag {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--bg-3);
+  color: var(--text-dim);
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.op-tag.you {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.op-tag.them {
+  background: var(--bg-4);
+  color: var(--text);
+}
+.op-move-big {
+  font-family: var(--font);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.op-prompt-sub {
+  color: var(--text-dim);
+  font-weight: 600;
+}
+.op-coach-text {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.6;
+}
+.op-coach-foot {
+  margin-top: auto;
+}
+
+.op-choices h3 {
+  margin-bottom: 2px;
+}
+.op-choices p {
+  margin: 0 0 10px;
+}
+.op-choice {
+  gap: 8px;
+}
+.op-choice-san {
+  font-family: var(--mono);
+  font-weight: 800;
+}
+.op-choice-note {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.op-end h2 {
+  margin-bottom: 6px;
+}
+.op-end p {
+  margin-bottom: 14px;
+}
+.op-end .btn {
+  margin: 0;
+}
+
+.op-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.op-line li {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.op-ply-no {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-faint);
+}
+.op-ply {
+  padding: 3px 7px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+button.op-ply {
+  cursor: pointer;
+}
+button.op-ply:hover {
+  background: var(--bg-3);
+  color: var(--text);
+}
+.op-ply.mine {
+  color: var(--accent-hi);
+}
+.op-ply.current {
+  background: var(--bg-4);
+  color: var(--text);
+}
+.op-keys {
+  margin: 0;
+  line-height: 1.8;
+}
+.op-study-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.op-study-stats .card-title {
+  margin: 0;
+}
+.op-from {
+  margin: 10px 0 0;
+}
+
+/* drill feedback */
+.op-note {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--accent) 13%, transparent);
+}
+.op-note strong {
+  font-size: 17px;
+}
+.op-note p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.op-note.right {
+  border-color: var(--good);
+  background: color-mix(in srgb, var(--good) 14%, transparent);
+}
+.op-note.wrong {
+  border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 13%, transparent);
+}
+.op-note-label {
+  font-weight: 700;
+  color: var(--gold);
+}
+.op-reply {
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.op-reply-head {
+  font-size: 14.5px;
+  color: var(--text-dim);
+}
+.op-reply-head strong {
+  color: var(--text);
+}
+.op-reply p {
+  margin: 6px 0 0;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.op-type {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 2px;
+}
+.op-type .input {
+  min-width: 0;
+}
+.op-type-problem {
+  color: var(--gold);
+}
+
+.op-complete {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-color: color-mix(in srgb, var(--good) 45%, var(--line));
+  background: color-mix(in srgb, var(--good) 8%, var(--bg-2));
+}
+.op-complete-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--good);
+}
+.op-complete-head h2 {
+  margin: 0;
+  color: var(--text);
+}
+.op-complete p {
+  margin: 0;
+  font-size: 16px;
+}
+.op-revisit {
+  font-family: var(--mono);
+  color: var(--text);
+}
+.op-streak {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.op-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.op-stat-num {
+  font-size: 24px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.op-drill-stats .op-mastery {
+  margin-top: 6px;
+}
+
+/* --------------------------------------------------------------- phones */
+@media (max-width: 1100px) {
+  .board-col.op-board-col {
+    width: min(100%, 640px);
+  }
+}
+@media (max-width: 820px) {
+  /* keep the top of study / drill short so the board is on screen straight away */
+  .op-mode-head p,
+  .op-mode-head .op-crumb:last-child {
+    display: none;
+  }
+  .op-mode-head {
+    margin-bottom: 14px;
+  }
+  .op-mode-head h1 {
+    font-size: 24px;
+  }
+  .op-coach,
+  .op-prompt {
+    min-height: 0;
+  }
+  .op-course-hero {
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px;
+  }
+  .op-actions-row .btn {
+    flex: 1 1 100%;
+  }
+  .op-chapter {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 12px;
+  }
+  .op-chapter-side {
+    grid-column: 1 / -1;
+  }
+  .op-chapter-buttons .btn {
+    flex: 1;
+  }
+  .op-seg {
+    width: 100%;
+  }
+  .op-seg a {
+    flex: 1;
+    justify-content: center;
+  }
+  .op-coach-text {
+    font-size: 18px;
+  }
+  .op-controls .btn {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* --------------------------------------------------------------- zen mode */
+:root[data-zen='on'] .board-col.op-board-col {
+  width: min(100%, calc(100vh - 300px));
+  min-width: 280px;
+}
+:root[data-zen='on'] .op-coach-head {
+  justify-content: center;
+}
+:root[data-zen='on'] .op-coach-text,
+:root[data-zen='on'] .op-coach,
+:root[data-zen='on'] .op-prompt {
+  text-align: center;
+}
+:root[data-zen='on'] .op-note {
+  align-items: center;
+}
+:root[data-zen='on'] .op-coach,
+:root[data-zen='on'] .op-prompt {
+  min-height: 0;
+}
+@media (max-width: 820px) {
+  /* leave room for the floating zen button above the board */
+  :root[data-zen='on'] .page.op-page {
+    padding-top: 56px;
+  }
+}
+
+/* Zen hides card chrome so the board stands alone. The overview and course pages have no board,
+   and without their card edges the ideas, mistakes and chapters run into each other. */
+:root[data-zen='on'] .op-course-card,
+:root[data-zen='on'] .op-course-hero,
+:root[data-zen='on'] .op-idea,
+:root[data-zen='on'] .op-chapter {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg-2) 95%, white), var(--bg-2));
+  border-color: var(--line);
+}
+:root[data-zen='on'] .op-mistake {
+  border-left-color: var(--q-mistake);
+}

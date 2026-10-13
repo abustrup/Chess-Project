@@ -1,0 +1,385 @@
+/* Settings page. Only theme variables are used for colour, except in the two app-theme mock-ups
+   (they have to show the colours of the theme you are NOT using, so they carry their own copy of the palette). */
+
+.page.settings {
+  max-width: 1120px;
+}
+.settings .settings-stack {
+  gap: 20px;
+}
+.settings .settings-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px;
+}
+.settings .settings-title svg {
+  color: var(--accent);
+}
+.settings .settings-intro {
+  margin: 0 0 18px;
+}
+.settings .settings-card > .callout,
+.settings .settings-card > .row,
+.settings .settings-card > p {
+  margin-bottom: 14px;
+}
+.settings .field-error {
+  color: var(--red);
+}
+.settings .field-error::before {
+  content: '! ';
+  font-weight: 800;
+}
+.settings .input[aria-invalid='true'] {
+  border-color: var(--red);
+}
+
+/* ------------------------------------------------------------- look + feel */
+.settings .look-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 32px;
+  align-items: start;
+}
+.settings .look-options {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  min-width: 0;
+}
+.settings .look-group h3 {
+  margin: 0 0 10px;
+  font-size: 17px;
+}
+.settings .look-preview {
+  position: sticky;
+  top: calc(var(--topbar-h) + 18px);
+}
+.settings .look-preview p {
+  margin: 12px 0 0;
+  text-align: center;
+}
+
+/* choice cards: a radio button hidden inside a label, the card shows the state */
+.settings .choice {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.settings .choice input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.settings .choice-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-1);
+  border: 2px solid var(--line);
+  transition: border-color 0.12s, background 0.12s, transform 0.12s;
+}
+.settings .choice:hover .choice-body {
+  border-color: var(--bg-4);
+  background: var(--bg-3);
+}
+.settings .choice input:checked + .choice-body {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-1));
+}
+.settings .choice input:focus-visible + .choice-body {
+  outline: 2px solid var(--accent-hi);
+  outline-offset: 2px;
+}
+/* a small tick on the corner of the chosen card, so the choice is not shown by colour alone */
+.settings .choice input:checked + .choice-body::after {
+  content: '✓';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 800;
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 0 0 3px var(--bg-2);
+}
+.settings .choice-name {
+  font-weight: 700;
+}
+.settings .choice-grid {
+  display: grid;
+  gap: 12px;
+}
+.settings .choice-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.settings .choice-grid.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.settings .choice-family {
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* board colour swatch: a 4 by 4 board with the light square in the top-left corner */
+.settings .mini-board {
+  display: block;
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+  background: conic-gradient(var(--d) 25%, var(--l) 0 50%, var(--d) 0 75%, var(--l) 0) 0 0 / 50% 50%;
+}
+
+/* piece preview: white pieces on top, black pieces below, on the player's current board colours */
+.settings .piece-strip {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.settings .piece-strip > span {
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+.settings .piece-strip > .light {
+  background: var(--sq-light);
+}
+.settings .piece-strip > .dark {
+  background: var(--sq-dark);
+}
+
+/* app theme mock-ups: copies of the two palettes in styles/theme.css */
+.settings .theme-preview {
+  --p-bg: #0d111c;
+  --p-bar: #131929;
+  --p-card: #1a2236;
+  --p-line: #27314b;
+  --p-text: #aab6d3;
+  --p-accent: #6aa5ff;
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--p-bg);
+  border: 1px solid var(--p-line);
+}
+.settings .theme-preview[data-preview='ember'] {
+  --p-bg: #15100d;
+  --p-bar: #1c1511;
+  --p-card: #251c17;
+  --p-line: #392a22;
+  --p-text: #d4c0ab;
+  --p-accent: #ffa24c;
+}
+.settings .tp-bar {
+  display: flex;
+  gap: 6px;
+  padding: 8px 10px;
+  background: var(--p-bar);
+  border-bottom: 1px solid var(--p-line);
+}
+.settings .tp-pill {
+  width: 30px;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--p-line);
+}
+.settings .tp-pill.on {
+  background: var(--p-accent);
+}
+.settings .tp-body {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 8px;
+  padding: 10px;
+}
+.settings .tp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--p-card);
+  border: 1px solid var(--p-line);
+}
+.settings .tp-line {
+  height: 6px;
+  border-radius: 99px;
+  background: var(--p-text);
+  opacity: 0.55;
+}
+.settings .tp-line.long {
+  width: 85%;
+}
+.settings .tp-line.short {
+  width: 50%;
+}
+.settings .tp-button {
+  height: 12px;
+  width: 44%;
+  border-radius: 99px;
+  background: var(--p-accent);
+}
+
+/* ------------------------------------------------------------------ switches */
+.settings .switch-list {
+  display: flex;
+  flex-direction: column;
+}
+.settings .switch-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+.settings .switch-row:last-child {
+  border-bottom: 0;
+}
+.settings .switch-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.settings .switch-input {
+  position: absolute;
+  right: 0;
+  width: 46px;
+  height: 26px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.settings .switch-track {
+  flex: none;
+  position: relative;
+  width: 46px;
+  height: 26px;
+  border-radius: 99px;
+  background: var(--bg-4);
+  transition: background 0.15s;
+}
+.settings .switch-track::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--text);
+  transition: transform 0.15s;
+}
+.settings .switch-input:checked ~ .switch-track {
+  background: var(--accent);
+}
+.settings .switch-input:checked ~ .switch-track::after {
+  transform: translateX(20px);
+  background: var(--on-accent);
+}
+.settings .switch-input:focus-visible ~ .switch-track {
+  outline: 2px solid var(--accent-hi);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------- data */
+.settings .data-callout {
+  align-items: flex-start;
+}
+.settings .data-callout svg {
+  flex: none;
+  color: var(--accent-hi);
+  margin-top: 2px;
+}
+.settings .data-callout p,
+.settings .data-panel p {
+  margin: 0 0 10px;
+}
+.settings .data-callout p {
+  margin: 0;
+}
+.settings .data-panel {
+  margin-top: 16px;
+}
+.settings .data-panel h3 {
+  margin: 0 0 6px;
+}
+.settings .settings-note {
+  margin: 14px 0 0;
+  color: var(--accent-hi);
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------------ credits */
+.settings .credit-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.settings .credit-list li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.settings .credit-list li:last-child {
+  border-bottom: 0;
+}
+.settings .credit-list .chip {
+  flex: none;
+}
+.settings .credit-heading {
+  margin: 22px 0 4px;
+}
+.settings .credit-foot {
+  margin: 18px 0 0;
+}
+
+/* -------------------------------------------------------------------- phone */
+@media (max-width: 1100px) {
+  .settings .look-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+  .settings .look-preview {
+    position: static;
+    order: -1;
+    width: min(100%, 360px);
+    margin: 0 auto;
+  }
+}
+@media (max-width: 820px) {
+  .settings .choice-grid.four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* on a phone the board swatches sit beside their name, so the list stays short */
+  .settings .choice.compact .choice-body {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  .settings .choice.compact .mini-board {
+    flex: none;
+    width: 54px;
+  }
+}
+@media (max-width: 480px) {
+  .settings .choice-grid.two {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

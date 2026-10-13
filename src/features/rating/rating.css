@@ -1,0 +1,541 @@
+/* My rating page. Colours come from the shared tokens in styles/theme.css. */
+
+.rt-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.rt-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.rt-spin {
+  animation: rt-spin 1s linear infinite;
+}
+@keyframes rt-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.rating-page h2 {
+  margin-bottom: 10px;
+}
+.rt-chart-title {
+  margin: 22px 0 4px;
+}
+
+/* ---- hero ---------------------------------------------------------------------------------- */
+.rt-hero {
+  padding: 24px 26px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 14%, var(--bg-2)), var(--bg-2) 60%);
+}
+.rt-hero-title {
+  font-size: 24px;
+}
+.rt-hero-actions {
+  margin: 14px 0;
+}
+.rt-hero-number {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 6px;
+}
+.rt-about {
+  font-size: 20px;
+  color: var(--text-dim);
+}
+.rt-elo {
+  font-size: 68px;
+  line-height: 1;
+  color: var(--accent-hi);
+}
+.rt-hero-range {
+  font-size: 18px;
+  margin: 6px 0 14px;
+}
+.rt-compare {
+  font-weight: 700;
+  margin: 12px 0 4px;
+}
+.rt-notes {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+.rt-range {
+  position: relative;
+  height: 28px;
+  margin: 8px 4px 0;
+  border-radius: 999px;
+  background: var(--bg-3);
+}
+.rt-range-band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.rt-range-dot {
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  border-radius: 50%;
+  background: var(--accent-hi);
+  border: 3px solid var(--bg-0);
+}
+.rt-range-self {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 0;
+  border-left: 2px dashed var(--text-dim);
+}
+:root[data-zen='on'] .rt-hero {
+  text-align: center;
+  margin-top: 16vh;
+}
+:root[data-zen='on'] .rt-hero-number {
+  justify-content: center;
+}
+:root[data-zen='on'] .rt-hero .row {
+  justify-content: center;
+}
+:root[data-zen='on'] .rt-stack > :not(.rt-hero) {
+  display: none !important;
+}
+
+/* ---- add games ------------------------------------------------------------------------------ */
+.rt-add {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.rt-add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+}
+.rt-add-form p {
+  margin: 0;
+}
+.rt-add-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 12px;
+}
+.rt-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+.rt-check input {
+  margin-top: 4px;
+}
+.rt-paste-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rt-paste-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-2);
+}
+.rt-seg {
+  display: inline-flex;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.rt-seg-btn {
+  padding: 6px 14px;
+  border: 0;
+  background: var(--bg-3);
+  color: var(--text-dim);
+  font-weight: 700;
+  cursor: pointer;
+}
+.rt-seg-btn.on {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* ---- games list ----------------------------------------------------------------------------- */
+.rt-analyse-all {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0 6px;
+}
+.rt-select-row {
+  margin-top: 14px;
+}
+.rt-games {
+  list-style: none;
+  margin: 8px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.rt-game {
+  display: grid;
+  grid-template-columns: 24px 82px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-3);
+}
+.rt-game.off {
+  opacity: 0.55;
+}
+.rt-game-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.rt-game-main > * {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rt-game-actions {
+  display: flex;
+  gap: 6px;
+}
+.rt-game-check {
+  display: grid;
+  place-items: center;
+}
+.rt-game-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+.rt-game .chip {
+  justify-content: center;
+}
+
+/* ---- breakdown ------------------------------------------------------------------------------ */
+.rt-parts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.rt-part {
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-3);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.rt-part.off {
+  opacity: 0.7;
+}
+.rt-part p {
+  margin: 0;
+  font-size: 14px;
+}
+.rt-part-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rt-part-icon {
+  color: var(--accent-hi);
+  display: grid;
+}
+.rt-part-elo {
+  margin-left: auto;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--accent-hi);
+}
+.rt-weight {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.rt-chart-wrap {
+  overflow-x: auto;
+  margin-top: 8px;
+}
+.rt-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.rt-chart .rt-grid {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.rt-chart .rt-axis {
+  fill: var(--text-faint);
+  font-size: 11px;
+}
+.rt-chart .rt-row-label {
+  fill: var(--text-dim);
+  font-size: 13px;
+  font-weight: 600;
+}
+.rt-chart .rt-row-label.final {
+  fill: var(--text);
+  font-weight: 800;
+}
+.rt-chart .rt-bar,
+.rt-chart .rt-cap {
+  stroke: var(--text-faint);
+  stroke-width: 2;
+}
+.rt-chart .rt-bar.final,
+.rt-chart .rt-cap.final {
+  stroke: var(--accent);
+  stroke-width: 3;
+}
+.rt-chart .rt-dot {
+  fill: var(--text-dim);
+  stroke: var(--bg-2);
+  stroke-width: 2;
+}
+.rt-chart .rt-dot.final {
+  fill: var(--accent-hi);
+}
+.rt-chart .rt-dot-label {
+  fill: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+}
+.rt-chart .rt-final-band {
+  fill: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+.rt-chart .rt-final-line {
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-dasharray: 5 4;
+}
+.rt-chart .rt-trend {
+  fill: none;
+  stroke: var(--text-faint);
+  stroke-width: 1.5;
+}
+.rt-chart .rt-game-dot.win {
+  fill: var(--good);
+}
+.rt-chart .rt-game-dot.draw {
+  fill: var(--text-faint);
+}
+.rt-chart .rt-game-dot.loss {
+  fill: var(--bg-2);
+  stroke: var(--red);
+  stroke-width: 2.5;
+}
+.rt-fineprint {
+  margin-top: 20px;
+}
+.rt-fineprint ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+/* ---- what to work on ----------------------------------------------------------------------- */
+.rt-suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 14px;
+}
+.rt-suggestion {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 14px;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-3);
+}
+.rt-suggestion h3 {
+  margin-bottom: 4px;
+}
+.rt-suggestion p {
+  margin: 0 0 10px;
+}
+.rt-suggestion-no {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.rt-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+.rt-stat {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-3);
+  border-left: 4px solid var(--text-faint);
+}
+.rt-stat.good {
+  border-left-color: var(--good);
+}
+.rt-stat.warn {
+  border-left-color: var(--gold);
+}
+.rt-stat.bad {
+  border-left-color: var(--red);
+}
+.rt-stat-value {
+  font-size: 24px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.rt-stat-value.small-text {
+  font-size: 19px;
+  padding-top: 5px;
+}
+.rt-phases {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 8px 0;
+}
+.rt-phase {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr) 48px 70px;
+  align-items: center;
+  gap: 12px;
+}
+.rt-phase .progress {
+  height: 12px;
+}
+.rt-phase-value {
+  font-weight: 800;
+  text-align: right;
+}
+.rt-openings {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 8px 0;
+}
+.rt-openings-head,
+.rt-opening-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 60px 70px 80px;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 12px;
+}
+.rt-openings-head {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+}
+.rt-opening-row {
+  border-radius: var(--radius-sm);
+  background: var(--bg-3);
+}
+.rt-opening-row.yours {
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+.rt-opening-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* ---- phone ---------------------------------------------------------------------------------- */
+@media (max-width: 820px) {
+  /* charts keep a readable size on a phone and scroll sideways inside their card */
+  .rt-chart {
+    min-width: 500px;
+  }
+  .rt-elo {
+    font-size: 54px;
+  }
+  .rt-hero {
+    padding: 18px;
+  }
+  .rt-parts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rt-add-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rt-game {
+    grid-template-columns: 24px minmax(0, 1fr) auto;
+    grid-template-areas:
+      'check main actions'
+      'chip acc acc';
+    row-gap: 6px;
+  }
+  .rt-game .rt-game-check {
+    grid-area: check;
+  }
+  .rt-game .chip {
+    grid-area: chip;
+  }
+  .rt-game .rt-game-main {
+    grid-area: main;
+  }
+  .rt-game .rt-game-acc {
+    grid-area: acc;
+  }
+  .rt-game .rt-game-actions {
+    grid-area: actions;
+  }
+  .rt-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .rt-phase {
+    grid-template-columns: 90px minmax(0, 1fr) 44px;
+  }
+  .rt-phase-moves {
+    display: none;
+  }
+  .rt-openings-head,
+  .rt-opening-row {
+    grid-template-columns: minmax(0, 1fr) 44px 52px 54px;
+    gap: 8px;
+    padding: 8px;
+  }
+}

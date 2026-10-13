@@ -1,0 +1,881 @@
+/* ==========================================================================
+   Chess Coach — design system
+   Dark and calm, with its own look (Ocean and Ember). Use these tokens and classes everywhere so the whole
+   app looks like one product. Add feature-specific CSS next to the feature
+   (e.g. src/features/play/play.css) and build on the variables below.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ---- Ocean (default): ink-navy surfaces, azure + violet accent ---- */
+  --bg-0: #0d111c; /* page */
+  --bg-1: #131929; /* top bar, strips */
+  --bg-2: #1a2236; /* cards */
+  --bg-3: #242e47; /* hover, inputs */
+  --bg-4: #313d5c; /* pressed, borders on hover */
+  --line: #27314b;
+
+  --text: #eaf0ff;
+  --text-dim: #aab6d3;
+  --text-faint: #909cb8; /* at least 4.5:1 on cards, inputs and the page */
+
+  --accent: #6aa5ff; /* brand / primary buttons / active nav */
+  --accent-hi: #8dbbff;
+  --accent-lo: #4a86e6;
+  --accent-2: #a58bff; /* second colour used in gradients and glows */
+  --on-accent: #07162e; /* text on top of the accent colour */
+
+  /* status colours (same in every theme) */
+  --good: #5fd0a5;
+  --gold: #f4c05a;
+  --red: #ef6a5e;
+  --blue: #6aa5ff;
+
+  /* chess move quality */
+  --q-best: #5fd0a5;
+  --q-good: #8fcfb4;
+  --q-inaccuracy: #f4c05a;
+  --q-mistake: #ee9a45;
+  --q-blunder: #ef6a5e;
+
+  /* board colours: set from JS (lib/themes.ts BOARD_THEMES) — these are just the fallback */
+  --sq-light: #dfe8f1;
+  --sq-dark: #7d9cb8;
+  --sq-last: rgba(255, 214, 90, 0.45);
+  --sq-select: rgba(255, 214, 90, 0.6);
+
+  --radius: 18px;
+  --radius-sm: 12px;
+  --shadow: 0 14px 40px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.3);
+  --font: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Fraunces Variable', 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --topbar-h: 64px;
+  --page-glow: radial-gradient(1100px 520px at 85% -8%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 70%),
+    radial-gradient(900px 480px at -5% 0%, color-mix(in srgb, var(--accent-2) 9%, transparent), transparent 70%);
+}
+
+/* ---- Ember: espresso surfaces, apricot + coral accent ---- */
+:root[data-app-theme='ember'] {
+  --bg-0: #15100d;
+  --bg-1: #1c1511;
+  --bg-2: #251c17;
+  --bg-3: #33261f;
+  --bg-4: #46352b;
+  --line: #392a22;
+  --text: #fbf1e6;
+  --text-dim: #d4c0ab;
+  --text-faint: #ad9781;
+  --accent: #ffa24c;
+  --accent-hi: #ffb877;
+  --accent-lo: #e0832b;
+  --accent-2: #ff7a6b;
+  --on-accent: #2a1403;
+  --blue: #e9a15a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: var(--page-glow), var(--bg-0);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 0.4em;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+p {
+  margin: 0 0 0.8em;
+}
+a {
+  color: var(--accent-hi);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+:focus-visible {
+  outline: 2px solid var(--accent-hi);
+  outline-offset: 2px;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-4);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------------------------------------------------------------- app shell */
+.app {
+  min-height: 100%;
+}
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: var(--topbar-h);
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 0 190px 0 28px; /* right side leaves room for the floating zen button */
+  background: color-mix(in srgb, var(--bg-0) 78%, transparent);
+  backdrop-filter: blur(16px) saturate(1.3);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  flex: none;
+}
+.brand:hover {
+  text-decoration: none;
+}
+.brand svg {
+  color: var(--accent);
+}
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 14.5px;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-link:hover {
+  background: var(--bg-2);
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-link.active {
+  background: color-mix(in srgb, var(--accent) 16%, var(--bg-2));
+  color: var(--accent-hi);
+}
+.nav-link svg {
+  flex: none;
+}
+.nav-spacer {
+  flex: 1;
+}
+.main {
+  min-width: 0;
+}
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 32px 72px;
+}
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.page-head p {
+  margin: 0;
+  color: var(--text-dim);
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+/* ------------------------------------------------------------------ layouts */
+.grid {
+  display: grid;
+  gap: 16px;
+}
+.grid.cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid.cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid.cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.row.wrap {
+  flex-wrap: wrap;
+}
+.row.between {
+  justify-content: space-between;
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.spacer {
+  flex: 1;
+}
+
+/* Board on the left, side panel on the right. The board keeps to the screen height. */
+.board-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 24px;
+  align-items: start;
+}
+.board-col {
+  width: min(100%, calc(100vh - 170px));
+  min-width: 300px;
+  margin: 0 auto;
+}
+.side-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* -------------------------------------------------------------------- cards */
+.card {
+  /* only a faint sheen at the top: more white made cards look grey and cut text contrast */
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg-2) 95%, white), var(--bg-2));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.card.flush {
+  padding: 0;
+  overflow: hidden;
+}
+.card.interactive {
+  transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+  cursor: pointer;
+  color: inherit;
+}
+.card.interactive:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3), 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent);
+  text-decoration: none;
+}
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin-bottom: 12px;
+}
+.muted {
+  color: var(--text-dim);
+}
+.faint {
+  color: var(--text-faint);
+}
+.small {
+  font-size: 13px;
+}
+.big-number {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* ------------------------------------------------------------------ buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-weight: 650;
+  font-size: 14.5px;
+  background: var(--bg-2);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.08s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+.btn:hover {
+  background: var(--bg-3);
+  border-color: var(--bg-4);
+  text-decoration: none;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn:disabled,
+.btn[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+.btn.primary {
+  background: linear-gradient(135deg, var(--accent-hi), var(--accent) 45%, var(--accent-lo));
+  border-color: transparent;
+  color: var(--on-accent);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.btn.primary:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--accent) 32%, transparent);
+}
+.btn.danger {
+  background: color-mix(in srgb, var(--red) 18%, var(--bg-2));
+  border-color: color-mix(in srgb, var(--red) 35%, transparent);
+  color: #ffd2cc;
+}
+.btn.ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-dim);
+}
+.btn.ghost:hover {
+  background: var(--bg-2);
+  color: var(--text);
+}
+.btn.big {
+  padding: 14px 28px;
+  font-size: 16.5px;
+}
+.btn.small {
+  padding: 6px 14px;
+  font-size: 13px;
+}
+.btn.icon {
+  padding: 10px;
+}
+
+/* ------------------------------------------------------- chips, badges etc */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--bg-3);
+  color: var(--text-dim);
+  font-size: 12.5px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+.chip.green {
+  background: rgba(111, 191, 115, 0.16);
+  color: var(--good);
+}
+.chip.gold {
+  background: rgba(240, 185, 74, 0.16);
+  color: var(--gold);
+}
+.chip.red {
+  background: rgba(228, 87, 75, 0.16);
+  color: #ff8a7f;
+}
+.chip.blue {
+  background: rgba(94, 163, 234, 0.16);
+  color: var(--blue);
+}
+button.chip {
+  cursor: pointer;
+}
+button.chip:hover {
+  border-color: var(--bg-4);
+}
+button.chip.selected,
+.chip.selected {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+.tab {
+  padding: 10px 16px;
+  background: none;
+  border: 0;
+  color: var(--text-dim);
+  font-weight: 700;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+}
+.tab:hover {
+  color: var(--text);
+}
+.tab.active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+.progress {
+  height: 8px;
+  background: var(--bg-3);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.field > label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+.input,
+.select,
+.textarea {
+  background: var(--bg-0);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  width: 100%;
+}
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+.textarea {
+  min-height: 140px;
+  font-family: var(--mono);
+  font-size: 13px;
+  resize: vertical;
+}
+
+.callout {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
+}
+.callout.warn {
+  background: rgba(240, 185, 74, 0.1);
+  border-color: rgba(240, 185, 74, 0.3);
+}
+.callout.bad {
+  background: rgba(228, 87, 75, 0.1);
+  border-color: rgba(228, 87, 75, 0.3);
+}
+
+/* player strip above / below a board */
+.player-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 4px;
+}
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  background: var(--bg-3);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: var(--text-dim);
+  flex: none;
+}
+.clock {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 22px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: var(--bg-3);
+  min-width: 90px;
+  text-align: center;
+}
+.clock.active {
+  background: var(--text);
+  color: #1c1b19;
+}
+.clock.low {
+  background: var(--red);
+  color: #fff;
+}
+
+/* ------------------------------------------------------------------- board */
+.board-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  user-select: none;
+  touch-action: none;
+}
+.board-with-eval {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 10px;
+}
+.eval-bar {
+  position: relative;
+  width: 30px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #3a4252;
+  align-self: stretch;
+}
+.eval-bar .white-part {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f0efe9;
+  transition: height 0.3s ease;
+}
+.eval-bar.flipped .white-part {
+  bottom: auto;
+  top: 0;
+}
+.eval-bar .label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-size: 11px;
+  font-weight: 800;
+  text-align: center;
+  padding: 4px 0;
+  letter-spacing: -0.02em;
+}
+.eval-bar .label.top {
+  top: 0;
+  color: #f0efe9;
+}
+.eval-bar .label.bottom {
+  bottom: 0;
+  color: #262522;
+}
+
+.promo-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.55);
+  display: grid;
+  place-items: center;
+}
+.promo-box {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: var(--bg-2);
+  box-shadow: var(--shadow);
+}
+.promo-box button {
+  width: 68px;
+  height: 68px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--bg-3);
+  cursor: pointer;
+  padding: 4px;
+}
+.promo-box button:hover {
+  background: var(--accent);
+}
+
+/* move list */
+.movelist {
+  display: grid;
+  grid-template-columns: 38px 1fr 1fr;
+  font-family: var(--mono);
+  font-size: 14px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.movelist .no {
+  color: var(--text-faint);
+  padding: 4px 6px;
+  background: rgba(0, 0, 0, 0.12);
+}
+.movelist .mv {
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.movelist .mv:hover {
+  background: var(--bg-3);
+}
+.movelist .mv.current {
+  background: var(--bg-4);
+  color: #fff;
+}
+
+/* quality colours for move labels */
+.q-best {
+  color: var(--q-best);
+}
+.q-good {
+  color: var(--q-good);
+}
+.q-inaccuracy {
+  color: var(--q-inaccuracy);
+}
+.q-mistake {
+  color: var(--q-mistake);
+}
+.q-blunder {
+  color: var(--q-blunder);
+}
+
+/* ------------------------------------------------------------ responsive */
+@media (max-width: 1100px) {
+  .board-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .board-col {
+    width: min(100%, 640px);
+  }
+  .grid.cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* Laptop widths: the full nav does not fit next to the floating zen button, so drop the nav icons
+   and the "Zen" word to keep every link visible and clickable. */
+@media (min-width: 821px) and (max-width: 1100px) {
+  .topbar {
+    gap: 14px;
+    padding-right: 80px;
+  }
+  .nav-link {
+    padding: 8px 10px;
+  }
+  .nav-link svg {
+    display: none;
+  }
+  .zen-toggle span {
+    display: none;
+  }
+}
+@media (max-width: 820px) {
+  .topbar {
+    padding: 0 76px 0 16px;
+    gap: 12px;
+    /* a blurred (backdrop-filter) parent would trap the fixed bottom nav inside the top bar */
+    backdrop-filter: none;
+    background: var(--bg-0);
+  }
+  /* the links move to the bottom bar, so the top bar has room for the name */
+  .brand {
+    font-size: 19px;
+  }
+  .topnav {
+    position: fixed;
+    inset: auto 0 0 0;
+    height: auto;
+    min-height: 64px;
+    justify-content: space-around;
+    /* keep the links above the iPhone home bar */
+    padding: 6px 8px max(6px, env(safe-area-inset-bottom));
+    z-index: 50;
+    background: color-mix(in srgb, var(--bg-1) 94%, transparent);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid var(--line);
+    gap: 0;
+  }
+  .nav-link {
+    flex-direction: column;
+    gap: 2px;
+    font-size: 10.5px;
+    padding: 6px 8px;
+    border-radius: 12px;
+  }
+  .app {
+    padding-bottom: 64px;
+  }
+  .page {
+    padding: 20px 16px 40px;
+  }
+  .grid.cols-2,
+  .grid.cols-3,
+  .grid.cols-4 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  h1 {
+    font-size: 30px;
+  }
+}
+
+/* ------------------------------------------------------------------ zen mode
+   Zen mode = calm, distraction-free. The navigation, evaluation, side panels and clutter disappear;
+   only the board and the essential controls stay.
+   Rules for feature pages:
+     - put class "zen-hide" on anything non-essential (evaluation bar, move list, stats, long text)
+     - put class "zen-keep" on the panels inside .side-col that MUST stay (main buttons, the prompt/feedback)
+   Pages need no other zen-specific code. */
+.zen-toggle {
+  position: fixed;
+  top: 12px;
+  right: 24px;
+  z-index: 70;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-1) 88%, transparent);
+  backdrop-filter: blur(6px);
+  color: var(--text-dim);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+.zen-toggle:hover {
+  color: var(--text);
+  border-color: var(--bg-4);
+}
+:root[data-zen='on'] .zen-toggle {
+  background: transparent;
+  opacity: 0.55;
+}
+:root[data-zen='on'] .zen-toggle:hover {
+  opacity: 1;
+}
+:root[data-zen='on'] body {
+  background: radial-gradient(ellipse at 50% 30%, var(--bg-1) 0%, var(--bg-0) 70%);
+}
+:root[data-zen='on'] .topbar,
+:root[data-zen='on'] .topnav,
+:root[data-zen='on'] .zen-hide,
+:root[data-zen='on'] .eval-bar,
+:root[data-zen='on'] .page-head {
+  display: none !important;
+}
+:root[data-zen='on'] .app {
+  grid-template-columns: 1fr;
+  padding-bottom: 0;
+}
+:root[data-zen='on'] .page {
+  max-width: 900px;
+  padding-top: 28px;
+}
+:root[data-zen='on'] .board-with-eval {
+  grid-template-columns: minmax(0, 1fr);
+}
+:root[data-zen='on'] .board-layout {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 16px;
+}
+:root[data-zen='on'] .board-col {
+  width: min(100%, calc(100vh - 170px));
+}
+:root[data-zen='on'] .side-col {
+  width: min(100%, 560px);
+}
+:root[data-zen='on'] .side-col > :not(.zen-keep) {
+  display: none !important;
+}
+:root[data-zen='on'] .card {
+  background: transparent;
+  border-color: transparent;
+}
+:root[data-zen='on'] .board-frame {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+@media (max-width: 820px) {
+  .zen-toggle span {
+    display: none;
+  }
+  .zen-toggle {
+    right: 14px;
+  }
+}
