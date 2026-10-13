@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 import { Chess, type Square } from 'chess.js'
-import { Chessboard, defaultPieces } from 'react-chessboard'
-import type { BoardArrow, BoardHighlight, Side } from '../types'
+import { Chessboard } from 'react-chessboard'
+import { DEFAULT_PROFILE, type BoardArrow, type BoardHighlight, type Side } from '../types'
+import { KEYS, useStored } from '../lib/storage'
+import { piecesFor } from '../lib/pieceSets'
 
 // The one chessboard used everywhere in the app. It is "controlled": the parent owns the position (fen)
 // and this component just draws it, lets the user move pieces (click or drag) and reports moves.
@@ -33,7 +35,7 @@ export interface BoardProps {
   lastMove?: [string, string] | null
   arrows?: BoardArrow[]
   highlights?: BoardHighlight[]
-  /** Show dots for legal moves of the selected piece (default true) */
+  /** Show dots for legal moves of the selected piece (default: the user's setting) */
   showLegalMoves?: boolean
   showCoordinates?: boolean
   /** Let the user draw their own arrows with right-click (default false) */
@@ -74,13 +76,15 @@ export default function Board({
   lastMove,
   arrows,
   highlights,
-  showLegalMoves = true,
+  showLegalMoves: showLegalMovesProp,
   showCoordinates = true,
   allowUserArrows = false,
   animationMs = 180,
   className,
   hintSquares,
 }: BoardProps) {
+  const [profile] = useStored(KEYS.profile, DEFAULT_PROFILE)
+  const pieces = useMemo(() => piecesFor(profile.pieceSet), [profile.pieceSet])
   const game = useMemo(() => {
     try {
       return new Chess(fen)
@@ -89,6 +93,7 @@ export default function Board({
     }
   }, [fen])
 
+  const showLegalMoves = showLegalMovesProp ?? profile.showLegalMoves
   const [selected, setSelected] = useState<Square | null>(null)
   const [promo, setPromo] = useState<{ from: Square; to: Square } | null>(null)
 
@@ -249,7 +254,7 @@ export default function Board({
             }
             setSelected(null)
           },
-          pieces: defaultPieces,
+          pieces,
         }}
       />
       {promo && (
@@ -257,7 +262,7 @@ export default function Board({
           <div className="promo-box" onClick={(e) => e.stopPropagation()}>
             {PROMO_PIECES.map((p) => {
               const key = `${promoColor}${p.toUpperCase()}`
-              const Piece = defaultPieces[key]
+              const Piece = pieces[key]
               return (
                 <button
                   key={p}

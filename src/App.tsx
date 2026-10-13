@@ -3,6 +3,8 @@ import { NavLink, Route, Routes } from 'react-router-dom'
 import { BarChart3, BookOpen, Crosshair, Home as HomeIcon, Puzzle, Settings as SettingsIcon, Swords } from 'lucide-react'
 import { DEFAULT_PROFILE } from './types'
 import { KEYS, useStored } from './lib/storage'
+import { getBoardTheme } from './lib/themes'
+import ZenToggle from './components/ZenToggle'
 import Home from './pages/Home'
 import Play from './pages/Play'
 import Openings from './pages/Openings'
@@ -25,13 +27,19 @@ const NAV = [
 export default function App() {
   const [profile] = useStored(KEYS.profile, DEFAULT_PROFILE)
 
-  // board colour theme is a css attribute on <html>
+  // app theme, board colours and zen mode are applied on <html> so every page picks them up
   useEffect(() => {
-    document.documentElement.dataset.boardTheme = profile.boardTheme
-  }, [profile.boardTheme])
+    const root = document.documentElement
+    root.dataset.appTheme = profile.appTheme
+    root.dataset.zen = profile.zenMode ? 'on' : 'off'
+    const t = getBoardTheme(profile.boardTheme)
+    root.style.setProperty('--sq-light', t.light)
+    root.style.setProperty('--sq-dark', t.dark)
+  }, [profile.appTheme, profile.boardTheme, profile.zenMode])
 
   return (
     <div className="app">
+      <ZenToggle />
       <nav className="sidebar" aria-label="Main">
         <NavLink to="/" className="brand">
           <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden>

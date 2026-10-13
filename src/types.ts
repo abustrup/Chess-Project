@@ -239,7 +239,14 @@ export interface Profile {
   lichessUsername: string
   /** What the user says their rating currently is (starting point for the estimate). */
   selfRating: number
-  boardTheme: 'green' | 'brown' | 'blue' | 'purple'
+  /** App colour scheme: 'ocean' (cool blue, default) or 'ember' (warm). */
+  appTheme: 'ocean' | 'ember'
+  /** One of the ids in lib/themes.ts BOARD_THEMES */
+  boardTheme: string
+  /** One of the ids in lib/pieceSets.ts PIECE_SETS */
+  pieceSet: string
+  /** Zen mode: hides everything except the board and the essential controls. */
+  zenMode: boolean
   soundOn: boolean
   showLegalMoves: boolean
 }
@@ -248,7 +255,10 @@ export const DEFAULT_PROFILE: Profile = {
   name: 'Player',
   lichessUsername: '',
   selfRating: 1100,
-  boardTheme: 'green',
+  appTheme: 'ocean',
+  boardTheme: 'ocean',
+  pieceSet: 'classic',
+  zenMode: false,
   soundOn: true,
   showLegalMoves: true,
 }
