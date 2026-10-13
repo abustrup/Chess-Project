@@ -5,8 +5,14 @@
 // one, sometimes a slightly worse one, now and then an oversight. That feels much more like playing
 // a human than an engine that suddenly drops its queen at random.
 //
-// The Elo numbers are only APPROXIMATE (they are our own scale, tuned by playing the levels against
-// each other and against Stockfish's built-in limited-strength mode). Don't treat them as exact.
+// The Elo numbers are only APPROXIMATE. How they were chosen (Node experiment, 24-30 games per pairing):
+//  - every level beats the one below it clearly (about 75-90% of the games), so the order is right;
+//  - against Stockfish's built-in limited-strength mode (UCI_Elo, a rating scale from engine lists) the levels land at
+//    roughly Beginner <900, Casual ~1000, Club ~1170, Improver ~1380, Strong ~1650-1750, Expert ~2050 on that scale.
+//    The labels are about 70 lower than that, because Lichess ratings of people run a little differently.
+//  - measured over 60-move self-play games, Beginner and Casual make a clear blunder about once every 10 moves, Club about
+//    once every 25, Improver once every 35, Strong about once every 100 moves.
+// The labels are a guide for choosing an opponent, not a promise. Real people vary a lot.
 
 export interface BotLevel {
   id: string
@@ -92,10 +98,10 @@ export const BOT_LEVELS: BotLevel[] = [
     name: 'Expert',
     elo: 1900,
     blurb: 'Sharp and careful. Punishes almost every mistake.',
-    search: { depth: 5, multipv: 4, movetime: 900 },
-    temperature: 50,
-    maxLoss: 280,
-    oversight: 0.012,
+    search: { depth: 4, multipv: 4, movetime: 900 },
+    temperature: 80,
+    maxLoss: 380,
+    oversight: 0.03,
     safety: 'mate-and-queen',
   },
   {

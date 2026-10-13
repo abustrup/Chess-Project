@@ -697,6 +697,88 @@ const krause = `
 13. Nxd5 {White trades.}
 `
 
+const slavAccepted = `
+1. d4 {White opens with the queen's pawn.}
+1... d5 {You take your share of the centre. [%cal Gd5e4]}
+2. c4 {The Queen's Gambit.}
+2... c6 {The Slav. Your c6-pawn protects d5 and keeps the bishop's road open. [%cal Gc6d5,Gc8f5]}
+3. Nf3 {White develops.}
+3... Nf6 {You develop with a purpose: the knight guards d5. [%cal Gf6d5]}
+4. Nc3 {White adds a second attacker on d5.}
+4... dxc4 {You take the pawn on c4. Here White does not play 5.a4, so you have a new idea: try to KEEP the pawn with ...b5. [%cal Gd5c4]}
+5. e3 {White plans to win the pawn back with Bxc4.}
+(5. e4 {White grabs the centre at once and offers a pawn.}
+5... b5 {Hold on to the pawn. The b5-pawn supports c4. White now has a big centre, but you have an extra pawn and a solid position. [%cal Gb5c4]}
+6. e5 {White pushes the pawn and attacks your knight.}
+6... Nd5 {The knight jumps to a strong square. It is protected by the c6-pawn and it attacks the knight on c3. [%cal Gd5c3]}
+7. a4 {White attacks your pawn chain.}
+7... e6 {Protect the knight on d5 once more and open the bishop's diagonal. White's pieces have no clear attack. [%csl Gc6,Gd5,Ge6]}
+8. Be2 {White develops.}
+8... a5 {Support the b5-pawn so that axb5 is no longer a worry. Your extra pawn is safe. [%cal Ga5b4]}
+9. O-O {White castles.}
+9... Be7 {Develop the bishop and get ready to castle. [%cal Ge7h4]}
+10. h4 {White prepares to attack on the king-side.}
+10... O-O {Castle! Your king is safe, and your pieces are ready to answer any attack.}
+11. Bg5 {White pins the knight? No, the bishop attacks your bishop on e7, so the game gets sharper.}
+)
+5... b5 {The key move: keep the pawn! Your pawn on b5 protects the c4-pawn. The c4-pawn also cramps White: it controls b3 and d3. [%cal Gb5c4]}
+6. a4 {White attacks your b5-pawn.}
+(6. Be2 {White develops first and plans to take on c4 next.}
+6... Bb7 {Develop the bishop to the long diagonal. It eyes g2 and the centre. [%cal Gb7g2]}
+7. O-O {White castles.}
+7... e6 {Close the centre. Your pieces are well coordinated.}
+8. a4 {White attacks b5 again.}
+8... b4 {Push the pawn! It attacks the knight on c3. Your pawn chain a6, b4... gains space on the queenside. [%cal Gb4c3]}
+9. Nb1 {The knight retreats.}
+9... Be7 {Develop the bishop and prepare to castle. [%cal Ge7h4]}
+10. Nbd2 {White develops the knight.}
+10... c5 {Now is the time to strike in the centre, even if it means giving the pawn back. You get a healthy position and your pieces are active. [%cal Gc5d4]}
+11. Nxc4 {White takes the c4-pawn back.}
+11... O-O {Castle! The extra pawn is gone, but your game is solid and equal.}
+12. b3 {White opens the bishop. The position is balanced.}
+)
+(6. b3 {White sacrifices a pawn for lines. Take it!}
+6... cxb3 {Take the pawn with your c-pawn. You are now two pawns up for the moment. White gets some open lines, so be careful. [%cal Gc4b3]}
+7. axb3 {White recaptures.}
+7... e6 {Close the centre and open your bishop. Now you will develop calmly with ...Bb7 and ...Be7.}
+8. Bd3 {White develops.}
+8... Bb7 {Develop the bishop to the long diagonal. [%cal Gb7g2]}
+9. O-O {White castles.}
+9... a6 {A useful waiting move. It protects the b5-pawn and gives your bishop a retreat. [%cal Ga6b5]}
+10. Bb2 {White develops.}
+)
+6... b4 {Push the pawn! It attacks the knight on c3. [%cal Gb4c3]}
+7. Na2 {The knight goes to a2, where it eyes the b4 pawn.}
+(7. Bxc4? {A mistake! White forgets that the knight on c3 is attacked.}
+7... bxc3 {Take the knight! You win a whole piece.}
+8. bxc3 {White recaptures a pawn, but is a piece down.}
+8... e6 {Close the centre and develop. You are a full piece ahead.}
+9. O-O {White castles.}
+9... Be7 {Develop the bishop and get ready to castle.}
+10. Qe2 {White develops the queen. You are winning: just castle and trade pieces.}
+)
+(7. Nb1 {The knight retreats. It is passive, but it can come out again via d2.}
+7... Bb7 {Develop the bishop to the long diagonal. [%cal Gb7g2]}
+8. Bxc4 {White takes the pawn back.}
+8... e6 {Close the centre. Your pieces are well placed.}
+9. Nbd2 {White develops.}
+9... Nbd7 {Develop the last minor piece.}
+10. Qe2 {White develops the queen.}
+10... c5 {Strike in the centre. This is the right time to break open the position, because your pieces are all developed. [%cal Gc5d4]}
+11. a5 {White takes space.}
+)
+7... e6 {Protect the b4-pawn with the bishop (the f8-b4 diagonal is now open), and free your bishop. [%cal Gf8b4]}
+8. Bxc4 {White takes the pawn back. Material is equal again.}
+8... Bb7 {Develop the bishop to the long diagonal. [%cal Gb7g2]}
+9. O-O {White castles.}
+9... Nbd7 {Develop the last minor piece. [%cal Gd7b6]}
+10. Qe2 {White develops the queen.}
+10... Be7 {Develop the bishop and prepare to castle. [%cal Ge7h4]}
+11. Rd1 {White takes the d-file.}
+11... O-O {Castle! Your king is safe, and you are fully developed.}
+12. b3 {White prepares to develop the bishop. The position is balanced.}
+`
+
 export const slavCourse: OpeningCourse = {
   id: 'slav',
   name: 'Slav Defence',
@@ -763,6 +845,14 @@ export const slavCourse: OpeningCourse = {
         'In the main Slav White can jump 6.Ne5 instead of 6.e3. Meet it with ...Nbd7 and ...Nb6, a simple way to keep the pawn count equal.',
       difficulty: 2,
       pgn: krause,
+    },
+    {
+      id: 'slav-accepted',
+      title: 'Slav accepted: keep the pawn with ...b5',
+      summary:
+        'After 4...dxc4 White does not play 5.a4 but 5.e3 or 5.e4. You try to hold the extra pawn with ...b5 and hand it back only when it helps you.',
+      difficulty: 3,
+      pgn: slavAccepted,
     },
   ] satisfies OpeningChapter[],
 }
