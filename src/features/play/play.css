@@ -1,0 +1,579 @@
+/* Play page. Built on the shared tokens (--bg-*, --accent, --text-*) so both app themes work. */
+
+/* ================================================================ setup screen */
+
+.play-setup {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 20px;
+  align-items: start;
+}
+.play-summary {
+  position: sticky;
+  top: 20px;
+}
+.card.pl-resume {
+  margin-bottom: 20px;
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  background: color-mix(in srgb, var(--accent) 9%, var(--bg-2));
+}
+.pl-step-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  margin-bottom: 14px;
+}
+.pl-step-no {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--bg-4);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* big selectable options (colour, level, opening, variation) */
+.pl-choices {
+  display: grid;
+  gap: 10px;
+}
+.pl-choices.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.pl-choices.levels {
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+}
+.pl-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 14px;
+  text-align: left;
+  color: var(--text);
+  background: var(--bg-3);
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.1s, border-color 0.1s, transform 0.1s;
+}
+.pl-choice:hover:not(:disabled) {
+  background: var(--bg-4);
+}
+.pl-choice.selected {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, var(--bg-2));
+}
+.pl-choice:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.pl-choice.chapter {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 14px;
+}
+.pl-chapter-title {
+  font-weight: 600;
+}
+.pl-elo {
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--accent-hi);
+}
+.pl-meter {
+  display: flex;
+  gap: 3px;
+  width: 100%;
+  margin: 2px 0 4px;
+}
+.pl-meter i {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--bg-4);
+}
+.pl-choice.selected .pl-meter i {
+  background: color-mix(in srgb, var(--accent) 30%, var(--bg-4));
+}
+.pl-meter i.on,
+.pl-choice.selected .pl-meter i.on {
+  background: var(--accent);
+}
+.pl-king {
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 4px;
+}
+.pl-king-pair {
+  position: relative;
+}
+.pl-king-pair > span {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+}
+.pl-king-pair > span:first-child {
+  left: 0;
+  top: 0;
+}
+.pl-king-pair > span:last-child {
+  right: 0;
+  bottom: 0;
+}
+.pl-mode-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--bg-4);
+  color: var(--accent-hi);
+  margin-bottom: 4px;
+}
+.pl-mode-icon.small {
+  width: 30px;
+  height: 30px;
+  margin: 0;
+}
+.pl-choice.selected .pl-mode-icon {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.pl-opening-detail {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  gap: 18px;
+}
+.pl-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pl-chip {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  background: var(--bg-3);
+  color: var(--text);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.pl-chip.big {
+  flex-direction: row;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 15px;
+}
+.pl-chip:hover:not(:disabled) {
+  background: var(--bg-4);
+}
+.pl-chip.selected {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.pl-chip:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.pl-chip-sub {
+  font-size: 11.5px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+.pl-chapters {
+  display: grid;
+  gap: 8px;
+}
+.pl-chapter-info {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+}
+.pl-chapter-info p {
+  margin: 0 0 6px;
+}
+.pl-moves {
+  font-family: var(--mono);
+  color: var(--text);
+}
+.pl-dots {
+  display: inline-flex;
+  gap: 4px;
+  flex: none;
+}
+.pl-dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg-4);
+}
+.pl-dots i.on {
+  background: var(--accent);
+}
+.pl-summary-list {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.pl-summary-list > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.pl-summary-list dt {
+  color: var(--text-faint);
+  font-size: 13px;
+  font-weight: 700;
+}
+.pl-summary-list dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 600;
+}
+.pl-start {
+  width: 100%;
+}
+
+/* on / off switch */
+.pl-switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.pl-switch input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.pl-switch-track {
+  position: relative;
+  flex: none;
+  width: 38px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--bg-4);
+  transition: background 0.15s;
+}
+.pl-switch-track::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text);
+  transition: transform 0.15s, background 0.15s;
+}
+.pl-switch input:checked + .pl-switch-track {
+  background: var(--accent);
+}
+.pl-switch input:checked + .pl-switch-track::after {
+  transform: translateX(16px);
+  background: var(--on-accent);
+}
+.pl-switch input:focus-visible + .pl-switch-track {
+  outline: 2px solid var(--accent-hi);
+  outline-offset: 2px;
+}
+
+/* =============================================================== game screen */
+
+.play-page .play-board-col {
+  /* leaves room for the top bar and the two player strips so the whole board fits on screen */
+  width: min(100%, calc(100vh - 235px));
+}
+.play-board-col.with-eval > .player-strip {
+  margin-left: 32px; /* lines the strips up with the board, not the evaluation bar */
+}
+.player-strip.pl-strip {
+  min-height: 52px;
+  padding: 6px 2px;
+}
+.player-strip .pl-avatar {
+  background: var(--bg-3);
+  color: var(--accent-hi);
+  font-size: 18px;
+}
+.pl-who {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pl-name {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.pl-captured {
+  display: flex;
+  align-items: center;
+  min-height: 20px;
+  gap: 1px;
+}
+.pl-captured.empty {
+  display: none;
+}
+.pl-cap {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+}
+.pl-cap.overlap {
+  margin-left: -9px;
+}
+.pl-lead {
+  margin-left: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+.pl-thinking {
+  display: inline-flex;
+  gap: 3px;
+  margin-left: 8px;
+}
+.pl-thinking i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-hi);
+  animation: pl-bounce 1s infinite ease-in-out;
+}
+.pl-thinking i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.pl-thinking i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@keyframes pl-bounce {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+.pl-loading {
+  text-align: center;
+  padding-top: 6px;
+}
+
+.card.pl-actions {
+  padding: 12px;
+}
+.pl-action-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.pl-action-row .btn {
+  padding: 11px 8px;
+}
+.pl-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--bg-0);
+  color: var(--text-dim);
+  font-size: 12px;
+  font-weight: 800;
+}
+.pl-confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 700;
+}
+.pl-more-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.pl-switches {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.pl-nav {
+  margin-top: 10px;
+}
+.pl-opening-name {
+  font-size: 17px;
+  font-weight: 700;
+}
+.pl-lesson {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.pl-messages {
+  gap: 10px;
+}
+.pl-callout-icon {
+  flex: none;
+  margin-top: 1px;
+  color: var(--gold);
+}
+.pl-hint .pl-callout-icon {
+  color: var(--accent-hi);
+}
+.pl-note {
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.pl-note-text {
+  flex: 1;
+  font-size: 14px;
+}
+
+/* ============================================================ result pop-up */
+
+.pl-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(8, 12, 18, 0.62);
+  backdrop-filter: blur(3px);
+}
+.pl-modal {
+  position: relative;
+  width: min(440px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 30px 26px 24px;
+  text-align: center;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+.pl-modal .row {
+  justify-content: center;
+}
+.pl-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.pl-result-icon {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--bg-3);
+  color: var(--gold);
+}
+.pl-modal.win .pl-result-icon {
+  background: color-mix(in srgb, var(--gold) 20%, var(--bg-2));
+}
+.pl-modal.loss .pl-result-icon {
+  color: var(--text-dim);
+}
+.pl-modal.draw .pl-result-icon {
+  color: var(--accent-hi);
+}
+.pl-result-title {
+  font-size: 30px;
+  margin: 0;
+}
+
+/* ================================================================== zen mode */
+
+:root[data-zen='on'] .play-page .play-board-col {
+  width: min(100%, calc(100vh - 255px));
+}
+:root[data-zen='on'] .card.pl-actions {
+  padding: 0;
+}
+:root[data-zen='on'] .player-strip.pl-strip {
+  min-height: 44px;
+}
+
+/* ============================================================== small screens */
+
+@media (max-width: 1100px) {
+  .play-setup {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .play-summary {
+    position: static;
+  }
+  .play-page .play-board-col {
+    width: min(100%, 640px);
+  }
+}
+@media (max-width: 820px) {
+  :root[data-zen='on'] .page.play-page {
+    padding-top: 54px; /* leaves room for the floating zen button */
+  }
+  .pl-choices.three {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pl-choices.three .pl-choice {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  .pl-choices.three .pl-choice > .pl-king,
+  .pl-choices.three .pl-choice > .pl-mode-icon {
+    margin: 0;
+    flex: none;
+  }
+  .pl-choices.levels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pl-modal {
+    padding: 26px 18px 20px;
+  }
+  :root[data-zen='on'] .play-page .play-board-col {
+    width: min(100%, 640px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pl-thinking i {
+    animation: none;
+    opacity: 0.8;
+  }
+}

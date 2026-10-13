@@ -32,13 +32,14 @@ export interface Verdict {
 
 const PIECE_VALUE: Record<string, number> = { p: 1, n: 3, b: 3, r: 5, q: 9, k: 0 }
 
-/** Depths for the engine. Depth 10 is plenty to spot a puzzle whose "solution" is clearly not the best move. */
-const FIRST_MOVE_DEPTH = 10
+/** Engine depths. This is deep enough to spot a puzzle whose "solution" is clearly not the best move. */
+const FIRST_MOVE_DEPTH = 12
+const LATER_MOVE_DEPTH = 10
 const FINAL_POSITION_DEPTH = 8
 /** Safety net so one odd position cannot stall the whole build. */
 const MOVE_TIME_CAP_MS = 4000
 
-/** moves[1] may be this much worse than the best move (centipawns) and still count as "equally good". */
+/** The solution move may be this much worse than the engine's best (centipawns) and still count as "equally good". */
 const SAME_QUALITY_CP = 30
 /** The same idea in win chances, which is fairer when the position is already clearly won. */
 const SAME_QUALITY_WIN_PERCENT = 3
@@ -147,28 +148,35 @@ async function scoreAfterMove(
   return { cp: -lineScore(line), mating: line.mate != null && line.mate < 0 }
 }
 
-/** Check the first move you must find, and (only when needed) that the end of the line is good for you. */
-export async function engineCheck(engine: NodeEngine, p: CachedPuzzle, played: Replay): Promise<Verdict> {
-  const first = p.moves[1]
-  const res = await engine.go({
-    fen: played.startFen,
-    depth: FIRST_MOVE_DEPTH,
-    multipv: 2,
-    movetime: MOVE_TIME_CAP_MS,
-  })
+/** Is `uci` a good move in `fen`? Returns null when yes, or a plain-words reason when not. */
+async function badMoveReason(engine: NodeEngine, fen: string, uci: string, depth: number): Promise<string | null> {
+  const res = await engine.go({ fen, depth, multipv: 2, movetime: MOVE_TIME_CAP_MS })
   const best = res.lines[0]
-  if (!best) return { id: p.id, ok: false, reason: 'engine gave no answer' }
+  if (!best) return 'engine gave no answer'
+  if (best.pv[0] === uci) return null
+  const second = res.lines[1]
+  const mine =
+    second && second.pv[0] === uci
+      ? { cp: lineScore(second), mating: isMateFor(second) }
+      : await scoreAfterMove(engine, fen, uci)
+  if (!mine) return 'could not score the solution move'
+  return equallyGood(best, mine) ? null : `engine prefers ${best.pv[0]} (${lineScore(best)}) over ${uci} (${mine.cp})`
+}
 
-  if (best.pv[0] !== first) {
-    const second = res.lines[1]
-    const mine =
-      second && second.pv[0] === first
-        ? { cp: lineScore(second), mating: isMateFor(second) }
-        : await scoreAfterMove(engine, played.startFen, first)
-    if (!mine) return { id: p.id, ok: false, reason: 'could not score the solution move' }
-    if (!equallyGood(best, mine)) {
-      return { id: p.id, ok: false, reason: `engine prefers ${best.pv[0]} (${lineScore(best)}) over ${first} (${mine.cp})` }
+/**
+ * Check every move YOU have to find (the first one with more care), and only when needed that the
+ * end of the line is good for you.
+ */
+export async function engineCheck(engine: NodeEngine, p: CachedPuzzle, played: Replay): Promise<Verdict> {
+  const chess = new Chess(played.startFen)
+  for (let i = 1; i < p.moves.length; i += 2) {
+    // Only one legal move? Then there is nothing to compare.
+    if (chess.moves().length > 1) {
+      const reason = await badMoveReason(engine, chess.fen(), p.moves[i], i === 1 ? FIRST_MOVE_DEPTH : LATER_MOVE_DEPTH)
+      if (reason) return { id: p.id, ok: false, reason: `move ${(i + 1) / 2}: ${reason}` }
     }
+    playUci(chess, p.moves[i])
+    if (p.moves[i + 1]) playUci(chess, p.moves[i + 1])
   }
 
   if (played.mate) return { id: p.id, ok: true, reason: 'ends in mate' }
