@@ -35,6 +35,10 @@ export default function App() {
     const t = getBoardTheme(profile.boardTheme)
     root.style.setProperty('--sq-light', t.light)
     root.style.setProperty('--sq-dark', t.dark)
+    root.style.setProperty('--sq-last', t.highlight ?? 'rgba(255, 214, 90, 0.45)')
+    root.style.setProperty('--sq-select', t.select ?? 'rgba(255, 214, 90, 0.6)')
+    root.style.setProperty('--coord-on-light', t.coordOnLight ?? t.dark)
+    root.style.setProperty('--coord-on-dark', t.coordOnDark ?? t.light)
   }, [profile.appTheme, profile.boardTheme, profile.zenMode])
 
   return (

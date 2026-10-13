@@ -92,7 +92,7 @@ const MAX_SHIFT = 700
 /** Pretend we already saw this many neighbouring "average" games so the spread of few games is not trusted blindly. */
 const SPREAD_PRIOR_GAMES = 4
 /** Typical game-to-game spread of the ACPL, as a share of its average (measured: see calibration.ts). */
-const ACPL_SPREAD_SHARE = 0.4
+const ACPL_SPREAD_SHARE = 0.43
 
 const clampElo = (v: number) => Math.max(MIN_ELO, Math.min(MAX_ELO, v))
 

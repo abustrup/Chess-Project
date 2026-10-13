@@ -154,7 +154,7 @@ function DrillSession({
               chapterTitle={chapter.title}
               chapterId={chapter.id}
               quiz={quiz}
-              slips={drill.slips}
+              slippedMoves={drill.slippedMoves}
               streak={state.streak}
             />
           )}
@@ -199,7 +199,7 @@ function PromptCard({ drill, course }: { drill: ReturnType<typeof useDrill>; cou
   const opponentName = colourName(userColour(course) === 'w' ? 'b' : 'w')
 
   return (
-    <section className="card op-prompt zen-keep" aria-live="polite">
+    <section className={`card op-prompt zen-keep ${finished ? 'done' : ''}`} aria-live="polite">
       {!finished && (
         <div className="op-coach-head">
           <span className={`op-tag ${yourTurn ? 'you' : 'them'}`}>{yourTurn ? 'Your move' : `${opponentName} is replying`}</span>
@@ -299,16 +299,17 @@ function CompleteCard({
   chapterTitle,
   chapterId,
   quiz,
-  slips,
+  slippedMoves,
   streak,
 }: {
   course: OpeningCourse
   chapterTitle: string
   chapterId: string
   quiz: boolean
-  slips: number
+  slippedMoves: string[]
   streak: number
 }) {
+  const slips = slippedMoves.length
   const clean = slips === 0
   return (
     <section className={`card op-complete zen-keep ${clean ? 'clean' : ''}`} aria-live="polite">
@@ -321,6 +322,11 @@ function CompleteCard({
           ? 'No mistakes. Well done!'
           : `You had ${slips} ${slips === 1 ? 'slip' : 'slips'} in this line. That is how you learn: it will come back soon so it sticks.`}
       </p>
+      {!clean && (
+        <p className="small muted">
+          Worth another look: <strong className="op-revisit">{slippedMoves.join(', ')}</strong>
+        </p>
+      )}
       {streak > 0 && (
         <p className="op-streak">
           <Flame size={16} aria-hidden /> {streak} clean {streak === 1 ? 'line' : 'lines'} in a row

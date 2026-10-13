@@ -4,6 +4,7 @@ import { Chessboard } from 'react-chessboard'
 import { DEFAULT_PROFILE, type BoardArrow, type BoardHighlight, type Side } from '../types'
 import { KEYS, useStored } from '../lib/storage'
 import { piecesFor } from '../lib/pieceSets'
+import { getBoardTheme } from '../lib/themes'
 
 // The one chessboard used everywhere in the app. It is "controlled": the parent owns the position (fen)
 // and this component just draws it, lets the user move pieces (click or drag) and reports moves.
@@ -85,6 +86,7 @@ export default function Board({
 }: BoardProps) {
   const [profile] = useStored(KEYS.profile, DEFAULT_PROFILE)
   const pieces = useMemo(() => piecesFor(profile.pieceSet), [profile.pieceSet])
+  const onBlueBoard = getBoardTheme(profile.boardTheme).family === 'blue'
   const game = useMemo(() => {
     try {
       return new Chess(fen)
@@ -198,9 +200,13 @@ export default function Board({
       (arrows ?? []).map((a) => ({
         startSquare: a.from,
         endSquare: a.to,
-        color: ARROW_COLORS[a.color ?? 'green'] ?? a.color ?? ARROW_COLORS.green,
+        // a blue arrow is hard to see on a blue board, so "blue" hints turn orange there
+        color:
+          a.color === 'blue' && onBlueBoard
+            ? 'rgba(255, 140, 66, 0.92)'
+            : ARROW_COLORS[a.color ?? 'green'] ?? a.color ?? ARROW_COLORS.green,
       })),
-    [arrows],
+    [arrows, onBlueBoard],
   )
 
   const promoColor = promo ? game.get(promo.from)?.color ?? 'w' : 'w'
@@ -223,8 +229,8 @@ export default function Board({
           boardStyle: { width: '100%', height: '100%', borderRadius: 6 },
           lightSquareStyle: { backgroundColor: 'var(--sq-light)' },
           darkSquareStyle: { backgroundColor: 'var(--sq-dark)' },
-          lightSquareNotationStyle: { color: 'var(--sq-dark)', fontWeight: 700, fontSize: 11 },
-          darkSquareNotationStyle: { color: 'var(--sq-light)', fontWeight: 700, fontSize: 11 },
+          lightSquareNotationStyle: { color: 'var(--coord-on-light, var(--sq-dark))', fontWeight: 700, fontSize: 11 },
+          darkSquareNotationStyle: { color: 'var(--coord-on-dark, var(--sq-light))', fontWeight: 700, fontSize: 11 },
           dropSquareStyle: { boxShadow: 'inset 0 0 0 4px rgba(255,255,255,0.55)' },
           canDragPiece: ({ piece }) => {
             if (!interactive) return false

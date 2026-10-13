@@ -422,6 +422,9 @@
   gap: 12px;
   min-height: 150px;
 }
+.op-prompt.done {
+  min-height: 0;
+}
 .op-coach-head {
   display: flex;
   flex-wrap: wrap;
@@ -634,6 +637,10 @@ button.op-ply:hover {
 .op-complete p {
   margin: 0;
   font-size: 16px;
+}
+.op-revisit {
+  font-family: var(--mono);
+  color: var(--text);
 }
 .op-streak {
   display: flex;

@@ -639,6 +639,64 @@ const mainSlav = `
 14. Qe3 {White steps out of the pin. The game is balanced. You can follow with ...Be7 and ...Nb8-c6 or ...a5 and a calm game.}
 `
 
+const krause = `
+1. d4 {White opens with the queen's pawn.}
+1... d5 {You take your share of the centre. [%cal Gd5e4]}
+2. c4 {The Queen's Gambit.}
+2... c6 {The Slav. Your c6-pawn protects d5 and keeps the bishop's road open. [%cal Gc6d5,Gc8f5]}
+3. Nf3 {White develops.}
+3... Nf6 {You develop with a purpose: the knight guards d5. [%cal Gf6d5]}
+4. Nc3 {White adds another attacker on d5.}
+4... dxc4 {You take the c4-pawn and free your game. White will win it back, but you gain time to develop. [%cal Gd5c4]}
+5. a4 {White stops ...b5, so the c4-pawn cannot be kept.}
+5... Bf5 {Bring the bishop out before closing the pawn chain. On f5 it controls e4. [%cal Gf5e4,Gf5b1]}
+6. Ne5 {The Krause Attack. The knight jumps into the centre. It attacks your c4-pawn and prepares g4, which would chase your bishop.}
+6... Nbd7 {Challenge the knight at once. Either White trades it, or it must retreat. It also develops your last knight. [%cal Gd7e5]}
+7. Nxc4 {White takes back the pawn.}
+(7. Nxd7?! {White trades off the knight, which helps you.}
+7... Qxd7 {Recapture with the queen! Now the pawn on c4 is still yours, and you will play ...e5 next with a strong centre. Do not play ...Nxd7, because then e4 gives White a big centre. [%cal Gd7d4]}
+8. e3 {White prepares to take back the pawn on c4.}
+8... e5 {Hit the centre at once! You have a free development and the pawn on c4 is still extra. [%cal Ge5d4]}
+9. Bxc4 {White takes back the pawn.}
+9... O-O-O {Castle on the queenside. Your rook lands on the open d-file, right in front of the white queen. [%cal Gd8d1]}
+10. O-O {White castles.}
+10... exd4 {Trade pawns. The d-file opens up in your favour.}
+11. Qxd4 {White recaptures with the queen.}
+)
+7... Nb6 {Kick the knight at once! Your knight attacks both the knight on c4 and the pawn on a4. White must decide what to do. [%cal Gb6c4,Gb6a4]}
+8. Ne5 {The knight goes back to its post.}
+(8. Ne3 {White attacks your bishop on f5.}
+8... e6 {Defend the bishop with the pawn and close the pawn chain. Now if the knight takes f5, you recapture with the e-pawn. [%csl Gc6,Ge6]}
+9. a5 {White chases your knight.}
+9... Nbd5 {Jump to d5! The knight is happy there, and you are ready to trade pieces. [%cal Gb6d5]}
+10. Ncxd5 {White trades knights.}
+10... Nxd5 {Recapture with the other knight.}
+11. Nxf5 {White swaps the knight for your bishop.}
+11... exf5 {Recapture. Your pawn centre is healthy, and your knight on d5 is excellent.}
+12. Bd2 {White develops and keeps an eye on the knight on b4. The game is balanced: you are ready for ...Be7, ...O-O and ...Re8.}
+)
+(8. Nxb6 {White trades off the knight.}
+8... axb6 {Recapture with the a-pawn. Your rook now looks at the a4-pawn on the open a-file, and you can play ...e5.}
+9. e3 {White prepares to develop.}
+9... e5 {Strike in the centre. Your position is active and the open a-file helps you. [%cal Ge5d4]}
+10. Bd3 {White hits your bishop.}
+10... Bg4 {Hit the queen! The bishop is protected by your knight and the pin gives you a free move.}
+11. Be2 {White offers a swap.}
+11... Bxe2 {Trade bishops.}
+12. Qxe2 {White recaptures with the queen.}
+)
+8... a5 {A useful move: it stops a4-a5, which would kick your knight away. Now the knight on b6 is stable and attacks a4. [%cal Ga5a4]}
+9. e3 {White develops and opens the bishop.}
+9... g6 {Fianchetto the bishop! It will sit on g7 and add pressure on the long diagonal, and on d4. [%cal Gg7d4]}
+10. Be2 {White develops.}
+10... Bg7 {Develop the bishop to its long diagonal.}
+11. O-O {White castles.}
+11... O-O {Castle! Your king is safe.}
+12. f4 {White grabs space in the centre.}
+12... Nfd5 {Jump to the great square d5. Your knights both reach d5, and you can trade some pieces. [%cal Gf6d5,Gb6d5]}
+13. Nxd5 {White trades.}
+`
+
 export const slavCourse: OpeningCourse = {
   id: 'slav',
   name: 'Slav Defence',
@@ -697,6 +755,14 @@ export const slavCourse: OpeningCourse = {
         'White develops with Nf3 and Nc3. You take on c4, bring the bishop out to f5 and then play ...e6 and ...Bb4. This is the heart of the Slav.',
       difficulty: 2,
       pgn: mainSlav,
+    },
+    {
+      id: 'krause-ne5',
+      title: 'The sharp 6.Ne5: kick the knight with ...Nbd7',
+      summary:
+        'In the main Slav White can jump 6.Ne5 instead of 6.e3. Meet it with ...Nbd7 and ...Nb6, a simple way to keep the pawn count equal.',
+      difficulty: 2,
+      pgn: krause,
     },
   ] satisfies OpeningChapter[],
 }

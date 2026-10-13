@@ -143,7 +143,7 @@ export const londonCourse: OpeningCourse = {
     },
     {
       id: 'bishop-harassment',
-      title: 'Black goes after your bishop (...Ne4, ...Nh5, ...Bxg3)',
+      title: 'Black goes after your bishop (...Ne4, ...Bxg3)',
       summary:
         'Black tries to chase or trade your London bishop with a knight jump or a bishop swap. You stay calm: develop, use the open h-file and watch for easy tricks.',
       difficulty: 2,
@@ -154,26 +154,59 @@ export const londonCourse: OpeningCourse = {
 2... Nf6
 3. e3 { Solid support for d4. [%cal Ge2e3] }
 3... Ne4 { Black jumps a knight into the middle straight away. It looks annoying, but it is easy to handle. }
-( 3... e6 { Black plays the normal move first and waits to harass your bishop. } 4. Nf3 { Develop a knight. [%cal Gg1f3] } 4... Bd6 { Black offers to trade your bishop. } 5. Bg3 { Retreat to g3 so that you can recapture with the h-pawn. [%cal Gf4g3,Gg3d6] } 5... Ne4 { Now the knight attacks your bishop on g3. } 6. Bd3 { Develop with a little threat. If the knight takes on g3, you recapture with the h-pawn and your rook looks down the h-file. [%cal Gf1d3,Gd3e4] } 6... Nxg3 ( 6... f5 { Black defends the knight with a pawn. } 7. Nbd2 { Challenge the knight on e4. The bishop on g3 is protected by your h-pawn. [%cal Gb1d2,Gd2e4] } 7... O-O 8. c4 { Pressure on d5 and a threat to take on e4 with a pawn. [%cal Gc2c4] } 8... Nc6 ) 7. hxg3 { Take back with the h-pawn. Your rook on h1 now looks at h7, and your pawn structure is healthy. [%cal Gh2g3,Gh1h7] } 7... Qe7 8. Nbd2 { Bring the knight out. Next you will castle long or short. [%cal Gb1d2] } 8... c5 9. c4 { Hit d5 from the side and open the position while your pieces are ready. [%cal Gc2c4] } 9... Nc6 10. dxc5 { Take the pawn and open the diagonal for the d3-bishop. [%cal Gd4c5] } 10... Bxc5 11. a3 { A useful waiting move: it prevents ...Bb4 and ...Nb4. [%cal Ga2a3] } 11... g6 )
+( 3... e6 { Black plays the normal move first and waits to harass your bishop. } 4. Nf3 { Develop a knight. [%cal Gg1f3] } 4... Bd6 { Black offers to trade your bishop. } 5. Bg3 { Retreat to g3 so that you can recapture with the h-pawn. [%cal Gf4g3,Gg3d6] } 5... Ne4 { Now the knight attacks your bishop on g3. } 6. Bd3 { Develop with a little threat. If the knight takes on g3, you recapture with the h-pawn and your rook looks down the h-file. [%cal Gf1d3,Gd3e4] } 6... Nxg3 ( 6... f5 { Black defends the knight with a pawn. } 7. Nbd2 { Challenge the knight on e4. The bishop on g3 is protected by your h-pawn. [%cal Gb1d2,Gd2e4] } 7... O-O 8. c4 { Pressure on d5 and a threat to take on e4. [%cal Gc2c4] } 8... Nc6 ) 7. hxg3 { Take back with the h-pawn. Your rook on h1 now looks at h7, and your pawn structure is healthy. [%cal Gh2g3,Gh1h7] } 7... Qe7 ( 7... O-O?? { Castling into the open h-file is a blunder! } 8. Bxh7+ { The king cannot take the bishop, because your rook on h1 guards it. [%cal Rd3h7,Rh1h7] } 8... Kh8 9. Ne5 { Now you threaten Bg6+ with a discovered check from the rook. [%cal Gf3e5,Rh1h8] } 9... Bb4+ 10. c3 Be7 ) 8. Nbd2 { Bring the knight out. Next you will castle long or short. [%cal Gb1d2] } 8... c5 9. c4 { Hit d5 from the side and open the position while your pieces are ready. [%cal Gc2c4] } 9... Nc6 10. dxc5 { Take the pawn and open the diagonal for the d3-bishop. [%cal Gd4c5] } 10... Bxc5 11. a3 { A useful waiting move: it prevents ...Bb4 and ...Nb4. [%cal Ga2a3] } 11... g6 )
 4. Nd2 { Challenge the knight at once! If Black takes on d2, your queen recaptures and your development is easy. [%cal Gb1d2,Gd2e4] }
 4... Nxd2 { Black trades. }
-( 4... Bf5 { Black defends the knight with a bishop. } 5. Nxe4 { Trade. [%cal Gd2e4] } 5... Bxe4 6. f3 { Attack the bishop on e4 with a pawn. [%cal Gf2f3,Rf3e4] } 6... Bg6 7. h4 { A famous London idea: the pawn heads for h5 and wants to trap the bishop on g6. [%cal Gh2h4,Gh4h5] } 7... h5 { Black stops the pawn from going further. } ( 7... e6? { This lets the bishop get trapped! } 8. h5 { The bishop on g6 has no good square. [%cal Gh4h5,Rh5g6] } 8... Bf5 9. g4 { Chase it again. [%cal Gg2g4] } 9... Bg6 10. hxg6 { You win the bishop for a pawn. [%cal Gh5g6] } 10... fxg6 ) 8. c4 { Hit the centre. Black's bishop is stuck on g6 and the king-side is yours to attack. [%cal Gc2c4] } 8... c6 9. Qb3 { Attack b7 and offer a queen trade. [%cal Gd1b3,Rb3b7] } 9... Qb6 10. Qxb6 { Trade queens: you keep a small plus because your pieces are better. [%cal Gb3b6] } 10... axb6 11. cxd5 { Take the pawn. Black has doubled pawns on the b-file and you are slightly better. [%cal Gc4d5] } 11... cxd5 )
-( 4... f5 { Black defends the knight with a pawn. } 5. Nxe4 { Take it. [%cal Gd2e4] } 5... dxe4 6. Bc4 { Develop with a threat on the weak e6 and g8 squares. [%cal Gf1c4] } 6... Nc6 7. Nh3 { The knight goes to the rim, but it heads for f4 and g5. [%cal Gg1h3] } 7... e5 8. dxe5 { Take the pawn. [%cal Gd4e5] } 8... Qe7 9. Qe2 { Protect the bishop and get ready to castle. [%cal Gd1e2] } 9... Nxe5 )
+( 4... Bf5 { Black defends the knight with a bishop. } 5. Nxe4 { Trade. [%cal Gd2e4] } 5... Bxe4 6. f3 { Attack the bishop on e4 with a pawn. [%cal Gf2f3,Rf3e4] } 6... Bg6 7. h4 { A famous London idea: the pawn heads for h5 and wants to trap the bishop on g6. [%cal Gh2h4,Gh4h5] } 7... h5 { Black stops the pawn from going further. } ( 7... e6? { This lets the bishop get trapped! } 8. h5 { The bishop on g6 has no good square. [%cal Gh4h5,Rh5g6] } 8... Bf5 9. g4 { Chase it again. [%cal Gg2g4] } 9... Bxg4 ( 9... Bg6? 10. hxg6 hxg6 11. Rxh8 Nc6 ) 10. fxg4 { You win a piece for a pawn. [%cal Gf3g4] } 10... Nd7 ) 8. c4 { Hit the centre. Black's bishop is stuck on g6 and the king-side is yours to attack. [%cal Gc2c4] } 8... c6 9. Qb3 { Attack b7 and offer a queen trade. [%cal Gd1b3,Rb3b7] } 9... Qb6 10. Qxb6 { Trade queens: you keep a small plus because your pieces are better. [%cal Gb3b6] } 10... axb6 11. cxd5 { Take the pawn. Black has doubled pawns on the b-file and you are slightly better. [%cal Gc4d5] } 11... cxd5 )
+( 4... f5?! { Black defends the knight with a pawn, but it weakens the king-side. } 5. Nxe4 { Take it. [%cal Gd2e4] } 5... dxe4 ( 5... fxe4? { This takes the wrong way. } 6. Qh5+ { Check! The queen also eyes c7. [%cal Gd1h5,Rh5c7] } 6... g6 7. Qe5 { A double attack on the rook on h8 and the pawn on c7. [%cal Gh5e5,Re5h8,Re5c7] } 7... Rg8 8. Qxc7 { Take the pawn and offer a queen swap. [%cal Ge5c7] } 8... Qxc7 9. Bxc7 { You won a pawn cleanly. [%cal Gf4c7] } 9... Nc6 10. h4 { Gain space on the king-side, with an extra pawn in your pocket. [%cal Gh2h4] } 10... Bf5 ) 6. Bc4 { Develop with a threat on the weak e6 and g8 squares. [%cal Gf1c4] } 6... Nc6 7. Nh3 { The knight goes to the rim, but it heads for f4 and g5. [%cal Gg1h3] } 7... e5 8. dxe5 { Take the pawn. [%cal Gd4e5] } 8... Qxd1+ 9. Rxd1 { Recapture with the rook. Black has weak pawns on e4 and f5. [%cal Ga1d1] } 9... h6 )
 ( 4... Nf6 { Black retreats the knight. You just gained a tempo. } 5. Ngf3 { The other knight comes to f3. [%cal Gg1f3] } 5... e6 6. Bd3 { Develop. [%cal Gf1d3] } 6... c5 7. c3 { Support d4. [%cal Gc2c3] } 7... Nc6 8. O-O { King to safety. [%cal Ge1g1] } 8... Be7 9. Ne5 { The knight lands on e5. [%cal Gf3e5] } 9... O-O )
 5. Qxd2 { Take back with the queen. It eyes the long diagonal and the h6 square. [%cal Gd1d2] }
 5... e6 { Black builds a solid centre. }
 ( 5... Bf5 6. Bd3 { Challenge the bishop. [%cal Gf1d3,Gd3f5] } 6... Bxd3 7. Qxd3 { Take back with the queen. [%cal Gd2d3] } 7... Nd7 8. Nf3 { Develop. [%cal Gg1f3] } 8... e6 9. O-O { King to safety. [%cal Ge1g1] } 9... c6 )
-( 5... c5 { Black hits d4. } 6. c3 { Support d4. [%cal Gc2c3] } 6... cxd4 7. exd4 { Take back with the pawn. The e-file is open for your rooks. [%cal Ge3d4] } 7... Bf5 8. Nf3 { Develop. [%cal Gg1f3] } 8... Nc6 9. Bb5 { Pin the knight and prepare to castle. [%cal Gf1b5,Rb5c6] } 9... Qb6 )
+( 5... c5?! { Black hits d4, but leaves the d5 pawn without enough support. } 6. dxc5 { Take the pawn. [%cal Gd4c5] } 6... e6 7. O-O-O { Castle long. Your king is safe, and the d-file is yours. [%cal Ge1c1] } 7... Nc6 8. Bb5 { Pin the knight and attack the centre. [%cal Gf1b5,Rb5c6] } 8... Bxc5 ( 8... f6 { Black supports the e5 square, but it weakens the king. } 9. e4 { Open the centre while Black's king is still in the middle. [%cal Ge3e4] } 9... dxe4? 10. Bxc6+ { A check that wins the queen next. [%cal Rb5c6] } 10... bxc6 11. Qxd8+ Kf7 ) 9. Qc3 { Threaten the pinned knight and the bishop on c5. [%cal Gd2c3,Rc3c5] } 9... Bf8 10. Nf3 { Develop. [%cal Gg1f3] } 10... Qb6 11. Ba4 { Keep the pin and the bishop pair. [%cal Gb5a4] } 11... Qa6 )
 6. Nf3 { Develop. [%cal Gg1f3] }
 6... Nd7
 7. Bd3 { The bishop aims at h7 and prepares to castle. [%cal Gf1d3,Gd3h7] }
 7... Bd6 { Black offers to trade the London bishop again. }
-8. h4 { A useful move: it prepares h5 and protects the bishop on g5 later. It also gives the bishop a retreat square on h2. [%cal Gh2h4] }
+8. h4 { A useful move: it prepares h5 and gives the bishop a retreat square on h2. [%cal Gh2h4] }
 8... Qe7
 9. h5 { Gain space on the king-side. [%cal Gh4h5] }
 9... h6 { Black stops the pawn from going further. }
 10. O-O-O { Castle long. Your king is safe, and your rooks are ready for action on the open files. [%cal Ge1c1] }
 10... c5
+`,
+    },
+    {
+      id: 'early-c5',
+      title: 'Black hits back early with ...c5 and ...Qb6',
+      summary:
+        'Black plays ...c5 at once, often followed by ...Nc6 and ...Qb6 to attack your b2 pawn. You answer with e3 and c3, and you know how to guard b2 safely.',
+      difficulty: 2,
+      pgn: `
+1. d4 { Your usual first move. [%cal Gd2d4] }
+1... d5
+2. Bf4 { The London bishop comes out first. [%cal Gc1f4] }
+2... c5 { Black strikes at d4 immediately. This is a gambit-like idea: if you take on c5, Black gets quick play. Stay calm and simply defend your centre. }
+( 2... Nf6 { Black develops first and plays ...c5 next. } 3. e3 { Solid support for d4. [%cal Ge2e3] } 3... c5 4. c3 { The pawn on c3 guards d4 and gives your queen the b3 square. [%cal Gc2c3,Gc3d4] } 4... Qb6 { Black attacks the pawn on b2. } 5. Qb3 { Offer a queen trade. It protects b2 and keeps your pawn structure healthy. [%cal Gd1b3,Rb6b2] } 5... Qxb3 ( 5... Nc6 6. Nd2 { Bring the knight out. It does not block the c-pawn. [%cal Gb1d2] } 6... e6 7. Be2 { A flexible square: the bishop can go to f3 or stay at home. [%cal Gf1e2] } 7... Be7 8. Ngf3 { Develop the last knight. [%cal Gg1f3] } 8... Bd7 ) 6. axb3 { Recapture with the a-pawn. It looks ugly, but you get an open a-file and your bishop on f4 attacks b8. [%cal Ga2b3,Ga1a7] } 6... e6 7. Bxb8 { Take the knight. [%cal Gf4b8] } 7... Rxb8 8. Rxa7 { Grab a pawn. The a-file is yours. [%cal Ga1a7] } 8... Bd6 )
+3. e3 { Support d4 and free the f1-bishop. [%cal Ge2e3,Gf1d3] }
+3... Nc6 { Black adds more pressure on d4. }
+( 3... cxd4 { Black takes the pawn. } 4. exd4 { Recapture. The e-file opens for your rooks and the f1-bishop is free. [%cal Ge3d4] } 4... Nc6 5. c3 { Protect d4 with the pawn. [%cal Gc2c3] } 5... Bf5 6. Qb3 { Attack the pawn on b7 and the pawn on d5. [%cal Gd1b3,Rb3b7] } 6... Qd7 ( 6... Na5? { Black attacks the queen, but forgets about the check on b5. } 7. Qb5+ { A check that also attacks the knight on a5 and the pawn on d5. [%cal Gb3b5,Rb5a5] } 7... Bd7 8. Qxd5 { You won a pawn. [%cal Gb5d5] } 8... Nf6 9. Qf3 ) 7. Nf3 { Develop. [%cal Gg1f3] } 7... e6 8. Nbd2 { The last knight comes out. [%cal Gb1d2] } 8... Nge7 9. Nh4 { Hit the bishop on f5. [%cal Gf3h4,Rh4f5] } 9... Ng6 )
+( 3... Qb6 { Black attacks b2 at once, before you can play c3. } 4. Nc3 { A tactical surprise: if Black grabs b2, the knight takes on d5 with a big attack. [%cal Gb1c3,Rb6b2] } 4... Nf6 ( 4... Qxb2? { Greedy! } 5. Nxd5 { Now the queen on b2 is cut off and Black's king is in trouble. [%cal Gc3d5] } 5... Bf5 6. Qc1 { Offer a queen trade to remove the black queen's last hope. [%cal Gd1c1] } 6... Qxc1+ 7. Rxc1 { You will win more material soon. [%cal Ga1c1] } 7... e6 ) ( 4... e6 5. Nb5 { The knight jumps to b5 and threatens Nc7+. [%cal Gc3b5,Rb5c7] } 5... Na6 6. c3 { Support d4. [%cal Gc2c3] } 6... Nf6 7. Nf3 { Develop. [%cal Gg1f3] } 7... c4 ) 5. dxc5 { Take the pawn. [%cal Gd4c5] } 5... Qxc5 6. Nb5 { Threaten Nc7+ and Nxa7. [%cal Gc3b5,Rb5c7] } 6... Na6 7. a4 { Protect the knight on b5 and keep it there. [%cal Ga2a4] } 7... e6 8. Nf3 { Develop. [%cal Gg1f3] } 8... Bd7 9. Be2 { King-side castling is next. [%cal Gf1e2] } 9... Bxb5 )
+4. c3 { Protect d4. The pyramid of pawns c3, d4, e3 is complete. [%cal Gc2c3] }
+4... Nf6 { Black develops. }
+( 4... Qb6 { Black attacks b2 again. } 5. Qc2 { The queen guards b2 and keeps an eye on the diagonal to g6. [%cal Gd1c2,Rb6b2] } 5... Nf6 6. Nf3 { Develop. [%cal Gg1f3] } 6... e6 7. Nbd2 { Another knight into play. [%cal Gb1d2] } 7... Bd6?? { Black forgets that the queen on b6 does not guard d6! } 8. Bxd6 { A free bishop. [%cal Rf4d6] } 8... cxd4 9. cxd4 Nxd4 10. exd4 Qxd6 )
+5. Nd2 { Develop with the knight to d2, so that the c-pawn stays free and the g1-knight can come to f3. [%cal Gb1d2] }
+5... e6
+( 5... Bf5 { Black develops the bishop outside the pawn chain. } 6. Ngf3 { Develop. [%cal Gg1f3] } 6... e6 7. Bb5 { Pin the knight on c6. [%cal Gf1b5,Rb5c6] } 7... Qb6 8. Qa4 { Keep the pin and protect b5. [%cal Gd1a4] } 8... a6 9. Bxc6+ { Take the knight. [%cal Gb5c6] } 9... bxc6 10. dxc5 { Win a pawn and hit the queen. [%cal Gd4c5,Rc5b6] } 10... Bxc5 )
+( 5... Qb6 { Black attacks b2 once more. } 6. Qb3 { Offer a queen trade. [%cal Gd1b3] } 6... e6 7. Ngf3 { Develop. [%cal Gg1f3] } 7... Bd7 8. h3 { Prevent ...Ng4 and give the bishop a retreat. [%cal Gh2h3] } 8... Be7 9. g4 { A pawn storm on the king-side. [%cal Gg2g4] } 9... O-O 10. Qxb6 { Now trade queens: you keep a healthy position. [%cal Gb3b6] } 10... axb6 )
+6. Ngf3 { Develop. [%cal Gg1f3] }
+6... Bd6 { Black offers to trade bishops. }
+7. Bg3 { The bishop retreats to g3. [%cal Gf4g3,Gg3d6] }
+7... O-O
+8. Bd3 { The bishop goes to its best diagonal, aimed at h7. [%cal Gf1d3,Gd3h7] }
+8... b6
+9. Ne5 { Land on e5, with the help of the pawn on d4. [%cal Gf3e5] }
+9... Bb7
 `,
     },
   ],

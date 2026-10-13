@@ -4,7 +4,7 @@ import type { BoardArrow, BoardHighlight, OpeningChapter, OpeningCourse } from '
 import { pathTo, type PgnNode, type PgnTree } from '../../lib/pgnTree'
 import { pickWeighted, readNodeStats, recordLineComplete, recordMove, weaknessOf } from './progress'
 import { playSound } from '../../lib/sound'
-import { isUserTurn, maskMove, soundFor } from './treeUtils'
+import { isUserTurn, maskMove, moveLabel, soundFor } from './treeUtils'
 
 // The brain of drill mode. The page only draws; all the rules live here.
 //
@@ -244,7 +244,6 @@ export function useDrill(course: OpeningCourse, entries: DrillEntry[], startNode
     }, 600)
     return () => window.clearTimeout(timer)
     // The reply depends on the position and the line, not on every little state change.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.phase, state.nodeId, state.lineNo])
 
   /* ---- what to draw ---------------------------------------------------- */
@@ -279,6 +278,11 @@ export function useDrill(course: OpeningCourse, entries: DrillEntry[], startNode
     startedMidway,
     path,
     slips: state.missed.length,
+    /** The right moves at the positions where you slipped, e.g. "4. Nf3", to revisit after the line. */
+    slippedMoves: state.missed.flatMap((id) => {
+      const answer = tree.nodes.get(id)?.children[0]
+      return answer ? [moveLabel(answer)] : []
+    }),
     interactive: yourTurn ? course.side : (false as const),
     lastMove: node.uci ? ([node.uci.slice(0, 2), node.uci.slice(2, 4)] as [string, string]) : null,
     ...draw,
