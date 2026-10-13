@@ -1,0 +1,7 @@
+node_modules
+dist
+.vite
+*.log
+.DS_Store
+# raw downloads used by data scripts (large)
+scripts/.cache
