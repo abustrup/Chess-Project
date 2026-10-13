@@ -3,7 +3,7 @@ import { Play as PlayIcon, RotateCcw, Trash2 } from 'lucide-react'
 import { OPENING_COURSES } from '../../data/openings'
 import { KEYS, removeStored, useStored } from '../../lib/storage'
 import { DEFAULT_PROFILE } from '../../types'
-import { getLevel } from './botLevels'
+import { getLevel, levelLabel } from './botLevels'
 import { derive, sideOf } from './position'
 import { ColourPicker, LevelPicker, OpeningPicker, TimePicker } from './SetupPickers'
 import {
@@ -50,7 +50,7 @@ function ResumeCard({ saved, onResume }: { saved: SavedGame; onResume: () => voi
           </div>
           <div>
             <strong>
-              You ({saved.config.userSide === 'white' ? 'White' : 'Black'}) against {level.name} ~{level.elo}
+              You ({saved.config.userSide === 'white' ? 'White' : 'Black'}) against {levelLabel(level)}
             </strong>
           </div>
           <div className="muted small">
@@ -144,7 +144,7 @@ export default function SetupScreen({ onStart, problem }: Props) {
             <div>
               <dt>Opponent</dt>
               <dd>
-                {level.name} {level.id === 'max' ? '' : `~${level.elo}`}
+                {levelLabel(level)}
               </dd>
             </div>
             <div>

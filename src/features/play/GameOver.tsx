@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Check, Copy, Handshake, Plus, RotateCcw, Search, Trophy, X } from 'lucide-react'
 import { copyText } from './ActionPanels'
+import { levelLabel } from './botLevels'
 import { describeOutcome, verdictFor } from './outcomeText'
 import type { GameApi } from './useGame'
 
@@ -16,7 +17,7 @@ function Summary({ game }: { game: GameApi }) {
   const moves = Math.ceil(game.plyCount / 2)
   return (
     <p className="muted small" style={{ margin: 0 }}>
-      {moves} {moves === 1 ? 'move' : 'moves'} against {game.level.name} (about {game.level.elo})
+      {moves} {moves === 1 ? 'move' : 'moves'} against {levelLabel(game.level)}
       {game.hintsUsed > 0 && ` · ${game.hintsUsed} ${game.hintsUsed === 1 ? 'hint' : 'hints'} used`}
       {game.takebacks > 0 && ` · ${game.takebacks} ${game.takebacks === 1 ? 'take-back' : 'take-backs'}`}
       <br />

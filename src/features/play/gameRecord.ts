@@ -14,7 +14,7 @@ const MAX_SAVED_GAMES = 200
 
 export function botDisplayName(levelId: string): string {
   const level = getLevel(levelId)
-  return `Bot ~${level.elo}`
+  return level.id === 'max' ? 'Bot (full strength)' : `Bot ~${level.elo}`
 }
 
 /** "Caro-Kann Defense: Advance Variation" if we know it, otherwise the course being practised. */

@@ -895,6 +895,96 @@ const moveFourSidelines = `
 11. a3 {A calm waiting move. The position is balanced and both sides have simple plans.}
 `
 
+const thirdMoveSidelines = `
+1. d4 {White opens with the queen's pawn.}
+1... d5 {You take your share of the centre. [%cal Gd5e4]}
+2. c4 {The Queen's Gambit.}
+2... c6 {The Slav. Your c6-pawn protects d5 and keeps the bishop's road open. [%cal Gc6d5,Gc8f5]}
+3. e3 {A quiet move. White opens the road for the f1-bishop but blocks the c1-bishop behind the e3-pawn.}
+(3. Nc3 {White develops and adds a second attacker on d5.}
+3... Nf6 {You develop with a purpose: the knight guards d5. [%cal Gf6d5]}
+4. e3 {A quiet move. White wants to build a Semi-Slav or Slow Slav set-up.}
+(4. e4 {A gambit! White offers a pawn to take the centre quickly.}
+4... dxe4 {Take it! The pawn is free, and you will return it only if it helps you. [%cal Gd5e4]}
+5. f3 {White tries to win the pawn back by force.}
+5... exf3 {Take another pawn! You are two pawns up for the moment.}
+6. Nxf3 {White recaptures and develops.}
+6... Bf5 {Develop the bishop with a threat to trade White's attacking bishop. [%cal Gf5b1]}
+7. Bd3 {White offers a trade.}
+7... Bxd3 {Take it. Trading pieces helps the side with the extra pawns.}
+8. Qxd3 {White recaptures with the queen.}
+8... e6 {Close the pawn chain and open the way for your king's bishop. [%csl Gc6,Ge6]}
+9. O-O {White castles.}
+9... Be7 {Develop the bishop and get ready to castle. You are a pawn up.}
+10. Bf4 {White develops the last bishop. Castle and trade pieces: the extra pawn will tell.}
+)
+(4. Bg5 {White pins your knight on f6.}
+4... dxc4 {Take the pawn! White's bishop on g5 does not help to win it back. [%cal Gd5c4]}
+5. Nf3 {White develops.}
+5... b5 {Keep the pawn! The b5-pawn supports c4. [%cal Gb5c4]}
+6. g3 {White prepares to play Bg2 and attack the queenside.}
+6... h6 {Ask the bishop a question. If it goes to e3, your knight is free from the pin.}
+7. Be3 {The bishop retreats.}
+7... e6 {Close the pawn chain and open your bishop. Your pieces are developing smoothly.}
+8. Ne5 {White's knight jumps into the centre.}
+)
+4... Bf5 {Bring the bishop out before closing the pawn chain. [%cal Gf5b1]}
+5. cxd5 {White swaps pawns to open the c-file and then hit b7 with the queen.}
+(5. Nf3 {White develops.}
+5... e6 {Close the pawn chain. Here you transpose to the Slow Slav chapter. See that chapter for the full plan. [%csl Gc6,Gd5,Ge6]}
+6. Bd3 {White offers to swap bishops. Carry on as in the Slow Slav chapter with ...Bg6.}
+)
+5... cxd5 {Recapture with the c-pawn. Your bishop is outside and d5 is solid.}
+6. Qb3 {The queen attacks b7 and d5 together. This is a favourite trap!}
+6... Bc8 {Retreat the bishop to protect b7. Do NOT play ...Qb6 or ...Qc8: White would then win material with Nxd5. [%cal Gc8b7,Rb3b7]}
+7. Bd3 {White develops.}
+7... e6 {Close the pawn chain and open your bishop's road.}
+8. Nf3 {White develops.}
+8... Nc6 {Develop the second knight with pressure on d4. [%cal Gc6d4]}
+9. O-O {White castles.}
+9... Be7 {Develop the bishop and prepare to castle.}
+10. e4 {White takes the centre. You can trade and play ...dxe4.}
+)
+3... Bf5 {Here you can play the bishop out right away. White has not developed a knight to f3 yet, so the bishop is safe and strong. [%cal Gf5b1]}
+4. Nc3 {White develops and adds pressure to d5.}
+(4. Bd3 {White offers a bishop swap right away.}
+4... Bxd3 {Take it! The swap helps you, because White's c1-bishop is stuck behind the e3-pawn.}
+5. Qxd3 {White recaptures with the queen.}
+5... e6 {Close the pawn chain. Your pieces are free to develop.}
+6. Nf3 {White develops.}
+6... Nf6 {Develop and guard d5. [%cal Gf6d5]}
+7. Nbd2 {White develops.}
+7... Nbd7 {Develop the last minor piece.}
+8. O-O {White castles.}
+8... Be7 {Develop the bishop and prepare to castle.}
+9. b3 {White prepares to put the bishop on b2. The position is equal and you will castle next.}
+)
+(4. cxd5 {White swaps pawns and plans Qb3.}
+4... cxd5 {Recapture with the c-pawn. Your bishop is outside the chain, and d5 is solid.}
+5. Qb3 {The queen hits b7 and d5 together.}
+5... Qc7 {Protect b7 with the queen. The d5-pawn is still safe. [%cal Gc7b7]}
+6. Bb5+ {White checks to disturb your pieces.}
+6... Nd7 {Block with the knight. The knight can later go to f6.}
+7. Nc3 {White develops.}
+7... e6 {Close the pawn chain. All your pieces are well placed.}
+8. Nf3 {White develops.}
+8... Nf6 {Develop and guard d5. [%cal Gf6d5]}
+9. Bd2 {White prepares to castle.}
+)
+4... e6 {Close the pawn chain, with your bishop already outside. [%csl Gc6,Gd5,Ge6]}
+5. Nf3 {White develops.}
+5... Be7 {Develop the bishop and prepare to castle.}
+6. Bd3 {White offers to swap bishops.}
+6... Bxd3 {Take it. Trading the bishop is easy and your game stays solid.}
+7. Qxd3 {White recaptures with the queen.}
+7... Nf6 {Develop and guard d5. [%cal Gf6d5]}
+8. O-O {White castles.}
+8... O-O {Castle! Your king is safe and your pieces are ready.}
+9. b3 {White prepares to put the bishop on b2.}
+9... Nbd7 {Develop the last minor piece. The position is equal and easy to play.}
+10. Bb2 {White develops. You can follow with ...Rc8 and ...Qa5, or with ...dxc4 and ...c5, to free your game.}
+`
+
 export const slavCourse: OpeningCourse = {
   id: 'slav',
   name: 'Slav Defence',
@@ -977,6 +1067,14 @@ export const slavCourse: OpeningCourse = {
         'After 3.Nf3 Nf6 White may skip 4.Nc3 or 4.e3. Here are the answers to the queen moves, the bishop moves and the fianchetto.',
       difficulty: 2,
       pgn: moveFourSidelines,
+    },
+    {
+      id: 'third-move-sidelines',
+      title: 'Quiet and sharp third moves: 3.e3, 3.Nc3 and 3.Nc3 Nf6 4.e4',
+      summary:
+        'White skips 3.Nf3 and plays 3.e3 or 3.Nc3 (sometimes with a pawn offer on e4). Get your bishop out and keep an eye on the queen trick Qb3.',
+      difficulty: 2,
+      pgn: thirdMoveSidelines,
     },
   ] satisfies OpeningChapter[],
 }

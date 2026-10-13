@@ -117,6 +117,11 @@ export const BOT_LEVELS: BotLevel[] = [
   },
 ]
 
+/** "Club ~1100", or just "Max" for the level without a limit. */
+export function levelLabel(level: BotLevel): string {
+  return level.id === 'max' ? level.name : `${level.name} ~${level.elo}`
+}
+
 export function getLevel(id: string): BotLevel {
   return BOT_LEVELS.find((l) => l.id === id) ?? BOT_LEVELS[2]
 }

@@ -30,7 +30,7 @@ export const backRankMateLesson: TacticLesson = {
       type: 'board',
       fen: 'k3r3/pp6/2b5/8/8/4Q3/2R2PPP/6K1 w - - 0 1',
       caption:
-        'Sometimes a guard is in the way. Qxe8+ forces Bxe8, which drags the bishop off the c-file (the c column). Then Rc8 is mate.',
+        'Sometimes a black piece is in the way. Here the bishop on c6 blocks your rook on c2. Qxe8+ forces Bxe8, which drags the bishop off the c-file (the c column). Then Rc8 is mate.',
       arrows: [
         { from: 'e3', to: 'e8', color: 'blue' },
         { from: 'c2', to: 'c8', color: 'blue' },
@@ -54,7 +54,7 @@ export const backRankMateLesson: TacticLesson = {
     },
     {
       type: 'tip',
-      text: "How to protect yourself: make 'luft', the German word for air. That means giving your king a square to escape to with a pawn move, like h3 for White or h6 for Black. Before you move your last back-row defender, check that the other side can't land a rook there.",
+      text: "How to protect yourself: make 'luft', the German word for air. That means giving your king a square to escape to with a pawn move, like h3 for White or h6 for Black. Before you move a piece that is guarding your back row, check that the other side can't land a rook or queen there with check.",
     },
     {
       type: 'board',
@@ -91,20 +91,20 @@ export const backRankMateLesson: TacticLesson = {
       fen: '6k1/pp1q1ppp/8/2pPQ3/8/P6P/5PP1/6K1 w - - 1 28',
       moves: ['e5b8', 'd7c8', 'b8c8'],
       explanations: [
-        'The queen jumps to the back row with check. The black king has no flight square.',
-        'Black has to block with the queen. This offers a queen trade, but it does not help.',
+        'The queen jumps to the back row with check. The black king has no square to run to.',
+        'Black has to block with the queen. It offers a queen trade, but that does not help, because White takes the queen with check.',
         'White takes the queen with check, and the king is stuck again. Checkmate!',
       ],
     },
     {
-      title: 'A real game: trade the guards one by one',
+      title: 'Trade the guards one by one',
       fen: '1r1r3k/pq4pp/5b2/3R4/Q7/1P2P3/P4PPP/3R2K1 w - - 13 27',
       moves: ['d5d8', 'b8d8', 'd1d8', 'f6d8', 'a4e8'],
       explanations: [
         "White takes the rook on d8 with check. The black king can't move because of its pawns, so Black must take back.",
         'Black recaptures with the other rook.',
         'The second white rook takes again, with check. Again Black has to recapture.',
-        "Black's bishop is the last piece that can recapture. Notice that on d8 it can't take anything on e8.",
+        "Black's bishop is the only piece left that can recapture. But look where it ends up: bishops move on diagonals, so from d8 it can't guard e8.",
         'The queen swings across the board to e8. Nothing can capture it and the king has no air. Checkmate!',
       ],
     },
@@ -177,7 +177,7 @@ export const backRankMateLesson: TacticLesson = {
       id: 'back-rank-mate-8',
       fen: '3r3k/6p1/5p1p/Q3p3/P3P3/2P5/5PPP/3q2RK b - - 2 34',
       solution: ['d1g1', 'h1g1', 'd8d1'],
-      hint: 'Your queen can take a rook with check. Think about what the white king must do, and where your other rook goes next.',
+      hint: 'Your queen can take a rook with check. Think about what the white king must do, and where your rook on d8 goes next.',
       explanation:
         "Qxg1+ forces the king to take back. Then Rd1 is checkmate: the white king is stuck behind its pawns and nothing can block or capture the rook.",
       difficulty: 2,
@@ -188,7 +188,7 @@ export const backRankMateLesson: TacticLesson = {
       solution: ['f4c1', 'f3e1', 'c1e1'],
       hint: 'White has no air on h1. Which check along the bottom row forces a piece to block?',
       explanation:
-        'Qc1+ is check, and only the knight can block. After Ne1, Qxe1 is mate, because the king is stuck behind g2 and h2.',
+        'Qc1+ is check, and only the knight can block, on e1 or g1. After Ne1, Qxe1 is mate, because the king is stuck behind g2 and h2. If the knight blocks on g1 instead, your knight on e4 jumps to f2, which is mate too.',
       difficulty: 3,
     },
     {
@@ -204,9 +204,9 @@ export const backRankMateLesson: TacticLesson = {
       id: 'back-rank-mate-11',
       fen: 'r4rk1/ppp3pp/8/8/4Q2q/8/PP3PPP/R1B1R1K1 b - - 0 18',
       solution: ['h4f2', 'g1h1', 'f2f1', 'e1f1', 'f8f1'],
-      hint: 'Look for a queen move with check that your rook protects. You may need to give up the queen twice.',
+      hint: 'Look for a queen move with check that your rook protects. Later, you will need to give up the queen to drag a defender away.',
       explanation:
-        'Qxf2+ is protected by the rook, so the king must go to h1. Qf1+ then forces Rxf1, and Rxf1 is mate. Each sacrifice forces the only reply White has.',
+        'Qxf2+ takes a pawn with check, and your rook on f8 protects the queen, so the king must go to h1. Qf1+ is the queen sacrifice: White must take with the rook (Rxf1), and then your rook takes back, Rxf1, and it is mate. Every check here leaves White only one reply.',
       difficulty: 3,
     },
   ],

@@ -81,7 +81,7 @@ export default function GameScreen({ initial, onNewGame, onRematch }: Props) {
     return (
       <PlayerStrip
         name={isBot ? botDisplayName(game.config.levelId) : userName}
-        detail={isBot ? `${game.level.name} level` : undefined}
+        detail={isBot && game.level.id !== 'max' ? `${game.level.name} level` : undefined}
         isBot={isBot}
         side={side}
         captured={material.captured[side]}
