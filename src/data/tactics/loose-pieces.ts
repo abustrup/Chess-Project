@@ -32,7 +32,6 @@ export const loosePiecesLesson: TacticLesson = {
       orientation: 'black',
       arrows: [
         { from: 'd6', to: 'c4', color: 'blue' },
-        { from: 'c5', to: 'd7', color: 'red' },
       ],
       highlights: [{ square: 'c4', color: 'yellow' }],
       caption:
@@ -46,9 +45,12 @@ export const loosePiecesLesson: TacticLesson = {
       type: 'board',
       fen: 'r1bqkbnr/p1pp1ppp/2n5/1p2p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4',
       arrows: [{ from: 'b5', to: 'c4', color: 'red' }],
-      highlights: [{ square: 'c4', color: 'yellow' }],
+      highlights: [
+        { square: 'c4', color: 'yellow' },
+        { square: 'b5', color: 'yellow' },
+      ],
       caption:
-        'Black has just played b5. The pawn attacks your bishop on c4, so a quiet developing move would lose a piece. First deal with the threat, for example by moving the bishop to b3.',
+        'Black has just played b5. The pawn attacks your bishop on c4, so a quiet developing move would lose a piece. First deal with the threat. Here the pawn on b5 is loose itself, so Bxb5 saves the bishop and wins a pawn.',
     },
     {
       type: 'tip',
@@ -82,7 +84,7 @@ export const loosePiecesLesson: TacticLesson = {
       moves: ['c2c8', 'e8e7', 'c8h8'],
       explanations: [
         'The bishop on c8 looks protected by the rook on a8, but the knight on b8 is in the way. So the bishop is really loose, and the queen takes it with check.',
-        'The king has to step out of check.',
+        'The king steps out of check. Blocking with the queen on d8 would only lead to a queen trade, and White would still be a bishop up.',
         'Now the queen also takes the rook on h8. Black has lost a bishop and a rook for nothing.',
       ],
     },
@@ -167,16 +169,16 @@ export const loosePiecesLesson: TacticLesson = {
       solution: ['f3e2', 'd8d6', 'a3d6'],
       hint: 'A black knight has wandered onto e2 with nothing to protect it. Take it, but think about what Black\'s queen can do next.',
       explanation:
-        'The knight on e2 has no protector, so Bxe2 wins it. Black can trade queens with Qxd6, but Bxd6 takes back, and White is still a knight ahead.',
+        'The knight on e2 gives check, but it has no protector, so Bxe2 wins it. Black can trade queens with Qxd6, but Bxd6 takes back, and White is still a knight ahead.',
       difficulty: 2,
     },
     {
       id: 'loose-pieces-9',
       fen: '1r2r3/p2kbpp1/2p4p/2N1n3/2Pp4/1P1P2P1/P2B1P1P/1R2RK2 b - - 0 21',
       solution: ['e7c5'],
-      hint: "White's knight on c5 is unprotected, and your bishop is next to it. Check which of your own pieces is attacked too.",
+      hint: "White's knight on c5 is giving check, and nothing protects it. Which of your pieces can take it?",
       explanation:
-        'The knight on c5 has no protector, so Bxc5 wins it. Your knight on e5 is attacked by a rook, but your own rook protects it, so you can take first.',
+        'The knight on c5 gives check but has no protector, so Bxc5 wins it. Your knight on e5 is attacked by a rook, but taking with the bishop also opens the e-file, so your rook on e8 now protects the knight.',
       difficulty: 2,
     },
     {

@@ -18,7 +18,7 @@ function GameRow({ game, now }: { game: GameRecord; now: Date }) {
     <li className="game-row">
       <span className={`chip ${outcome.chip} game-result`}>{outcome.label}</span>
       <div className="game-main">
-        <div className="game-opponent">vs {opponentLabel(game)}</div>
+        <div className="game-opponent">vs{"\u00a0"}{opponentLabel(game)}</div>
         <div className="small faint">
           As {game.userSide === 'white' ? 'White' : 'Black'} · {game.openingName ?? 'Opening not named'}
         </div>

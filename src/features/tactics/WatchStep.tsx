@@ -109,7 +109,7 @@ export default function WatchStep({ lesson, onNext }: { lesson: TacticLesson; on
                 <span className={`tx-side-dot ${sideToMove(example.fen)}`} aria-hidden />
                 {sideName(sideToMove(example.fen))} to move
               </div>
-              <p className="tx-explain-text">Take a look at the position first. Then press Next to watch the idea.</p>
+              <p className="tx-explain-text">Take a look at the position first. Then press the arrow button, or Play, to watch the idea.</p>
             </>
           )}
         </section>

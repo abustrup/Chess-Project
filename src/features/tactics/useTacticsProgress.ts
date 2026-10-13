@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 import type { TacticLesson, TacticsProgress } from '../../types'
 import { KEYS, useStored } from '../../lib/storage'
 
@@ -10,6 +10,29 @@ function blankProgress(lessonId: string): LessonProgress {
   return { lessonId, introSeen: false, examplesSeen: 0, solvedExerciseIds: [], failedAttempts: 0 }
 }
 
+/** Saved data can be damaged (edited by hand, an old version, a bad backup): never let it crash a page. */
+function cleanAll(raw: unknown): TacticsProgress {
+  return raw && typeof raw === 'object' && !Array.isArray(raw) ? (raw as TacticsProgress) : NO_PROGRESS
+}
+
+function count(value: unknown): number {
+  return typeof value === 'number' && Number.isFinite(value) && value > 0 ? Math.floor(value) : 0
+}
+
+function cleanLesson(lessonId: string, raw: unknown): LessonProgress {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return blankProgress(lessonId)
+  const p = raw as Partial<LessonProgress>
+  return {
+    ...p,
+    lessonId,
+    introSeen: p.introSeen === true,
+    examplesSeen: count(p.examplesSeen),
+    solvedExerciseIds: Array.isArray(p.solvedExerciseIds) ? p.solvedExerciseIds.filter((id) => typeof id === 'string') : [],
+    failedAttempts: count(p.failedAttempts),
+    completedAt: typeof p.completedAt === 'string' ? p.completedAt : undefined,
+  }
+}
+
 /** What the cards and the stepper need to know about one lesson. */
 export interface LessonStats {
   solved: number
@@ -19,7 +42,8 @@ export interface LessonStats {
 }
 
 /** Counts only exercises that still exist in the lesson, so edited lessons never show "12/10". */
-export function lessonStats(lesson: TacticLesson, progress: LessonProgress | undefined): LessonStats {
+export function lessonStats(lesson: TacticLesson, saved: LessonProgress | undefined): LessonStats {
+  const progress = saved === undefined ? undefined : cleanLesson(lesson.id, saved)
   const solvedIds = new Set(progress?.solvedExerciseIds ?? [])
   const solved = lesson.exercises.filter((e) => solvedIds.has(e.id)).length
   const total = lesson.exercises.length
@@ -29,18 +53,21 @@ export function lessonStats(lesson: TacticLesson, progress: LessonProgress | und
 
 /** Progress of every lesson (for the overview). */
 export function useAllTacticsProgress(): TacticsProgress {
-  return useStored(KEYS.tacticsProgress, NO_PROGRESS)[0]
+  return cleanAll(useStored(KEYS.tacticsProgress, NO_PROGRESS)[0])
 }
 
 /** Progress of one lesson, plus the few ways the pages change it. Everything is saved in the browser. */
 export function useLessonProgress(lesson: TacticLesson) {
-  const [all, setAll] = useStored(KEYS.tacticsProgress, NO_PROGRESS)
-  const progress = all[lesson.id] ?? blankProgress(lesson.id)
+  const [stored, setAll] = useStored(KEYS.tacticsProgress, NO_PROGRESS)
+  const progress = useMemo(() => cleanLesson(lesson.id, cleanAll(stored)[lesson.id]), [stored, lesson.id])
   const lessonId = lesson.id
 
   const update = useCallback(
     (change: (current: LessonProgress) => LessonProgress) => {
-      setAll((prev) => ({ ...prev, [lessonId]: change(prev[lessonId] ?? blankProgress(lessonId)) }))
+      setAll((prev) => {
+        const all = cleanAll(prev)
+        return { ...all, [lessonId]: change(cleanLesson(lessonId, all[lessonId])) }
+      })
     },
     [lessonId, setAll],
   )

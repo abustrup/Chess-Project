@@ -14,6 +14,8 @@ export default function PracticeStep({ lesson, onFinish }: { lesson: TacticLesso
   const [index, setIndex] = useState(() => Math.max(0, exercises.findIndex((e) => !solvedIds.has(e.id))))
   const [attempt, setAttempt] = useState(0) // changing this starts the same exercise again
   const [struggled, setStruggled] = useState<ReadonlySet<string>>(new Set()) // wrong move or gave up, this visit
+  // true only right after the solve that finished the lesson, so a replayed exercise never says "that was the last one"
+  const [finishedNow, setFinishedNow] = useState(false)
 
   const exercise = exercises[index]
   if (!exercise) {
@@ -30,25 +32,32 @@ export default function PracticeStep({ lesson, onFinish }: { lesson: TacticLesso
 
   // after the last exercise, go back to any you have not solved; when none are left, the lesson is finished
   const nextIndex = index + 1 < exercises.length ? index + 1 : exercises.findIndex((e, i) => i !== index && !solvedIds.has(e.id))
-  const hasNext = nextIndex !== -1
+  const hasNext = nextIndex !== -1 && !finishedNow // the solve that finishes the lesson leads to the last step
 
   function goTo(i: number) {
     setIndex(i)
     setAttempt(0)
+    setFinishedNow(false)
   }
 
   return (
     <ExerciseRunner
       key={`${exercise.id}:${attempt}`}
       exercise={exercise}
-      lessonComplete={stats.complete}
+      lessonComplete={finishedNow}
       nextLabel={hasNext ? 'Next exercise' : 'Finish'}
-      onSolved={() => markSolved(exercise.id)}
+      onSolved={() => {
+        if (!stats.complete && lesson.exercises.every((e) => e.id === exercise.id || solvedIds.has(e.id))) setFinishedNow(true)
+        markSolved(exercise.id)
+      }}
       onFailedAttempt={() => {
         addFailedAttempt()
         setStruggled((prev) => new Set(prev).add(exercise.id))
       }}
-      onRetry={() => setAttempt((a) => a + 1)}
+      onRetry={() => {
+        setAttempt((a) => a + 1)
+        setFinishedNow(false)
+      }}
       onNext={() => (hasNext ? goTo(nextIndex) : onFinish())}
       extra={
         <div className="card zen-hide tx-progress-card">

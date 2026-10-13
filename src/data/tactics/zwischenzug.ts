@@ -37,7 +37,7 @@ export const zwischenzugLesson: TacticLesson = {
       ],
       highlights: [{ square: 'f3', color: 'yellow' }],
       caption:
-        "The same idea with Black. The queens face each other and the white knight on f3 guards its queen. Nxf3+ is check, so White has to take the knight with gxf3, and then Qxd4 wins the queen.",
+        "The same idea with Black. The queens face each other and the white knight on f3 guards its queen. Nxf3+ is check. If White takes the knight with gxf3, Qxd4 wins the queen. If the king moves instead, the knight takes the queen itself.",
     },
     {
       type: 'board',
@@ -77,7 +77,7 @@ export const zwischenzugLesson: TacticLesson = {
       moves: ['e4f2', 'd3f2', 'b6e3'],
       explanations: [
         "The knight takes the pawn on f2 with check. That pawn was the only guard of White's rook on e3.",
-        'White takes the knight with its own knight, because the king is in check.',
+        'White takes the knight with its own knight. If the king stepped away instead, the knight would take the queen on d1.',
         "Now nothing protects the rook, and the queen takes it. Black gave a knight for a pawn but won a whole rook.",
       ],
     },
@@ -98,7 +98,7 @@ export const zwischenzugLesson: TacticLesson = {
       fen: 'r2q1rk1/1pp2pp1/2b4p/8/8/P1Q1PP2/1B3P1P/RN3RK1 b - - 0 18',
       moves: ['d8g5', 'g1h1', 'c6f3'],
       explanations: [
-        "Black's bishop wants to take on f3, but first the queen gives check along the g-file. Black has not captured anything yet, but White has to answer.",
+        "Black's bishop wants to take on f3, but first the queen gives check along the g-file. Taking on f3 at once would be a mistake: White would answer Qxg7, checkmate. The check comes first, so White never gets that chance.",
         "White's king has only one safe square, h1.",
         'Now the bishop takes the pawn on f3 with check. The queen on g5 covers g1 and g2, so the king cannot escape. Checkmate.',
       ],
@@ -156,7 +156,7 @@ export const zwischenzugLesson: TacticLesson = {
       solution: ['d4e2', 'c4e2', 'g7f6'],
       hint: 'Look at the white queen. Can you capture her with check before you do anything else?',
       explanation:
-        "Nxe2+ takes the white queen with check, so White has to recapture with Bxe2 first. Then the king takes the knight on f6 for free. If you took the knight at once, White would have time to save the queen.",
+        "Nxe2+ takes the white queen with check, and White takes back with Bxe2. Then the king takes the knight on f6 for free. If you took the knight at once, White would have time to save the queen.",
       difficulty: 2,
     },
     {
@@ -174,16 +174,16 @@ export const zwischenzugLesson: TacticLesson = {
       solution: ['c5d7', 'f5d7', 'f3e1'],
       hint: 'Do not rush to take on e1. Take something with check first and see what happens to Black\'s pieces.',
       explanation:
-        'Nxd7+ wins a rook with check. After Bxd7 the bishop is no longer attacking your rook on d3, and Nxe1 wins the other black rook. Taking on e1 straight away would let Black play Re7.',
+        'Nxd7+ wins a rook with check. After Bxd7 the bishop is no longer attacking your rook on d3, and Nxe1 wins the other black rook. Taking on e1 straight away lets Black hit back with Re7, attacking your knight on e1 while your rook on d3 is still attacked, and Black wins the material back.',
       difficulty: 2,
     },
     {
       id: 'zwischenzug-9',
       fen: '2kr4/ppp2ppp/2n2n2/7B/3b4/P1N1Q3/1PP3PP/R4RK1 b - - 0 15',
       solution: ['d4e3', 'g1h1', 'f6h5'],
-      hint: "White's queen is attacking your bishop. Can you take the queen with check before you save anything?",
+      hint: "White's queen and your bishop on d4 attack each other. Before you take the bishop on h5, look for a capture with check.",
       explanation:
-        'Nxh5 at once would lose the bishop on d4 to Qxd4. Bxe3+ takes the white queen with check. After Kh1, Nxh5 wins the bishop on h5 as well.',
+        'Bxe3+ takes the white queen with check, so White has no time for anything else. After Kh1, your knight still takes the bishop on h5. You win the queen and the bishop. Taking on h5 first would give White a free move.',
       difficulty: 2,
     },
     {

@@ -132,7 +132,8 @@ function materialTaken(move: AnalysedMove): number {
  * recapture, it wins at least two points of material, and that the engine agrees the move was really costly.
  */
 export function hungPiece(move: AnalysedMove, reply: AnalysedMove | undefined): CaptureFact | null {
-  if (!reply?.bestUci || move.cpLoss < 100) return null
+  if (move.cpLoss < 100) return null
+  if (!reply?.bestUci) return reply ? null : lastMoveHungPiece(move)
   const fact = captureFact(move.fenAfter, reply.bestUci)
   if (!fact) return null
   // a pawn that has just promoted is worth a pawn to its owner, not a queen
@@ -140,6 +141,29 @@ export function hungPiece(move: AnalysedMove, reply: AnalysedMove | undefined): 
   const victim = promoted ? PIECE_VALUE.p : (PIECE_VALUE[fact.piece] ?? 0)
   const net = victim - materialTaken(move) - (fact.recapturable ? (PIECE_VALUE[fact.attacker] ?? 0) : 0)
   return net >= 2 ? { ...fact, netGain: net } : null
+}
+
+/**
+ * The last move of a game has no analysed reply after it, so we cannot ask the engine what the opponent
+ * would take. Instead we try every capture the opponent has and keep the one that wins the most.
+ */
+function lastMoveHungPiece(move: AnalysedMove): CaptureFact | null {
+  let replies
+  try {
+    replies = new Chess(move.fenAfter).moves({ verbose: true }).filter((m) => m.captured)
+  } catch {
+    return null
+  }
+  let best: CaptureFact | null = null
+  for (const r of replies) {
+    const fact = captureFact(move.fenAfter, r.from + r.to + (r.promotion ?? ''))
+    if (!fact) continue
+    const promoted = move.uci.length === 5 && fact.square === move.uci.slice(2, 4)
+    const victim = promoted ? PIECE_VALUE.p : (PIECE_VALUE[fact.piece] ?? 0)
+    const net = victim - materialTaken(move) - (fact.recapturable ? (PIECE_VALUE[fact.attacker] ?? 0) : 0)
+    if (net >= 2 && (!best || net > best.netGain)) best = { ...fact, netGain: net }
+  }
+  return best
 }
 
 /**

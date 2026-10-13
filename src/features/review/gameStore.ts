@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react'
 import type { GameAnalysis, GameRecord } from '../../types'
 import { KEYS, readStored, useStored, writeStored } from '../../lib/storage'
 import { identifyOpening } from '../../lib/openingName'
@@ -11,12 +12,31 @@ export const MAX_STORED_GAMES = 200
 
 const NO_GAMES: GameRecord[] = []
 
+function isGame(g: unknown): g is GameRecord {
+  if (!g || typeof g !== 'object') return false
+  const r = g as Partial<GameRecord>
+  return typeof r.id === 'string' && typeof r.pgn === 'string' && (r.userSide === 'white' || r.userSide === 'black')
+}
+
+/** Stored data can be old or damaged: keep only entries that look like real games, so a page never crashes on them. */
+function cleanGames(value: unknown): GameRecord[] {
+  if (!Array.isArray(value)) return NO_GAMES
+  return value.every(isGame) ? value : value.filter(isGame)
+}
+
 export function readGames(): GameRecord[] {
-  return readStored<GameRecord[]>(KEYS.games, NO_GAMES)
+  return cleanGames(readStored<unknown>(KEYS.games, NO_GAMES))
 }
 
 export function useGames(): [GameRecord[], (next: GameRecord[] | ((prev: GameRecord[]) => GameRecord[])) => void] {
-  return useStored<GameRecord[]>(KEYS.games, NO_GAMES)
+  const [raw, setRaw] = useStored<GameRecord[]>(KEYS.games, NO_GAMES)
+  const games = useMemo(() => cleanGames(raw), [raw])
+  const setGames = useCallback(
+    (next: GameRecord[] | ((prev: GameRecord[]) => GameRecord[])) =>
+      setRaw(typeof next === 'function' ? (prev: GameRecord[]) => next(cleanGames(prev)) : next),
+    [setRaw],
+  )
+  return [games, setGames]
 }
 
 function newestFirst(list: GameRecord[]): GameRecord[] {

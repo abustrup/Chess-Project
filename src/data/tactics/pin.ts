@@ -10,7 +10,7 @@ export const pinLesson: TacticLesson = {
   intro: [
     {
       type: 'text',
-      text: 'A **pin** is when a piece can’t (or shouldn’t) move, because a more valuable piece stands behind it on the same line. Only bishops, rooks and queens can pin, because they attack along long lines. If the piece behind is the king, the pin is **absolute**: the pinned piece is not allowed to move at all.',
+      text: 'A **pin** is when a piece can’t (or shouldn’t) move, because a more valuable piece stands behind it on the same line. Only bishops, rooks and queens can pin, because they attack along long lines. If the piece behind is the king, the pin is **absolute**: the pinned piece is not allowed to step off that line, because that would put its own king in check.',
     },
     {
       type: 'board',
@@ -32,7 +32,7 @@ export const pinLesson: TacticLesson = {
       ],
       highlights: [{ square: 'f6', color: 'yellow' }],
       caption:
-        'Here the knight is pinned to the queen. The knight may move, but then Bxd8 wins the queen. This is a relative pin: moving is allowed, but it costs a lot.',
+        'Here the knight is pinned to the queen. The knight may move, but then Bxd8 wins the queen for a bishop. This is a relative pin: moving is allowed, but it costs a lot.',
     },
     {
       type: 'tip',
@@ -58,7 +58,7 @@ export const pinLesson: TacticLesson = {
       highlights: [{ square: 'f3', color: 'yellow' }],
       orientation: 'black',
       caption:
-        'A pin in a normal opening: Black’s bishop on g4 pins the knight on f3 to the queen on d1. If the knight moves, the bishop takes the queen. White can ask the bishop a question with h3.',
+        'A pin in a normal opening: Black’s bishop on g4 pins the knight on f3 to the queen on d1. If the knight moves, the bishop takes the queen. White can attack the bishop with h3 to make it take the knight or move away.',
     },
     {
       type: 'text',
@@ -85,7 +85,7 @@ export const pinLesson: TacticLesson = {
         'Black grabs the queen with the bishop. It looks like a free queen, but it is a mistake.',
         'The bishop takes a pawn with check. The knight on e5 protects the bishop, so the king can’t take it.',
         'The king has only one square to go to.',
-        'Checkmate! Black’s own pieces and White’s bishop and knights block every escape square. A pin is only as strong as the threat behind it.',
+        'Checkmate! Black’s own pieces block some escape squares, and White’s bishop and knights cover all the others. A pin is only as strong as the threat behind it.',
       ],
     },
     {
@@ -132,7 +132,7 @@ export const pinLesson: TacticLesson = {
       solution: ['e8c6', 'e2e4', 'c6d5'],
       hint: 'White’s queen is on the same diagonal as its king. Which of your pieces can attack it from far away?',
       explanation:
-        'Bc6 attacks the queen on d5, which is pinned to the king on g2 along the diagonal. If White blocks with e4, Bxd5 wins the queen. If the queen takes the bishop, your rook on e6 takes the queen.',
+        'Bc6 attacks the queen on d5, which is pinned to the king on g2 along the diagonal. If White blocks with e4, Bxd5 wins the queen for your bishop. If the queen takes the bishop, your rook on e6 takes the queen.',
       difficulty: 1,
     },
     {
@@ -159,7 +159,7 @@ export const pinLesson: TacticLesson = {
       solution: ['f5d3', 'e2d3', 'd8d3'],
       hint: 'White’s queen stands right next to its king on a diagonal. Can you attack it with a small piece?',
       explanation:
-        'Bd3 attacks White’s queen on e2, which is pinned to the king on f1. The queen can only take the bishop, and then Rxd3 captures the queen. Black wins a queen for a bishop.',
+        'Bd3 attacks White’s queen on e2, which is pinned to the king on f1. The queen can’t step off that diagonal to escape. If it takes the bishop, Rxd3 captures the queen. Black wins a queen for a bishop.',
       difficulty: 2,
     },
     {

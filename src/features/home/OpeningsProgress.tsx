@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import type { CourseSummary, NextStep } from './progress'
-import { plural } from './format'
+import { authoredText, plural } from './format'
 
 /** ['d4','d5','Bf4'] -> "1.d4 d5 2.Bf4" (the moves that define the opening, as chess notation). */
 function movesText(sans: string[]): string {
@@ -31,7 +31,7 @@ function CourseCard({ summary }: { summary: CourseSummary }) {
       </div>
       <h3>{course.name}</h3>
       {course.signatureMoves.length > 0 && <div className="course-moves">{movesText(course.signatureMoves)}</div>}
-      {course.tagline && <p className="muted small">{course.tagline}</p>}
+      {authoredText(course.tagline) && <p className="muted small">{authoredText(course.tagline)}</p>}
       <div
         className="progress"
         role="progressbar"

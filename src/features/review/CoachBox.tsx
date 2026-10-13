@@ -150,7 +150,7 @@ export default function CoachBox(props: CoachBoxProps) {
         <div>
           <h3 className={`q-${move.classification}`}>{message.headline}</h3>
           <div className="faint small">
-            {moveLabel(move.ply, move.san)} · computer score {message.scoreLine}
+            {moveLabel(move.ply, move.san)} · computer score {message.scoreLine} (plus is good for White)
           </div>
         </div>
       </div>

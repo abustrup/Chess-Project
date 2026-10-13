@@ -3,7 +3,7 @@ import { AlertTriangle, ArrowRight, BookOpen, Dumbbell, Layers, Shuffle, Shield,
 import type { OpeningChapter, OpeningCourse } from '../../types'
 import { useCourse } from './courses'
 import { chapterMastery, courseMastery, hasStarted, nextStep, progressKey, sortedChapters, useOpeningProgress } from './progress'
-import { lineCount, parseChapter, signatureText } from './treeUtils'
+import { lineCount, parseChapter, realText, signatureText } from './treeUtils'
 import { Crumbs, DifficultyDots, MasteryBar, MiniBoard, Notice, SideIcon } from './components/shared'
 
 // /openings/<courseId>: the home of one opening, with its ideas, common mistakes and chapters.
@@ -43,7 +43,7 @@ function CourseHome({ course }: { course: OpeningCourse }) {
         <div className="op-hero-text">
           <div className="op-you-play">You play {youPlay}</div>
           <h1>{course.name}</h1>
-          {course.tagline && <p className="op-tagline">{course.tagline}</p>}
+          {realText(course.tagline) && <p className="op-tagline">{realText(course.tagline)}</p>}
           {course.signatureMoves.length > 0 && <div className="op-moves">{signatureText(course.signatureMoves)}</div>}
           {chapters.length > 0 && (
             <div className="row wrap">
@@ -158,7 +158,7 @@ function ChapterRow({ index, course, chapter }: { index: number; course: Opening
       </span>
       <div className="op-chapter-main">
         <h3>{chapter.title}</h3>
-        <p className="muted">{chapter.summary}</p>
+        {realText(chapter.summary) && <p className="muted">{realText(chapter.summary)}</p>}
         <div className="row wrap op-chapter-meta">
           <DifficultyDots level={chapter.difficulty} />
           {parsed.ok && <span className="small faint">{lineCount(parsed.tree)} lines</span>}

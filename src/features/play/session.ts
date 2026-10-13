@@ -5,7 +5,7 @@ import { Chess } from 'chess.js'
 import { OPENING_COURSES } from '../../data/openings'
 import type { OpeningCourse, Side } from '../../types'
 import { getLevel, levelNearestTo } from './botLevels'
-import { START_FEN } from './position'
+import { START_FEN, derive } from './position'
 import { getTimeControl } from './timeControls'
 import { ANY_CHAPTER, type GameConfig, type PlayMode, type SavedGame, type SetupChoices } from './types'
 
@@ -22,6 +22,65 @@ export const DEFAULT_SETUP: SetupChoices = {
   chapterId: ANY_CHAPTER,
   timeId: 'none',
   coach: true,
+}
+
+/* ------------------------------------------------- damaged or old saves */
+
+const MODES: PlayMode[] = ['free', 'practice', 'face']
+
+function asRecord(raw: unknown): Record<string, unknown> | null {
+  return raw && typeof raw === 'object' && !Array.isArray(raw) ? (raw as Record<string, unknown>) : null
+}
+
+function str(v: unknown, fallback: string): string {
+  return typeof v === 'string' ? v : fallback
+}
+
+/** A stored setup may be old or damaged (edited by hand, older app version): keep only the parts that make sense. */
+export function cleanSetup(raw: unknown): SetupChoices {
+  const s = asRecord(raw) ?? {}
+  return {
+    colour: s.colour === 'white' || s.colour === 'black' || s.colour === 'random' ? s.colour : DEFAULT_SETUP.colour,
+    levelId: str(s.levelId, DEFAULT_SETUP.levelId),
+    mode: MODES.includes(s.mode as PlayMode) ? (s.mode as PlayMode) : DEFAULT_SETUP.mode,
+    courseId: str(s.courseId, DEFAULT_SETUP.courseId),
+    chapterId: str(s.chapterId, DEFAULT_SETUP.chapterId),
+    timeId: str(s.timeId, DEFAULT_SETUP.timeId),
+    coach: typeof s.coach === 'boolean' ? s.coach : DEFAULT_SETUP.coach,
+  }
+}
+
+/** A saved unfinished game, repaired where possible. Null when it cannot be used at all. */
+export function cleanSavedGame(raw: unknown): SavedGame | null {
+  const g = asRecord(raw)
+  const c = asRecord(g?.config)
+  if (!g || !c || typeof c.id !== 'string' || (c.userSide !== 'white' && c.userSide !== 'black')) return null
+  const startFen = str(c.startFen, '')
+  if (!validFen(startFen) || !Array.isArray(g.ucis)) return null
+  // keep the moves up to the first one that does not fit the position
+  const ucis = derive(
+    startFen,
+    g.ucis.filter((u): u is string => typeof u === 'string'),
+  ).ucis
+  const clock = asRecord(g.clock)
+  const mode: PlayMode = MODES.includes(c.mode as PlayMode) ? (c.mode as PlayMode) : 'free'
+  return {
+    config: {
+      id: c.id,
+      userSide: c.userSide,
+      levelId: getLevel(str(c.levelId, '')).id,
+      mode,
+      courseId: mode !== 'free' && typeof c.courseId === 'string' ? c.courseId : undefined,
+      chapterId: mode !== 'free' && typeof c.chapterId === 'string' ? c.chapterId : undefined,
+      startFen,
+      timeId: getTimeControl(str(c.timeId, '')).id,
+      startedAt: str(c.startedAt, new Date().toISOString()),
+    },
+    ucis,
+    clock: clock && Number.isFinite(clock.w) && Number.isFinite(clock.b) ? { w: clock.w as number, b: clock.b as number } : null,
+    hintsUsed: Number.isFinite(g.hintsUsed) ? (g.hintsUsed as number) : 0,
+    takebacks: Number.isFinite(g.takebacks) ? (g.takebacks as number) : 0,
+  }
 }
 
 export function levelIdFor(choices: SetupChoices, selfRating: number): string {

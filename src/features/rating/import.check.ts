@@ -75,6 +75,14 @@ const one = '[White "Me"]\n[Black "Fritz"]\n[Result "1-0"]\n\n1. e4 e5 2. Qh5 Nc
 const two = '[White "Ann"]\n[Black "Bob"]\n[Result "0-1"]\n\n1. f3 e5 2. g4 Qh4# 0-1\n'
 check('splits two games', splitPgnGames(`${one}\n${two}`).length === 2)
 check('a single game without headers stays one', splitPgnGames('1. e4 e5 2. Nf3 Nc6').length === 1)
+check(
+  'games without headers, one after the other, are split at the result',
+  parsePgnText('1. d4 d5 2. Bf4 Nf6 1-0\n\n1. e4 c6 2. d4 d5 *\n', []).games.length === 2,
+)
+check(
+  'a result inside a comment does not split a game',
+  splitPgnGames('1. e4 e5 { maybe 1-0\nsoon } 2. Nf3 Nc6 *').length === 1,
+)
 const pasted = parsePgnText(`${one}\n${two}\n[White "X"]\n\n1. e4 e5 2. Ke4 *`, ['me'])
 check(
   'reads the good games, reports the bad one',

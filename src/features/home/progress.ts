@@ -10,7 +10,7 @@ import type {
   TacticLesson,
   TacticsProgress,
 } from '../../types'
-import { dayKey, daysAgo, isoToDayKey, plural, prettyTheme, relativeDay, shiftDay, shortCourseName } from './format'
+import { authoredText, dayKey, daysAgo, isoToDayKey, plural, prettyTheme, relativeDay, shiftDay, shortCourseName } from './format'
 
 /** A chapter counts as "learned" once its mastery reaches this (0..1). */
 export const LEARNED_AT = 0.8
@@ -180,7 +180,7 @@ export function buildContinue(args: {
     const when = relativeDay(last.entry.lastPracticed, now)
     return {
       kind: 'chapter',
-      title: `${shortCourseName(last.course.name)}: ${step.chapter.title}`,
+      title: `${shortCourseName(last.course.name)} · ${step.chapter.title}`,
       detail: `${STEP_WORDS[step.kind]}.${when ? ` You last practised ${when.toLowerCase()}.` : ''}`,
       to: step.to,
     }
@@ -193,7 +193,7 @@ export function buildContinue(args: {
   return {
     kind: 'start',
     title: `Start with the ${first.name}`,
-    detail: first.tagline || `Your first opening to learn as ${first.side === 'white' ? 'White' : 'Black'}.`,
+    detail: authoredText(first.tagline) || `Your first opening to learn as ${first.side === 'white' ? 'White' : 'Black'}.`,
     to: `/openings/${first.id}`,
   }
 }
@@ -424,7 +424,7 @@ function tacticItem(lessons: TacticLesson[], progress: TacticsProgress): PlanIte
       id: 'tactic',
       kicker: 'Tactics',
       title: `Do a tactic: ${open.name}`,
-      reason: open.tagline || 'A short lesson on a trick that wins material.',
+      reason: authoredText(open.tagline) || 'A short lesson on a trick that wins material.',
       to: `/tactics/${open.id}`,
       cta: solved > 0 ? 'Keep going' : 'Start lesson',
       progressText: solved > 0 ? `${solved} of ${open.exercises.length} exercises solved` : undefined,

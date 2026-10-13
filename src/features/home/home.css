@@ -355,8 +355,12 @@
 }
 .home .game-opponent {
   font-weight: 600;
+  /* At most two lines; a very long username breaks inside the word instead of pushing "vs" onto its own line. */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
 }
 .home .game-main {
   min-width: 0;
@@ -439,6 +443,14 @@
   }
   .home .game-row > .btn {
     grid-area: button;
+  }
+}
+@media (max-width: 520px) {
+  /* Phones: a slimmer result chip leaves room for the opponent's name. */
+  .home .game-row > .game-result {
+    min-width: 0;
+    width: 54px;
+    padding-inline: 0;
   }
 }
 

@@ -128,14 +128,14 @@ export const matePatternsLesson: TacticLesson = {
       solution: ['h5h7'],
       hint: 'Your knight on f6 guards two squares near the king. Which of your pieces could use that help?',
       explanation:
-        'Rxh7 is checkmate. The knight on f6 protects the rook and covers g8, and Black\'s own knight on g7 blocks the king. This is the Arabian mate.',
+        'Rxh7 takes the black queen, and it is checkmate. The knight on f6 protects the rook and covers g8, and Black\'s own knight on g7 blocks the king. This is the Arabian mate.',
       difficulty: 1,
     },
     {
       id: 'mate-patterns-2',
       fen: 'r2q1r2/1p2N1pk/p3p3/2p5/3b4/R7/1P3PPP/2B3K1 w - - 0 22',
       solution: ['a3h3'],
-      hint: 'Your knight on e7 already takes away two squares from the king. Use your rook on the h-file.',
+      hint: 'Your knight on e7 already takes away two squares from the king. Bring your rook to the h-file.',
       explanation:
         'Rh3 is checkmate. The knight covers g8 and g6, the black pawn on g7 blocks the king, and the rook covers the h-file. This is Anastasia\'s mate.',
       difficulty: 1,
@@ -164,7 +164,7 @@ export const matePatternsLesson: TacticLesson = {
       solution: ['h1h7'],
       hint: 'Your pawn guards your knight on f6. Now find a check for your rook that the knight can protect.',
       explanation:
-        'Rh7 is checkmate. The knight protects the rook and the pawn on g5 protects the knight, so the king cannot take either one. Black\'s own rook blocks f8, which makes it a hook mate.',
+        'Rh7 is checkmate. The knight protects the rook and the pawn on g5 protects the knight, so the king cannot take either one. Black\'s own rook blocks f8. This chain of rook, knight and pawn is called a hook mate.',
       difficulty: 1,
     },
     {
@@ -209,7 +209,7 @@ export const matePatternsLesson: TacticLesson = {
       solution: ['g4f6', 'g8g7', 'h1h7'],
       hint: 'Your pawn on g5 can protect a knight on f6. Check with the knight, then look for a rook move on the h-file.',
       explanation:
-        'Nf6+ is protected by the pawns on g5 and e5. After the king steps away, Rxh7 is mate, because the knight guards the rook. This is a hook mate.',
+        'Nf6+ gives check, and the knight is protected by the pawns on g5 and e5. The king must step to g7 or h8. Either way Rxh7 is mate, because the knight guards the rook. After Kg7 it is a hook mate.',
       difficulty: 2,
     },
     {
@@ -227,7 +227,7 @@ export const matePatternsLesson: TacticLesson = {
       solution: ['e4f6', 'g8h8', 'h4h7', 'g7h7', 'h1h7'],
       hint: 'A knight check puts the king in the corner. Then a queen sacrifice on the h-file lets your rook finish the job.',
       explanation:
-        'Nf6+ drives the king into the corner. Qxh7+ is a queen sacrifice that drags the black queen onto h7, and then Rxh7 takes her with mate. The knight protects the rook and covers g8, so it is an Arabian mate.',
+        'Nf6+ drives the king into the corner. (If the black queen takes the knight instead, Qxh7 is mate at once.) Qxh7+ is a queen sacrifice that drags the black queen onto h7, and then Rxh7 takes her with mate. The knight protects the rook and covers g8, so it is an Arabian mate.',
       difficulty: 3,
     },
   ],

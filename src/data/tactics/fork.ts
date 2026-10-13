@@ -128,7 +128,7 @@ export const forkLesson: TacticLesson = {
       solution: ['a5f5', 'f7e6', 'f5f4'],
       hint: 'Rooks fork along lines too. Is there a square on the f-file that hits the king and the loose knight?',
       explanation:
-        'Rf5+ gives check and attacks the unprotected knight on f4. The king has to move, so Rxf4 wins the knight.',
+        'Rf5+ gives check and attacks the unprotected knight on f4. Black must deal with the check first, so Rxf4 wins the knight.',
       difficulty: 1,
     },
     {
@@ -137,7 +137,7 @@ export const forkLesson: TacticLesson = {
       solution: ['c4d6', 'e8d7', 'd6b5'],
       hint: 'Find a knight jump that gives check and attacks the black queen.',
       explanation:
-        'Nd6+ is a “royal fork”: the knight checks the king on e8 and attacks the queen on b5. Black must move the king, so White wins the queen for a knight.',
+        'Nd6+ is a “royal fork”: the knight checks the king on e8 and attacks the queen on b5. Black must move the king, so the knight takes the queen for free.',
       difficulty: 2,
     },
     {
@@ -164,7 +164,7 @@ export const forkLesson: TacticLesson = {
       solution: ['f1c4', 'g8h7', 'c4a2'],
       hint: 'Your bishop has a checking move that also lines up with the rook on a2.',
       explanation:
-        'Bc4+ checks the king on g8 and attacks the rook on a2 along the other diagonal. The king moves, and Bxa2 wins the rook.',
+        'Bc4+ checks the king on g8 and attacks the rook on a2 along the other diagonal. Black must answer the check, and then Bxa2 wins the rook.',
       difficulty: 2,
     },
     {

@@ -35,7 +35,7 @@ export const skewerLesson: TacticLesson = {
       ],
       highlights: [{ square: 'a8', color: 'yellow' }],
       caption:
-        'A skewer without a check: the bishop on f3 attacks the queen on d5, and the rook on a8 stands behind it on the same diagonal. The bishop is protected, so the queen can’t take it. When the queen moves away, Bxa8 wins the rook.',
+        'A skewer without a check: the bishop on f3 attacks the queen on d5, and the rook on a8 stands behind it on the same diagonal. The bishop is protected, so the queen can’t safely take it. When the queen moves away, Bxa8 wins the rook.',
     },
     {
       type: 'board',
@@ -47,7 +47,7 @@ export const skewerLesson: TacticLesson = {
       ],
       highlights: [{ square: 'd8', color: 'yellow' }],
       caption:
-        'It can happen in the opening too. The white queen checks the king on f6 from h4, and the black queen on d8 stands behind the king on the same diagonal. After the king moves, Qxd8 wins the queen.',
+        'It can happen in the opening too. The white queen has just moved to h4 (blue arrow) and checks the king on f6, and the black queen on d8 stands behind the king on the same diagonal. After the king moves, Qxd8 wins the queen.',
     },
     {
       type: 'text',
@@ -125,7 +125,7 @@ export const skewerLesson: TacticLesson = {
       solution: ['e2g4', 'e6e7', 'g4c8'],
       hint: 'Check the king with your bishop. Is there an enemy piece behind the king on the same diagonal?',
       explanation:
-        'Bg4+ checks the king on e6, and the black bishop on c8 stands behind it on the same diagonal. The king has to move away, and then Bxc8 wins the bishop.',
+        'Bg4+ checks the king on e6, and the black bishop on c8 stands behind it on the same diagonal. The king steps away, and then Bxc8 wins the bishop.',
       difficulty: 1,
     },
     {
@@ -161,7 +161,7 @@ export const skewerLesson: TacticLesson = {
       solution: ['c8f5', 'e4e5', 'f5b1'],
       hint: 'White’s queen has a rook on the same diagonal behind it. Attack the queen with a protected bishop.',
       explanation:
-        'Bf5 attacks the queen on e4, and your rook on f7 protects the bishop, so the queen can’t take it. When the queen moves away, Bxb1 wins the rook behind it.',
+        'Bf5 attacks the queen on e4, and your rook on f7 protects the bishop, so the queen can’t safely take it. When the queen moves away, Bxb1 wins the rook behind it.',
       difficulty: 2,
     },
     {
@@ -170,7 +170,7 @@ export const skewerLesson: TacticLesson = {
       solution: ['e1e8', 'f8e8', 'c5c8', 'e8e7', 'c8g8'],
       hint: 'Trade a pair of rooks with check first. Then look at where the black king has to stand.',
       explanation:
-        'Rxe8+ forces the king to take on e8. Then Rc8+ checks it along the back row, with the rook on g8 behind it. The king moves, and Rxg8 wins that rook.',
+        'Rxe8+ trades a pair of rooks, and the king takes back on e8. Then Rc8+ checks it along the back row, with the rook on g8 behind it. The king moves, and Rxg8 wins that rook.',
       difficulty: 3,
     },
     {

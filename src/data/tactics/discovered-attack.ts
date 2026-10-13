@@ -73,7 +73,7 @@ export const discoveredAttackLesson: TacticLesson = {
       moves: ['e5c6', 'e8d7', 'c6e5'],
       explanations: [
         'The knight takes the queen. By leaving the e-file it uncovers a check from the rook on e1. That is a discovered check.',
-        'Black must deal with the check first, so the knight can’t be taken back right now. The king steps to d7 and now attacks the knight.',
+        'Black must deal with the check first, and nothing can take the knight. The king steps to d7 and now attacks the knight.',
         'The knight jumps to safety with another check, protected by the rook. White is a whole queen up.',
       ],
     },
@@ -126,7 +126,7 @@ export const discoveredAttackLesson: TacticLesson = {
       solution: ['d7f6', 'g7f6', 'd1d8'],
       hint: 'Your knight stands between your rook and the black rook. A check from the knight would force Black to answer first.',
       explanation:
-        'Nf6+ is check, and the knight leaves the d-file so the rook on d1 attacks the rook on d8. Black takes the knight, but Rxd8+ wins a whole rook with check.',
+        'Nf6+ is check, and the knight leaves the d-file so the rook on d1 attacks the rook on d8. Black takes the knight, but Rxd8+ takes the rook with check. White has won a rook for a knight.',
       difficulty: 1,
     },
     {
@@ -135,7 +135,7 @@ export const discoveredAttackLesson: TacticLesson = {
       solution: ['g4f3'],
       hint: 'Your rook on g8 looks down the g-file, but your own bishop is in the way. Can the bishop move with a capture?',
       explanation:
-        'Bxf3 takes the knight and moves off the g-file. That uncovers a check from the rook on g8, and the bishop on f3 covers the king’s escape squares. Nothing can block, so it is checkmate.',
+        'Bxf3 takes the bishop and moves off the g-file. That uncovers a check from the rook on g8, and the bishop on f3 covers the king’s escape squares. Nothing can block, so it is checkmate.',
       difficulty: 1,
     },
     {
@@ -144,7 +144,7 @@ export const discoveredAttackLesson: TacticLesson = {
       solution: ['e5f3', 'g2f3', 'e8e1'],
       hint: 'Your knight blocks the e-file. Is there a knight jump with check that opens the line for your queen?',
       explanation:
-        'Nf3+ is check, and the knight leaves the e-file so your queen on e8 attacks the rook on e1. White takes the knight, but Qxe1+ wins the rook with check.',
+        'Nf3+ is check, and the knight leaves the e-file so your queen on e8 attacks the rook on e1. White takes the knight, but Qxe1+ takes the rook with check. You have won a rook for a knight.',
       difficulty: 2,
     },
     {
@@ -180,7 +180,7 @@ export const discoveredAttackLesson: TacticLesson = {
       solution: ['g4f2', 'e2f2', 'g8g1'],
       hint: 'Move a knight with check so that your rook on g8 attacks the rook on g1.',
       explanation:
-        'Nf2+ is check, and the knight leaves the g-file so your rook attacks the rook on g1. If White takes the knight, Rxg1 is checkmate: the knight on f3 protects your rook and covers the king’s escape squares.',
+        'Nf2+ is check, and the knight leaves the g-file so your rook attacks the rook on g1. White’s only move is to take the knight, and then Rxg1 is checkmate: the knight on f3 protects your rook, so the king can’t take it, and the king has no other square.',
       difficulty: 3,
     },
     {

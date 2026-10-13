@@ -1,4 +1,5 @@
 import { Chess } from 'chess.js'
+import { useMemo } from 'react'
 import { Play as PlayIcon, RotateCcw, Trash2 } from 'lucide-react'
 import { OPENING_COURSES } from '../../data/openings'
 import { KEYS, removeStored, useStored } from '../../lib/storage'
@@ -10,6 +11,8 @@ import {
   CURRENT_GAME_KEY,
   DEFAULT_SETUP,
   SETUP_KEY,
+  cleanSavedGame,
+  cleanSetup,
   courseById,
   levelIdFor,
   makeConfig,
@@ -85,9 +88,12 @@ function Step({ n, title, children }: { n: number; title: string; children: Reac
 
 export default function SetupScreen({ onStart, problem }: Props) {
   const [profile] = useStored(KEYS.profile, DEFAULT_PROFILE)
-  const [setup, setSetup] = useStored<SetupChoices>(SETUP_KEY, DEFAULT_SETUP)
-  const [saved] = useStored<SavedGame | null>(CURRENT_GAME_KEY, null)
-  const patch = (p: Partial<SetupChoices>) => setSetup((s) => ({ ...s, ...p }))
+  const [storedSetup, setSetup] = useStored<SetupChoices>(SETUP_KEY, DEFAULT_SETUP)
+  const [storedGame] = useStored<SavedGame | null>(CURRENT_GAME_KEY, null)
+  // both may be damaged or from an older version of the app
+  const setup = useMemo(() => cleanSetup(storedSetup), [storedSetup])
+  const saved = useMemo(() => cleanSavedGame(storedGame), [storedGame])
+  const patch = (p: Partial<SetupChoices>) => setSetup((s) => ({ ...cleanSetup(s), ...p }))
 
   const courses = playableCourses()
   const course = courses.find((c) => c.id === setup.courseId)

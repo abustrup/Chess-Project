@@ -38,7 +38,7 @@ export const attractionLesson: TacticLesson = {
         { square: 'a8', color: 'red' },
       ],
       caption:
-        'Here the king is lured onto e8. After Rxe8+ Kxe8, the queen goes to h8 with check, and she also attacks the rook on a8 along the same row. The king must move, so Qxa8 wins the rook.',
+        'Here the king is lured onto e8. After Rxe8+ Kxe8, the queen goes to h8 with check. The rook on a8 now stands behind the king on the same row. The king has to step off the row, so Qxa8 wins the rook.',
     },
     {
       type: 'board',
@@ -68,7 +68,7 @@ export const attractionLesson: TacticLesson = {
       explanations: [
         'The rook takes the pawn on h2 and gives check. It looks like Black is just giving a rook away.',
         'The king has no other move, because the bishop on c5 covers g1. It takes the rook and now stands on h2.',
-        "The queen jumps to h4 with check. The bishop covers g1, the queen covers g3 and h3, and White's own pawn blocks g2. It is checkmate.",
+        "The queen jumps to h4 with check. The bishop covers g1, the queen covers g3, h3 and h1 behind the king, and White's own pawn blocks g2. It is checkmate.",
       ],
     },
     {
@@ -122,7 +122,7 @@ export const attractionLesson: TacticLesson = {
       solution: ['d3h7', 'g8h7', 'g7g8q'],
       hint: 'Your pawn on g7 cannot queen, because the black king stands on g8. Can a sacrifice pull the king away?',
       explanation:
-        'Bh7+ forces Kxh7, because your pawn covers every other square. The king has left g8, so g8=Q is checkmate. Your rook on g4 protects the new queen.',
+        'Bh7+ forces Kxh7: the king cannot take your pawn on g7 because the rook on g4 protects it, and the pawn covers f8 and h8. The king has left g8, so g8=Q is checkmate. Your rook on g4 protects the new queen.',
       difficulty: 1,
     },
     {
@@ -140,16 +140,16 @@ export const attractionLesson: TacticLesson = {
       solution: ['c2f2', 'd4f2', 'e5g4', 'h2g3', 'g4f2'],
       hint: "Your queen can take something on f2 with check. White's queen has to take her, and then a knight check is waiting.",
       explanation:
-        'Qxf2+ takes a rook with check, and White\'s queen has to capture you. That drags her onto f2, where Ng4+ forks her and the king. Nxf2 wins the queen, so you have won a whole rook.',
+        'Qxf2+ takes a rook with check, and White\'s best is to take back with the queen. That drags her onto f2, where Ng4+ forks her and the king. Nxf2 wins the queen back. Even if the king then takes your knight, you have won a rook for a knight.',
       difficulty: 2,
     },
     {
       id: 'attraction-5',
       fen: 'r2kr3/ppp2pp1/5p2/3q4/8/3B1N1Q/PbP2PPP/3KR3 w - - 6 20',
       solution: ['e1e8', 'd8e8', 'h3h8', 'e8d7', 'h8a8'],
-      hint: 'The black king and its rook on a8 are on the same row. A rook trade can pull the king onto a square where your queen hits both.',
+      hint: 'The black king and its rook on a8 are on the same row. A rook trade can pull the king onto a square where your queen checks it and wins the rook behind it.',
       explanation:
-        'Rxe8+ forces Kxe8, which drags the king onto the same row as its rook on a8. Qh8+ then checks the king and attacks that rook along the row. After the king moves, Qxa8 wins the rook.',
+        'Rxe8+ forces Kxe8, which drags the king onto the same row as its rook on a8. Qh8+ then checks the king, and the rook stands behind it on the same row. The king has to step off the row, and Qxa8 wins the rook.',
       difficulty: 2,
     },
     {
@@ -176,7 +176,7 @@ export const attractionLesson: TacticLesson = {
       solution: ['d1d8', 'e7f8', 'd8f8', 'g8f8', 'a5d8'],
       hint: 'Start with a check on the back row. Then take the piece that has to block.',
       explanation:
-        'Rd8+ forces the bishop to block on f8. Rxf8+ takes the blocker, and the king has to recapture. Now the king stands on f8 and Qd8 is checkmate.',
+        'Rd8+ forces the bishop to block on f8 (taking the rook with Bxd8 allows Qxd8 mate at once). Rxf8+ takes the blocker, and the king has to recapture. Now the king stands on f8 and Qd8 is checkmate.',
       difficulty: 3,
     },
     {
@@ -203,7 +203,7 @@ export const attractionLesson: TacticLesson = {
       solution: ['e6f7', 'g8f7', 'f3e5', 'f7g8', 'e5d3'],
       hint: 'The black queen on d3 is far from its king. A pawn sacrifice could pull the king onto a square where one knight attacks both.',
       explanation:
-        'exf7+ is a pawn sacrifice, and the king has to take it. Now the king stands on f7, where Ne5+ gives check and also attacks the queen on d3. After the king moves, Nxd3 wins the queen.',
+        'exf7+ is a pawn sacrifice with check, and Black\'s best reply is to take it with the king. Now the king stands on f7, where Ne5+ gives check and also attacks the queen on d3. After the king moves, Nxd3 wins the queen.',
       difficulty: 3,
     },
     {
@@ -212,7 +212,7 @@ export const attractionLesson: TacticLesson = {
       solution: ['e4h7', 'g8h8', 'h7g8', 'h8g8', 'c2h7'],
       hint: 'Two sacrifices in a row. First send the king to the corner, then drag it back out so your queen can mate.',
       explanation:
-        'Bh7+ forces Kh8, because the queen protects the bishop. Bg8+ uncovers a check from the rook on h1, so the king has to take the bishop. Then Qh7 is checkmate, because the rook on h1 protects her.',
+        'Bh7+ forces Kh8, because the queen protects the bishop. Bg8+ uncovers a check from the rook on h1. The king takes the bishop (blocking the h-file with a bishop does not help: Qh7 is mate anyway). Then Qh7 is checkmate, because the rook on h1 protects her.',
       difficulty: 3,
     },
   ],

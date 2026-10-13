@@ -89,6 +89,14 @@ export function OpeningCard({ game }: { game: GameApi }) {
                   : 'The bot is playing its opening'
                 : 'Out of the lesson – normal game now'}
           </div>
+          {status.leftWith && (
+            <p className="small muted" style={{ margin: '8px 0 0' }}>
+              {status.leftWith.byUser
+                ? `You left the lesson with ${status.leftWith.played}.` +
+                  (status.leftWith.lesson ? ` The lesson move was ${status.leftWith.lesson}.` : '')
+                : `The bot left the lesson with ${status.leftWith.played}. From here you are on your own: use the ideas you learned.`}
+            </p>
+          )}
           {practising && status.inBook && !status.ended && (
             <p className="small muted" style={{ margin: '8px 0 0' }}>
               Stuck? The Hint button shows the lesson move and why it is played.

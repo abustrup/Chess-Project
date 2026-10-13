@@ -30,8 +30,13 @@ export function replayPgn(pgn: string): ReplayedGame {
   const chess = new Chess()
   try {
     chess.loadPgn(pgn)
-  } catch {
-    throw new Error('These moves are not a valid chess game (a move is illegal or the text is not a PGN).')
+  } catch (e) {
+    const bad = /Invalid move in PGN: (\S+)/.exec(e instanceof Error ? e.message : '')?.[1]
+    throw new Error(
+      bad
+        ? `The move "${bad}" is not possible in this game, so I cannot read it. Please check the moves.`
+        : 'These moves are not a valid chess game (a move is illegal or the text is not a PGN).',
+    )
   }
   const headers = chess.getHeaders()
   const variant = (headers.Variant ?? 'Standard').toLowerCase()

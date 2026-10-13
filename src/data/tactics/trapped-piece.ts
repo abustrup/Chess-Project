@@ -30,7 +30,7 @@ export const trappedPieceLesson: TacticLesson = {
       fen: 'r2qk1nr/1pp1bpQ1/p2p2bp/8/4P3/2N4P/PPP1BPP1/R1B1R1K1 b kq - 0 13',
       orientation: 'black',
       caption:
-        "A queen that grabs a pawn deep in the enemy camp can get trapped. Black plays Bf6 and attacks the queen on g7. Every square it could reach is covered, so the best White can do is Qxh8 Bxh8, which loses the queen for a rook.",
+        "A queen that grabs a pawn deep in the enemy camp can get trapped. Black plays Bf6 and attacks the queen on g7. Every square it could reach is covered, so White has to give the queen away: for a rook with Qxh8 Bxh8, or for a bishop with Qxg6 fxg6.",
       arrows: [{ from: 'e7', to: 'f6', color: 'blue' }],
       highlights: [
         { square: 'g7', color: 'red' },
@@ -42,7 +42,7 @@ export const trappedPieceLesson: TacticLesson = {
       fen: 'r2qk1nr/pp1bbp2/1nppp2p/6pQ/4P3/PBNPBN1P/1PP2PP1/R3K2R b KQkq - 1 10',
       orientation: 'black',
       caption:
-        "Early queen adventures are risky too. White's queen went to h5, and Black plays Nf6. Now g4 is covered by the knight, h4 by the pawn on g5, and g6 by the pawn on f7, so the queen has nowhere to go.",
+        "Early queen adventures are risky too. White's queen went to h5, and Black plays Nf6. Now g4 is covered by the knight, h4 by the pawn on g5, and g6 by the pawn on f7. Taking on f7, g5 or h6 just loses the queen too, so it has nowhere to go.",
       arrows: [{ from: 'g8', to: 'f6', color: 'blue' }],
       highlights: [
         { square: 'h5', color: 'red' },
@@ -99,11 +99,11 @@ export const trappedPieceLesson: TacticLesson = {
       ],
     },
     {
-      title: 'A quiet move sets the trap',
+      title: 'A king step sets the trap',
       fen: '4r1k1/pp4bQ/2p2qp1/8/N7/1P6/P1PP4/2K4R b - - 1 30',
       moves: ['g8f7', 'c2c3', 'e8h8', 'h7h8', 'g7h8'],
       explanations: [
-        "White's queen on h7 has gone too far. Black's rook would love to attack it from h8, but the king on g8 is in the way. A quiet king step clears the path.",
+        "White's queen on h7 gives check, but it has gone too far. Black's rook would love to attack it from h8, and the king on g8 is in the way. Kf7 gets out of check and clears the path.",
         "White cannot rescue the queen, so it just plays on.",
         'The rook attacks the queen. Every square the queen could go to is covered, so it cannot escape.',
         'The queen takes the rook, which is the most it can get.',
@@ -136,7 +136,7 @@ export const trappedPieceLesson: TacticLesson = {
       solution: ['f5f4', 'g3e3', 'f4e3'],
       hint: 'Look at the white rook on g3. Where could it go, and which of your pawns could attack it?',
       explanation:
-        'f4 attacks the rook on g3. It has nowhere safe to go: the pawn on g4 covers f3 and h3, and the pawn on f4 covers e3. White loses a rook for a pawn.',
+        'f4 attacks the rook on g3. It has nowhere safe to go: the pawn on g4 covers f3 and h3, the pawn on f4 covers e3, and Rxg4 runs into your queen. White loses a rook for a pawn.',
       difficulty: 1,
     },
     {
@@ -181,7 +181,7 @@ export const trappedPieceLesson: TacticLesson = {
       solution: ['d3a3', 'a2a3', 'b2a3'],
       hint: "Black's queen is deep in your camp. Which piece can attack it from a safe square?",
       explanation:
-        'Ra3 attacks the queen, and it has no safe square: your king covers b1 and b2, the pawn on c2 covers b3, and the rook covers a1. Black can only take with Qxa3, and then bxa3 wins the queen for a rook.',
+        'Ra3 attacks the queen, and it has no safe square: your king covers b1 and b2, the pawn on c2 covers b3, the bishop covers c4, and the rook covers a1. Black can only take with Qxa3, and then bxa3 wins the queen for a rook.',
       difficulty: 2,
     },
     {

@@ -79,7 +79,7 @@ export const removingTheDefenderLesson: TacticLesson = {
       fen: '4r1k1/pp3p1p/2p3p1/4bb2/3B4/2P1R1P1/PP2P1BP/6K1 b - - 1 22',
       moves: ['e5d4', 'c3d4', 'e8e3'],
       explanations: [
-        "The white rook on e3 is protected only by the bishop on d4, so Black takes that bishop. This also opens the e-file (the e column), so Black's rook now attacks the white rook. White's rook can't take Black's rook first: the bishop on d4 pins it, which means that if the rook moved away, the bishop would give check to the king on g1.",
+        "The white rook on e3 is protected only by the bishop on d4, so Black takes that bishop. This also opens the e-file (the e column), so Black's rook now attacks the white rook. White's rook can't take Black's rook first: the bishop on d4 pins it. That means the rook is not allowed to step off the line, because then the bishop would be giving check to the king on g1.",
         "White takes the bishop back. That is White's best try, but a pawn on d4 doesn't protect the rook on e3.",
         'The rook is now unprotected, and Black takes it. Black traded bishop for bishop and won a whole rook.',
       ],
@@ -130,7 +130,7 @@ export const removingTheDefenderLesson: TacticLesson = {
     {
       id: 'removing-the-defender-2',
       fen: '2rq1rk1/p4ppp/2n1p3/2Rp4/3P4/5N1P/PP2QPP1/3R2K1 b - - 0 19',
-      solution: ['c6d4', 'f3d4', 'c8c5'],
+      solution: ['c6d4', 'd1d4', 'c8c5'],
       hint: 'What protects the rook on c5?',
       explanation:
         'Nxd4 takes the pawn that protects the rook on c5, and it also opens the c-file so your rook attacks it. Even if White takes your knight, Rxc5 wins the rook.',

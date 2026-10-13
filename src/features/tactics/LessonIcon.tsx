@@ -1,4 +1,4 @@
-import { Castle, Crosshair, DoorOpen, GitFork, Lock, Pin, ShieldOff, Split, Utensils, type LucideIcon } from 'lucide-react'
+import { Castle, Crosshair, Crown, DoorOpen, GitFork, Hourglass, Lock, Magnet, Pin, ShieldAlert, ShieldOff, Split, Utensils, type LucideIcon } from 'lucide-react'
 
 // One simple, recognisable picture per pattern. Lessons we don't know yet get a target.
 const ICONS: Record<string, LucideIcon> = {
@@ -10,6 +10,10 @@ const ICONS: Record<string, LucideIcon> = {
   'removing-the-defender': ShieldOff,
   deflection: Split,
   'trapped-piece': Lock,
+  'loose-pieces': ShieldAlert,
+  attraction: Magnet,
+  zwischenzug: Hourglass,
+  'mate-patterns': Crown,
   'fixture-fork': GitFork,
   'fixture-back-rank': Castle,
 }

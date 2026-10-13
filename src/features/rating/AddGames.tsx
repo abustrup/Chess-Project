@@ -281,7 +281,7 @@ export default function AddGames({ mode, onMode }: { mode: AddMode; onMode: (m: 
           aria-expanded={mode === 'paste'}
           onClick={() => onMode(mode === 'paste' ? null : 'paste')}
         >
-          <ClipboardPaste size={16} /> Paste PGN
+          <ClipboardPaste size={16} /> Paste games
         </button>
       </div>
       {mode === 'lichess' && <LichessForm />}

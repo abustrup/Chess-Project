@@ -30,8 +30,8 @@ function safeMove(game: Chess, uci: string): Move | null {
 function explain(fenAfter: string, replyUci: string | undefined, mateIn: number | null): string {
   if (mateIn !== null && mateIn <= 4) {
     return mateIn === 1
-      ? 'Careful — after that move the bot can checkmate you right away.'
-      : `Careful — after that move the bot has a forced checkmate in ${mateIn}.`
+      ? 'Careful! After that move the bot can checkmate you right away.'
+      : `Careful! After that move the bot has a forced checkmate in ${mateIn}.`
   }
   const game = new Chess(fenAfter)
   const reply = replyUci ? safeMove(game, replyUci) : null
@@ -39,14 +39,14 @@ function explain(fenAfter: string, replyUci: string | undefined, mateIn: number 
     const prey = NAMES[reply.captured]
     const hunter = NAMES[reply.piece]
     const canRecapture = game.moves({ verbose: true }).some((m) => m.to === reply.to)
-    if (!canRecapture) return `Careful — nothing protects your ${prey} on ${reply.to}, so the bot can simply take it.`
+    if (!canRecapture) return `Careful! Nothing protects your ${prey} on ${reply.to}, so the bot can simply take it.`
     if (VALUE[reply.captured] > VALUE[reply.piece]) {
-      return `Careful — the bot can take your ${prey} on ${reply.to} with a ${hunter}, and that trade costs you material.`
+      return `Careful! The bot can take your ${prey} on ${reply.to} with a ${hunter}, and that trade costs you material.`
     }
-    return `Careful — that loses material: the bot can take your ${prey} on ${reply.to}.`
+    return `Careful! That loses material: the bot can take your ${prey} on ${reply.to}.`
   }
-  if (reply) return `Careful — that gives the bot a very strong reply, ${reply.san}.`
-  return 'Careful — that move gives the bot a big advantage.'
+  if (reply) return `Careful! That gives the bot a very strong reply, ${reply.san}.`
+  return 'Careful! That move gives the bot a big advantage.'
 }
 
 /**

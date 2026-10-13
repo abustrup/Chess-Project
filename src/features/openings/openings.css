@@ -225,6 +225,8 @@
 }
 .op-next {
   text-align: center;
+  /* room for two lines in every card, so the Start buttons line up across the row */
+  min-height: 3em;
 }
 .op-soon {
   align-self: center;
@@ -747,4 +749,17 @@ button.op-ply:hover {
   :root[data-zen='on'] .page.op-page {
     padding-top: 56px;
   }
+}
+
+/* Zen hides card chrome so the board stands alone. The overview and course pages have no board,
+   and without their card edges the ideas, mistakes and chapters run into each other. */
+:root[data-zen='on'] .op-course-card,
+:root[data-zen='on'] .op-course-hero,
+:root[data-zen='on'] .op-idea,
+:root[data-zen='on'] .op-chapter {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg-2) 95%, white), var(--bg-2));
+  border-color: var(--line);
+}
+:root[data-zen='on'] .op-mistake {
+  border-left-color: var(--q-mistake);
 }

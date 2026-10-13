@@ -130,3 +130,9 @@ export function soundFor(san: string): SoundName {
 
 /** "White" / "Black". */
 export const colourName = (c: Colour): string => (c === 'w' ? 'White' : 'Black')
+
+/** Text from a course, or '' when it is missing or still a 'TODO' placeholder from the writers. */
+export const realText = (text: string | undefined | null): string => {
+  const t = (text ?? '').trim()
+  return t && t.toUpperCase() !== 'TODO' ? t : ''
+}

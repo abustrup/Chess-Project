@@ -1,6 +1,6 @@
 /* ==========================================================================
    Chess Coach — design system
-   Dark, chess.com-inspired. Use these tokens and classes everywhere so the whole
+   Dark and calm, with its own look (Ocean and Ember). Use these tokens and classes everywhere so the whole
    app looks like one product. Add feature-specific CSS next to the feature
    (e.g. src/features/play/play.css) and build on the variables below.
    ========================================================================== */
@@ -18,7 +18,7 @@
 
   --text: #eaf0ff;
   --text-dim: #aab6d3;
-  --text-faint: #74829f;
+  --text-faint: #909cb8; /* at least 4.5:1 on cards, inputs and the page */
 
   --accent: #6aa5ff; /* brand / primary buttons / active nav */
   --accent-hi: #8dbbff;
@@ -67,7 +67,7 @@
   --line: #392a22;
   --text: #fbf1e6;
   --text-dim: #d4c0ab;
-  --text-faint: #9b8671;
+  --text-faint: #ad9781;
   --accent: #ffa24c;
   --accent-hi: #ffb877;
   --accent-lo: #e0832b;
@@ -303,7 +303,8 @@ textarea {
 
 /* -------------------------------------------------------------------- cards */
 .card {
-  background: linear-gradient(180deg, color-mix(in srgb, var(--bg-2) 88%, white), var(--bg-2));
+  /* only a faint sheen at the top: more white made cards look grey and cut text contrast */
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg-2) 95%, white), var(--bg-2));
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 22px;
@@ -385,11 +386,11 @@ textarea {
   background: linear-gradient(135deg, var(--accent-hi), var(--accent) 45%, var(--accent-lo));
   border-color: transparent;
   color: var(--on-accent);
-  box-shadow: 0 6px 20px color-mix(in srgb, var(--accent) 30%, transparent);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 .btn.primary:hover {
   filter: brightness(1.08);
-  box-shadow: 0 8px 26px color-mix(in srgb, var(--accent) 42%, transparent);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--accent) 32%, transparent);
 }
 .btn.danger {
   background: color-mix(in srgb, var(--red) 18%, var(--bg-2));
@@ -520,6 +521,7 @@ button.chip.selected,
 .textarea:focus {
   outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent);
 }
 .textarea {
   min-height: 140px;
@@ -732,15 +734,18 @@ button.chip.selected,
     backdrop-filter: none;
     background: var(--bg-0);
   }
-  .brand span {
-    display: none;
+  /* the links move to the bottom bar, so the top bar has room for the name */
+  .brand {
+    font-size: 19px;
   }
   .topnav {
     position: fixed;
     inset: auto 0 0 0;
-    height: 64px;
+    height: auto;
+    min-height: 64px;
     justify-content: space-around;
-    padding: 6px 8px;
+    /* keep the links above the iPhone home bar */
+    padding: 6px 8px max(6px, env(safe-area-inset-bottom));
     z-index: 50;
     background: color-mix(in srgb, var(--bg-1) 94%, transparent);
     backdrop-filter: blur(14px);
@@ -758,7 +763,7 @@ button.chip.selected,
     padding-bottom: 64px;
   }
   .page {
-    padding: 20px 14px 40px;
+    padding: 20px 16px 40px;
   }
   .grid.cols-2,
   .grid.cols-3,

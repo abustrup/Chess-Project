@@ -43,8 +43,8 @@ export function choiceFromParams(params: URLSearchParams): Choice | null {
  */
 export function plainBlurb(description: string | undefined): string {
   if (!description) return ''
-  const [, ...rest] = description.split(' — ')
-  const text = rest.length > 0 ? rest.join(' — ') : description
+  const [, ...rest] = description.split(/ [—–:] /)
+  const text = rest.length > 0 ? rest.join(' ') : description
   return text.charAt(0).toUpperCase() + text.slice(1)
 }
 
@@ -58,9 +58,9 @@ export interface ChoiceInfo {
 }
 
 export function describeChoice(choice: Choice, index: PuzzleIndex): ChoiceInfo {
-  if (choice === 'mixed') return { title: 'Mixed', blurb: 'A bit of everything — the theme is a surprise.' }
+  if (choice === 'mixed') return { title: 'Mixed', blurb: 'A bit of everything. The theme is a surprise.' }
   if (choice === 'openings') return { title: 'Your openings', blurb: 'Puzzles from games that began like your London, Caro-Kann and Slav.' }
   const entry = entriesFor(choice, index)[0]
-  if (!entry) return { title: 'Mixed', blurb: 'A bit of everything — the theme is a surprise.' }
+  if (!entry) return { title: 'Mixed', blurb: 'A bit of everything. The theme is a surprise.' }
   return { title: entry.label, blurb: plainBlurb(entry.description), theme: entry.kind === 'theme' ? entry.key : undefined }
 }

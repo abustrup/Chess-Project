@@ -41,7 +41,7 @@ function useLatest<T>(value: T) {
 
 interface Props {
   exercise: TacticExercise
-  /** True when every exercise of the lesson is solved. */
+  /** True right after the solve that finished every exercise of the lesson. */
   lessonComplete: boolean
   nextLabel: string
   /** Pass-through panels for the side column (progress dots etc.). */

@@ -9,15 +9,35 @@ export function splitPgnGames(text: string): string[] {
   const games: string[][] = []
   let current: string[] = []
   let seenMoves = false
+  // The movetext so far ended with a result (1-0, 0-1, 1/2-1/2 or *), so more moves mean a new game.
+  // This lets games without tag lines, pasted one after the other, still be told apart.
+  let ended = false
+  let inComment = false
+  const startNewGame = () => {
+    games.push(current)
+    current = []
+    seenMoves = false
+    ended = false
+  }
   for (const line of text.replace(/\r/g, '').split('\n')) {
-    const isTag = /^\s*\[\w+\s+".*"\]\s*$/.test(line)
-    if (isTag && seenMoves) {
-      games.push(current)
-      current = []
-      seenMoves = false
+    const isTag = !inComment && /^\s*\[\w+\s+".*"\]\s*$/.test(line)
+    if (isTag && seenMoves) startNewGame()
+    if (!isTag && line.trim()) {
+      // the line without {comments} and ;comments, so a result written inside a comment does not count
+      let plain = ''
+      for (let i = 0; i < line.length; i++) {
+        const ch = line[i]
+        if (inComment) {
+          if (ch === '}') inComment = false
+        } else if (ch === '{') inComment = true
+        else if (ch === ';') break
+        else plain += ch
+      }
+      if (ended && plain.trim()) startNewGame()
+      if (plain.trim()) ended = /(^|\s)(1-0|0-1|1\/2-1\/2|\*)\s*$/.test(plain)
+      seenMoves = true
     }
     current.push(line)
-    if (!isTag && line.trim()) seenMoves = true
   }
   games.push(current)
   return games.map((g) => g.join('\n').trim()).filter(Boolean)

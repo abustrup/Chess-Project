@@ -184,11 +184,11 @@ export default function PuzzleRush({ index, onExit }: Props) {
     phase !== 'running'
       ? ''
       : lastStrike
-        ? `Wrong move — strike ${strikes} of ${MAX_STRIKES}.`
+        ? `Wrong move! Strike ${strikes} of ${MAX_STRIKES}.`
         : run?.phase === 'solved'
           ? 'Solved! Next one…'
           : run
-            ? `Your move — play for ${side}.`
+            ? `Your move: play for ${side}.`
             : 'Finding a puzzle…'
 
   return (

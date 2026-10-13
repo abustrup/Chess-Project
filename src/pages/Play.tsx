@@ -7,6 +7,7 @@ import {
   CURRENT_GAME_KEY,
   DEFAULT_SETUP,
   SETUP_KEY,
+  cleanSetup,
   makeConfig,
   newSavedGame,
   parseLaunch,
@@ -37,7 +38,7 @@ export default function Play() {
     handled.current = search
     const launch = parseLaunch(params)
     const profile = readStored(KEYS.profile, DEFAULT_PROFILE)
-    const choices: SetupChoices = { ...readStored(SETUP_KEY, DEFAULT_SETUP), ...launch.prefill }
+    const choices: SetupChoices = { ...cleanSetup(readStored(SETUP_KEY, DEFAULT_SETUP)), ...launch.prefill }
     if (launch.autoStart) {
       removeStored(CURRENT_GAME_KEY)
       setGame(newSavedGame(makeConfig(choices, { selfRating: profile.selfRating, fen: launch.fen, side: launch.side })))

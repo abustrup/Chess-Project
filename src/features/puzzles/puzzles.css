@@ -199,6 +199,12 @@
 .prompt-keys {
   margin: 0;
 }
+/* Keyboard keys mean nothing on a phone or tablet without a keyboard. */
+@media (hover: none) and (pointer: coarse) {
+  .prompt-keys {
+    display: none;
+  }
+}
 .prompt-foot a {
   display: inline-flex;
   align-items: center;

@@ -64,8 +64,10 @@ export const PIECE_SETS: PieceSetInfo[] = [
   {
     id: 'rhosgfx',
     name: 'Warm clay',
-    description: 'Cream and terracotta pieces that look lovely on the warm boards.',
-    credit: 'Pieces by RhosGFX (CC0 1.0, public domain)',
+    description: 'Cream and dark clay pieces that look lovely on the warm boards.',
+    // The dark pieces were made darker for this app: in their original terracotta they almost
+    // disappeared on the warm dark squares.
+    credit: 'Pieces by RhosGFX (CC0 1.0, public domain), dark pieces made darker for this app',
     dir: 'rhosgfx',
   },
 ]

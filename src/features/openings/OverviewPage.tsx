@@ -3,7 +3,7 @@ import { ArrowRight, BookOpen, Layers } from 'lucide-react'
 import type { OpeningCourse } from '../../types'
 import { useCourses } from './courses'
 import { courseMastery, hasStarted, nextStep, useOpeningProgress } from './progress'
-import { signatureText } from './treeUtils'
+import { realText, signatureText } from './treeUtils'
 import { MasteryBar, SideIcon } from './components/shared'
 
 // /openings: three big cards, one per opening the user is learning.
@@ -55,7 +55,9 @@ function CourseCard({ course }: { course: OpeningCourse }) {
         </div>
       </div>
 
-      <p className="op-tagline">{course.tagline || 'Lessons are on their way.'}</p>
+      {(realText(course.tagline) || count === 0) && (
+        <p className="op-tagline">{realText(course.tagline) || 'Lessons are on their way.'}</p>
+      )}
 
       {course.signatureMoves.length > 0 && (
         <div className="op-moves" aria-label="Signature moves">

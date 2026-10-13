@@ -66,7 +66,7 @@ function messageFor(run: RunState, delta: number | null): Message {
       }
     case 'solved':
       if (run.otherMate)
-        return { tone: 'good', icon: icon(CircleCheck), title: 'Checkmate — that works too!', text: 'The puzzle had another move in mind, but checkmate is checkmate. Well spotted.' }
+        return { tone: 'good', icon: icon(CircleCheck), title: 'Checkmate! That works too.', text: 'The puzzle had another move in mind, but checkmate is checkmate. Well spotted.' }
       if (run.failed)
         return { tone: 'good', icon: icon(CircleCheck), title: 'You found it!', text: 'This puzzle still counts as a miss, because the first try was not right. Keep an eye out for this idea next time.' }
       if (run.usedHint)
@@ -91,13 +91,13 @@ function messageFor(run: RunState, delta: number | null): Message {
           : { tone: 'neutral', icon: icon(Lightbulb), title: 'Hint: follow the arrow.', text: `The arrow shows the move. ${rule}` }
       }
       if (run.failed)
-        return { tone: 'neutral', icon: icon(Target), title: `Try again — find the best move for ${side}.`, text: 'This puzzle already counts as a miss, so you can relax and just learn from it.' }
+        return { tone: 'neutral', icon: icon(Target), title: `Try again: find the best move for ${side}.`, text: 'This puzzle already counts as a miss, so you can relax and just learn from it.' }
       if (run.step > 0)
         return { tone: 'neutral', icon: icon(Target), title: `Good! Now find the next move for ${side}.`, text: 'Keep going, you are on the right track.' }
       return {
         tone: 'neutral',
         icon: icon(Target),
-        title: `Your move — find the best move for ${side}.`,
+        title: `Your move: find the best move for ${side}.`,
         text: 'Look for checks, captures and threats. Drag a piece, or tap it and then tap where it goes.',
         tip: true,
       }
@@ -127,7 +127,7 @@ export default function PromptCard({ run, topic, delta, rating, busy, themes, on
           {topic.isTheme ? (
             <span className="chip">Theme: {topic.title}</span>
           ) : (
-            <span className="chip">{topic.title} — the theme shows when you are done</span>
+            <span className="chip">{topic.title} (the theme shows when you are done)</span>
           )}
         </div>
       )}
@@ -166,11 +166,11 @@ export default function PromptCard({ run, topic, delta, rating, busy, themes, on
           <div className="stats-heading">This puzzle was about</div>
           <ul className="theme-notes">
             {themes.map((t) => {
-              const [term, ...rest] = t.description.split(' — ')
+              const [term, ...rest] = t.description.split(/ [—–:] /)
               return (
                 <li key={t.key}>
                   <strong>{term}</strong>
-                  {rest.length > 0 && <> — {rest.join(' — ')}</>}
+                  {rest.length > 0 && <>: {rest.join(' ')}</>}
                 </li>
               )
             })}

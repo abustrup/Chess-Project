@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { DEFAULT_PROFILE, type GameRecord, type RatingEstimate } from '../types'
+import { DEFAULT_PROFILE } from '../types'
 import { KEYS, useStored } from '../lib/storage'
 import { OPENING_COURSES } from '../data/openings'
 import { TACTIC_LESSONS } from '../data/tactics'
@@ -24,6 +24,14 @@ import {
   summarisePuzzles,
   unfinishedGameMoves,
 } from '../features/home/progress'
+import {
+  cleanEstimate,
+  cleanGames,
+  cleanProfile,
+  cleanOpeningProgress,
+  cleanPuzzleStats,
+  cleanTacticsProgress,
+} from '../features/home/sanitize'
 import '../features/home/home.css'
 
 // The Play page keeps a game that is still going under this (private) key; we only read how far it got.
@@ -32,18 +40,24 @@ const RECENT_GAMES = 5
 
 /** Home dashboard: greeting, "pick up where you left off", today's plan and an overview of progress. */
 export default function Home() {
-  const [profile] = useStored(KEYS.profile, DEFAULT_PROFILE)
-  const [storedGames] = useStored<GameRecord[]>(KEYS.games, NO_GAMES)
-  const [openingProgress] = useStored(KEYS.openingProgress, NO_OPENING_PROGRESS)
-  const [tacticsProgress] = useStored(KEYS.tacticsProgress, NO_TACTICS_PROGRESS)
-  const [puzzleStats] = useStored(KEYS.puzzleStats, NO_PUZZLE_STATS)
-  const [estimate] = useStored<RatingEstimate | null>(KEYS.ratingEstimate, null)
+  const [storedProfile] = useStored<unknown>(KEYS.profile, DEFAULT_PROFILE)
+  const profile = useMemo(() => cleanProfile(storedProfile), [storedProfile])
+  const [storedGames] = useStored<unknown>(KEYS.games, NO_GAMES)
+  const [storedOpenings] = useStored<unknown>(KEYS.openingProgress, NO_OPENING_PROGRESS)
+  const [storedTactics] = useStored<unknown>(KEYS.tacticsProgress, NO_TACTICS_PROGRESS)
+  const [storedPuzzles] = useStored<unknown>(KEYS.puzzleStats, NO_PUZZLE_STATS)
+  const [storedEstimate] = useStored<unknown>(KEYS.ratingEstimate, null)
   const [unfinishedGame] = useStored<unknown>(UNFINISHED_GAME_KEY, null)
 
   // "Today" is fixed when the page opens; that is accurate enough for a dashboard.
   const now = useMemo(() => new Date(), [])
 
-  const games = useMemo(() => newestFirst(Array.isArray(storedGames) ? storedGames : NO_GAMES), [storedGames])
+  // Saved data can be old or damaged: clean it first so one bad value never breaks the whole page.
+  const openingProgress = useMemo(() => cleanOpeningProgress(storedOpenings), [storedOpenings])
+  const tacticsProgress = useMemo(() => cleanTacticsProgress(storedTactics), [storedTactics])
+  const puzzleStats = useMemo(() => cleanPuzzleStats(storedPuzzles), [storedPuzzles])
+  const estimate = useMemo(() => cleanEstimate(storedEstimate), [storedEstimate])
+  const games = useMemo(() => newestFirst(cleanGames(storedGames)), [storedGames])
   const summaries = useMemo(
     () => OPENING_COURSES.map((course) => summariseCourse(course, openingProgress)),
     [openingProgress],

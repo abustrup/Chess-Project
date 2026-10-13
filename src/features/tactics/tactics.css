@@ -528,3 +528,10 @@
     flex: 1 1 100%;
   }
 }
+
+/* keyboard tips mean nothing on a phone or tablet without a keyboard */
+@media (hover: none) and (pointer: coarse) {
+  .tx-key-hint {
+    display: none;
+  }
+}

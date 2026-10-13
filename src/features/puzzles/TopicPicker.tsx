@@ -98,7 +98,11 @@ export default function TopicPicker({ index, current, onPick, onClose }: Props) 
     window.addEventListener('keydown', onKey)
     const previous = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    dialogRef.current?.focus()
+    // With a mouse, start in the search box so you can just type (and a "z" does not switch zen mode on).
+    // On a phone, focus the window itself so the on-screen keyboard does not pop up and cover the list.
+    const search = dialogRef.current?.querySelector<HTMLInputElement>('input[type="search"]')
+    if (search && window.matchMedia?.('(pointer: fine)').matches) search.focus()
+    else dialogRef.current?.focus()
     return () => {
       window.removeEventListener('keydown', onKey)
       document.body.style.overflow = previous

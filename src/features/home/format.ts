@@ -68,3 +68,9 @@ export function prettyTheme(key: string): string {
 export function shortCourseName(name: string): string {
   return name.replace(/\s+(System|Defen[cs]e)$/i, '')
 }
+
+/** Course and lesson text written by content authors; hides unfinished placeholders such as "TODO". */
+export function authoredText(text: string | undefined | null): string {
+  const clean = (text ?? '').trim()
+  return /^(todo|tbd|tk|xxx)\b/i.test(clean) ? '' : clean
+}

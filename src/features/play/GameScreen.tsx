@@ -9,7 +9,7 @@ import { ResultCard, ResultModal } from './GameOver'
 import { botDisplayName, buildRecord } from './gameRecord'
 import { materialOf } from './position'
 import PlayerStrip from './PlayerStrip'
-import { EVAL_BAR_KEY, SETUP_KEY, DEFAULT_SETUP } from './session'
+import { EVAL_BAR_KEY, SETUP_KEY, DEFAULT_SETUP, cleanSetup } from './session'
 import { MovesCard, OpeningCard } from './SidePanels'
 import type { SavedGame } from './types'
 import { useGame } from './useGame'
@@ -28,7 +28,8 @@ function isTyping(target: EventTarget | null): boolean {
 
 export default function GameScreen({ initial, onNewGame, onRematch }: Props) {
   const [profile] = useStored(KEYS.profile, DEFAULT_PROFILE)
-  const [setup, setSetup] = useStored(SETUP_KEY, DEFAULT_SETUP)
+  const [storedSetup, setSetup] = useStored(SETUP_KEY, DEFAULT_SETUP)
+  const setup = cleanSetup(storedSetup)
   const [evalOn, setEvalOn] = useStored(EVAL_BAR_KEY, false)
   const game = useGame(initial, setup.coach, evalOn)
   const [modalOpen, setModalOpen] = useState(true)
@@ -142,7 +143,7 @@ export default function GameScreen({ initial, onNewGame, onRematch }: Props) {
           <MoreActions
             game={game}
             coachOn={setup.coach}
-            setCoachOn={(on) => setSetup((s) => ({ ...s, coach: on }))}
+            setCoachOn={(on) => setSetup((s) => ({ ...cleanSetup(s), coach: on }))}
             evalOn={evalOn}
             setEvalOn={setEvalOn}
             onNewGame={onNewGame}

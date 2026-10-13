@@ -56,7 +56,7 @@ function plainMove(move: Move): string {
       ? `takes the ${PIECE_NAMES[move.captured]} on ${move.to}`
       : `goes to ${move.to}`
   const promotion = move.promotion ? ` and becomes a ${PIECE_NAMES[move.promotion]}` : ''
-  const ending = move.san.endsWith('#') ? ' — checkmate!' : move.san.endsWith('+') ? ', giving check' : ''
+  const ending = move.san.endsWith('#') ? ', and it is checkmate!' : move.san.endsWith('+') ? ', giving check' : ''
   return `${piece[0].toUpperCase()}${piece.slice(1)} ${what}${promotion}${ending}`
 }
 

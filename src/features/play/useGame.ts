@@ -46,6 +46,8 @@ export interface BookStatus {
   left: boolean
   /** The game followed the prepared moves all the way to the end of the line. */
   ended: boolean
+  /** The move that took the game out of the lesson, and (when the player made it while practising) the lesson move. */
+  leftWith: { byUser: boolean; played: string; lesson: string | null } | null
 }
 
 const PIECE_NAMES: Record<string, string> = { p: 'pawn', n: 'knight', b: 'bishop', r: 'rook', q: 'queen', k: 'king' }
@@ -109,14 +111,26 @@ export function useGame(initial: SavedGame, coachOn: boolean, evalOn: boolean) {
     const live = liveNodes(book, derived.ucis)
     const chapterTitle =
       live.length === 1 ? live[0].chapter.title : book.trees.length === 1 ? book.trees[0].chapter.title : null
+    let leftWith: BookStatus['leftWith'] = null
+    if (live.length === 0) {
+      for (let i = 0; i < derived.moves.length; i++) {
+        if (liveNodes(book, derived.ucis.slice(0, i + 1)).length > 0) continue
+        const move = derived.moves[i]
+        const byUser = sideOf(move.color) === config.userSide
+        const lesson = byUser && config.mode === 'practice' ? (lessonMove(book, derived.ucis.slice(0, i))?.node.san ?? null) : null
+        leftWith = { byUser, played: move.san, lesson }
+        break
+      }
+    }
     return {
       courseName: course.name,
       chapterTitle,
       inBook: live.length > 0,
       left: live.length === 0,
       ended: live.length > 0 && live.every((l) => l.node.children.length === 0),
+      leftWith,
     }
-  }, [book, config.courseId, derived.ucis])
+  }, [book, config.courseId, config.mode, config.userSide, derived.moves, derived.ucis])
 
   /* ---------------------------------------------------------------- ending */
 

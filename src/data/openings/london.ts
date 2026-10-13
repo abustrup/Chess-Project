@@ -6,12 +6,150 @@ export const londonCourse: OpeningCourse = {
   id: 'london',
   name: 'London System',
   side: 'white',
-  tagline: 'TODO',
+  tagline: 'One calm set-up against almost anything: bishop to f4, build the pyramid, castle, then pick your plan.',
   signatureMoves: ['d4', 'd5', 'Bf4'],
-  ecoNames: [],
-  overview: [],
-  keyIdeas: [],
-  commonMistakes: [],
+  ecoNames: [
+    'Queen\'s Pawn Game: Accelerated London System',
+    'Queen\'s Pawn Game: Accelerated London System, Steinitz Countergambit',
+    'Queen\'s Pawn Game: Accelerated London System, Steinitz Countergambit Accepted',
+    'Queen\'s Pawn Game: London System',
+    'Queen\'s Pawn Game: London System, with e6',
+    'Queen\'s Pawn Game: London System, Pterodactyl Variation',
+    'London System: Poisoned Pawn Variation',
+    'Indian Defense: Accelerated London System',
+    'Indian Defense: London System',
+    'London System',
+    'London System, with Bd3',
+    'London System, with Be2',
+  ],
+  overview: [
+    'The London System is a set-up for White, not a long line of moves to memorise. You play d4, bring your dark-squared bishop out to f4, and then add e3, Nf3, c3, Bd3 and Nbd2 before you castle. You can use almost the same set-up against nearly everything Black does.',
+    'It suits you well at around 1100. Your king gets safe quickly, there are very few early traps for White, and you reach the same kind of position again and again. That means you save time on the clock and you slowly learn what the good plans look like. Many club players also feel unsure against it, so they make mistakes you can punish.',
+    'The plan in short. Build a "pyramid" of pawns on c3, d4 and e3, put the bishop on d3 aiming at h7, and castle. Then choose a plan: jump a knight to e5 and attack Black\'s king, push e3-e4 to open the centre when your pieces are ready, or play c4 to open lines on the queenside. You do not need all three; pick the one that fits the position.',
+    'The middlegames feel calm and safe. You rarely lose quickly, and your pieces have clear squares to go to. The danger is the opposite: playing so calmly that you never start a plan.',
+    'What to be careful about: bring the bishop to f4 before you play e3, look after your b2 pawn when Black\'s queen comes to b6, take back with the h-pawn if Black swaps bishops on g3, and never play on autopilot. The set-up is always similar, but Black\'s threats are not.',
+  ],
+  keyIdeas: [
+    {
+      title: 'Bishop out first, then e3',
+      text: 'Your dark-squared bishop goes to f4 BEFORE you play e3. Then it stands outside your pawn chain and stays active. After e3, your d4 pawn is guarded and your other bishop on f1 has a free road too.',
+      fen: 'rnbqkb1r/ppp1pppp/5n2/3p4/3P1B2/4P3/PPP2PPP/RN1QKBNR b KQkq - 0 3',
+      arrows: [{ from: 'f1', to: 'd3', color: 'green' }],
+      highlights: [
+        { square: 'f4', color: 'green' },
+        { square: 'e3', color: 'yellow' },
+      ],
+      orientation: 'white',
+    },
+    {
+      title: 'The pyramid: c3, d4 and e3',
+      text: 'Your pawns on c3, d4 and e3 make a little triangle. Black attacks d4 with ...c5 and ...Nc6, but d4 is guarded by two pawns and the knight on f3. That makes your centre very hard to break, so you can calmly finish your development.',
+      fen: 'r1bq1rk1/pp3ppp/2nbpn2/2pp4/3P4/2P1PNB1/PP1N1PPP/R2QKB1R w KQ - 1 8',
+      highlights: [
+        { square: 'c3', color: 'green' },
+        { square: 'd4', color: 'green' },
+        { square: 'e3', color: 'green' },
+      ],
+      arrows: [
+        { from: 'c5', to: 'd4', color: 'red' },
+        { from: 'c6', to: 'd4', color: 'red' },
+      ],
+      orientation: 'white',
+    },
+    {
+      title: 'Bd3: aim at h7',
+      text: 'From d3 your light-squared bishop points straight at h7, the pawn next to Black\'s castled king. Later your queen and a knight on e5 can join it. Many London attacks start with this bishop.',
+      fen: 'r1bq1rk1/pp3ppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R b KQ - 2 8',
+      arrows: [{ from: 'd3', to: 'h7', color: 'green' }],
+      orientation: 'white',
+    },
+    {
+      title: 'The dream square e5',
+      text: 'A knight on e5 is the heart of the London. It is guarded by the d4 pawn and by the bishop on g3, and it eyes c6 and f7. Black can only chase it with ...f6, and that weakens their own king.',
+      fen: 'r1bq1rk1/p4ppp/1pnbpn2/2ppN3/3P4/2PBP1B1/PP1N1PPP/R2QK2R b KQ - 1 9',
+      arrows: [
+        { from: 'e5', to: 'c6', color: 'green' },
+        { from: 'e5', to: 'f7', color: 'green' },
+        { from: 'd4', to: 'e5', color: 'yellow' },
+        { from: 'g3', to: 'e5', color: 'yellow' },
+      ],
+      orientation: 'white',
+    },
+    {
+      title: 'Against ...Bd6: step back to g3',
+      text: 'When Black offers a swap with ...Bd6, you usually keep your bishop by stepping back to g3. If Black takes it anyway, take back with the h-pawn. Now your rook on h1 looks down the open h-file towards h7, right next to Black\'s king.',
+      fen: 'r1bq1rk1/pp3ppp/2n1pn2/2pp4/3P4/2PBPNP1/PP1N1PP1/R2QK2R b KQ - 0 9',
+      arrows: [{ from: 'h1', to: 'h7', color: 'green' }],
+      highlights: [{ square: 'g3', color: 'green' }],
+      orientation: 'white',
+    },
+    {
+      title: 'Against ...Bf5: offer a trade with Bd3',
+      text: 'When Black puts the light-squared bishop on f5, it is often their best piece. Offer to swap it with Bd3. If Black takes, take back with the queen, which then looks along the same diagonal at h7.',
+      fen: 'rn1qkb1r/pp2pppp/2p2n2/3p1b2/3P1B2/3BPN2/PPP2PPP/RN1QK2R b KQkq - 3 5',
+      arrows: [{ from: 'd3', to: 'f5', color: 'green' }],
+      orientation: 'white',
+    },
+    {
+      title: 'The e4 break',
+      text: 'Once your pieces are out and your king is castled, the push e3-e4 opens the centre while your pieces are ready and Black\'s are not. Get it ready with the queen on d3 or c2 and a knight on d2, so that e4 is guarded.',
+      fen: 'r3k2r/pp1n1ppp/2pqpn2/3p4/3P4/3QPN2/PPPN1PPP/R4RK1 w kq - 2 10',
+      arrows: [
+        { from: 'e3', to: 'e4', color: 'green' },
+        { from: 'd3', to: 'e4', color: 'yellow' },
+        { from: 'd2', to: 'e4', color: 'yellow' },
+      ],
+      orientation: 'white',
+    },
+  ],
+  commonMistakes: [
+    {
+      title: 'Playing e3 before Bf4',
+      text: 'After 1.d4 d5 2.e3, your bishop on c1 is locked in behind the e3 pawn. That is a different and more passive opening. In the London the bishop comes out to f4 first, and only then you play e3.',
+      fen: 'rnbqkbnr/ppp1pppp/8/3p4/3P4/4P3/PPP2PPP/RNBQKBNR b KQkq - 0 2',
+      highlights: [
+        { square: 'c1', color: 'red' },
+        { square: 'e3', color: 'red' },
+      ],
+      orientation: 'white',
+    },
+    {
+      title: 'Forgetting the b2 pawn',
+      text: 'Once your bishop has left c1, nothing guards b2. When Black\'s queen comes to b6, it attacks that pawn. Do not ignore it. The simplest answer is Qb3: you offer a queen trade, and if Black takes, you take back with the a-pawn and your rook gets the open a-file.',
+      fen: 'rnb1kb1r/pp2pppp/1q3n2/2pp4/3P1B2/2P1P3/PP3PPP/RN1QKBNR w KQkq - 1 5',
+      arrows: [
+        { from: 'b6', to: 'b2', color: 'red' },
+        { from: 'd1', to: 'b3', color: 'green' },
+      ],
+      orientation: 'white',
+    },
+    {
+      title: 'Taking back with the f-pawn on g3',
+      text: 'When Black swaps bishops with ...Bxg3, take back with the h-pawn, not the f-pawn. hxg3 keeps your pawns healthy and opens the h-file for your rook. fxg3 leaves your e3 pawn weak and your king more open.',
+      fen: 'r1bq1rk1/pp3ppp/2n1pn2/2pp4/3P4/2PBPNb1/PP1N1PPP/R2QK2R w KQ - 0 9',
+      arrows: [
+        { from: 'h2', to: 'g3', color: 'green' },
+        { from: 'f2', to: 'g3', color: 'red' },
+      ],
+      orientation: 'white',
+    },
+    {
+      title: 'Playing on autopilot',
+      text: 'The London set-up is always similar, so it is easy to stop looking at the board. Before every move, ask what Black\'s last move attacks and what it left unguarded. Here Black just played ...Qb6, and the bishop on d6 has lost its guard: Bxd6 wins a piece.',
+      fen: 'r1b2rk1/pp3ppp/1qnbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 3 9',
+      arrows: [{ from: 'g3', to: 'd6', color: 'green' }],
+      highlights: [{ square: 'd6', color: 'red' }],
+      orientation: 'white',
+    },
+    {
+      title: 'Leaving the king in the middle',
+      text: 'The London is calm, but a king in the centre is still the easiest target on the board. Do not start an attack or grab pawns before you have castled. Develop, castle, and only then start your plan.',
+    },
+    {
+      title: 'Never starting a plan',
+      text: 'The London is solid, but it is not a waiting game. Once you have castled and your pieces are out, pick a plan: Ne5 and an attack on the king, the e3-e4 break to open the centre, or c4 to open lines on the queenside. If you only shuffle your pieces, Black gets to play their own plan for free.',
+    },
+  ],
   chapters: [
     {
       id: 'classic-pyramid',
@@ -76,7 +214,7 @@ export const londonCourse: OpeningCourse = {
 3... c6 { Black builds a pawn wall on c6 and d5. It is a safe set-up, though a little passive. }
 4. Nf3 { Develop a knight. It guards d4 and looks at e5. [%cal Gg1f3] }
 4... e6 { The most common follow-up. Black's c8-bishop is now locked inside the pawn wall. }
-( 4... Bf5 { Black brings the bishop out before playing e6, the classic Slav idea. } 5. Bd3 { Challenge the bishop at once. Trading it takes away Black's best minor piece. [%cal Gf1d3,Gd3f5] } 5... Bxd3 ( 5... e6 { Black gets ready to take back on f5 with a pawn. } 6. Bxf5 { Take the bishop first. The trade also removes the piece Black was proud of. [%cal Gd3f5] } 6... exf5 7. Nbd2 { Bring the last knight out. [%cal Gb1d2] } 7... Bd6 8. Bxd6 { Trade the dark-squared bishops. You are happy to simplify. [%cal Gf4d6] } 8... Qxd6 9. O-O { King to safety. [%cal Ge1g1] } 9... O-O 10. Qe2 { The queen eyes e-file and keeps everything protected. Do not play Ne5 here, because ...Nxe5 dxe5 ...Qxe5 would win a pawn for Black. [%cal Gd1e2] } 10... Nbd7 11. c4 { Grab space and open the c-file. Your position is healthy and easy to play. [%cal Gc2c4] } 11... a5 ) ( 5... Nbd7?? { Black forgets that the bishop on f5 is loose. } 6. Bxf5 { A free bishop! [%cal Rd3f5] } 6... e6 7. Bd3 { Safe and sound. You are a whole piece up. [%cal Gf1d3] } 7... Be7 ) 6. Qxd3 { Recapture with the queen. Now your queen watches the whole d3-h7 diagonal. [%cal Gd1d3] } 6... e6 7. O-O { King to safety before anything happens. [%cal Ge1g1] } 7... Bd6 8. Bxd6 Qxd6 9. Nbd2 { Last piece into play. Your position is solid and flexible. [%cal Gb1d2] } 9... Nbd7 10. e4 { The e4 break! You open the centre now that all your pieces are ready. [%cal Ge3e4] } 10... dxe4 ( 10... e5? { This opens the position at the wrong moment. } 11. dxe5 { Take it. Black's pawn on c6 and the knight on d7 get in each other's way. [%cal Gd4e5] } 11... Nxe5 12. Nxe5 Qxe5 13. exd5 ) 11. Nxe4 Nxe4 12. Qxe4 { Both queens are active. The position is balanced and simple to play. [%cal Gd3e4] } 12... O-O 13. c4 { Grab space on the queenside and open the c-file for your rooks. [%cal Gc2c4] } 13... h6 )
+( 4... Bf5 { Black brings the bishop out before playing e6, the classic Slav idea. } 5. Bd3 { Challenge the bishop at once. Trading it takes away Black's best minor piece. [%cal Gf1d3,Gd3f5] } 5... Bxd3 ( 5... e6 { Black gets ready to take back on f5 with a pawn. } 6. Bxf5 { Take the bishop first. The trade also removes the piece Black was proud of. [%cal Gd3f5] } 6... exf5 7. Nbd2 { Bring the last knight out. [%cal Gb1d2] } 7... Bd6 8. Bxd6 { Trade the dark-squared bishops. You are happy to simplify. [%cal Gf4d6] } 8... Qxd6 9. O-O { King to safety. [%cal Ge1g1] } 9... O-O 10. Qe2 { The queen steps off the d-file, watches the e-file and keeps everything protected. Next you grab space with c4. [%cal Gd1e2] } 10... Nbd7 11. c4 { Grab space and open the c-file. Your position is healthy and easy to play. [%cal Gc2c4] } 11... a5 ) ( 5... Nbd7?? { Black forgets that the bishop on f5 is loose. } 6. Bxf5 { A free bishop! [%cal Rd3f5] } 6... e6 7. Bd3 { Safe and sound. You are a whole piece up. [%cal Gf1d3] } 7... Be7 ) 6. Qxd3 { Recapture with the queen. Now your queen watches the whole d3-h7 diagonal. [%cal Gd1d3] } 6... e6 7. O-O { King to safety before anything happens. [%cal Ge1g1] } 7... Bd6 8. Bxd6 Qxd6 9. Nbd2 { Last piece into play. Your position is solid and flexible. [%cal Gb1d2] } 9... Nbd7 10. e4 { The e4 break! You open the centre now that all your pieces are ready. [%cal Ge3e4] } 10... dxe4 ( 10... e5? { This opens the position at the wrong moment. } 11. dxe5 { Take it. Black's pawn on c6 and the knight on d7 get in each other's way. [%cal Gd4e5] } 11... Nxe5 12. Nxe5 Qxe5 13. exd5 ) 11. Nxe4 Nxe4 12. Qxe4 { Both queens are active. The position is balanced and simple to play. [%cal Gd3e4] } 12... O-O 13. c4 { Grab space on the queenside and open the c-file for your rooks. [%cal Gc2c4] } 13... h6 )
 ( 4... Bg4 { Black pins your knight to the queen. } 5. h3 { Ask the bishop what it wants to do. It has to decide right now. [%cal Gh2h3,Rh3g4] } 5... Bxf3 ( 5... Bh5 { Black keeps the pin. } 6. g4 { Push the bishop away. It looks brave, but it is safe here. [%cal Gg2g4] } 6... Bg6 7. Ne5 { Your knight lands on the strong square. If Black swaps it off, you get the open h-file. [%cal Gf3e5,Ge5g6] } 7... Nbd7 8. Nxg6 hxg6 9. Bg2 { The bishop on g2 looks along the long diagonal, and Black has doubled pawns on g6 and g7. [%cal Gf1g2] } 9... e6 10. Nd2 { Last piece into play. You have a healthy position and Black's pawns on g6 and g7 are a long-term weakness. [%cal Gb1d2] } 10... Nb6 ) 6. Qxf3 { Take back with the queen. You now own the two bishops, which is a long-term plus. [%cal Gd1f3] } 6... e6 7. Nd2 { The last knight comes out and gets ready for c3 or c4. [%cal Gb1d2] } 7... Bd6 8. Bxd6 { Swap the dark-squared bishops: after that Black has no easy way to attack your king. [%cal Gf4d6] } 8... Qxd6 9. c4 { Take space and fight for the centre. [%cal Gc2c4] } 9... Nbd7 10. Be2 { The bishop goes to e2, ready for castling. [%cal Gf1e2] } 10... O-O 11. a3 { A useful little move: it stops ...Qb4 and prepares b4 later. [%cal Ga2a3] } 11... e5 )
 ( 4... Qb6 { Black attacks your b2 pawn. } 5. Qc1 { The queen steps back to guard b2. Never defend with Nc3 here, because ...Qxb2 wins a pawn. [%cal Gd1c1,Rb6b2] } 5... Bf5 6. Bd3 { Challenge the bishop. [%cal Gf1d3,Gd3f5] } 6... Bxd3 ( 6... Nbd7?? { Black forgets that the bishop on f5 is loose. } 7. Bxf5 { A free bishop! [%cal Rd3f5] } 7... e6 8. Bd3 { Safe and sound. You are a whole piece up. [%cal Gf1d3] } 8... Be7 ) 7. cxd3 { Take back with the c-pawn, because your queen on c1 cannot reach d3. The doubled pawns are no problem, and you get the half-open c-file. [%cal Gc2d3] } 7... e6 8. Nc3 { Now that b2 is safe, the knight can come to c3. [%cal Gb1c3] } 8... Nbd7 9. h3 { Give the bishop a retreat square and stop any ...Ng4 or ...Bg4 ideas. [%cal Gh2h3] } 9... c5 )
 ( 4... Nbd7 { Black brings the queen's knight out. } 5. c3 { Your pyramid is ready, and the b2 pawn is safe from ...Qb6. [%cal Gc2c3] } 5... e6 6. Nbd2 { Bring the last knight out. [%cal Gb1d2] } 6... Bd6?? { Black forgets that the knight on d7 blocks the queen. } 7. Bxd6 { A free piece. Look: nothing guards the bishop on d6. [%cal Rf4d6] } 7... b6 8. Bg3 { The bishop goes home. You are a clean piece up. [%cal Gd6g3] } 8... c5 )

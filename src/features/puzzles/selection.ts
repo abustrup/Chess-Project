@@ -39,6 +39,21 @@ export interface Pick {
   startedOver: boolean
 }
 
+/**
+ * The side the player plays in each of their openings. Opening puzzles where you are on that side come first, so you
+ * practise the tricks of your own games (the other side's puzzles are used only if a file has none of yours).
+ */
+const OPENING_SIDE: Record<string, 'w' | 'b'> = { london: 'w', 'caro-kann': 'b', slav: 'b' }
+
+/** The puzzles of a file that fit the player: for an opening, the ones solved from the player's side of the board. */
+function forPlayer(entry: PuzzleIndexEntry, puzzles: Puzzle[]): Puzzle[] {
+  const side = entry.kind === 'opening' ? OPENING_SIDE[entry.key] : undefined
+  if (!side) return puzzles
+  // The puzzle position has the opponent to move (they play moves[0]), so the solver is the other colour.
+  const mine = puzzles.filter((p) => (p.fen.split(' ')[1] === 'w' ? 'b' : 'w') === side)
+  return mine.length > 0 ? mine : puzzles
+}
+
 function shuffled<T>(items: T[]): T[] {
   const copy = [...items]
   for (let i = copy.length - 1; i > 0; i--) {
@@ -68,14 +83,17 @@ export async function pickNext(entries: PuzzleIndexEntry[], options: PickOptions
   const order = shuffled(entries)
   const loaded: Puzzle[][] = []
   let firstError: unknown = null
+  let failures = 0
   let best: (Pick & { gap: number }) | null = null
 
   for (const entry of order) {
     let puzzles: Puzzle[]
     try {
-      puzzles = await loadPuzzles(entry)
+      puzzles = forPlayer(entry, await loadPuzzles(entry))
     } catch (error) {
       firstError ??= error
+      // Offline, every file fails the same way: give up after a few instead of trying all of them.
+      if (++failures >= 3 && loaded.length === 0) break
       continue
     }
     loaded.push(puzzles)

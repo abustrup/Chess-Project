@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Check, Copy, Handshake, Plus, RotateCcw, Search, Trophy, X } from 'lucide-react'
+import { BookOpen, Check, Copy, Handshake, Plus, RotateCcw, Search, Trophy, X } from 'lucide-react'
 import { copyText } from './ActionPanels'
 import { levelLabel } from './botLevels'
 import { describeOutcome, verdictFor } from './outcomeText'
@@ -78,7 +78,7 @@ export function ResultModal(props: Props & { onClose: () => void }) {
           <X size={18} />
         </button>
         <div className="pl-result-icon" aria-hidden>
-          {verdict === 'draw' ? <Handshake size={34} /> : <Trophy size={34} />}
+          {verdict === 'draw' ? <Handshake size={34} /> : verdict === 'win' ? <Trophy size={34} /> : <BookOpen size={34} />}
         </div>
         <h2 className="pl-result-title">{headline}</h2>
         {detail && <p className="muted" style={{ margin: 0 }}>{detail}</p>}
