@@ -104,7 +104,8 @@ export default function StatsPanel({ stats, themeNames, open, onToggle, onTrain,
               {rows.length > 0 && (
                 <div>
                   <div className="stats-heading">Accuracy by theme</div>
-                  <ul className="theme-bars">
+                  {/* It scrolls when there are many themes, so the keyboard must be able to reach it. */}
+                  <ul className="theme-bars" tabIndex={0} aria-label="Accuracy by theme">
                     {rows.map((row) => (
                       <li key={row.key} className={weakKeys.has(row.key) ? 'is-weak' : undefined}>
                         <span className="theme-bars-name">{themeNames.get(row.key)}</span>

@@ -10,12 +10,18 @@ export const RATING_WINDOW = 150
 const SEEN_KEY = 'puzzles.seen'
 const SEEN_LIMIT = 6000
 
+/** The remembered ids as a list. A damaged value (not a list of texts) counts as "nothing seen yet". */
+function seenIds(): string[] {
+  const saved = readStored<unknown>(SEEN_KEY, [])
+  return Array.isArray(saved) ? saved.filter((id): id is string => typeof id === 'string') : []
+}
+
 export function readSeen(): Set<string> {
-  return new Set(readStored<string[]>(SEEN_KEY, []))
+  return new Set(seenIds())
 }
 
 export function markSeen(id: string): void {
-  const seen = readStored<string[]>(SEEN_KEY, []).filter((x) => x !== id)
+  const seen = seenIds().filter((x) => x !== id)
   writeStored(SEEN_KEY, [...seen, id].slice(-SEEN_LIMIT))
 }
 
@@ -23,7 +29,7 @@ function forgetSeen(ids: Iterable<string>): void {
   const forget = new Set(ids)
   writeStored(
     SEEN_KEY,
-    readStored<string[]>(SEEN_KEY, []).filter((id) => !forget.has(id)),
+    seenIds().filter((id) => !forget.has(id)),
   )
 }
 
@@ -54,16 +60,24 @@ interface PickOptions {
 /**
  * Pick the next puzzle out of one or more puzzle files. With several files (Mixed) the files are tried in a
  * random order, so the themes come in a surprise order, until one has a puzzle close to the player's rating.
- * Returns null only when the files hold no puzzles at all.
+ * A file that cannot be loaded is skipped as long as another one works; the error is only passed on when
+ * none of them could be loaded. Returns null only when the files hold no puzzles at all.
  */
 export async function pickNext(entries: PuzzleIndexEntry[], options: PickOptions): Promise<Pick | null> {
   const { targetRating, exclude, startOverWhenEmpty = false, window = RATING_WINDOW } = options
   const order = shuffled(entries)
   const loaded: Puzzle[][] = []
+  let firstError: unknown = null
   let best: (Pick & { gap: number }) | null = null
 
   for (const entry of order) {
-    const puzzles = await loadPuzzles(entry)
+    let puzzles: Puzzle[]
+    try {
+      puzzles = await loadPuzzles(entry)
+    } catch (error) {
+      firstError ??= error
+      continue
+    }
     loaded.push(puzzles)
     const puzzle = pickPuzzle(puzzles, { targetRating, excludeIds: exclude, window })
     if (!puzzle) continue
@@ -72,11 +86,12 @@ export async function pickNext(entries: PuzzleIndexEntry[], options: PickOptions
     if (gap <= window) break
   }
   if (best) return best
+  if (loaded.length === 0 && firstError) throw firstError
 
   // Nothing fresh is left anywhere: start again from the beginning.
   const everything = loaded.flat()
   if (everything.length === 0) return null
   if (startOverWhenEmpty) forgetSeen(everything.map((p) => p.id))
-  const puzzle = pickPuzzle(loaded[0], { targetRating, window })
+  const puzzle = pickPuzzle(everything, { targetRating, window })
   return puzzle ? { puzzle, startedOver: true } : null
 }

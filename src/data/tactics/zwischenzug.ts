@@ -10,11 +10,11 @@ export const zwischenzugLesson: TacticLesson = {
   intro: [
     {
       type: 'text',
-      text: '**Zwischenzug** is German for an **in-between move**. When pieces are being captured you expect to take back right away, but first you slip in a check or a big threat that your opponent has to answer. The recapture is usually still there afterwards, and now it wins more.',
+      text: '**Zwischenzug** is German for an **in-between move**. Normally, when a piece is captured, you take back right away. But sometimes you first slip in a check or a big threat that your opponent has to answer, and the recapture is still waiting afterwards.',
     },
     {
       type: 'board',
-      fen: 'r3k3/pp3ppp/2n5/8/3q4/5B2/5PPP/3QK3 w - - 0 1',
+      fen: 'r3k2r/pp3ppp/2n5/8/3q4/5B2/PPP2PPP/R2QK2R w KQkq - 0 1',
       arrows: [
         { from: 'f3', to: 'c6', color: 'blue' },
         { from: 'd1', to: 'd4', color: 'red' },
@@ -87,7 +87,7 @@ export const zwischenzugLesson: TacticLesson = {
       moves: ['f7f8', 'a8f8', 'f2e3', 'f8f1', 'g1f1'],
       explanations: [
         "White's queen is attacked by the bishop on e3. If she simply took the bishop, Black's rook would capture the rook on f7. So White first takes the rook on f8, with check.",
-        'Black recaptures with the other rook. The check is over, and the f7 rook is gone.',
+        'Black recaptures with the other rook, so the check is over.',
         'Now the queen takes the bishop that was attacking her.',
         'Black trades the last pair of rooks.',
         'White recaptures and is a clean bishop ahead.',

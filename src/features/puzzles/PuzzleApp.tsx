@@ -2,10 +2,9 @@ import { useCallback, useEffect, useState } from 'react'
 import { Puzzle as PuzzleIcon } from 'lucide-react'
 import type { PuzzleIndex } from '../../types'
 import { loadPuzzleIndex } from '../../lib/puzzleData'
-import { KEYS, useStored } from '../../lib/storage'
 import PuzzleRush from './PuzzleRush'
 import Trainer from './Trainer'
-import { DEFAULT_PUZZLE_STATS } from './rating'
+import { usePuzzleStats } from './stored'
 import { errorMessage } from './errors'
 import './puzzles.css'
 
@@ -37,9 +36,16 @@ function usePuzzleIndex(): { state: IndexState; retry: () => void } {
 
 /** The whole Puzzles page: the heading with your rating, then either the trainer or Puzzle Rush. */
 export default function PuzzleApp() {
-  const [stats] = useStored(KEYS.puzzleStats, DEFAULT_PUZZLE_STATS)
+  const stats = usePuzzleStats()
   const { state, retry } = usePuzzleIndex()
   const [rush, setRush] = useState(false)
+
+  // The two views have different heights, so start each one at the top (on a phone the button that opens
+  // Puzzle Rush is far down the page, and the new view would otherwise appear scrolled halfway).
+  function showRush(on: boolean) {
+    setRush(on)
+    window.scrollTo(0, 0)
+  }
 
   return (
     <div className="page puzzles-page">
@@ -80,7 +86,7 @@ export default function PuzzleApp() {
       )}
 
       {state.status === 'ready' &&
-        (rush ? <PuzzleRush index={state.index} onExit={() => setRush(false)} /> : <Trainer index={state.index} onStartRush={() => setRush(true)} />)}
+        (rush ? <PuzzleRush index={state.index} onExit={() => showRush(false)} /> : <Trainer index={state.index} onStartRush={() => showRush(true)} />)}
     </div>
   )
 }

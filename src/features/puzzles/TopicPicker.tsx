@@ -60,10 +60,40 @@ export default function TopicPicker({ index, current, onPick, onClose }: Props) 
   const dialogRef = useRef<HTMLDivElement>(null)
   const sections = useMemo(() => buildSections(index), [index])
 
-  // Close with Escape; keep the page behind from scrolling; start with focus inside the window.
+  // The parent may hand over a new onClose on every render; keeping it in a ref lets the effect below run only
+  // once, so the window does not grab the keyboard focus back from the search box while the player types.
+  const closeRef = useRef(onClose)
   useEffect(() => {
+    closeRef.current = onClose
+  }, [onClose])
+
+  // Close with Escape; keep Tab inside the window; keep the page behind from scrolling;
+  // start with focus inside the window and give it back to the button that opened it.
+  useEffect(() => {
+    const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
+      if (e.key === 'Escape') {
+        closeRef.current()
+        return
+      }
+      if (e.key !== 'Tab') return
+      const dialog = dialogRef.current
+      if (!dialog) return
+      const items = Array.from(dialog.querySelectorAll<HTMLElement>('button:not([disabled]), input:not([disabled])'))
+      if (items.length === 0) return
+      const first = items[0]
+      const last = items[items.length - 1]
+      const focused = document.activeElement
+      if (!dialog.contains(focused) || focused === dialog) {
+        e.preventDefault()
+        ;(e.shiftKey ? last : first).focus()
+      } else if (e.shiftKey && focused === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && focused === last) {
+        e.preventDefault()
+        first.focus()
+      }
     }
     window.addEventListener('keydown', onKey)
     const previous = document.body.style.overflow
@@ -72,8 +102,9 @@ export default function TopicPicker({ index, current, onPick, onClose }: Props) 
     return () => {
       window.removeEventListener('keydown', onKey)
       document.body.style.overflow = previous
+      if (opener?.isConnected) opener.focus()
     }
-  }, [onClose])
+  }, [])
 
   const words = query.toLowerCase().split(/\s+/).filter(Boolean)
   const visible = sections

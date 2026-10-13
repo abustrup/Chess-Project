@@ -3,10 +3,9 @@ import { ArrowLeft, Play, RotateCcw, Timer, Trophy, X } from 'lucide-react'
 import type { PuzzleIndex } from '../../types'
 import type { BoardMove } from '../../components/Board'
 import { playSound } from '../../lib/sound'
-import { KEYS, useStored } from '../../lib/storage'
 import PuzzleBoard from './PuzzleBoard'
-import { DEFAULT_PUZZLE_STATS } from './rating'
 import { pickNext } from './selection'
+import { usePuzzleStats, useRushBest } from './stored'
 import { isLastUserMove, judgeMove, prepare, usePuzzleRun } from './useRun'
 import { errorMessage } from './errors'
 
@@ -36,8 +35,8 @@ interface Props {
 const clock = (seconds: number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`
 
 export default function PuzzleRush({ index, onExit }: Props) {
-  const [stats] = useStored(KEYS.puzzleStats, DEFAULT_PUZZLE_STATS)
-  const [best, setBest] = useStored<number>('puzzles.rushBest', 0)
+  const stats = usePuzzleStats()
+  const [best, setBest] = useRushBest()
   const { run, dispatch } = usePuzzleRun({ introMs: 350, replyMs: 280 })
 
   const [phase, setPhase] = useState<Phase>('ready')

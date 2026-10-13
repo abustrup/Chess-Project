@@ -8,7 +8,7 @@ export const removingTheDefenderLesson: TacticLesson = {
   intro: [
     {
       type: 'text',
-      text: 'Most pieces stay safe only because another piece protects them. But a protector has a job, and if you capture it, the piece it was guarding is left on its own. This idea is called removing the defender.',
+      text: 'Many pieces stay safe only because another piece protects them. But a protector has a job, and if you capture it, the piece it was guarding is left on its own. This idea is called removing the defender.',
     },
     {
       type: 'board',
@@ -26,13 +26,13 @@ export const removingTheDefenderLesson: TacticLesson = {
     },
     {
       type: 'tip',
-      text: "How to spot it: find an enemy piece that is protected only once, and ask 'who is the protector?'. If you can capture that protector, do it first and take the piece next. Even if you give up a little on the way, you often win more.",
+      text: "How to spot it: find an enemy piece that you attack and that is protected only once, and ask 'who is the protector?'. If you can capture that protector, do it first and take the piece next. Even if you give up a little on the way, you often win more.",
     },
     {
       type: 'board',
       fen: '3r2k1/1p3pp1/p1p1n1qp/8/3P3Q/4R2P/PPb2PP1/R5K1 w - - 2 24',
       caption:
-        "Your queen attacks the rook on d8, and only the knight on e6 protects it. Rxe6 trades your rook for a knight, but after fxe6 you win Black's rook with Qxd8+. That is a good deal.",
+        "Your queen attacks the rook on d8, and only the knight on e6 protects it. Rxe6 trades your rook for a knight. After Black takes back (with fxe6 or Qxe6), you win Black's rook with Qxd8+. That is a good deal.",
       arrows: [
         { from: 'e3', to: 'e6', color: 'blue' },
         { from: 'h4', to: 'd8', color: 'blue' },
@@ -63,9 +63,9 @@ export const removingTheDefenderLesson: TacticLesson = {
     },
     {
       type: 'board',
-      fen: 'r2qk2r/3pbpp1/1p2pn1p/2pb2B1/8/5NP1/PP2PPBP/R2QR1K1 w kq - 0 13',
+      fen: 'r2qk2r/p2pbpp1/1p2pn1p/2pb2B1/8/5NP1/PP2PPBP/R2QR1K1 w kq - 0 13',
       caption:
-        'This is the first position again, but Black has a pawn on e6. The bishop is now protected twice. Bxf6 Bxf6 gets White nothing, because Qxd5 loses the queen to exd5.',
+        'This is the first position again, but Black has a pawn on e6. The bishop is now protected twice. Bxf6 Bxf6 gets White nothing, because Qxd5 loses the queen for a bishop after exd5.',
       arrows: [
         { from: 'g5', to: 'f6', color: 'red' },
         { from: 'd1', to: 'd5', color: 'red' },
@@ -79,8 +79,8 @@ export const removingTheDefenderLesson: TacticLesson = {
       fen: '4r1k1/pp3p1p/2p3p1/4bb2/3B4/2P1R1P1/PP2P1BP/6K1 b - - 1 22',
       moves: ['e5d4', 'c3d4', 'e8e3'],
       explanations: [
-        "The white rook on e3 is protected only by the bishop on d4, so Black takes that bishop. This also opens the e-file (the e column), so Black's rook now attacks the white rook.",
-        "White takes back, which looks natural. But a pawn on d4 doesn't protect the rook on e3.",
+        "The white rook on e3 is protected only by the bishop on d4, so Black takes that bishop. This also opens the e-file (the e column), so Black's rook now attacks the white rook. White's rook can't take Black's rook first: the bishop on d4 pins it, which means that if the rook moved away, the bishop would give check to the king on g1.",
+        "White takes the bishop back. That is White's best try, but a pawn on d4 doesn't protect the rook on e3.",
         'The rook is now unprotected, and Black takes it. Black traded bishop for bishop and won a whole rook.',
       ],
     },
@@ -89,7 +89,7 @@ export const removingTheDefenderLesson: TacticLesson = {
       fen: '2k2r2/p3q1p1/bpp1P2p/3p1p2/3P1Pr1/2P3NQ/PP6/2KRR3 w - - 1 29',
       moves: ['g3f5', 'f8f5', 'h3g4'],
       explanations: [
-        "The black rook on g4 is attacked by your queen, and only the pawn on f5 protects it. The knight takes that pawn.",
+        "The black rook on g4 is attacked by your queen, and only the pawn on f5 protects it. The knight takes that pawn, and it also attacks the black queen.",
         "Black takes the knight with the other rook. But the rook on g4 has lost its only protector.",
         'The queen takes the rook. White gave up a knight, but won a pawn and a rook.',
       ],
@@ -110,9 +110,9 @@ export const removingTheDefenderLesson: TacticLesson = {
       moves: ['c6f3', 'e2f3', 'g4f3', 'g2f3', 'd8d3'],
       explanations: [
         "Black's rook attacks the bishop on d3, and White's queen on e2 protects it. The bishop takes the knight on f3, and that attacks the queen.",
-        'White takes back with the queen. But now the queen has left e2, so the bishop on d3 has lost its protector.',
-        'Black takes the white queen with the queen. White can only take back with the pawn on g2.',
-        'White takes back with the pawn. The white queen is gone for good.',
+        "White takes back with the queen. The queen on f3 still protects the bishop on d3, but Black's queen on g4 attacks it.",
+        'Black takes the white queen with the queen. That white queen was the only protector of the bishop on d3.',
+        'White has to take back with the pawn on g2. But a pawn on f3 does not protect the bishop on d3.',
         'Nothing protects the bishop on d3 any more, so the rook takes it. Trading off the protector won a piece.',
       ],
     },
@@ -131,7 +131,7 @@ export const removingTheDefenderLesson: TacticLesson = {
       id: 'removing-the-defender-2',
       fen: '2rq1rk1/p4ppp/2n1p3/2Rp4/3P4/5N1P/PP2QPP1/3R2K1 b - - 0 19',
       solution: ['c6d4', 'f3d4', 'c8c5'],
-      hint: 'Which white piece protects the rook on c5?',
+      hint: 'What protects the rook on c5?',
       explanation:
         'Nxd4 takes the pawn that protects the rook on c5, and it also opens the c-file so your rook attacks it. Even if White takes your knight, Rxc5 wins the rook.',
       difficulty: 1,
@@ -205,7 +205,7 @@ export const removingTheDefenderLesson: TacticLesson = {
       solution: ['d1d4', 'e5d4', 'f1f4'],
       hint: "Black's knight on f4 has two protectors. Can you force one of them to leave?",
       explanation:
-        'Rxd4 takes the rook that protects the knight along the fourth row. The pawn on e5 takes back, and when it does, it stops protecting the knight. Then Rxf4 wins it.',
+        'Rxd4 takes the rook that protects the knight along the fourth row. The pawn on e5 takes back, and when it does, it stops protecting the knight. Then Rxf4 wins it. (If Black took back with the other rook instead, Qf8 would be checkmate.)',
       difficulty: 3,
     },
     {

@@ -10,7 +10,7 @@ export const matePatternsLesson: TacticLesson = {
   intro: [
     {
       type: 'text',
-      text: 'Checkmates come in shapes. Strong players do not work out every mate from scratch, they **recognise a picture** they have seen before. Here are five patterns that every club player should know.',
+      text: 'Checkmates come in shapes, and strong players **recognise a picture** they have seen before instead of working out every mate from scratch. Here are five patterns that every club player should know.',
     },
     {
       type: 'board',
@@ -198,7 +198,7 @@ export const matePatternsLesson: TacticLesson = {
       id: 'mate-patterns-9',
       fen: '1k1r1b1r/ppp1qp2/2p5/5bpp/Q2P4/2P1P1BP/P2NBPP1/2KR3R b - - 0 15',
       solution: ['e7a3', 'a4a3', 'f8a3'],
-      hint: 'Give up your queen to pull the white queen onto a3. Then your other bishop finishes the job.',
+      hint: 'Your queen can check on a square where the white queen has to capture her. After that, your two bishops do the work.',
       explanation:
         'Qa3+ forces White to take the queen. Then Bxa3 is checkmate: it checks the king, the bishop on f5 covers b1 and c2, and White\'s own pieces block d1 and d2. This is Boden\'s mate.',
       difficulty: 2,
@@ -218,14 +218,14 @@ export const matePatternsLesson: TacticLesson = {
       solution: ['f7h6', 'g8h8', 'd5g8', 'f8g8', 'h6f7'],
       hint: 'Move the knight away with a double check. Then sacrifice your queen to drag a rook next to the king.',
       explanation:
-        'Nh6+ is a double check (knight and queen), so the king has to move to h8. Qg8+ forces Rxg8, and then Nf7 is a smothered mate. This famous combination is called Philidor\'s legacy.',
+        'Nh6+ is a double check (knight and queen), so the king has to move to h8. Qg8+ is a queen sacrifice that forces Rxg8, and then Nf7 is a smothered mate. This famous combination is called Philidor\'s legacy.',
       difficulty: 3,
     },
     {
       id: 'mate-patterns-12',
       fen: '3r1rk1/5nqp/p3p1p1/1b6/2ppN2Q/8/1P4P1/R3KB1R w KQ - 4 26',
       solution: ['e4f6', 'g8h8', 'h4h7', 'g7h7', 'h1h7'],
-      hint: 'A knight check puts the king in the corner. Then give up your queen on h7 so that your rook can mate there.',
+      hint: 'A knight check puts the king in the corner. Then a queen sacrifice on the h-file lets your rook finish the job.',
       explanation:
         'Nf6+ drives the king into the corner. Qxh7+ is a queen sacrifice that drags the black queen onto h7, and then Rxh7 takes her with mate. The knight protects the rook and covers g8, so it is an Arabian mate.',
       difficulty: 3,

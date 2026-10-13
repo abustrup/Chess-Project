@@ -21,8 +21,9 @@ export function entriesFor(choice: Choice, index: PuzzleIndex): PuzzleIndexEntry
   return index.entries.filter((e) => e.kind === kind && e.key === key)
 }
 
-/** True when the choice names something the puzzle index really has. */
-export function isValidChoice(choice: string, index: PuzzleIndex): boolean {
+/** True when the choice (it may come from saved data, so it can be anything) names something the puzzle index really has. */
+export function isValidChoice(choice: unknown, index: PuzzleIndex): boolean {
+  if (typeof choice !== 'string') return false
   const looksRight = choice === 'mixed' || choice === 'openings' || /^(theme|opening):/.test(choice)
   return looksRight && entriesFor(choice as Choice, index).length > 0
 }

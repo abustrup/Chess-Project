@@ -18,6 +18,10 @@ type GroupedEntry = PuzzleIndexEntry & { group?: string }
 let indexPromise: Promise<PuzzleIndex> | null = null
 const fileCache = new Map<string, Promise<Puzzle[]>>()
 
+// The messages below are shown to the player as they are, so they say what happened in plain words.
+// (The file name stays in the error's `cause` and in the browser's network tab for whoever fixes it.)
+const MISSING_FILES = 'The puzzle files may be missing from this copy of the app.'
+
 async function fetchJson(file: string, what: string): Promise<unknown> {
   const url = `${import.meta.env.BASE_URL}${file}`
   let response: Response
@@ -27,23 +31,50 @@ async function fetchJson(file: string, what: string): Promise<unknown> {
     throw new PuzzleLoadError(`We could not load ${what}. Please check your internet connection and try again.`, { cause })
   }
   if (!response.ok) {
-    throw new PuzzleLoadError(`We could not find ${what} (${file}, error ${response.status}).`)
+    throw new PuzzleLoadError(`We could not find ${what}. ${MISSING_FILES}`, { cause: `${file}: error ${response.status}` })
   }
   try {
     return await response.json()
   } catch (cause) {
     // A dev server answers a missing file with the home page, which is not JSON.
-    throw new PuzzleLoadError(`Something is wrong with ${what} (${file}). Developer: rebuild the files with npx tsx scripts/build-puzzles.ts`, { cause })
+    throw new PuzzleLoadError(`We could not read ${what}. ${MISSING_FILES}`, { cause: `${file}: not valid JSON (${String(cause)})` })
   }
+}
+
+const isText = (value: unknown): value is string => typeof value === 'string'
+
+/** Keep only the index entries that have everything the page needs (a damaged entry is left out, not a crash). */
+function isUsableEntry(entry: unknown): entry is PuzzleIndexEntry {
+  if (typeof entry !== 'object' || entry === null) return false
+  const e = entry as Record<string, unknown>
+  return (
+    isText(e.key) &&
+    (e.kind === 'theme' || e.kind === 'opening') &&
+    isText(e.label) &&
+    isText(e.file) &&
+    typeof e.count === 'number' &&
+    (e.description === undefined || isText(e.description)) &&
+    (e.group === undefined || isText(e.group))
+  )
+}
+
+/** A puzzle with everything needed to play it. Anything else in a puzzle file is skipped. */
+function toPuzzle(item: unknown): Puzzle | null {
+  if (typeof item !== 'object' || item === null) return null
+  const p = item as Record<string, unknown>
+  if (!isText(p.id) || !isText(p.fen) || typeof p.rating !== 'number' || !Number.isFinite(p.rating)) return null
+  if (!Array.isArray(p.moves) || p.moves.length < 2 || !p.moves.every(isText)) return null
+  const themes = Array.isArray(p.themes) ? p.themes.filter(isText) : []
+  return { id: p.id, fen: p.fen, moves: p.moves, rating: p.rating, themes, ...(isText(p.opening) ? { opening: p.opening } : {}) }
 }
 
 /** The list of every puzzle file (themes and openings) with friendly names. Loaded once. */
 export function loadPuzzleIndex(): Promise<PuzzleIndex> {
   if (!indexPromise) {
     const pending = fetchJson('puzzles/index.json', 'the puzzle list').then((data) => {
-      const index = data as PuzzleIndex
-      if (!Array.isArray(index?.entries)) throw new PuzzleLoadError('Something is wrong with the puzzle list (puzzles/index.json).')
-      return index
+      const index = data as Partial<PuzzleIndex> | null
+      if (!Array.isArray(index?.entries)) throw new PuzzleLoadError(`We could not read the puzzle list. ${MISSING_FILES}`)
+      return { ...index, entries: index.entries.filter(isUsableEntry) } as PuzzleIndex
     })
     // Do not remember a failure, so "Try again" really tries again.
     pending.catch(() => {
@@ -59,8 +90,8 @@ export function loadPuzzles(entry: PuzzleIndexEntry): Promise<Puzzle[]> {
   let pending = fileCache.get(entry.file)
   if (!pending) {
     pending = fetchJson(entry.file, `the "${entry.label}" puzzles`).then((data) => {
-      if (!Array.isArray(data)) throw new PuzzleLoadError(`Something is wrong with the "${entry.label}" puzzles (${entry.file}).`)
-      return data as Puzzle[]
+      if (!Array.isArray(data)) throw new PuzzleLoadError(`We could not read the "${entry.label}" puzzles. ${MISSING_FILES}`)
+      return data.map(toPuzzle).filter((p): p is Puzzle => p !== null)
     })
     pending.catch(() => fileCache.delete(entry.file))
     fileCache.set(entry.file, pending)

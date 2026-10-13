@@ -14,6 +14,9 @@ const K_LATER = 20
 /** We keep the last 500 puzzles, plenty for the little graph and for "never repeat". */
 const HISTORY_LIMIT = 500
 
+/** Only used when cleaning up saved data: no real rating gets anywhere near this. */
+const MAX_RATING = 4000
+
 export const DEFAULT_PUZZLE_STATS: PuzzleStats = {
   rating: START_RATING,
   solved: 0,
@@ -22,6 +25,51 @@ export const DEFAULT_PUZZLE_STATS: PuzzleStats = {
   bestStreak: 0,
   history: [],
   byTheme: {},
+}
+
+const isRecord = (value: unknown): value is Record<string, unknown> => typeof value === 'object' && value !== null && !Array.isArray(value)
+const isNumber = (value: unknown): value is number => typeof value === 'number' && Number.isFinite(value)
+const wholeCount = (value: unknown): number => (isNumber(value) && value > 0 ? Math.floor(value) : 0)
+
+/**
+ * Saved stats can be old, half-written or edited by hand. This turns whatever was saved into stats the page can
+ * always use: anything missing or odd is replaced by a safe value instead of crashing the page.
+ */
+export function cleanStats(saved: unknown): PuzzleStats {
+  if (!isRecord(saved)) return DEFAULT_PUZZLE_STATS
+
+  const history: PuzzleStats['history'] = []
+  if (Array.isArray(saved.history)) {
+    for (const item of saved.history) {
+      if (!isRecord(item) || !isNumber(item.ratingAfter)) continue
+      history.push({
+        date: typeof item.date === 'string' ? item.date : '',
+        puzzleId: typeof item.puzzleId === 'string' ? item.puzzleId : '',
+        solved: item.solved === true,
+        puzzleRating: isNumber(item.puzzleRating) ? item.puzzleRating : 0,
+        ratingAfter: item.ratingAfter,
+        ...(typeof item.theme === 'string' ? { theme: item.theme } : {}),
+      })
+    }
+  }
+
+  const byTheme: PuzzleStats['byTheme'] = {}
+  if (isRecord(saved.byTheme)) {
+    for (const [theme, row] of Object.entries(saved.byTheme)) {
+      if (isRecord(row)) byTheme[theme] = { solved: wholeCount(row.solved), failed: wholeCount(row.failed) }
+    }
+  }
+
+  const streak = wholeCount(saved.streak)
+  return {
+    rating: isNumber(saved.rating) ? Math.round(Math.min(MAX_RATING, Math.max(MIN_RATING, saved.rating))) : START_RATING,
+    solved: wholeCount(saved.solved),
+    failed: wholeCount(saved.failed),
+    streak,
+    bestStreak: Math.max(wholeCount(saved.bestStreak), streak),
+    history: history.slice(-HISTORY_LIMIT),
+    byTheme,
+  }
 }
 
 /** Chance (0..1) that a player of `player` rating solves a puzzle of `puzzle` rating. */

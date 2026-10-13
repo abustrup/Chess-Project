@@ -2,15 +2,16 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Shuffle, Timer } from 'lucide-react'
 import type { PuzzleIndex } from '../../types'
-import { KEYS, readStored, useStored, writeStored } from '../../lib/storage'
+import { KEYS, useStored, writeStored } from '../../lib/storage'
 import type { BoardMove } from '../../components/Board'
 import PuzzleBoard from './PuzzleBoard'
 import PromptCard, { type ThemeNote } from './PromptCard'
 import StatsPanel from './StatsPanel'
 import TopicPicker from './TopicPicker'
 import { DEFAULT_CHOICE, choiceFromParams, describeChoice, entriesFor, isValidChoice, type Choice } from './choice'
-import { DEFAULT_PUZZLE_STATS, applyAttempt } from './rating'
+import { applyAttempt } from './rating'
 import { markSeen, pickNext, readSeen } from './selection'
+import { readPuzzleStats, useRushBest, useStatsOpen, usePuzzleStats } from './stored'
 import { isLastUserMove, judgeMove, prepare, usePuzzleRun, type RunState } from './useRun'
 import { errorMessage } from './errors'
 
@@ -27,10 +28,10 @@ const MAX_DAMAGED = 5
 /** The main experience: one puzzle at a time, near your rating, from the topic you chose. */
 export default function Trainer({ index, onStartRush }: Props) {
   const [params, setParams] = useSearchParams()
-  const [storedChoice, setStoredChoice] = useStored<string>('puzzles.choice', DEFAULT_CHOICE)
-  const [statsOpen, setStatsOpen] = useStored<boolean>('puzzles.statsOpen', false)
-  const [rushBest] = useStored<number>('puzzles.rushBest', 0)
-  const [stats] = useStored(KEYS.puzzleStats, DEFAULT_PUZZLE_STATS)
+  const [storedChoice, setStoredChoice] = useStored<unknown>('puzzles.choice', DEFAULT_CHOICE)
+  const [statsOpen, setStatsOpen] = useStatsOpen()
+  const [rushBest] = useRushBest()
+  const stats = usePuzzleStats()
   const { run, dispatch } = usePuzzleRun()
 
   const [status, setStatus] = useState<Status>('loading')
@@ -69,7 +70,7 @@ export default function Trainer({ index, onStartRush }: Props) {
     try {
       const entries = entriesFor(choice, index)
       for (let tries = 0; tries < MAX_DAMAGED; tries++) {
-        const targetRating = readStored(KEYS.puzzleStats, DEFAULT_PUZZLE_STATS).rating
+        const targetRating = readPuzzleStats().rating
         const pick = await pickNext(entries, { targetRating, exclude: readSeen(), startOverWhenEmpty: true })
         if (request !== latestRequest.current) return // the player chose something else meanwhile
         if (!pick) throw new Error('There are no puzzles in this topic yet.')
@@ -103,7 +104,7 @@ export default function Trainer({ index, onStartRush }: Props) {
   function record(current: RunState, solved: boolean) {
     if (recordedFor.current === current.puzzle.id) return
     recordedFor.current = current.puzzle.id
-    const result = applyAttempt(readStored(KEYS.puzzleStats, DEFAULT_PUZZLE_STATS), {
+    const result = applyAttempt(readPuzzleStats(), {
       puzzleId: current.puzzle.id,
       puzzleRating: current.puzzle.rating,
       themes: current.puzzle.themes,
@@ -117,7 +118,7 @@ export default function Trainer({ index, onStartRush }: Props) {
   }
 
   function handleMove(move: BoardMove): boolean {
-    if (!run) return false
+    if (!run || status !== 'ready') return false
     const verdict = judgeMove(run, move)
     if (verdict === 'wrong') {
       dispatch({ type: 'wrong' })
@@ -178,7 +179,8 @@ export default function Trainer({ index, onStartRush }: Props) {
 
       <div className="board-layout">
         <div className="board-col">
-          <PuzzleBoard run={run} onMove={handleMove} />
+          {/* While the next puzzle is on its way (or failed to load), the puzzle still on the board is not playable. */}
+          <PuzzleBoard run={run} onMove={handleMove} locked={status !== 'ready'} />
         </div>
 
         <div className="side-col">

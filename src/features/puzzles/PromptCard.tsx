@@ -81,7 +81,15 @@ function messageFor(run: RunState, delta: number | null): Message {
         title: 'That was the solution.',
         text: `Look at the moves below and ask yourself: what did I miss?${ratingNote(delta)}`,
       }
-    case 'solving':
+    case 'solving': {
+      if (run.hint > 0) {
+        const rule = run.failed
+          ? 'This puzzle already counts as a miss, so you can relax and just learn from it.'
+          : 'With a hint, this puzzle will not raise your rating.'
+        return run.hint === 1
+          ? { tone: 'neutral', icon: icon(Lightbulb), title: 'Hint: move the glowing piece.', text: `Which move is best for it? ${rule}` }
+          : { tone: 'neutral', icon: icon(Lightbulb), title: 'Hint: follow the arrow.', text: `The arrow shows the move. ${rule}` }
+      }
       if (run.failed)
         return { tone: 'neutral', icon: icon(Target), title: `Try again — find the best move for ${side}.`, text: 'This puzzle already counts as a miss, so you can relax and just learn from it.' }
       if (run.step > 0)
@@ -93,6 +101,7 @@ function messageFor(run: RunState, delta: number | null): Message {
         text: 'Look for checks, captures and threats. Drag a piece, or tap it and then tap where it goes.',
         tip: true,
       }
+    }
   }
 }
 
@@ -130,8 +139,8 @@ export default function PromptCard({ run, topic, delta, rating, busy, themes, on
               <RotateCcw size={17} aria-hidden /> Try again
             </button>
           )}
-          <button className="btn" onClick={onHint}>
-            <Lightbulb size={17} aria-hidden /> {run.hint === 0 ? 'Hint' : 'Show move'}
+          <button className="btn" onClick={onHint} disabled={run.hint === 2}>
+            <Lightbulb size={17} aria-hidden /> {run.hint === 0 ? 'Hint' : run.hint === 1 ? 'Show move' : 'Hint shown'}
           </button>
           <button className="btn ghost" onClick={onShowSolution}>
             <Eye size={17} aria-hidden /> Solution

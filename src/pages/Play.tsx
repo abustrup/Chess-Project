@@ -48,6 +48,13 @@ export default function Play() {
     navigate('/play', { replace: true })
   }, [navigate, params, search])
 
+  // "Start game" sits at the bottom of a long setup page on a phone: begin each screen at the top,
+  // otherwise the new game opens scrolled down with the board out of sight
+  const screenId = game ? game.config.id : 'setup'
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [screenId])
+
   // while a link is being turned into a game, show nothing instead of flashing the setup screen
   if (search) return null
 

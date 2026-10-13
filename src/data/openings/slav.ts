@@ -13,15 +13,15 @@ const slowSlav = `
 3... Nf6 {You develop a knight to a good square. It guards d5 a second time and stops White from playing e4 for free. [%cal Gf6d5,Gf6e4]}
 4. e3 {A calm move that opens the way for White's bishop on f1. This set-up is called the Slow Slav (or Quiet Variation). White is not in a hurry.}
 4... Bf5 {The key Slav idea: bring the light-squared bishop out BEFORE you close the pawn chain with ...e6. On f5 it controls the e4-square, eyes White's queenside, and is not a prisoner behind your own pawns. [%cal Gf5e4,Gf5b1]}
-5. Nc3 {White adds a second attacker against d5 and prepares to bring the bishop out too.}
+5. Nc3 {White develops a knight and adds a second attacker against d5.}
 (5. cxd5 {White swaps pawns to open the c-file.}
 5... cxd5 {Recapture with the c-pawn. Now you have a pawn on d5 that is protected by your knight, and your bishop is already outside the pawn chain.}
 6. Nc3 {Another attacker on d5 and a developing move.}
 6... e6 {Now you close the door. The d5-pawn is solid and your bishop is already out. Next come ...Nc6 and ...Be7.}
 7. Qb3 {The queen hits your b7-pawn and your d5-pawn at the same time.}
-7... Qc7 {The queen guards b7 and also looks at White's pieces on the c-file. Always check your b7-pawn when a white queen lands on b3. [%cal Gc7b7,Rb3b7]}
+7... Qc7 {The queen guards b7 and also eyes the open c-file. Always check your b7-pawn when a white queen lands on b3. [%cal Gc7b7,Rb3b7]}
 8. Nh4 {White attacks your bishop. White hopes to swap the knight for your bishop or to chase it away.}
-8... Bg6 {Retreat to g6, where the bishop stays active on the long diagonal. If White takes it, you retake with the h-pawn and your rook gets the h-file. [%cal Gg6b1,Rh4g6]}
+8... Bg6 {Retreat to g6, where the bishop stays active on the same diagonal. If White takes it, you retake with the h-pawn and your rook gets the h-file. [%cal Gg6b1,Rh4g6]}
 9. Bd2 {White develops and prepares to castle queenside.}
 9... Nc6 {Another piece joins the fight for the centre. Now d4 is under pressure from the knight. [%cal Gc6d4]}
 10. Rc1 {The rook looks at your queen on the c-file.}
@@ -30,17 +30,17 @@ const slowSlav = `
 11... hxg6 {Retake with the h-pawn. Your rook gets the open h-file, and your centre is solid. [%cal Gh8h2]}
 12. Bd3 {White develops.}
 12... Rc8 {Put the rook on the c-file, opposite the white rook. Your pieces are well placed and the position is equal.}
-13. Na4 {White heads for c5 with the knight. Your plan: castle and answer ...Nd7 or ...Qd7 so you can meet the knight with a calm head.}
+13. Na4 {White heads for c5 with the knight. You are fine: if the knight lands on c5, trade it off with ...Bxc5.}
 )
 (5. Qb3 {White attacks your b7-pawn straight away. This is a common trap for players who forget about b7!}
 5... Qb6 {Defend b7 and offer a queen swap. The swap is good for you: it leads to a safe, equal position. [%cal Gb6b7,Rb3b7]}
 6. cxd5 {White takes on d5 first.}
 6... Qxb3 {Swap the queens before White can do anything with that open c-file.}
-7. axb3 {White recaptures with the a-pawn, which leaves White with a doubled pawn on b2 and b3.}
+7. axb3 {White recaptures with the a-pawn, which leaves White with two pawns on the b-file (doubled pawns). That is a small weakness.}
 7... Nxd5 {Now you simply win back the pawn with a centralised knight. Your pieces are active and White has a damaged pawn structure. [%csl Rb2,Rb3]}
 8. Bd2 {White develops.}
-8... e6 {Now the bishop on c8 is outside, so closing the e-pawn is fine. You will play ...Nd7 and ...Be7 next. Equal and comfortable.}
-9. Na3 {White develops the knight to the rim. You are fine: play ...Be7, ...Nd7 and castle.}
+8... e6 {Your bishop is outside the pawn chain, so closing it with ...e6 is fine now. You will play ...Nd7 and ...Be7 next. Equal and comfortable.}
+9. Na3 {White develops the knight to the edge of the board. You are fine: play ...Be7, ...Nd7 and castle.}
 )
 (5. Nh4 {White attacks the bishop and hopes you will retreat it to c8. The knight on the edge is risky for White though.}
 5... Be6 {Keep the bishop outside and out of the knight's reach. Be careful: ...Bg4?! runs into Qb3 and your b7-pawn is in trouble. [%cal Rd1b3]}
@@ -49,7 +49,7 @@ const slowSlav = `
 7. Nc3 {White develops and adds pressure to d5.}
 7... dxc4 {The d5-pawn is under pressure, so you grab the c4-pawn and open the bishop's diagonal. Now White must recapture, which drags a piece to c4 where you can swap it. [%cal Ge6c4]}
 8. Bxc4 {White takes the pawn back.}
-8... Bxc4 {Swap off the bishop. With fewer pieces, White's early knight on h4 looks silly.}
+8... Bxc4 {Swap off the bishop. With fewer pieces on the board, White's early knight on h4 looks out of place.}
 9. Qxc4 {A balanced position. You will play ...e6, ...Nbd7 and ...Be7, and castle.}
 9... e6 {Solid. Your pawns c6-e6 shield the centre and all your pieces can develop easily.}
 10. O-O {White castles. You have a healthy game: develop with ...Be7, ...Nbd7 and ...O-O.}
@@ -75,16 +75,16 @@ const slowSlav = `
 7. Nxg6 {White swaps the knight for your bishop.}
 7... hxg6 {Recapture with the h-pawn. Your rook now looks down the h-file at White's king-side, and your pawn structure is still solid. [%cal Gh8h2]}
 8. Bd3 {Natural development, aiming at your g6-pawn.}
-8... Bd6 {Develop the bishop to a great diagonal. It aims at h2, and your rook on h8 stands behind it. White must be careful now! [%cal Rd6h2]}
-9. h3 {The safe reply: White guards h2 with the pawn.}
+8... Bd6 {Develop the bishop to a great diagonal. It aims at h2, and your rook on the h-file backs it up. White must be careful now! [%cal Rd6h2]}
+9. h3 {The safe reply: the pawn steps to h3, out of the bishop's sight.}
 (9. Bd2 {White develops but leaves h2 a little loose.}
 9... Nbd7 {Develop and keep an eye on the centre.}
-10. h4 {White gives the h-pawn some air and stops your rook from using the h-file.}
+10. h4 {White pushes the h-pawn forward, which also blocks the h-file for your rook.}
 10... Qe7 {The queen steps to a safe square, supports ...e5 and keeps everything protected.}
 11. Qb3 {Hitting b7.}
-11... dxc4 {Capture first, so that White's bishop has to recapture and you gain a tempo for the ...b5 push.}
+11... dxc4 {Capture first. White's bishop has to recapture, and then you can kick it away with ...b5.}
 12. Bxc4 {White takes the pawn back.}
-12... b5 {Kick the bishop away with gain of time. Your b5-pawn is guarded by the c6-pawn. [%cal Rb5c4]}
+12... b5 {Kick the bishop away. Your b5-pawn is guarded by the c6-pawn. [%cal Rb5c4]}
 13. Bd3 {The bishop retreats. You gained space on the queenside and the position is healthy. Castle and bring your rooks to the centre.}
 )
 (9. O-O? {A natural but losing move! White forgets about h2.}
@@ -100,7 +100,7 @@ const slowSlav = `
 11... Qe7 {The queen steps to a safe square, protects b7 and prepares the ...e5 break. [%cal Ge7b7]}
 12. O-O {White castles.}
 12... e5 {Time to strike in the centre! Your pieces are all developed, and the e5 break equalises.}
-13. Qc2 {White keeps an eye on your pawn. You are fully developed with an equal game: keep your king safe and use your rook on the open h-file when the chance comes.}
+13. Qc2 {White keeps an eye on your pawn. You are fully developed with an equal game: keep your king safe and use the open h-file when the chance comes.}
 )
 (6. Qb3 {White hits b7 and d5 once more.}
 6... Qb6 {Defend b7 and offer a queen swap. Your h-pawn can go to h6 later to give the bishop a retreat. [%cal Gb6b7]}
@@ -112,7 +112,7 @@ const slowSlav = `
 9... Nbd7 {The last minor piece enters the game. You are almost fully developed.}
 10. Rfc1 {The rook takes the c-file.}
 10... O-O {Castle. Your king is safe, and the position is balanced with chances for both sides.}
-11. Na4 {White offers a queen swap. You are comfortable: your pieces are developed and your pawns are solid. Trade queens or avoid it, either is fine.}
+11. Na4 {White attacks your queen with the knight. You are comfortable: your pieces are developed and your pawns are solid. Trade queens or step aside, either is fine.}
 )
 (6. cxd5 {White swaps pawns to open the position.}
 6... exd5 {Recapture with the e-pawn. Your c6 and d5 pawns stay solid, and the bishop on f5 is perfectly placed outside the chain.}
@@ -147,7 +147,7 @@ const exchangeSlav = `
 1... d5 {You mirror it. Your pawn claims a share of the centre and stops White from playing e4 easily. [%cal Gd5e4]}
 2. c4 {The Queen's Gambit. White attacks your d5-pawn from the side.}
 2... c6 {The Slav. The c6-pawn protects d5 and, unlike ...e6, it leaves your light-squared bishop free to come out. [%cal Gc6d5,Gc8f5]}
-3. cxd5 {The Exchange Slav. White trades pawns to get a calm, symmetrical position with no risk. It is a safe line, but you can still play for a win if you stay active.}
+3. cxd5 {The Exchange Slav. White trades pawns to get a calm, symmetrical position with few risks. It is a safe line, but you can still play for a win if you stay active.}
 3... cxd5 {Recapture with the c-pawn. Now the c-file is open for both sides, and both sides have a pawn on d4 and d5. This pawn structure is called "symmetrical". [%csl Gd4,Gd5]}
 4. Nc3 {White develops a knight and adds pressure on d5.}
 4... Nf6 {You develop a knight and guard d5 again. [%cal Gf6d5]}
@@ -159,12 +159,12 @@ const exchangeSlav = `
 7. e3 {White protects d4 and opens the road for the bishop on f1.}
 7... e6 {Now you close the pawn chain. All your pieces can develop easily. [%csl Gd5,Ge6]}
 8. Be2 {White develops the bishop to a safe square.}
-8... Bb4 {Pin the knight on c3. The knight now cannot move freely, and the pin adds pressure on d4. [%cal Rb4c3,Gb4e1]}
+8... Bb4 {Pin the knight on c3. It cannot move freely now, and you are ready to castle. [%cal Rb4c3,Gb4e1]}
 9. O-O {White castles.}
 9... O-O {You castle too. Both kings are safe.}
 10. Na4 {The knight jumps away from the pin and aims at the bishop.}
 10... Ne4 {Put a knight on e4, a great central square. It is protected by the d5-pawn and cannot be easily kicked away. [%cal Ge4c3,Ge4f2]}
-11. a3 {White asks your bishop a question.}
+11. a3 {White attacks your bishop.}
 11... Bd6 {Retreat to d6. Nothing is lost, and the bishop eyes White's king-side. [%cal Gd6h2]}
 12. Bxd6 {White trades bishops.}
 12... Nxd6 {Recapture with the knight. Your pieces are well placed and the game is equal.}
@@ -242,11 +242,11 @@ const exchangeSlav = `
 10... Bb4 {Pin the knight and protect against Qxb7 tricks with a counter-attack. [%cal Rb4c3]}
 11. Bd3 {White develops.}
 11... O-O {Castle. You are fine.}
-12. h3 {White makes luft.}
+12. h3 {White makes room for his king.}
 )
 8... Bxd3 {Trade bishops. You do not need to avoid trades: it makes the position simpler and White's pieces have less to aim at.}
 9. Qxd3 {White recaptures with the queen.}
-9... Bb4 {Pin the knight on c3. If it moves, d4 can come under attack. [%cal Rb4c3]}
+9... Bb4 {Pin the knight on c3 and get ready to castle. [%cal Rb4c3]}
 10. O-O {White castles.}
 (10. Bg5 {White pins your knight on f6.}
 10... Rc8 {Take over the c-file. Your rook eyes the knight on c3. [%cal Gc8c3]}
@@ -291,7 +291,7 @@ const exchangeTricks = `
 5. e3 {White protects d4.}
 5... Nf6 {Your second knight also guards d5.}
 6. Nc3 {Now we have exactly the main line of the Exchange Slav.}
-6... Bf5 {The same set-up as always: bishop out first, then ...e6. See the previous chapter for the full plan. [%cal Gf5b1]}
+6... Bf5 {The same set-up as always: bishop out first, then ...e6. See the Exchange Slav chapter for the full plan. [%cal Gf5b1]}
 7. Nf3 {White develops. You continue with ...e6 and ...Bb4 or ...Be7.}
 )
 (4. Nf3 {White develops the knight first.}
@@ -904,7 +904,7 @@ const thirdMoveSidelines = `
 (3. Nc3 {White develops and adds a second attacker on d5.}
 3... Nf6 {You develop with a purpose: the knight guards d5. [%cal Gf6d5]}
 4. e3 {A quiet move. White wants to build a Semi-Slav or Slow Slav set-up.}
-(4. e4 {A gambit! White offers a pawn to take the centre quickly.}
+(4. e4?! {A gambit! White offers a pawn to take the centre quickly, but it does not work well.}
 4... dxe4 {Take it! The pawn is free, and you will return it only if it helps you. [%cal Gd5e4]}
 5. f3 {White tries to win the pawn back by force.}
 5... exf3 {Take another pawn! You are two pawns up for the moment.}
@@ -918,7 +918,7 @@ const thirdMoveSidelines = `
 9... Be7 {Develop the bishop and get ready to castle. You are a pawn up.}
 10. Bf4 {White develops the last bishop. Castle and trade pieces: the extra pawn will tell.}
 )
-(4. Bg5 {White pins your knight on f6.}
+(4. Bg5?! {White pins your knight on f6, but the pin does not help White win the c4-pawn back.}
 4... dxc4 {Take the pawn! White's bishop on g5 does not help to win it back. [%cal Gd5c4]}
 5. Nf3 {White develops.}
 5... b5 {Keep the pawn! The b5-pawn supports c4. [%cal Gb5c4]}
@@ -944,6 +944,22 @@ const thirdMoveSidelines = `
 9. O-O {White castles.}
 9... Be7 {Develop the bishop and prepare to castle.}
 10. e4 {White takes the centre. You can trade and play ...dxe4.}
+)
+(3. e4?! {The Diemer Gambit. White offers a pawn to take the centre.}
+3... dxe4 {Take it! The pawn is free and White needs to show real compensation. [%cal Gd5e4]}
+4. Nc3 {White develops and prepares to win the pawn back.}
+4... Nf6 {Develop and defend e4. [%cal Gf6e4]}
+5. f3 {White offers a second pawn to open the f-file.}
+5... exf3 {Take it too! You will return material at the right moment.}
+6. Nxf3 {White recaptures and develops.}
+6... Bf5 {Bring the bishop out with a plan to trade White's attacking bishop. [%cal Gf5b1]}
+7. Bd3 {White offers a trade.}
+7... Bxd3 {Take it! Trading the attacking bishop helps the side with extra material.}
+8. Qxd3 {White recaptures with the queen.}
+8... e6 {Close the pawn chain and open the diagonal for your king's bishop. [%csl Gc6,Ge6]}
+9. Bg5 {White pins the knight.}
+9... Be7 {Break the pin by developing. You are a pawn up and everything is protected.}
+10. O-O-O {White castles queenside.}
 )
 3... Bf5 {Here you can play the bishop out right away. White has not developed a knight to f3 yet, so the bishop is safe and strong. [%cal Gf5b1]}
 4. Nc3 {White develops and adds pressure to d5.}
@@ -985,16 +1001,434 @@ const thirdMoveSidelines = `
 10. Bb2 {White develops. You can follow with ...Rc8 and ...Qa5, or with ...dxc4 and ...c5, to free your game.}
 `
 
+const semiSlavBridge = `
+1. d4 {White opens with the queen's pawn.}
+1... d5 {You take your share of the centre. [%cal Gd5e4]}
+2. c4 {The Queen's Gambit.}
+2... c6 {The Slav. Your c6-pawn protects d5. [%cal Gc6d5]}
+3. Nf3 {White develops.}
+3... Nf6 {You develop with a purpose: the knight guards d5. [%cal Gf6d5]}
+4. Nc3 {White adds a second attacker on d5.}
+4... e6 {This is the Semi-Slav. You close the pawn chain with ...e6 before the bishop is out, which is risky for beginners, but here your c8-bishop has a plan: ...dxc4, ...b5, and ...Bb7. Only play this if you know that plan! [%csl Gc6,Gd5,Ge6]}
+5. e3 {White blocks his own c1-bishop for the moment, but plans Bd3 and castling.}
+(5. Bg5 {White pins the knight on f6.}
+5... Nbd7 {Develop the other knight. It protects the pinned knight and prepares ...Qa5.}
+(5... h6 {Ask the bishop a question at once. It must decide now, and you stay flexible.}
+6. Bh4 {The bishop keeps the pin.}
+6... Be7 {Break the pin by developing. If White takes on f6, you recapture with the bishop. [%cal Ge7f6]}
+7. e3 {White protects d4.}
+7... O-O {Castle! Your king is safe, and the pin on f6 is harmless.}
+8. Qc2 {White develops the queen.}
+8... Nbd7 {Develop the last minor piece. You are solid and ready for ...a6, ...b6 or ...c5.}
+9. h3 {White makes luft. The position is balanced.}
+)
+6. e3 {White protects d4.}
+6... Qa5 {The Cambridge Springs idea. The queen adds a second pin on the knight on c3 and eyes the bishop on g5. White has to be careful! [%cal Ga5g5,Ga5c3]}
+7. Nd2 {White protects the knight on c3 and unpins.}
+7... dxc4 {Take the pawn. White's knight on d2 has lost the control of c4.}
+8. Bxf6 {White trades the bishop for the knight.}
+8... Nxf6 {Recapture with the knight.}
+9. Nxc4 {White takes the pawn back and hits your queen.}
+9... Qc7 {The queen steps to a safe square and eyes the c4-knight and h2. [%cal Gc7h2]}
+10. g3 {White prepares to put the bishop on g2.}
+)
+5... Nbd7 {Develop the knight. It supports the ...b5 plan and ...c5 later. [%cal Gd7b6]}
+6. Bd3 {White develops and takes aim at h7.}
+(6. Qc2 {White develops the queen and prepares e4.}
+6... Bd6 {Develop the bishop and aim at h2. It also protects the e5 square. [%cal Gd6h2]}
+7. Bd3 {White develops.}
+7... O-O {Castle! Your king is safe.}
+8. O-O {White castles.}
+8... e5 {Strike in the centre! The e5 break is the right way to solve your problems in this set-up. [%cal Ge6e5]}
+9. cxd5 {White opens the position.}
+)
+6... dxc4 {Take the pawn! White's bishop has to spend a move to recapture.}
+7. Bxc4 {White regains the pawn.}
+7... b5 {Kick the bishop away and win space. This is the Meran idea: you take space on the queenside and prepare ...Bb7. [%cal Gb5c4]}
+8. Bd3 {White retreats the bishop, which is now aimed at b5 and h7.}
+8... Bb7 {Develop the last bishop. It is not locked in anymore: it looks along the long diagonal at White's kingside. [%cal Gb7g2]}
+9. O-O {White castles.}
+9... a6 {Protect the b5-pawn so that your pawns stay together. [%cal Ga6b5]}
+10. e4 {White takes the centre.}
+10... c5 {Strike back at once! This is the idea of the whole variation: undermine the white centre. [%cal Gc5d4]}
+11. d5 {White pushes the pawn and tries to cramp you.}
+11... c4 {Attack the bishop and gain space.}
+12. Bc2 {The bishop retreats.}
+12... Qc7 {Protect the c-pawn and get ready for ...exd5 or ...Nc5.}
+13. dxe6 {White captures.}
+13... fxe6 {Recapture. Your centre is healthy and your queenside majority is strong.}
+14. Qe2 {White develops.}
+`
+
+const otherSecondMoves = `
+1. d4 {White opens with the queen's pawn.}
+1... d5 {You take your share of the centre. [%cal Gd5e4]}
+2. e4?! {A gambit! White offers a pawn to open the position fast. This is related to the Blackmar-Diemer Gambit, and it is not sound against good play.}
+(2. Bg5 {The Levitsky Attack. White develops the bishop outside the pawn chain, hoping to pin your knight later.}
+2... c6 {The Slav move. It protects d5 and keeps the road open for your light-squared bishop. [%cal Gc6d5,Gc8f5]}
+3. Nf3 {White develops.}
+3... Bf5 {Bishop out before ...e6. [%cal Gf5b1]}
+4. e3 {White opens the road for the f1-bishop.}
+4... Nd7 {Develop the knight to d7. It keeps f6 free for the other knight and protects the e5 square.}
+5. Bd3 {White offers to swap your bishop.}
+5... Bxd3 {Take it. White's bishop is stronger than yours here, and the swap is easy.}
+6. Qxd3 {White recaptures with the queen. Do not worry about the e7-pawn: the bishop on g5 would only win a pawn at the cost of a bishop.}
+6... h6 {Ask the bishop a question. If it takes e7, you take back and are a piece up.}
+7. Bf4 {The bishop retreats.}
+7... e6 {Close the pawn chain and open your king's bishop.}
+8. c4 {White attacks d5.}
+8... Ngf6 {Develop the second knight and protect d5. [%cal Gf6d5]}
+9. O-O {White castles. The position is equal, and you will castle next.}
+)
+(2. Nc3 {White develops the knight first. This is a bit of an invitation to a Veresov-style game.}
+2... c6 {Your usual Slav move.}
+3. Nf3 {White develops.}
+3... Bf5 {Bishop out before ...e6. [%cal Gf5b1]}
+4. Bf4 {White develops the bishop outside the chain.}
+4... e6 {Close the pawn chain.}
+5. e3 {White protects the bishop.}
+5... Nd7 {Develop the knight to d7. It is a flexible square.}
+6. Bd3 {White offers to swap bishops.}
+6... Ngf6 {Develop the second knight. You are happy to trade bishops.}
+7. h3 {White gives the bishop on f4 a retreat on h2.}
+)
+(2. Nc3 c6 3. e4 {White takes the centre with a pawn offer.}
+3... dxe4 {Take it. You get an extra pawn, and White needs to prove compensation.}
+4. Nxe4 {White recaptures.}
+4... Nf6 {Develop and challenge the knight. [%cal Gf6e4]}
+5. Nxf6+ {White trades knights.}
+5... exf6 {Recapture with the e-pawn. Your bishop on c8 is free to come out, and the f6-pawn controls e5.}
+6. Nf3 {White develops.}
+6... Bd6 {Develop the bishop to a fine diagonal. [%cal Gd6h2]}
+7. Bd3 {White develops.}
+7... O-O {Castle! Your king is safe, and your pieces are ready.}
+8. O-O {White castles. The position is balanced.}
+)
+2... dxe4 {Take the pawn! It is free. The game is about whether White has real compensation, and mostly he does not. [%cal Gd5e4]}
+3. Nc3 {White develops and prepares to win the pawn back with f3.}
+3... Nf6 {Develop and defend the e4-pawn. [%cal Gf6e4]}
+4. f3 {The Blackmar-Diemer Gambit! White offers a second pawn to open the f-file.}
+(4. Bg5 {White pins the knight and hits e4 again.}
+4... Bf5 {Bring the bishop out and defend the e4-pawn. Do not worry about the pin. [%cal Gf5e4]}
+5. Nge2 {White develops and prepares Ng3.}
+5... Nbd7 {Develop the other knight and defend the pinned knight.}
+6. Ng3 {White hits the bishop on f5.}
+6... Bg6 {Retreat the bishop. It stays on the b1-h7 diagonal and protects e4.}
+7. Qe2 {White develops the queen and attacks e4.}
+7... e6 {Close the diagonal and develop the king's bishop. [%csl Ge6]}
+8. O-O-O {White castles queenside and stays flexible.}
+)
+(4. Nge2 {White develops the knight, planning Ng3.}
+4... Bf5 {Bring the bishop out and defend e4. [%cal Gf5e4]}
+5. Ng3 {White hits the bishop.}
+5... Bg6 {Retreat the bishop, protecting e4.}
+6. Bg5 {White pins the knight.}
+6... Nbd7 {Develop the other knight and keep the pinned knight protected.}
+7. Qe2 {White attacks e4.}
+7... h6 {Ask the bishop what it wants to do. If it takes f6, you recapture with a knight and are comfortable.}
+8. Bxf6 {White trades.}
+8... Nxf6 {Recapture with the knight.}
+9. O-O-O {White castles queenside. You are a pawn up with a solid position.}
+)
+4... exf3 {Take the second pawn! You can give back material later.}
+5. Nxf3 {White recaptures and develops.}
+5... Bf5 {Bring the bishop out with a plan to trade White's attacking bishop. [%cal Gf5b1]}
+6. Bd3 {White offers to trade.}
+6... Bxd3 {Take it! Trading the attacking bishop helps you.}
+7. Qxd3 {White recaptures with the queen.}
+7... e6 {Close the pawn chain and open the diagonal for your king's bishop. [%csl Ge6]}
+8. Bg5 {White pins the knight.}
+8... c6 {Your Slav pawn! It protects d5 and stops White from using the b5-square. [%cal Gc6d5]}
+9. O-O-O {White castles queenside.}
+9... Nbd7 {Develop the last knight.}
+10. Kb1 {White tucks the king away.}
+10... Be7 {Develop the bishop and get ready to castle. You are a pawn up and everything is protected.}
+11. Rhg1 {White moves the rook to the g-file. The position is sharp, but your extra pawn and solid structure count for a lot.}
+`
+
+// Exact names from the Lichess openings database (lichess-org/chess-openings), used to recognise the Slav in games.
+const slavEcoNames = [
+  "Queen's Gambit Declined: Cambridge Springs Defense",
+  "Queen's Gambit Declined: Cambridge Springs Defense, Argentine Variation",
+  "Queen's Gambit Declined: Cambridge Springs Defense, Bogoljubow Variation",
+  "Queen's Gambit Declined: Cambridge Springs Defense, Capablanca Variation",
+  "Queen's Gambit Declined: Cambridge Springs Defense, Rubinstein Variation",
+  "Queen's Gambit Declined: Cambridge Springs Defense, Yugoslav Variation",
+  "Queen's Gambit Declined: Semi-Slav, Abrahams Variation",
+  "Queen's Gambit Declined: Semi-Slav, Junge Variation",
+  "Queen's Gambit Declined: Semi-Slav, Koomen Variation",
+  'Semi-Slav Defense',
+  'Semi-Slav Defense Accepted',
+  'Semi-Slav Defense: Accelerated Meran Variation',
+  'Semi-Slav Defense: Accelerated Move Order',
+  'Semi-Slav Defense: Anti-Moscow Gambit',
+  'Semi-Slav Defense: Anti-Noteboom, Stonewall Variation',
+  'Semi-Slav Defense: Anti-Noteboom, Stonewall Variation, Portisch Gambit',
+  'Semi-Slav Defense: Bogoljubow Variation',
+  'Semi-Slav Defense: Botvinnik Variation',
+  'Semi-Slav Defense: Botvinnik Variation, Alatortsev System',
+  'Semi-Slav Defense: Botvinnik Variation, Ekstrom Variation',
+  'Semi-Slav Defense: Botvinnik Variation, Lilienthal Variation',
+  'Semi-Slav Defense: Botvinnik Variation, Szabo Variation',
+  'Semi-Slav Defense: Chigorin Defense',
+  'Semi-Slav Defense: Gunderam Gambit',
+  'Semi-Slav Defense: Hastings Variation',
+  'Semi-Slav Defense: Main Line',
+  'Semi-Slav Defense: Marshall Gambit',
+  'Semi-Slav Defense: Marshall Gambit, Forgotten Variation',
+  'Semi-Slav Defense: Marshall Gambit, Main Line',
+  'Semi-Slav Defense: Marshall Gambit, Tolush Variation',
+  'Semi-Slav Defense: Meran Variation',
+  'Semi-Slav Defense: Meran Variation, Blumenfeld Variation',
+  'Semi-Slav Defense: Meran Variation, Lundin Variation',
+  'Semi-Slav Defense: Meran Variation, Old Variation',
+  'Semi-Slav Defense: Meran Variation, Pirc Variation',
+  'Semi-Slav Defense: Meran Variation, Rabinovich Variation',
+  'Semi-Slav Defense: Meran Variation, Rellstab Attack',
+  "Semi-Slav Defense: Meran Variation, Reynolds' Variation",
+  'Semi-Slav Defense: Meran Variation, Sozin Variation',
+  'Semi-Slav Defense: Meran Variation, Stahlberg Variation',
+  'Semi-Slav Defense: Meran Variation, Wade Variation',
+  'Semi-Slav Defense: Meran Variation, Wade Variation, Kaidanov Gambit',
+  'Semi-Slav Defense: Meran Variation, Wade Variation, Larsen Variation',
+  'Semi-Slav Defense: Moscow Variation',
+  'Semi-Slav Defense: Normal Variation',
+  'Semi-Slav Defense: Noteboom Variation',
+  'Semi-Slav Defense: Noteboom Variation, Abrahams Variation',
+  'Semi-Slav Defense: Noteboom Variation, Anti-Noteboom Gambit',
+  'Semi-Slav Defense: Noteboom Variation, Anti-Noteboom Variation',
+  'Semi-Slav Defense: Noteboom Variation, Anti-Noteboom Variation, Belyavsky Line',
+  'Semi-Slav Defense: Quiet Variation',
+  'Semi-Slav Defense: Romih Variation',
+  'Semi-Slav Defense: Rubinstein System',
+  'Semi-Slav Defense: Semi-Meran Variation',
+  'Semi-Slav Defense: Stoltz Variation',
+  'Semi-Slav Defense: Stoltz Variation, Center Variation',
+  'Semi-Slav Defense: Stoltz Variation, Center Variation, Mikhalchishin Line',
+  'Semi-Slav Defense: Stoltz Variation, Shabalov Attack',
+  'Semi-Slav Defense: Stonewall Defense',
+  'Slav Defense',
+  'Slav Defense: Alapin Variation',
+  'Slav Defense: Alekhine Variation',
+  'Slav Defense: Bonet Gambit',
+  'Slav Defense: Breyer Variation',
+  'Slav Defense: Chebanenko Variation',
+  'Slav Defense: Chebanenko Variation, Advance System',
+  'Slav Defense: Czech Variation',
+  'Slav Defense: Czech Variation, Bled Attack',
+  'Slav Defense: Czech Variation, Carlsbad Variation',
+  'Slav Defense: Czech Variation, Carlsbad Variation, Morozevich Variation',
+  'Slav Defense: Czech Variation, Classical System',
+  'Slav Defense: Czech Variation, Classical System, Main Line',
+  'Slav Defense: Czech Variation, Dutch Variation',
+  'Slav Defense: Czech Variation, Dutch Variation, Sämisch Variation',
+  'Slav Defense: Czech Variation, Krause Attack',
+  'Slav Defense: Czech Variation, Krause Attack, Fazekas Gambit',
+  'Slav Defense: Czech Variation, Lasker Variation',
+  'Slav Defense: Czech Variation, Wiesbaden Variation',
+  'Slav Defense: Czech Variation, Wiesbaden Variation, Sharp Line',
+  'Slav Defense: Diemer Gambit',
+  'Slav Defense: Exchange Variation',
+  'Slav Defense: Exchange Variation, Boor Attack',
+  'Slav Defense: Exchange Variation, Schallopp Variation',
+  'Slav Defense: Exchange Variation, Symmetrical Line',
+  'Slav Defense: Exchange Variation, Trifunovic Variation',
+  'Slav Defense: Geller Gambit',
+  'Slav Defense: Modern Line',
+  'Slav Defense: Quiet Variation',
+  'Slav Defense: Quiet Variation, Amsterdam Variation',
+  'Slav Defense: Quiet Variation, Landau Variation',
+  'Slav Defense: Quiet Variation, Pin Defense',
+  'Slav Defense: Quiet Variation, Schallopp Defense',
+  'Slav Defense: Schlechter Variation',
+  'Slav Defense: Slav Gambit, Alekhine Attack',
+  'Slav Defense: Smyslov Variation',
+  'Slav Defense: Soultanbeieff Variation',
+  'Slav Defense: Steiner Variation',
+  'Slav Defense: Süchting Variation',
+  'Slav Defense: Three Knights Variation',
+  'Slav Defense: Two Knights Attack',
+  'Slav Defense: Winawer Countergambit',
+  'Slav Defense: Winawer Countergambit, Anti-Winawer Gambit',
+]
+
 export const slavCourse: OpeningCourse = {
   id: 'slav',
   name: 'Slav Defence',
   side: 'black',
-  tagline: '',
-  signatureMoves: [],
-  ecoNames: [],
-  overview: [],
-  keyIdeas: [],
-  commonMistakes: [],
+  tagline: 'Bishop out first, then build the pawn wall. Rock-solid against 1.d4.',
+  signatureMoves: ['d4', 'd5', 'c4', 'c6'],
+  ecoNames: slavEcoNames,
+  overview: [
+    "The Slav Defence starts with 1.d4 d5 2.c4 c6. White offers a pawn with c4, and you simply protect your d5-pawn with the c-pawn. It looks quiet, but it is one of the most solid answers to 1.d4. Players at every level use it, from beginners to the best players in the world.",
+    "It is a great choice for you because the same few ideas come back in almost every line. You do not need to memorise a long list of moves. If you understand the plan and the typical mistakes, you can find good moves even when the opponent leaves the book.",
+    "The plan in three sentences: Play ...d5 and ...c6. Bring your light-squared bishop out to f5 or g4 BEFORE you close the pawn chain with ...e6. Then develop your knights, castle, and open the centre with ...c5 or ...e5 when your pieces are ready.",
+    "The middlegame is calm and solid. Your king is very safe, you have few weak pawns, and White often has a little more space. You do not need to attack. Trade pieces when you can, wait for White to make a mistake, and strike in the centre when the time is right.",
+    "Be careful about three things. First, your b7-pawn is loose once the bishop leaves c8, especially when White's queen goes to b3. Second, White's knights love to jump to h4 and e5 to hit your bishop. Third, do not play ...e6 too early, or your bishop will be locked in. Do not worry that the computer sometimes says White is slightly better: that is normal in the Slav, and it is easy to hold.",
+  ],
+  keyIdeas: [
+    {
+      title: 'The Slav triangle: c6, d5, e6',
+      text: 'Your pawns on c6, d5 and e6 form a triangle in the middle of the board. It is a very solid wall that is hard for White to break. The price is that the e6-pawn can lock in your light-squared bishop, so you bring that bishop out first (see the next card).',
+      fen: 'rn1qkb1r/pp3ppp/2p1pn2/3p1b2/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq - 0 6',
+      highlights: [
+        { square: 'c6', color: 'green' },
+        { square: 'd5', color: 'green' },
+        { square: 'e6', color: 'green' },
+      ],
+      orientation: 'black',
+    },
+    {
+      title: 'Bishop out first, pawn wall second',
+      text: 'In many other defences the light-squared bishop stays locked behind the e6-pawn for half the game. In the Slav you bring it to f5 (or g4) first and play ...e6 only afterwards. This one habit is the secret of the whole opening.',
+      fen: 'rn1qkb1r/pp2pppp/2p2n2/3p1b2/2PP4/4PN2/PP3PPP/RNBQKB1R w KQkq - 1 5',
+      arrows: [
+        { from: 'f5', to: 'b1', color: 'green' },
+        { from: 'e7', to: 'e6', color: 'blue' },
+      ],
+      orientation: 'black',
+    },
+    {
+      title: 'Take on c4, but do not cling to the pawn',
+      text: 'In the main line you play 4...dxc4. You are not trying to win a pawn for good, only to free your game. White usually wins it back, and you use the time to develop. If White allows it, ...b5 can keep the pawn, but give it back if keeping it would cost you your development.',
+      fen: 'rnbqkb1r/pp2pppp/2p2n2/8/2pP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5',
+      highlights: [{ square: 'c4', color: 'yellow' }],
+      orientation: 'black',
+    },
+    {
+      title: 'Guard your b7-pawn',
+      text: 'Once your bishop has left c8, nothing protects the b7-pawn. If White\'s queen jumps to b3, she attacks b7 and d5 together. Answer with ...Qb6 (which offers a queen trade) or ...Qc7, and stay calm.',
+      fen: 'rn1qkb1r/pp2pppp/2p2n2/3p1b2/2PP4/1Q2PN2/PP3PPP/RNB1KB1R b KQkq - 2 5',
+      arrows: [
+        { from: 'b3', to: 'b7', color: 'red' },
+        { from: 'd8', to: 'b6', color: 'green' },
+        { from: 'd8', to: 'c7', color: 'blue' },
+      ],
+      orientation: 'black',
+    },
+    {
+      title: 'Pin the knight with ...Bb4',
+      text: 'In the main line, after ...e6 and White\'s Bxc4, you play ...Bb4. It develops your bishop with a threat: the knight on c3 is pinned against the white king\'s side, so White cannot easily push the centre pawns. It also gets you ready to castle.',
+      fen: 'rn1qk2r/pp3ppp/2p1pn2/5b2/PbBP4/2N1PN2/1P3PPP/R1BQK2R w KQkq - 1 8',
+      arrows: [
+        { from: 'b4', to: 'c3', color: 'red' },
+        { from: 'b4', to: 'e1', color: 'green' },
+      ],
+      orientation: 'black',
+    },
+    {
+      title: 'When a knight attacks your bishop',
+      text: 'White often jumps a knight to h4 to hit your bishop on f5. Retreat the bishop (to g6 or e6, the chapters tell you which). If White takes on g6, recapture with the h-pawn: your rook gets the open h-file. Never retake with the f-pawn.',
+      fen: 'rn1qkb1r/pp2pppp/2p2n2/5b2/P1pP3N/2N5/1P2PPPP/R1BQKB1R b KQkq - 2 6',
+      arrows: [
+        { from: 'h4', to: 'f5', color: 'red' },
+        { from: 'f5', to: 'g6', color: 'green' },
+      ],
+      orientation: 'black',
+    },
+    {
+      title: 'Free your game with ...c5 or ...e5',
+      text: 'Your set-up is solid but a little short of space. When your pieces are developed, open the centre with ...c5 or ...e5. Do not play these breaks too early, or you may lose a pawn or leave a piece hanging.',
+      fen: 'r2q1rk1/pp1nbppp/2p1pn2/3p1b2/2PP1B2/4PN2/PP1NBPPP/R2Q1RK1 w - - 1 9',
+      arrows: [
+        { from: 'c6', to: 'c5', color: 'green' },
+        { from: 'e6', to: 'e5', color: 'green' },
+      ],
+      orientation: 'black',
+    },
+    {
+      title: 'The Exchange Slav: equal, but not boring',
+      text: 'After 3.cxd5 cxd5 the pawns are symmetrical, so the game is equal. Play for activity: knight to c6, bishop to f5, then ...e6, a rook to the c-file and ...Bb4 or ...Ne4. Trade pieces only when it helps you.',
+      fen: 'r2qkb1r/pp2pppp/2n2n2/3p1b2/3P1B2/2N1P3/PP3PPP/R2QKBNR w KQkq - 1 7',
+      arrows: [
+        { from: 'a8', to: 'c8', color: 'blue' },
+        { from: 'f8', to: 'b4', color: 'blue' },
+        { from: 'f6', to: 'e4', color: 'green' },
+      ],
+      orientation: 'black',
+    },
+    {
+      title: 'A big white centre is a target',
+      text: 'When White gets pawns on d4 and e4, do not panic. Those pawns need good pieces behind them, and you can attack them with ...c5, ...e5 and piece trades. Keep your king safe and your pieces active.',
+      fen: 'r2q1rk1/pp1n1ppp/2p1pnb1/8/PbBPP3/2N2N2/1P2QPPP/R1B2RK1 w - - 1 11',
+      arrows: [
+        { from: 'c6', to: 'c5', color: 'green' },
+        { from: 'e6', to: 'e5', color: 'green' },
+      ],
+      highlights: [
+        { square: 'd4', color: 'yellow' },
+        { square: 'e4', color: 'yellow' },
+      ],
+      orientation: 'black',
+    },
+  ],
+  commonMistakes: [
+    {
+      title: 'Playing ...e6 too early',
+      text: 'If you play ...e6 before your light-squared bishop is out, that bishop is locked inside your own pawns. It becomes the "bad bishop" for the rest of the game. Bring it out first with ...Bf5 or ...Bg4. (The Semi-Slav chapter is the exception: it has its own plan.)',
+      fen: 'rnbqkb1r/pp3ppp/2p1pn2/3p4/2PP4/4PN2/PP3PPP/RNBQKB1R w KQkq - 0 5',
+      highlights: [{ square: 'c8', color: 'red' }],
+      orientation: 'black',
+    },
+    {
+      title: 'Forgetting about b7',
+      text: 'After the bishop leaves c8, the b7-pawn has no defender. If White\'s queen goes to b3, she attacks b7 and d5 at the same time. Always look at the b3-square before you move. The easy answers are ...Qb6 (offer a trade) or ...Qc7.',
+      fen: 'rn1qkb1r/pp2pppp/2p2n2/3p1b2/2PP4/1Q2PN2/PP3PPP/RNB1KB1R b KQkq - 2 5',
+      arrows: [
+        { from: 'b3', to: 'b7', color: 'red' },
+        { from: 'b3', to: 'd5', color: 'red' },
+        { from: 'd8', to: 'b6', color: 'green' },
+      ],
+      orientation: 'black',
+    },
+    {
+      title: 'Putting the bishop on g4 when the queen can take it',
+      text: 'After White plays e3 and the f3-square is empty, the queen looks straight along the diagonal to g4. Then ...Bg4?? simply loses the bishop to Qxg4. Before every bishop move, ask yourself: can anything take it?',
+      fen: 'rn1qkbnr/pp2pppp/2p5/3p4/3P2b1/3BP3/PPP2PPP/RNBQK1NR w KQkq - 2 4',
+      arrows: [{ from: 'd1', to: 'g4', color: 'red' }],
+      highlights: [{ square: 'g4', color: 'red' }],
+      orientation: 'black',
+    },
+    {
+      title: 'Running to g4 when a knight attacks your bishop',
+      text: 'When White plays Nh4 against your bishop on f5, ...Bg4? looks active, but White answers Qb3 and your b7-pawn is in trouble. In this position go back to e6. Know your retreat squares before the knight jumps.',
+      fen: 'rn1qkb1r/pp2pppp/2p2n2/3p1b2/2PP3N/4P3/PP3PPP/RNBQKB1R b KQkq - 2 5',
+      arrows: [
+        { from: 'h4', to: 'f5', color: 'red' },
+        { from: 'f5', to: 'g4', color: 'red' },
+        { from: 'f5', to: 'e6', color: 'green' },
+      ],
+      orientation: 'black',
+    },
+    {
+      title: 'Holding on to the pawn with ...b5 at the wrong time',
+      text: 'After 4.Nc3 dxc4 5.a4, you can no longer keep the pawn. ...b5? is answered by axb5 cxb5 Nxb5, and White wins a pawn with an easy game. Play 5...Bf5 and develop instead. The ...b5 idea only works when White allows it, for example after 5.e3.',
+      fen: 'rnbqkb1r/p3pppp/2p2n2/1p6/P1pP4/2N2N2/1P2PPPP/R1BQKB1R w KQkq - 0 6',
+      arrows: [{ from: 'a4', to: 'b5', color: 'red' }],
+      orientation: 'black',
+    },
+    {
+      title: 'Recapturing with the wrong pawn',
+      text: 'When White takes your bishop on g6, retake with the h-pawn. Retaking with the f-pawn weakens your king and the e6-square, and White gets a big edge. ...hxg6 is solid, and it puts your rook on the open h-file.',
+      fen: 'rn1qkb1r/pp2pppp/2p2nN1/8/P1pP4/2N5/1P2PPPP/R1BQKB1R b KQkq - 0 7',
+      arrows: [
+        { from: 'h7', to: 'g6', color: 'green' },
+        { from: 'f7', to: 'g6', color: 'red' },
+      ],
+      orientation: 'black',
+    },
+    {
+      title: 'Being too passive in the Exchange Slav',
+      text: 'The Exchange Slav is equal, but it is easy to shuffle pieces and slowly drift into a worse game. Give every piece a job: bishop to f5, knights to c6 and e4, a rook to the c-file, and ...Bb4 to pin the knight. Trade pieces on your terms.',
+      fen: 'rnbqkb1r/pp2pppp/5n2/3p4/3P4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 5',
+      arrows: [
+        { from: 'c8', to: 'f5', color: 'green' },
+        { from: 'b8', to: 'c6', color: 'green' },
+        { from: 'f6', to: 'e4', color: 'blue' },
+      ],
+      orientation: 'black',
+    },
+  ],
   chapters: [
     {
       id: 'slow-slav',
@@ -1013,28 +1447,12 @@ export const slavCourse: OpeningCourse = {
       pgn: exchangeSlav,
     },
     {
-      id: 'exchange-tricks',
-      title: 'Exchange Slav: tricks with Bg5 and Qb3',
-      summary:
-        'After 3.cxd5 cxd5 White may try 5.Bg5, a queen sortie to b3, or another move order. Here are the safe answers and one or two traps to avoid.',
-      difficulty: 2,
-      pgn: exchangeTricks,
-    },
-    {
       id: 'vs-london',
       title: 'Against the London System',
       summary:
         'White plays 2.Nf3 and 3.Bf4 (or 2.Bf4) instead of c4. You keep your Slav set-up: ...c6, ...Bf5 first, then ...e6.',
       difficulty: 1,
       pgn: vsLondon,
-    },
-    {
-      id: 'vs-colle-catalan',
-      title: 'Against the Colle and Catalan-style set-ups',
-      summary:
-        'White plays 2.Nf3 and then 3.e3 (or 3.g3) instead of c4. Your plan stays the same: ...c6, ...Bf5 first, then ...e6.',
-      difficulty: 2,
-      pgn: vsColle,
     },
     {
       id: 'main-slav',
@@ -1045,20 +1463,12 @@ export const slavCourse: OpeningCourse = {
       pgn: mainSlav,
     },
     {
-      id: 'krause-ne5',
-      title: 'The sharp 6.Ne5: kick the knight with ...Nbd7',
+      id: 'vs-colle-catalan',
+      title: 'Against the Colle and Catalan-style set-ups',
       summary:
-        'In the main Slav White can jump 6.Ne5 instead of 6.e3. Meet it with ...Nbd7 and ...Nb6, a simple way to keep the pawn count equal.',
+        'White plays 2.Nf3 and then 3.e3 (or 3.g3) instead of c4. Your plan stays the same: ...c6, ...Bf5 first, then ...e6.',
       difficulty: 2,
-      pgn: krause,
-    },
-    {
-      id: 'slav-accepted',
-      title: 'Slav accepted: keep the pawn with ...b5',
-      summary:
-        'After 4...dxc4 White does not play 5.a4 but 5.e3 or 5.e4. You try to hold the extra pawn with ...b5 and hand it back only when it helps you.',
-      difficulty: 3,
-      pgn: slavAccepted,
+      pgn: vsColle,
     },
     {
       id: 'move-four-sidelines',
@@ -1070,11 +1480,51 @@ export const slavCourse: OpeningCourse = {
     },
     {
       id: 'third-move-sidelines',
-      title: 'Quiet and sharp third moves: 3.e3, 3.Nc3 and 3.Nc3 Nf6 4.e4',
+      title: 'Quiet and sharp third moves: 3.e3, 3.Nc3 and the pawn offers on e4',
       summary:
-        'White skips 3.Nf3 and plays 3.e3 or 3.Nc3 (sometimes with a pawn offer on e4). Get your bishop out and keep an eye on the queen trick Qb3.',
+        'White skips 3.Nf3 and plays 3.e3 or 3.Nc3 (sometimes with a pawn offer on e4). Get your bishop out and watch out for the queen trick Qb3.',
       difficulty: 2,
       pgn: thirdMoveSidelines,
+    },
+    {
+      id: 'exchange-tricks',
+      title: 'Exchange Slav: tricks with Bg5 and Qb3',
+      summary:
+        'After 3.cxd5 cxd5 White may try 5.Bg5, a queen sortie to b3, or another move order. Here are the safe answers and one or two traps to avoid.',
+      difficulty: 2,
+      pgn: exchangeTricks,
+    },
+    {
+      id: 'krause-ne5',
+      title: 'The sharp 6.Ne5: kick the knight with ...Nbd7',
+      summary:
+        'In the main Slav White can jump 6.Ne5 instead of 6.e3. Meet it with ...Nbd7 and ...Nb6, a simple way to keep the pawn count equal.',
+      difficulty: 2,
+      pgn: krause,
+    },
+    {
+      id: 'other-second-moves',
+      title: 'Other second moves: 2.e4, 2.Bg5 and 2.Nc3',
+      summary:
+        'White does not play c4 at all. You still answer with ...c6 and ...Bf5, or take the pawn if White offers one with 2.e4.',
+      difficulty: 2,
+      pgn: otherSecondMoves,
+    },
+    {
+      id: 'slav-accepted',
+      title: 'Slav accepted: keep the pawn with ...b5',
+      summary:
+        'After 4...dxc4 White does not play 5.a4 but 5.e3 or 5.e4. You try to hold the extra pawn with ...b5 and hand it back only when it helps you.',
+      difficulty: 3,
+      pgn: slavAccepted,
+    },
+    {
+      id: 'semi-slav-bridge',
+      title: 'Semi-Slav bridge: when you meet ...e6 early (advanced)',
+      summary:
+        'An optional chapter. If you play ...e6 on move 4, you enter the Semi-Slav. Here are the main plans: the Meran, the Cambridge Springs and a solid set-up with ...Bd6.',
+      difficulty: 3,
+      pgn: semiSlavBridge,
     },
   ] satisfies OpeningChapter[],
 }
