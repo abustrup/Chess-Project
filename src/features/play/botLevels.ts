@@ -5,14 +5,14 @@
 // one, sometimes a slightly worse one, now and then an oversight. That feels much more like playing
 // a human than an engine that suddenly drops its queen at random.
 //
-// The Elo numbers are only APPROXIMATE. How they were chosen (Node experiment, 24-30 games per pairing):
-//  - every level beats the one below it clearly (about 75-90% of the games), so the order is right;
-//  - against Stockfish's built-in limited-strength mode (UCI_Elo, a rating scale from engine lists) the levels land at
-//    roughly Beginner <900, Casual ~1000, Club ~1170, Improver ~1380, Strong ~1650-1750, Expert ~2050 on that scale.
-//    The labels are about 70 lower than that, because Lichess ratings of people run a little differently.
-//  - measured over 60-move self-play games, Beginner and Casual make a clear blunder about once every 10 moves, Club about
-//    once every 25, Improver once every 35, Strong about once every 100 moves.
-// The labels are a guide for choosing an opponent, not a promise. Real people vary a lot.
+// The Elo numbers are only APPROXIMATE. What we measured (Node experiment, 24-30 games per pairing):
+//  - every level beats the one below it, from about two games in three (Club over Casual) up to nine in ten;
+//  - on the rating scale of Stockfish's own limited-strength mode (UCI_Elo) the levels land at roughly
+//    Beginner <900, Casual ~1000, Club ~1170, Improver ~1380, Strong ~1650-1750, Expert ~2050.
+//    The labels below are set a little lower than that scale because it is made for engines, not for people;
+//  - clear blunders (more than 3 pawns lost) per 100 moves in 60-move games: Beginner 11, Casual 7, Club 7,
+//    Improver 6, Strong 1.5, Expert 0.6. A real player at 1100 blunders about this often, a 1900 player far less.
+// So treat the labels as a guide for picking an opponent, not a promise. Real people vary a lot.
 
 export interface BotLevel {
   id: string

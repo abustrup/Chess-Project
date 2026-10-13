@@ -68,7 +68,7 @@ export const zwischenzugLesson: TacticLesson = {
       explanations: [
         "Black's queen on d4 is guarded by the knight on c6. Instead of Qxd4, the bishop takes that knight, and it is check.",
         'Black must answer the check. Taking the bishop is the natural way. (Any other move loses the queen as well.)',
-        'Now the queen takes the black queen. The knight that guarded her is gone, so White has won a queen for a bishop.',
+        'Now the queen takes the black queen. The knight that guarded her is gone, so White has won a whole queen.',
       ],
     },
     {
