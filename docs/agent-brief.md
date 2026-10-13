@@ -21,6 +21,11 @@ Puzzles (Lichess database) · Game review + **rating estimate** · Home dashboar
 - Everything must stay **free** (no paid services, no API keys, no backend).
 - Moves in text should use normal chess notation (SAN like `Nf3`) but always with a plain explanation next to it.
 
+## Design direction (updated by the lead — applies to everything)
+The app must have **its own identity and must NOT look like a copy of chess.com**. Concretely: top navigation bar with pill links (no left sidebar), soft serif headings
+(`--font-display`, Fraunces) with Inter for body text, **flat soft buttons** (no chunky 3-D "pressable" bottom-shadow buttons), generous rounded cards (`--radius` 18px), subtle gradients/glows,
+ink-navy "Ocean" and espresso/apricot "Ember" palettes with `--accent` / `--accent-2`. **No green brand colour or green boards** (green only means "correct/good" via `--good`). Always use the CSS tokens; never hard-code colours.
+
 ## Repository map (what exists already)
 ```
 src/types.ts                 shared data shapes — READ THIS FIRST (contracts for openings, tactics, puzzles, games, profile, progress)
