@@ -15,6 +15,11 @@
 .home .home-greeting {
   font-size: 34px;
   margin: 0 0 6px;
+  /* a long name without spaces wraps instead of pushing the page sideways */
+  overflow-wrap: anywhere;
+}
+.home .home-hero > :first-child {
+  min-width: 0;
 }
 .home .home-hero p {
   margin: 0;

@@ -16,7 +16,7 @@ import { fallbackMove } from './botMove'
 import { describeMove, reviewUserMove, type CoachWarning } from './coach'
 import { GameClock } from './GameClock'
 import { buildRecord, saveRecord } from './gameRecord'
-import { boardOutcome, derive, sideOf, START_FEN, timeoutOutcome } from './position'
+import { boardOutcome, derive, sideOf, START_FEN, timeoutOutcome, uciOf } from './position'
 import { CURRENT_GAME_KEY } from './session'
 import { thinkTimeMs } from './thinkTime'
 import { getTimeControl } from './timeControls'
@@ -158,13 +158,19 @@ export function useGame(initial: SavedGame, coachOn: boolean, evalOn: boolean) {
       const before = ucisRef.current
       const d = derive(config.startFen, before)
       const game = d.chess
+      // a move made after the mover's time ran out (in the short gap before the flag check notices) does not count
+      const flag = clock.flagged()
+      if (flag) {
+        finish(timeoutOutcome(game, flag), before)
+        return false
+      }
       let move
       try {
         move = game.move({ from: uci.slice(0, 2), to: uci.slice(2, 4), promotion: uci[4] })
       } catch {
         return false
       }
-      const next = [...before, uci]
+      const next = [...d.ucis, uciOf(move)] // always the plain form, e.g. e7e8q
       ucisRef.current = next
       setUcis(next)
       setHint(null)
@@ -271,7 +277,7 @@ export function useGame(initial: SavedGame, coachOn: boolean, evalOn: boolean) {
       const knownLesson = book !== null && isInBook(book, plies)
       if (coachOn && lastByUser && coachClearedAt !== plies.length && !knownLesson) {
         const warning = await reviewUserMove(bot, d.fens[d.fens.length - 2], fenNow)
-        if (cancelled) return
+        if (cancelled || ucisRef.current.join() !== plies.join()) return
         if (warning) {
           clock.runFor(null) // nobody loses time while the player decides
           setCoachPrompt(warning)
@@ -306,7 +312,8 @@ export function useGame(initial: SavedGame, coachOn: boolean, evalOn: boolean) {
         }) -
         (Date.now() - startedAt)
       if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait))
-      if (cancelled) return
+      // a take-back (or anything else) changed the game while the computer thought: this move is for an old position
+      if (cancelled || ucisRef.current.join() !== plies.join()) return
       setThinking(false)
       if (!applyMove(uci, 'bot')) {
         // should never happen, but a game must never get stuck: play a simple move instead
@@ -332,7 +339,12 @@ export function useGame(initial: SavedGame, coachOn: boolean, evalOn: boolean) {
   /* ------------------------------------------------------------- saving */
 
   const persist = useCallback(() => {
-    if (outcomeRef.current || ucisRef.current.length === 0) return
+    if (outcomeRef.current) return
+    if (ucisRef.current.length === 0) {
+      // every move was taken back: forget the old save, or a reload would offer to resume the taken-back moves
+      removeStored(CURRENT_GAME_KEY)
+      return
+    }
     const saved: SavedGame = {
       config,
       ucis: ucisRef.current,

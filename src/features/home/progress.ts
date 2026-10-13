@@ -317,8 +317,9 @@ export function currentStreak(days: Set<string>, now: Date): number {
 export function longestStreak(days: Set<string>): number {
   const indexes = [...days]
     .map((key) => {
+      // a day number from the calendar date itself, so summer time and time zones cannot shift it
       const [y, m, d] = key.split('-').map(Number)
-      return Math.round(new Date(y, m - 1, d).getTime() / 86_400_000)
+      return Date.UTC(y, m - 1, d) / 86_400_000
     })
     .sort((a, b) => a - b)
   let best = 0

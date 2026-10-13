@@ -29,7 +29,7 @@ export const londonChaptersB: OpeningChapter[] = [
 7... Bb7 { The bishop joins the fight for the e4 square. }
 8. O-O { King to safety before you open the centre. [%cal Ge1g1] }
 8... d6 { Black stops your knight from coming to e5. }
-9. Qe2 { Your queen gets ready to support the e4 push, your main plan against the Dutch. But first check one thing: once e4 is played and Black takes with ...fxe4, the f-file opens and Black's rook on f8 looks straight at your bishop on f4. Push e4 only when that bishop is safe or has stepped back to h2. [%cal Gd1e2,Ge3e4,Rf8f4] }
+9. Qe2 { Your queen gets ready to support the e4 push, your main plan against the Dutch. But first check one thing: once e4 is played and Black takes with ...fxe4, the f-file opens. As soon as the knight on f6 moves away, Black's rook on f8 looks straight at your bishop on f4, and no pawn guards it any more. Push e4 only when that bishop is safe or has stepped back to h2. [%cal Gd1e2,Ge3e4,Rf8f4] }
 9... Qe8 { Black's queen heads for g6 or h5 to join an attack on your king. Keep your pieces near your king, tuck the bishop on h2 when needed, and prepare e4 slowly. }
 `,
   },
@@ -55,7 +55,7 @@ export const londonChaptersB: OpeningChapter[] = [
 5... Nc6
 6. Nf3 { The knight comes out and guards d4 again. [%cal Gg1f3] }
 6... Bg4 { Black pins your knight to the queen. }
-7. Nbd2 { Develop calmly. The knight on d2 gives the knight on f3 a second guard, so the pin is no longer a worry, and your queen is now free to move. [%cal Gb1d2,Gd2f3] }
+7. Nbd2 { Develop calmly. The knight on d2 gives the knight on f3 an extra guard, so the pin is no longer a worry, and your queen is now free to move. [%cal Gb1d2,Gd2f3] }
 7... e6
 8. Qb3 { Now the bishop on g4 has left b7 without protection. Your queen hits b7 and also prepares to put more pressure on d5. [%cal Gd1b3,Gb3b7] }
 8... Qc8
@@ -81,12 +81,41 @@ export const londonChaptersB: OpeningChapter[] = [
 4. Nf3 { Develop and protect your extra pawn on e5. [%cal Gg1f3,Gf3e5] }
 4... dxe5? { Black wins the pawn back, or so it seems. }
 ( 4... Bg4 { The best try. Black develops and hopes to win the pawn back later. You are still a pawn up: carry on with e3, Be2 and castling, and do not grab more. } )
-5. Qxd8+ { Trade queens first, so Black's king has to take back. [%cal Gd1d8] }
+5. Qxd8+ { Trade queens first. Black can take back with the king or with the knight on c6, but either way the e5 pawn falls next. [%cal Gd1d8] }
 5... Kxd8
 6. Nxe5 { Now take on e5 with the knight. If Black takes it, your bishop takes back and you are a clean pawn up. [%cal Gf3e5] }
 6... Nxe5
 7. Bxe5 { Your bishop is safe on e5 and you have an extra pawn. Black's king is stuck in the middle and cannot castle. [%cal Gf4e5] }
 7... f6
+`,
+  },
+  {
+    id: 'middlegame-plans',
+    title: 'Middlegame plans: when Black trades on f4',
+    summary:
+      'Black swaps your London bishop with ...Bd6 and ...Bxf4. You take back with the e-pawn, and the new pawn on f4 gives you the e5 square for good.',
+    difficulty: 2,
+    pgn: `
+1. d4 { Your usual start. [%cal Gd2d4] }
+1... d5
+2. Bf4 { The London bishop. [%cal Gc1f4] }
+2... Nf6
+3. e3 { Guard d4 and free your other bishop. [%cal Ge2e3] }
+3... e6
+4. Nf3 { The knight eyes e5, the most important square in this chapter. [%cal Gg1f3,Gf3e5] }
+4... Bd6
+5. Bd3 { This time you simply let Black trade on f4. You will see why that is not a problem. [%cal Gf1d3,Gd3h7] }
+5... Bxf4 { Black swaps off your London bishop. }
+6. exf4 { Take back with the e-pawn. Your new pawn on f4 controls e5, so e5 becomes a safe home for your knight, and the open e-file is ready for a rook. [%cal Ge3f4,Gf4e5] [%csl Ge5] }
+6... c5
+7. c3 { Keep d4 well protected. [%cal Gc2c3] }
+7... Nc6
+8. O-O { King to safety. Next you look for the right moment to take on c5 or jump to e5. [%cal Ge1g1] }
+8... O-O
+9. dxc5 { Take the pawn! Black's dark-squared bishop is gone, so no black piece can take back on c5 straight away. Black has to spend time to win it back. [%cal Gd4c5] }
+9... Qc7 { The queen attacks your f4 pawn and plans to win back the pawn on c5 later. [%cal Rc7f4] }
+10. Qc1 { Calmly protect the f4 pawn. Your pawn on f4 is the one that controls e5, so keep it. Later a knight can jump to e5, and Black still has to work to win back the pawn on c5. [%cal Gd1c1,Gc1f4] [%csl Ge5] }
+10... a5
 `,
   },
 ]

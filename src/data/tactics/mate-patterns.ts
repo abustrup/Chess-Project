@@ -22,7 +22,7 @@ export const matePatternsLesson: TacticLesson = {
         { square: 'h7', color: 'yellow' },
       ],
       caption:
-        'Smothered mate. The black king is boxed in by its own rook and pawns (marked). Nf7 is checkmate: the knight jumps over the crowd and nothing can capture it.',
+        'Smothered mate. The black king is boxed in by its own rook and pawns (marked). Nf7 is checkmate: a knight check cannot be blocked, and nothing can capture the knight.',
     },
     {
       type: 'board',
@@ -60,7 +60,7 @@ export const matePatternsLesson: TacticLesson = {
         { square: 'd7', color: 'yellow' },
       ],
       caption:
-        "Boden's mate. Two bishops attack along crossing diagonals. Ba6 gives check, the bishop on f4 covers b8 and c7, and Black's own pieces block d7 and d8.",
+        "Boden's mate. Two bishops attack along crossing diagonals. Ba6 is mate: it gives check and covers b7, the bishop on f4 covers b8 and c7, and Black's own pieces block d7 and d8.",
     },
     {
       type: 'board',

@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
 import { User } from 'lucide-react'
-import { DEFAULT_PROFILE } from '../../../types'
-import { KEYS, useStored } from '../../../lib/storage'
+import { MAX_RATING, MIN_RATING } from '../sanitize'
 import SettingsCard from './SettingsCard'
+import { useProfile } from './useProfile'
 
-const MIN_RATING = 100
-const MAX_RATING = 3000
 const LICHESS_NAME = /^[A-Za-z0-9_-]{2,30}$/
 
 /** A number box that only saves a sensible value and gives a clear message otherwise. */
@@ -42,7 +40,7 @@ function RatingField({ value, onSave }: { value: number; onSave: (next: number) 
 }
 
 export default function ProfileSection() {
-  const [profile, setProfile] = useStored(KEYS.profile, DEFAULT_PROFILE)
+  const [profile, change] = useProfile()
   const username = profile.lichessUsername
   const usernameOk = username === '' || LICHESS_NAME.test(username)
 
@@ -62,7 +60,7 @@ export default function ProfileSection() {
             value={profile.name}
             maxLength={30}
             autoComplete="given-name"
-            onChange={(e) => setProfile((p) => ({ ...p, name: e.target.value }))}
+            onChange={(e) => change({ name: e.target.value })}
           />
           <span className="small faint">Shown on the home page.</span>
         </div>
@@ -79,7 +77,7 @@ export default function ProfileSection() {
             spellCheck={false}
             aria-invalid={!usernameOk}
             aria-describedby="set-lichess-hint"
-            onChange={(e) => setProfile((p) => ({ ...p, lichessUsername: e.target.value.replace(/\s+/g, '') }))}
+            onChange={(e) => change({ lichessUsername: e.target.value.replace(/\s+/g, '') })}
           />
           <span id="set-lichess-hint" className={`small ${usernameOk ? 'faint' : 'field-error'}`}>
             {usernameOk
@@ -87,7 +85,7 @@ export default function ProfileSection() {
               : 'Lichess names have 2 to 30 letters, numbers, dashes or underscores.'}
           </span>
         </div>
-        <RatingField value={profile.selfRating} onSave={(next) => setProfile((p) => ({ ...p, selfRating: next }))} />
+        <RatingField value={profile.selfRating} onSave={(selfRating) => change({ selfRating })} />
       </div>
     </SettingsCard>
   )

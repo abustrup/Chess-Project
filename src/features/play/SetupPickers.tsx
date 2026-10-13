@@ -4,6 +4,7 @@ import { piecesFor } from '../../lib/pieceSets'
 import { DEFAULT_PROFILE, type OpeningCourse, type Side } from '../../types'
 import { KEYS, useStored } from '../../lib/storage'
 import { previewMoves } from './book'
+import { firstUnstudiedChapter } from './session'
 import { BOT_LEVELS } from './botLevels'
 import { TIME_CONTROLS } from './timeControls'
 import { ANY_CHAPTER, type ColourChoice, type PlayMode, type SetupChoices } from './types'
@@ -174,7 +175,9 @@ export function OpeningPicker({
             onSelect={() => {
               // jump to a course that has lessons if the remembered one has none
               const fallback = course ?? courses[0]
-              patch(m.id === 'free' || !fallback ? { mode: m.id } : { mode: m.id, courseId: fallback.id })
+              // practising starts on the first variation you have not studied yet, not on "Surprise me"
+              const chapterId = m.id === 'practice' && setup.mode !== 'practice' && fallback ? firstUnstudiedChapter(fallback) : undefined
+              patch(m.id === 'free' || !fallback ? { mode: m.id } : { mode: m.id, courseId: fallback.id, ...(chapterId ? { chapterId } : {}) })
             }}
           >
             <span className="pl-mode-icon">{m.icon}</span>
@@ -208,7 +211,7 @@ export function OpeningPicker({
                     aria-checked={setup.courseId === c.id}
                     disabled={!ready}
                     className={`pl-chip ${setup.courseId === c.id ? 'selected' : ''}`}
-                    onClick={() => patch({ courseId: c.id, chapterId: ANY_CHAPTER })}
+                    onClick={() => patch({ courseId: c.id, chapterId: setup.mode === 'practice' ? firstUnstudiedChapter(c) : ANY_CHAPTER })}
                   >
                     {c.name}
                     <span className="pl-chip-sub">{ready ? `you play ${mine}` : 'coming soon'}</span>

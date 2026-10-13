@@ -43,6 +43,8 @@ export default function Play() {
       removeStored(CURRENT_GAME_KEY)
       setGame(newSavedGame(makeConfig(choices, { selfRating: profile.selfRating, fen: launch.fen, side: launch.side })))
     } else {
+      // leave any game on screen (it is saved and can be resumed) so the setup and the message are visible
+      setGame(null)
       writeStored(SETUP_KEY, choices)
       setProblem(launch.problem)
     }

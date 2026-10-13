@@ -56,7 +56,8 @@ export function cleanStats(saved: unknown): PuzzleStats {
   const byTheme: PuzzleStats['byTheme'] = {}
   if (isRecord(saved.byTheme)) {
     for (const [theme, row] of Object.entries(saved.byTheme)) {
-      if (isRecord(row)) byTheme[theme] = { solved: wholeCount(row.solved), failed: wholeCount(row.failed) }
+      // A saved key named "__proto__" would change the object itself instead of adding a theme.
+      if (isRecord(row) && theme !== '__proto__') byTheme[theme] = { solved: wholeCount(row.solved), failed: wholeCount(row.failed) }
     }
   }
 

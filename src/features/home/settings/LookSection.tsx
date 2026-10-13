@@ -1,17 +1,15 @@
 import { Palette } from 'lucide-react'
-import { DEFAULT_PROFILE, type Profile } from '../../../types'
-import { KEYS, useStored } from '../../../lib/storage'
 import SettingsCard from './SettingsCard'
 import Switch from './Switch'
 import AppThemePicker from './AppThemePicker'
 import BoardColourPicker from './BoardColourPicker'
 import PieceSetPicker from './PieceSetPicker'
 import PreviewBoard from './PreviewBoard'
+import { useProfile } from './useProfile'
 
 /** Colours, pieces and comfort options, with a live board next to them. This part stays visible in zen mode. */
 export default function LookSection() {
-  const [profile, setProfile] = useStored(KEYS.profile, DEFAULT_PROFILE)
-  const change = (patch: Partial<Profile>) => setProfile((p) => ({ ...p, ...patch }))
+  const [profile, change] = useProfile()
 
   return (
     <SettingsCard icon={Palette} title="Look and feel" intro="Pick what you like. Everything changes straight away.">

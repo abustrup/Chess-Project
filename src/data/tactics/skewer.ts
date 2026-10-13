@@ -152,7 +152,7 @@ export const skewerLesson: TacticLesson = {
       solution: ['c8g4', 'e2f1', 'g4d1'],
       hint: 'Check the king with your bishop. What is on the other side of the king?',
       explanation:
-        'Bg4+ checks the king on e2, and White’s queen on d1 stands behind it on the same diagonal. The king has to move, and then Bxd1 wins the queen.',
+        'Bg4+ checks the king on e2, and White’s queen on d1 stands behind it on the same diagonal. The king steps aside, and then Bxd1 wins the queen. If the rook on h4 takes the bishop instead, Qxg4+ wins the rook back with check.',
       difficulty: 2,
     },
     {

@@ -195,7 +195,7 @@ export const backRankMateLesson: TacticLesson = {
       id: 'back-rank-mate-10',
       fen: '2R1r2k/p5pp/1p6/4q3/1Q6/7P/Pb3PP1/6K1 w - - 2 29',
       solution: ['b4f8', 'e8f8', 'c8f8'],
-      hint: "The black rook on e8 is the only guard of the back row. How can you pull it away?",
+      hint: "The black rook on e8 is the only black piece on the back row besides the king. How can you pull it away?",
       explanation:
         "Qf8+ is a queen sacrifice. Black has to take with the rook, and that rook is now off e8, so Rxf8 is mate.",
       difficulty: 3,

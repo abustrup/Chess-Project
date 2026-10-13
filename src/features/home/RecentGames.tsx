@@ -60,14 +60,15 @@ export default function RecentGames({ games, now }: { games: GameRecord[]; now: 
               Play your first game against the computer. Afterwards I can show you where it went well and where it went wrong.
             </p>
           </div>
-          <Link className="btn primary" to="/play">
+          <Link className="btn" to="/play">
             Play a game <ArrowRight size={17} aria-hidden />
           </Link>
         </div>
       ) : (
         <ul className="card game-list">
-          {games.map((game) => (
-            <GameRow key={game.id} game={game} now={now} />
+          {games.map((game, index) => (
+            // ids come from saved data and an imported game can appear twice, so the position keeps keys unique
+            <GameRow key={`${index}-${game.id}`} game={game} now={now} />
           ))}
         </ul>
       )}

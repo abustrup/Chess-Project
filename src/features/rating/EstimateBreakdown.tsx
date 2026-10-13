@@ -1,6 +1,6 @@
 import { BarChart3, Brain, Trophy } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { PRIOR_GAMES, type EstimateDetail, type EstimatePart } from './estimate'
+import { OPENING_MOVES_SKIPPED, PRIOR_GAMES, type EstimateDetail, type EstimatePart } from './estimate'
 import { EvidenceChart, GameTrendChart } from './EstimateChart'
 
 // "How I worked this out": the pieces of evidence in plain words, then two small charts and the honest small print.
@@ -87,7 +87,8 @@ export default function EstimateBreakdown({ detail }: { detail: EstimateDetail }
               In {m.games} analysed game{m.games === 1 ? '' : 's'} your moves lost <strong>{Math.round(m.acpl)}</strong>{' '}
               centipawns on average. A centipawn is a hundredth of a pawn, so smaller is better. In my reference table,
               players who lose about this much per move are rated around{' '}
-              <strong>{Math.round(part('moves')?.elo ?? 0)}</strong>. One awful game cannot pull this down much.
+              <strong>{Math.round(part('moves')?.elo ?? 0)}</strong>. One awful game cannot pull this down much. Your first{' '}
+              {OPENING_MOVES_SKIPPED} moves and known opening moves are left out, because they are usually memorised.
               {m.slowGames > 0 &&
                 ' Games with lots of time on the clock are judged a little more strictly, because everybody plays better with more time.'}
             </>

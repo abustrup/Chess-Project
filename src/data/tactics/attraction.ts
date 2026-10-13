@@ -9,7 +9,7 @@ export const attractionLesson: TacticLesson = {
   intro: [
     {
       type: 'text',
-      text: '**Attraction** (also called a **decoy**) means luring an enemy piece onto a bad square, usually with a sacrifice. The piece is often the king, which has to capture because it is in check. Once it stands on the new square, you finish it with a checkmate, a fork or a new queen.',
+      text: '**Attraction** (also called a **decoy**) means luring an enemy piece onto a bad square, usually with a sacrifice. The piece is often the king: the sacrifice comes with check, and taking it is often the only move the king has. Once it stands on the new square, you finish it with a checkmate, a fork or a new queen.',
     },
     {
       type: 'board',
@@ -24,7 +24,7 @@ export const attractionLesson: TacticLesson = {
     },
     {
       type: 'tip',
-      text: 'How to spot it: ask yourself, "If that piece stood on this square, what could I do to it?" Look for squares where the king or queen would be exposed to a mate, a fork or a pawn promotion. Decoys often start with a check or a capture, so the enemy piece has no choice.',
+      text: 'How to spot it: ask yourself, "If that piece stood on this square, what could I do to it?" Look for squares where the king or queen would be exposed to a mate, a fork or a pawn promotion. Decoys often start with a check or a capture, so the opponent has little choice.',
     },
     {
       type: 'board',
@@ -86,7 +86,7 @@ export const attractionLesson: TacticLesson = {
       fen: 'rn1qkbnr/4pb1p/pp4p1/2p5/2B5/P2P4/1PP2PPP/RNBQK2R w KQkq - 0 9',
       moves: ['c4f7', 'e8f7', 'd1f3', 'g8f6', 'f3a8'],
       explanations: [
-        'The bishop takes the bishop on f7 with check. White is offering a bishop to pull the king forward.',
+        'The bishop takes the bishop on f7 with check. It is only a trade of bishops, but taking back pulls the king forward.',
         'The king takes the bishop and now stands on f7. That is exactly where the queen wants it.',
         'The queen checks the king along the f-file, and she also attacks the rook on a8 along the long diagonal. That is a fork.',
         'Black blocks the check with the knight, but the rook on a8 is still attacked.',
@@ -94,7 +94,7 @@ export const attractionLesson: TacticLesson = {
       ],
     },
     {
-      title: 'Two rooks are sacrificed to drag the king',
+      title: 'Two rook trades drag the king to f8',
       fen: '4rrk1/p3n1p1/1p2P1Qq/3p1R2/3b4/8/P5PP/5R1K w - - 0 25',
       moves: ['f5f8', 'e8f8', 'f1f8', 'g8f8', 'g6f7'],
       explanations: [
@@ -201,9 +201,9 @@ export const attractionLesson: TacticLesson = {
       id: 'attraction-11',
       fen: 'r1b1r1k1/ppp1npp1/4Pn1p/8/2P5/B2q1N2/P4PPP/R3QRK1 w - - 0 16',
       solution: ['e6f7', 'g8f7', 'f3e5', 'f7g8', 'e5d3'],
-      hint: 'The black queen on d3 is far from its king. A pawn sacrifice could pull the king onto a square where one knight attacks both.',
+      hint: 'The black queen on d3 is far from its king. A pawn capture with check could pull the king onto a square where one knight attacks both.',
       explanation:
-        'exf7+ is a pawn sacrifice with check, and Black\'s best reply is to take it with the king. Now the king stands on f7, where Ne5+ gives check and also attacks the queen on d3. After the king moves, Nxd3 wins the queen.',
+        'exf7+ takes a pawn with check, and Black\'s best reply is to take back with the king. Now the king stands on f7, where Ne5+ gives check and also attacks the queen on d3. After the king moves, Nxd3 wins the queen.',
       difficulty: 3,
     },
     {
@@ -212,7 +212,7 @@ export const attractionLesson: TacticLesson = {
       solution: ['e4h7', 'g8h8', 'h7g8', 'h8g8', 'c2h7'],
       hint: 'Two sacrifices in a row. First send the king to the corner, then drag it back out so your queen can mate.',
       explanation:
-        'Bh7+ forces Kh8, because the queen protects the bishop. Bg8+ uncovers a check from the rook on h1. The king takes the bishop (blocking the h-file with a bishop does not help: Qh7 is mate anyway). Then Qh7 is checkmate, because the rook on h1 protects her.',
+        'Bh7+ forces Kh8, because your queen and your rook on h1 both protect the bishop. Bg8+ uncovers a check from the rook on h1. The king takes the bishop (blocking the h-file with a bishop does not help: Qh7 is mate anyway). Then Qh7 is checkmate, because the rook on h1 protects her.',
       difficulty: 3,
     },
   ],

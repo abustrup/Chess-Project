@@ -162,7 +162,7 @@ function ChapterRow({ index, course, chapter }: { index: number; course: Opening
         <div className="row wrap op-chapter-meta">
           <DifficultyDots level={chapter.difficulty} />
           {parsed.ok && <span className="small faint">{lineCount(parsed.tree)} lines</span>}
-          {entry?.studied && <span className="chip green">Studied</span>}
+          {entry?.studied === true && <span className="chip green">Studied</span>}
           {!parsed.ok && (
             <span className="chip red" title={parsed.error}>
               Problem with this chapter

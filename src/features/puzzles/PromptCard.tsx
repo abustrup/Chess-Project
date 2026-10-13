@@ -142,8 +142,12 @@ export default function PromptCard({ run, topic, delta, rating, busy, themes, on
           <button className="btn" onClick={onHint} disabled={run.hint === 2}>
             <Lightbulb size={17} aria-hidden /> {run.hint === 0 ? 'Hint' : run.hint === 1 ? 'Show move' : 'Hint shown'}
           </button>
-          <button className="btn ghost" onClick={onShowSolution}>
-            <Eye size={17} aria-hidden /> Solution
+          <button
+            className="btn ghost"
+            onClick={onShowSolution}
+            title={run.failed ? 'This puzzle already counts as a miss, so looking costs nothing more.' : 'Looking at the solution counts as a miss, so your puzzle rating goes down.'}
+          >
+            <Eye size={17} aria-hidden /> Solution{!run.failed && <small className="btn-cost"> (counts as a miss)</small>}
           </button>
           {run.phase === 'solving' && !run.failed && (
             <button className="btn ghost" onClick={onSkip} title="Skip this puzzle. Your rating does not change.">

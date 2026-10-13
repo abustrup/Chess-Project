@@ -157,13 +157,15 @@ export function useDrill(course: OpeningCourse, entries: DrillEntry[], startNode
         if (!state.missed.includes(node.id)) recordMove(course, chapter, tree, node.id, false)
         const idea = mainChild?.comment ? maskMove(mainChild.comment, mainChild.san) : ''
         const stuck = state.wrongHere >= 1 ? ' Stuck? Use the hint button.' : ''
+        const about = aboutWrongMove(node.fen, uci)
+        const title = about ? `Not quite. ${about}` : 'Not quite.'
         dispatch({
           type: 'wrong',
           note: idea
-            ? { kind: 'wrong', title: 'Not quite.', label: 'The idea here', text: idea + stuck }
+            ? { kind: 'wrong', title, label: 'The idea here', text: idea + stuck }
             : {
                 kind: 'wrong',
-                title: 'Not quite.',
+                title,
                 text: `Look at the position again and try another move.${stuck || ' You can ask for a hint.'}`,
               },
         })
@@ -241,7 +243,8 @@ export function useDrill(course: OpeningCourse, entries: DrillEntry[], startNode
       const streak = complete ? finishLine(course, chapter, state.missed.length === 0, state.streak) : state.streak
       playSound(complete ? 'end' : soundFor(reply.san))
       dispatch({ type: 'reply', childId: reply.id, complete, streak })
-    }, 600)
+      // At the start of a line there is no move of yours to watch, so the first reply comes quickly.
+    }, state.userNodeId ? 600 : 200)
     return () => window.clearTimeout(timer)
     // The reply depends on the position and the line, not on every little state change.
   }, [state.phase, state.nodeId, state.lineNo])
@@ -292,6 +295,29 @@ export function useDrill(course: OpeningCourse, entries: DrillEntry[], startNode
     showAnswer,
     dismiss,
     newLine,
+  }
+}
+
+const PIECE_NAMES: Record<string, string> = { p: 'pawn', n: 'knight', b: 'bishop', r: 'rook', q: 'queen', k: 'king' }
+
+/**
+ * One short, true sentence about a move that is not in the lesson, worked out with chess.js.
+ * It only says the piece hangs when the opponent can really take it and nothing of yours guards it; otherwise
+ * it just says the move is not part of the line. It never guesses.
+ */
+function aboutWrongMove(fen: string, uci: string): string {
+  try {
+    const game = new Chess(fen)
+    const mv = game.move({ from: uci.slice(0, 2), to: uci.slice(2, 4), promotion: uci[4] || 'q' })
+    const me = mv.color
+    const canBeTaken = game.moves({ verbose: true }).some((m) => m.to === mv.to && !!m.captured)
+    const guarded = game.isAttacked(mv.to, me)
+    if (mv.piece !== 'k' && !mv.captured && canBeTaken && !guarded) {
+      return `After ${mv.san}, your ${PIECE_NAMES[mv.piece]} on ${mv.to} is not protected and can be taken for free.`
+    }
+    return `${mv.san} is not part of this line.`
+  } catch {
+    return ''
   }
 }
 

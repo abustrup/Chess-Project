@@ -91,6 +91,15 @@ check(
 )
 check('guesses my side by name', pasted.games[0].guessedSide === 'white' && pasted.games[1].guessedSide === null)
 check('the same text gives the same id', parsePgnText(one, []).games[0].id === parsePgnText(one, []).games[0].id)
+const twice = parsePgnText(`${one}\n${one}`, [])
+check('the same game pasted twice is kept once', twice.games.length === 1 && twice.errors.length === 1)
+const c960 = parsePgnText(
+  '[Variant "Chess960"]\n[SetUp "1"]\n[FEN "bbqnnrkr/pppppppp/8/8/8/8/PPPPPPPP/BBQNNRKR w HFhf - 0 1"]\n\n1. e4 e5 *',
+  [],
+)
+check('a Chess960 game says why it cannot be read', /normal chess/.test(c960.errors[0] ?? ''), c960.errors[0])
+const fromFen = parsePgnText('[SetUp "1"]\n[FEN "4k3/8/8/8/8/8/4P3/4K3 b - - 0 1"]\n\n1... Kd7 2. e4 Ke6 *', [])
+check('a game from a set-up position with Black to move is read', fromFen.games[0]?.plies === 3)
 
 console.log(failures ? `\n${failures} check(s) FAILED` : '\nAll checks passed')
 process.exit(failures ? 1 : 0)

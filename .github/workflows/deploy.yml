@@ -28,17 +28,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get the code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Install Node.js 22
-        uses: actions/setup-node@v4
+      # Vite 8 needs Node 20.19+ or 22.12+; 24 is the current long-term version and matches the Mac it is built on.
+      - name: Install Node.js 24
+        uses: actions/setup-node@v5
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
 
       - name: Install the packages
         run: npm ci
 
+      # checks the code for type mistakes first, then writes the finished site to dist/
       - name: Build the website
         run: npm run build
 
@@ -46,7 +48,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload the built website
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 

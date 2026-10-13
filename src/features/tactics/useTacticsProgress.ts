@@ -16,7 +16,8 @@ function cleanAll(raw: unknown): TacticsProgress {
 }
 
 function count(value: unknown): number {
-  return typeof value === 'number' && Number.isFinite(value) && value > 0 ? Math.floor(value) : 0
+  // capped, so a damaged value never shows as "1e+308 wrong tries"
+  return typeof value === 'number' && Number.isFinite(value) && value > 0 ? Math.min(Math.floor(value), 99999) : 0
 }
 
 function cleanLesson(lessonId: string, raw: unknown): LessonProgress {

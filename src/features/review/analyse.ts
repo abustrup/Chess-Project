@@ -1,6 +1,6 @@
 import { Chess } from 'chess.js'
 import type { AnalysedMove, GameAnalysis, GameRecord, MoveClass, Side } from '../../types'
-import type { SearchResult } from '../../engine/uci'
+import { UciEngine, type SearchResult } from '../../engine/uci'
 import { MATE_CP, classifyMove, gameAccuracy, moveAccuracy, scoreToCp, winPercent } from '../../lib/evaluation'
 import { identifyOpening } from '../../lib/openingName'
 import { replayPgn, sansOf, type ReplayedPly } from './pgnGame'
@@ -94,7 +94,6 @@ const ENGINE_START_TIMEOUT_MS = 20_000
 
 /** Starts a private browser engine. The Stockfish file is only loaded when someone really analyses a game. */
 async function startOwnEngine(): Promise<EngineLike & { terminate(): void }> {
-  const { UciEngine } = await import('../../engine/uci')
   let timedOut = false
   const created = UciEngine.create()
   const timer = new Promise<never>((_, reject) =>

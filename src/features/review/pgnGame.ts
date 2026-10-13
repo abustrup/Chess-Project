@@ -27,6 +27,11 @@ const RESULTS: Result[] = ['1-0', '0-1', '1/2-1/2', '*']
 
 /** Replays a PGN. Throws an Error with a friendly message when the text is not a usable standard-chess game. */
 export function replayPgn(pgn: string): ReplayedGame {
+  // Look at the Variant tag first: a Chess960 start position makes the reader fail with a vague error.
+  const tagged = /^\s*\[Variant\s+"([^"]*)"\]/im.exec(pgn)?.[1]
+  if (tagged && !['standard', 'from position'].includes(tagged.trim().toLowerCase())) {
+    throw new Error(`Only normal chess is supported, but this game is "${tagged}".`)
+  }
   const chess = new Chess()
   try {
     chess.loadPgn(pgn)

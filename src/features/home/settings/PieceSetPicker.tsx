@@ -1,8 +1,7 @@
 import { useMemo } from 'react'
-import { DEFAULT_PROFILE } from '../../../types'
 import { PIECE_SETS, piecesFor } from '../../../lib/pieceSets'
-import { KEYS, useStored } from '../../../lib/storage'
 import ChoiceCard from './ChoiceCard'
+import { useProfile } from './useProfile'
 
 const TYPES = ['K', 'Q', 'R', 'B', 'N', 'P'] as const
 
@@ -26,7 +25,7 @@ function PieceStrip({ setId }: { setId: string }) {
 }
 
 export default function PieceSetPicker() {
-  const [profile, setProfile] = useStored(KEYS.profile, DEFAULT_PROFILE)
+  const [profile, change] = useProfile()
   return (
     <div className="choice-grid two" role="radiogroup" aria-label="Pieces">
       {PIECE_SETS.map((set) => (
@@ -34,7 +33,7 @@ export default function PieceSetPicker() {
           key={set.id}
           group="piece-set"
           checked={profile.pieceSet === set.id}
-          onSelect={() => setProfile((p) => ({ ...p, pieceSet: set.id }))}
+          onSelect={() => change({ pieceSet: set.id })}
         >
           <PieceStrip setId={set.id} />
           <span className="choice-name">{set.name}</span>

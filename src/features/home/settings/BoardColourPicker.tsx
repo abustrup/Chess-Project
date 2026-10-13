@@ -1,8 +1,7 @@
 import type { CSSProperties } from 'react'
-import { DEFAULT_PROFILE } from '../../../types'
 import { BOARD_THEMES } from '../../../lib/themes'
-import { KEYS, useStored } from '../../../lib/storage'
 import ChoiceCard from './ChoiceCard'
+import { useProfile } from './useProfile'
 
 const FAMILIES = [
   { id: 'blue', title: 'Blue boards' },
@@ -11,7 +10,7 @@ const FAMILIES = [
 
 /** Every board colour as a small 4 by 4 board, grouped into blue and warm. */
 export default function BoardColourPicker() {
-  const [profile, setProfile] = useStored(KEYS.profile, DEFAULT_PROFILE)
+  const [profile, change] = useProfile()
   return (
     <div className="stack" role="radiogroup" aria-label="Board colours">
       {FAMILIES.map((family) => (
@@ -23,7 +22,7 @@ export default function BoardColourPicker() {
                 key={theme.id}
                 group="board-colours"
                 checked={profile.boardTheme === theme.id}
-                onSelect={() => setProfile((p) => ({ ...p, boardTheme: theme.id }))}
+                onSelect={() => change({ boardTheme: theme.id })}
                 className="compact"
               >
                 <span

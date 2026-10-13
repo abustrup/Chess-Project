@@ -35,6 +35,14 @@ function describe(summary: DataSummary): string {
   return parts.length > 0 ? parts.join(', ') : 'no games or progress yet'
 }
 
+/** '13 October 2026', or '' when the backup has no readable date (an edited or very old file). */
+function savedOn(iso: string): string {
+  const date = new Date(iso)
+  return iso && !Number.isNaN(date.getTime())
+    ? date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+    : ''
+}
+
 function readFlash(): string {
   try {
     return sessionStorage.getItem(FLASH_KEY) ?? ''
@@ -62,6 +70,15 @@ export default function DataSection() {
   const [panel, setPanel] = useState<Panel>({ kind: 'none' })
   const [note, setNote] = useState(readFlash)
   const fileInput = useRef<HTMLInputElement>(null)
+  const restoreButton = useRef<HTMLButtonElement>(null)
+  const resetButton = useRef<HTMLButtonElement>(null)
+
+  /** Closes the question box and puts keyboard focus back on the button that opened it, so nobody loses their place. */
+  function close() {
+    const back = panel.kind === 'reset' ? resetButton.current : restoreButton.current
+    setPanel({ kind: 'none' })
+    back?.focus()
+  }
 
   useEffect(() => {
     try {
@@ -140,10 +157,10 @@ export default function DataSection() {
         <button className="btn primary" onClick={download}>
           <Download size={17} aria-hidden /> Download backup
         </button>
-        <button className="btn" onClick={() => fileInput.current?.click()}>
+        <button ref={restoreButton} className="btn" onClick={() => fileInput.current?.click()}>
           <Upload size={17} aria-hidden /> Restore from backup
         </button>
-        <button className="btn danger" onClick={() => setPanel({ kind: 'reset' })}>
+        <button ref={resetButton} className="btn danger" onClick={() => setPanel({ kind: 'reset' })}>
           <Trash2 size={17} aria-hidden /> Start over
         </button>
         <input
@@ -171,14 +188,14 @@ export default function DataSection() {
             <h3 id="restore-title">Restore this backup?</h3>
             <p>
               <strong>{panel.fileName}</strong>
-              {panel.backup.exportedAt && ` (saved ${new Date(panel.backup.exportedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })})`}{' '}
+              {savedOn(panel.backup.exportedAt) && ` (saved ${savedOn(panel.backup.exportedAt)})`}{' '}
               holds {describe(panel.summary)}. Restoring replaces everything you have saved here now.
             </p>
             <div className="row wrap">
               <button className="btn primary" onClick={() => restore(panel.backup)}>
                 Replace my data with this backup
               </button>
-              <button className="btn ghost" onClick={() => setPanel({ kind: 'none' })}>
+              <button className="btn ghost" onClick={close}>
                 Cancel
               </button>
             </div>
@@ -195,7 +212,7 @@ export default function DataSection() {
               Tip: download a backup first.
             </p>
             <div className="row wrap">
-              <button className="btn" autoFocus onClick={() => setPanel({ kind: 'none' })}>
+              <button className="btn" autoFocus onClick={close}>
                 Keep my data
               </button>
               <button className="btn danger" onClick={reset}>
@@ -211,7 +228,7 @@ export default function DataSection() {
           <div>
             <h3>That did not work</h3>
             <p>{panel.message}</p>
-            <button className="btn" onClick={() => setPanel({ kind: 'none' })}>
+            <button className="btn" onClick={close}>
               OK
             </button>
           </div>

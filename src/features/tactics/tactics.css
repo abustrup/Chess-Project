@@ -91,14 +91,14 @@
   gap: 6px;
 }
 .tx-card.done {
-  border-color: color-mix(in srgb, var(--good) 45%, var(--line));
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
 }
 .tx-card.done .tx-card-icon {
-  background: color-mix(in srgb, var(--good) 20%, var(--bg-3));
-  color: var(--good);
+  background: color-mix(in srgb, var(--accent) 20%, var(--bg-3));
+  color: var(--accent-hi);
 }
 .tx-card.done .progress > span {
-  background: var(--good);
+  background: var(--accent);
 }
 .tx-done-badge {
   display: inline-flex;
@@ -106,8 +106,8 @@
   gap: 4px;
   padding: 3px 10px 3px 8px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--good) 18%, transparent);
-  color: var(--good);
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent-hi);
   font-size: 12.5px;
   font-weight: 700;
 }

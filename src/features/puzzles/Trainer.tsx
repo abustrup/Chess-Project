@@ -118,7 +118,8 @@ export default function Trainer({ index, onStartRush }: Props) {
   }
 
   function handleMove(move: BoardMove): boolean {
-    if (!run || status !== 'ready') return false
+    // Only when it is really your turn (a promotion menu left open can still send a move after the puzzle moved on).
+    if (!run || status !== 'ready' || (run.phase !== 'solving' && run.phase !== 'wrong')) return false
     const verdict = judgeMove(run, move)
     if (verdict === 'wrong') {
       dispatch({ type: 'wrong' })

@@ -156,5 +156,30 @@ check(
   estimateRating(games(60, { acpl: 60, score: 0.6 }), 1200).parts.at(-1)!.weight < mixed.parts.at(-1)!.weight,
 )
 
+// 11. one quiet, short draw must not make anyone a 1950 (a real bug: it once said "about 1954 ... Nice!")
+const quietDraw: GameEvidence = {
+  id: 'quiet',
+  date: '2026-10-13T00:00:00.000Z',
+  score: 0.5,
+  oppElo: 1950,
+  oppIsBot: false,
+  acpl: 4,
+  userMoves: 7,
+  gameMoves: 15,
+}
+const one = estimateRating([quietDraw], 1100)
+check('one quiet 15-move draw is left out and the estimate stays at your own guess', one.elo === 1100, `${one.elo}`)
+const longerDraw = estimateRating([{ ...quietDraw, userMoves: 22, gameMoves: 30 }], 1100)
+check(
+  'one longer near-perfect draw against a 1950 moves the estimate only a little',
+  Math.abs(longerDraw.elo - 1100) < 250,
+  String(longerDraw.elo),
+)
+check(
+  'with one game the range stays wide (at least +-175)',
+  longerDraw.high - longerDraw.low >= 350,
+  `${longerDraw.low}-${longerDraw.high}`,
+)
+
 console.log(failures ? `\n${failures} check(s) FAILED` : '\nAll checks passed')
 process.exit(failures ? 1 : 0)

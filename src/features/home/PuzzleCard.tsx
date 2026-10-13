@@ -15,7 +15,7 @@ export default function PuzzleCard({ summary }: { summary: PuzzleSummary }) {
           Puzzles are small chess problems with one best answer. Solving them is the quickest way to spot tactics in real
           games. You start at {summary.rating}.
         </p>
-        <Link className="btn primary" to="/puzzles">
+        <Link className="btn" to="/puzzles">
           Solve your first puzzle <ArrowRight size={17} aria-hidden />
         </Link>
       </section>

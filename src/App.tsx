@@ -101,9 +101,10 @@ class PageErrorBoundary extends Component<{ pathname: string; children: ReactNod
   }
 }
 
-/** Fetch the other pages in the background once the first one has had time to appear. */
+/** Fetch the other pages in the background once the first one has had time to appear (only on the real site). */
 function usePreloadPages() {
   useEffect(() => {
+    if (!import.meta.env.PROD) return
     const preload = () => {
       for (const load of Object.values(PAGE_LOADERS)) load().catch(() => undefined)
     }

@@ -85,7 +85,6 @@ export default function ReviewPage() {
 /* ------------------------------------------------------------------------------------------ */
 
 function ReviewGame({ game, autoStart }: { game: GameRecord; autoStart: boolean }) {
-  const analysis = game.analysis
   const { state: runState, run, cancel } = useAnalysisRun()
   const [ply, setPly] = useState(0)
   const [flipped, setFlipped] = useState(false)
@@ -101,12 +100,15 @@ function ReviewGame({ game, autoStart }: { game: GameRecord; autoStart: boolean 
   }, [game.pgn])
   const plies = replayed instanceof Error ? [] : replayed.plies
   const lastPly = plies.length
+  // A saved analysis that does not fit these moves (old or damaged data) is ignored, so the page cannot
+  // crash on it and the game can simply be analysed again.
+  const analysis = game.analysis && game.analysis.moves.length === lastPly ? game.analysis : undefined
 
   const tryIt = useTryIt(analysis?.moves ?? [])
 
   // started right after a finished game: /review/<id>?auto=1
   useEffect(() => {
-    if (autoStart && !game.analysis && !(replayed instanceof Error)) void run([game])
+    if (autoStart && !analysis && !(replayed instanceof Error)) void run([game])
     // only on arrival
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -389,7 +391,13 @@ function ReviewGame({ game, autoStart }: { game: GameRecord; autoStart: boolean 
 
           <div className="card zen-hide">
             <div className="card-title">Moves</div>
-            <MoveList sans={listSans} currentPly={ply} onSelect={goTo} classes={listClasses} />
+            <MoveList
+              sans={listSans}
+              currentPly={ply}
+              onSelect={goTo}
+              classes={listClasses}
+              startsWithBlack={plies[0]?.color === 'b'}
+            />
             {openingName && <div className="faint small opening-line">{openingName}</div>}
           </div>
 

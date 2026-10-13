@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ClipboardPaste, Download, Swords, Zap } from 'lucide-react'
-import { confidenceWord, type EstimateDetail } from './estimate'
+import { FEW_GAMES, MIN_GAME_MOVES, confidenceWord, type EstimateDetail } from './estimate'
 
 // The headline: one big number with an honest range. This is the only part that stays visible in zen mode.
 
@@ -14,10 +14,12 @@ function levelText(elo: number): string {
 }
 
 function comparison(detail: EstimateDetail): string {
+  if (detail.gamesUsed < FEW_GAMES)
+    return `With only ${detail.gamesUsed} game${detail.gamesUsed === 1 ? '' : 's'}, I stay close to what you told me (${detail.selfRating}).`
   const diff = detail.elo - detail.selfRating
   if (Math.abs(diff) < 40) return `This matches what you told me (${detail.selfRating}).`
   return diff > 0
-    ? `You said ${detail.selfRating}. The games suggest you play about ${Math.round(diff / 10) * 10} points stronger. Nice!`
+    ? `You said ${detail.selfRating}. The games suggest you play about ${Math.round(diff / 10) * 10} points stronger.${detail.gamesUsed >= 10 ? ' Nice!' : ''}`
     : `You said ${detail.selfRating}. The games suggest you play about ${Math.round(-diff / 10) * 10} points weaker. That is normal: it is easy to forget the bad games.`
 }
 
@@ -71,6 +73,15 @@ export default function EstimateHero({
             <h2 className="rt-hero-title">No games are ticked</h2>
             <p className="muted">
               Tick the games you want to count in the list below, and I will work out your rating.
+            </p>
+          </>
+        ) : games.waitingForAnalysis === 0 && !games.analysing ? (
+          <>
+            <h2 className="rt-hero-title">Add more games for a real estimate</h2>
+            <p className="muted">
+              Your game{games.counted === 1 ? ' is' : 's are'} too short to say much: a quick draw or an early
+              resignation (fewer than {MIN_GAME_MOVES} moves) is left out. Add a few longer games and I will work out
+              your rating.
             </p>
           </>
         ) : (
@@ -130,16 +141,34 @@ export default function EstimateHero({
           {confidenceWord(detail.gamesUsed)} · {detail.gamesUsed} game{detail.gamesUsed === 1 ? '' : 's'}
         </span>
       </div>
-      <div className="rt-hero-number" id="rt-estimate">
-        <span className="rt-about">about</span> <span className="big-number rt-elo">{detail.elo}</span>
-      </div>
-      <p className="rt-hero-range">
-        probably between <strong>{detail.low}</strong> and <strong>{detail.high}</strong>
-      </p>
+      {detail.gamesUsed < FEW_GAMES ? (
+        <>
+          <div className="rt-hero-number" id="rt-estimate">
+            <span className="rt-about">somewhere between</span>{' '}
+            <span className="big-number rt-elo">
+              {detail.low}–{detail.high}
+            </span>
+          </div>
+          <p className="rt-hero-range">
+            <strong>Add more games for a real estimate.</strong> {detail.gamesUsed} game
+            {detail.gamesUsed === 1 ? ' is' : 's are'} not enough for one number: I need about {FEW_GAMES} analysed games
+            for a rough idea and 20 or more for a reliable one.
+          </p>
+        </>
+      ) : (
+        <>
+          <div className="rt-hero-number" id="rt-estimate">
+            <span className="rt-about">about</span> <span className="big-number rt-elo">{detail.elo}</span>
+          </div>
+          <p className="rt-hero-range">
+            probably between <strong>{detail.low}</strong> and <strong>{detail.high}</strong>
+          </p>
+        </>
+      )}
       <div className="zen-hide">
         <RangeBar detail={detail} />
         <p className="rt-compare">{comparison(detail)}</p>
-        <p className="muted">{levelText(detail.elo)}</p>
+        {detail.gamesUsed >= FEW_GAMES && <p className="muted">{levelText(detail.elo)}</p>}
         {detail.avgListedRating !== undefined && (
           <p className="muted small">
             For comparison: your rating shown in these games was {Math.round(detail.avgListedRating)} on average.

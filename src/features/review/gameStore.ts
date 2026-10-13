@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react'
-import type { GameAnalysis, GameRecord } from '../../types'
+import type { AnalysedMove, GameAnalysis, GameRecord } from '../../types'
 import { KEYS, readStored, useStored, writeStored } from '../../lib/storage'
 import { identifyOpening } from '../../lib/openingName'
 import { replayPgn, sansOf } from './pgnGame'
@@ -18,10 +18,51 @@ function isGame(g: unknown): g is GameRecord {
   return typeof r.id === 'string' && typeof r.pgn === 'string' && (r.userSide === 'white' || r.userSide === 'black')
 }
 
+const isNum = (v: unknown): v is number => typeof v === 'number' && Number.isFinite(v)
+const isSidePair = (v: unknown): boolean =>
+  !!v && typeof v === 'object' && isNum((v as { white?: unknown }).white) && isNum((v as { black?: unknown }).black)
+
+function isMove(m: unknown): boolean {
+  if (!m || typeof m !== 'object') return false
+  const r = m as Partial<AnalysedMove>
+  return (
+    typeof r.san === 'string' &&
+    isNum(r.evalBefore) &&
+    isNum(r.evalAfter) &&
+    isNum(r.cpLoss) &&
+    isNum(r.accuracy) &&
+    typeof r.classification === 'string'
+  )
+}
+
+/** An analysis we can show: a non-empty move list with numbers in it. Anything else is treated as "not analysed yet". */
+function isAnalysis(a: unknown): a is GameAnalysis {
+  if (!a || typeof a !== 'object') return false
+  const r = a as Partial<GameAnalysis>
+  return (
+    Array.isArray(r.moves) &&
+    r.moves.length > 0 &&
+    r.moves.every(isMove) &&
+    isNum(r.depth) &&
+    isSidePair(r.acpl) &&
+    isSidePair(r.accuracy)
+  )
+}
+
+/** Keeps the game but drops a damaged analysis, so the game can simply be analysed again. */
+function cleanGame(g: GameRecord): GameRecord {
+  if (g.analysis === undefined || isAnalysis(g.analysis)) return g
+  const rest = { ...g }
+  delete rest.analysis
+  return rest
+}
+
 /** Stored data can be old or damaged: keep only entries that look like real games, so a page never crashes on them. */
 function cleanGames(value: unknown): GameRecord[] {
   if (!Array.isArray(value)) return NO_GAMES
-  return value.every(isGame) ? value : value.filter(isGame)
+  const games = value.filter(isGame)
+  const ok = games.length === value.length && games.every((g) => g.analysis === undefined || isAnalysis(g.analysis))
+  return ok ? (value as GameRecord[]) : games.map(cleanGame)
 }
 
 export function readGames(): GameRecord[] {

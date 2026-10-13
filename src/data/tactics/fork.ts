@@ -97,7 +97,7 @@ export const forkLesson: TacticLesson = {
       explanations: [
         'White gives up a rook to pull the king onto g7. It looks strange, but it is a plan.',
         'The king takes the rook. Now it stands on g7, exactly where White wants it.',
-        'The knight checks the king on g7 and also attacks the black queen on h4. Another fork!',
+        'The knight checks the king on g7 and also attacks the black queen on h4. That is the fork!',
         'The king has to move out of check, so the queen is left alone.',
         'The knight takes the queen. White gave a rook, but won a queen.',
       ],

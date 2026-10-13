@@ -40,13 +40,13 @@ export const pinLesson: TacticLesson = {
     },
     {
       type: 'board',
-      fen: '3qk3/8/5n2/6B1/4P3/8/8/4K3 w - - 0 1',
+      fen: '3qk3/2pp4/5n2/6B1/4P3/8/8/4K3 w - - 0 1',
       arrows: [
         { from: 'e4', to: 'e5', color: 'blue' },
         { from: 'e5', to: 'f6', color: 'red' },
       ],
       caption:
-        'The knight on f6 is pinned to the queen, so White attacks it with a pawn: e5! If the knight moves, Bxd8 wins the queen; if it stays, exf6 wins the knight.',
+        'The knight on f6 is pinned to the queen, so White attacks it with a pawn: e5! If the knight moves, Bxd8 wins the queen; if it stays, White simply takes it next move.',
     },
     {
       type: 'board',
@@ -159,7 +159,7 @@ export const pinLesson: TacticLesson = {
       solution: ['f5d3', 'e2d3', 'd8d3'],
       hint: 'White’s queen stands right next to its king on a diagonal. Can you attack it with a small piece?',
       explanation:
-        'Bd3 attacks White’s queen on e2, which is pinned to the king on f1. The queen can’t step off that diagonal to escape. If it takes the bishop, Rxd3 captures the queen. Black wins a queen for a bishop.',
+        'Bd3 attacks White’s queen on e2, which is pinned to the king on f1. The queen can’t step off that diagonal to escape. If it takes the bishop, Rxd3 captures the queen. Black wins a queen for a bishop. If White takes your knight with exf6 instead, Bxe2+ still wins the queen.',
       difficulty: 2,
     },
     {
@@ -193,9 +193,9 @@ export const pinLesson: TacticLesson = {
       id: 'pin-10',
       fen: 'rn1q1r2/ppp3bk/3pp1p1/6Q1/2BPP2P/2N5/PPP2P2/2KR3R b - - 1 15',
       solution: ['g7h6', 'f2f4', 'h6g5'],
-      hint: 'White’s queen and king are on one long diagonal. Which bishop move attacks the queen?',
+      hint: 'White’s queen and king are on the same diagonal. Which bishop move attacks the queen?',
       explanation:
-        'Bh6 attacks the queen on g5, which is pinned to the king on c1 along the long diagonal. White tries to block with f4, but then Bxg5 wins the queen for a bishop.',
+        'Bh6 attacks the queen on g5, which is pinned to the king on c1 along the diagonal. White tries to block with f4, but then Bxg5 wins the queen for a bishop.',
       difficulty: 3,
     },
     {
@@ -204,7 +204,7 @@ export const pinLesson: TacticLesson = {
       solution: ['f4f5', 'e8g8', 'f5e6'],
       hint: 'Black’s bishop on e6 is pinned to its king. Attack it with your cheapest piece.',
       explanation:
-        'Your queen pins the bishop on e6 to the king, so the pawn move f5 attacks it. The bishop can’t move. If Black castles, fxe6 wins the bishop (Black can only take back a pawn).',
+        'Your queen pins the bishop on e6 to the king, so the pawn move f5 attacks it. The bishop can’t move. If Black castles, fxe6 wins the bishop, and Black only gets a pawn back. If Black first takes your knight with ...Bxc3, take back with bxc3: the bishop on e6 is still pinned and still falls.',
       difficulty: 3,
     },
   ],

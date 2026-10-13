@@ -41,7 +41,7 @@ export default function RatingCard({ estimate, selfRating }: { estimate: RatingE
           Curious how strong you really are? Play a few games here, or bring in your Lichess games, and I will make an
           honest guess. You told me you are around {selfRating}.
         </p>
-        <Link className="btn primary" to="/rating">
+        <Link className="btn" to="/rating">
           Estimate my rating <ArrowRight size={17} aria-hidden />
         </Link>
       </section>

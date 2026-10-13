@@ -7,6 +7,7 @@ import type { OpeningCourse, Side } from '../../types'
 import { getLevel, levelNearestTo } from './botLevels'
 import { START_FEN, derive } from './position'
 import { getTimeControl } from './timeControls'
+import { KEYS, readStored } from '../../lib/storage'
 import { ANY_CHAPTER, type GameConfig, type PlayMode, type SavedGame, type SetupChoices } from './types'
 
 /** localStorage keys (the storage helper adds the 'cc.' prefix): 'cc.play.setup', 'cc.play.current'. */
@@ -22,6 +23,21 @@ export const DEFAULT_SETUP: SetupChoices = {
   chapterId: ANY_CHAPTER,
   timeId: 'none',
   coach: true,
+}
+
+/**
+ * The chapter a learner should practise by default: the first one not yet studied in the Openings
+ * pages (falls back to the first chapter). Read only; the openings feature owns this record.
+ */
+export function firstUnstudiedChapter(course: OpeningCourse): string {
+  if (course.chapters.length === 0) return ANY_CHAPTER
+  const raw = readStored<unknown>(KEYS.openingProgress, {})
+  const progress = raw && typeof raw === 'object' && !Array.isArray(raw) ? (raw as Record<string, { studied?: unknown } | undefined>) : {}
+  const open = course.chapters.find((c) => {
+    const entry = progress[`${course.id}/${c.id}`]
+    return !(entry && typeof entry === 'object' && entry.studied === true)
+  })
+  return (open ?? course.chapters[0]).id
 }
 
 /* ------------------------------------------------- damaged or old saves */
@@ -177,6 +193,22 @@ function validFen(fen: string): boolean {
   }
 }
 
+/** Why a position from a link cannot be played, or null when it is fine. */
+function fenProblem(fen: string): string | null {
+  try {
+    const chess = new Chess(fen)
+    // the side that is not to move must not be in check (that position could never happen in a game)
+    const parts = chess.fen().split(' ')
+    parts[1] = parts[1] === 'w' ? 'b' : 'w'
+    parts[3] = '-'
+    if (new Chess(parts.join(' ')).isCheck()) return 'That position link is not a real game position, so here is the normal setup.'
+    if (chess.isGameOver()) return 'That position is already over (checkmate or a draw), so here is the normal setup.'
+    return null
+  } catch {
+    return 'That position link could not be read, so here is the normal setup.'
+  }
+}
+
 /** Reads /play?course=..&chapter=..&mode=practice|face and /play?fen=..&side=white|black. */
 export function parseLaunch(params: URLSearchParams): LaunchRequest {
   const out: LaunchRequest = { prefill: {}, autoStart: false }
@@ -184,13 +216,14 @@ export function parseLaunch(params: URLSearchParams): LaunchRequest {
   const fen = params.get('fen')
   const sideParam = params.get('side')
   if (fen) {
-    if (validFen(fen)) {
+    const fenIssue = fenProblem(fen)
+    if (!fenIssue) {
       out.fen = fen
       out.side = sideParam === 'black' ? 'black' : sideParam === 'white' ? 'white' : new Chess(fen).turn() === 'w' ? 'white' : 'black'
       out.prefill = { mode: 'free', colour: out.side }
       out.autoStart = true
     } else {
-      out.problem = 'That position link could not be read, so here is the normal setup.'
+      out.problem = fenIssue
     }
   }
 
@@ -205,7 +238,8 @@ export function parseLaunch(params: URLSearchParams): LaunchRequest {
         : 'That opening could not be found, so here is the normal setup.'
     } else {
       const chapter = params.get('chapter')
-      const chapterId = chapter && course.chapters.some((c) => c.id === chapter) ? chapter : ANY_CHAPTER
+      const chapterId =
+        chapter && course.chapters.some((c) => c.id === chapter) ? chapter : mode === 'practice' ? firstUnstudiedChapter(course) : ANY_CHAPTER
       out.prefill = { mode, courseId: course.id, chapterId }
       out.autoStart = true
     }

@@ -5,7 +5,7 @@ import Board from '../../components/Board'
 import type { OpeningCourse } from '../../types'
 import ChapterGate, { type ChapterContext } from './ChapterGate'
 import { useCourse } from './courses'
-import { progressKey, useOpeningProgress } from './progress'
+import { chapterMastery, progressKey, useOpeningProgress } from './progress'
 import { colourName, moveLabel, parseChapter, userColour } from './treeUtils'
 import { useDrill, type DrillEntry, type Note } from './useDrill'
 import { useWindowKeys } from './useWindowKeys'
@@ -360,8 +360,9 @@ function DrillStats({
   const progress = useOpeningProgress()
   const entry = progress[progressKey(course.id, chapterId)]
   const mastery = quiz
-    ? course.chapters.reduce((t, c) => t + (progress[progressKey(course.id, c.id)]?.mastery ?? 0), 0) / Math.max(1, course.chapters.length)
-    : (entry?.mastery ?? 0)
+    ? course.chapters.reduce((t, c) => t + chapterMastery(progress, course.id, c.id), 0) / Math.max(1, course.chapters.length)
+    : chapterMastery(progress, course.id, chapterId)
+  const best = typeof entry?.bestStreak === 'number' && Number.isFinite(entry.bestStreak) ? entry.bestStreak : 0
   return (
     <>
       <div className="op-stat-grid">
@@ -378,7 +379,7 @@ function DrillStats({
           <div className="small muted">Slips here</div>
         </div>
         <div>
-          <div className="op-stat-num">{entry?.bestStreak ?? 0}</div>
+          <div className="op-stat-num">{best}</div>
           <div className="small muted">Best streak</div>
         </div>
       </div>

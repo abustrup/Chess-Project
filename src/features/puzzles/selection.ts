@@ -1,5 +1,5 @@
 import type { Puzzle, PuzzleIndexEntry } from '../../types'
-import { loadPuzzles, pickPuzzle } from '../../lib/puzzleData'
+import { PuzzleLoadError, loadPuzzles, pickPuzzle } from '../../lib/puzzleData'
 import { readStored, writeStored } from '../../lib/storage'
 
 // Which puzzle comes next? One that is close to the player's rating and that they have not seen before.
@@ -104,7 +104,13 @@ export async function pickNext(entries: PuzzleIndexEntry[], options: PickOptions
     if (gap <= window) break
   }
   if (best) return best
-  if (loaded.length === 0 && firstError) throw firstError
+  if (loaded.length === 0 && firstError) {
+    // With several files (Mixed, Your openings) the first error names one random file, which only confuses: say "the puzzles".
+    if (entries.length > 1 && firstError instanceof PuzzleLoadError) {
+      throw new PuzzleLoadError(firstError.message.replace(/the "[^"]*" puzzles/, 'the puzzles'), { cause: firstError })
+    }
+    throw firstError
+  }
 
   // Nothing fresh is left anywhere: start again from the beginning.
   const everything = loaded.flat()

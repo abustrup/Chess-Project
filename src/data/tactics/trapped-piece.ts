@@ -95,7 +95,7 @@ export const trappedPieceLesson: TacticLesson = {
       explanations: [
         'Black\'s queen has gone deep into White\'s camp, to h3. The knight attacks it, and every square it could go to is covered by White\'s king, rook and pawns.',
         "Black grabs a pawn with the knight, but it can't save the queen.",
-        'The knight takes the queen. White wins a whole queen for a pawn.',
+        "The knight takes the queen. Black's knight can still check on f3 and take the rook on e1, but White has won the queen and is clearly winning.",
       ],
     },
     {
@@ -145,7 +145,7 @@ export const trappedPieceLesson: TacticLesson = {
       solution: ['a8h8', 'h7h8', 'g7h8'],
       hint: "White's queen is deep in your camp. Which of your rooks can attack it along a file (a column)?",
       explanation:
-        'Rh8 attacks the queen. The whole h-file is covered by your rook, and your king and bishop cover the other squares. White can only take the rook with Qxh8, and then Bxh8 wins the queen.',
+        "Rh8 attacks the queen. The whole h-file is covered by your rook, and your king and bishop cover the other squares. White's best is to take the rook with Qxh8, and then Bxh8 wins the queen.",
       difficulty: 2,
     },
     {
@@ -172,7 +172,7 @@ export const trappedPieceLesson: TacticLesson = {
       solution: ['g8f6', 'h7g7', 'f7g7'],
       hint: "White's queen is on h7, close to your king. Which of your pieces can attack it?",
       explanation:
-        'Nf6 attacks the queen. Every square it could reach is covered by your king, your bishop on g7 or your pawn on g6. At best, White gets a bishop for it with Qxg7+ Kxg7.',
+        "Nf6 attacks the queen. Every square it could reach is covered by your king, your knight, your bishop on g7 or your pawn on g6. White can't save it. If it takes with Qxg7+ Kxg7, White only gets a bishop for the queen.",
       difficulty: 2,
     },
     {
@@ -190,7 +190,7 @@ export const trappedPieceLesson: TacticLesson = {
       solution: ['f5h5', 'h4h5', 'g4h5'],
       hint: "Black's queen on h4 has very few squares. Which of your rooks can attack it?",
       explanation:
-        'Rh5 attacks the queen, and every square it could go to is covered. The queen can only take the rook, and then gxh5 wins the queen for a rook.',
+        "Rh5 attacks the queen, and every square it could go to is covered. Black's best is to take the rook, and then gxh5 wins the queen for a rook.",
       difficulty: 3,
     },
     {

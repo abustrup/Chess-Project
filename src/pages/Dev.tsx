@@ -1,4 +1,4 @@
-// Hidden developer page at /#/dev — used to test the board + engine together.
+// Developer page at /#/dev for testing the board and engine together. It exists only in development (see App.tsx).
 import { useEffect, useState } from 'react'
 import { Chess } from 'chess.js'
 import Board, { type BoardMove } from '../components/Board'

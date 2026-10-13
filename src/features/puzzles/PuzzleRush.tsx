@@ -153,7 +153,7 @@ export default function PuzzleRush({ index, onExit }: Props) {
   }, [phase, score, finish])
 
   function handleMove(move: BoardMove): boolean {
-    if (!run || phase !== 'running' || pausing) return false
+    if (!run || phase !== 'running' || pausing || run.phase !== 'solving') return false
     const verdict = judgeMove(run, move)
     const thisGame = game.current
 

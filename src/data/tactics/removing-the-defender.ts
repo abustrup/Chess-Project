@@ -124,7 +124,7 @@ export const removingTheDefenderLesson: TacticLesson = {
       solution: ['f3e5', 'd6e5', 'e2g4'],
       hint: "Black's bishop on g4 is protected by a knight. Can you take that knight?",
       explanation:
-        'Nxe5 takes the knight that protects the bishop on g4. After Bxe5, your bishop on e2 takes the bishop on g4 for free.',
+        'Nxe5 takes the knight that protects the bishop on g4. After Bxe5, your bishop on e2 takes the bishop on g4 for free. (If the bishop on g4 runs away instead, you have simply won a knight. If Black takes your bishop on e2 instead, take back with the queen. Your queen and rook then win the bishop that lands on e5.)',
       difficulty: 1,
     },
     {
@@ -205,7 +205,7 @@ export const removingTheDefenderLesson: TacticLesson = {
       solution: ['d1d4', 'e5d4', 'f1f4'],
       hint: "Black's knight on f4 has two protectors. Can you force one of them to leave?",
       explanation:
-        'Rxd4 takes the rook that protects the knight along the fourth row. The pawn on e5 takes back, and when it does, it stops protecting the knight. Then Rxf4 wins it. (If Black took back with the other rook instead, Qf8 would be checkmate.)',
+        'Rxd4 takes the rook that protects the knight along the fourth row. The pawn on e5 takes back, and when it does, it stops protecting the knight. Then Rxf4 wins it. The pawn on d4 now attacks your knight on e3, but if Black takes it, Rf8+ Rxf8 Qxf8 is checkmate. (If Black took back with the other rook instead, Qf8 would be checkmate.)',
       difficulty: 3,
     },
     {

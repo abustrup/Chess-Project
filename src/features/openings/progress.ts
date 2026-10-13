@@ -34,8 +34,21 @@ export const MASTERED = 0.75
 
 export const progressKey = (courseId: string, chapterId: string): string => `${courseId}/${chapterId}`
 
+// Saved data can be broken (old versions, hand edits, other code). Anything that is not a plain
+// object is treated as "nothing saved yet" so a bad value never stops the pages from opening.
+const isRecord = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v)
+const num = (v: unknown, fallback = 0): number => (typeof v === 'number' && Number.isFinite(v) ? v : fallback)
+
+function cleanProgress(v: unknown): OpeningProgress {
+  return isRecord(v) ? (v as OpeningProgress) : NO_PROGRESS
+}
+
+function readProgress(): OpeningProgress {
+  return cleanProgress(readStored<unknown>(KEYS.openingProgress, NO_PROGRESS))
+}
+
 export function useOpeningProgress(): OpeningProgress {
-  return useStored<OpeningProgress>(KEYS.openingProgress, NO_PROGRESS)[0]
+  return cleanProgress(useStored<unknown>(KEYS.openingProgress, NO_PROGRESS)[0])
 }
 
 function blankEntry(courseId: string, chapterId: string): Entry {
@@ -43,7 +56,7 @@ function blankEntry(courseId: string, chapterId: string): Entry {
 }
 
 export const chapterMastery = (progress: OpeningProgress, courseId: string, chapterId: string): number =>
-  progress[progressKey(courseId, chapterId)]?.mastery ?? 0
+  Math.max(0, Math.min(1, num(progress[progressKey(courseId, chapterId)]?.mastery)))
 
 export function courseMastery(progress: OpeningProgress, course: OpeningCourse): number {
   if (!course.chapters.length) return 0
@@ -67,11 +80,12 @@ export function nextStep(course: OpeningCourse, progress: OpeningProgress): Next
   const chapters = sortedChapters(course)
   if (!chapters.length) return null
   const entry = (c: OpeningChapter) => progress[progressKey(course.id, c.id)]
-  const untouched = chapters.find((c) => !entry(c)?.studied && !((entry(c)?.mastery ?? 0) > 0))
+  const mastery = (c: OpeningChapter) => chapterMastery(progress, course.id, c.id)
+  const untouched = chapters.find((c) => entry(c)?.studied !== true && !(mastery(c) > 0))
   if (untouched) return { chapter: untouched, mode: 'study', review: false }
-  const notLearned = chapters.find((c) => (entry(c)?.mastery ?? 0) < MASTERED)
+  const notLearned = chapters.find((c) => mastery(c) < MASTERED)
   if (notLearned) return { chapter: notLearned, mode: 'drill', review: false }
-  const weakest = chapters.reduce((a, b) => ((entry(b)?.mastery ?? 0) < (entry(a)?.mastery ?? 0) ? b : a))
+  const weakest = chapters.reduce((a, b) => (mastery(b) < mastery(a) ? b : a))
   return { chapter: weakest, mode: 'drill', review: true }
 }
 
@@ -85,27 +99,43 @@ export function hasStarted(course: OpeningCourse, progress: OpeningProgress): bo
 /* ------------------------------------------------------------ writing */
 
 function updateEntry(courseId: string, chapterId: string, change: (e: Entry) => Entry) {
-  const all = readStored<OpeningProgress>(KEYS.openingProgress, NO_PROGRESS)
+  const all = readProgress()
   const key = progressKey(courseId, chapterId)
-  const next = change({ ...(all[key] ?? blankEntry(courseId, chapterId)) })
+  const old: Partial<Entry> = isRecord(all[key]) ? all[key] : {}
+  const blank = blankEntry(courseId, chapterId)
+  const next = change({
+    ...blank,
+    ...old,
+    studied: old.studied === true,
+    drillsCompleted: num(old.drillsCompleted),
+    drillMistakes: num(old.drillMistakes),
+    bestStreak: num(old.bestStreak),
+    mastery: num(old.mastery),
+  })
   writeStored(KEYS.openingProgress, { ...all, [key]: { ...next, lastPracticed: new Date().toISOString() } })
 }
 
 /** The user walked a chapter through to the end of a line in study mode. */
 export function markStudied(courseId: string, chapterId: string) {
-  const already = readStored<OpeningProgress>(KEYS.openingProgress, NO_PROGRESS)[progressKey(courseId, chapterId)]?.studied
+  const already = readProgress()[progressKey(courseId, chapterId)]?.studied === true
   if (already) return
   updateEntry(courseId, chapterId, (e) => ({ ...e, studied: true }))
 }
 
+function readAllNodeStats(): AllNodeStats {
+  const all = readStored<unknown>(NODES_KEY, {})
+  return isRecord(all) ? (all as AllNodeStats) : {}
+}
+
 export function readNodeStats(courseId: string, chapterId: string): NodeStats {
-  return readStored<AllNodeStats>(NODES_KEY, {})[progressKey(courseId, chapterId)] ?? {}
+  const stats = readAllNodeStats()[progressKey(courseId, chapterId)]
+  return isRecord(stats) ? stats : {}
 }
 
 function masteryFrom(tree: PgnTree, course: OpeningCourse, stats: NodeStats): number {
   const nodes = learnNodes(tree.root, course)
   if (!nodes.length) return 0
-  return nodes.reduce((total, n) => total + (stats[n.id]?.s ?? 0), 0) / nodes.length
+  return nodes.reduce((total, n) => total + num(stats[n.id]?.s), 0) / nodes.length
 }
 
 /**
@@ -113,10 +143,11 @@ function masteryFrom(tree: PgnTree, course: OpeningCourse, stats: NodeStats): nu
  * A position only counts as a slip once per line, however many wrong tries you needed.
  */
 export function recordMove(course: OpeningCourse, chapter: OpeningChapter, tree: PgnTree, nodeId: string, clean: boolean) {
-  const all = readStored<AllNodeStats>(NODES_KEY, {})
+  const all = readAllNodeStats()
   const key = progressKey(course.id, chapter.id)
-  const stats: NodeStats = { ...(all[key] ?? {}) }
-  const old = stats[nodeId] ?? { s: 0, seen: 0, missed: 0 }
+  const stats: NodeStats = { ...readNodeStats(course.id, chapter.id) }
+  const raw: Partial<NodeStat> = isRecord(stats[nodeId]) ? stats[nodeId] : {}
+  const old = { s: Math.max(0, Math.min(1, num(raw.s))), seen: num(raw.seen), missed: num(raw.missed) }
   stats[nodeId] = {
     s: clean ? old.s + (1 - old.s) * 0.6 : old.s * 0.4,
     seen: old.seen + 1,
@@ -142,7 +173,7 @@ export function recordLineComplete(courseId: string, chapterId: string, streak: 
 export function weaknessOf(node: PgnNode, course: OpeningCourse, stats: NodeStats): number {
   const nodes = learnNodes(node, course)
   if (!nodes.length) return 0
-  return nodes.reduce((total, n) => total + (1 - (stats[n.id]?.s ?? 0)), 0) / nodes.length
+  return nodes.reduce((total, n) => total + (1 - num(stats[n.id]?.s)), 0) / nodes.length
 }
 
 /** Picks one item at random; heavier items are picked more often. */

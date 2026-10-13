@@ -101,8 +101,14 @@ export function parsePgnText(text: string, myNames: string[]): { games: ParsedGa
       const whiteIsMe = names.includes(white.toLowerCase())
       const blackIsMe = names.includes(black.toLowerCase())
       const lichessId = /lichess\.org\/([A-Za-z0-9]{8})/.exec(h.Site ?? '')?.[1]
+      const id = lichessId ?? hashId(`${white}|${black}|${h.Date ?? ''}|${sansOf(replayed).join(' ')}`)
+      // the same game pasted twice in one go is shown and saved once
+      if (games.some((g) => g.id === id)) {
+        errors.push(label + 'This is the same game as one above, so I left it out.')
+        return
+      }
       games.push({
-        id: lichessId ?? hashId(`${white}|${black}|${h.Date ?? ''}|${sansOf(replayed).join(' ')}`),
+        id,
         pgn: chunk,
         white,
         black,

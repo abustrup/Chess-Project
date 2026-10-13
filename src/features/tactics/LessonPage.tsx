@@ -54,7 +54,7 @@ function isStepId(value: string | null): value is StepId {
 
 function LessonView({ lesson }: { lesson: TacticLesson }) {
   const { overviewPath } = useTacticsData()
-  const [params] = useSearchParams()
+  const [params, setParams] = useSearchParams()
   const { progress, stats } = useLessonProgress(lesson)
 
   // a link like /tactics/fork?step=practice picks the step; without one we continue where you left off
@@ -66,6 +66,16 @@ function LessonView({ lesson }: { lesson: TacticLesson }) {
 
   function goTo(next: StepId) {
     setStep(next)
+    // keep the step in the address (without a new history entry), so a reload or the browser's
+    // Forward button brings you back to the same step instead of the start of the lesson
+    setParams(
+      (prev) => {
+        const nextParams = new URLSearchParams(prev)
+        nextParams.set('step', next)
+        return nextParams
+      },
+      { replace: true },
+    )
     window.scrollTo({ top: 0 })
   }
 

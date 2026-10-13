@@ -1,11 +1,10 @@
-import { DEFAULT_PROFILE } from '../../../types'
 import { APP_THEMES } from '../../../lib/themes'
-import { KEYS, useStored } from '../../../lib/storage'
 import ChoiceCard from './ChoiceCard'
+import { useProfile } from './useProfile'
 
 /** Ocean / Ember as two little mock-ups of the app, painted in each theme's own colours. */
 export default function AppThemePicker() {
-  const [profile, setProfile] = useStored(KEYS.profile, DEFAULT_PROFILE)
+  const [profile, change] = useProfile()
   return (
     <div className="choice-grid two" role="radiogroup" aria-label="App colours">
       {APP_THEMES.map((theme) => (
@@ -13,7 +12,7 @@ export default function AppThemePicker() {
           key={theme.id}
           group="app-theme"
           checked={profile.appTheme === theme.id}
-          onSelect={() => setProfile((p) => ({ ...p, appTheme: theme.id }))}
+          onSelect={() => change({ appTheme: theme.id })}
         >
           <span className="theme-preview" data-preview={theme.id} aria-hidden>
             <span className="tp-bar">

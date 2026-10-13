@@ -30,8 +30,17 @@ export default function PracticeStep({ lesson, onFinish }: { lesson: TacticLesso
     )
   }
 
-  // after the last exercise, go back to any you have not solved; when none are left, the lesson is finished
-  const nextIndex = index + 1 < exercises.length ? index + 1 : exercises.findIndex((e, i) => i !== index && !solvedIds.has(e.id))
+  // "Next" jumps to the next exercise you have not solved yet (wrapping round to the start), so a
+  // returning player never has to replay solved ones to reach a missing one. Once every exercise is
+  // solved, it simply walks through them in order, and the last one leads to the final step.
+  const nextIndex = (() => {
+    if (!stats.complete) {
+      const order = [...exercises.keys()].map((k) => (index + 1 + k) % exercises.length).filter((i) => i !== index)
+      const unsolved = order.find((i) => !solvedIds.has(exercises[i].id))
+      if (unsolved !== undefined) return unsolved
+    }
+    return index + 1 < exercises.length ? index + 1 : -1
+  })()
   const hasNext = nextIndex !== -1 && !finishedNow // the solve that finishes the lesson leads to the last step
 
   function goTo(i: number) {

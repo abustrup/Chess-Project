@@ -84,8 +84,8 @@ export const loosePiecesLesson: TacticLesson = {
       moves: ['c2c8', 'e8e7', 'c8h8'],
       explanations: [
         'The bishop on c8 looks protected by the rook on a8, but the knight on b8 is in the way. So the bishop is really loose, and the queen takes it with check.',
-        'The king steps out of check. Blocking with the queen on d8 would only lead to a queen trade, and White would still be a bishop up.',
-        'Now the queen also takes the rook on h8. Black has lost a bishop and a rook for nothing.',
+        'The king steps out of check. Blocking with the queen on d8 is no better: White trades queens with Qxd8+ and has still won a whole bishop.',
+        'Now the queen also takes the rook on h8. Black has lost a bishop and a rook, and White is winning.',
       ],
     },
     {
@@ -93,8 +93,8 @@ export const loosePiecesLesson: TacticLesson = {
       fen: 'r4rk1/1p2ppbp/pn4p1/4n3/P2q4/2N1BQ2/BP4PP/R4RK1 w - - 0 17',
       moves: ['f3f2', 'd4d6', 'a1d1'],
       explanations: [
-        "White has two problems. The queen on f3 is attacked by the knight on e5, and the bishop on e3 is attacked by Black's queen. Qf2 saves the queen and protects the bishop at the same time.",
-        'The bishop on e3 is now protected, so Black has no way to win it. Black\'s queen steps back.',
+        "White has two problems. The queen on f3 is attacked by the knight on e5, and the bishop on e3 is attacked by Black's queen. Only the queen protects that bishop, so the queen must keep that job when it moves. Qf2 saves the queen and keeps protecting the bishop.",
+        'White\'s bishop on e3 attacks Black\'s queen, and nothing protects the queen, so it has to move. It cannot take the bishop either, because White\'s queen still guards it. Black\'s queen steps back.',
         'The rook comes to the d-file and attacks the black queen again. White keeps all of its pieces and gains time.',
       ],
     },
@@ -106,7 +106,7 @@ export const loosePiecesLesson: TacticLesson = {
       solution: ['g8h7'],
       hint: 'White has left a bishop next to your king with nothing to protect it. Is there any reason you cannot take it?',
       explanation:
-        'The bishop on h7 has no protector, so the king can simply take it. White has no check or trick that punishes this, and Black is a whole bishop ahead.',
+        'The bishop on h7 has no protector, so the king can simply take it. White has no check or trick that punishes this, and you have won a whole bishop.',
       difficulty: 1,
     },
     {
@@ -115,16 +115,16 @@ export const loosePiecesLesson: TacticLesson = {
       solution: ['f2f3'],
       hint: 'Your bishop on e4 is attacked and has no protector. Which move protects it without breaking up your other pieces?',
       explanation:
-        'The black knight attacks your bishop, and your knight on d5 is under pressure too. f3 protects the bishop with a pawn and keeps it guarding the knight. Moving the bishop away would leave the knight with too few protectors.',
+        'The black knight attacks your bishop, and your knight on d5 is under pressure too. f3 protects the bishop with a pawn and keeps it guarding the knight. Moving the bishop away does not work: even on g2 or h1 it is cut off when Black pushes the pawn to e4, and then the knight on d5 falls.',
       difficulty: 1,
     },
     {
       id: 'loose-pieces-3',
       fen: '5rk1/p1p2ppp/1p3n2/5b2/1P1rN3/P2BKP2/2P3PP/R5R1 b - - 1 16',
       solution: ['d4d5'],
-      hint: 'A king can capture any unprotected piece next to it. Your rook on d4 is next to the white king, so move it to a safe square where it stays active.',
+      hint: 'A king can capture any unprotected piece next to it. Your rook on d4 is next to the white king, so move it. Pick a square where it also looks after your bishop on f5.',
       explanation:
-        'The white king attacks your unprotected rook on d4. Rd5 moves it to safety and keeps it on the d-file. Rxe4+ looks tempting, but fxe4 just takes the rook.',
+        'The white king attacks your unprotected rook on d4. Your bishop on f5 is loose too: if the knight on e4 moves away, the white bishop on d3 attacks it. Rd5 moves the rook to safety and protects the bishop along the fifth row. Rxe4+ looks tempting, but fxe4 just takes the rook.',
       difficulty: 1,
     },
     {
@@ -142,7 +142,7 @@ export const loosePiecesLesson: TacticLesson = {
       solution: ['c6c5', 'd1d8', 'e8d8'],
       hint: 'One of White\'s bishops has no protector, and your rook can reach it.',
       explanation:
-        'The bishop on c5 is not protected, so Rxc5 wins it for free. Before you take, check your own pieces too: your bishop on d8 is protected by the rook on e8, so Rxd8 Rxd8 does not help White.',
+        'The bishop on c5 is not protected, so Rxc5 wins it. Then check your own pieces too. After Rxd8 Rxd8, your knight on b6 has lost its protectors, so White can take it with Rxb6. You answer Rxc3, and you are still clearly ahead with a rook against a bishop.',
       difficulty: 2,
     },
     {
@@ -151,7 +151,7 @@ export const loosePiecesLesson: TacticLesson = {
       solution: ['d7e5', 'd1d8', 'e8d8'],
       hint: "White's knight on e5 is all alone. Which of your pieces can take it?",
       explanation:
-        'The knight on e5 has no protector, so Nxe5 wins it. White can trade queens with Qxd8+, but Kxd8 recaptures and you stay a knight ahead.',
+        'The knight on e5 has no protector, so Nxe5 wins it. White can trade queens with Qxd8+, but Kxd8 recaptures and you keep the knight you won.',
       difficulty: 2,
     },
     {
@@ -169,7 +169,7 @@ export const loosePiecesLesson: TacticLesson = {
       solution: ['f3e2', 'd8d6', 'a3d6'],
       hint: 'A black knight has wandered onto e2 with nothing to protect it. Take it, but think about what Black\'s queen can do next.',
       explanation:
-        'The knight on e2 gives check, but it has no protector, so Bxe2 wins it. Black can trade queens with Qxd6, but Bxd6 takes back, and White is still a knight ahead.',
+        'The knight on e2 gives check, but it has no protector, so Bxe2 wins it. Black can trade queens with Qxd6, but Bxd6 takes back, and you keep the knight you won.',
       difficulty: 2,
     },
     {
@@ -187,7 +187,7 @@ export const loosePiecesLesson: TacticLesson = {
       solution: ['f3e5', 'g4e2', 'd1e2'],
       hint: 'Black has a knight with no protector. Before you take it, check what Black\'s bishop on g4 can do afterwards.',
       explanation:
-        "The knight on e5 is not protected, so Nxe5 wins it. Black's bishop can take your bishop on e2, but Qxe2 takes it back, and you are a knight ahead.",
+        "The knight on e5 is not protected, so Nxe5 wins it. Black's bishop can take your bishop on e2, but Qxe2 takes it back, and you keep the knight you won.",
       difficulty: 3,
     },
     {

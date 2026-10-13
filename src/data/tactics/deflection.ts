@@ -46,7 +46,7 @@ export const deflectionLesson: TacticLesson = {
       type: 'board',
       fen: 'r3k1r1/pp1q1pbp/2nppQp1/1N6/4P3/2N1P3/PPP3PP/R4RK1 w q - 4 14',
       caption:
-        'Real games are crowded, but the idea is the same. The black queen on d7 guards the pawn on f7. Nxd6+ is check, the queen has to take, and Qxf7+ wins a pawn and then the rook on g8.',
+        'Real games are crowded, but the idea is the same. The black queen on d7 guards the pawn on f7. Nxd6+ is check. If the queen takes, Qxf7+ wins a pawn and then the rook on g8.',
       arrows: [
         { from: 'b5', to: 'd6', color: 'blue' },
         { from: 'f6', to: 'f7', color: 'blue' },
@@ -64,7 +64,7 @@ export const deflectionLesson: TacticLesson = {
       type: 'board',
       fen: '5b2/1p2rp2/p4k2/8/6P1/7K/PP2RP2/8 w - - 0 37',
       caption:
-        'This is the first position again, but the black bishop now stands on f8, so the rook on e7 is protected twice. After g5+ Kxg5 Rxe7 Bxe7, it is just a trade of rooks.',
+        'This is the first position again, but the black bishop now stands on f8, so the rook on e7 is protected twice. After g5+ Kxg5 Rxe7 Bxe7, White has only traded rooks and lost a pawn.',
       arrows: [
         { from: 'g4', to: 'g5', color: 'red' },
         { from: 'e2', to: 'e7', color: 'red' },
@@ -204,7 +204,7 @@ export const deflectionLesson: TacticLesson = {
       solution: ['c6g6', 'e5g7', 'g6e8'],
       hint: "Black's queen is the only protector of the rook on e8. Start with a check that forces it to move.",
       explanation:
-        "Qxg6+ is check, and Black's queen has to block on g7. That takes it off the e-file (the e column), so the rook on e8 loses its protector and Qxe8+ wins it with check.",
+        "Qxg6+ is check, and Black's queen has to block on g7, because a king move gets mated. That takes it off the e-file (the e column), so the rook on e8 loses its protector and Qxe8+ wins it with check.",
       difficulty: 3,
     },
     {

@@ -40,7 +40,7 @@ export interface GoOptions {
   onInfo?: (lines: EngineLine[]) => void
 }
 
-export const ENGINE_URL = `${import.meta.env.BASE_URL}engine/stockfish-19-lite-single.js`
+export const ENGINE_URL = `${import.meta.env?.BASE_URL ?? "/"}engine/stockfish-19-lite-single.js`
 
 interface Pending {
   resolve: (r: SearchResult) => void

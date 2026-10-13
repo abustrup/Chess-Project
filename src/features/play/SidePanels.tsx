@@ -60,10 +60,14 @@ export function OpeningCard({ game }: { game: GameApi }) {
     <div className="card zen-hide">
       <div className="card-title">Opening</div>
       <div className="pl-opening-name">
-        {found ? (
+        {status?.inBook && sans.length > 0 ? (
+          // still inside one of your courses: name it the way the lessons do
           <>
-            {found.name} <span className="faint small">{found.eco}</span>
+            {status.courseName}
+            {status.chapterTitle && <div className="small muted">{status.chapterTitle}</div>}
           </>
+        ) : found ? (
+          <>{found.name}</>
         ) : (
           <span className="muted">
             {game.config.startFen !== START_FEN
