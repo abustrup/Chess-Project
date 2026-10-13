@@ -179,7 +179,7 @@ export const zwischenzugLesson: TacticLesson = {
     },
     {
       id: 'zwischenzug-9',
-      fen: '2kr4/ppp2ppp/2n2n2/7B/3b4/P1N1Q3/1PP2PPP/R4RK1 b - - 0 15',
+      fen: '2kr4/ppp2ppp/2n2n2/7B/3b4/P1N1Q3/1PP3PP/R4RK1 b - - 0 15',
       solution: ['d4e3', 'g1h1', 'f6h5'],
       hint: "White's queen is attacking your bishop. Can you take the queen with check before you save anything?",
       explanation:

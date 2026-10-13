@@ -1313,19 +1313,21 @@ export const caroKannCourse: OpeningCourse = {
 (3. cxd5 {White takes with the c-pawn.}
 3... cxd5 {Take back with the c-pawn. You keep a pawn in the centre.}
 4. exd5 {White takes the d5-pawn.}
-(4. Qb3 {White attacks d5 and b7 with the queen.}
+(4. Qb3?! {White attacks d5 and b7 with the queen.}
 4... e6 {Support d5 and block the queen. [%cal Ge6d5]}
 5. exd5 exd5 {Take back with the pawn. Your structure is simple and healthy.}
 6. Nf3 Nc6 {Develop the knight and hit d4. [%cal Gc6d4]}
 7. Nc3 Bd6 {Develop the bishop to a good square.}
 8. d4 {White takes the centre. You play ...Nge7 and castle. A balanced game.}
 )
-(4. Nc3 {White develops the knight and attacks d5.}
-4... e6 {Support d5. [%cal Ge6d5]}
-5. exd5 exd5 {Take back with the pawn.}
-6. Bb5+ Nc6 {Block with the knight.}
-7. Nf3 Nf6 {Develop the second knight.}
-8. O-O {White castles. You continue with ...Bd6 and castle. A level game.}
+(4. Nc3?! {White develops the knight and attacks d5, but it walks into a pawn push.}
+4... d4 {Kick the knight and gain space. The knight has no good square. [%cal Gd5d4,Gd4c3]}
+5. Bb5+ {White gives a check first.}
+5... Bd7 {Block with the bishop. [%cal Gc8d7]}
+6. Bxd7+ Nxd7 {Swap the bishops and take back with the knight, which develops it.}
+7. Nce2 e5 {Build a pawn centre and free your dark-squared bishop. You have more space.}
+8. Nf3 Bd6 {Develop the bishop to a good square. It supports e5.}
+9. d3 {White supports the e4-pawn. You play ...Ne7 and castle, and you are a bit better because of your extra space.}
 )
 4... Nf6 {Develop with a hit on the d5-pawn. [%cal Gf6d5]}
 5. Nc3 Nxd5 {Take the pawn with the knight. It is a strong piece on d5.}
