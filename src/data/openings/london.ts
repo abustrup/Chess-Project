@@ -1,4 +1,6 @@
 import type { OpeningCourse } from '../../types'
+import { londonChaptersA } from './london-more-a'
+import { londonChaptersB } from './london-more-b'
 
 export const londonCourse: OpeningCourse = {
   id: 'london',
@@ -245,5 +247,7 @@ export const londonCourse: OpeningCourse = {
 12... Qf6
 `,
     },
+    ...londonChaptersA,
+    ...londonChaptersB,
   ],
 }
