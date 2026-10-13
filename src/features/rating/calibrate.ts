@@ -87,7 +87,8 @@ function fit(file: string) {
 
   console.log(`fast games: ${fast.n} player-games, slow games: ${slow.n}`)
   console.log('typical ACPL per rating bin (fast games):')
-  for (const p of fast.points.sort((a, b) => a.elo - b.elo)) console.log(`  ${p.elo}  n=${p.n}  ${Math.exp(p.ln).toFixed(1)}`)
+  for (const p of fast.points.sort((a, b) => a.elo - b.elo))
+    console.log(`  ${p.elo}  n=${p.n}  ${Math.exp(p.ln).toFixed(1)}`)
   console.log('\nACPL_ANCHORS (paste into calibration.ts, worst play first):')
   for (const elo of [800, 1100, 1400, 1700, 2000, 2300]) console.log(`  [${Math.round(at(fast, elo))}, ${elo}],`)
 

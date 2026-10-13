@@ -133,7 +133,7 @@
 }
 .op-glyph.bad {
   background: color-mix(in srgb, var(--red) 24%, transparent);
-  color: #ff9a90;
+  color: var(--red);
 }
 .op-glyph.warn {
   background: color-mix(in srgb, var(--gold) 24%, transparent);
@@ -741,4 +741,10 @@ button.op-ply:hover {
 :root[data-zen='on'] .op-coach,
 :root[data-zen='on'] .op-prompt {
   min-height: 0;
+}
+@media (max-width: 820px) {
+  /* leave room for the floating zen button above the board */
+  :root[data-zen='on'] .page.op-page {
+    padding-top: 56px;
+  }
 }

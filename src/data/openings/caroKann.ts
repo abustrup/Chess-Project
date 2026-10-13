@@ -865,7 +865,7 @@ export const caroKannCourse: OpeningCourse = {
 11. Qxd3 e6 {Close the centre and free your dark-squared bishop.}
 12. O-O {White castles. You play ...Be7 and ...O-O. Nice and easy.}
 )
-(8. Ne5 {The knight jumps into the middle. This is a classic mistake.}
+(8. Ne5? {The knight jumps into the middle. This is a classic mistake.}
 8... Nxe5 {Take the knight. White has to retake with the d-pawn, which weakens the centre.}
 9. dxe5 Qa5+ {Check! This wins the e5-pawn. The queen hits the king and the pawn at once. [%cal Ga5e1,Ga5e5]}
 10. c3 Qxe5+ {Take the pawn with check.}
@@ -955,7 +955,7 @@ export const caroKannCourse: OpeningCourse = {
 (6. Bd3?! {This blocks the queen, so the d4-pawn is no longer protected.}
 6... Qxd4 {Take the free pawn. The white queen is blocked by her own bishop, so she cannot take back. [%cal Gd8d4]}
 7. N1e2 {White attacks the queen.}
-(7. Bxg6 {White takes the bishop first.}
+(7. Bxg6?! {White takes the bishop first. This loses a pawn without a fight, but it is White's most natural try.}
 7... Qxd1+ {Swap queens. This keeps your extra pawn.}
 8. Kxd1 hxg6 {Take back. You are a clean pawn up with a healthy structure.}
 9. Nf3 {White develops. You play ...Nf6 and ...Nbd7, and use your extra pawn.}
@@ -1025,16 +1025,20 @@ export const caroKannCourse: OpeningCourse = {
 4. fxe4 {White retakes. The pawn centre is strong, but the king is a bit exposed.}
 4... e5 {Strike at the centre right away. You attack the d4-pawn and open the way for your bishop and queen. [%cal Ge7e5,Ge5d4]}
 5. Nf3 {White develops the knight and protects d4.}
-(5. dxe5 {White takes the pawn.}
+(5. dxe5?! {White takes the pawn, but this opens the diagonal for your queen.}
 5... Qh4+ {Check! The e1-h4 diagonal is open because of 3.f3. The queen also attacks the e4-pawn. [%cal Gd8h4]}
-6. g3 {White blocks the check with a pawn.}
+6. Kd2 {The king has to walk into the middle of the board. White avoids losing a rook, but the king is exposed.}
+(6. g3? {Blocking with the pawn loses material.}
 6... Qxe4+ {Take the pawn with check.}
-7. Qe2 {White offers a trade of queens.}
-7... Qxe2+ {Accept. You are a pawn up for the moment and White has no easy way to keep the pawn.}
-8. Bxe2 Bf5 {Develop with a hit on c2. The bishop can no longer be disturbed by a pawn push. [%cal Gf5c2]}
-9. c3 Ne7 {Develop the knight. It heads for d5 or g6.}
-10. Nd2 Nd7 {Develop the last knight and get ready to win back the e5-pawn.}
-11. Nc4 {White heads for d6. You answer with ...Nd5 and ...Bc5 and have a comfortable game.}
+7. Qe2 Qxh1 {Now take the rook on h1. The diagonal is open because the g-pawn has left g2. [%cal Ge4h1]}
+8. Be3 {White tries to trap the queen, but White is a whole rook down. You are winning.}
+)
+6... Bg4 {Bring the bishop out. It makes it hard for White to develop the knight to f3. [%cal Gc8g4]}
+7. Nf3 {White blocks the queen's diagonal.}
+7... Qh5 {Keep the pin on the knight and avoid the trade.}
+8. h3 {White asks the bishop what it wants to do.}
+8... Nd7 {Develop the knight. It will win back the e5-pawn soon. [%cal Gd7e5]}
+9. Bd3 {White develops. You castle long or short after ...Bxf3 and you are better, because the white king is stuck in the middle.}
 )
 (5. Nc3? {This gives up the d4-pawn.}
 5... exd4 {Take the pawn. The knight on c3 is attacked by it, and the knight cannot go to b5 because of ...cxb5. [%cal Ge5d4,Gd4c3]}
@@ -1043,39 +1047,50 @@ export const caroKannCourse: OpeningCourse = {
 8. Bc4 Nf6 {Develop the second knight. It also attacks the e4-pawn.}
 9. Nf3 {White develops. You castle soon and keep the extra pawn.}
 )
-(5. Bd3 {White develops the bishop.}
-5... exd4 {Take the pawn. The d4-pawn is not protected well.}
-6. Nf3 Ne7 {Develop the knight and get ready to defend d4 with ...Nf5.}
-7. e5 {White pushes the pawn to open the bishop's diagonal.}
-7... Ng6 {The knight goes to g6 and attacks the pawn on e5.}
-8. Bg5 Be7 {Develop the bishop and challenge the white bishop.}
-9. Bxe7 Qxe7 {Take back with the queen. Your position is solid and you have an extra pawn on d4.}
-10. O-O {White castles. You play ...O-O and ...Nxe5 later. Your extra d4-pawn is a thorn in White's position.}
+(5. Bd3?! {White develops the bishop, but now the d4-pawn can be taken.}
+5... exd4 {Take the pawn with the pawn. (Taking with the queen also works, but ...exd4 is simpler and safer.)}
+6. Nf3 Nf6 {Develop the knight. It attacks the e4-pawn.}
+7. O-O Be7 {Develop the bishop and get ready to castle.}
+8. e5 {White pushes the pawn to attack your knight.}
+8... Ng4 {Jump forward. The knight attacks e5 and h2. [%cal Gg4e5]}
+9. Qe2 Be6 {Develop with a purpose: the bishop eyes the a2-g8 diagonal.}
+10. Kh1 {White tucks the king away. You continue with ...Nc6 and ...O-O. A level game with an extra d-pawn.}
 )
-(5. Bc4 {White develops the bishop and aims at f7.}
+(5. Bc4?! {White develops the bishop and aims at f7.}
 5... Qh4+ {Check! The e1-h4 diagonal is open. [%cal Gd8h4]}
 6. Kf1 {White blocks with the king, which can no longer castle.}
-6... Bg4 {Develop with a pin on the knight: it can't move without exposing the queen. [%cal Gg4d1]}
+6... Bg4 {Develop with a pin on the knight. [%cal Gg4d1]}
 7. Nf3 {White blocks the queen.}
 7... Qh5 {Retreat to h5, keeping the pin.}
-8. Nbd2 exd4 {Take the pawn. White's king is stuck in the middle, and you are better.}
-9. h3 {White asks the bishop what it wants to do. You can answer with ...Bxf3 and ...Nd7 and you are doing well.}
+8. c3 {White supports d4.}
+8... Nd7 {Develop the knight.}
+9. h3 Ngf6 {Develop the second knight. White is stuck, and you are better.}
+10. Nbd2 {White develops. You continue with ...Bd6 and ...Bxf3. The white king is stuck on f1, so you have the better game.}
 )
-(5. Be3 {White develops the bishop to protect d4.}
+(5. Be3?! {White develops the bishop to protect d4.}
 5... Qh4+ {Check!}
 6. Bf2 {The bishop blocks the check.}
 6... Qxe4+ {Take the pawn with check.}
 7. Qe2 Qxe2+ {Swap queens. You are a pawn up.}
-8. Nxe2 Nf6 {Develop with threats on e4 and d5. You are a pawn up with a comfortable position.}
-9. Nd2 {White develops. You can play ...exd4, taking another pawn, or ...Bb4. Your extra pawn is safe.}
+8. Nxe2 Nf6 {Develop with threats on e4 and d5. You are a pawn up.}
+9. dxe5 {White takes back a pawn. You play ...Ng4 to hit the bishop, and you get your pawn back.}
 )
 (5. c3? {This looks solid but it leaves the king open on the e1-h4 diagonal.}
-5... Qh4+ {Check! If White blocks with g3, you take on e4 with check and also attack the rook on h1. [%cal Gd8h4]}
-6. Ke2 {The king walks into the middle.}
+5... Qh4+ {Check! If White blocks with g3, you take on e4 with check and attack the rook on h1. [%cal Gd8h4]}
+6. Kd2 {The king walks forward.}
+(6. Ke2?! {The king steps forward.}
 6... Qxe4+ {Take the pawn with check.}
 7. Kf2 Qf5+ {Another check.}
-8. Ke1 Nf6 {Develop with a huge advantage. The white king is stuck in the middle of the board.}
-9. Bd3 {White develops, but White has lost a pawn and the king cannot hide. You play ...Bb4 or ...Bd6 and soon win more.}
+8. Ke1 Nf6 {Develop with a huge advantage. The white king is stuck in the middle.}
+9. Bd3 {White develops, but White has lost a pawn and the king cannot hide. You play ...Bd6 and soon win more.}
+)
+6... Nf6 {Develop and attack the e4-pawn. [%cal Gf6e4]}
+7. Nf3 {White attacks your queen.}
+7... Qf2+ {Check! The queen is safe on f2 and wins time. [%cal Gh4f2]}
+8. Qe2 {White offers a trade.}
+8... Nxe4+ {Take the pawn with check.}
+9. Kd1 Qxe2+ {Swap queens.}
+10. Kxe2 {White retakes. You are a pawn up with a better position. Continue with ...Nd6 or ...exd4 and use your extra pawn.}
 )
 5... Bg4 {Bring the bishop out now. It pins the knight on f3 to the queen on d1, so the knight cannot move freely. [%cal Gc8g4,Gg4f3]}
 6. Bc4 {White develops the bishop and aims at f7.}
@@ -1093,6 +1108,104 @@ export const caroKannCourse: OpeningCourse = {
 8... Bxf3 {Take the knight. This removes a defender of the centre and forces the queen to retake.}
 9. Qxf3 exd4 {Take the pawn on d4. Now White's e4 pawn is attacked.}
 10. Bf4 {White develops and protects the e4-pawn. You play ...Qe7 and ...Ne5, a comfortable game.}
+`,
+    },
+    {
+      id: 'two-knights',
+      title: 'Two Knights Attack: 2.Nf3 and 2.Nc3',
+      summary: 'White develops a knight on move 2 instead of playing d4. You still play ...d5. Then you pin the f3-knight with ...Bg4, or meet 3.e5 with ...Bf5 and 3.exd5 with ...cxd5.',
+      difficulty: 1,
+      pgn: `
+1. e4 {White starts with the king's pawn.}
+1... c6 {The Caro-Kann. The c6-pawn prepares ...d5. [%cal Gc6d5]}
+2. Nf3 {White develops a knight and waits with d4. (The move order 2.Nc3 d5 3.Nf3 is the same thing.)}
+(2. Nc3 {White develops the other knight first.}
+2... d5 {Strike at the centre. [%cal Gd5e4]}
+3. Nf3 Bg4 {Pin the knight on f3 against the queen. [%cal Gg4f3]}
+4. h3 Bxf3 {Take the knight. If the bishop goes back, g4 would chase it.}
+5. Qxf3 e6 {Support d5 and free your other bishop. The position is the same as in the main line below.}
+6. d4 {White takes the centre. You play ...dxe4 and ...Nf6, as shown below. A comfortable game.}
+)
+2... d5 {Strike at the centre right away. [%cal Gd5e4]}
+3. Nc3 {White develops again and defends e4.}
+(3. e5 {White pushes the pawn, as in the Advance Variation.}
+3... Bf5 {The same idea as always: bring the bishop out BEFORE ...e6. [%cal Gc8f5]}
+4. d4 {White builds the pawn chain. If it continues like this you reach the Advance Short Variation.}
+(4. Nh4 {White attacks the bishop with the knight.}
+4... Bg6 {Retreat to a safe square. If the knight takes the bishop you take back with the h-pawn and open the h-file. [%cal Gf5g6]}
+5. c3 e6 {Close the door and support d5. [%cal Ge6d5]}
+6. Nxg6 hxg6 {Take back with the h-pawn. You get a half-open h-file and a solid position.}
+7. d4 c5 {Strike at the base of the pawn chain. [%cal Gc5d4]}
+8. Bb5+ {White gives a check to gain time. You can block it with ...Nc6 or ...Nd7.}
+)
+4... e6 {Close the door behind the bishop and support d5. [%cal Ge6d5]}
+5. Be2 c5 {The key break against the pawn chain. [%cal Gc5d4]}
+6. Be3 {White protects d4. You play ...cxd4 and ...Ne7, as in the Advance Variation chapter.}
+)
+(3. exd5 {White takes the pawn.}
+3... cxd5 {Take back with the c-pawn, as in the Exchange Variation.}
+4. d4 {White takes the centre and has a normal Exchange set-up.}
+(4. Ne5 {The Apocalypse Attack: the knight jumps to the middle at once.}
+4... e6 {A simple, solid answer. It supports d5 and opens the diagonal for your dark-squared bishop. [%cal Ge6d5]}
+5. d4 Bd6 {Offer a swap that hits the knight. [%cal Gd6e5]}
+6. Bb5+ Bd7 {Block with the bishop.}
+7. Nxd7 Nxd7 {Swap the pieces. Take back with the knight.}
+8. c3 {White supports d4. You continue with ...a6 and ...Ngf6, a level game.}
+)
+4... Nc6 {Develop a knight and hit d4. [%cal Gc6d4]}
+5. c4 {White hits d5. This is like the Panov Attack.}
+5... Nf6 {Defend d5 and develop. [%cal Gf6d5]}
+6. Nc3 e6 {Support d5. The position is symmetrical and solid.}
+7. cxd5 exd5 {Take back with the pawn. Your structure is simple and your pieces have good squares.}
+8. Bb5 Bd6 {Develop the bishop and challenge the pin. [%cal Gf8d6]}
+9. O-O O-O {Castle. A balanced game.}
+10. Bg5 {White pins your knight. You answer with ...Bg4 and ...Be7 and the game is level.}
+)
+(3. d3 {White plays a slow, quiet move.}
+3... dxe4 {Take the pawn. White has to retake, and the queens may come off.}
+4. dxe4 Qxd1+ {Swap queens. You get an easy endgame without weaknesses.}
+5. Kxd1 Nf6 {Develop and hit e4.}
+6. Nfd2 g6 {Build a fianchetto, where the bishop will aim at the long diagonal.}
+7. f3 {White supports e4. You play ...Bg7 and ...O-O or ...Nbd7. A comfortable, equal endgame.}
+)
+3... Bg4 {Pin the knight on f3 against the queen. Remember: bishop out before ...e6. [%cal Gg4f3]}
+4. h3 {White asks the bishop what it wants to do.}
+(4. d4 {White takes the centre.}
+4... e6 {Support d5 and free your other bishop. [%cal Ge6d5]}
+5. h3 Bxf3 {Take the knight before it takes your bishop.}
+6. Qxf3 dxe4 {Take the pawn and open the d-file.}
+7. Qxe4 Nf6 {Develop and kick the queen away. [%cal Gf6e4]}
+8. Qh4 Nbd7 {Develop the last knight. You are comfortable.}
+9. Bd3 {White develops. You continue with ...Bd6 and ...O-O. A level game.}
+)
+(4. d3 {White plays a slow move.}
+4... Nf6 {Develop the knight. It guards d5 and eyes e4.}
+5. Be2 e6 {Support d5 and free your other bishop.}
+6. O-O Be7 {Develop the bishop and get ready to castle.}
+7. h3 Bh5 {Keep the bishop. If White plays g4, you go to g6.}
+8. Ne5 Bxe2 {Swap the bishops before White can use the knight on e5.}
+9. Qxe2 {White retakes. You castle and play ...Nbd7. An equal game.}
+)
+(4. Ne5? {The knight leaves the f3-square and unblocks your bishop. A big mistake!}
+4... Bxd1 {Take the queen! The bishop now attacks d1 directly because the knight no longer blocks the way. [%cal Gg4d1]}
+5. Kxd1 e6 {You are a queen for a bishop up. Do not hurry. Develop your pieces and trade.}
+6. d4 {White takes the centre, but White has lost the queen. You play ...Nf6 and ...Bd6 and win easily.}
+)
+4... Bxf3 {Take it. If the bishop goes back, g4 would chase it again, so trade it for the knight. [%cal Gg4f3]}
+5. Qxf3 e6 {Support d5 and free your dark-squared bishop. [%cal Ge6d5]}
+6. d4 {White takes the centre.}
+6... dxe4 {Take the pawn and open the d-file.}
+7. Nxe4 {White retakes with the knight.}
+(7. Qxe4 {White retakes with the queen.}
+7... Nf6 {Develop and kick the queen away. [%cal Gf6e4]}
+8. Qh4 Nbd7 {Develop the last knight.}
+9. Bd3 {White develops. You play ...Bd6 and ...O-O. A level game.}
+)
+7... Qxd4 {Take the pawn on d4. You are a pawn up, but be careful: White has a lead in development. [%cal Gd8d4]}
+8. c3 {White hits the queen.}
+8... Qd5 {Retreat to the centre. The queen hits the e4-knight and the g2-pawn. [%cal Gd5e4]}
+9. Bg5 Nd7 {Develop the knight and keep your pieces together. You keep the extra pawn.}
+10. Rd1 {White attacks the queen again. Move her away with ...Qf5 and trade queens if you can. You keep the extra pawn.}
 `,
     },
   ],

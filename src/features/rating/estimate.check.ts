@@ -140,7 +140,13 @@ check('games with very few moves are not used for move quality', movesPart(games
 check('3+0 and 5+0 are fast', !isSlowGame('[TimeControl "180+0"]') && !isSlowGame('[TimeControl "300+0"]'))
 check('10+0 and 15+10 are slow', isSlowGame('[TimeControl "600+0"]') && isSlowGame('[TimeControl "900+10"]'))
 check('no clock counts as slow', isSlowGame('[Event "x"]') && isSlowGame('[TimeControl "-"]'))
-check('a slow game is judged a bit more strictly', estimateRating(games(12, { acpl: 60 }).map((g) => ({ ...g, slow: true })), 1100).elo < estimateRating(games(12, { acpl: 60 }), 1100).elo)
+check(
+  'a slow game is judged a bit more strictly',
+  estimateRating(
+    games(12, { acpl: 60 }).map((g) => ({ ...g, slow: true })),
+    1100,
+  ).elo < estimateRating(games(12, { acpl: 60 }), 1100).elo,
+)
 
 // 10. weights are shares
 const mixed = estimateRating(games(15, { acpl: 60, score: 0.6 }), 1200)

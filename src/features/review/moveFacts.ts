@@ -103,13 +103,23 @@ export function captureFact(fen: string, uci: string): CaptureFact | null {
   const recapturable = game.moves({ verbose: true }).some((m) => m.to === move.to)
   const victim = PIECE_VALUE[move.captured] ?? 0
   const attacker = PIECE_VALUE[move.piece] ?? 0
-  return { piece: move.captured, square: move.to, attacker: move.piece, recapturable, netGain: victim - (recapturable ? attacker : 0) }
+  return {
+    piece: move.captured,
+    square: move.to,
+    attacker: move.piece,
+    recapturable,
+    netGain: victim - (recapturable ? attacker : 0),
+  }
 }
 
 /** Points of material the mover took with this very move (0 for a quiet move). */
 function materialTaken(move: AnalysedMove): number {
   try {
-    const taken = new Chess(move.fenBefore).move({ from: move.uci.slice(0, 2), to: move.uci.slice(2, 4), promotion: move.uci[4] }).captured
+    const taken = new Chess(move.fenBefore).move({
+      from: move.uci.slice(0, 2),
+      to: move.uci.slice(2, 4),
+      promotion: move.uci[4],
+    }).captured
     return taken ? (PIECE_VALUE[taken] ?? 0) : 0
   } catch {
     return 0
