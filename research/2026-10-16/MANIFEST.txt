@@ -1,0 +1,23 @@
+Research behind the "deeper version" prompt, 2026-10-16.
+Copied from a session scratchpad that macOS may delete. Scripts and aggregate results only.
+No raw games and no player usernames are kept here. Not committed yet (repo is public).
+
+Raw inputs (all free, CC0, no login), regenerate before rerunning:
+- database.lichess.org lichess_db_standard_rated_2026-09.pgn.zst (29,224,520,887 bytes)
+  - coaching_lens, fcc: first 209,715,200 bytes (648,377 games, 64,050 with %eval)
+  - scripts/ (repertoire, phases): first ~250 MB (772,748 games); hours 00-06 UTC of 2026-09-01 only
+  - raw-data check: bytes 0-8,388,607; mid-month check: 12 MiB from byte 15,000,000,000 (2026-09-16 13:44-13:58 UTC)
+- lichess_db_puzzle.csv.zst (5 MiB range sample, scripts/puz.py)
+- Lichess API /api/games/user/{name} and /api/tournament/{id}/games for arenas IEg2U07O, JgcRVdtb, qjmVaRKN
+  (send a browser-like User-Agent; bare curl gets 404)
+- Maia-3 model: CSSLab/maia-platform-frontend public/maia3/maia3_simplified.onnx (45,683,686 bytes)
+
+Folders:
+- coaching_lens: blunder rates, safety-error classes, phase, clock (results.json, results2.json)
+- fcc: re-checks: hung-piece precision vs Stockfish, time forfeits, time use, performance-rating power (perfsim.py)
+- coach_critique: won-then-lost games, comebacks, repertoire size to move 12
+- critique_ext: blunder sample sizes, comparison-group 95th percentile
+- scripts: opening frequencies, course coverage (coverage.ts, run with the project's tsx), Englund trap, phases
+- exp: Maia-3 vs app rating estimate on 44 players (final_results.txt)
+- lens_verify, fc_validation: Glicko-2 simulation, real-player 8-week swings, blunder power
+- fc_explorer_check, fc_maia_human: explorer and coverage spot checks

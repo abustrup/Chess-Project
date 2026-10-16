@@ -1,0 +1,284 @@
+{
+ "total": 648377,
+ "withev": 64050,
+ "stats": {
+  "low|bullet|noev": {
+   "games": 16124,
+   "term_Normal": 6177,
+   "res_0-1": 7815,
+   "movenums": 830611,
+   "term_Time forfeit": 9947,
+   "res_1-0": 8110,
+   "res_1/2-1/2": 199
+  },
+  "mid|bullet|noev": {
+   "games": 39193,
+   "term_Time forfeit": 21990,
+   "res_0-1": 18900,
+   "movenums": 2351691,
+   "term_Normal": 17167,
+   "res_1-0": 19500,
+   "term_Abandoned": 33,
+   "res_1/2-1/2": 793,
+   "term_Insufficient material": 3
+  },
+  "high|bullet|ev": {
+   "games": 2343,
+   "term_Normal": 1318,
+   "res_1-0": 1202,
+   "movenums": 148522,
+   "term_Time forfeit": 1025,
+   "res_0-1": 1096,
+   "res_1/2-1/2": 45
+  },
+  "high|bullet|noev": {
+   "games": 54767,
+   "term_Normal": 25153,
+   "res_1-0": 27576,
+   "movenums": 3663713,
+   "term_Time forfeit": 29558,
+   "res_0-1": 25659,
+   "res_1/2-1/2": 1532,
+   "term_Abandoned": 54,
+   "term_Insufficient material": 2
+  },
+  "low|rapid|noev": {
+   "games": 13349,
+   "term_Normal": 11696,
+   "res_1/2-1/2": 550,
+   "movenums": 770977,
+   "res_0-1": 6141,
+   "term_Time forfeit": 1612,
+   "res_1-0": 6658,
+   "term_Abandoned": 36,
+   "term_Rules infraction": 3,
+   "term_Insufficient material": 2
+  },
+  "mid|blitz|noev": {
+   "games": 66156,
+   "term_Time forfeit": 15515,
+   "res_1-0": 33174,
+   "movenums": 4425606,
+   "res_0-1": 30535,
+   "term_Normal": 50528,
+   "term_Abandoned": 105,
+   "res_1/2-1/2": 2447,
+   "term_Insufficient material": 8
+  },
+  "mid|rapid|noev": {
+   "games": 22735,
+   "term_Normal": 20154,
+   "res_1-0": 11306,
+   "movenums": 1470902,
+   "term_Time forfeit": 2545,
+   "res_0-1": 10491,
+   "res_1/2-1/2": 938,
+   "term_Abandoned": 28,
+   "term_Insufficient material": 7,
+   "term_Rules infraction": 1
+  },
+  "high|rapid|noev": {
+   "games": 13994,
+   "term_Normal": 12244,
+   "res_1-0": 6866,
+   "movenums": 1007919,
+   "res_0-1": 6368,
+   "res_1/2-1/2": 760,
+   "term_Time forfeit": 1720,
+   "term_Abandoned": 22,
+   "term_Rules infraction": 1,
+   "term_Insufficient material": 7
+  },
+  "high|rapid|ev": {
+   "games": 3555,
+   "term_Normal": 3184,
+   "res_1-0": 1756,
+   "movenums": 250067,
+   "res_0-1": 1623,
+   "res_1/2-1/2": 176,
+   "term_Time forfeit": 369,
+   "term_Rules infraction": 1,
+   "term_Insufficient material": 1
+  },
+  "mid|rapid|ev": {
+   "games": 4914,
+   "term_Normal": 4452,
+   "res_1-0": 2539,
+   "movenums": 322153,
+   "res_0-1": 2217,
+   "res_1/2-1/2": 158,
+   "term_Time forfeit": 460,
+   "term_Insufficient material": 1,
+   "term_Rules infraction": 1
+  },
+  "mid|bullet|ev": {
+   "games": 2762,
+   "term_Normal": 1303,
+   "res_0-1": 1387,
+   "movenums": 166084,
+   "term_Time forfeit": 1459,
+   "res_1-0": 1351,
+   "res_1/2-1/2": 24
+  },
+  "high|blitz|noev": {
+   "games": 63083,
+   "term_Normal": 46545,
+   "res_1-0": 31171,
+   "movenums": 4599332,
+   "res_0-1": 29126,
+   "res_1/2-1/2": 2786,
+   "term_Time forfeit": 16403,
+   "term_Abandoned": 125,
+   "term_Insufficient material": 10
+  },
+  "low|blitz|noev": {
+   "games": 29502,
+   "term_Normal": 22245,
+   "res_1-0": 14772,
+   "movenums": 1793538,
+   "res_0-1": 13696,
+   "term_Time forfeit": 7224,
+   "res_1/2-1/2": 1034,
+   "term_Insufficient material": 7,
+   "term_Abandoned": 25,
+   "term_Rules infraction": 1
+  },
+  "mid|blitz|ev": {
+   "games": 5959,
+   "term_Time forfeit": 1197,
+   "res_0-1": 2737,
+   "movenums": 394397,
+   "term_Normal": 4761,
+   "res_1-0": 3047,
+   "res_1/2-1/2": 175,
+   "term_Insufficient material": 1
+  },
+  "low|rapid|ev": {
+   "games": 3078,
+   "term_Normal": 2745,
+   "res_0-1": 1463,
+   "movenums": 189039,
+   "res_1-0": 1541,
+   "term_Time forfeit": 333,
+   "res_1/2-1/2": 74
+  },
+  "low|blitz|ev": {
+   "games": 3468,
+   "term_Normal": 2712,
+   "res_0-1": 1698,
+   "movenums": 210844,
+   "res_1-0": 1709,
+   "term_Time forfeit": 756,
+   "res_1/2-1/2": 61
+  },
+  "high|blitz|ev": {
+   "games": 5003,
+   "term_Time forfeit": 1126,
+   "res_1-0": 2473,
+   "movenums": 353191,
+   "term_Normal": 3877,
+   "res_0-1": 2341,
+   "res_1/2-1/2": 189
+  },
+  "low|bullet|ev": {
+   "games": 1489,
+   "term_Normal": 541,
+   "res_1-0": 728,
+   "movenums": 81753,
+   "term_Time forfeit": 948,
+   "res_0-1": 751,
+   "res_1/2-1/2": 10
+  },
+  "high|ultrabullet|noev": {
+   "games": 601,
+   "term_Normal": 141,
+   "res_0-1": 264,
+   "movenums": 41824,
+   "term_Time forfeit": 458,
+   "res_1-0": 321,
+   "res_1/2-1/2": 16,
+   "term_Abandoned": 2
+  },
+  "high|other|noev": {
+   "games": 95,
+   "term_Time forfeit": 17,
+   "res_1-0": 45,
+   "movenums": 2658,
+   "term_Normal": 68,
+   "res_0-1": 37,
+   "term_Unterminated": 10,
+   "res_*": 10,
+   "res_1/2-1/2": 3
+  },
+  "mid|other|noev": {
+   "games": 92,
+   "term_Unterminated": 8,
+   "res_*": 8,
+   "movenums": 1148,
+   "term_Normal": 34,
+   "res_0-1": 33,
+   "res_1-0": 50,
+   "res_1/2-1/2": 1,
+   "term_Time forfeit": 50
+  },
+  "mid|ultrabullet|noev": {
+   "games": 607,
+   "term_Time forfeit": 505,
+   "res_0-1": 293,
+   "movenums": 28854,
+   "res_1-0": 311,
+   "term_Normal": 97,
+   "res_1/2-1/2": 3,
+   "term_Abandoned": 5
+  },
+  "low|ultrabullet|noev": {
+   "games": 137,
+   "term_Time forfeit": 124,
+   "res_0-1": 55,
+   "movenums": 4582,
+   "res_1-0": 78,
+   "term_Normal": 9,
+   "res_1/2-1/2": 4,
+   "term_Abandoned": 4
+  },
+  "high|other|ev": {
+   "games": 26,
+   "term_Normal": 23,
+   "res_1-0": 12,
+   "movenums": 1617,
+   "term_Time forfeit": 3,
+   "res_0-1": 14
+  },
+  "mid|ultrabullet|ev": {
+   "games": 61,
+   "term_Time forfeit": 53,
+   "res_1-0": 28,
+   "movenums": 3284,
+   "res_0-1": 33,
+   "term_Normal": 8
+  },
+  "high|ultrabullet|ev": {
+   "games": 24,
+   "term_Time forfeit": 20,
+   "res_1-0": 14,
+   "movenums": 1541,
+   "term_Normal": 4,
+   "res_0-1": 9,
+   "res_1/2-1/2": 1
+  },
+  "mid|other|ev": {
+   "games": 5,
+   "term_Normal": 5,
+   "res_0-1": 3,
+   "movenums": 340,
+   "res_1-0": 2
+  },
+  "low|ultrabullet|ev": {
+   "games": 17,
+   "term_Time forfeit": 17,
+   "res_1-0": 10,
+   "movenums": 718,
+   "res_0-1": 7
+  }
+ }
+}

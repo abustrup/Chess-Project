@@ -1,0 +1,66 @@
+games analysed: 834 players: 44 acpl rows: 853
+mean player-moves per game used by Maia: 33
+
+N=1 games per estimate (834 estimates)
+  constant (sample mean, in-sample): { n: 834, mae: 457, rmse: 527, bias: 0, r: -0 }
+  Maia-3 likelihood, no prior      : { n: 834, mae: 223, rmse: 302, bias: -38, r: 0.85 } MAE 95% CI [ 195, 252 ]
+  Maia-3 likelihood + prior        : { n: 834, mae: 205, rmse: 273, bias: -45, r: 0.86 } MAE 95% CI [ 180, 235 ]
+  app ACPL method (moves part)     : { n: 675, mae: 455, rmse: 580, bias: -127, r: 0.44 } MAE 95% CI [ 418, 490 ]
+  opponents' average rating        : { n: 834, mae: 216, rmse: 313, bias: 12, r: 0.81 }
+  Maia model-implied SE (median): 175 | share of truths inside Maia +-2SE: 0.82
+  App stated SE (median): 691 | share of truths inside app +-2SE: 0.92
+  maia + held-out linear recalibration: { n: 834, mae: 206, rmse: 282, bias: -1, r: 0.85 } MAE 95% CI [ 174, 241 ]
+  app + held-out linear recalibration: { n: 675, mae: 389, rmse: 467, bias: -2, r: 0.39 } MAE 95% CI [ 336, 441 ]
+    perf blitz (648): maia {"n":648,"mae":210,"rmse":274,"bias":-82,"r":0.88} app {"n":561,"mae":455,"rmse":572,"bias":-197,"r":0.46}
+    perf rapid (186): maia {"n":186,"mae":265,"rmse":383,"bias":114,"r":0.47} app {"n":114,"mae":459,"rmse":618,"bias":219,"r":-0.01}
+    band 0-1200 (265): maia {"n":265,"mae":211,"rmse":304,"bias":-8,"r":0.31} maia+prior {"n":265,"mae":194,"rmse":283,"bias":71,"r":0.34} app {"n":188,"mae":411,"rmse":563,"bias":201,"r":-0.04}
+    band 1200-1800 (270): maia {"n":270,"mae":276,"rmse":346,"bias":-37,"r":0.45} maia+prior {"n":270,"mae":213,"rmse":266,"bias":-28,"r":0.49} app {"n":218,"mae":473,"rmse":550,"bias":-113,"r":0.05}
+    band 1800-3000 (299): maia {"n":299,"mae":185,"rmse":253,"bias":-66,"r":0.62} maia+prior {"n":299,"mae":206,"rmse":269,"bias":-164,"r":0.61} app {"n":269,"mae":472,"rmse":615,"bias":-368,"r":0.3}
+
+N=5 games per estimate (148 estimates)
+  constant (sample mean, in-sample): { n: 148, mae: 454, rmse: 522, bias: 0, r: 0 }
+  Maia-3 likelihood, no prior      : { n: 148, mae: 153, rmse: 200, bias: -43, r: 0.93 } MAE 95% CI [ 125, 183 ]
+  Maia-3 likelihood + prior        : { n: 148, mae: 151, rmse: 197, bias: -43, r: 0.93 } MAE 95% CI [ 124, 181 ]
+  app ACPL method (moves part)     : { n: 147, mae: 340, rmse: 426, bias: -139, r: 0.67 } MAE 95% CI [ 293, 387 ]
+  opponents' average rating        : { n: 148, mae: 174, rmse: 239, bias: 8, r: 0.9 }
+  Maia model-implied SE (median): 81 | share of truths inside Maia +-2SE: 0.60
+  App stated SE (median): 332 | share of truths inside app +-2SE: 0.87
+  maia + held-out linear recalibration: { n: 148, mae: 143, rmse: 193, bias: -0, r: 0.93 } MAE 95% CI [ 113, 175 ]
+  app + held-out linear recalibration: { n: 147, mae: 312, rmse: 393, bias: -2, r: 0.65 } MAE 95% CI [ 265, 362 ]
+    perf blitz (116): maia {"n":116,"mae":152,"rmse":186,"bias":-78,"r":0.95} app {"n":116,"mae":342,"rmse":417,"bias":-217,"r":0.71}
+    perf rapid (32): maia {"n":32,"mae":157,"rmse":241,"bias":84,"r":0.7} app {"n":31,"mae":329,"rmse":459,"bias":153,"r":0.18}
+    band 0-1200 (47): maia {"n":47,"mae":152,"rmse":203,"bias":-44,"r":0.55} maia+prior {"n":47,"mae":147,"rmse":203,"bias":-22,"r":0.52} app {"n":46,"mae":293,"rmse":397,"bias":135,"r":0.19}
+    band 1200-1800 (47): maia {"n":47,"mae":207,"rmse":252,"bias":-42,"r":0.55} maia+prior {"n":47,"mae":197,"rmse":241,"bias":-38,"r":0.55} app {"n":47,"mae":353,"rmse":409,"bias":-189,"r":0.17}
+    band 1800-3000 (54): maia {"n":54,"mae":107,"rmse":135,"bias":-42,"r":0.87} maia+prior {"n":54,"mae":114,"rmse":140,"bias":-66,"r":0.86} app {"n":54,"mae":368,"rmse":462,"bias":-327,"r":0.58}
+
+N=10 games per estimate (61 estimates)
+  constant (sample mean, in-sample): { n: 61, mae: 444, rmse: 510, bias: -0, r: 0 }
+  Maia-3 likelihood, no prior      : { n: 61, mae: 139, rmse: 177, bias: -49, r: 0.95 } MAE 95% CI [ 105, 174 ]
+  Maia-3 likelihood + prior        : { n: 61, mae: 138, rmse: 176, bias: -50, r: 0.95 } MAE 95% CI [ 106, 172 ]
+  app ACPL method (moves part)     : { n: 61, mae: 296, rmse: 372, bias: -172, r: 0.77 } MAE 95% CI [ 231, 359 ]
+  opponents' average rating        : { n: 61, mae: 162, rmse: 220, bias: -5, r: 0.92 }
+  Maia model-implied SE (median): 55 | share of truths inside Maia +-2SE: 0.52
+  App stated SE (median): 235 | share of truths inside app +-2SE: 0.75
+  maia + held-out linear recalibration: { n: 61, mae: 128, rmse: 170, bias: -0, r: 0.94 } MAE 95% CI [ 96, 162 ]
+  app + held-out linear recalibration: { n: 61, mae: 274, rmse: 334, bias: -1, r: 0.76 } MAE 95% CI [ 227, 330 ]
+    perf blitz (49): maia {"n":49,"mae":144,"rmse":174,"bias":-74,"r":0.96} app {"n":49,"mae":315,"rmse":392,"bias":-234,"r":0.77}
+    perf rapid (12): maia {"n":12,"mae":119,"rmse":191,"bias":51,"r":0.78} app {"n":12,"mae":220,"rmse":275,"bias":80,"r":0.53}
+    band 0-1200 (19): maia {"n":19,"mae":131,"rmse":162,"bias":-58,"r":0.7} maia+prior {"n":19,"mae":129,"rmse":162,"bias":-48,"r":0.69} app {"n":19,"mae":182,"rmse":244,"bias":77,"r":0.54}
+    band 1200-1800 (19): maia {"n":19,"mae":205,"rmse":247,"bias":-57,"r":0.55} maia+prior {"n":19,"mae":200,"rmse":242,"bias":-55,"r":0.55} app {"n":19,"mae":359,"rmse":403,"bias":-262,"r":0.09}
+    band 1800-3000 (23): maia {"n":23,"mae":91,"rmse":107,"bias":-37,"r":0.9} maia+prior {"n":23,"mae":94,"rmse":109,"bias":-47,"r":0.9} app {"n":23,"mae":338,"rmse":429,"bias":-304,"r":0.68}
+
+N=20 games per estimate (17 estimates)
+  constant (sample mean, in-sample): { n: 17, mae: 403, rmse: 452, bias: 0, r: -0 }
+  Maia-3 likelihood, no prior      : { n: 17, mae: 144, rmse: 178, bias: -65, r: 0.95 } MAE 95% CI [ 101, 193 ]
+  Maia-3 likelihood + prior        : { n: 17, mae: 143, rmse: 176, bias: -66, r: 0.95 } MAE 95% CI [ 101, 190 ]
+  app ACPL method (moves part)     : { n: 17, mae: 286, rmse: 359, bias: -245, r: 0.83 } MAE 95% CI [ 185, 382 ]
+  opponents' average rating        : { n: 17, mae: 164, rmse: 199, bias: -7, r: 0.94 }
+  Maia model-implied SE (median): 37 | share of truths inside Maia +-2SE: 0.29
+  App stated SE (median): 180 | share of truths inside app +-2SE: 0.71
+  maia + held-out linear recalibration: { n: 17, mae: 135, rmse: 158, bias: -1, r: 0.94 } MAE 95% CI [ 99, 172 ]
+  app + held-out linear recalibration: { n: 17, mae: 232, rmse: 275, bias: 3, r: 0.8 } MAE 95% CI [ 166, 302 ]
+    perf blitz (15): maia {"n":15,"mae":157,"rmse":188,"bias":-67,"r":0.94} app {"n":15,"mae":312,"rmse":381,"bias":-266,"r":0.82}
+    perf rapid (2): maia {"n":2,"mae":51,"rmse":54,"bias":-51,"r":1} app {"n":2,"mae":86,"rmse":87,"bias":-86,"r":1}
+    band 0-1200 (4): maia {"n":4,"mae":153,"rmse":171,"bias":-95,"r":0.68} maia+prior {"n":4,"mae":150,"rmse":168,"bias":-91,"r":0.69} app {"n":4,"mae":203,"rmse":222,"bias":-63,"r":0.67}
+    band 1200-1800 (6): maia {"n":6,"mae":204,"rmse":241,"bias":-105,"r":0.62} maia+prior {"n":6,"mae":202,"rmse":239,"bias":-104,"r":0.62} app {"n":6,"mae":333,"rmse":405,"bias":-333,"r":0.22}
+    band 1800-3000 (7): maia {"n":7,"mae":88,"rmse":102,"bias":-14,"r":0.82} maia+prior {"n":7,"mae":88,"rmse":102,"bias":-19,"r":0.82} app {"n":7,"mae":293,"rmse":379,"bias":-274,"r":0.68}
