@@ -32,4 +32,4 @@ Sections:
 5. Zen mode: just the headline estimate (keep it calm); everything else `zen-hide`.
 
 ## Done when
-Tested in the real browser: import real games from Lichess for a well-known public account (e.g. `DrNykterstein` or `penguingm1` — pick any public username; you can't know the owner's username, which is entered in Settings), paste a PGN, analyse a few games (note actual timings), view the review, see the estimate and the breakdown. Write a small node check of your estimation maths (monotonic: better ACPL → higher Elo; more games → narrower range; extreme results clamp). Network failures handled. No console errors; desktop/phone/zen screenshots reviewed.
+Tested in the real browser: import real games from Lichess for a well-known public account (pick any public username; the owner's username is entered in Settings), paste a PGN, analyse a few games (note actual timings), view the review, see the estimate and the breakdown. Write a small node check of your estimation maths (monotonic: better ACPL → higher Elo; more games → narrower range; extreme results clamp). Network failures handled. No console errors; desktop/phone/zen screenshots reviewed.

@@ -1,0 +1,31 @@
+{
+  "about": "Settings for scripts/safety/build_cards.py. Paths are relative to the repo root. Changing an engine value changes every card; do it on purpose and rebuild.",
+  "user": "abustrup",
+  "speeds": ["blitz", "rapid", "classical"],
+  "engine": { "name": "Stockfish 19", "threads": 1, "hashMb": 64 },
+  "measurement": { "nodes": 250000, "nullNodes": 250000, "lineNodes": 250000, "linePlies": 8 },
+  "cards": { "nodes": 1000000, "multipv": 5, "extendNodes": 250000 },
+  "rules": {
+    "minWinBefore": 10,
+    "quietMaxShare": 0.15,
+    "quietPerGame": 1,
+    "quietTries": 3,
+    "quietMaxThreat": 5,
+    "quietMinMoveNumber": 6,
+    "winningAt": 75,
+    "nothingToWinMaxWin": 65,
+    "safeMaxLoss": 15,
+    "safeMinGain": 2
+  },
+  "base": {
+    "games": ["research/2026-10-16-diagnosis/my-games/lichess_abustrup.ndjson"],
+    "evals": ["research/2026-10-16-diagnosis/my-games/engine/sf_250k_bothnull.jsonl"],
+    "lines": ["research/2026-10-16-diagnosis/my-games/engine/lines_250k_all.jsonl"]
+  },
+  "paths": {
+    "engineCache": "data/safety/engine-cache.jsonl",
+    "evalsCache": "data/safety/evals.jsonl",
+    "out": "public/data/safety/cards.json",
+    "report": "data/safety/report.json"
+  }
+}

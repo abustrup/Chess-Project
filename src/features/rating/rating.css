@@ -39,71 +39,85 @@
 .rt-hero-actions {
   margin: 14px 0;
 }
-.rt-hero-number {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  margin-top: 6px;
-}
-.rt-about {
-  font-size: 20px;
-  color: var(--text-dim);
-}
 .rt-elo {
-  font-size: 68px;
+  font-size: 64px;
   line-height: 1;
   color: var(--accent-hi);
 }
-.rt-hero-range {
+.rt-status {
+  gap: 6px;
+  align-items: center;
+}
+.rt-status.callout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin: 8px 0 4px;
+}
+.rt-perfs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 16px;
+  margin-top: 12px;
+}
+.rt-perf {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--bg-1) 60%, transparent);
+  border: 1px solid var(--line);
+}
+.rt-perf p {
+  margin: 0;
+}
+.rt-perf-head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rating-page .rt-perf-name {
   font-size: 18px;
-  margin: 6px 0 14px;
+  margin: 0;
 }
-.rt-compare {
-  font-weight: 700;
-  margin: 12px 0 4px;
+.rt-perf-number {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 14px;
 }
-.rt-notes {
-  margin: 8px 0 0;
-  padding-left: 18px;
+.rt-perf-chips {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.rt-perf-range {
+  font-size: 16px;
+}
+.rt-perf-none {
   color: var(--text-dim);
-  font-size: 14px;
 }
-.rt-range {
-  position: relative;
-  height: 28px;
-  margin: 8px 4px 0;
-  border-radius: 999px;
-  background: var(--bg-3);
+.rt-chesscom {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
 }
-.rt-range-band {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--accent) 45%, transparent);
-}
-.rt-range-dot {
-  position: absolute;
-  top: 50%;
-  width: 18px;
-  height: 18px;
-  margin: -9px 0 0 -9px;
-  border-radius: 50%;
-  background: var(--accent-hi);
-  border: 3px solid var(--bg-0);
-}
-.rt-range-self {
-  position: absolute;
-  top: -4px;
-  bottom: -4px;
-  width: 0;
-  border-left: 2px dashed var(--text-dim);
+.rt-hero-foot {
+  margin: 14px 0 0;
 }
 :root[data-zen='on'] .rt-hero {
   text-align: center;
   margin-top: 16vh;
 }
-:root[data-zen='on'] .rt-hero-number {
+:root[data-zen='on'] .rt-perf-number {
   justify-content: center;
 }
 :root[data-zen='on'] .rt-hero .row {
@@ -241,57 +255,23 @@
   justify-content: center;
 }
 
-/* ---- breakdown ------------------------------------------------------------------------------ */
-.rt-parts {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 14px;
+/* ---- rating history -------------------------------------------------------------------------- */
+.rt-history + .rt-history {
+  margin-top: 18px;
 }
-.rt-part {
-  padding: 14px;
-  border-radius: var(--radius-sm);
-  background: var(--bg-3);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+.rt-history h3 {
+  margin: 4px 0 0;
 }
-.rt-part.off {
-  opacity: 0.7;
-}
-.rt-part p {
-  margin: 0;
-  font-size: 14px;
-}
-.rt-part-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.rt-part-icon {
-  color: var(--accent-hi);
-  display: grid;
-}
-.rt-part-elo {
-  margin-left: auto;
-  font-weight: 800;
-  font-size: 20px;
-  color: var(--accent-hi);
-}
-.rt-weight {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.rt-history p {
+  margin: 6px 0 0;
 }
 .rt-chart-wrap {
-  overflow-x: auto;
   margin-top: 8px;
+  min-width: 0;
 }
 .rt-chart {
   display: block;
-  width: 100%;
-  height: auto;
+  max-width: 100%;
 }
 .rt-chart .rt-grid {
   stroke: var(--line);
@@ -301,70 +281,32 @@
   fill: var(--text-faint);
   font-size: 11px;
 }
-.rt-chart .rt-row-label {
-  fill: var(--text-dim);
-  font-size: 13px;
-  font-weight: 600;
-}
-.rt-chart .rt-row-label.final {
+.rt-chart .rt-dot-label {
   fill: var(--text);
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 700;
 }
-.rt-chart .rt-bar,
-.rt-chart .rt-cap {
-  stroke: var(--text-faint);
-  stroke-width: 2;
-}
-.rt-chart .rt-bar.final,
-.rt-chart .rt-cap.final {
+.rt-chart .rt-hist-line {
+  fill: none;
   stroke: var(--accent);
-  stroke-width: 3;
+  stroke-width: 2;
+  stroke-linejoin: round;
 }
-.rt-chart .rt-dot {
-  fill: var(--text-dim);
+.rt-chart .rt-hist-dot {
+  fill: var(--bg-2);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+.rt-chart .rt-hist-now {
+  fill: var(--accent-hi);
   stroke: var(--bg-2);
   stroke-width: 2;
 }
-.rt-chart .rt-dot.final {
-  fill: var(--accent-hi);
-}
-.rt-chart .rt-dot-label {
-  fill: var(--text);
-  font-size: 12px;
-  font-weight: 700;
-}
-.rt-chart .rt-final-band {
-  fill: color-mix(in srgb, var(--accent) 16%, transparent);
-}
-.rt-chart .rt-final-line {
-  stroke: var(--accent);
-  stroke-width: 2;
-  stroke-dasharray: 5 4;
-}
-.rt-chart .rt-trend {
-  fill: none;
-  stroke: var(--text-faint);
-  stroke-width: 1.5;
-}
-.rt-chart .rt-game-dot.win {
-  fill: var(--good);
-}
-.rt-chart .rt-game-dot.draw {
-  fill: var(--text-faint);
-}
-.rt-chart .rt-game-dot.loss {
-  fill: var(--bg-2);
-  stroke: var(--red);
-  stroke-width: 2.5;
-}
-.rt-fineprint {
-  margin-top: 20px;
-}
-.rt-fineprint ul {
-  margin: 6px 0 0;
-  padding-left: 18px;
-  font-size: 14px;
-  color: var(--text-dim);
+.rt-chart .rt-hist-range,
+.rt-chart .rt-hist-cap {
+  stroke: color-mix(in srgb, var(--accent) 60%, transparent);
+  stroke-width: 3;
+  stroke-linecap: round;
 }
 
 /* ---- what to work on ----------------------------------------------------------------------- */
@@ -461,6 +403,13 @@
   align-items: center;
   padding: 8px 12px;
 }
+.rt-openings.no-loss .rt-openings-head,
+.rt-openings.no-loss .rt-opening-row {
+  grid-template-columns: minmax(0, 1fr) 60px 70px;
+}
+.rt-hidden-note {
+  margin: 12px 0 0;
+}
 .rt-openings-head {
   font-size: 12px;
   font-weight: 700;
@@ -485,18 +434,17 @@
 
 /* ---- phone ---------------------------------------------------------------------------------- */
 @media (max-width: 820px) {
-  /* charts keep a readable size on a phone and scroll sideways inside their card */
-  .rt-chart {
-    min-width: 500px;
-  }
   .rt-elo {
-    font-size: 54px;
+    font-size: 52px;
   }
   .rt-hero {
     padding: 18px;
   }
-  .rt-parts {
+  .rt-perfs {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .rt-perf {
+    padding: 14px;
   }
   .rt-add-fields {
     grid-template-columns: minmax(0, 1fr);
@@ -537,5 +485,9 @@
     grid-template-columns: minmax(0, 1fr) 44px 52px 54px;
     gap: 8px;
     padding: 8px;
+  }
+  .rt-openings.no-loss .rt-openings-head,
+  .rt-openings.no-loss .rt-opening-row {
+    grid-template-columns: minmax(0, 1fr) 44px 52px;
   }
 }

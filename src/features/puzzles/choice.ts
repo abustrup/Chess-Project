@@ -38,6 +38,17 @@ export function choiceFromParams(params: URLSearchParams): Choice | null {
 }
 
 /**
+ * Easier puzzles: a link with level=easy (Home's daily block) aims this many points below the puzzle rating, like
+ * Lichess's "Easier" difficulty. Only while the page is on that link; picking another topic drops it.
+ */
+export const EASY_BELOW = 300
+
+/** True when the link asks for easier puzzles (/puzzles?theme=fork&level=easy). */
+export function easyFromParams(params: URLSearchParams): boolean {
+  return params.get('level') === 'easy'
+}
+
+/**
  * The index writes a theme as "Fork — one piece attacks two or more enemy pieces at once". Next to a title that already
  * says "Forks", the first word is repeated, so show only the explanation, starting with a capital letter.
  */

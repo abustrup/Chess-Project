@@ -1,0 +1,449 @@
+# Keeps the teaching honest and the study rule visible. Free on this public repository.
+#
+# On every push and pull request that changes the courses, the tactics text, the checkers themselves or the packages
+# they run on (package-lock.json: chess.js reads every course move):
+#   1. check-openings          every course move is legal and every chapter is well formed
+#   2. check:claims:test       the claim checker's self-test (35 hand-made sentences, 93 fixed wrong-square sentences)
+#   3. check:claims --strict   every board fact in the teaching text is tested on its position; one false sentence fails
+#   4. deep check --strict     every taught move against Stockfish 19, reusing the searches committed in
+#                              research/2026-10-16-diagnosis/engine and asking Lichess nothing; a taught move that loses
+#                              over 50 cp at every depth, a wrong ?!/? mark, a line ending 50 cp worse or a position
+#                              taught two ways fails
+#   5. rule and gate parity    the app's Lichess rules and study gate against the pre-registered Python scripts
+# On every pull request, and on every push that changes the app: the app checks (TypeScript, and the study gate's,
+# trainer's, Home's, Review labels', Lichess rules' and rating page's own checks; a wrong unlock threshold fails here).
+# On every pull request, and on every push to the main branch: the study freeze. From his 11th rated 10+0 game until
+# the study ends (game 160, later if the trainer opened late) only error fixes (label "error-fix") and the trainer may
+# change what the app teaches (preregistration.md, answer 4). The frozen paths are listed in
+# scripts/lib/claims/study-freeze.ts (FROZEN); every one of them is in the push paths below. The judge's own files
+# (INSTRUMENT there: the daily job, its workflow, the pre-registered scripts and inputs, the newcomer file, the freeze
+# rule) need the label "instrument-deviation" and an entry in preregistration.md 3.8 instead. The game count is the
+# larger of status.json's (up to a day old) and a live count on Lichess with the pre-registered rule.
+# Pull requests run this workflow whatever they change, so its checks can be made required in the branch rules: a
+# check that is not needed shows as skipped, which GitHub counts as passed.
+#
+# The same checks on a Mac, from the repo root:
+#   npx tsx scripts/check-openings.ts
+#   npm run check:claims:test
+#   npm run check:claims -- --strict --out <scratch folder>
+#   .venv/bin/python scripts/deep-check-openings/check.py --strict --offline --threads 2 --hash 256 \
+#       --cache-from research/2026-10-16-diagnosis/engine --out <scratch folder>
+#   .venv/bin/python -I scripts/check-rule-parity.py && .venv/bin/python -I scripts/check-gate-parity.py
+#   node scripts/lib/claims/study-freeze.ts --self-test
+#   npx tsc --noEmit && npm run check:gate && npm run check:safety && npm run check:home && npm run check:review \
+#       && npm run check:rules && npx tsx src/features/rating/rating.check.ts
+
+name: Content checks
+
+on:
+  push:
+    paths:
+      - 'src/data/**'
+      - 'src/lib/pgnTree.ts'
+      - 'scripts/check-openings.ts'
+      - 'scripts/check-claims.ts'
+      - 'scripts/check-claims.check.ts'
+      - 'scripts/lib/claims/**'
+      - 'scripts/deep-check-openings/**'
+      - 'research/2026-10-16-diagnosis/engine/**'
+      - 'research/2026-10-16-diagnosis/claims/**'
+      - 'scripts/check-rule-parity.py'
+      - 'scripts/check-gate-parity.py'
+      - 'src/lib/lichessRules*'
+      - 'src/lib/studyGate*'
+      - 'src/lib/fixtures/**'
+      - 'research/2026-10-16-diagnosis/prereg/**'
+      - 'research/2026-10-16-diagnosis/my-games/lichess_abustrup.ndjson'
+      - 'src/features/home/**'
+      - 'src/features/openings/**'
+      - 'src/features/review/**'
+      - 'src/features/puzzles/**'
+      - 'src/features/tactics/**'
+      # the rest of the app (app checks) and the other frozen paths (study freeze on main)
+      - 'src/**'
+      - 'public/engine/**'
+      - 'public/puzzles/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
+      - '.github/workflows/content-checks.yml'
+      # the judge's own files (INSTRUMENT in study-freeze.ts), for the study freeze on main
+      - 'scripts/measure/**'
+      - '.github/workflows/measure.yml'
+      - 'research/2026-10-16-diagnosis/newcomers/newcomers.json'
+      - 'research/2026-10-16-diagnosis/my-games/engine/sf_250k_bothnull.jsonl'
+      - 'research/2026-10-16-diagnosis/my-games/out/games.json'
+  pull_request:
+    # No paths filter: every pull request gets the study freeze, and the "changes" job skips the content checks it
+    # does not need. labeled / unlabeled: adding or removing "error-fix" re-runs the freeze.
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# A newer push (or label change) on the same pull request replaces a run that is still going. Pushes are never
+# cancelled: each push to main must get its own study-freeze verdict.
+concurrency:
+  group: content-checks-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: true
+
+env:
+  # Stockfish 19, the official Linux build, checked against GitHub's SHA-256 of the release file and against the
+  # release's bench signature (the node count of `stockfish bench`, the same on every machine for the same engine;
+  # 2497913 on the Mac that made the committed results, 2026-10-16).
+  SF_URL: https://github.com/official-stockfish/Stockfish/releases/download/sf_19/stockfish-linux-x86-64-universal.tar.gz
+  SF_SHA256: 9defc0d4e55d49c65a6d042f3e571a39fcea499ade6dbe741b53b8c65e03611f
+  SF_BENCH: '2497913'
+
+jobs:
+  # Which checks this event needs: the content checks only when content or checkers changed (a pull request that only
+  # touches Home still gets the study freeze).
+  changes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      content: ${{ steps.decide.outputs.content }}
+    steps:
+      - name: Get the code with its history
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Decide which checks to run
+        id: decide
+        env:
+          EVENT: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          set -uo pipefail
+          content=true   # when in doubt, run everything
+          files=""
+          if [ "$EVENT" = "pull_request" ]; then
+            files=$(git diff --no-renames --name-only "$PR_BASE...$PR_HEAD") || files=""
+          elif [ "$EVENT" = "push" ] && [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
+            files=$(git diff --no-renames --name-only "$BEFORE" "$AFTER") || files=""
+          fi
+          if [ -n "$files" ]; then
+            if grep -Eq '^(src/data/|src/lib/pgnTree\.ts|scripts/check-openings\.ts|scripts/check-claims|scripts/lib/claims/|scripts/deep-check-openings/|research/2026-10-16-diagnosis/(engine|claims|prereg)/|research/2026-10-16-diagnosis/my-games/lichess_abustrup\.ndjson|scripts/check-(rule|gate)-parity\.py|src/lib/(lichessRules|studyGate)|src/lib/fixtures/|package-lock\.json|\.github/workflows/content-checks\.yml)' <<< "$files"; then
+              content=true
+            else
+              content=false
+            fi
+          fi
+          echo "Changed files:"; printf '  %s\n' $files
+          echo "Run the content checks: $content"
+          echo "content=$content" >> "$GITHUB_OUTPUT"
+
+  # Course structure, the claim checker's self-test, and every testable sentence of the teaching text.
+  claims:
+    needs: changes
+    if: needs.changes.outputs.content == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v5
+
+      - name: Install Node.js 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install the packages
+        run: npm ci
+
+      - name: Install Stockfish 19 and check it is the same engine
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 -o "$RUNNER_TEMP/sf.tar.gz" "$SF_URL"
+          echo "$SF_SHA256  $RUNNER_TEMP/sf.tar.gz" | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/sf" && tar -xzf "$RUNNER_TEMP/sf.tar.gz" -C "$RUNNER_TEMP/sf"
+          bin=""
+          while IFS= read -r f; do
+            chmod +x "$f"
+            out=$(printf 'uci\nquit\n' | "$f" 2>/dev/null) || true
+            if grep -q '^id name Stockfish 19' <<< "$out"; then bin="$f"; break; fi
+          done < <(find "$RUNNER_TEMP/sf" -type f -name 'stockfish*' ! -name '*.md' ! -name '*.txt')
+          [ -n "$bin" ] || { echo "No Stockfish 19 binary found in the release file"; find "$RUNNER_TEMP/sf" -type f; exit 1; }
+          nodes=$("$bin" bench 2>&1 | awk '/Nodes searched/ {print $NF}')
+          echo "Stockfish: $bin, bench $nodes nodes (expected $SF_BENCH)"
+          [ "$nodes" = "$SF_BENCH" ] || { echo "Bench signature differs: not the engine the results were made with"; exit 1; }
+          echo "STOCKFISH=$bin" >> "$GITHUB_ENV"
+
+      - name: Opening courses are well formed (check-openings)
+        run: npx tsx scripts/check-openings.ts
+
+      - name: Claim checker self-test (35 hand-made cases, 93 fixed mutation cases)
+        run: npm run check:claims:test
+
+      - name: Every testable sentence is true (check:claims --strict, Stockfish 19, 1 thread)
+        run: npm run check:claims -- --strict --out "$RUNNER_TEMP/claims"
+
+      - name: Keep the claim report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claim-check-report
+          path: ${{ runner.temp }}/claims
+          if-no-files-found: ignore
+          retention-days: 30
+
+  # Every taught move, marked opponent move and line end against Stockfish 19, from the committed searches.
+  deep-check:
+    needs: changes
+    if: needs.changes.outputs.content == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v5
+
+      - name: Install Node.js 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install the packages
+        run: npm ci
+
+      - name: Install Python 3.12 and python-chess
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: python -m pip install --disable-pip-version-check chess==1.11.2
+
+      - name: Install Stockfish 19 and check it is the same engine
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 -o "$RUNNER_TEMP/sf.tar.gz" "$SF_URL"
+          echo "$SF_SHA256  $RUNNER_TEMP/sf.tar.gz" | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/sf" && tar -xzf "$RUNNER_TEMP/sf.tar.gz" -C "$RUNNER_TEMP/sf"
+          bin=""
+          while IFS= read -r f; do
+            chmod +x "$f"
+            out=$(printf 'uci\nquit\n' | "$f" 2>/dev/null) || true
+            if grep -q '^id name Stockfish 19' <<< "$out"; then bin="$f"; break; fi
+          done < <(find "$RUNNER_TEMP/sf" -type f -name 'stockfish*' ! -name '*.md' ! -name '*.txt')
+          [ -n "$bin" ] || { echo "No Stockfish 19 binary found in the release file"; find "$RUNNER_TEMP/sf" -type f; exit 1; }
+          nodes=$("$bin" bench 2>&1 | awk '/Nodes searched/ {print $NF}')
+          echo "Stockfish: $bin, bench $nodes nodes (expected $SF_BENCH)"
+          [ "$nodes" = "$SF_BENCH" ] || { echo "Bench signature differs: not the engine the results were made with"; exit 1; }
+          echo "STOCKFISH=$bin" >> "$GITHUB_ENV"
+
+      # Positions already in the committed cache are read, not searched again. New positions (an edited line) are
+      # searched here, 4 threads on the runner's 4 CPUs, within 12 minutes; anything left over fails with a note to
+      # run the deep check on the Mac and commit its cache. --offline: 0 requests to Lichess.
+      - name: Every taught move holds up (deep check --strict, from the committed cache)
+        run: >
+          python scripts/deep-check-openings/check.py --strict --offline
+          --engine "$STOCKFISH" --threads 4 --hash 512 --max-search-seconds 720
+          --cache-from research/2026-10-16-diagnosis/engine --out "$RUNNER_TEMP/deep-check"
+
+      - name: Write the plain-English summary
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/deep-check/results.json" ]; then
+            python scripts/deep-check-openings/summarize.py --out "$RUNNER_TEMP/deep-check"
+          fi
+
+      - name: Keep the deep-check report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deep-check-report
+          path: |
+            ${{ runner.temp }}/deep-check/summary.md
+            ${{ runner.temp }}/deep-check/flagged.json
+            ${{ runner.temp }}/deep-check/run.log
+            ${{ runner.temp }}/deep-check/engine-cache.jsonl
+          if-no-files-found: ignore
+          retention-days: 30
+
+  # The app's Lichess rules and study gate must agree with the pre-registered Python scripts. Each runs once its
+  # script exists (L1 and G1 of the build plan).
+  parity:
+    needs: changes
+    if: needs.changes.outputs.content == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v5
+
+      - name: Install Node.js 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install the packages
+        run: npm ci
+
+      - name: Install Python 3.12 and python-chess
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: python -m pip install --disable-pip-version-check chess==1.11.2
+
+      - name: Lichess rule parity (src/lib/lichessRules.ts against prereg/lichess_rule.py)
+        if: hashFiles('scripts/check-rule-parity.py') != ''
+        run: python -I scripts/check-rule-parity.py
+
+      - name: Study gate parity (src/lib/studyGate.ts against prereg/measure.py)
+        if: hashFiles('scripts/check-gate-parity.py') != ''
+        run: python -I scripts/check-gate-parity.py
+
+  # The app's own checks, on every run (no "changes" filter: they take about two minutes). TypeScript first, then the
+  # checks that guard the study: the gate opens after game 40 and never earlier (check:gate), the trainer's verdict,
+  # schedule and queue (check:safety), Home's plan (check:home), the Review labels (check:review), the Lichess rules
+  # (check:rules) and the rating page's "no running rate" rule (rating.check.ts). None asks Lichess anything.
+  app-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v5
+
+      - name: Install Node.js 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install the packages
+        run: npm ci
+
+      - name: TypeScript (tsc --noEmit)
+        run: npx tsc --noEmit
+
+      - name: Study gate (opens after game 40, never earlier)
+        run: npm run check:gate
+
+      - name: Safety-check trainer (verdict, schedule, queue)
+        run: npm run check:safety
+
+      - name: Home (the study plan, with and without the trainer)
+        run: npm run check:home
+
+      - name: Review labels (Lichess thresholds)
+        run: npm run check:review
+
+      - name: Lichess rules
+        run: npm run check:rules
+
+      - name: Rating page (no running blunder rate before the verdict)
+        run: npx tsx src/features/rating/rating.check.ts
+
+  # Study freeze: every pull request, and every push to the main branch (the site is built from main, and changes can
+  # reach it without a pull request). The game count, the daily job and the freeze rule itself are read from the base
+  # branch as it is now (for a push: from the commit just before it), so a change cannot loosen the rule it is judged by.
+  study-freeze:
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref_name == github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read   # on a push: the labels of the pull request it came from, if any
+    steps:
+      - name: Get the code with its history
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Install Node.js 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Install Python 3.12 and python-chess (for the live game count with the pre-registered measure.py)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: python -m pip install --disable-pip-version-check chess==1.11.2
+
+      - name: Teaching files stay fixed during the study (label "error-fix" for error fixes)
+        env:
+          EVENT: ${{ github.event_name }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+          LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+          REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          push=""
+          if [ "$EVENT" = "pull_request" ]; then
+            git fetch --no-tags --quiet origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF"
+            base="origin/$BASE_REF"
+            git diff --no-renames --name-only "$PR_BASE...$PR_HEAD" > "$RUNNER_TEMP/changed.txt"
+          else
+            push="--push"
+            if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+              echo "::warning title=Study freeze::The commit before this push is unknown (a new branch or a forced push), so the freeze could not compare. Check by hand that no teaching file changed."
+              exit 0
+            fi
+            base="$BEFORE"
+            git diff --no-renames --name-only "$BEFORE" "$AFTER" > "$RUNNER_TEMP/changed.txt"
+            # An error fix says so: "error-fix" in a commit message of the push, or the label on the merged pull request;
+            # a change to the judge's files the same way with "instrument-deviation".
+            msgs=$(git log --format=%B "$BEFORE..$AFTER")
+            LABELS=""
+            if grep -qi 'error-fix' <<< "$msgs"; then LABELS="error-fix"; fi
+            if grep -qi 'instrument-deviation' <<< "$msgs"; then LABELS="${LABELS:+$LABELS,}instrument-deviation"; fi
+            if [ -z "$LABELS" ]; then
+              LABELS=$(gh api "repos/$REPO/commits/$AFTER/pulls" --jq '[.[].labels[].name] | join(",")' 2>/dev/null) || LABELS=""
+            fi
+          fi
+          rule="$RUNNER_TEMP/study-freeze.ts"
+          if git cat-file -e "$base:scripts/lib/claims/study-freeze.ts" 2>/dev/null; then
+            git show "$base:scripts/lib/claims/study-freeze.ts" > "$rule"
+          else
+            cp scripts/lib/claims/study-freeze.ts "$rule"   # the change that adds the rule
+          fi
+          status="$RUNNER_TEMP/status.json"
+          if git cat-file -e "$base:public/data/study/status.json" 2>/dev/null; then
+            git show "$base:public/data/study/status.json" > "$status"
+          fi
+          daily=""
+          if git cat-file -e "$base:.github/workflows/measure.yml" 2>/dev/null; then daily="--daily-job-exists"; fi
+          # status.json is written once a day, so it can miss games played since: count his rated 10+0 games on Lichess
+          # now with the pre-registered measure.py (from the base branch; honest User-Agent; a 429 waits 60 s once).
+          # "unknown" when that fails, which blocks a change to frozen files until a re-run gets an answer.
+          pre="$RUNNER_TEMP/prereg"
+          mkdir -p "$pre"
+          for f in measure.py lichess_rule.py; do
+            src="research/2026-10-16-diagnosis/prereg/$f"
+            git show "$base:$src" > "$pre/$f" 2>/dev/null || cp "$src" "$pre/$f" 2>/dev/null || true
+          done
+          live=unknown
+          if n=$(python3 -I -B - "$pre" <<'PY'
+          import sys, time, urllib.error
+          sys.path.insert(0, sys.argv[1])
+          import measure
+          for attempt in (1, 2):
+              try:
+                  games = measure.fetch('rapid')
+                  break
+              except urllib.error.HTTPError as e:
+                  if e.code != 429 or attempt == 2:
+                      raise
+                  time.sleep(60)
+          print(sum(1 for g in games if measure.eligible(g, '600+0')))
+          PY
+          ); then
+            if [[ "$n" =~ ^[0-9]+$ ]]; then live="$n"; fi
+          fi
+          echo "Live count on Lichess: $live"
+          node "$rule" --status "$status" --changed "$RUNNER_TEMP/changed.txt" --labels "$LABELS" $daily $push --live-games "$live"

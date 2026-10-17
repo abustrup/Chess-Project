@@ -8,7 +8,7 @@ import PuzzleBoard from './PuzzleBoard'
 import PromptCard, { type ThemeNote } from './PromptCard'
 import StatsPanel from './StatsPanel'
 import TopicPicker from './TopicPicker'
-import { DEFAULT_CHOICE, choiceFromParams, describeChoice, entriesFor, isValidChoice, type Choice } from './choice'
+import { DEFAULT_CHOICE, EASY_BELOW, choiceFromParams, describeChoice, easyFromParams, entriesFor, isValidChoice, type Choice } from './choice'
 import { applyAttempt } from './rating'
 import { markSeen, pickNext, readSeen } from './selection'
 import { readPuzzleStats, useRushBest, useStatsOpen, usePuzzleStats } from './stored'
@@ -45,6 +45,8 @@ export default function Trainer({ index, onStartRush }: Props) {
   const linkIsValid = linkChoice !== null && isValidChoice(linkChoice, index)
   const choice: Choice = linkChoice && linkIsValid ? linkChoice : isValidChoice(storedChoice, index) ? (storedChoice as Choice) : DEFAULT_CHOICE
   const info = describeChoice(choice, index)
+  // Home's daily block links here with level=easy: puzzles about 300 below his rating while he stays on that link.
+  const easy = linkChoice !== null && linkIsValid && easyFromParams(params)
 
   // Remember a choice that came from a link, so /puzzles on its own continues with it next time.
   useEffect(() => {
@@ -70,7 +72,7 @@ export default function Trainer({ index, onStartRush }: Props) {
     try {
       const entries = entriesFor(choice, index)
       for (let tries = 0; tries < MAX_DAMAGED; tries++) {
-        const targetRating = readPuzzleStats().rating
+        const targetRating = readPuzzleStats().rating - (easy ? EASY_BELOW : 0)
         const pick = await pickNext(entries, { targetRating, exclude: readSeen(), startOverWhenEmpty: true })
         if (request !== latestRequest.current) return // the player chose something else meanwhile
         if (!pick) throw new Error('There are no puzzles in this topic yet.')
@@ -90,7 +92,7 @@ export default function Trainer({ index, onStartRush }: Props) {
       setError(errorMessage(e))
       setStatus('error')
     }
-  }, [choice, index, dispatch])
+  }, [choice, index, dispatch, easy])
 
   // Load a puzzle when the page opens and whenever the topic changes.
   useEffect(() => {
@@ -227,6 +229,7 @@ export default function Trainer({ index, onStartRush }: Props) {
               <div>
                 <strong>{info.title}</strong>
                 <div className="small muted">{info.blurb}</div>
+                {easy && <div className="small muted">Easier puzzles, about {EASY_BELOW} below your puzzle rating.</div>}
               </div>
               <button className="btn small" onClick={() => setPickerOpen(true)}>
                 <Shuffle size={15} aria-hidden /> Change

@@ -9,9 +9,9 @@ function check(name: string, ok: boolean, detail = '') {
 }
 
 // --- Lichess usernames
-check('plain name', cleanUsername('DrNykterstein') === 'DrNykterstein')
+check('plain name', cleanUsername('Example_Player') === 'Example_Player')
 check('@ and spaces are removed', cleanUsername('  @Some_Name-1 ') === 'Some_Name-1')
-check('profile link', cleanUsername('https://lichess.org/@/penguingm1') === 'penguingm1')
+check('profile link', cleanUsername('https://lichess.org/@/example-player2') === 'example-player2')
 check(
   'rejects spaces and symbols',
   cleanUsername('a b!') === null && cleanUsername('') === null && cleanUsername('x') === null,

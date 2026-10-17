@@ -1,16 +1,18 @@
 import { Chess } from 'chess.js'
-import type { AnalysedMove, GameAnalysis, GameRecord, MoveClass, Side } from '../../types'
+import type { AnalysedMove, GameAnalysis, GameRecord, Side } from '../../types'
 import { UciEngine, type SearchResult } from '../../engine/uci'
-import { MATE_CP, classifyMove, gameAccuracy, moveAccuracy, scoreToCp, winPercent } from '../../lib/evaluation'
+import { MATE_CP, gameAccuracy, moveAccuracy, scoreToCp, winPercent } from '../../lib/evaluation'
 import { identifyOpening } from '../../lib/openingName'
 import { replayPgn, sansOf, type ReplayedPly } from './pgnGame'
 import { saveAnalysis } from './gameStore'
+import { labelMoves } from './labels'
 
 // The shared analysis engine: walks through a game, asks Stockfish about every position once, and turns
 // the answers into "how good was each move". Review, Rating and (later) other pages all use this file.
 //
 // The maths is the public Lichess one (see src/lib/evaluation.ts): a move's accuracy comes from how much
 // WIN CHANCE it gave away, not from raw centipawns, so being "+9 instead of +11" is correctly seen as harmless.
+// The labels (Inaccuracy, Mistake, Blunder) follow Lichess's game page exactly; see labels.ts.
 
 export const DEFAULT_DEPTH = 12
 export const DEEP_DEPTH = 16
@@ -110,8 +112,8 @@ async function startOwnEngine(): Promise<EngineLike & { terminate(): void }> {
 /* position evaluation (with a cache so the same position is never searched twice)             */
 /* ------------------------------------------------------------------------------------------ */
 
-interface PositionEval {
-  /** Centipawns from WHITE's point of view. */
+export interface PositionEval {
+  /** Centipawns from WHITE's point of view (a forced mate as +-(10000 - 10 x N), see scoreToCp). */
   cp: number
   best: string | null
   depth: number
@@ -119,6 +121,11 @@ interface PositionEval {
 
 const evalCache = new Map<string, PositionEval>()
 const MAX_CACHED_POSITIONS = 6000
+
+/** Forgets every saved position score. Only the checks need this, so each test game starts from nothing. */
+export function clearEvalCache(): void {
+  evalCache.clear()
+}
 
 /** Position key without the move counters, so the same position reached by another move order is shared. */
 function cacheKey(fen: string): string {
@@ -172,7 +179,9 @@ function sanOfUci(fen: string, uci: string): string | undefined {
   }
 }
 
-function analyseMove(ply: ReplayedPly, before: PositionEval, after: PositionEval, isBook: boolean): AnalysedMove {
+type UnlabelledMove = Omit<AnalysedMove, 'classification'>
+
+function analyseMove(ply: ReplayedPly, before: PositionEval, after: PositionEval): UnlabelledMove {
   const sign = ply.color === 'w' ? 1 : -1 // turns a White's-view score into the mover's view
   const playedBest = before.best === ply.uci
 
@@ -181,8 +190,6 @@ function analyseMove(ply: ReplayedPly, before: PositionEval, after: PositionEval
   const winAfter = playedBest ? Math.max(winPercent(sign * after.cp), winBefore) : winPercent(sign * after.cp)
 
   const cpLoss = playedBest ? 0 : Math.max(0, clip(sign * before.cp) - clip(sign * after.cp))
-  let classification: MoveClass = playedBest ? 'best' : classifyMove(winBefore, winAfter)
-  if (isBook) classification = 'book'
 
   return {
     ply: ply.ply,
@@ -196,8 +203,17 @@ function analyseMove(ply: ReplayedPly, before: PositionEval, after: PositionEval
     bestSan: playedBest ? ply.san : before.best ? sanOfUci(ply.fenBefore, before.best) : undefined,
     cpLoss,
     accuracy: moveAccuracy(winBefore, winAfter),
-    classification,
   }
+}
+
+/**
+ * Every move of a game, from the score of each position (`evals[0]` is the position before the first move, `evals[i]`
+ * the one after move i) and the number of opening-book half-moves. Labels follow Lichess's game page (labels.ts).
+ */
+export function analysePlies(plies: ReplayedPly[], evals: PositionEval[], bookPlies: number): AnalysedMove[] {
+  const moves = plies.map((p, i) => analyseMove(p, evals[i], evals[i + 1]))
+  const labels = labelMoves(moves, (i) => plies[i].ply <= bookPlies)
+  return moves.map((m, i) => ({ ...m, classification: labels[i] }))
 }
 
 /** Average centipawn loss of one side (every move counts at most MAX_MOVE_LOSS). */
@@ -225,7 +241,7 @@ async function analyseWithEngine(pgn: string, engine: EngineLike, opts: AnalyseO
   throwIfAborted(opts.signal)
 
   const bookPlies = identifyOpening(sansOf(game))?.plies ?? 0
-  const moves = game.plies.map((p, i) => analyseMove(p, evals[i], evals[i + 1], p.ply <= bookPlies))
+  const moves = analysePlies(game.plies, evals, bookPlies)
   const white = movesOfSide(moves, 'white')
   const black = movesOfSide(moves, 'black')
 

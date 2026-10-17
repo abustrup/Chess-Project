@@ -5,3 +5,5 @@ dist
 .DS_Store
 # raw downloads used by data scripts (large)
 scripts/.cache
+.venv
+__pycache__/

@@ -7,9 +7,8 @@ import { NO_OPENING_PROGRESS, NO_PUZZLE_STATS, NO_TACTICS_PROGRESS } from '../de
 import SettingsCard from './SettingsCard'
 import {
   MAX_BACKUP_BYTES,
-  backupFileName,
   clearAllData,
-  createBackup,
+  downloadBackup,
   parseBackup,
   restoreBackup,
   summariseData,
@@ -97,13 +96,7 @@ export default function DataSection() {
   })
 
   function download() {
-    const blob = new Blob([JSON.stringify(createBackup(), null, 2)], { type: 'application/json' })
-    const url = URL.createObjectURL(blob)
-    const link = document.createElement('a')
-    link.href = url
-    link.download = backupFileName()
-    link.click()
-    URL.revokeObjectURL(url)
+    downloadBackup()
     setPanel({ kind: 'none' })
     setNote('Your backup is downloading. Keep the file somewhere safe, like a cloud folder or a USB stick.')
   }

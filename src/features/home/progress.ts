@@ -7,7 +7,6 @@ import type {
   OpeningCourse,
   OpeningProgress,
   PuzzleStats,
-  TacticLesson,
   TacticsProgress,
 } from '../../types'
 import { authoredText, dayKey, daysAgo, isoToDayKey, plural, prettyTheme, relativeDay, shiftDay, shortCourseName } from './format'
@@ -129,10 +128,12 @@ function lastPracticedChapter(
 /* ----------------------------------------------------------------- continue */
 
 export interface ContinueTarget {
-  kind: 'game' | 'chapter' | 'start'
+  kind: 'game' | 'chapter' | 'start' | 'safety'
   title: string
   detail: string
   to: string
+  /** the button's word, when the kind's usual one ("Continue", "Start") does not fit */
+  button?: string
 }
 
 const STEP_WORDS: Record<NextStep['kind'], string> = {
@@ -152,6 +153,28 @@ export function unfinishedGameMoves(saved: unknown): number | null {
   return moves.length > 0 ? moves.length : null
 }
 
+/**
+ * Once the trainer is open, positions left today come before everything else: the trainer is what the study tests
+ * (build plan H2, trainer-spec 5.1). While they are still being counted it points there too, so the big button does
+ * not jump from one suggestion to another a moment after the page opens.
+ */
+function safetyContinue(safety: SafetyToday): ContinueTarget | null {
+  if (safety.failed || safety.left === 0) return null
+  if (safety.left === null) {
+    return { kind: 'safety', title: 'Your Safety check', detail: 'Positions from your own games, for today.', to: '/safety' }
+  }
+  return {
+    kind: 'safety',
+    title: `${plural(safety.left, 'position')} ${safety.left === 1 ? 'is' : 'are'} waiting`,
+    detail:
+      safety.answered > 0
+        ? `Your Safety check: ${safety.answered} done today, ${safety.left} to go.`
+        : 'Your Safety check for today, from your own games.',
+    to: '/safety',
+    button: safety.answered > 0 ? 'Continue' : 'Start',
+  }
+}
+
 /** The single best "pick up where you left off" suggestion (also the big button in zen mode). */
 export function buildContinue(args: {
   courses: OpeningCourse[]
@@ -160,8 +183,14 @@ export function buildContinue(args: {
   /** moves played in the unfinished game, or null */
   unfinishedMoves: number | null
   now: Date
+  /** where a new player starts: the first step of today's plan (the study plan), when it lives in the app */
+  firstStep?: PlanItem
+  /** today's Safety-check queue; null or left out while the trainer is locked */
+  safety?: SafetyToday | null
 }): ContinueTarget {
-  const { courses, summaries, progress, unfinishedMoves, now } = args
+  const { courses, summaries, progress, unfinishedMoves, now, firstStep, safety } = args
+  const trainer = safety ? safetyContinue(safety) : null
+  if (trainer) return trainer
   if (unfinishedMoves !== null) {
     return {
       kind: 'game',
@@ -186,6 +215,11 @@ export function buildContinue(args: {
     }
   }
 
+  if (firstStep && !firstStep.external) {
+    // with the trainer open and today's Safety check done, the step offered here is the plan's second one
+    const detail = safety && firstStep.id !== 'safety' ? "Next in today's plan." : "Step one of today's plan."
+    return { kind: 'start', title: firstStep.title, detail, to: firstStep.to }
+  }
   const first = courses.find((c) => c.chapters.length > 0) ?? courses[0]
   if (!first) {
     return { kind: 'start', title: 'Explore the openings', detail: 'See what there is to learn.', to: '/openings' }
@@ -350,12 +384,38 @@ export function lastWeek(days: Set<string>, now: Date): WeekDay[] {
 
 /* ------------------------------------------------------------ today's plan */
 
+// The study version of the plan (research/2026-10-16-diagnosis/build-plan.md, H1): a short puzzle block and one
+// rated 10+0 game on Lichess, nothing else. It must look the same before and after the Safety-check trainer opens
+// apart from the trainer (H2), so the only input that changes with the study is `safety`: absent while the gate is
+// locked, and then the trainer's step comes first. Openings and tactics lessons stay in the menu.
+
+/** Lichess's lobby joins the 10+0 pool when opened with this address (lila ui/lobby joinPoolFromLocationHash). */
+export const LICHESS_POOL_URL = 'https://lichess.org/#pool/10+0'
+/** The clock of the games the study counts (measure.py, 600+0). */
+const STUDY_TIME_CONTROL = '600+0'
+
+/**
+ * The daily block asks for easy puzzles (build plan H1; diagnosis: "a short block of easy puzzles stays"): the link
+ * carries level=easy, and the Puzzles page then aims about 300 points below his puzzle rating (Lichess's "Easier").
+ */
+export const STUDY_PUZZLE_LEVEL = 'easy'
+
+/** The three puzzle sets of the daily block, in the order they take turns (keys of public/puzzles/themes). */
+export const STUDY_PUZZLE_THEMES = [
+  { key: 'hangingPiece', label: 'free pieces' },
+  { key: 'fork', label: 'forks' },
+  { key: 'defensiveMove', label: 'finding the defence' },
+] as const
+
 export interface PlanItem {
-  id: 'opening' | 'tactic' | 'puzzles' | 'play'
+  id: 'safety' | 'puzzles' | 'lichess'
   kicker: string
   title: string
   reason: string
+  /** an app address ('/puzzles?...'), or a full web address when `external` is set */
   to: string
+  /** opens another website in a new tab */
+  external?: boolean
   cta: string
   /** short extra line such as "3 of 5 solved today", drawn with a thin bar when `fraction` is set */
   progressText?: string
@@ -363,157 +423,127 @@ export interface PlanItem {
   done?: boolean
 }
 
-function chooseCourse(summaries: CourseSummary[]): CourseSummary | undefined {
-  const usable = summaries.filter((s) => s.next)
-  const unfinished = usable.filter((s) => s.next?.kind !== 'refresh')
-  const recent = unfinished
-    .filter((s) => s.lastPracticed)
-    .sort((a, b) => timeOf(b.lastPracticed ?? undefined) - timeOf(a.lastPracticed ?? undefined))[0]
-  if (recent) return recent
-  if (unfinished[0]) return unfinished[0]
-  return usable.sort((a, b) => timeOf(a.lastPracticed ?? undefined) - timeOf(b.lastPracticed ?? undefined))[0]
+function pgnTag(pgn: string, name: string): string | null {
+  const match = new RegExp(`\\[${name} "([^"]*)"\\]`).exec(pgn)
+  return match ? match[1] : null
 }
 
-function openingItem(summaries: CourseSummary[], now: Date): PlanItem {
-  const picked = chooseCourse(summaries)
-  if (!picked?.next) {
-    return {
-      id: 'opening',
-      kicker: 'Openings',
-      title: 'Explore your openings',
-      reason: 'Learn how to start a game with a plan: the London, the Caro-Kann and the Slav.',
-      to: '/openings',
-      cta: 'Open lessons',
-    }
-  }
-  const { course, next } = picked
-  const name = shortCourseName(course.name)
-  const practisedToday = picked.lastPracticed ? daysAgo(picked.lastPracticed, now) === 0 : false
-  const base = { id: 'opening' as const, kicker: 'Openings', to: next.to, done: practisedToday }
-  if (next.kind === 'study') {
-    return {
-      ...base,
-      title: picked.studied === 0 ? `Start the ${name}` : `Learn the next ${name} chapter`,
-      reason:
-        picked.studied === 0
-          ? `Up next: ${next.chapter.title}.`
-          : `Up next: ${next.chapter.title}. You have studied ${picked.studied} of ${plural(picked.chapterCount, 'chapter')}.`,
-      cta: 'Start lesson',
-    }
-  }
-  if (next.kind === 'drill') {
-    return {
-      ...base,
-      title: `Practise the ${name}`,
-      reason: `Play "${next.chapter.title}" from memory until it feels easy.`,
-      cta: 'Practise',
-    }
-  }
-  return {
-    ...base,
-    title: `Keep the ${name} fresh`,
-    reason: `You know every chapter. Replay "${next.chapter.title}" so you do not forget it.`,
-    cta: 'Refresh',
-  }
+/**
+ * A game brought in from Lichess that is the kind the study counts: rated, 10+0, standard chess from the normal
+ * starting position, not against a BOT. A rated game carries the rating change in its PGN (casual games do not).
+ */
+export function isStudyGame(game: GameRecord): boolean {
+  if (game.source !== 'lichess') return false
+  const { pgn } = game
+  const rated =
+    pgnTag(pgn, 'WhiteRatingDiff') !== null || pgnTag(pgn, 'BlackRatingDiff') !== null || /^rated\b/i.test(pgnTag(pgn, 'Event') ?? '')
+  const variant = pgnTag(pgn, 'Variant')
+  const fromStart = pgnTag(pgn, 'FEN') === null && pgnTag(pgn, 'SetUp') !== '1'
+  const bot = pgnTag(pgn, 'WhiteTitle') === 'BOT' || pgnTag(pgn, 'BlackTitle') === 'BOT'
+  return rated && (variant === null || variant === 'Standard') && fromStart && !bot && pgnTag(pgn, 'TimeControl') === STUDY_TIME_CONTROL
 }
 
-function tacticItem(lessons: TacticLesson[], progress: TacticsProgress): PlanItem {
-  const open = lessons.find((lesson) => !progress[lesson.id]?.completedAt)
-  if (open) {
-    const solved = progress[open.id]?.solvedExerciseIds?.length ?? 0
-    return {
-      id: 'tactic',
-      kicker: 'Tactics',
-      title: `Do a tactic: ${open.name}`,
-      reason: authoredText(open.tagline) || 'A short lesson on a trick that wins material.',
-      to: `/tactics/${open.id}`,
-      cta: solved > 0 ? 'Keep going' : 'Start lesson',
-      progressText: solved > 0 ? `${solved} of ${open.exercises.length} exercises solved` : undefined,
-      fraction: solved > 0 && open.exercises.length ? solved / open.exercises.length : undefined,
-    }
-  }
-  if (lessons.length > 0) {
-    const toughest = [...lessons].sort(
-      (a, b) => (progress[b.id]?.failedAttempts ?? 0) - (progress[a.id]?.failedAttempts ?? 0),
-    )[0]
-    return {
-      id: 'tactic',
-      kicker: 'Tactics',
-      title: `Revisit a tactic: ${toughest.name}`,
-      reason: 'You finished every lesson. Going over one again keeps it sharp.',
-      to: `/tactics/${toughest.id}`,
-      cta: 'Revisit',
-    }
-  }
-  return {
-    id: 'tactic',
-    kicker: 'Tactics',
-    title: 'Learn a tactic',
-    reason: 'Tactics are short tricks, like forks and pins, that win material.',
-    to: '/tactics',
-    cta: 'See lessons',
-  }
+/** A number for each calendar day, so the puzzle sets can take turns from day to day. */
+function dayNumber(now: Date): number {
+  return Math.round(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86_400_000)
 }
 
-function puzzleItem(puzzles: PuzzleSummary): PlanItem {
-  const weak = puzzles.weakest
+export interface StudyPuzzlesToday {
+  /** puzzles of the three sets solved today */
+  solved: number
+  /** the set to do next: the one with the fewest solved today, starting from today's turn */
+  next: (typeof STUDY_PUZZLE_THEMES)[number]
+}
+
+export function studyPuzzlesToday(stats: PuzzleStats, now: Date): StudyPuzzlesToday {
+  const today = dayKey(now)
+  const counts = new Map<string, number>(STUDY_PUZZLE_THEMES.map((t) => [t.key, 0]))
+  for (const item of Array.isArray(stats.history) ? stats.history : []) {
+    if (!item?.solved || typeof item.theme !== 'string' || !counts.has(item.theme) || isoToDayKey(item.date) !== today) continue
+    counts.set(item.theme, (counts.get(item.theme) ?? 0) + 1)
+  }
+  const start = dayNumber(now) % STUDY_PUZZLE_THEMES.length
+  const turn = STUDY_PUZZLE_THEMES.map((_, i) => STUDY_PUZZLE_THEMES[(start + i) % STUDY_PUZZLE_THEMES.length])
+  const next = turn.reduce((best, t) => ((counts.get(t.key) ?? 0) < (counts.get(best.key) ?? 0) ? t : best), turn[0])
+  return { solved: [...counts.values()].reduce((a, b) => a + b, 0), next }
+}
+
+function puzzleItem(stats: PuzzleStats, now: Date): PlanItem {
+  const { solved, next } = studyPuzzlesToday(stats, now)
+  const shown = Math.min(solved, DAILY_PUZZLES)
   return {
     id: 'puzzles',
     kicker: 'Puzzles',
-    title: weak ? `Solve ${DAILY_PUZZLES} ${weak.label.toLowerCase()} puzzles` : `Solve ${DAILY_PUZZLES} puzzles`,
-    reason: weak
-      ? `You solve about ${Math.round(weak.accuracy * 100)}% of these. A few more will help.`
-      : 'Short puzzles train your eyes to spot tactics in real games.',
-    to: weak ? `/puzzles?theme=${encodeURIComponent(weak.key)}` : '/puzzles',
+    title: `Solve ${DAILY_PUZZLES} easy puzzles: free pieces, forks, defending`,
+    reason: `Today: ${next.label}. Free pieces, forks and finding the defence take turns from day to day.`,
+    to: `/puzzles?theme=${encodeURIComponent(next.key)}&level=${STUDY_PUZZLE_LEVEL}`,
     cta: 'Solve puzzles',
-    progressText: `${Math.min(puzzles.solvedToday, DAILY_PUZZLES)} of ${DAILY_PUZZLES} solved today`,
-    fraction: Math.min(puzzles.solvedToday, DAILY_PUZZLES) / DAILY_PUZZLES,
-    done: puzzles.solvedToday >= DAILY_PUZZLES,
+    progressText: `${shown} of ${DAILY_PUZZLES} solved today`,
+    fraction: shown / DAILY_PUZZLES,
+    done: solved >= DAILY_PUZZLES,
   }
 }
 
-function playItem(summaries: CourseSummary[]): PlanItem {
-  // Practise with the opening the player knows best, so the game feels like a real test.
-  const course = [...summaries].sort((a, b) => b.mastery - a.mastery)[0]?.course
-  if (!course) {
+function lichessItem(games: GameRecord[], now: Date): PlanItem {
+  const playedToday = games.some((g) => isStudyGame(g) && daysAgo(g.date, now) === 0)
+  return {
+    id: 'lichess',
+    kicker: 'Lichess',
+    title: 'Play a rated 10+0 game on Lichess',
+    reason: 'Only rated 10+0 games on Lichess count for your study. Play as you normally would.',
+    to: LICHESS_POOL_URL,
+    external: true,
+    cta: 'Open Lichess',
+    done: playedToday,
+  }
+}
+
+/** What Home knows about today's Safety-check queue once the trainer is open (useSafetyToday.ts fills it in). */
+export interface SafetyToday {
+  /** positions left today: reviews, new ones and second looks at today's misses; null while not counted yet */
+  left: number | null
+  /** answers given today, second looks included (the trainer's "3 of 12 done") */
+  answered: number
+  /** positions in the card file; 0 before the daily job has added any */
+  positions: number | null
+  /** the card file could not be loaded, so nothing could be counted */
+  failed?: boolean
+}
+
+const SAFETY_REASON = 'From your own games. Before each move: what does his last move threaten, and what does yours allow?'
+
+/** The trainer's step: how many positions are left today. Done once today's queue is empty, as in the trainer. */
+function safetyItem(s: SafetyToday): PlanItem {
+  const base = { id: 'safety', kicker: 'Your trainer', to: '/safety' } as const
+  if (s.left === null) {
     return {
-      id: 'play',
-      kicker: 'Play',
-      title: 'Play a game',
-      reason: 'Nothing teaches like a real game. Take your time and think before you move.',
-      to: '/play',
-      cta: 'Play',
+      ...base,
+      title: 'Safety check',
+      reason: s.failed ? "Today's positions could not be counted here. Open the trainer to try again." : SAFETY_REASON,
+      cta: 'Open Safety check',
+      progressText: s.failed ? undefined : "Counting today's positions…",
     }
   }
-  const side = course.side === 'white' ? 'White' : 'Black'
-  return {
-    id: 'play',
-    kicker: 'Play',
-    title: `Play a game as ${side} using the ${shortCourseName(course.name)}`,
-    reason: 'Try your opening in a real game. The computer helps you stay on track.',
-    to: `/play?course=${encodeURIComponent(course.id)}&mode=practice`,
-    cta: 'Play',
+  const total = s.answered + s.left
+  const progress = total > 0 ? { progressText: `${s.answered} of ${total} done today`, fraction: s.answered / total } : {}
+  if (s.left > 0) {
+    return { ...base, title: `Safety check: ${plural(s.left, 'position')}`, reason: SAFETY_REASON, cta: s.answered ? 'Continue' : 'Start', ...progress }
   }
+  const [title, reason] =
+    s.positions === 0
+      ? ['Safety check: no positions yet', 'The daily check adds positions from your rated Lichess games. Come back after your next game.']
+      : s.answered > 0
+        ? ['Safety check: done for today', 'Every position planned for today is answered. They come back on their review days.']
+        : ['Safety check: nothing due today', 'No reviews are due and no new positions are planned for today.']
+  return { ...base, title, reason, cta: 'Open Safety check', ...progress, done: true }
 }
 
-/** Three concrete things for today, chosen from what the player has (and has not) done yet. */
-export function buildPlan(args: {
-  summaries: CourseSummary[]
-  lessons: TacticLesson[]
-  tacticsProgress: TacticsProgress
-  puzzles: PuzzleSummary
-  games: GameRecord[]
-  now: Date
-}): PlanItem[] {
-  const { summaries, lessons, tacticsProgress, puzzles, games, now } = args
-  const lastAppGame = newestFirst(games).find((g) => g.source === 'app')
-  const sinceGame = lastAppGame ? daysAgo(lastAppGame.date, now) : null
-  const hasStudied = summaries.some((s) => s.studied > 0)
-  // After the daily puzzles, or after a few days without a game, a real game is the better exercise.
-  const wantsGame = puzzles.solvedToday >= DAILY_PUZZLES || (hasStudied && (sinceGame === null || sinceGame >= 3))
-  return [
-    openingItem(summaries, now),
-    tacticItem(lessons, tacticsProgress),
-    wantsGame ? playItem(summaries) : puzzleItem(puzzles),
-  ]
+/**
+ * Today's plan in the study version: [puzzles, a rated 10+0 game on Lichess], always in this order. Once the
+ * Safety-check trainer is open (`safety` given) its step goes first: [safety, puzzles, lichess] (build plan H2).
+ */
+export function buildPlan(args: { puzzleStats: PuzzleStats; games: GameRecord[]; now: Date; safety?: SafetyToday | null }): PlanItem[] {
+  const { puzzleStats, games, now, safety } = args
+  const study = [puzzleItem(puzzleStats, now), lichessItem(games, now)]
+  return safety ? [safetyItem(safety), ...study] : study
 }

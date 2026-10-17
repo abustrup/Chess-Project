@@ -1,70 +1,53 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import type { RatingEstimate } from '../../types'
 import { DEFAULT_PROFILE } from '../../types'
-import { KEYS, readStored, useStored, writeStored } from '../../lib/storage'
+import { KEYS, useStored } from '../../lib/storage'
+import { useStudyGate } from '../../lib/studyGate'
+import { useStudyVerdict } from '../home/useStudyVerdict'
 import { removeGames, storedGamesSize, useGames } from '../review/gameStore'
 import { useAnalysisRun } from '../review/useAnalysisRun'
 import type { AddMode } from './AddGames'
-import EstimateBreakdown from './EstimateBreakdown'
-import EstimateHero from './EstimateHero'
 import GamesPanel from './GamesPanel'
+import HistoryCard from './HistoryCard'
+import LiveRatingHero from './LiveRatingHero'
 import WorkOnPanel from './WorkOnPanel'
-import { evidenceFromGame } from './evidence'
-import { estimateRating, type EstimateDetail } from './estimate'
+import { loadChesscomMap, type ChesscomMap } from './chesscomMap'
 import { computeInsights } from './insights'
+import { cleanUsername } from './lichessImport'
+import { useLichessRating } from './useLichessRating'
 import './rating.css'
 
-// /rating — your games, the estimated rating, how it was worked out, and what to work on.
+// /rating — his live Lichess rating (the rating for Lichess games), how it moved, his games, and what to work on.
+// The app no longer estimates a rating of its own: see research/2026-10-16-diagnosis/rating/README.md.
 
 const NOTHING_OFF: string[] = []
-
-/** The part of the detailed estimate that is saved for other pages (Home shows it). */
-function toStored(d: EstimateDetail): RatingEstimate {
-  return {
-    elo: d.elo,
-    low: d.low,
-    high: d.high,
-    gamesUsed: d.gamesUsed,
-    notes: d.notes,
-    parts: d.parts.map((p) => ({ label: p.label, elo: p.elo, weight: p.weight })),
-    computedAt: d.computedAt,
-  }
-}
-
-function sameEstimate(a: RatingEstimate | null, b: RatingEstimate | null): boolean {
-  if (!a || !b) return a === b
-  return (
-    a.elo === b.elo &&
-    a.low === b.low &&
-    a.high === b.high &&
-    a.gamesUsed === b.gamesUsed &&
-    a.parts.length === b.parts.length &&
-    a.parts.every((p, i) => p.elo === b.parts[i].elo && Math.abs(p.weight - b.parts[i].weight) < 0.005)
-  )
-}
+/** A saved answer younger than this is shown without asking Lichess again (so a quick back-and-forth sends nothing). */
+const REFRESH_AFTER_MS = 60_000
 
 export default function RatingPage() {
   const [games] = useGames()
   const [profile] = useStored(KEYS.profile, DEFAULT_PROFILE)
-  // ids of games the user switched OFF, so new games count by default
+  const username = cleanUsername(profile.lichessUsername ?? '') ?? ''
+  const live = useLichessRating(username, REFRESH_AFTER_MS)
+  const [map, setMap] = useState<ChesscomMap | null>(null)
+  // ids of games the user switched OFF for "What to work on", so new games count by default
   const [offList, setOffList] = useStored<string[]>('rating.off', NOTHING_OFF)
   const off = useMemo(() => new Set(offList), [offList])
   const [addMode, setAddMode] = useState<AddMode>(null)
   const { state: run, run: startRun, cancel } = useAnalysisRun()
 
-  const counted = useMemo(() => games.filter((g) => !off.has(g.id)), [games, off])
-  const detail = useMemo(
-    () => estimateRating(counted.map(evidenceFromGame), profile.selfRating),
-    [counted, profile.selfRating],
-  )
-  const insights = useMemo(() => computeInsights(counted), [counted])
-
-  // keep the saved estimate (used by the Home page) in step with what is shown here
   useEffect(() => {
-    const next = detail.gamesUsed > 0 ? toStored(detail) : null
-    if (!sameEstimate(readStored<RatingEstimate | null>(KEYS.ratingEstimate, null), next))
-      writeStored(KEYS.ratingEstimate, next)
-  }, [detail])
+    let alive = true
+    void loadChesscomMap().then((m) => alive && setMap(m))
+    return () => {
+      alive = false
+    }
+  }, [])
+
+  // Blunder counts, accuracy and average loss only once the study has a verdict (none before game 110).
+  const gate = useStudyGate()
+  const showNumbers = useStudyVerdict(gate.eligibleGames)?.decided === true
+  const counted = useMemo(() => games.filter((g) => !off.has(g.id)), [games, off])
+  const insights = useMemo(() => computeInsights(counted, { showNumbers }), [counted, showNumbers])
 
   const toggle = useCallback(
     (id: string) => setOffList((cur) => (cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id])),
@@ -79,8 +62,8 @@ export default function RatingPage() {
     [setOffList],
   )
 
-  const openAdd = (mode: 'lichess' | 'paste') => {
-    setAddMode(mode)
+  const openImport = () => {
+    setAddMode('lichess')
     window.setTimeout(
       () => document.getElementById('rt-games')?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
       50,
@@ -95,22 +78,13 @@ export default function RatingPage() {
         <div>
           <div className="eyebrow">Your strength</div>
           <h1>My rating</h1>
-          <p>An estimate of how strong you really play, worked out from your games.</p>
+          <p>Your rating is your Lichess rating, read live from lichess.org.</p>
         </div>
       </div>
 
       <div className="rt-stack">
-        <EstimateHero
-          detail={detail}
-          games={{
-            saved: games.length,
-            counted: counted.length,
-            waitingForAnalysis: counted.filter((g) => !g.analysis).length,
-            analysing: run.running,
-          }}
-          onAdd={openAdd}
-          onAnalyse={() => void startRun(counted.filter((g) => !g.analysis))}
-        />
+        <LiveRatingHero username={username} live={live} map={map} onImport={openImport} />
+        {live.ratings && <HistoryCard games={games} ratings={live.ratings} username={username} />}
         <GamesPanel
           games={games}
           off={off}
@@ -124,8 +98,7 @@ export default function RatingPage() {
           onCancel={cancel}
           storedSize={storedGamesSize(games)}
         />
-        {detail.gamesUsed > 0 && <EstimateBreakdown detail={detail} />}
-        <WorkOnPanel insights={insights} />
+        <WorkOnPanel insights={insights} showNumbers={showNumbers} />
       </div>
     </div>
   )

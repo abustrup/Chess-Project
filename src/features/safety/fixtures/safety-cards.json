@@ -1,0 +1,2759 @@
+{
+ "version": 1,
+ "generatedAt": "2026-10-15T15:41:23Z",
+ "pipeline": "scripts/safety/build_cards.py v1 code 381d2b39ae90",
+ "engine": {
+  "name": "Stockfish 19",
+  "nodes": 1000000,
+  "multipv": 5,
+  "threads": 1,
+  "hashMb": 64,
+  "freshHashEachSearch": true,
+  "measurementNodes": 250000,
+  "lineNodes": 250000,
+  "extendNodes": 250000
+ },
+ "source": "Test fixture: 6 cards copied unchanged from public/data/safety/cards.json of 2026-10-17 (built from Lichess games of abustrup: 31 rated games (31 blitz), 2026-10-10 to 2026-10-15)",
+ "counts": {
+  "own": 3,
+  "held": 2,
+  "quiet": 1
+ },
+ "cards": [
+  {
+   "id": "held:uUCQ83zH:23",
+   "kind": "held",
+   "cls": "held",
+   "fenBefore": "r4rk1/ppp2ppp/2nqpn2/3pN3/3P1P2/2PQ4/PP1N1PPP/R4RK1 b - - 4 11",
+   "lastMove": "c6e5",
+   "lastMoveSan": "Nxe5",
+   "side": "white",
+   "phase": "opening",
+   "facingThreat": true,
+   "nothingToWin": false,
+   "wasWinning": true,
+   "winBefore": 91.5,
+   "top": [
+    {
+     "uci": "f4e5",
+     "san": "fxe5",
+     "win": 91.2,
+     "eval": {
+      "cp": 635
+     },
+     "pv": [
+      "f4e5",
+      "d6e7",
+      "e5f6",
+      "e7f6",
+      "d3e2",
+      "b7b6"
+     ]
+    },
+    {
+     "uci": "d4e5",
+     "san": "dxe5",
+     "win": 90.68,
+     "eval": {
+      "cp": 618
+     },
+     "pv": [
+      "d4e5",
+      "d6a6",
+      "d3a6",
+      "b7a6",
+      "e5f6",
+      "g7f6"
+     ]
+    },
+    {
+     "uci": "d3g3",
+     "san": "Qg3",
+     "win": 6.71,
+     "eval": {
+      "cp": -715
+     },
+     "pv": [
+      "d3g3",
+      "e5g6",
+      "f4f5",
+      "g6f4",
+      "g1h1",
+      "e6f5"
+     ]
+    },
+    {
+     "uci": "d3e2",
+     "san": "Qe2",
+     "win": 6.35,
+     "eval": {
+      "cp": -731
+     },
+     "pv": [
+      "d3e2",
+      "e5c6",
+      "g2g3",
+      "c6e7",
+      "d2f3",
+      "e7f5"
+     ]
+    },
+    {
+     "uci": "d3e3",
+     "san": "Qe3",
+     "win": 5.99,
+     "eval": {
+      "cp": -748
+     },
+     "pv": [
+      "d3e3",
+      "e5g4",
+      "e3g3",
+      "d6d8",
+      "d2b3",
+      "g4h6"
+     ]
+    }
+   ],
+   "topComplete": true,
+   "human": {
+    "uci": "f4e5",
+    "san": "fxe5",
+    "win": 91.2,
+    "eval": {
+     "cp": 635
+    },
+    "passes": true,
+    "judgment": null,
+    "lichessJudgment": null,
+    "drop": 0.1
+   },
+   "threat": {
+    "loss": 89.7,
+    "material": 10,
+    "mateIn": null,
+    "real": true,
+    "line": [
+     "e5d3",
+     "g2g3",
+     "d3b2",
+     "f1b1",
+     "b2c4",
+     "d2c4"
+    ],
+    "lineSan": [
+     "Nxd3",
+     "g3",
+     "Nxb2",
+     "Rfb1",
+     "Nc4",
+     "Nxc4"
+    ]
+   },
+   "facts": [
+    {
+     "t": "threat",
+     "reply": "Nxd3",
+     "line": [
+      "e5d3",
+      "g2g3",
+      "d3b2",
+      "f1b1",
+      "b2c4",
+      "d2c4",
+      "d5c4",
+      "b1b7",
+      "f6d5"
+     ],
+     "lineSan": [
+      "Nxd3",
+      "g3",
+      "Nxb2",
+      "Rfb1",
+      "Nc4",
+      "Nxc4",
+      "dxc4",
+      "Rxb7",
+      "Nd5"
+     ],
+     "gain": 9,
+     "wins": {
+      "piece": "q",
+      "square": "d3"
+     }
+    }
+   ],
+   "context": {
+    "gameId": "uUCQ83zH",
+    "date": "2026-10-10",
+    "tc": "180+2",
+    "speed": "blitz",
+    "rated": true,
+    "moveNumber": 12,
+    "clockMs": 161630,
+    "spentMs": 1680
+   },
+   "moves": [
+    {
+     "uci": "a1b1",
+     "eval": {
+      "cp": -1097
+     },
+     "line": [
+      "a1b1",
+      "e5d3",
+      "g2g3",
+      "d3f4",
+      "a2a3",
+      "f6h5"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "a1c1",
+     "eval": {
+      "cp": -1114
+     },
+     "line": [
+      "a1c1",
+      "e5d3",
+      "c1b1",
+      "d3f4",
+      "g2g3",
+      "f4d3"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "a1d1",
+     "eval": {
+      "cp": -1141
+     },
+     "line": [
+      "a1d1",
+      "e5d3",
+      "g2g3",
+      "d3b2",
+      "d1b1",
+      "b2a4"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "a1e1",
+     "eval": {
+      "cp": -1113
+     },
+     "line": [
+      "a1e1",
+      "e5d3",
+      "e1e3",
+      "d3b2",
+      "f1b1",
+      "b2a4"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "a2a3",
+     "eval": {
+      "cp": -1128
+     },
+     "line": [
+      "a2a3",
+      "e5d3",
+      "g2g3",
+      "f6e4",
+      "d2f3",
+      "d3b2",
+      "f1b1"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "a2a4",
+     "eval": {
+      "cp": -1114
+     },
+     "line": [
+      "a2a4",
+      "e5d3",
+      "g2g3",
+      "f6h5",
+      "d2f3",
+      "h5f4",
+      "g3f4",
+      "d3f4",
+      "a1e1"
+     ],
+     "gain": 8,
+     "safe": false
+    },
+    {
+     "uci": "b2b3",
+     "eval": {
+      "cp": -1110
+     },
+     "line": [
+      "b2b3",
+      "e5d3",
+      "g2g3",
+      "f6h5",
+      "f4f5",
+      "e6f5",
+      "d2f3"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "b2b4",
+     "eval": {
+      "cp": -1123
+     },
+     "line": [
+      "b2b4",
+      "e5d3",
+      "g2g3",
+      "d3f4",
+      "f1e1",
+      "f4g6"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "c3c4",
+     "eval": {
+      "cp": -1131
+     },
+     "line": [
+      "c3c4",
+      "e5d3",
+      "g2g3",
+      "c7c5",
+      "d4c5",
+      "d6b8"
+     ],
+     "gain": 8,
+     "safe": false
+    },
+    {
+     "uci": "d2b1",
+     "eval": {
+      "cp": -1160
+     },
+     "line": [
+      "d2b1",
+      "e5d3",
+      "b1d2",
+      "d3b2",
+      "f1b1",
+      "b2a4"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "d2b3",
+     "eval": {
+      "cp": -1113
+     },
+     "line": [
+      "d2b3",
+      "e5d3",
+      "g2g3",
+      "d3b2",
+      "f1b1",
+      "b2c4"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "d2c4",
+     "eval": {
+      "cp": -919
+     },
+     "line": [
+      "d2c4",
+      "e5c4",
+      "b2b3",
+      "c4a3",
+      "c3c4",
+      "d6b4"
+     ],
+     "gain": 3,
+     "safe": false
+    },
+    {
+     "uci": "d2e4",
+     "eval": {
+      "cp": -893
+     },
+     "line": [
+      "d2e4",
+      "e5d3",
+      "e4d6",
+      "c7d6",
+      "f4f5",
+      "f8b8"
+     ],
+     "gain": 3,
+     "safe": false
+    },
+    {
+     "uci": "d2f3",
+     "eval": {
+      "cp": -1074
+     },
+     "line": [
+      "d2f3",
+      "e5d3",
+      "f3e5",
+      "d3b2",
+      "a1b1",
+      "b2c4"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "d3a6",
+     "eval": {
+      "cp": -924
+     },
+     "line": [
+      "d3a6",
+      "e5f3",
+      "d2f3",
+      "b7a6",
+      "g2g3",
+      "f6h5"
+     ],
+     "gain": 6,
+     "safe": false
+    },
+    {
+     "uci": "d3b1",
+     "eval": {
+      "cp": -753
+     },
+     "line": [
+      "d3b1",
+      "e5c6",
+      "g2g3",
+      "f8c8",
+      "b1d1",
+      "c6e7"
+     ],
+     "gain": 0,
+     "safe": false
+    },
+    {
+     "uci": "d3b5",
+     "eval": {
+      "cp": -756
+     },
+     "line": [
+      "d3b5",
+      "e5g6",
+      "d2f3",
+      "f8b8",
+      "b5e2",
+      "d6f4",
+      "f3e5"
+     ],
+     "gain": 1,
+     "safe": false
+    },
+    {
+     "uci": "d3c2",
+     "eval": {
+      "cp": -747
+     },
+     "line": [
+      "d3c2",
+      "e5c6",
+      "g2g3",
+      "f8b8",
+      "a1e1",
+      "a7a5"
+     ],
+     "gain": 0,
+     "safe": false
+    },
+    {
+     "uci": "d3c4",
+     "eval": {
+      "cp": -1111
+     },
+     "line": [
+      "d3c4",
+      "e5c4",
+      "d2f3",
+      "f8b8",
+      "f4f5",
+      "b7b5"
+     ],
+     "gain": 9,
+     "safe": false
+    },
+    {
+     "uci": "d3e2",
+     "eval": {
+      "cp": -731
+     },
+     "line": [
+      "d3e2",
+      "e5c6",
+      "g2g3",
+      "c6e7",
+      "d2f3",
+      "e7f5"
+     ],
+     "gain": 0,
+     "safe": false
+    },
+    {
+     "uci": "d3e3",
+     "eval": {
+      "cp": -748
+     },
+     "line": [
+      "d3e3",
+      "e5g4",
+      "e3g3",
+      "d6d8",
+      "d2b3",
+      "g4h6"
+     ],
+     "gain": 0,
+     "safe": false
+    },
+    {
+     "uci": "d3e4",
+     "eval": {
+      "cp": -889
+     },
+     "line": [
+      "d3e4",
+      "f6e4",
+      "f4e5",
+      "d6c6",
+      "d2b3",
+      "h7h5"
+     ],
+     "gain": 6,
+     "safe": false
+    },
+    {
+     "uci": "d3f3",
+     "eval": {
+      "cp": -967
+     },
+     "line": [
+      "d3f3",
+      "e5f3",
+      "d2f3",
+      "f6h5",
+      "f3e5",
+      "h5f4",
+      "g2g3"
+     ],
+     "gain": 7,
+     "safe": false
+    },
+    {
+     "uci": "d3f5",
+     "eval": {
+      "cp": -970
+     },
+     "line": [
+      "d3f5",
+      "e5f3",
+      "d2f3",
+      "e6f5",
+      "f3e5",
+      "f8c8"
+     ],
+     "gain": 6,
+     "safe": false
+    },
+    {
+     "uci": "d3g3",
+     "eval": {
+      "cp": -715
+     },
+     "line": [
+      "d3g3",
+      "e5g6",
+      "f4f5",
+      "g6f4",
+      "g1h1",
+      "e6f5",
+      "c3c4"
+     ],
+     "gain": 1,
+     "safe": false
+    },
+    {
+     "uci": "d3g6",
+     "eval": {
+      "cp": -1084
+     },
+     "line": [
+      "d3g6",
+      "e5g6",
+      "d2b3",
+      "g6f4",
+      "a1e1",
+      "g7g6"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "d3h3",
+     "eval": {
+      "cp": -749
+     },
+     "line": [
+      "d3h3",
+      "e5g6",
+      "g2g3",
+      "f8e8",
+      "d2f3",
+      "g6f8"
+     ],
+     "gain": 0,
+     "safe": false
+    },
+    {
+     "uci": "d3h7",
+     "eval": {
+      "cp": -862
+     },
+     "line": [
+      "d3h7",
+      "f6h7",
+      "f4e5",
+      "d6b6",
+      "f2f4",
+      "f8c8"
+     ],
+     "gain": 5,
+     "safe": false
+    },
+    {
+     "uci": "d4e5",
+     "eval": {
+      "cp": 618
+     }
+    },
+    {
+     "uci": "f1b1",
+     "eval": {
+      "cp": -1147
+     },
+     "line": [
+      "f1b1",
+      "e5d3",
+      "g2g3",
+      "d3f4",
+      "d2b3",
+      "f6h5"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "f1c1",
+     "eval": {
+      "cp": -1138
+     },
+     "line": [
+      "f1c1",
+      "e5d3",
+      "c1c2",
+      "d3f4",
+      "g2g3",
+      "f4h3",
+      "g1g2"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "f1d1",
+     "eval": {
+      "cp": -1135
+     },
+     "line": [
+      "f1d1",
+      "e5d3",
+      "g2g3",
+      "d3f4",
+      "g3f4",
+      "d6f4",
+      "h2h3"
+     ],
+     "gain": 8,
+     "safe": false
+    },
+    {
+     "uci": "f1e1",
+     "eval": {
+      "cp": -1129
+     },
+     "line": [
+      "f1e1",
+      "e5d3",
+      "e1e5",
+      "d3f4",
+      "g2g3",
+      "f4g6"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "f2f3",
+     "eval": {
+      "cp": -1128
+     },
+     "line": [
+      "f2f3",
+      "e5d3",
+      "g2g3",
+      "c7c5",
+      "d2b3",
+      "c5d4",
+      "c3d4",
+      "d3b2",
+      "f1c1"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "f4e5",
+     "eval": {
+      "cp": 635
+     }
+    },
+    {
+     "uci": "f4f5",
+     "eval": {
+      "cp": -1141
+     },
+     "line": [
+      "f4f5",
+      "e5d3",
+      "f5e6",
+      "d6e6",
+      "f1d1",
+      "f8e8"
+     ],
+     "gain": 9,
+     "safe": false
+    },
+    {
+     "uci": "g1h1",
+     "eval": {
+      "cp": -1154
+     },
+     "line": [
+      "g1h1",
+      "e5d3",
+      "g2g3",
+      "f6e4",
+      "d2f3",
+      "d3b2",
+      "f3e5"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "g2g3",
+     "eval": {
+      "cp": -1085
+     },
+     "line": [
+      "g2g3",
+      "e5d3",
+      "a1b1",
+      "d3f4",
+      "f1e1",
+      "f4d3"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "g2g4",
+     "eval": {
+      "cp": -1245
+     },
+     "line": [
+      "g2g4",
+      "e5d3",
+      "f2f3",
+      "d6f4",
+      "d2b3",
+      "f8e8"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "h2h3",
+     "eval": {
+      "cp": -1132
+     },
+     "line": [
+      "h2h3",
+      "e5d3",
+      "d2f3",
+      "f6e4",
+      "f3e5",
+      "d3f4",
+      "g2g3"
+     ],
+     "gain": 10,
+     "safe": false
+    },
+    {
+     "uci": "h2h4",
+     "eval": {
+      "cp": -1125
+     },
+     "line": [
+      "h2h4",
+      "e5d3",
+      "g2g3",
+      "d3b2",
+      "f1b1",
+      "b2a4"
+     ],
+     "gain": 10,
+     "safe": false
+    }
+   ]
+  },
+  {
+   "id": "quiet:FWvViwBk:15",
+   "kind": "quiet",
+   "cls": "quiet",
+   "fenBefore": "rnbqr1k1/ppp1ppbp/3p1np1/8/3P1B2/2PBPN2/PP1N1PPP/R2QK2R b KQ - 3 7",
+   "lastMove": "c8g4",
+   "lastMoveSan": "Bg4",
+   "side": "white",
+   "phase": "opening",
+   "facingThreat": false,
+   "nothingToWin": false,
+   "wasWinning": false,
+   "winBefore": 53.0,
+   "top": [
+    {
+     "uci": "h2h3",
+     "san": "h3",
+     "win": 53.49,
+     "eval": {
+      "cp": 38
+     },
+     "pv": [
+      "h2h3",
+      "g4c8"
+     ]
+    },
+    {
+     "uci": "f4g3",
+     "san": "Bg3",
+     "win": 51.84,
+     "eval": {
+      "cp": 20
+     },
+     "pv": [
+      "f4g3",
+      "b8d7"
+     ]
+    },
+    {
+     "uci": "d3e2",
+     "san": "Be2",
+     "win": 51.38,
+     "eval": {
+      "cp": 15
+     },
+     "pv": [
+      "d3e2",
+      "b8c6"
+     ]
+    },
+    {
+     "uci": "d1b3",
+     "san": "Qb3",
+     "win": 51.1,
+     "eval": {
+      "cp": 12
+     },
+     "pv": [
+      "d1b3",
+      "e7e5"
+     ]
+    },
+    {
+     "uci": "f4g5",
+     "san": "Bg5",
+     "win": 50.18,
+     "eval": {
+      "cp": 2
+     },
+     "pv": [
+      "f4g5",
+      "e7e5",
+      "h2h3",
+      "g4f3",
+      "d1f3",
+      "d6d5"
+     ]
+    }
+   ],
+   "topComplete": false,
+   "human": {
+    "uci": "h2h3",
+    "san": "h3",
+    "win": 53.49,
+    "eval": {
+     "cp": 38
+    },
+    "passes": true,
+    "judgment": null,
+    "lichessJudgment": null,
+    "drop": 0.1
+   },
+   "threat": {
+    "loss": 4.8,
+    "material": 0,
+    "mateIn": null,
+    "real": false,
+    "line": [
+     "e7e5",
+     "f4g5"
+    ],
+    "lineSan": [
+     "e5",
+     "Bg5"
+    ]
+   },
+   "facts": [
+    {
+     "t": "quiet"
+    }
+   ],
+   "context": {
+    "gameId": "FWvViwBk",
+    "date": "2026-10-10",
+    "tc": "180+2",
+    "speed": "blitz",
+    "rated": true,
+    "moveNumber": 8,
+    "clockMs": 183870,
+    "spentMs": 2400
+   },
+   "moves": [
+    {
+     "uci": "a1b1",
+     "eval": {
+      "cp": -26
+     },
+     "line": [
+      "a1b1",
+      "e7e5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "a1c1",
+     "eval": {
+      "cp": -17
+     },
+     "line": [
+      "a1c1",
+      "e7e5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "a2a3",
+     "eval": {
+      "cp": -19
+     },
+     "line": [
+      "a2a3",
+      "e7e5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "a2a4",
+     "eval": {
+      "cp": -25
+     },
+     "line": [
+      "a2a4",
+      "e7e5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "b2b3",
+     "eval": {
+      "cp": -84
+     },
+     "line": [
+      "b2b3",
+      "f6d5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "b2b4",
+     "eval": {
+      "cp": -15
+     },
+     "line": [
+      "b2b4",
+      "e7e5",
+      "f4g5",
+      "e5d4",
+      "c3d4",
+      "c7c5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "c3c4",
+     "eval": {
+      "cp": -204
+     },
+     "line": [
+      "c3c4",
+      "e7e5",
+      "f4g5",
+      "e5d4",
+      "e1g1",
+      "d4e3",
+      "g5e3",
+      "b8a6"
+     ],
+     "gain": 1,
+     "safe": false
+    },
+    {
+     "uci": "d1a4",
+     "eval": {
+      "cp": -40
+     },
+     "line": [
+      "d1a4",
+      "b8d7"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "d1b1",
+     "eval": {
+      "cp": -22
+     },
+     "line": [
+      "d1b1",
+      "b8d7",
+      "f4g5",
+      "e7e5",
+      "d3c2",
+      "e5d4",
+      "c3d4",
+      "c7c5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "d1b3",
+     "eval": {
+      "cp": 12
+     }
+    },
+    {
+     "uci": "d1c1",
+     "eval": {
+      "cp": -49
+     },
+     "line": [
+      "d1c1",
+      "e7e5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "d1c2",
+     "eval": {
+      "cp": 0
+     }
+    },
+    {
+     "uci": "d1e2",
+     "eval": {
+      "cp": -19
+     },
+     "line": [
+      "d1e2",
+      "e7e5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "d2b1",
+     "eval": {
+      "cp": -617
+     },
+     "line": [
+      "d2b1",
+      "e7e5",
+      "d4e5",
+      "d6e5",
+      "f4g3",
+      "e5e4"
+     ],
+     "gain": 0,
+     "safe": false
+    },
+    {
+     "uci": "d2b3",
+     "eval": {
+      "cp": -529
+     },
+     "line": [
+      "d2b3",
+      "e7e5",
+      "d4e5",
+      "d6e5",
+      "f4g3",
+      "e5e4"
+     ],
+     "gain": 0,
+     "safe": false
+    },
+    {
+     "uci": "d2c4",
+     "eval": {
+      "cp": -22
+     },
+     "line": [
+      "d2c4",
+      "b8d7"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "d2e4",
+     "eval": {
+      "cp": -14
+     },
+     "line": [
+      "d2e4",
+      "e7e5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "d2f1",
+     "eval": {
+      "cp": -556
+     },
+     "line": [
+      "d2f1",
+      "e7e5",
+      "f4g5",
+      "e5e4",
+      "d3c2",
+      "b8d7"
+     ],
+     "gain": 0,
+     "safe": false
+    },
+    {
+     "uci": "d3a6",
+     "eval": {
+      "cp": -795
+     },
+     "line": [
+      "d3a6",
+      "b8a6",
+      "d1b3",
+      "f6h5",
+      "f3g5",
+      "e8f8"
+     ],
+     "gain": 3,
+     "safe": false
+    },
+    {
+     "uci": "d3b1",
+     "eval": {
+      "cp": -5
+     }
+    },
+    {
+     "uci": "d3b5",
+     "eval": {
+      "cp": -4
+     }
+    },
+    {
+     "uci": "d3c2",
+     "eval": {
+      "cp": -7
+     },
+     "line": [
+      "d3c2",
+      "e7e5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "d3c4",
+     "eval": {
+      "cp": -4
+     }
+    },
+    {
+     "uci": "d3e2",
+     "eval": {
+      "cp": 15
+     }
+    },
+    {
+     "uci": "d3e4",
+     "eval": {
+      "cp": -73
+     },
+     "line": [
+      "d3e4",
+      "f6e4",
+      "d2e4",
+      "a7a5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "d3f1",
+     "eval": {
+      "cp": -52
+     },
+     "line": [
+      "d3f1",
+      "e7e5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "d3f5",
+     "eval": {
+      "cp": -798
+     },
+     "line": [
+      "d3f5",
+      "g4f5",
+      "d1b3",
+      "f5e6",
+      "b3b7",
+      "e6d5"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "d3g6",
+     "eval": {
+      "cp": -614
+     },
+     "line": [
+      "d3g6",
+      "h7g6",
+      "d1b3",
+      "d8d7",
+      "e1c1",
+      "b8a6"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "d4d5",
+     "eval": {
+      "cp": -207
+     },
+     "line": [
+      "d4d5",
+      "f6d5",
+      "f4g3"
+     ],
+     "gain": 1,
+     "safe": false
+    },
+    {
+     "uci": "e1e2",
+     "eval": {
+      "cp": -85
+     },
+     "line": [
+      "e1e2",
+      "b8d7"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "e1f1",
+     "eval": {
+      "cp": -76
+     },
+     "line": [
+      "e1f1",
+      "e7e5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "e1g1",
+     "eval": {
+      "cp": 2
+     }
+    },
+    {
+     "uci": "e3e4",
+     "eval": {
+      "cp": -60
+     },
+     "line": [
+      "e3e4",
+      "e7e5",
+      "f4e3",
+      "e5d4",
+      "c3d4",
+      "c7c5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "f3e5",
+     "eval": {
+      "cp": -937
+     },
+     "line": [
+      "f3e5",
+      "g4d1",
+      "a1d1",
+      "d6e5",
+      "f4g5",
+      "d8c8"
+     ],
+     "gain": 9,
+     "safe": false
+    },
+    {
+     "uci": "f3g1",
+     "eval": {
+      "cp": -887
+     },
+     "line": [
+      "f3g1",
+      "g4d1",
+      "a1d1",
+      "e7e5",
+      "d4e5",
+      "d6e5",
+      "f4h6"
+     ],
+     "gain": 6,
+     "safe": false
+    },
+    {
+     "uci": "f3g5",
+     "eval": {
+      "cp": -851
+     },
+     "line": [
+      "f3g5",
+      "g4d1",
+      "a1d1",
+      "e7e6",
+      "f4g3",
+      "g7h8"
+     ],
+     "gain": 6,
+     "safe": false
+    },
+    {
+     "uci": "f3h4",
+     "eval": {
+      "cp": -875
+     },
+     "line": [
+      "f3h4",
+      "g4d1",
+      "a1d1",
+      "e7e5",
+      "d4e5",
+      "f6d5"
+     ],
+     "gain": 5,
+     "safe": false
+    },
+    {
+     "uci": "f4d6",
+     "eval": {
+      "cp": -641
+     },
+     "line": [
+      "f4d6",
+      "e7d6",
+      "d1b3",
+      "g4c8",
+      "e1g1",
+      "d6d5"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "f4e5",
+     "eval": {
+      "cp": -666
+     },
+     "line": [
+      "f4e5",
+      "d6e5",
+      "d3c4",
+      "e7e6",
+      "d1b3",
+      "e5d4",
+      "b3b7",
+      "b8d7"
+     ],
+     "gain": 3,
+     "safe": false
+    },
+    {
+     "uci": "f4g3",
+     "eval": {
+      "cp": 20
+     }
+    },
+    {
+     "uci": "f4g5",
+     "eval": {
+      "cp": 2
+     }
+    },
+    {
+     "uci": "f4h6",
+     "eval": {
+      "cp": -692
+     },
+     "line": [
+      "f4h6",
+      "g7h6",
+      "h2h3",
+      "g4f3",
+      "d1f3",
+      "e7e5"
+     ],
+     "gain": 3,
+     "safe": false
+    },
+    {
+     "uci": "g2g3",
+     "eval": {
+      "cp": -137
+     },
+     "line": [
+      "g2g3",
+      "e7e5",
+      "f4g5",
+      "e5d4",
+      "c3d4",
+      "c7c5"
+     ],
+     "gain": 0,
+     "safe": false
+    },
+    {
+     "uci": "h1f1",
+     "eval": {
+      "cp": -234
+     },
+     "line": [
+      "h1f1",
+      "e7e5",
+      "f4g5",
+      "e5d4",
+      "c3d4",
+      "c7c5"
+     ],
+     "gain": 0,
+     "safe": false
+    },
+    {
+     "uci": "h1g1",
+     "eval": {
+      "cp": -205
+     },
+     "line": [
+      "h1g1",
+      "e7e5"
+     ],
+     "gain": 0,
+     "safe": false
+    },
+    {
+     "uci": "h2h3",
+     "eval": {
+      "cp": 38
+     }
+    },
+    {
+     "uci": "h2h4",
+     "eval": {
+      "cp": -59
+     },
+     "line": [
+      "h2h4",
+      "b8d7"
+     ],
+     "gain": 0,
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "own:FWvViwBk:27",
+   "kind": "own",
+   "cls": "missed_own_tactic",
+   "fenBefore": "r2qr1k1/p2n1pbp/1p1ppnp1/2p5/3PNB2/1QPBPP1P/PP3P2/2KRR3 b - - 1 13",
+   "lastMove": "a8c8",
+   "lastMoveSan": "Rc8",
+   "side": "white",
+   "phase": "middlegame",
+   "facingThreat": false,
+   "nothingToWin": false,
+   "wasWinning": true,
+   "winBefore": 89.4,
+   "top": [
+    {
+     "uci": "e4d6",
+     "san": "Nxd6",
+     "win": 89.08,
+     "eval": {
+      "cp": 570
+     },
+     "pv": [
+      "e4d6",
+      "f6h5",
+      "d6e8",
+      "d8e8",
+      "d4d5",
+      "e6d5"
+     ]
+    },
+    {
+     "uci": "f4d6",
+     "san": "Bxd6",
+     "win": 74.14,
+     "eval": {
+      "cp": 286
+     },
+     "pv": [
+      "f4d6",
+      "c5d4",
+      "e3d4",
+      "f6e4",
+      "f3e4",
+      "g7d4"
+     ]
+    },
+    {
+     "uci": "d3a6",
+     "san": "Ba6",
+     "win": 68.26,
+     "eval": {
+      "cp": 208
+     },
+     "pv": [
+      "d3a6",
+      "f6e4"
+     ]
+    },
+    {
+     "uci": "d3b5",
+     "san": "Bb5",
+     "win": 57.58,
+     "eval": {
+      "cp": 83
+     },
+     "pv": [
+      "d3b5",
+      "f6e4"
+     ]
+    },
+    {
+     "uci": "e4f6",
+     "san": "Nxf6+",
+     "win": 54.59,
+     "eval": {
+      "cp": 50
+     },
+     "pv": [
+      "e4f6",
+      "d8f6",
+      "f4d6",
+      "c5d4",
+      "e3d4",
+      "f6f3"
+     ]
+    }
+   ],
+   "topComplete": true,
+   "human": {
+    "uci": "b3c2",
+    "san": "Qc2",
+    "win": 48.8,
+    "eval": {
+     "cp": -13
+    },
+    "passes": false,
+    "judgment": "Blunder",
+    "lichessJudgment": null,
+    "drop": 39.0
+   },
+   "threat": {
+    "loss": 46.0,
+    "material": 0,
+    "mateIn": null,
+    "real": false,
+    "line": [
+     "d6d5",
+     "e4f6"
+    ],
+    "lineSan": [
+     "d5",
+     "Nxf6+"
+    ]
+   },
+   "facts": [],
+   "context": {
+    "gameId": "FWvViwBk",
+    "date": "2026-10-10",
+    "tc": "180+2",
+    "speed": "blitz",
+    "rated": true,
+    "moveNumber": 14,
+    "clockMs": 176750,
+    "spentMs": 5280
+   }
+  },
+  {
+   "id": "held:EMxzd6WS:12",
+   "kind": "held",
+   "cls": "held",
+   "fenBefore": "rnbqk2r/ppp1ppbp/5np1/4p3/3P1B2/2N5/PPP2PPP/R2QKBNR w KQkq - 0 6",
+   "lastMove": "d4e5",
+   "lastMoveSan": "dxe5",
+   "side": "black",
+   "phase": "opening",
+   "facingThreat": true,
+   "nothingToWin": false,
+   "wasWinning": false,
+   "winBefore": 44.0,
+   "top": [
+    {
+     "uci": "f6d7",
+     "san": "Nfd7",
+     "win": 44.68,
+     "eval": {
+      "cp": 58
+     },
+     "pv": [
+      "f6d7",
+      "d1e2",
+      "d7f8",
+      "g1f3",
+      "c7c6",
+      "g2g3"
+     ]
+    },
+    {
+     "uci": "f6h5",
+     "san": "Nh5",
+     "win": 43.68,
+     "eval": {
+      "cp": 69
+     },
+     "pv": [
+      "f6h5",
+      "d1d8"
+     ]
+    },
+    {
+     "uci": "d8d1",
+     "san": "Qxd1+",
+     "win": 40.45,
+     "eval": {
+      "cp": 105
+     },
+     "pv": [
+      "d8d1",
+      "a1d1"
+     ]
+    },
+    {
+     "uci": "f6g4",
+     "san": "Ng4",
+     "win": 32.38,
+     "eval": {
+      "cp": 200
+     },
+     "pv": [
+      "f6g4",
+      "g1f3"
+     ]
+    },
+    {
+     "uci": "f6g8",
+     "san": "Ng8",
+     "win": 30.63,
+     "eval": {
+      "cp": 222
+     },
+     "pv": [
+      "f6g8",
+      "d1d8",
+      "e8d8",
+      "e1c1",
+      "c8d7",
+      "h2h4"
+     ]
+    }
+   ],
+   "topComplete": true,
+   "human": {
+    "uci": "f6d7",
+    "san": "Nfd7",
+    "win": 44.68,
+    "eval": {
+     "cp": 58
+    },
+    "passes": true,
+    "judgment": null,
+    "lichessJudgment": null,
+    "drop": -1.3
+   },
+   "threat": {
+    "loss": 37.2,
+    "material": 2,
+    "mateIn": null,
+    "real": true,
+    "line": [
+     "e5f6",
+     "g7f6",
+     "d1d8",
+     "e8d8",
+     "e1c1",
+     "c8d7"
+    ],
+    "lineSan": [
+     "exf6",
+     "Bxf6",
+     "Qxd8+",
+     "Kxd8",
+     "O-O-O+",
+     "Bd7"
+    ]
+   },
+   "facts": [
+    {
+     "t": "threat",
+     "reply": "exf6",
+     "line": [
+      "e5f6",
+      "g7f6",
+      "d1d8",
+      "e8d8",
+      "e1c1",
+      "c8d7"
+     ],
+     "lineSan": [
+      "exf6",
+      "Bxf6",
+      "Qxd8+",
+      "Kxd8",
+      "O-O-O+",
+      "Bd7"
+     ],
+     "gain": 2,
+     "wins": {
+      "piece": "n",
+      "square": "f6"
+     }
+    }
+   ],
+   "context": {
+    "gameId": "EMxzd6WS",
+    "date": "2026-10-10",
+    "tc": "180+2",
+    "speed": "blitz",
+    "rated": true,
+    "moveNumber": 6,
+    "clockMs": 177470,
+    "spentMs": 12640
+   },
+   "moves": [
+    {
+     "uci": "a7a5",
+     "eval": {
+      "cp": 732
+     },
+     "line": [
+      "a7a5",
+      "d1d8",
+      "e8d8",
+      "e5f6",
+      "e7f6",
+      "e1c1",
+      "c8d7"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "a7a6",
+     "eval": {
+      "cp": 730
+     },
+     "line": [
+      "a7a6",
+      "d1d8",
+      "e8d8",
+      "e5f6",
+      "g7f6",
+      "e1c1",
+      "b8d7"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "b7b5",
+     "eval": {
+      "cp": 759
+     },
+     "line": [
+      "b7b5",
+      "e5f6",
+      "g7f6",
+      "f1b5",
+      "c8d7",
+      "d1f3"
+     ],
+     "gain": 3,
+     "safe": false
+    },
+    {
+     "uci": "b7b6",
+     "eval": {
+      "cp": 780
+     },
+     "line": [
+      "b7b6",
+      "e5f6",
+      "g7f6",
+      "d1f3",
+      "f6c3",
+      "f3c3",
+      "e7e5"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "b8a6",
+     "eval": {
+      "cp": 708
+     },
+     "line": [
+      "b8a6",
+      "d1d8",
+      "e8d8",
+      "e5f6",
+      "g7f6",
+      "e1c1",
+      "d8e8"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "b8c6",
+     "eval": {
+      "cp": 653
+     },
+     "line": [
+      "b8c6",
+      "d1d8",
+      "c6d8",
+      "e5f6",
+      "e7f6",
+      "f4c7",
+      "e8g8"
+     ],
+     "gain": 3,
+     "safe": false
+    },
+    {
+     "uci": "b8d7",
+     "eval": {
+      "cp": 633
+     },
+     "line": [
+      "b8d7",
+      "e5f6",
+      "g7f6",
+      "g1f3",
+      "e8g8",
+      "f1e2"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "c7c5",
+     "eval": {
+      "cp": 721
+     },
+     "line": [
+      "c7c5",
+      "d1d8",
+      "e8d8",
+      "e5f6",
+      "g7f6",
+      "e1c1",
+      "f6d4"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "c7c6",
+     "eval": {
+      "cp": 669
+     },
+     "line": [
+      "c7c6",
+      "d1d8",
+      "e8d8",
+      "e5f6",
+      "g7f6",
+      "e1c1",
+      "d8e8"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "c8d7",
+     "eval": {
+      "cp": 653
+     },
+     "line": [
+      "c8d7",
+      "e5f6",
+      "e7f6",
+      "d1f3",
+      "b8c6",
+      "e1c1"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "c8e6",
+     "eval": {
+      "cp": 670
+     },
+     "line": [
+      "c8e6",
+      "d1d8",
+      "e8d8",
+      "e5f6",
+      "g7f6",
+      "e1c1",
+      "d8c8"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "c8f5",
+     "eval": {
+      "cp": 684
+     },
+     "line": [
+      "c8f5",
+      "e5f6",
+      "g7f6",
+      "d1d8",
+      "e8d8",
+      "e1c1",
+      "d8c8"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "c8g4",
+     "eval": {
+      "cp": 677
+     },
+     "line": [
+      "c8g4",
+      "d1d8",
+      "e8d8",
+      "e5f6",
+      "g7f6",
+      "f4d2"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "c8h3",
+     "eval": {
+      "cp": 900
+     },
+     "line": [
+      "c8h3",
+      "e5f6",
+      "g7f6",
+      "d1d8",
+      "e8d8",
+      "g1h3",
+      "f6c3",
+      "b2c3",
+      "b8d7"
+     ],
+     "gain": 5,
+     "safe": false
+    },
+    {
+     "uci": "d8d1",
+     "eval": {
+      "cp": 105
+     },
+     "line": [
+      "d8d1",
+      "a1d1",
+      "f6h5"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "d8d2",
+     "eval": {
+      "cp": 1079
+     },
+     "line": [
+      "d8d2",
+      "f4d2",
+      "f6d7",
+      "e5e6",
+      "f7e6",
+      "h2h4"
+     ],
+     "gain": 8,
+     "safe": false
+    },
+    {
+     "uci": "d8d3",
+     "eval": {
+      "cp": 1069
+     },
+     "line": [
+      "d8d3",
+      "c2d3",
+      "f6h5",
+      "c3b5",
+      "b8a6",
+      "f4d2"
+     ],
+     "gain": 9,
+     "safe": false
+    },
+    {
+     "uci": "d8d4",
+     "eval": {
+      "cp": 1032
+     },
+     "line": [
+      "d8d4",
+      "d1d4",
+      "f6h5",
+      "f4e3",
+      "c8d7",
+      "d4d1"
+     ],
+     "gain": 9,
+     "safe": false
+    },
+    {
+     "uci": "d8d5",
+     "eval": {
+      "cp": 993
+     },
+     "line": [
+      "d8d5",
+      "c3d5",
+      "f6d5",
+      "d1d5",
+      "e8g8",
+      "d5d2"
+     ],
+     "gain": 9,
+     "safe": false
+    },
+    {
+     "uci": "d8d6",
+     "eval": {
+      "cp": 989
+     },
+     "line": [
+      "d8d6",
+      "e5d6",
+      "e7d6",
+      "f1e2",
+      "e8g8",
+      "f4g5"
+     ],
+     "gain": 8,
+     "safe": false
+    },
+    {
+     "uci": "d8d7",
+     "eval": {
+      "cp": 678
+     },
+     "line": [
+      "d8d7",
+      "e5f6",
+      "g7f6",
+      "d1d7",
+      "c8d7",
+      "c3d5"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "e7e6",
+     "eval": {
+      "cp": 702
+     },
+     "line": [
+      "e7e6",
+      "d1d8",
+      "e8d8",
+      "e5f6",
+      "g7f6",
+      "e1c1",
+      "c8d7"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "e8f8",
+     "eval": {
+      "cp": 1377
+     },
+     "line": [
+      "e8f8",
+      "d1d8",
+      "f6e8",
+      "d8c8",
+      "b8c6",
+      "c8a8",
+      "c6d4"
+     ],
+     "gain": 17,
+     "safe": false
+    },
+    {
+     "uci": "e8g8",
+     "eval": {
+      "cp": 644
+     },
+     "line": [
+      "e8g8",
+      "e5f6",
+      "g7f6",
+      "d1d8",
+      "f8d8",
+      "f4c7",
+      "f6c3",
+      "b2c3",
+      "d8d5"
+     ],
+     "gain": 3,
+     "safe": false
+    },
+    {
+     "uci": "f6d5",
+     "eval": {
+      "cp": 721
+     },
+     "line": [
+      "f6d5",
+      "d1d5",
+      "e8g8",
+      "d5c5",
+      "c7c6",
+      "c5e3"
+     ],
+     "gain": 3,
+     "safe": false
+    },
+    {
+     "uci": "f6d7",
+     "eval": {
+      "cp": 58
+     }
+    },
+    {
+     "uci": "f6e4",
+     "eval": {
+      "cp": 737
+     },
+     "line": [
+      "f6e4",
+      "d1d8",
+      "e8d8",
+      "c3e4",
+      "b8c6",
+      "e1c1",
+      "d8e8"
+     ],
+     "gain": 3,
+     "safe": false
+    },
+    {
+     "uci": "f6g4",
+     "eval": {
+      "cp": 200
+     },
+     "line": [
+      "f6g4",
+      "g1f3"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "f6g8",
+     "eval": {
+      "cp": 222
+     },
+     "line": [
+      "f6g8",
+      "d1d8",
+      "e8d8",
+      "e1c1",
+      "c8d7",
+      "h2h4"
+     ],
+     "gain": 0,
+     "safe": true
+    },
+    {
+     "uci": "f6h5",
+     "eval": {
+      "cp": 69
+     }
+    },
+    {
+     "uci": "g6g5",
+     "eval": {
+      "cp": 710
+     },
+     "line": [
+      "g6g5",
+      "d1d8",
+      "e8d8",
+      "e5f6",
+      "g7f6",
+      "e1c1",
+      "b8d7"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "g7f8",
+     "eval": {
+      "cp": 721
+     },
+     "line": [
+      "g7f8",
+      "d1d8",
+      "e8d8",
+      "e5f6",
+      "e7f6",
+      "c3b5"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "g7h6",
+     "eval": {
+      "cp": 861
+     },
+     "line": [
+      "g7h6",
+      "d1d8",
+      "e8d8",
+      "f4h6",
+      "f6d7",
+      "g1f3"
+     ],
+     "gain": 3,
+     "safe": false
+    },
+    {
+     "uci": "h7h5",
+     "eval": {
+      "cp": 694
+     },
+     "line": [
+      "h7h5",
+      "e5f6",
+      "g7f6",
+      "d1d8",
+      "e8d8",
+      "e1c1",
+      "c8d7"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "h7h6",
+     "eval": {
+      "cp": 703
+     },
+     "line": [
+      "h7h6",
+      "d1d8",
+      "e8d8",
+      "e5f6",
+      "g7f6",
+      "e1c1",
+      "b8d7"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "h8f8",
+     "eval": {
+      "cp": 722
+     },
+     "line": [
+      "h8f8",
+      "e5f6",
+      "g7f6",
+      "d1d8",
+      "e8d8",
+      "e1c1",
+      "c8d7"
+     ],
+     "gain": 2,
+     "safe": false
+    },
+    {
+     "uci": "h8g8",
+     "eval": {
+      "cp": 718
+     },
+     "line": [
+      "h8g8",
+      "e5f6",
+      "g7f6",
+      "d1d8",
+      "e8d8",
+      "e1c1",
+      "c8d7"
+     ],
+     "gain": 2,
+     "safe": false
+    }
+   ]
+  },
+  {
+   "id": "own:XLCmExKA:38",
+   "kind": "own",
+   "cls": "hung_piece",
+   "fenBefore": "r1r3k1/p3npbp/4p1p1/2np4/5P2/B1N3P1/P5BP/R4RK1 w - - 2 19",
+   "lastMove": "a1c1",
+   "lastMoveSan": "Rac1",
+   "side": "black",
+   "phase": "middlegame",
+   "facingThreat": false,
+   "nothingToWin": false,
+   "wasWinning": true,
+   "winBefore": 93.2,
+   "top": [
+    {
+     "uci": "c5d3",
+     "san": "Nd3",
+     "win": 92.84,
+     "eval": {
+      "cp": -696
+     },
+     "pv": [
+      "c5d3",
+      "c1b1",
+      "c8c3",
+      "a3e7",
+      "g7d4",
+      "g1h1"
+     ]
+    },
+    {
+     "uci": "e7f5",
+     "san": "Nf5",
+     "win": 89.6,
+     "eval": {
+      "cp": -585
+     },
+     "pv": [
+      "e7f5",
+      "c3b5",
+      "a7a6",
+      "c1c5",
+      "a6b5",
+      "c5c8"
+     ]
+    },
+    {
+     "uci": "g7f8",
+     "san": "Bf8",
+     "win": 86.78,
+     "eval": {
+      "cp": -511
+     },
+     "pv": [
+      "g7f8",
+      "f1f3",
+      "e7f5",
+      "c3e2",
+      "c5d7",
+      "c1c8"
+     ]
+    },
+    {
+     "uci": "g7d4",
+     "san": "Bd4+",
+     "win": 86.39,
+     "eval": {
+      "cp": -502
+     },
+     "pv": [
+      "g7d4",
+      "g1h1",
+      "c5d3",
+      "c3e2",
+      "d4c5",
+      "a3c5"
+     ]
+    },
+    {
+     "uci": "c5d7",
+     "san": "Nd7",
+     "win": 82.71,
+     "eval": {
+      "cp": -425
+     },
+     "pv": [
+      "c5d7",
+      "c3b5",
+      "e7f5",
+      "b5c7",
+      "a8b8",
+      "c7a6"
+     ]
+    }
+   ],
+   "topComplete": true,
+   "human": {
+    "uci": "c5e4",
+    "san": "Ne4",
+    "win": 32.54,
+    "eval": {
+     "cp": 198
+    },
+    "passes": false,
+    "judgment": "Blunder",
+    "lichessJudgment": "Blunder",
+    "drop": 61.6
+   },
+   "threat": {
+    "loss": 17.8,
+    "material": 0,
+    "mateIn": null,
+    "real": false,
+    "line": [
+     "c3b5",
+     "c5d3"
+    ],
+    "lineSan": [
+     "Nb5",
+     "Nd3"
+    ]
+   },
+   "facts": [
+    {
+     "t": "allowed",
+     "move": "Ne4",
+     "reply": "Nxe4",
+     "line": [
+      "c5e4",
+      "c3e4",
+      "e7f5",
+      "e4d6",
+      "c8c1",
+      "f1c1",
+      "g7f8",
+      "c1c6"
+     ],
+     "lineSan": [
+      "Ne4",
+      "Nxe4",
+      "Nf5",
+      "Nd6",
+      "Rxc1",
+      "Rxc1",
+      "Bf8",
+      "Rc6"
+     ],
+     "gain": 3,
+     "wins": {
+      "piece": "n",
+      "square": "e4"
+     }
+    }
+   ],
+   "context": {
+    "gameId": "XLCmExKA",
+    "date": "2026-10-11",
+    "tc": "300+3",
+    "speed": "blitz",
+    "rated": true,
+    "moveNumber": 19,
+    "clockMs": 129950,
+    "spentMs": 18280
+   }
+  },
+  {
+   "id": "own:u820NzSm:22",
+   "kind": "own",
+   "cls": "allowed_longer_tactic",
+   "fenBefore": "r2q1rk1/pp3ppp/2bbpn2/3pN3/3P4/7P/PPP2PP1/RNBQ1RK1 w - - 3 11",
+   "lastMove": "c1g5",
+   "lastMoveSan": "Bg5",
+   "side": "black",
+   "phase": "opening",
+   "facingThreat": false,
+   "nothingToWin": false,
+   "wasWinning": false,
+   "winBefore": 54.9,
+   "top": [
+    {
+     "uci": "h7h6",
+     "san": "h6",
+     "win": 55.59,
+     "eval": {
+      "cp": -61
+     },
+     "pv": [
+      "h7h6",
+      "g5f6"
+     ]
+    },
+    {
+     "uci": "d8a5",
+     "san": "Qa5",
+     "win": 54.68,
+     "eval": {
+      "cp": -51
+     },
+     "pv": [
+      "d8a5",
+      "b1c3",
+      "f6d7",
+      "e5d7",
+      "c6d7",
+      "c3e2"
+     ]
+    },
+    {
+     "uci": "d8c7",
+     "san": "Qc7",
+     "win": 53.58,
+     "eval": {
+      "cp": -39
+     },
+     "pv": [
+      "d8c7",
+      "g5f6"
+     ]
+    },
+    {
+     "uci": "d8b6",
+     "san": "Qb6",
+     "win": 53.31,
+     "eval": {
+      "cp": -36
+     },
+     "pv": [
+      "d8b6",
+      "e5c6"
+     ]
+    },
+    {
+     "uci": "d8b8",
+     "san": "Qb8",
+     "win": 52.85,
+     "eval": {
+      "cp": -31
+     },
+     "pv": [
+      "d8b8",
+      "g5f4"
+     ]
+    }
+   ],
+   "topComplete": false,
+   "human": {
+    "uci": "d6e5",
+    "san": "Bxe5",
+    "win": 17.09,
+    "eval": {
+     "cp": 429
+    },
+    "passes": false,
+    "judgment": "Blunder",
+    "lichessJudgment": null,
+    "drop": 36.5
+   },
+   "threat": {
+    "loss": 5.4,
+    "material": 0,
+    "mateIn": null,
+    "real": false,
+    "line": [
+     "e5g4",
+     "g8h8",
+     "f1e1",
+     "d6e7",
+     "b1d2",
+     "d8c7"
+    ],
+    "lineSan": [
+     "Ng4",
+     "Kh8",
+     "Re1",
+     "Be7",
+     "Nd2",
+     "Qc7"
+    ]
+   },
+   "facts": [
+    {
+     "t": "allowed",
+     "move": "Bxe5",
+     "reply": "dxe5",
+     "line": [
+      "d6e5",
+      "d4e5",
+      "h7h6",
+      "g5h4",
+      "g7g5",
+      "e5f6",
+      "d8f6",
+      "h4g3"
+     ],
+     "lineSan": [
+      "Bxe5",
+      "dxe5",
+      "h6",
+      "Bh4",
+      "g5",
+      "exf6",
+      "Qxf6",
+      "Bg3"
+     ],
+     "gain": 2,
+     "wins": {
+      "piece": "b",
+      "square": "e5"
+     }
+    }
+   ],
+   "context": {
+    "gameId": "u820NzSm",
+    "date": "2026-10-11",
+    "tc": "300+3",
+    "speed": "blitz",
+    "rated": true,
+    "moveNumber": 11,
+    "clockMs": 210270,
+    "spentMs": 11320
+   }
+  }
+ ]
+}

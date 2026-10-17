@@ -196,6 +196,9 @@
   display: inline-block;
   min-width: 22px;
 }
+.labels-legend {
+  margin: 8px 2px 0;
+}
 
 /* key moments */
 .key-moments {

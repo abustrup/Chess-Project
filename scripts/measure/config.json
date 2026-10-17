@@ -1,0 +1,42 @@
+{
+  "about": "Settings for the daily measuring job (.github/workflows/measure.yml, scripts/measure/daily.py). Paths are relative to the repo root. The prereg hashes must equal preregistration.md section 3.9; the job refuses to run when a file, or the two lists, differ. tc is the pre-registered 600+0 and is only checked here: the job refuses any other value. The same holds for paths.trainerPage (it decides U) and for the newcomer pin: newcomers.sha256 and paths.newcomers must be the ones preregistration.md names, or the job refuses.",
+  "user": "abustrup",
+  "tc": "600+0",
+  "prereg": {
+    "dir": "research/2026-10-16-diagnosis/prereg",
+    "doc": "research/2026-10-16-diagnosis/preregistration.md",
+    "hashes": {
+      "lichess_rule.py": "dee1754b2db1cfee08be8ae017edd969e2b8f56c937e91eac7b5de5a651a871b",
+      "measure.py": "8e6c1c25f5878bc4ca1b3ffc23c0bcc1bedfd2988e387117b0dae8386a6dcb99",
+      "verdict.py": "916f3d67d278d88a1f2f958bc75a52c9f2171ac75b7cec5b1bf67543d3d17140",
+      "check_instrument.py": "4b5e000136eb61fa99c7723f2191227e08a9c85fded2c03d4f1dda4ad8fca797",
+      "power_sim.py": "8bf157002bc28697fc3b18279f76522fcf53207a692e8ba9b4a403dd3fdc865d",
+      "power_results.json": "cb45ec0a5fc5990a83cc35b7365f1f2693ce1642da4a5ba7074a5ade64047876"
+    }
+  },
+  "instrumentInputs": {
+    "about": "The saved files check_instrument.py compares against (his 31 blitz games with opponent names replaced, 2026-10-16). Not in the prereg table, pinned here so the fixture check cannot pass on edited inputs.",
+    "hashes": {
+      "research/2026-10-16-diagnosis/my-games/lichess_abustrup.ndjson": "b6ba04e6914ba4fac73fa2969484e637d3d6e51291f9e8b3ac71000669422074",
+      "research/2026-10-16-diagnosis/my-games/engine/sf_250k_bothnull.jsonl": "87a57664bca8a31ea1514a242948adc447c967d533b8207c86fdab7b78762d37",
+      "research/2026-10-16-diagnosis/my-games/out/games.json": "6bb5d0730e31ae633058aaf64f0b64ef63763728eba6f283677d049dbdb27b61"
+    }
+  },
+  "lichess": {
+    "about": "The study games come from measure.py's own fetch (rated rapid since 2026-10-16, its User-Agent). The extra perf types are fetched the same way for the Safety-check cards only; they never reach games.csv, because measure.py's filter keeps 10+0 games alone.",
+    "extraPerfTypes": "blitz,classical",
+    "retryWaitSeconds": 60
+  },
+  "newcomers": {
+    "about": "The matched-newcomer file pre-registered by its SHA-256 (preregistration.md answer 5 and 3.6; built by task N1, 2026-10-16). That version, and no other, binds once it is on the branch before the start of his game U+1. A later change is a deviation: the job reports it in status.json and computes the verdict with the other version too.",
+    "sha256": "c3ca7bbe73779d10fdc23f7533db495c6233f83311cee0d02201ac964516ae8a"
+  },
+  "paths": {
+    "data": "data/measure",
+    "public": "public/data/study",
+    "trainerPage": "src/pages/Safety.tsx",
+    "newcomers": "research/2026-10-16-diagnosis/newcomers/newcomers.json",
+    "cardBuilder": "scripts/safety/build_cards.py"
+  },
+  "nameScanAllow": []
+}

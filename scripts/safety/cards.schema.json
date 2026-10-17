@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/abustrup/Chess-Project/scripts/safety/cards.schema.json",
+  "title": "Safety-check card file (public/data/safety/cards.json)",
+  "description": "Written by scripts/safety/build_cards.py. Evals are White point of view ({cp} or {mate}); every `win` is the trainee's win% 0-100 on Lichess's retro scale (cp clamped to +-1000, mate N counted as (21 - min(10, |N|)) * 100 cp). Verdict order for a move the trainee makes: (1) own card and the move is human.uci: fail, 'That was the game move'; (2) held or quiet card with `moves`: the move's entry passes when retroAccept(side, entry.eval, top[0].eval) or entry.safe (the safety rule: under 15 points lost, no mate against him, under 2 points of material given away along its settled line); (3) the move is in top: pass when retroAccept(side, entry.eval, top[0].eval), i.e. entry.win > top[0].win - 4; (4) the move is human.uci (held or quiet card): human.passes; (5) topComplete: fail; (6) otherwise ask the browser engine (Lichess readiness rule) and compare with top[0].",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "generatedAt", "pipeline", "engine", "source", "counts", "cards"],
+  "properties": {
+    "version": { "const": 1 },
+    "generatedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$", "description": "Start time of the newest game included (not the wall clock, so rebuilds are byte-identical)." },
+    "pipeline": { "type": "string" },
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "nodes", "multipv", "threads", "hashMb", "freshHashEachSearch", "measurementNodes", "lineNodes", "extendNodes"],
+      "properties": {
+        "name": { "type": "string" },
+        "nodes": { "type": "integer", "minimum": 1, "description": "Nodes for the MultiPV search of each card and for the game move when it is not in top." },
+        "multipv": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "threads": { "type": "integer", "const": 1 },
+        "hashMb": { "type": "integer" },
+        "freshHashEachSearch": { "const": true },
+        "measurementNodes": { "type": "integer", "description": "The pre-registered measurement setting used to pick the positions (judgements, threat test)." },
+        "lineNodes": { "type": "integer" },
+        "extendNodes": { "type": "integer", "description": "Nodes per move when a stored line is lengthened by sequential searches." }
+      }
+    },
+    "source": { "type": "string" },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["own", "held", "quiet"],
+      "properties": { "own": { "type": "integer", "minimum": 0 }, "held": { "type": "integer", "minimum": 0 }, "quiet": { "type": "integer", "minimum": 0 } }
+    },
+    "cards": { "type": "array", "items": { "$ref": "#/$defs/card" } }
+  },
+  "$defs": {
+    "uci": { "type": "string", "pattern": "^[a-h][1-8][a-h][1-8][qrbn]?$" },
+    "square": { "type": "string", "pattern": "^[a-h][1-8]$" },
+    "piece": { "enum": ["p", "n", "b", "r", "q", "k"] },
+    "eval": {
+      "oneOf": [
+        { "type": "object", "additionalProperties": false, "required": ["cp"], "properties": { "cp": { "type": "integer" } } },
+        { "type": "object", "additionalProperties": false, "required": ["mate"], "properties": { "mate": { "type": "integer" } } }
+      ]
+    },
+    "uciLine": { "type": "array", "items": { "$ref": "#/$defs/uci" } },
+    "moveEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uci", "eval"],
+      "description": "One legal move of a held or quiet card, searched on its own (root_moves) at the card setting. Within 4 points of top[0]: only uci and eval. Otherwise also line, gain and safe.",
+      "properties": {
+        "uci": { "$ref": "#/$defs/uci" },
+        "eval": { "$ref": "#/$defs/eval" },
+        "line": { "$ref": "#/$defs/uciLine", "description": "The move's own line, starting with the move, its first 6 plies carried on until no exchange is left open." },
+        "gain": { "type": ["integer", "null"], "description": "Points of material he gives away along line (facts.claim_gain: the smaller of the median rule and the plain count at the end); null when the line still ends mid-exchange." },
+        "safe": { "type": "boolean", "description": "Under 15 points lost against top[0] (retro scale), no mate against him, and gain under 2 (or null)." }
+      }
+    },
+    "sanLine": { "type": "array", "items": { "type": "string", "minLength": 2 } },
+    "topEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uci", "san", "win", "eval", "pv"],
+      "properties": {
+        "uci": { "$ref": "#/$defs/uci" },
+        "san": { "type": "string" },
+        "win": { "type": "number", "minimum": 0, "maximum": 100, "description": "2 decimals, or more on a card where 2 would put a move on the other side of the 4-point line than its eval does." },
+        "eval": { "$ref": "#/$defs/eval" },
+        "pv": { "$ref": "#/$defs/uciLine", "description": "Engine line starting with this move, up to 6 plies: pv[1..] is the refutation to play on the board." }
+      }
+    },
+    "wins": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["piece", "square"],
+      "properties": { "piece": { "$ref": "#/$defs/piece" }, "square": { "$ref": "#/$defs/square" } }
+    },
+    "fact": {
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "He threatens {reply}, winning your {wins.piece} on {wins.square} / He threatens mate in {mateIn}, starting with {reply} / He threatens {reply}, winning material ({lineSan[0..2]}). Not 'His move ... threatens': on 5 of 74 threats naming a piece (2026-10-16) the piece could already be taken before his last move. The line starts from the position with the trainee to move but passing.",
+          "additionalProperties": false,
+          "required": ["t", "reply", "line", "lineSan"],
+          "properties": {
+            "t": { "const": "threat" }, "reply": { "type": "string" }, "line": { "$ref": "#/$defs/uciLine" }, "lineSan": { "$ref": "#/$defs/sanLine" },
+            "wins": { "$ref": "#/$defs/wins" }, "mateIn": { "type": "integer", "minimum": 1 }, "gain": { "type": "integer", "minimum": 2 }
+          }
+        },
+        {
+          "type": "object",
+          "description": "After {move}, he can play {reply} and win your {wins.piece} on {wins.square} / and mate in {mateIn} / and win material ({lineSan[1..3]}). The line starts with the game move.",
+          "additionalProperties": false,
+          "required": ["t", "move", "reply", "line", "lineSan"],
+          "properties": {
+            "t": { "const": "allowed" }, "move": { "type": "string" }, "reply": { "type": "string" }, "line": { "$ref": "#/$defs/uciLine" }, "lineSan": { "$ref": "#/$defs/sanLine" },
+            "wins": { "$ref": "#/$defs/wins" }, "mateIn": { "type": "integer", "minimum": 1 }, "gain": { "type": "integer", "minimum": 2 }
+          }
+        },
+        {
+          "type": "object",
+          "description": "His move left his {piece} on {square} unprotected: the best move takes it and the line nets {gain} points.",
+          "additionalProperties": false,
+          "required": ["t", "piece", "square", "line", "lineSan", "gain"],
+          "properties": {
+            "t": { "const": "free" }, "piece": { "$ref": "#/$defs/piece" }, "square": { "$ref": "#/$defs/square" },
+            "line": { "$ref": "#/$defs/uciLine" }, "lineSan": { "$ref": "#/$defs/sanLine" }, "gain": { "type": "integer", "minimum": 2 }
+          }
+        },
+        {
+          "type": "object",
+          "description": "Nothing was threatened here. (Passing would have cost him under 5 points.) Since 2026-10-17 quiet and held cards accept any safe move (moves[].safe), but the sentence stays as it is: 'safe' also needs the move to lose under 15 points, which 'keeps your pieces protected' does not say.",
+          "additionalProperties": false,
+          "required": ["t"],
+          "properties": { "t": { "const": "quiet" } }
+        }
+      ]
+    },
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "cls", "fenBefore", "lastMove", "lastMoveSan", "side", "phase", "facingThreat", "nothingToWin", "wasWinning", "winBefore", "top", "topComplete", "human", "threat", "facts", "context"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^(own|held|quiet):[A-Za-z0-9]{8}:[0-9]+$", "description": "kind:gameId:ply of his move (ply counted from 1)." },
+        "kind": { "enum": ["own", "held", "quiet"] },
+        "cls": { "enum": ["hung_piece", "ignored_threat", "allowed_short_mate", "allowed_longer_tactic", "missed_free_material", "missed_own_tactic", "missed_short_mate", "opening_positional", "positional_or_endgame", "held", "quiet"], "description": "Own cards: the my-games category (the last two only when he faced a concrete threat)." },
+        "fenBefore": { "type": "string", "description": "Position BEFORE the opponent's last move." },
+        "lastMove": { "$ref": "#/$defs/uci" },
+        "lastMoveSan": { "type": "string" },
+        "side": { "enum": ["white", "black"] },
+        "phase": { "enum": ["opening", "middlegame", "endgame"] },
+        "facingThreat": { "type": "boolean", "description": "The pre-registered threat test: passing would cost 15+ win% points and 2+ points of material or a mate." },
+        "nothingToWin": { "type": "boolean", "description": "Facing a threat, the best move is not a capture winning 2+ (static exchange), the best line wins nothing, no mate, and the best move leaves him at 65% or less." },
+        "wasWinning": { "type": "boolean", "description": "His win% before the move was 75 or more (measurement eval, no clamp)." },
+        "winBefore": { "type": "number", "minimum": 0, "maximum": 100 },
+        "top": { "type": "array", "minItems": 1, "maxItems": 5, "items": { "$ref": "#/$defs/topEntry" }, "description": "The moves a MultiPV 5 search picks, each then searched on its own at the same node count; sorted by win, best first." },
+        "topComplete": { "type": "boolean", "description": "True exactly when the last top entry fails the 4-point test, so any move outside top fails at once." },
+        "moves": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/moveEntry" }, "description": "Held and quiet cards only: every legal move, sorted by uci (the safety rule decides them all from stored data)." },
+        "human": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["uci", "san", "win", "eval", "passes", "judgment", "lichessJudgment", "drop"],
+          "properties": {
+            "uci": { "$ref": "#/$defs/uci" }, "san": { "type": "string" },
+            "win": { "type": "number", "minimum": 0, "maximum": 100 }, "eval": { "$ref": "#/$defs/eval" },
+            "passes": { "type": "boolean", "description": "Always false on own cards (as on Lichess); otherwise the 4-point test against top[0] or the safety rule (the game move's moves entry)." },
+            "judgment": { "enum": ["Inaccuracy", "Mistake", "Blunder", null], "description": "The pre-registered replication of Lichess's game-page label." },
+            "lichessJudgment": { "enum": ["Inaccuracy", "Mistake", "Blunder", null], "description": "Lichess's own label, when Lichess analysed the game." },
+            "drop": { "type": "number", "description": "Win% points the game move lost by the measurement evals (no clamp)." }
+          }
+        },
+        "threat": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["loss", "material", "mateIn", "real", "line", "lineSan"],
+              "properties": {
+                "loss": { "type": "number", "description": "Win% points he would lose by passing (null-move test, measurement setting)." },
+                "material": { "type": "integer" },
+                "mateIn": { "type": ["integer", "null"] },
+                "real": { "type": "boolean" },
+                "line": { "$ref": "#/$defs/uciLine", "description": "The opponent's best line if he passed, from the position after the pass." },
+                "lineSan": { "$ref": "#/$defs/sanLine" }
+              }
+            }
+          ]
+        },
+        "facts": { "type": "array", "items": { "$ref": "#/$defs/fact" } },
+        "context": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["gameId", "date", "tc", "speed", "rated", "moveNumber", "clockMs", "spentMs"],
+          "properties": {
+            "gameId": { "type": "string", "pattern": "^[A-Za-z0-9]{8}$" },
+            "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+            "tc": { "type": "string", "pattern": "^\\d+\\+\\d+$" },
+            "speed": { "enum": ["ultraBullet", "bullet", "blitz", "rapid", "classical", "correspondence"] },
+            "rated": { "type": "boolean" },
+            "moveNumber": { "type": "integer", "minimum": 1 },
+            "clockMs": { "type": ["integer", "null"], "description": "His clock when the position arose (before thinking)." },
+            "spentMs": { "type": ["integer", "null"] }
+          }
+        }
+      }
+    }
+  }
+}

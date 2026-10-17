@@ -211,6 +211,160 @@
   background: var(--bg-0);
 }
 
+/* text for screen readers only, such as "(opens in a new tab)" */
+.home .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------ study card */
+.home .study-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.home .study-card p {
+  margin: 0;
+}
+.home .study-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  flex-wrap: wrap;
+}
+.home .study-head .card-title {
+  margin: 0;
+}
+.home .study-count {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+}
+.home .study-number {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.home .study-track {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.home .study-bar {
+  position: relative;
+  height: 12px;
+  margin: 4px 0;
+  border-radius: 999px;
+  background: var(--bg-3);
+}
+.home .study-stretch {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.home .study-stretch.warm-up {
+  border-radius: 999px 0 0 999px;
+}
+.home .study-stretch.measured {
+  border-radius: 0 999px 999px 0;
+}
+/* the four stretches differ in pattern as well as colour, so the bar never relies on colour alone */
+.home .study-stretch.warm-up,
+.home .study-swatch.warm-up {
+  background: var(--bg-4);
+}
+.home .study-stretch.baseline,
+.home .study-swatch.baseline {
+  background: color-mix(in srgb, var(--accent) 55%, var(--bg-3));
+}
+.home .study-stretch.wash-in,
+.home .study-swatch.wash-in {
+  background: repeating-linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--good) 45%, var(--bg-3)) 0 4px,
+    var(--bg-3) 4px 8px
+  );
+}
+.home .study-stretch.measured,
+.home .study-swatch.measured {
+  background: color-mix(in srgb, var(--good) 45%, var(--bg-3));
+}
+.home .study-stretch + .study-stretch {
+  box-shadow: inset 2px 0 0 var(--bg-2);
+}
+.home .study-dot {
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--text);
+  border: 3px solid var(--bg-2);
+  box-shadow: 0 0 0 2px var(--accent);
+  transform: translate(-50%, -50%);
+}
+.home .study-ticks {
+  position: relative;
+  height: 16px;
+  font-size: 11.5px;
+}
+.home .study-ticks span {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+}
+.home .study-ticks span:last-child {
+  transform: translateX(-100%);
+}
+.home .study-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+}
+.home .study-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.home .study-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 10px;
+  border-radius: 3px;
+}
+.home .study-verdict,
+.home .study-backup {
+  align-items: flex-start;
+}
+.home .study-verdict > div,
+.home .study-backup > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.home .study-backup .btn {
+  align-self: flex-start;
+}
+/* zen shows the card only when it needs him, centred like the rest of zen Home */
+:root[data-zen='on'] .home .study-count {
+  justify-content: center;
+}
+:root[data-zen='on'] .home .study-backup .btn {
+  align-self: center;
+}
+
 /* ------------------------------------------------- rating + puzzle cards */
 .home .home-card {
   display: flex;

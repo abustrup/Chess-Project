@@ -84,7 +84,7 @@ function LichessForm() {
             className="input"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="for example DrNykterstein"
+            placeholder="your Lichess name"
             autoComplete="off"
             autoCapitalize="off"
             spellCheck={false}

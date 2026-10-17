@@ -25,11 +25,12 @@ function Stat({
   )
 }
 
-function perGame(count: number, games: number): string {
-  return games ? (count / games).toFixed(1) : '0'
-}
-
-export default function WorkOnPanel({ insights }: { insights: Insights }) {
+/**
+ * `showNumbers` is true only once the study has a verdict (verdict.json, after game 110 at the earliest). Until then the
+ * panel shows no blunder totals, no accuracy percentages, no average loss and no move count: with those on screen his
+ * blunder rate, which the study measures, would be one division away (preregistration.md answer 4).
+ */
+export default function WorkOnPanel({ insights, showNumbers = false }: { insights: Insights; showNumbers?: boolean }) {
   const n = insights.gamesAnalysed
   if (n === 0) {
     return (
@@ -49,7 +50,8 @@ export default function WorkOnPanel({ insights }: { insights: Insights }) {
     <section className="card zen-hide" aria-labelledby="rt-work">
       <h2 id="rt-work">What to work on</h2>
       <p className="muted small">
-        Based on {n} analysed game{n === 1 ? '' : 's'} and {insights.userMoves} of your moves.
+        Based on {n} analysed game{n === 1 ? '' : 's'}
+        {showNumbers ? ` and ${insights.userMoves} of your moves` : ''}.
       </p>
 
       <div className="rt-suggestions">
@@ -71,35 +73,39 @@ export default function WorkOnPanel({ insights }: { insights: Insights }) {
         ))}
       </div>
 
-      <h3 className="rt-chart-title">Your habits</h3>
-      <div className="rt-stats">
-        <Stat
-          value={insights.blunderRate.toFixed(1)}
-          label="blunders per 100 moves"
-          hint="A blunder is a move that throws away a big part of your winning chances."
-          tone={insights.blunderRate >= 4 ? 'bad' : insights.blunderRate >= 2 ? 'warn' : 'good'}
-        />
-        <Stat
-          value={perGame(hungPieces.count, n)}
-          label="pieces left hanging per game"
-          hint="Moves after which your opponent could take a piece for free."
-          tone={hungPieces.count / n >= 0.5 ? 'bad' : hungPieces.count / n >= 0.2 ? 'warn' : 'good'}
-        />
-        <Stat
-          value={perGame(missedChances.count, n)}
-          label="big chances missed per game"
-          hint="Positions where a move would have won at least a pawn and a half, and you played something else."
-          tone={missedChances.count / n >= 0.5 ? 'bad' : missedChances.count / n >= 0.2 ? 'warn' : 'good'}
-        />
-        <Stat
-          compact
-          value={`${insights.blunders} / ${insights.mistakes} / ${insights.inaccuracies}`}
-          label="blunders / mistakes / inaccuracies"
-          hint="Totals over all analysed games."
-        />
-      </div>
+      {!showNumbers && (
+        <p className="faint small rt-hidden-note">
+          Your blunder counts and accuracy stay hidden until your study has a verdict (after your 110th rated 10+0 game
+          at the earliest), so a running number cannot change how you play. The suggestions above still come from them.
+        </p>
+      )}
 
-      {insights.phases.length > 0 && (
+      {showNumbers && (
+        <>
+          <h3 className="rt-chart-title">Your habits</h3>
+          {/* Counts only, no rates (no "per 100 moves", no "per game"), and only after the verdict (see above). */}
+          <div className="rt-stats">
+            <Stat
+              compact
+              value={`${insights.blunders} / ${insights.mistakes} / ${insights.inaccuracies}`}
+              label="blunders / mistakes / inaccuracies"
+              hint="Totals over all analysed games. A blunder is a move that throws away a big part of your winning chances."
+            />
+            <Stat
+              value={String(hungPieces.count)}
+              label={`pieces left hanging, in ${hungPieces.games} of ${n} games`}
+              hint="Moves after which your opponent could take a piece for free. Totals over all analysed games."
+            />
+            <Stat
+              value={String(missedChances.count)}
+              label={`big chances missed, in ${missedChances.games} of ${n} games`}
+              hint="Positions where a move would have won at least a pawn and a half, and you played something else. Totals over all analysed games."
+            />
+          </div>
+        </>
+      )}
+
+      {showNumbers && insights.phases.length > 0 && (
         <>
           <h3 className="rt-chart-title">Accuracy in each part of the game</h3>
           <div className="rt-phases">
@@ -124,12 +130,12 @@ export default function WorkOnPanel({ insights }: { insights: Insights }) {
       {insights.openings.length > 0 && (
         <>
           <h3 className="rt-chart-title">Your openings</h3>
-          <div className="rt-openings" role="table" aria-label="Openings report">
+          <div className={`rt-openings ${showNumbers ? '' : 'no-loss'}`} role="table" aria-label="Openings report">
             <div className="rt-openings-head" role="row">
               <span role="columnheader">Opening</span>
               <span role="columnheader">Games</span>
               <span role="columnheader">Score</span>
-              <span role="columnheader">Avg. loss</span>
+              {showNumbers && <span role="columnheader">Avg. loss</span>}
             </div>
             {insights.openings.slice(0, 8).map((o) => (
               <div className={`rt-opening-row ${o.course?.yours ? 'yours' : ''}`} role="row" key={o.name}>
@@ -145,13 +151,13 @@ export default function WorkOnPanel({ insights }: { insights: Insights }) {
                 <span role="cell" title={`${o.wins} won, ${o.draws} drawn, ${o.losses} lost`}>
                   {o.scorePct === null ? '–' : `${Math.round(o.scorePct)}%`}
                 </span>
-                <span role="cell">{o.acpl === null ? '–' : Math.round(o.acpl)}</span>
+                {showNumbers && <span role="cell">{o.acpl === null ? '–' : Math.round(o.acpl)}</span>}
               </div>
             ))}
           </div>
           <p className="faint small">
-            <Lightbulb size={12} /> Score = points won out of games played (a win is 1, a draw is a half). Avg. loss =
-            average centipawn loss per move, lower is better.
+            <Lightbulb size={12} /> Score = points won out of games played (a win is 1, a draw is a half).
+            {showNumbers && ' Avg. loss = average centipawn loss per move, lower is better.'}
           </p>
         </>
       )}

@@ -1,0 +1,52 @@
+{
+ "_about": "Lichess GET /api/user/abustrup, fetched 2026-10-16 15:22 UTC (17:22 CEST), trimmed to id, username, perfs and count (no seenAt, no current game). Used by rating.check.ts and rating.e2e.ts as the mocked 2026-10-16 answer.",
+ "id": "abustrup",
+ "username": "abustrup",
+ "perfs": {
+  "bullet": {
+   "games": 0,
+   "rating": 1500,
+   "rd": 500,
+   "prog": 0,
+   "prov": true
+  },
+  "blitz": {
+   "games": 31,
+   "rating": 1017,
+   "rd": 64,
+   "prog": -117
+  },
+  "rapid": {
+   "games": 0,
+   "rating": 1500,
+   "rd": 500,
+   "prog": 0,
+   "prov": true
+  },
+  "classical": {
+   "games": 0,
+   "rating": 1500,
+   "rd": 500,
+   "prog": 0,
+   "prov": true
+  },
+  "correspondence": {
+   "games": 0,
+   "rating": 1500,
+   "rd": 500,
+   "prog": 0,
+   "prov": true
+  }
+ },
+ "count": {
+  "all": 31,
+  "rated": 31,
+  "draw": 0,
+  "loss": 22,
+  "win": 9,
+  "bookmark": 0,
+  "playing": 0,
+  "import": 0,
+  "me": 0
+ }
+}

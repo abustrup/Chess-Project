@@ -1,0 +1,453 @@
+{
+ "about": "Build report of scripts/safety/build_cards.py: inputs, counts, every left-out candidate with its reason, and the quiet picks. Deterministic, so a rebuild gives the same file.",
+ "pipeline": "scripts/safety/build_cards.py v1 code 381d2b39ae90",
+ "engine": {
+  "name": "Stockfish 19",
+  "nodes": 1000000,
+  "multipv": 5,
+  "threads": 1,
+  "hashMb": 64,
+  "freshHashEachSearch": true,
+  "measurementNodes": 250000,
+  "lineNodes": 250000,
+  "extendNodes": 250000
+ },
+ "source": "Lichess games of abustrup: 31 rated games (31 blitz), 2026-10-10 to 2026-10-15",
+ "games": [
+  "bdOFlcdq",
+  "uUCQ83zH",
+  "B4575r7G",
+  "FWvViwBk",
+  "EMxzd6WS",
+  "hHlIiQJZ",
+  "XLCmExKA",
+  "tSVRiDh0",
+  "KC803zNe",
+  "Rw8CfgsO",
+  "YqqVv08X",
+  "msCRozP2",
+  "u820NzSm",
+  "WwmpftBa",
+  "bkKIi4iM",
+  "yXoWmgsR",
+  "W6Nhrt3P",
+  "USKGIQT0",
+  "TLcQymUZ",
+  "oTRkBfJ0",
+  "K0WK1qZB",
+  "4z8iRBwu",
+  "ioPKeFeP",
+  "9Kgsnfwd",
+  "i4ehkEq3",
+  "h2CvZgjE",
+  "pEKoVG79",
+  "gugQaOdT",
+  "tf4EY5pN",
+  "gKsIWaAv",
+  "pfUcWPlw"
+ ],
+ "counts": {
+  "own": 81,
+  "held": 80,
+  "quiet": 21
+ },
+ "excluded": [
+  {
+   "id": "own:bdOFlcdq:67",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "already lost: his win% before the move was 3.4 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 2.2 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:bdOFlcdq:75",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "already lost: his win% before the move was 4.1 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 3.9 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:FWvViwBk:49",
+   "kind": "own",
+   "judgment": "Blunder",
+   "lichessJudgment": null,
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "already lost: his win% before the move was 8.6 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 8.0 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:EMxzd6WS:20",
+   "kind": "own",
+   "judgment": "Blunder",
+   "lichessJudgment": null,
+   "category": "allowed_short_mate",
+   "reasons": [
+    "already lost: his win% before the move was 7.9 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 7.8 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:tSVRiDh0:68",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "missed_own_tactic",
+   "reasons": [
+    "not a \"Learn from your mistakes\" move: win% swing 5.5 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:tSVRiDh0:78",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "missed_free_material",
+   "reasons": [
+    "not a \"Learn from your mistakes\" move: win% swing 9.8 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:tSVRiDh0:98",
+   "kind": "own",
+   "judgment": "Blunder",
+   "lichessJudgment": null,
+   "category": "hung_piece",
+   "reasons": [
+    "not a \"Learn from your mistakes\" move: win% swing 8.4 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:KC803zNe:65",
+   "kind": "own",
+   "judgment": "Blunder",
+   "lichessJudgment": "Blunder",
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "already lost: his win% before the move was 7.4 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 7.1 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:KC803zNe:67",
+   "kind": "own",
+   "judgment": "Blunder",
+   "lichessJudgment": "Blunder",
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "already lost: his win% before the move was 9.0 (below 10)"
+   ]
+  },
+  {
+   "id": "own:YqqVv08X:50",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": "Mistake",
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "already lost: his win% before the move was 3.2 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 3.0 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:YqqVv08X:54",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": "Mistake",
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "already lost: his win% before the move was 3.7 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 3.5 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:WwmpftBa:32",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "already lost: his win% before the move was 6.8 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 6.2 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:TLcQymUZ:38",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "allowed_short_mate",
+   "reasons": [
+    "already lost: his win% before the move was 4.9 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 4.8 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:ioPKeFeP:79",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "allowed_short_mate",
+   "reasons": [
+    "already lost: his win% before the move was 6.6 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 6.6 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:ioPKeFeP:91",
+   "kind": "own",
+   "judgment": "Blunder",
+   "lichessJudgment": null,
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "already lost: his win% before the move was 9.6 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 9.0 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:ioPKeFeP:111",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "already lost: his win% before the move was 4.1 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 3.3 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:ioPKeFeP:115",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "already lost: his win% before the move was 3.2 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 2.0 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "held:i4ehkEq3:44",
+   "kind": "held",
+   "judgment": "Inaccuracy",
+   "lichessJudgment": null,
+   "category": "hung_piece",
+   "reasons": [
+    "the card search (1M nodes) finds the game move unsafe: its line gives away 2 points of material"
+   ]
+  },
+  {
+   "id": "own:i4ehkEq3:54",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "missed_own_tactic",
+   "reasons": [
+    "not a \"Learn from your mistakes\" move: win% swing 3.5 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "held:pfUcWPlw:30",
+   "kind": "held",
+   "judgment": null,
+   "lichessJudgment": null,
+   "category": "positional_or_endgame",
+   "reasons": [
+    "the card search (1M nodes) finds the game move unsafe: it costs 24.2 points against the best move (41.43 vs 65.66)"
+   ]
+  }
+ ],
+ "quietTried": [
+  {
+   "id": "quiet:bdOFlcdq:11",
+   "taken": false,
+   "why": "quiet share would pass 15% of the cards so far"
+  },
+  {
+   "id": "quiet:bdOFlcdq:45",
+   "taken": false,
+   "why": "quiet share would pass 15% of the cards so far"
+  },
+  {
+   "id": "quiet:bdOFlcdq:35",
+   "taken": false,
+   "why": "quiet share would pass 15% of the cards so far"
+  },
+  {
+   "id": "quiet:uUCQ83zH:15",
+   "taken": false,
+   "why": "quiet share would pass 15% of the cards so far"
+  },
+  {
+   "id": "quiet:uUCQ83zH:13",
+   "taken": false,
+   "why": "quiet share would pass 15% of the cards so far"
+  },
+  {
+   "id": "quiet:uUCQ83zH:19",
+   "taken": false,
+   "why": "quiet share would pass 15% of the cards so far"
+  },
+  {
+   "id": "quiet:B4575r7G:22",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:FWvViwBk:15",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:hHlIiQJZ:14",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:XLCmExKA:32",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:tSVRiDh0:22",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:KC803zNe:83",
+   "taken": false,
+   "why": "he had a forced mate"
+  },
+  {
+   "id": "quiet:KC803zNe:79",
+   "taken": false,
+   "why": "he had a forced mate"
+  },
+  {
+   "id": "quiet:KC803zNe:81",
+   "taken": false,
+   "why": "he had a forced mate"
+  },
+  {
+   "id": "quiet:Rw8CfgsO:95",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:YqqVv08X:18",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:msCRozP2:11",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:u820NzSm:20",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:WwmpftBa:12",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:bkKIi4iM:15",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:yXoWmgsR:37",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:USKGIQT0:32",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:oTRkBfJ0:23",
+   "taken": false,
+   "why": "his move is more than 4 points below the best in the card search"
+  },
+  {
+   "id": "quiet:oTRkBfJ0:19",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:4z8iRBwu:15",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:ioPKeFeP:13",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:9Kgsnfwd:14",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:i4ehkEq3:36",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:gugQaOdT:42",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:tf4EY5pN:13",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:gKsIWaAv:29",
+   "taken": false,
+   "why": "his move is more than 4 points below the best in the card search"
+  },
+  {
+   "id": "quiet:gKsIWaAv:69",
+   "taken": true,
+   "why": null
+  }
+ ],
+ "safetyRule": {
+  "held": {
+   "cards": 80,
+   "moves": 2826,
+   "within4": 170,
+   "safeOnly": 102,
+   "wrong": 2554,
+   "wrongMaterial": 2141
+  },
+  "quiet": {
+   "cards": 21,
+   "moves": 755,
+   "within4": 282,
+   "safeOnly": 257,
+   "wrong": 216,
+   "wrongMaterial": 176
+  }
+ },
+ "checks": {
+  "problems": 0,
+  "first": []
+ }
+}

@@ -1,0 +1,284 @@
+{
+ "_about": "His 31 rated Lichess blitz games, 2026-10-10 to 2026-10-15, numbers only (no opponent names, no game ids): time, side, time control, his rating before the game and its change, the opponent rating, his result. From research/2026-10-16-diagnosis/my-games/lichess_abustrup.ndjson. Used by rating.e2e.ts to fill the saved games for the history line.",
+ "games": [
+  {
+   "date": "2026-10-10T14:56:37.022000Z",
+   "side": "white",
+   "tc": "180+2",
+   "before": 1500,
+   "diff": -285,
+   "opponentBefore": 1446,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-10T15:07:15.039000Z",
+   "side": "white",
+   "tc": "180+2",
+   "before": 1215,
+   "diff": 113,
+   "opponentBefore": 1146,
+   "result": "win"
+  },
+  {
+   "date": "2026-10-10T15:09:24.519000Z",
+   "side": "black",
+   "tc": "180+2",
+   "before": 1328,
+   "diff": -70,
+   "opponentBefore": 1444,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-10T15:16:54.909000Z",
+   "side": "white",
+   "tc": "180+2",
+   "before": 1258,
+   "diff": -88,
+   "opponentBefore": 1243,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-10T15:25:00.948000Z",
+   "side": "black",
+   "tc": "180+2",
+   "before": 1170,
+   "diff": -64,
+   "opponentBefore": 1175,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-11T13:29:36.861000Z",
+   "side": "black",
+   "tc": "300+3",
+   "before": 1106,
+   "diff": 48,
+   "opponentBefore": 1044,
+   "result": "win"
+  },
+  {
+   "date": "2026-10-11T13:34:28.433000Z",
+   "side": "black",
+   "tc": "300+3",
+   "before": 1154,
+   "diff": 45,
+   "opponentBefore": 1114,
+   "result": "win"
+  },
+  {
+   "date": "2026-10-11T13:47:30.308000Z",
+   "side": "black",
+   "tc": "300+3",
+   "before": 1199,
+   "diff": -36,
+   "opponentBefore": 1242,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-11T14:00:45.804000Z",
+   "side": "white",
+   "tc": "180+2",
+   "before": 1163,
+   "diff": 43,
+   "opponentBefore": 1213,
+   "result": "win"
+  },
+  {
+   "date": "2026-10-11T17:40:21.696000Z",
+   "side": "white",
+   "tc": "300+3",
+   "before": 1206,
+   "diff": 28,
+   "opponentBefore": 1150,
+   "result": "win"
+  },
+  {
+   "date": "2026-10-11T17:57:10.581000Z",
+   "side": "black",
+   "tc": "300+3",
+   "before": 1234,
+   "diff": -19,
+   "opponentBefore": 1378,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-11T18:12:01.255000Z",
+   "side": "white",
+   "tc": "300+3",
+   "before": 1215,
+   "diff": -37,
+   "opponentBefore": 1133,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-11T18:23:44.391000Z",
+   "side": "black",
+   "tc": "300+3",
+   "before": 1178,
+   "diff": -20,
+   "opponentBefore": 1260,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-12T17:21:48.595000Z",
+   "side": "black",
+   "tc": "300+3",
+   "before": 1158,
+   "diff": -22,
+   "opponentBefore": 1199,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-12T17:26:50.940000Z",
+   "side": "white",
+   "tc": "300+3",
+   "before": 1136,
+   "diff": -22,
+   "opponentBefore": 1176,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-12T17:35:04.885000Z",
+   "side": "white",
+   "tc": "300+3",
+   "before": 1114,
+   "diff": 18,
+   "opponentBefore": 1062,
+   "result": "win"
+  },
+  {
+   "date": "2026-10-12T18:06:36.108000Z",
+   "side": "white",
+   "tc": "300+3",
+   "before": 1132,
+   "diff": 24,
+   "opponentBefore": 1184,
+   "result": "win"
+  },
+  {
+   "date": "2026-10-12T19:18:47.349000Z",
+   "side": "black",
+   "tc": "300+3",
+   "before": 1156,
+   "diff": -23,
+   "opponentBefore": 1094,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-12T19:30:24.531000Z",
+   "side": "black",
+   "tc": "300+3",
+   "before": 1133,
+   "diff": -15,
+   "opponentBefore": 1188,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-12T19:35:31.955000Z",
+   "side": "white",
+   "tc": "300+3",
+   "before": 1118,
+   "diff": 16,
+   "opponentBefore": 1103,
+   "result": "win"
+  },
+  {
+   "date": "2026-10-12T19:40:15.724000Z",
+   "side": "black",
+   "tc": "300+3",
+   "before": 1134,
+   "diff": -15,
+   "opponentBefore": 1147,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-12T19:49:12.348000Z",
+   "side": "white",
+   "tc": "300+3",
+   "before": 1119,
+   "diff": -16,
+   "opponentBefore": 1137,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-14T14:23:51.223000Z",
+   "side": "white",
+   "tc": "300+3",
+   "before": 1103,
+   "diff": -15,
+   "opponentBefore": 1138,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-14T15:00:10.617000Z",
+   "side": "black",
+   "tc": "300+3",
+   "before": 1088,
+   "diff": -13,
+   "opponentBefore": 1120,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-14T16:02:45.995000Z",
+   "side": "black",
+   "tc": "300+3",
+   "before": 1075,
+   "diff": -14,
+   "opponentBefore": 1088,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-14T16:17:11.824000Z",
+   "side": "white",
+   "tc": "180+0",
+   "before": 1061,
+   "diff": -12,
+   "opponentBefore": 1118,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-14T16:27:15.764000Z",
+   "side": "black",
+   "tc": "300+3",
+   "before": 1049,
+   "diff": -14,
+   "opponentBefore": 1022,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-14T18:41:06.514000Z",
+   "side": "black",
+   "tc": "300+3",
+   "before": 1035,
+   "diff": -11,
+   "opponentBefore": 1072,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-14T18:54:41.215000Z",
+   "side": "white",
+   "tc": "300+3",
+   "before": 1024,
+   "diff": 11,
+   "opponentBefore": 1012,
+   "result": "win"
+  },
+  {
+   "date": "2026-10-14T19:08:47.946000Z",
+   "side": "white",
+   "tc": "300+3",
+   "before": 1035,
+   "diff": -9,
+   "opponentBefore": 1136,
+   "result": "loss"
+  },
+  {
+   "date": "2026-10-15T15:41:23.542000Z",
+   "side": "black",
+   "tc": "180+2",
+   "before": 1026,
+   "diff": -9,
+   "opponentBefore": 1085,
+   "result": "loss"
+  }
+ ]
+}

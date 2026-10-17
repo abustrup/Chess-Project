@@ -1,0 +1,183 @@
+# The daily measuring job: the judge of the pre-registered study (research/2026-10-16-diagnosis/preregistration.md).
+# Free on this public repository. Every morning it:
+#   1. checks the 6 pre-registered files against their SHA-256 (preregistration.md section 3.9) and refuses otherwise;
+#   2. installs the pinned Stockfish 19 Linux build and runs check_instrument.py --engine on it (result in status.json
+#      as instrumentCheck and in the run summary);
+#   3. fetches Alexander's rated Lichess games (honest User-Agent), saves them without opponent names, counts his rated
+#      10+0 games with measure.py and appends the new rows to data/measure/games.csv (scripts/measure/daily.py);
+#      at games 110 and 160 it recounts everything from an empty cache and writes public/data/study/verdict.json;
+#   4. commits data/measure and public/data/study/status.json, then starts deploy.yml so the website shows the new count;
+#   5. rebuilds the Safety-check cards (scripts/safety/build_cards.py, when it exists) and commits them separately, so a
+#      card failure never holds back the measurement.
+# A failing step commits nothing. Each run adds a heartbeat row, so there is a commit every day, which also keeps
+# GitHub from switching the schedule off (it does that after 60 days without activity in a public repository).
+#
+# By hand: GitHub -> Actions -> "Daily measurement" -> Run workflow. "Dry run" (ticked by default) measures and shows the
+# result in the run summary and as a downloadable artifact, but commits and deploys nothing. Command line:
+#   gh workflow run measure.yml -f dry_run=true      (or dry_run=false for a real run)
+# The same steps on a Mac, from the repo root, are in scripts/measure/README.md.
+#
+# Pushing to a protected main: GitHub refuses a direct push from the job's own token once main requires pull requests
+# or status checks. So when the repository secret MEASURE_DEPLOY_KEY holds the private half of a write deploy key, the
+# checkout (and so every push below) uses that key instead, and the key is the one actor allowed to bypass the main
+# ruleset (scripts/measure/main-ruleset.json; steps in scripts/measure/README.md, "Pushing to a protected main").
+# Without the secret the job
+# pushes with its token, as before. The key cannot loosen anything the job checks: the hash check, the instrument
+# check and the measurement run before any push, whatever pushes.
+
+name: Daily measurement
+
+on:
+  schedule:
+    - cron: '23 4 * * *'   # every day at 04:23 UTC (06:23 in Copenhagen in summer); off the hour, when GitHub is less busy
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run: measure and show the result, but commit and deploy nothing'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write   # commit the measurement
+  actions: write    # start deploy.yml (a push made with the job's own token starts no workflow by itself)
+
+# One measurement at a time; a second start waits for the first instead of cancelling it.
+concurrency:
+  group: measure
+  cancel-in-progress: false
+
+env:
+  # Stockfish 19, the official Linux build (the same file and checks as content-checks.yml): GitHub's SHA-256 of the
+  # release file and the release's bench signature (2497913 nodes on every machine for the same engine).
+  SF_URL: https://github.com/official-stockfish/Stockfish/releases/download/sf_19/stockfish-linux-x86-64-universal.tar.gz
+  SF_SHA256: 9defc0d4e55d49c65a6d042f3e571a39fcea499ade6dbe741b53b8c65e03611f
+  SF_BENCH: '2497913'
+  DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+
+jobs:
+  measure:
+    runs-on: ubuntu-24.04
+    # A normal day takes minutes; the full recounts at games 110 and 160 take longer.
+    timeout-minutes: 300
+    steps:
+      - name: Get the code with its history (needed to date the trainer and the newcomer file)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          # empty when the secret is not set: then the job's token is used, as before (see the top of this file)
+          ssh-key: ${{ secrets.MEASURE_DEPLOY_KEY }}
+
+      - name: Install Python 3.12 and python-chess
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: python -m pip install --disable-pip-version-check chess==1.11.2
+
+      - name: Keep the Stockfish download between runs
+        uses: actions/cache@v4
+        with:
+          path: ~/sf-download
+          key: sf19-linux-${{ env.SF_SHA256 }}
+
+      - name: Install Stockfish 19 and check it is the same engine
+        run: |
+          set -euo pipefail
+          mkdir -p ~/sf-download
+          [ -s ~/sf-download/sf.tar.gz ] || curl -fsSL --retry 3 -o ~/sf-download/sf.tar.gz "$SF_URL"
+          echo "$SF_SHA256  $HOME/sf-download/sf.tar.gz" | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/sf" && tar -xzf ~/sf-download/sf.tar.gz -C "$RUNNER_TEMP/sf"
+          bin=""
+          while IFS= read -r f; do
+            chmod +x "$f"
+            # the answer is read in full first: `| grep -q` would stop reading at the match, and with pipefail the
+            # engine's broken pipe could then make a good binary look bad
+            out=$(printf 'uci\nquit\n' | "$f" 2>/dev/null) || true
+            if grep -q '^id name Stockfish 19' <<< "$out"; then bin="$f"; break; fi
+          done < <(find "$RUNNER_TEMP/sf" -type f -name 'stockfish*' ! -name '*.md' ! -name '*.txt')
+          [ -n "$bin" ] || { echo "No Stockfish 19 binary found in the release file"; find "$RUNNER_TEMP/sf" -type f; exit 1; }
+          nodes=$("$bin" bench 2>&1 | awk '/Nodes searched/ {print $NF}')
+          echo "Stockfish: $bin, bench $nodes nodes (expected $SF_BENCH)"
+          [ "$nodes" = "$SF_BENCH" ] || { echo "Bench signature differs: not the engine the results were made with"; exit 1; }
+          echo "STOCKFISH=$bin" >> "$GITHUB_ENV"
+
+      - name: The pre-registered files match their hashes
+        run: python -I -B scripts/measure/verify_prereg.py
+
+      - name: Instrument check (check_instrument.py --engine on this Stockfish)
+        run: >
+          python -I -B scripts/measure/run_instrument.py --stockfish "$STOCKFISH"
+          --out "$RUNNER_TEMP/instrument.json" --summary "$GITHUB_STEP_SUMMARY"
+
+      - name: Fetch and measure his new games
+        id: measure
+        run: >
+          python -I -B scripts/measure/daily.py --instrument "$RUNNER_TEMP/instrument.json" --stockfish "$STOCKFISH"
+          --workers 4 --work "$RUNNER_TEMP/measure" --summary "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit and push the measurement
+        id: push
+        if: env.DRY_RUN != 'true'
+        env:
+          MESSAGE: ${{ steps.measure.outputs.message }}
+          PUSH_BRANCH: ${{ github.ref_name }}
+          PUSHED_WITH: ${{ secrets.MEASURE_DEPLOY_KEY != '' && 'the deploy key MEASURE_DEPLOY_KEY' || 'the job token' }}
+        run: bash scripts/measure/push.sh "$MESSAGE" data/measure public/data/study
+
+      - name: Start the website deploy
+        if: steps.push.outputs.pushed == 'true'
+        continue-on-error: true   # the measurement is saved either way; deploy.yml reports its own problems
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref "$GITHUB_REF_NAME"
+
+      - name: Rebuild the Safety-check cards (when scripts/safety/build_cards.py exists)
+        id: cards
+        continue-on-error: true
+        timeout-minutes: 60
+        env:
+          WORKERS: '4'
+          PYTHON: python
+        run: bash scripts/measure/cards.sh
+
+      - name: Cards failed - keep the old cards and say so in status.json
+        if: steps.cards.outcome == 'failure'
+        run: |
+          for p in public/data/safety data/safety; do   # one by one: a folder that is not in the repo yet would stop both
+            git checkout HEAD -- "$p" 2>/dev/null || true
+            git clean -fdq -- "$p" 2>/dev/null || true
+          done
+          python -I -B scripts/measure/status_note.py --problem "The Safety-check cards were not rebuilt on $(date -u +%Y-%m-%d) (scripts/safety failed or ran over 60 minutes); the old cards stay and the measurement was saved."
+
+      - name: Commit and push the cards (or the note about them)
+        id: push_cards
+        if: env.DRY_RUN != 'true'
+        env:
+          PUSH_BRANCH: ${{ github.ref_name }}
+          PUSHED_WITH: ${{ secrets.MEASURE_DEPLOY_KEY != '' && 'the deploy key MEASURE_DEPLOY_KEY' || 'the job token' }}
+        run: >
+          bash scripts/measure/push.sh "Safety-check cards after the daily measurement"
+          public/data/safety data/safety public/data/study
+
+      - name: Start the website deploy again
+        if: steps.push_cards.outputs.pushed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref "$GITHUB_REF_NAME"
+
+      - name: Keep this run's results (status.json, the instrument check, the run log)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: measurement-${{ github.run_id }}
+          path: |
+            public/data/study/
+            data/measure/runs.csv
+            ${{ runner.temp }}/instrument.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Mark the run as failed when the cards failed (GitHub then sends its usual e-mail)
+        if: steps.cards.outcome == 'failure'
+        run: exit 1
