@@ -1,0 +1,53 @@
+Part 1: hand-made sentences
+ok   [expect true  got true ] bishop attacks the knight (Ruy Lopez)
+ok   [expect true  got true ] knight attacks e5
+ok   [expect true  got true ] e5 guarded by the c6-knight
+ok   [expect true  got true ] instruction under the move: pin the knight
+ok   [expect true  got true ] fork: check and attack
+ok   [expect true  got true ] pronoun continues the topic
+ok   [expect true  got true ] Ra8 is checkmate
+ok   [expect true  got true ] loose knight is hanging
+ok   [expect true  got true ] bishop trapped on a7
+ok   [expect true  got true ] e5 attacked twice (Scotch)
+ok   [expect true  got true ] pawn guarded by the queen behind it
+ok   [expect true  got true ] gambit pawn: you are a pawn up
+ok   [expect true  got true ] capture under the move
+ok   [expect true  got true ] White has mate in one
+ok   [expect true  got true ] rook on a8 gives check
+ok   [expect false got false] bishop does not attack e5
+ok   [expect false got false] c6-knight is not pinned (d7 pawn in between)
+ok   [expect false got false] f6-knight is pinned to the queen, not the king
+ok   [expect false got false] knight on c7 does not attack b7
+ok   [expect false got false] Ra7 is not mate
+ok   [expect false got false] no mate in two without the rook
+ok   [expect false got false] loose knight is not safe
+ok   [expect false got false] bishop on a7 can take b6 safely
+ok   [expect false got false] e5 is guarded once, not twice
+ok   [expect false got false] e5 is not undefended
+ok   [expect false got false] queen guard blocked by its own pawn
+ok   [expect false got false] gambit pawn: not a piece up
+ok   [expect false got false] exd5 took a pawn, not a knight
+ok   [expect false got false] no check on the board
+ok   [expect cnp   got cnp  ] conditional with an unwritten move
+ok   [expect cnp   got cnp  ] plan with a move in words
+ok   [expect true  got true ] plan with the move written out is tested
+ok   [expect cnp   got none ] question
+ok   [expect cnp   got cnp  ] hedged
+ok   [expect cnp   got cnp  ] counterfactual "before"
+
+35 cases (16 true, 14 false, 5 must-not-judge), 0 failed
+RESULT Part 1: 35 of 35 hand-made cases passed
+
+Part 2a: mutation test on the fixed set of real sentences (from the app text of 2026-10-16)
+mutated 93 true attack/guard claims to a wrong square: 93 judged false, 0 still judged true, 0 not judged
+RESULT Part 2a: 93 of 93 wrong squares caught (fixed set from 2026-10-16)
+
+Part 2b: the same mutation on the app text as it is now
+mutated 49 true attack/guard claims to a wrong square: 49 judged false, 0 still judged true, 0 not judged
+RESULT Part 2b: 49 of 49 wrong squares caught (today's text)
+looser mutation (wrong for the named piece only): 61 of 64 judged false (information only)
+
+Part 3: material claims made wrong on purpose (Stockfish)
+material claims turned wrong: 13 of 13 judged false, 0 judged true
+
+All checks passed

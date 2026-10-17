@@ -1,0 +1,1275 @@
+{
+ "conflicts": [],
+ "leaves": [
+  {
+   "chapter": "london/classic-pyramid",
+   "line": "d4 d5 Bf4 Nf6 e3 e6 Nf3 Bd6 Bg3 O-O Nbd2 c5 c3 Nc6 Bd3 b6",
+   "ply": 16,
+   "comment": "Black prepares to put a bishop on b7. This is the most natural plan. Your set-up is complete, and your next idea is the knight jump to e5 (see the big ideas of the course).",
+   "truncated": true,
+   "cutNext": "Ne5",
+   "cutComment": "The key idea of the whole London! The knight lands on e5, where it is protected by your d4 pawn and your bishop on g3, and it attacks the knight on c6 and the pawn on f7."
+  },
+  {
+   "chapter": "london/classic-pyramid",
+   "line": "d4 d5 Bf4 Nf6 e3 e6 Nf3 c5 c3 Nc6 Nbd2 Bd6 Bg3 O-O Bd3 b6",
+   "ply": 16,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/classic-pyramid",
+   "line": "d4 d5 Bf4 Nf6 e3 c6 Nf3 e6 Bd3 Bd6 Bg3 O-O Nbd2 b6 e4 dxe4",
+   "ply": 16,
+   "comment": "Black takes. Take back with the knight: Nxe4.",
+   "truncated": true,
+   "cutNext": "Nxe4",
+   "cutComment": ""
+  },
+  {
+   "chapter": "london/classic-pyramid",
+   "line": "d4 d5 Bf4 Nf6 e3 Ne4 Nd2 Nxd2 Qxd2 e6 Nf3 Nd7 Bd3 Bd6 h4 Qe7",
+   "ply": 16,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "h5",
+   "cutComment": "Gain space on the king-side."
+  },
+  {
+   "chapter": "london/classic-pyramid",
+   "line": "d4 d5 Bf4 Nf6 e3 Bg4 Nf3 e6 Nbd2 Bd6 h3 Bh5 Be2 O-O Ne5 Bxe2",
+   "ply": 16,
+   "comment": "Black takes your bishop. Take back with the queen: Qxe2. Your pieces are active.",
+   "truncated": true,
+   "cutNext": "Qxe2",
+   "cutComment": "Recapture with the queen. Your pieces are active."
+  },
+  {
+   "chapter": "london/classic-pyramid",
+   "line": "d4 Nf6 Bf4 e6 e3 c5 Nf3 d5",
+   "ply": 8,
+   "comment": "Black has reached the same position as 1.d4 d5 2.Bf4 Nf6 3.e3 e6 4.Nf3 c5 by another move order. Answer with c3, as in that line of this chapter.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/classic-pyramid",
+   "line": "d4 Nf6 Bf4 e6 e3 b6 Nf3 Bb7 Bd3 c5",
+   "ply": 10,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "O-O",
+   "cutComment": "Castle first, then build with c3 and Nbd2."
+  },
+  {
+   "chapter": "london/classic-pyramid",
+   "line": "d4 Nf6 Bf4 e6 e3 d5 Nf3 Bd6",
+   "ply": 8,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/classic-pyramid",
+   "line": "d4 Nf6 Bf4 d5 e3 e6 Nf3 Bd6",
+   "ply": 8,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/classic-pyramid",
+   "line": "d4 Nf6 Bf4 b6 e3 Bb7 Nf3 e6",
+   "ply": 8,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Bd3",
+   "cutComment": "Your bishop goes to a good diagonal, aiming towards Black's king side."
+  },
+  {
+   "chapter": "london/vs-nc6-e5",
+   "line": "d4 d5 Bf4 Nc6 e3 Nf6 Nf3 Bg4 h3 Bxf3 Qxf3 e6 Nd2 Bd6",
+   "ply": 14,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-nc6-e5",
+   "line": "d4 d5 Bf4 Nc6 e3 Nf6 Nf3 Bf5 Bb5 e6 Ne5 Bd6 Nxc6 bxc6 Bxc6+ Ke7",
+   "ply": 16,
+   "comment": "The king steps out of check. Now take the rook: Bxa8. You win a rook for your bishop and stay a pawn up.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-nc6-e5",
+   "line": "d4 d5 Bf4 Nc6 e3 Nf6 Nf3 Bf5 Bb5 e6 Ne5 a6 Ba4 Bd6",
+   "ply": 14,
+   "comment": "Black hits your knight on e5. Now take on c6: Nxc6, and if ...bxc6, Bxc6+ hits the rook on a8.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-nc6-e5",
+   "line": "d4 d5 Bf4 Nc6 e3 e5 Bxe5 Nxe5 dxe5 Bc5 Nf3 Ne7 Be2 O-O O-O",
+   "ply": 15,
+   "comment": "Your king is safe and you have an extra pawn. Very good for you.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-nc6-e5",
+   "line": "d4 d5 Bf4 Nc6 e3 Bf5 c4 e6 Nc3 Nf6 Nf3 Bb4",
+   "ply": 12,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-nc6-e5",
+   "line": "d4 d5 Bf4 Nc6 e3 Bg4 Qxg4 e5 Bxe5 h5 Qf3 f6",
+   "ply": 12,
+   "comment": "Black attacks your bishop. Step back to f4 or g3: you stay a whole piece up.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-nc6-e5",
+   "line": "d4 d5 Bf4 Nc6 e3 e6 Nf3 Bd6 Bg3 Nf6",
+   "ply": 10,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-nc6-e5",
+   "line": "d4 d5 Bf4 Nc6 e3 f6 Nf3 e5 dxe5 fxe5 Nxe5 Bd6",
+   "ply": 12,
+   "comment": "Black develops and attacks your knight on e5 a second time. Count again: it is attacked twice and guarded only by your bishop, so deal with it now. The simplest is Nxc6: after ...bxc6 you stay a clean pawn up.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-nc6-e5",
+   "line": "d4 d5 Bf4 Nc6 e3 a6 Nf3 Nf6",
+   "ply": 8,
+   "comment": "You are back in a normal position. Carry on with Bd3 or c3, Nbd2 and castling.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/mirror-bf5",
+   "line": "d4 d5 Bf4 Nf6 e3 Bf5 Nf3 e6 Bd3 Bxd3 Qxd3 Bd6 Bxd6 Qxd6 c4 dxc4",
+   "ply": 16,
+   "comment": "Black takes the pawn. Take it back with your queen: Qxc4. Your queen is active and the game is level.",
+   "truncated": true,
+   "cutNext": "Qxc4",
+   "cutComment": "Take the pawn back. Your queen is active."
+  },
+  {
+   "chapter": "london/mirror-bf5",
+   "line": "d4 d5 Bf4 Bf5 e3 e6 Nf3 Nf6 Bd3 Bxd3 Qxd3 c5",
+   "ply": 12,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/keep-calm-weird-moves",
+   "line": "d4 d6 Bf4 e5 dxe5 Nc6 Nf3 dxe5 Qxd8+ Kxd8 Nxe5 Nxe5 Bxe5 f6",
+   "ply": 14,
+   "comment": "Black attacks your bishop. Step back to g3 or f4: you stay a clean pawn up.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/keep-calm-weird-moves",
+   "line": "d4 d6 Bf4 e5 dxe5 dxe5 Qxd8+ Kxd8 Bxe5 Nc6",
+   "ply": 10,
+   "comment": "Black attacks your bishop. Step back to a safe square such as g3, and watch out for ...Nb4 hitting your c2 pawn.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/keep-calm-weird-moves",
+   "line": "d4 d6 Bf4 Nf6 e3 g6 Nf3 Bg7",
+   "ply": 8,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/keep-calm-weird-moves",
+   "line": "d4 b6 Nf3 Bb7 Bf4 e6 e3 Nf6 Bd3 c5 c3 Be7 Nbd2 O-O",
+   "ply": 14,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/keep-calm-weird-moves",
+   "line": "d4 h6 Bf4 d5 e3 Nf6 Nf3 e6 c4 Be7",
+   "ply": 10,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/keep-calm-weird-moves",
+   "line": "d4 Nc6 Bf4 d5",
+   "ply": 4,
+   "comment": "This is the same position as 1.d4 d5 2.Bf4 Nc6. The chapter \"Against ...Nc6 and the ...e5 counter-strike\" shows what to do: e3 next.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/keep-calm-weird-moves",
+   "line": "d4 Nc6 Bf4 Nf6 e3 d5",
+   "ply": 6,
+   "comment": "Again the same position as in the chapter \"Against ...Nc6 and the ...e5 counter-strike\" (after 3...Nf6 there). Play Nf3 next.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/keep-calm-weird-moves",
+   "line": "d4 Nc6 Bf4 d6 Nf3 Nf6",
+   "ply": 6,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/keep-calm-weird-moves",
+   "line": "d4 Nc6 Bf4 e5 dxe5 d6",
+   "ply": 6,
+   "comment": "Black wants to open lines. Develop with Nf3 and keep the extra pawn safe.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-kings-indian",
+   "line": "d4 Nf6 Bf4 g6 Nf3 Bg7 e3 O-O h3 d6 Be2 Nbd7 O-O e5 dxe5 dxe5 Nxe5",
+   "ply": 17,
+   "comment": "Take it. You are a clean pawn up. If Black takes back with 9...Nxe5, swap queens first with Qxd8 and only then take on e5 with the bishop.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-kings-indian",
+   "line": "d4 Nf6 Bf4 g6 Nf3 Bg7 e3 d6 h3 O-O Be2",
+   "ply": 11,
+   "comment": "Now you are back in the main line. Black can choose ...Nbd7, ...c5 or ...Nh5 from here.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-kings-indian",
+   "line": "d4 d5 Bf4 Nf6 e3 g6 Nf3 Bg7 h3 O-O Be2 c5 c3 Nc6 Nbd2 b6",
+   "ply": 16,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "O-O",
+   "cutComment": "Castle. Your plan from here: finish development, then think about pushing e4 to open the centre when your pieces are ready."
+  },
+  {
+   "chapter": "london/vs-kings-indian",
+   "line": "d4 g6 Bf4 Bg7 Nf3 Nf6",
+   "ply": 6,
+   "comment": "Now the position is the same as in the main line of this chapter. After 4.e3 O-O play h3.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-kings-indian",
+   "line": "d4 g6 Bf4 Bg7 Nf3 d6 e3 Nf6",
+   "ply": 8,
+   "comment": "The same position as after 4...d6 in this chapter. Play h3 next.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/early-c5",
+   "line": "d4 d5 Bf4 c5 e3 Nc6 c3 Nf6 Nd2 e6 Ngf3 Bd6 Bg3 O-O Bd3 b6",
+   "ply": 16,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Ne5",
+   "cutComment": "Land on e5, with the help of the pawn on d4."
+  },
+  {
+   "chapter": "london/early-c5",
+   "line": "d4 d5 Bf4 c5 e3 cxd4 exd4 Nc6 c3 Bf5 Qb3 Qd7 Nf3 e6 Nbd2 Nge7",
+   "ply": 16,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Nh4",
+   "cutComment": "Hit the bishop on f5."
+  },
+  {
+   "chapter": "london/early-c5",
+   "line": "d4 d5 Bf4 c5 e3 Qb6 Nc3 Nf6 dxc5 Qxc5 Nb5 Na6",
+   "ply": 12,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "a4",
+   "cutComment": "Protect the knight on b5 and keep it there."
+  },
+  {
+   "chapter": "london/early-c5",
+   "line": "d4 d5 Bf4 c5 e3 Qb6 Nc3 Qxb2 Nxd5 Bf5 Qb1 Qxb1+",
+   "ply": 12,
+   "comment": "Black swaps queens with check. Take back with the rook: Rxb1. Your rook is active and Nc7+ is coming.",
+   "truncated": true,
+   "cutNext": "Rxb1",
+   "cutComment": "Your rook is active and Nc7+ is coming."
+  },
+  {
+   "chapter": "london/early-c5",
+   "line": "d4 d5 Bf4 c5 e3 Qb6 Nc3 e6 Nb5 Na6 c3 Nf6",
+   "ply": 12,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Nf3",
+   "cutComment": "Develop."
+  },
+  {
+   "chapter": "london/early-c5",
+   "line": "d4 d5 Bf4 Nf6 e3 c5 c3 Qb6 Qb3 Qxb3 axb3 e6 Bxb8 Rxb8 Rxa7 Bd6",
+   "ply": 16,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/early-c5",
+   "line": "d4 Nf6 Bf4 c5 e3 cxd4 exd4 d5 c3 Nc6 Nf3 Bg4 Nbd2 e6 Qb3 Qc8",
+   "ply": 16,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/early-c5",
+   "line": "d4 Nf6 Bf4 c5 e3 d5 c3 Nc6 Nd2 e6",
+   "ply": 10,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Ngf3",
+   "cutComment": "The other knight comes out. You now have the classic London set-up."
+  },
+  {
+   "chapter": "london/early-c5",
+   "line": "d4 Nf6 Bf4 c5 e3 e6 Nf3 d5 c3 Nc6",
+   "ply": 10,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/early-c5",
+   "line": "d4 Nf6 Bf4 c5 e3 Qb6 Nc3 cxd4 exd4 a6",
+   "ply": 10,
+   "comment": "A good move. Black takes the b5 square away from your knight before thinking about b2.",
+   "truncated": true,
+   "cutNext": "a3",
+   "cutComment": "A quiet, useful move. It stops ...Bb4, which would pin your knight on c3 to your king."
+  },
+  {
+   "chapter": "london/early-c5",
+   "line": "d4 Nf6 Bf4 c5 e3 Nc6 d5 Nb4 c4",
+   "ply": 9,
+   "comment": "Protect d5 with another pawn. Now d5 is safe, and next you can kick the knight away with a3. Your queen guards c2, so ...Nxc2+ does not work.",
+   "truncated": false
+  },
+  {
+   "chapter": "london/early-c5",
+   "line": "d4 c5 d5 e5 e4 d6 Nc3 Be7",
+   "ply": 8,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/early-c5",
+   "line": "d4 c5 d5 Nf6 Nc3 d6 e4 g6",
+   "ply": 8,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-dutch",
+   "line": "d4 f5 Bf4 Nf6 e3 e6 Nf3 Be7 Bd3 O-O Nbd2 b6 h3 Bb7 O-O d6",
+   "ply": 16,
+   "comment": "Black stops your knight from coming to e5.",
+   "truncated": true,
+   "cutNext": "Qe2",
+   "cutComment": "Your queen gets ready to support the e4 push, your main plan against the Dutch. But first check one thing: once e4 is played and Black takes with ...fxe4, the f-file opens. As soon as the knight on f6 moves away, Black's rook on f8 looks straight at your bishop on f4, and no pawn guards it any more. Push e4 only when that bishop is safe or has stepped back to h2."
+  },
+  {
+   "chapter": "london/vs-dutch",
+   "line": "d4 f5 Bf4 Nf6 e3 g6 Nf3 Bg7 Be2 O-O O-O d6 h3 Nc6",
+   "ply": 14,
+   "comment": "",
+   "truncated": false
+  },
+  {
+   "chapter": "london/vs-dutch",
+   "line": "d4 f5 Bf4 g5 Bxg5 Nf6 Bxf6 exf6",
+   "ply": 8,
+   "comment": "Black takes back with the e-pawn. You are a clean pawn up and Black's king side is full of holes. Now just develop calmly: e3, then Bd3, Nf3 and castle.",
+   "truncated": true,
+   "cutNext": "e3",
+   "cutComment": "Now just develop calmly: e3, then Bd3, Nf3 and castle. Black's loose king side will be a target for the whole game."
+  },
+  {
+   "chapter": "caro-kann/exchange-others",
+   "line": "e4 c6 d4 d5 exd5 cxd5 Nf3 Nc6 c3 Nf6 Bd3 Bg4 O-O e6 Bf4",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Bd6",
+   "cutComment": "Offer a trade of the dark-squared bishops."
+  },
+  {
+   "chapter": "caro-kann/exchange-others",
+   "line": "e4 c6 d4 d5 exd5 cxd5 Nf3 Nc6 Bb5 Bd7 Bxc6 Bxc6 O-O e6 Ne5",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Bd6",
+   "cutComment": "Hit the knight and develop."
+  },
+  {
+   "chapter": "caro-kann/exchange-others",
+   "line": "e4 c6 d4 d5 exd5 cxd5 Nc3 Nc6 Nf3 Bg4 h3 Bxf3 Qxf3 e6 Be3",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Nf6",
+   "cutComment": "Develop the second knight. It adds one more guard to d5."
+  },
+  {
+   "chapter": "caro-kann/exchange-others",
+   "line": "e4 c6 d4 d5 exd5 cxd5 Bb5+ Bd7 Bxd7+ Qxd7 Nf3 Nc6 O-O Nf6 c3",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "e6",
+   "cutComment": "Support d5 and free your dark-squared bishop."
+  },
+  {
+   "chapter": "caro-kann/exchange-others",
+   "line": "e4 c6 d4 d5 exd5 cxd5 Bd3 Nc6 c3 Nf6 Bf4 Bg4 Qb3 Qd7 Nd2",
+   "ply": 15,
+   "comment": "White develops and prepares Ngf3.",
+   "truncated": true,
+   "cutNext": "e6",
+   "cutComment": "Now the pawn move. Your bishop is out, so nothing gets locked in. It supports d5 and frees your dark-squared bishop."
+  },
+  {
+   "chapter": "caro-kann/exchange-others",
+   "line": "e4 c6 d4 d5 exd5 cxd5 c4 Nf6 Nc3 e6 Nf3 Be7 cxd5 Nxd5 Bd3",
+   "ply": 15,
+   "comment": "White develops the bishop.",
+   "truncated": true,
+   "cutNext": "Nc6",
+   "cutComment": "Develop the last knight and hit the d4-pawn."
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nf3 d5 Nc3 Bg4 h3 Bxf3 Qxf3 e6 d4 dxe4 Nxe4 Qxd4 c3",
+   "ply": 15,
+   "comment": "White hits the queen. Step back with ...Qd5: from there she still attacks the knight on e4, and you stay a pawn up.",
+   "truncated": true,
+   "cutNext": "Qd5",
+   "cutComment": "Retreat to the centre. The queen attacks the knight on e4, so White has to look after it."
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nf3 d5 Nc3 Bg4 d4 e6 h3 Bxf3 Qxf3 dxe4 Qxe4 Nf6 Qh4",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Nbd7",
+   "cutComment": "Develop the last knight. You are comfortable."
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nf3 d5 e5 Bg4 d4 e6 h3 Bxf3 Qxf3 c5 Bb5+ Nc6 c3",
+   "ply": 15,
+   "comment": "White supports d4. Your plan: ...Qb6, ...Nge7 and ...cxd4, with pressure on the pawn chain.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nf3 d5 e5 Bg4 d4 e6 Be2 c5 c3",
+   "ply": 11,
+   "comment": "White supports d4. Develop with ...Nc6 next: it adds a second attacker on d4.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nf3 d5 e5 Bg4 h3 Bxf3 Qxf3 e6 d4",
+   "ply": 11,
+   "comment": "This is the same position as after 4.d4 e6 5.h3 Bxf3 6.Qxf3 in this chapter. Play ...c5.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nf3 d5 e5 Bg4 Be2 e6 d4",
+   "ply": 9,
+   "comment": "This is the same position as after 4.d4 e6 5.Be2 in this chapter. Play ...c5.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nf3 d5 exd5 cxd5 d4 Nc6 c4 Nf6 Nc3 e6 cxd5 exd5 Bb5",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Bd6",
+   "cutComment": "Develop the bishop so you can castle next. Once your king has moved, the pin on the c6-knight is gone."
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nf3 d5 exd5 cxd5 Ne5 e6 d4 Bd6 Bb5+ Bd7 Nxd7 Nxd7 c3",
+   "ply": 15,
+   "comment": "White supports d4. You continue with ...a6 and ...Ngf6, a level game.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nf3 d5 exd5 cxd5 Nc3 Nc6 d4",
+   "ply": 9,
+   "comment": "White takes the centre. This is the same position as 1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Nc3 Nc6 5.Nf3 in the Exchange Variation chapter. Play ...Bg4 next.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nf3 d5 exd5 cxd5 Nc3 Nc6 Bb5 e6 d4",
+   "ply": 11,
+   "comment": "White takes the centre. Continue with ...Bd6 and ...Nge7, then castle.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nf3 d5 exd5 cxd5 Bb5+ Bd7 Bxd7+ Qxd7 d4",
+   "ply": 11,
+   "comment": "This is the same position as in the Exchange Variation chapter after 4.Bb5+ Bd7 5.Bxd7+ Qxd7 6.Nf3. Continue with ...Nc6.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nf3 d5 d3 dxe4 dxe4 Qxd1+ Kxd1 Nf6 Nfd2 g6 f3",
+   "ply": 13,
+   "comment": "White supports e4. You play ...Bg7 and ...O-O or ...Nbd7. A comfortable, equal endgame.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nc3 d5 Nf3 Bg4 h3 Bxf3 Qxf3 e6 d4",
+   "ply": 11,
+   "comment": "White takes the centre. This is the same position as in the main line below, so continue with ...dxe4. A comfortable game.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nc3 d5 d4 dxe4 Nxe4 Bf5 Ng3",
+   "ply": 9,
+   "comment": "White chases your bishop. Retreat with ...Bg6 and follow the plan from the Classical chapter.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/two-knights",
+   "line": "e4 c6 Nc3 d5 exd5 cxd5 d4",
+   "ply": 7,
+   "comment": "White takes the centre. Now use the Exchange Variation plan: ...Nc6, ...Nf6 and ...Bg4 before ...e6.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 c3 d5 exd5 cxd5 d4 Nc6 Nf3 Nf6 Bd3 Bg4 O-O e6 Bf4",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Bd6",
+   "cutComment": "Offer a swap of the dark-squared bishops."
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 c3 d5 e5 Bf5 d4 e6 Be2 c5 Nf3 Nc6 O-O cxd4 cxd4",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Nge7",
+   "cutComment": "The knight protects the bishop and heads for f5 or g6."
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 c3 d5 d4 dxe4 Nd2 Nf6 Ne2",
+   "ply": 9,
+   "comment": "White wants to play Ng3 and win the pawn back. Answer with ...Bf5, which guards it once more (bishop out before ...e6). You are comfortable.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 d3 d5 Nd2 e5 Ngf3 Bd6 d4 exd4 Bd3 Bg4 O-O Ne7 h3",
+   "ply": 15,
+   "comment": "White asks the bishop what it wants to do. You can answer ...Bh5 and continue with ...Nd7 and ...O-O. A level game.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 Bc4 d5 exd5 cxd5 Bb3 Nf6 Nf3 Nc6 d4",
+   "ply": 11,
+   "comment": "White takes the centre. Now ...Bg4 pins the knight on f3, and after ...e6 your position is easy to play.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 Bc4 d5 exd5 cxd5 Bb3 Nf6 d4 Nc6 c3",
+   "ply": 11,
+   "comment": "White guards d4. Bring your bishop out to g4 or f5, then play ...e6.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 Bc4 d5 exd5 cxd5 Bb3 Nf6 Nc3 Nc6 d4",
+   "ply": 11,
+   "comment": "White takes the centre. Bring the bishop out to f5 or g4, then play ...e6.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 Bc4 d5 exd5 cxd5 Bb5+ Bd7 Bxd7+ Nxd7 Nf3 Ngf6 O-O",
+   "ply": 13,
+   "comment": "White castles. Continue with ...e6, ...Bd6 and castle.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 Bc4 d5 exd5 cxd5 Bb5+ Bd7 Bxd7+ Nxd7 d4 Ngf6 c3",
+   "ply": 13,
+   "comment": "White supports the pawn. You play ...e6 and ...Bd6, with a comfortable game.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 Bc4 d5 exd5 cxd5 Bb5+ Bd7 Qe2 Nc6 Nf3 e6 d4",
+   "ply": 13,
+   "comment": "White takes the centre. Continue with ...Bd6 and ...Nge7, then castle.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 Qe2 d5 exd5 cxd5 d4",
+   "ply": 7,
+   "comment": "White takes the centre.",
+   "truncated": true,
+   "cutNext": "Nc6",
+   "cutComment": "Develop a knight and hit d4."
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 g3 d5 Bg2 dxe4 Bxe4 Nf6 Bg2 e5 d3 Bd6 Nf3",
+   "ply": 13,
+   "comment": "White develops. You castle and play ...Re8 and ...Nbd7. A comfortable game.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 Nc3 d5 g3 dxe4 Nxe4 Nf6 Nxf6+ exf6 d4 Bd6 Bg2",
+   "ply": 13,
+   "comment": "White develops. You castle and play ...Re8. A comfortable position.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 Nc3 d5 Qf3 dxe4 Nxe4 Nd7 Qe2",
+   "ply": 9,
+   "comment": "Careful, this is a trap! The queen now stands behind the e4-knight, on the same file as your king. If you play 5...Ngf6??, then 6.Nd6 is checkmate: your e7-pawn cannot take the knight, because that would expose your king to the queen. The safe move is 5...Ndf6.",
+   "truncated": true,
+   "cutNext": "Ndf6",
+   "cutComment": "The safe move. The d7-knight goes to f6 and hits the knight on e4, and the d7-square is free again for your king. Your g8-knight can come out later."
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 c4 d5 exd5 cxd5 cxd5 Nf6 Nc3 Nxd5 Nf3 Nc6 d4 Bg4 Bb5",
+   "ply": 15,
+   "comment": "White pins your knight on c6.",
+   "truncated": true,
+   "cutNext": "e6",
+   "cutComment": "Support the knight and free the dark-squared bishop."
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 c4 d5 cxd5 cxd5 exd5 Nf6 Nc3 Nxd5 Nf3 Nc6 d4",
+   "ply": 13,
+   "comment": "This is the same position as after 3.exd5 cxd5 4.cxd5 Nf6 5.Nc3 Nxd5 6.Nf3 Nc6 7.d4 in this chapter. Play ...Bg4.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 Qf3 d5 exd5 cxd5 d4",
+   "ply": 7,
+   "comment": "White takes the centre. Develop with ...Nf6 and ...Nc6; later ...Bg4 can hit the queen on f3.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 e5 d5 d4",
+   "ply": 5,
+   "comment": "This is the Advance Variation (1.e4 c6 2.d4 d5 3.e5) by another move order. Play ...Bf5, as in the Advance chapters.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 e5 d5 exd6 exd6 d4",
+   "ply": 7,
+   "comment": "White takes the centre. Develop with ...Nf6 and ...Bd6, and castle.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 f4 d5 e5 Bf5 d4 e6 Nf3",
+   "ply": 9,
+   "comment": "White develops. Your plan: ...c5, ...Nc6 and ...Qb6 against d4.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/sidelines",
+   "line": "e4 c6 f4 d5 exd5 cxd5 Nf3",
+   "ply": 7,
+   "comment": "White develops. Continue with ...Nc6 and ...Bf5 or ...Bg4, then ...e6.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/gambits",
+   "line": "e4 c6 d4 d5 Nf3 dxe4 Ne5 Nd7 Nc3 Nxe5 dxe5 Qxd1+ Kxd1 Bf5 g3",
+   "ply": 15,
+   "comment": "White gets ready to develop the bishop. You play ...e6 and ...O-O-O+, and your extra pawn gives you a good endgame.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/gambits",
+   "line": "e4 c6 d4 d5 Bd3 dxe4 Bxe4 Nf6 Bf3 Bf5 Ne2 e6 O-O Be7 c4",
+   "ply": 15,
+   "comment": "White grabs space. You castle, then play ...Nbd7 and ...Re8. A balanced game.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/gambits",
+   "line": "e4 c6 d4 d5 Qf3 dxe4 Qxe4 g6 Bd3",
+   "ply": 9,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Bf5",
+   "cutComment": "Attack the queen. White must decide."
+  },
+  {
+   "chapter": "caro-kann/gambits",
+   "line": "e4 c6 d4 d5 Nc3 dxe4 f3 exf3 Nxf3 Bf5 Bd3 Bxd3 Qxd3 Nf6 Bg5",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Nbd7",
+   "cutComment": "Develop the last knight. It protects f6 and prepares ...e6."
+  },
+  {
+   "chapter": "caro-kann/gambits",
+   "line": "e4 c6 d4 d5 Nc3 dxe4 Bc4 Nf6 Nge2 Bf5 Ng3 Bg6 O-O e6 Re1",
+   "ply": 15,
+   "comment": "White develops the rook. You play ...Bb4 and ...O-O, keeping the extra pawn.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/gambits",
+   "line": "e4 c6 d4 d5 f3 dxe4 fxe4 e5 Nf3 Bg4 Bc4 Nd7 O-O Ngf6 h3",
+   "ply": 15,
+   "comment": "White asks the bishop what it wants to do. Take the knight with ...Bxf3.",
+   "truncated": true,
+   "cutNext": "Bxf3",
+   "cutComment": "Take the knight. This removes a defender of the centre and forces the queen to retake."
+  },
+  {
+   "chapter": "caro-kann/advance-short",
+   "line": "e4 c6 d4 d5 e5 Bf5 Nf3 e6 Be2 c5 Be3 cxd4 Nxd4 Ne7 O-O",
+   "ply": 15,
+   "comment": "White castles. Bring your last knight out with ...Nbc6 now: White is ready to hit d5 with c4, and you want your pieces out before the centre opens.",
+   "truncated": true,
+   "cutNext": "Nbc6",
+   "cutComment": "Develop the last knight. It attacks both d4 and e5."
+  },
+  {
+   "chapter": "caro-kann/advance-short",
+   "line": "e4 c6 d4 d5 e5 Bf5 Nf3 e6 Be2 c5 c3 Nc6 O-O cxd4 cxd4",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Nge7",
+   "cutComment": "The knight protects the bishop and heads for g6 or f5."
+  },
+  {
+   "chapter": "caro-kann/advance-short",
+   "line": "e4 c6 d4 d5 e5 Bf5 Nf3 e6 c3 c5 Bd3 Bxd3 Qxd3 Nc6 O-O",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Rc8",
+   "cutComment": "Use the open c-file once the pawns come off. The rook also protects the knight."
+  },
+  {
+   "chapter": "caro-kann/advance-short",
+   "line": "e4 c6 d4 d5 e5 Bf5 Nf3 e6 Bd3 Bxd3 Qxd3 c5 c3 Nc6 O-O",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Rc8",
+   "cutComment": "Get the rook onto the c-file where the action will happen."
+  },
+  {
+   "chapter": "caro-kann/advance-others",
+   "line": "e4 c6 d4 d5 e5 Bf5 Bd3 Bxd3 Qxd3 e6 Nf3 c5 dxc5 Bxc5 c4",
+   "ply": 15,
+   "comment": "White hits the d5-pawn.",
+   "truncated": true,
+   "cutNext": "Ne7",
+   "cutComment": "Protect d5 and get ready to castle."
+  },
+  {
+   "chapter": "caro-kann/advance-others",
+   "line": "e4 c6 d4 d5 e5 Bf5 Bd3 Bxd3 Qxd3 e6 Nf3 c5 O-O cxd4 Nxd4",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Ne7",
+   "cutComment": "The knight heads for f5 or c6 and protects d5."
+  },
+  {
+   "chapter": "caro-kann/advance-others",
+   "line": "e4 c6 d4 d5 e5 Bf5 Bd3 Bxd3 Qxd3 e6 Nf3 c5 c3 Nc6 O-O",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Rc8",
+   "cutComment": "The c-file will open soon. The rook also protects the knight."
+  },
+  {
+   "chapter": "caro-kann/advance-others",
+   "line": "e4 c6 d4 d5 e5 Bf5 c3 e6 Nf3 c5 Be2 Nc6 O-O cxd4 cxd4",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Nge7",
+   "cutComment": "The knight protects your bishop and heads for g6 or f5."
+  },
+  {
+   "chapter": "caro-kann/advance-others",
+   "line": "e4 c6 d4 d5 e5 Bf5 h4 h5 Bd3 Bxd3 Qxd3 e6 Nf3 Qa5+ Nbd2",
+   "ply": 15,
+   "comment": "White blocks with the knight.",
+   "truncated": true,
+   "cutNext": "Nh6",
+   "cutComment": "The knight heads for f5, where it is very strong."
+  },
+  {
+   "chapter": "caro-kann/advance-others",
+   "line": "e4 c6 d4 d5 e5 Bf5 g4 Bg6 h4 h5 gxh5 Bxh5 Be2 Bxe2 Qxe2",
+   "ply": 15,
+   "comment": "White takes back with the queen. Play ...e6 now: it supports d5 and stops White from pushing the pawn to e6, where it would hit f7. Then follow with ...c5, as always.",
+   "truncated": true,
+   "cutNext": "e6",
+   "cutComment": "Close the door and support d5. All your pieces will get out easily."
+  },
+  {
+   "chapter": "caro-kann/classical-quiet",
+   "line": "e4 c6 d4 d5 Nc3 dxe4 Nxe4 Bf5 Ng3 Bg6 Nf3 Nd7 Bd3 e6 O-O",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Ngf6",
+   "cutComment": "Develop the second knight."
+  },
+  {
+   "chapter": "caro-kann/classical-quiet",
+   "line": "e4 c6 d4 d5 Nc3 dxe4 Nxe4 Bf5 Ng3 Bg6 h4 h6 Nf3 Nd7 h5",
+   "ply": 15,
+   "comment": "White chases the bishop. Step back to h7, where it is safe.",
+   "truncated": true,
+   "cutNext": "Bh7",
+   "cutComment": "The bishop is safe on h7 and still points at White's pieces."
+  },
+  {
+   "chapter": "caro-kann/classical-quiet",
+   "line": "e4 c6 d4 d5 Nd2 dxe4 Nxe4 Bf5 Ng3 Bg6 h4",
+   "ply": 11,
+   "comment": "White threatens h5 to chase your bishop. This is the main line, which is explained in full below.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/advance-nc3",
+   "line": "e4 c6 d4 d5 e5 Bf5 Nc3 e6 g4 Bg6 Nge2 c5 h4 h5 Nf4",
+   "ply": 15,
+   "comment": "White attacks your bishop and the h5-pawn. Step back with ...Bh7 and bring your queen's knight to c6.",
+   "truncated": false
+  },
+  {
+   "chapter": "caro-kann/advance-nc3",
+   "line": "e4 c6 d4 d5 e5 Bf5 Nc3 e6 Nf3 c5 Be2 Nc6 O-O a6 Be3",
+   "ply": 15,
+   "comment": "White's bishop now stands behind the d4-pawn. If White takes on c5, you cannot take back with your bishop, because Bxc5 would win it. So take on d4 first: ...cxd4.",
+   "truncated": true,
+   "cutNext": "cxd4",
+   "cutComment": "Take on d4. The knight on f3 must retake, and e5 loses a defender."
+  },
+  {
+   "chapter": "caro-kann/advance-nc3",
+   "line": "e4 c6 d4 d5 e5 Bf5 Nc3 e6 Bd3 Bxd3 Qxd3 c5 Nce2 cxd4 Nxd4",
+   "ply": 15,
+   "comment": "",
+   "truncated": true,
+   "cutNext": "Bc5",
+   "cutComment": "Develop with tempo: the bishop attacks the knight."
+  },
+  {
+   "chapter": "slav/slow-slav",
+   "line": "d4 c6 c4 d5 Nf3 Nf6 e3 Bf5 Nc3 e6 Bd3 Bg6 O-O Nbd7 b3",
+   "ply": 15,
+   "comment": "White prepares to put the bishop on b2.",
+   "truncated": true,
+   "cutNext": "Bd6",
+   "cutComment": "Develop the bishop to the best diagonal, aiming at White's king-side."
+  },
+  {
+   "chapter": "slav/slow-slav",
+   "line": "d4 c6 c4 d5 Nf3 Nf6 Nc3 dxc4 a4 Bf5 e3 e6 Bxc4 Bb4 O-O",
+   "ply": 15,
+   "comment": "White castles.",
+   "truncated": true,
+   "cutNext": "Nbd7",
+   "cutComment": "Develop the last minor piece. The knight covers e5 and prepares ...Nb6, ...c5 or ...e5 ideas."
+  },
+  {
+   "chapter": "slav/slow-slav",
+   "line": "d4 c6 c4 d5 Nf3 Nf6 Nc3 dxc4 e3 b5 a4 b4 Na2 e6 Bxc4",
+   "ply": 15,
+   "comment": "White takes the pawn back. Material is equal again.",
+   "truncated": true,
+   "cutNext": "Bb7",
+   "cutComment": "Develop the bishop. Later, ...c5 will open the long diagonal for it."
+  },
+  {
+   "chapter": "slav/slow-slav",
+   "line": "d4 c6 c4 d5 Nf3 Nf6 Nc3 dxc4 e4 b5 e5 Nd5 a4 e6 Be2",
+   "ply": 15,
+   "comment": "White develops.",
+   "truncated": true,
+   "cutNext": "a5",
+   "cutComment": "Support the b4-square and keep the queenside pawns together. Your extra pawn is hard to attack now."
+  },
+  {
+   "chapter": "slav/slow-slav",
+   "line": "d4 c6 c4 d5 Nf3 Nf6 g3 Bf5 Bg2 e6 Nc3 h6 O-O Be7 Nd2",
+   "ply": 15,
+   "comment": "White prepares e4.",
+   "truncated": true,
+   "cutNext": "Nbd7",
+   "cutComment": "Develop the last piece. You are ready to castle and meet e4 with ...dxe4."
+  },
+  {
+   "chapter": "slav/slow-slav",
+   "line": "d4 c6 c4 d5 Nf3 Nf6 Bf4 dxc4 e3 b5 Be2 e6 O-O Be7 Qc2",
+   "ply": 15,
+   "comment": "White develops the queen.",
+   "truncated": true,
+   "cutNext": "a5",
+   "cutComment": "Gain space on the queenside. Now ...b4 is ready, which can chase a white knight away from c3. You are a healthy pawn up."
+  },
+  {
+   "chapter": "slav/slow-slav",
+   "line": "d4 c6 c4 d5 Nf3 Nf6 cxd5 cxd5 Nc3 Nc6 Bf4 Bf5 e3",
+   "ply": 13,
+   "comment": "White prepares to develop. You continue with ...e6 and ...Bb4 or ...Be7.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/slow-slav",
+   "line": "d4 c6 c4 d5 cxd5 cxd5 Nc3 Nf6 Bf4 Nc6 e3 Bf5 Nf3 e6 Bd3",
+   "ply": 15,
+   "comment": "White offers to swap the bishops.",
+   "truncated": true,
+   "cutNext": "Bxd3",
+   "cutComment": "Trade bishops. You do not need to avoid trades: it makes the position simpler and White's pieces have less to aim at."
+  },
+  {
+   "chapter": "slav/slow-slav",
+   "line": "d4 c6 c4 d5 cxd5 cxd5 Nc3 Nf6 Nf3 Nc6 Bf4 Bf5 e3 e6 Be2",
+   "ply": 15,
+   "comment": "White develops the bishop to a safe square.",
+   "truncated": true,
+   "cutNext": "Bb4",
+   "cutComment": "Pin the knight on c3. It cannot move freely now, and you are ready to castle."
+  },
+  {
+   "chapter": "slav/slow-slav",
+   "line": "d4 c6 c4 d5 cxd5 cxd5 Nc3 Nf6 Bg5 Ne4 Nxe4 dxe4 Rc1 Bd7 Bd2",
+   "ply": 15,
+   "comment": "White retreats the loose bishop.",
+   "truncated": true,
+   "cutNext": "Bc6",
+   "cutComment": "Support the e4-pawn. The bishop sits on a fine diagonal right behind it."
+  },
+  {
+   "chapter": "slav/slow-slav",
+   "line": "d4 c6 c4 d5 cxd5 cxd5 Nf3 Nf6 Nc3 Nc6 Bg5 Ne4 Bd2 e6 e3",
+   "ply": 15,
+   "comment": "White prepares to develop the bishop.",
+   "truncated": true,
+   "cutNext": "Bd6",
+   "cutComment": "The bishop heads for its best diagonal, eyeing White's king-side."
+  },
+  {
+   "chapter": "slav/vs-london",
+   "line": "d4 c6 Bf4 d5 e3 Bf5 Nf3 e6 Nbd2 Nd7 Be2 Ngf6 O-O Be7 c4",
+   "ply": 15,
+   "comment": "White pushes the c-pawn to attack d5.",
+   "truncated": true,
+   "cutNext": "O-O",
+   "cutComment": "Castle! Your king is safe, and your pieces are ready."
+  },
+  {
+   "chapter": "slav/vs-london",
+   "line": "d4 c6 Bf4 d5 e3 Bf5 Nf3 e6 Bd3 Bxd3 Qxd3 Nf6 c4 Bd6 Bxd6",
+   "ply": 15,
+   "comment": "White takes. Take back with the queen: ...Qxd6.",
+   "truncated": true,
+   "cutNext": "Qxd6",
+   "cutComment": "Recapture with the queen. Your queen eyes the kingside."
+  },
+  {
+   "chapter": "slav/vs-london",
+   "line": "d4 c6 Bf4 d5 e3 Bf5 Nf3 e6 c4 Bd6 Bxd6 Qxd6 Nc3 Nf6 Nh4",
+   "ply": 15,
+   "comment": "White attacks your bishop. You can castle first: if White takes on f5, take back with the e-pawn.",
+   "truncated": true,
+   "cutNext": "O-O",
+   "cutComment": "Castle first. If White takes on f5, you recapture with the e-pawn, and your pawns on d5 and f5 keep a firm grip on the e4-square."
+  },
+  {
+   "chapter": "slav/vs-london",
+   "line": "d4 c6 Bf4 d5 Nf3 Bf5 e3",
+   "ply": 7,
+   "comment": "This is the same position as after 3.e3 Bf5 4.Nf3 in this chapter. Play ...e6.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/vs-colle-catalan",
+   "line": "d4 c6 Nf3 d5 e3 Bf5 c4 e6 Nc3",
+   "ply": 9,
+   "comment": "This is the same position as after 2.c4 d5 3.e3 Bf5 4.Nc3 e6 5.Nf3 in the chapter on 3.Nc3 and 3.e3. Play ...Be7 and ...Nf6, as you learned there.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/vs-colle-catalan",
+   "line": "d4 c6 Nf3 d5 e3 Bf5 Bd3 Bg6 c4 e6 O-O Nf6 Qc2 Bxd3 Qxd3",
+   "ply": 15,
+   "comment": "White recaptures.",
+   "truncated": true,
+   "cutNext": "Be7",
+   "cutComment": "Develop the bishop and prepare to castle."
+  },
+  {
+   "chapter": "slav/vs-colle-catalan",
+   "line": "d4 c6 Nf3 d5 Bf4",
+   "ply": 5,
+   "comment": "The London System. This is the same position as after 2.Bf4 d5 3.Nf3 in the chapter \"Against the London System: 2.Bf4\". Play ...Bf5.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/vs-colle-catalan",
+   "line": "d4 c6 Nf3 d5 Nc3",
+   "ply": 5,
+   "comment": "This is the same position as after 2.Nc3 d5 3.Nf3 in the chapter \"Other White moves\". Play ...Bf5.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/vs-colle-catalan",
+   "line": "d4 c6 Nf3 d5 c4",
+   "ply": 5,
+   "comment": "This is the Slav: the same position as 1.d4 c6 2.c4 d5 3.Nf3. Play ...Nf6, as in the chapter on the Slow Slav.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/vs-colle-catalan",
+   "line": "d4 c6 Nf3 d5 g3 Bf5 Bg2 e6 O-O h6 c4 Nf6 Nfd2 Be7 Nc3",
+   "ply": 15,
+   "comment": "White develops.",
+   "truncated": true,
+   "cutNext": "O-O",
+   "cutComment": "Castle! Your king is safe."
+  },
+  {
+   "chapter": "slav/vs-colle-catalan",
+   "line": "d4 c6 e3 d5 Nf3",
+   "ply": 5,
+   "comment": "This is the same position as after 2.Nf3 d5 3.e3 in this chapter. Play ...Bf5.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/vs-colle-catalan",
+   "line": "d4 c6 e3 d5 Bd3 Nf6 Nf3",
+   "ply": 7,
+   "comment": "White develops. Now ...Bg4 is safe, because the knight on f3 stands between your bishop and the queen. Continue with ...Bg4 and ...e6.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/vs-colle-catalan",
+   "line": "d4 c6 e3 d5 c4",
+   "ply": 5,
+   "comment": "This is the same position as 1.d4 c6 2.c4 d5 3.e3. Play ...Bf5, as in the chapter on 3.Nc3 and 3.e3.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/vs-colle-catalan",
+   "line": "d4 c6 c3 d5 Bf4",
+   "ply": 5,
+   "comment": "White plays a London-style set-up. Play ...Bf5 and ...e6, as in the chapter \"Against the London System: 2.Bf4\".",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/third-move-sidelines",
+   "line": "d4 c6 c4 d5 Nc3 Nf6 Nf3",
+   "ply": 7,
+   "comment": "This is the same position as 1.d4 c6 2.c4 d5 3.Nf3 Nf6 4.Nc3 in the chapter on the Slow Slav. Play ...dxc4, as you learned there.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/third-move-sidelines",
+   "line": "d4 c6 c4 d5 Nc3 Nf6 e3 Bf5 cxd5 cxd5 Qb3 Bc8 Bd3 e6 Nf3",
+   "ply": 15,
+   "comment": "White develops.",
+   "truncated": true,
+   "cutNext": "Nc6",
+   "cutComment": "Develop the second knight with pressure on d4."
+  },
+  {
+   "chapter": "slav/third-move-sidelines",
+   "line": "d4 c6 c4 d5 Nc3 Nf6 e3 Bf5 Nf3 e6 Bd3",
+   "ply": 11,
+   "comment": "White offers to swap bishops. Carry on as in the Slow Slav chapter with ...Bg6.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/third-move-sidelines",
+   "line": "d4 c6 c4 d5 Nc3 Nf6 Bg5 dxc4 Nf3 b5 g3 h6 Be3 e6 Ne5",
+   "ply": 15,
+   "comment": "White's knight jumps into the centre.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/third-move-sidelines",
+   "line": "d4 c6 c4 d5 e3 Bf5 Nc3 e6 Nf3 Be7 Bd3 Bxd3 Qxd3 Nf6 O-O",
+   "ply": 15,
+   "comment": "White castles.",
+   "truncated": true,
+   "cutNext": "O-O",
+   "cutComment": "Castle! Your king is safe and your pieces are ready."
+  },
+  {
+   "chapter": "slav/third-move-sidelines",
+   "line": "d4 c6 c4 d5 e3 Bf5 cxd5 cxd5 Qb3 Qc7 Bb5+ Nd7 Nc3 e6 Nf3",
+   "ply": 15,
+   "comment": "White develops. Bring your other knight out with ...Nf6 now. Your knight on d7 is pinned, and after a slow move such as ...a6, White takes on d7 and jumps into e5 with the knight.",
+   "truncated": true,
+   "cutNext": "Nf6",
+   "cutComment": "Develop and guard d5."
+  },
+  {
+   "chapter": "slav/third-move-sidelines",
+   "line": "d4 c6 c4 d5 e4 dxe4 Nc3 Nf6 f3",
+   "ply": 9,
+   "comment": "White offers a second pawn to open the f-file. Take it too with ...exf3: you can give material back later, at the right moment.",
+   "truncated": true,
+   "cutNext": "exf3",
+   "cutComment": "Take it too! You will return material at the right moment."
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "d4 c6 e4 d5 e5",
+   "ply": 5,
+   "comment": "The Advance Variation. Play ...Bf5, as in the Caro-Kann course.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "d4 c6 e4 d5 exd5",
+   "ply": 5,
+   "comment": "The Exchange Variation. Take back with ...cxd5, as in the Caro-Kann course.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "d4 c6 e4 d5 Nc3",
+   "ply": 5,
+   "comment": "The Classical Variation. Take on e4 with ...dxe4, as in the Caro-Kann course.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "d4 c6 e4 d5 Nd2",
+   "ply": 5,
+   "comment": "Take on e4 with ...dxe4, as in the Classical chapter of the Caro-Kann course.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "d4 c6 e4 d5 f3",
+   "ply": 5,
+   "comment": "The Fantasy Variation. Take on e4 with ...dxe4, as in the Caro-Kann course.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "d4 c6 Nc3 d5 e4",
+   "ply": 5,
+   "comment": "This is the Caro-Kann Classical Variation (1.e4 c6 2.d4 d5 3.Nc3). Take on e4 with ...dxe4 and, after Nxe4, play ...Bf5, as in the Caro-Kann course.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "d4 c6 Nc3 d5 Nf3 Bf5 Bf4 e6 e3 Nd7 Bd3 Ngf6 h3",
+   "ply": 13,
+   "comment": "White gives the bishop on f4 a retreat on h2.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "d4 c6 Bg5 d5 Nf3 Bf5 e3 Nd7 Bd3 Bxd3 Qxd3 h6 Bf4 e6 c4",
+   "ply": 15,
+   "comment": "White attacks d5.",
+   "truncated": true,
+   "cutNext": "Ngf6",
+   "cutComment": "Develop the second knight and protect d5."
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "c4 c6 Nc3 d5 cxd5 cxd5 d4",
+   "ply": 7,
+   "comment": "This is the Exchange Slav: the same position as 1.d4 c6 2.c4 d5 3.cxd5 cxd5 4.Nc3. Play ...Nf6, as in the chapter on the Slow Slav and the Exchange Slav.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "c4 c6 Nc3 d5 d4",
+   "ply": 5,
+   "comment": "This is the Slav: the same position as 1.d4 c6 2.c4 d5 3.Nc3. Play ...Nf6, as in the chapter on 3.Nc3 and 3.e3.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "c4 c6 d4",
+   "ply": 3,
+   "comment": "This is the Slav move order 1.d4 c6 2.c4. Play ...d5.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "Nf3 c6 d4",
+   "ply": 3,
+   "comment": "This is the same as 1.d4 c6 2.Nf3. Play ...d5, as in the chapter \"Against 2.Nf3 and 2.e3\".",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "Nf3 c6 e4",
+   "ply": 3,
+   "comment": "Play ...d5: this is the Two Knights line of the Caro-Kann (1.e4 c6 2.Nf3 d5), as in the Caro-Kann course.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "Nf3 c6 g3 d5 Bg2",
+   "ply": 5,
+   "comment": "White develops. Continue with ...Bg4 or ...Bf5, then ...Nf6 and ...e6.",
+   "truncated": false
+  },
+  {
+   "chapter": "slav/other-second-moves",
+   "line": "Nf3 c6 c4",
+   "ply": 3,
+   "comment": "Play ...d5. After d4 you are in the Slav.",
+   "truncated": false
+  }
+ ]
+}

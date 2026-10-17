@@ -1,0 +1,7366 @@
+{
+ "course": "black-vs-d4-with-1c6",
+ "you_play": "Black",
+ "root_moves": [
+  "d4",
+  "c6"
+ ],
+ "speeds": "rapid",
+ "band": "both players 1000-1300",
+ "min_reach_shown": 0.002,
+ "children": [
+  {
+   "san": "e4",
+   "by": "opponent",
+   "ply": 3,
+   "n": 193,
+   "share_at_position": 0.2539,
+   "reach": 0.2539,
+   "score_me": 0.513,
+   "score_ci95": [
+    0.443,
+    0.583
+   ],
+   "in_course": true,
+   "note": "",
+   "children": [
+    {
+     "san": "d5",
+     "by": "me",
+     "ply": 4,
+     "fen_before": "rnbqkbnr/pp1ppppp/2p5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2",
+     "n_position": 1892,
+     "n": 1740,
+     "score_me": 0.482,
+     "score_ci95": [
+      0.458,
+      0.505
+     ],
+     "reach": 0.2539,
+     "in_course": true,
+     "note": "course move",
+     "what_1000_1300_players_play_here": [
+      {
+       "san": "d5",
+       "n": 1740,
+       "share": 0.9197,
+       "score_me": 0.482,
+       "score_ci95": [
+        0.458,
+        0.505
+       ]
+      },
+      {
+       "san": "e6",
+       "n": 36,
+       "share": 0.019,
+       "score_me": 0.417,
+       "score_ci95": [
+        0.271,
+        0.578
+       ]
+      },
+      {
+       "san": "d6",
+       "n": 24,
+       "share": 0.0127,
+       "score_me": 0.562,
+       "score_ci95": [
+        0.369,
+        0.738
+       ]
+      },
+      {
+       "san": "Nf6",
+       "n": 16,
+       "share": 0.0085,
+       "score_me": 0.375,
+       "score_ci95": [
+        0.185,
+        0.614
+       ]
+      },
+      {
+       "san": "b5",
+       "n": 15,
+       "share": 0.0079,
+       "score_me": 0.433,
+       "score_ci95": [
+        0.223,
+        0.671
+       ]
+      }
+     ],
+     "children": [
+      {
+       "san": "e5",
+       "by": "opponent",
+       "ply": 5,
+       "n": 841,
+       "share_at_position": 0.477,
+       "reach": 0.1211,
+       "score_me": 0.448,
+       "score_ci95": [
+        0.414,
+        0.481
+       ],
+       "in_course": true,
+       "note": "",
+       "children": [
+        {
+         "san": "Bf5",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3",
+         "n_position": 897,
+         "n": 488,
+         "score_me": 0.448,
+         "score_ci95": [
+          0.404,
+          0.492
+         ],
+         "reach": 0.1211,
+         "in_course": true,
+         "note": "course move",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Bf5",
+           "n": 488,
+           "share": 0.544,
+           "score_me": 0.448,
+           "score_ci95": [
+            0.404,
+            0.492
+           ]
+          },
+          {
+           "san": "c5",
+           "n": 220,
+           "share": 0.2453,
+           "score_me": 0.477,
+           "score_ci95": [
+            0.412,
+            0.543
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 92,
+           "share": 0.1026,
+           "score_me": 0.408,
+           "score_ci95": [
+            0.313,
+            0.51
+           ]
+          },
+          {
+           "san": "f6",
+           "n": 32,
+           "share": 0.0357,
+           "score_me": 0.406,
+           "score_ci95": [
+            0.255,
+            0.577
+           ]
+          },
+          {
+           "san": "Nd7",
+           "n": 26,
+           "share": 0.029,
+           "score_me": 0.385,
+           "score_ci95": [
+            0.224,
+            0.575
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Nf3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 179,
+           "share_at_position": 0.3661,
+           "reach": 0.0443,
+           "score_me": 0.464,
+           "score_ci95": [
+            0.392,
+            0.537
+           ],
+           "in_course": true,
+           "note": "",
+           "children": [
+            {
+             "san": "e6",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rn1qkbnr/pp2pppp/2p5/3pPb2/3P4/5N2/PPP2PPP/RNBQKB1R b KQkq - 2 4",
+             "n_position": 253,
+             "n": 203,
+             "score_me": 0.475,
+             "score_ci95": [
+              0.408,
+              0.544
+             ],
+             "reach": 0.0443,
+             "in_course": true,
+             "note": "course move",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "e6",
+               "n": 203,
+               "share": 0.8024,
+               "score_me": 0.475,
+               "score_ci95": [
+                0.408,
+                0.544
+               ]
+              },
+              {
+               "san": "f6",
+               "n": 14,
+               "share": 0.0553,
+               "score_me": 0.464,
+               "score_ci95": [
+                0.24,
+                0.704
+               ]
+              },
+              {
+               "san": "Nd7",
+               "n": 11,
+               "share": 0.0435,
+               "score_me": 0.455,
+               "score_ci95": [
+                0.213,
+                0.72
+               ]
+              },
+              {
+               "san": "c5",
+               "n": 11,
+               "share": 0.0435,
+               "score_me": 0.364,
+               "score_ci95": [
+                0.152,
+                0.646
+               ]
+              },
+              {
+               "san": "Bg4",
+               "n": 6,
+               "share": 0.0237,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.188,
+                0.812
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "Nc3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 56,
+               "share_at_position": 0.2718,
+               "reach": 0.0121,
+               "score_me": 0.375,
+               "score_ci95": [
+                0.26,
+                0.506
+               ],
+               "in_course": true,
+               "note": "",
+               "children": [
+                {
+                 "san": "c5",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "rn1qkbnr/pp3ppp/2p1p3/3pPb2/3P4/2N2N2/PPP2PPP/R1BQKB1R b KQkq - 1 5",
+                 "n_position": 89,
+                 "n": 38,
+                 "score_me": 0.395,
+                 "score_ci95": [
+                  0.256,
+                  0.553
+                 ],
+                 "reach": 0.0121,
+                 "in_course": true,
+                 "note": "course move",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "c5",
+                   "n": 38,
+                   "share": 0.427,
+                   "score_me": 0.395,
+                   "score_ci95": [
+                    0.256,
+                    0.553
+                   ]
+                  },
+                  {
+                   "san": "Bb4",
+                   "n": 24,
+                   "share": 0.2697,
+                   "score_me": 0.333,
+                   "score_ci95": [
+                    0.18,
+                    0.533
+                   ]
+                  },
+                  {
+                   "san": "Nd7",
+                   "n": 7,
+                   "share": 0.0787,
+                   "score_me": 0.571,
+                   "score_ci95": [
+                    0.25,
+                    0.842
+                   ]
+                  },
+                  {
+                   "san": "Be7",
+                   "n": 4,
+                   "share": 0.0449,
+                   "score_me": 0.5,
+                   "score_ci95": [
+                    0.15,
+                    0.85
+                   ]
+                  },
+                  {
+                   "san": "Ne7",
+                   "n": 4,
+                   "share": 0.0449,
+                   "score_me": 1.0,
+                   "score_ci95": [
+                    0.51,
+                    1.0
+                   ]
+                  }
+                 ],
+                 "children": [
+                  {
+                   "san": "Bb5+",
+                   "by": "opponent",
+                   "ply": 11,
+                   "n": 15,
+                   "share_at_position": 0.3947,
+                   "reach": 0.0048,
+                   "score_me": 0.533,
+                   "score_ci95": [
+                    0.301,
+                    0.752
+                   ],
+                   "in_course": false,
+                   "note": "GAP: the course has no answer to this move",
+                   "children": [
+                    {
+                     "san": "Nc6",
+                     "by": "me",
+                     "ply": 12,
+                     "fen_before": "rn1qkbnr/pp3ppp/4p3/1BppPb2/3P4/2N2N2/PPP2PPP/R1BQK2R b KQkq - 1 6",
+                     "n_position": 15,
+                     "n": 11,
+                     "score_me": 0.636,
+                     "score_ci95": [
+                      0.354,
+                      0.848
+                     ],
+                     "reach": 0.0048,
+                     "in_course": false,
+                     "note": "outside the course: most common move at 1000-1300",
+                     "what_1000_1300_players_play_here": [
+                      {
+                       "san": "Nc6",
+                       "n": 11,
+                       "share": 0.7333,
+                       "score_me": 0.636,
+                       "score_ci95": [
+                        0.354,
+                        0.848
+                       ]
+                      },
+                      {
+                       "san": "Nd7",
+                       "n": 4,
+                       "share": 0.2667,
+                       "score_me": 0.25,
+                       "score_ci95": [
+                        0.046,
+                        0.699
+                       ]
+                      }
+                     ],
+                     "children": [
+                      {
+                       "san": "(other moves, each under 0.2% of games)",
+                       "by": "opponent",
+                       "reach": 0.0048
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "san": "(other moves, each under 0.2% of games)",
+                   "by": "opponent",
+                   "reach": 0.0073
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "san": "Bd3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 49,
+               "share_at_position": 0.2379,
+               "reach": 0.0105,
+               "score_me": 0.49,
+               "score_ci95": [
+                0.356,
+                0.625
+               ],
+               "in_course": true,
+               "note": "",
+               "children": [
+                {
+                 "san": "Bxd3",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "rn1qkbnr/pp3ppp/2p1p3/3pPb2/3P4/3B1N2/PPP2PPP/RNBQK2R b KQkq - 1 5",
+                 "n_position": 52,
+                 "n": 20,
+                 "score_me": 0.575,
+                 "score_ci95": [
+                  0.364,
+                  0.762
+                 ],
+                 "reach": 0.0105,
+                 "in_course": true,
+                 "note": "course move",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "Bxd3",
+                   "n": 20,
+                   "share": 0.3846,
+                   "score_me": 0.575,
+                   "score_ci95": [
+                    0.364,
+                    0.762
+                   ]
+                  },
+                  {
+                   "san": "Bg4",
+                   "n": 10,
+                   "share": 0.1923,
+                   "score_me": 0.6,
+                   "score_ci95": [
+                    0.313,
+                    0.832
+                   ]
+                  },
+                  {
+                   "san": "Bg6",
+                   "n": 6,
+                   "share": 0.1154,
+                   "score_me": 0.333,
+                   "score_ci95": [
+                    0.097,
+                    0.7
+                   ]
+                  },
+                  {
+                   "san": "g6",
+                   "n": 3,
+                   "share": 0.0577,
+                   "score_me": 0.667,
+                   "score_ci95": [
+                    0.208,
+                    0.939
+                   ]
+                  },
+                  {
+                   "san": "Nd7",
+                   "n": 3,
+                   "share": 0.0577,
+                   "score_me": 0.667,
+                   "score_ci95": [
+                    0.208,
+                    0.939
+                   ]
+                  }
+                 ],
+                 "children": [
+                  {
+                   "san": "Qxd3",
+                   "by": "opponent",
+                   "ply": 11,
+                   "n": 20,
+                   "share_at_position": 1.0,
+                   "reach": 0.0105,
+                   "score_me": 0.575,
+                   "score_ci95": [
+                    0.364,
+                    0.762
+                   ],
+                   "in_course": true,
+                   "note": "",
+                   "children": [
+                    {
+                     "san": "c5",
+                     "by": "me",
+                     "ply": 12,
+                     "fen_before": "rn1qkbnr/pp3ppp/2p1p3/3pP3/3P4/3Q1N2/PPP2PPP/RNB1K2R b KQkq - 0 6",
+                     "n_position": 53,
+                     "n": 21,
+                     "score_me": 0.429,
+                     "score_ci95": [
+                      0.245,
+                      0.635
+                     ],
+                     "reach": 0.0105,
+                     "in_course": true,
+                     "note": "course move",
+                     "what_1000_1300_players_play_here": [
+                      {
+                       "san": "c5",
+                       "n": 21,
+                       "share": 0.3962,
+                       "score_me": 0.429,
+                       "score_ci95": [
+                        0.245,
+                        0.635
+                       ]
+                      },
+                      {
+                       "san": "Ne7",
+                       "n": 8,
+                       "share": 0.1509,
+                       "score_me": 0.312,
+                       "score_ci95": [
+                        0.102,
+                        0.644
+                       ]
+                      },
+                      {
+                       "san": "Nd7",
+                       "n": 7,
+                       "share": 0.1321,
+                       "score_me": 0.286,
+                       "score_ci95": [
+                        0.082,
+                        0.641
+                       ]
+                      },
+                      {
+                       "san": "Bb4+",
+                       "n": 4,
+                       "share": 0.0755,
+                       "score_me": 0.0,
+                       "score_ci95": [
+                        0.0,
+                        0.49
+                       ]
+                      },
+                      {
+                       "san": "g6",
+                       "n": 3,
+                       "share": 0.0566,
+                       "score_me": 0.333,
+                       "score_ci95": [
+                        0.061,
+                        0.792
+                       ]
+                      }
+                     ],
+                     "children": [
+                      {
+                       "san": "(other moves, each under 0.2% of games)",
+                       "by": "opponent",
+                       "reach": 0.0105
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "san": "Bg5",
+               "by": "opponent",
+               "ply": 9,
+               "n": 23,
+               "share_at_position": 0.1117,
+               "reach": 0.005,
+               "score_me": 0.609,
+               "score_ci95": [
+                0.408,
+                0.778
+               ],
+               "in_course": false,
+               "note": "GAP: the course has no answer to this move",
+               "children": [
+                {
+                 "san": "Be7",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "rn1qkbnr/pp3ppp/2p1p3/3pPbB1/3P4/5N2/PPP2PPP/RN1QKB1R b KQkq - 1 5",
+                 "n_position": 23,
+                 "n": 11,
+                 "score_me": 0.545,
+                 "score_ci95": [
+                  0.28,
+                  0.787
+                 ],
+                 "reach": 0.005,
+                 "in_course": false,
+                 "note": "outside the course: most common move at 1000-1300",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "Be7",
+                   "n": 11,
+                   "share": 0.4783,
+                   "score_me": 0.545,
+                   "score_ci95": [
+                    0.28,
+                    0.787
+                   ]
+                  },
+                  {
+                   "san": "Qb6",
+                   "n": 4,
+                   "share": 0.1739,
+                   "score_me": 0.75,
+                   "score_ci95": [
+                    0.301,
+                    0.954
+                   ]
+                  },
+                  {
+                   "san": "f6",
+                   "n": 3,
+                   "share": 0.1304,
+                   "score_me": 0.667,
+                   "score_ci95": [
+                    0.208,
+                    0.939
+                   ]
+                  },
+                  {
+                   "san": "Qa5+",
+                   "n": 2,
+                   "share": 0.087,
+                   "score_me": 1.0,
+                   "score_ci95": [
+                    0.342,
+                    1.0
+                   ]
+                  },
+                  {
+                   "san": "Ne7",
+                   "n": 2,
+                   "share": 0.087,
+                   "score_me": 0.5,
+                   "score_ci95": [
+                    0.095,
+                    0.905
+                   ]
+                  }
+                 ],
+                 "children": [
+                  {
+                   "san": "(other moves, each under 0.2% of games)",
+                   "by": "opponent",
+                   "reach": 0.005
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "san": "Be2",
+               "by": "opponent",
+               "ply": 9,
+               "n": 20,
+               "share_at_position": 0.0971,
+               "reach": 0.0043,
+               "score_me": 0.425,
+               "score_ci95": [
+                0.238,
+                0.636
+               ],
+               "in_course": true,
+               "note": "",
+               "children": [
+                {
+                 "san": "c5",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "rn1qkbnr/pp3ppp/2p1p3/3pPb2/3P4/5N2/PPP1BPPP/RNBQK2R b KQkq - 1 5",
+                 "n_position": 23,
+                 "n": 11,
+                 "score_me": 0.227,
+                 "score_ci95": [
+                  0.073,
+                  0.522
+                 ],
+                 "reach": 0.0043,
+                 "in_course": true,
+                 "note": "course move",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "c5",
+                   "n": 11,
+                   "share": 0.4783,
+                   "score_me": 0.227,
+                   "score_ci95": [
+                    0.073,
+                    0.522
+                   ]
+                  },
+                  {
+                   "san": "Nd7",
+                   "n": 7,
+                   "share": 0.3043,
+                   "score_me": 0.429,
+                   "score_ci95": [
+                    0.158,
+                    0.75
+                   ]
+                  },
+                  {
+                   "san": "Ne7",
+                   "n": 2,
+                   "share": 0.087,
+                   "score_me": 0.5,
+                   "score_ci95": [
+                    0.095,
+                    0.905
+                   ]
+                  },
+                  {
+                   "san": "Be7",
+                   "n": 2,
+                   "share": 0.087,
+                   "score_me": 0.5,
+                   "score_ci95": [
+                    0.095,
+                    0.905
+                   ]
+                  },
+                  {
+                   "san": "h6",
+                   "n": 1,
+                   "share": 0.0435,
+                   "score_me": 1.0,
+                   "score_ci95": [
+                    0.207,
+                    1.0
+                   ]
+                  }
+                 ],
+                 "children": [
+                  {
+                   "san": "(other moves, each under 0.2% of games)",
+                   "by": "opponent",
+                   "reach": 0.0043
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "san": "h3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 10,
+               "share_at_position": 0.0485,
+               "reach": 0.0022,
+               "score_me": 0.6,
+               "score_ci95": [
+                0.313,
+                0.832
+               ],
+               "in_course": false,
+               "note": "GAP: the course has no answer to this move",
+               "children": []
+              },
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0103
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "Bd3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 94,
+           "share_at_position": 0.1922,
+           "reach": 0.0233,
+           "score_me": 0.399,
+           "score_ci95": [
+            0.306,
+            0.5
+           ],
+           "in_course": true,
+           "note": "",
+           "children": [
+            {
+             "san": "Bxd3",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rn1qkbnr/pp2pppp/2p5/3pPb2/3P4/3B4/PPP2PPP/RNBQK1NR b KQkq - 2 4",
+             "n_position": 94,
+             "n": 52,
+             "score_me": 0.365,
+             "score_ci95": [
+              0.248,
+              0.501
+             ],
+             "reach": 0.0233,
+             "in_course": true,
+             "note": "course move",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Bxd3",
+               "n": 52,
+               "share": 0.5532,
+               "score_me": 0.365,
+               "score_ci95": [
+                0.248,
+                0.501
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 25,
+               "share": 0.266,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.318,
+                0.682
+               ]
+              },
+              {
+               "san": "Bg6",
+               "n": 13,
+               "share": 0.1383,
+               "score_me": 0.385,
+               "score_ci95": [
+                0.177,
+                0.645
+               ]
+              },
+              {
+               "san": "Qd7",
+               "n": 3,
+               "share": 0.0319,
+               "score_me": 0.333,
+               "score_ci95": [
+                0.061,
+                0.792
+               ]
+              },
+              {
+               "san": "Nh6",
+               "n": 1,
+               "share": 0.0106,
+               "score_me": 0.0,
+               "score_ci95": [
+                0.0,
+                0.793
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "Qxd3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 51,
+               "share_at_position": 0.9808,
+               "reach": 0.0228,
+               "score_me": 0.353,
+               "score_ci95": [
+                0.236,
+                0.49
+               ],
+               "in_course": true,
+               "note": "",
+               "children": [
+                {
+                 "san": "e6",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "rn1qkbnr/pp2pppp/2p5/3pP3/3P4/3Q4/PPP2PPP/RNB1K1NR b KQkq - 0 5",
+                 "n_position": 51,
+                 "n": 44,
+                 "score_me": 0.341,
+                 "score_ci95": [
+                  0.219,
+                  0.489
+                 ],
+                 "reach": 0.0228,
+                 "in_course": true,
+                 "note": "course move",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "e6",
+                   "n": 44,
+                   "share": 0.8627,
+                   "score_me": 0.341,
+                   "score_ci95": [
+                    0.219,
+                    0.489
+                   ]
+                  },
+                  {
+                   "san": "Nd7",
+                   "n": 4,
+                   "share": 0.0784,
+                   "score_me": 0.5,
+                   "score_ci95": [
+                    0.15,
+                    0.85
+                   ]
+                  },
+                  {
+                   "san": "g6",
+                   "n": 1,
+                   "share": 0.0196,
+                   "score_me": 1.0,
+                   "score_ci95": [
+                    0.207,
+                    1.0
+                   ]
+                  },
+                  {
+                   "san": "f6",
+                   "n": 1,
+                   "share": 0.0196,
+                   "score_me": 0.0,
+                   "score_ci95": [
+                    0.0,
+                    0.793
+                   ]
+                  },
+                  {
+                   "san": "Qb6",
+                   "n": 1,
+                   "share": 0.0196,
+                   "score_me": 0.0,
+                   "score_ci95": [
+                    0.0,
+                    0.793
+                   ]
+                  }
+                 ],
+                 "children": [
+                  {
+                   "san": "Nf3",
+                   "by": "opponent",
+                   "ply": 11,
+                   "n": 33,
+                   "share_at_position": 0.75,
+                   "reach": 0.0171,
+                   "score_me": 0.258,
+                   "score_ci95": [
+                    0.139,
+                    0.426
+                   ],
+                   "in_course": true,
+                   "note": "",
+                   "children": [
+                    {
+                     "san": "c5",
+                     "by": "me",
+                     "ply": 12,
+                     "fen_before": "rn1qkbnr/pp3ppp/2p1p3/3pP3/3P4/3Q1N2/PPP2PPP/RNB1K2R b KQkq - 1 6",
+                     "n_position": 53,
+                     "n": 21,
+                     "score_me": 0.429,
+                     "score_ci95": [
+                      0.245,
+                      0.635
+                     ],
+                     "reach": 0.0171,
+                     "in_course": true,
+                     "note": "course move",
+                     "what_1000_1300_players_play_here": [
+                      {
+                       "san": "c5",
+                       "n": 21,
+                       "share": 0.3962,
+                       "score_me": 0.429,
+                       "score_ci95": [
+                        0.245,
+                        0.635
+                       ]
+                      },
+                      {
+                       "san": "Ne7",
+                       "n": 8,
+                       "share": 0.1509,
+                       "score_me": 0.312,
+                       "score_ci95": [
+                        0.102,
+                        0.644
+                       ]
+                      },
+                      {
+                       "san": "Nd7",
+                       "n": 7,
+                       "share": 0.1321,
+                       "score_me": 0.286,
+                       "score_ci95": [
+                        0.082,
+                        0.641
+                       ]
+                      },
+                      {
+                       "san": "Bb4+",
+                       "n": 4,
+                       "share": 0.0755,
+                       "score_me": 0.0,
+                       "score_ci95": [
+                        0.0,
+                        0.49
+                       ]
+                      },
+                      {
+                       "san": "g6",
+                       "n": 3,
+                       "share": 0.0566,
+                       "score_me": 0.333,
+                       "score_ci95": [
+                        0.061,
+                        0.792
+                       ]
+                      }
+                     ],
+                     "children": [
+                      {
+                       "san": "(other moves, each under 0.2% of games)",
+                       "by": "opponent",
+                       "reach": 0.0171
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "san": "(other moves, each under 0.2% of games)",
+                   "by": "opponent",
+                   "reach": 0.0057
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0004
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "Nc3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 60,
+           "share_at_position": 0.1227,
+           "reach": 0.0149,
+           "score_me": 0.458,
+           "score_ci95": [
+            0.339,
+            0.583
+           ],
+           "in_course": true,
+           "note": "",
+           "children": [
+            {
+             "san": "e6",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rn1qkbnr/pp2pppp/2p5/3pPb2/3P4/2N5/PPP2PPP/R1BQKBNR b KQkq - 2 4",
+             "n_position": 75,
+             "n": 63,
+             "score_me": 0.437,
+             "score_ci95": [
+              0.321,
+              0.559
+             ],
+             "reach": 0.0149,
+             "in_course": true,
+             "note": "course move",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "e6",
+               "n": 63,
+               "share": 0.84,
+               "score_me": 0.437,
+               "score_ci95": [
+                0.321,
+                0.559
+               ]
+              },
+              {
+               "san": "Nd7",
+               "n": 7,
+               "share": 0.0933,
+               "score_me": 0.714,
+               "score_ci95": [
+                0.359,
+                0.918
+               ]
+              },
+              {
+               "san": "f6",
+               "n": 3,
+               "share": 0.04,
+               "score_me": 0.667,
+               "score_ci95": [
+                0.208,
+                0.939
+               ]
+              },
+              {
+               "san": "c5",
+               "n": 1,
+               "share": 0.0133,
+               "score_me": 0.0,
+               "score_ci95": [
+                0.0,
+                0.793
+               ]
+              },
+              {
+               "san": "b5",
+               "n": 1,
+               "share": 0.0133,
+               "score_me": 1.0,
+               "score_ci95": [
+                0.207,
+                1.0
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "Nf3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 28,
+               "share_at_position": 0.4444,
+               "reach": 0.0066,
+               "score_me": 0.464,
+               "score_ci95": [
+                0.295,
+                0.642
+               ],
+               "in_course": true,
+               "note": "",
+               "children": [
+                {
+                 "san": "c5",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "rn1qkbnr/pp3ppp/2p1p3/3pPb2/3P4/2N2N2/PPP2PPP/R1BQKB1R b KQkq - 1 5",
+                 "n_position": 89,
+                 "n": 38,
+                 "score_me": 0.395,
+                 "score_ci95": [
+                  0.256,
+                  0.553
+                 ],
+                 "reach": 0.0066,
+                 "in_course": true,
+                 "note": "course move",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "c5",
+                   "n": 38,
+                   "share": 0.427,
+                   "score_me": 0.395,
+                   "score_ci95": [
+                    0.256,
+                    0.553
+                   ]
+                  },
+                  {
+                   "san": "Bb4",
+                   "n": 24,
+                   "share": 0.2697,
+                   "score_me": 0.333,
+                   "score_ci95": [
+                    0.18,
+                    0.533
+                   ]
+                  },
+                  {
+                   "san": "Nd7",
+                   "n": 7,
+                   "share": 0.0787,
+                   "score_me": 0.571,
+                   "score_ci95": [
+                    0.25,
+                    0.842
+                   ]
+                  },
+                  {
+                   "san": "Be7",
+                   "n": 4,
+                   "share": 0.0449,
+                   "score_me": 0.5,
+                   "score_ci95": [
+                    0.15,
+                    0.85
+                   ]
+                  },
+                  {
+                   "san": "Ne7",
+                   "n": 4,
+                   "share": 0.0449,
+                   "score_me": 1.0,
+                   "score_ci95": [
+                    0.51,
+                    1.0
+                   ]
+                  }
+                 ],
+                 "children": [
+                  {
+                   "san": "Bb5+",
+                   "by": "opponent",
+                   "ply": 11,
+                   "n": 15,
+                   "share_at_position": 0.3947,
+                   "reach": 0.0026,
+                   "score_me": 0.533,
+                   "score_ci95": [
+                    0.301,
+                    0.752
+                   ],
+                   "in_course": false,
+                   "note": "GAP: the course has no answer to this move",
+                   "children": [
+                    {
+                     "san": "Nc6",
+                     "by": "me",
+                     "ply": 12,
+                     "fen_before": "rn1qkbnr/pp3ppp/4p3/1BppPb2/3P4/2N2N2/PPP2PPP/R1BQK2R b KQkq - 1 6",
+                     "n_position": 15,
+                     "n": 11,
+                     "score_me": 0.636,
+                     "score_ci95": [
+                      0.354,
+                      0.848
+                     ],
+                     "reach": 0.0026,
+                     "in_course": false,
+                     "note": "outside the course: most common move at 1000-1300",
+                     "what_1000_1300_players_play_here": [
+                      {
+                       "san": "Nc6",
+                       "n": 11,
+                       "share": 0.7333,
+                       "score_me": 0.636,
+                       "score_ci95": [
+                        0.354,
+                        0.848
+                       ]
+                      },
+                      {
+                       "san": "Nd7",
+                       "n": 4,
+                       "share": 0.2667,
+                       "score_me": 0.25,
+                       "score_ci95": [
+                        0.046,
+                        0.699
+                       ]
+                      }
+                     ],
+                     "children": [
+                      {
+                       "san": "(other moves, each under 0.2% of games)",
+                       "by": "opponent",
+                       "reach": 0.0026
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "san": "(other moves, each under 0.2% of games)",
+                   "by": "opponent",
+                   "reach": 0.004
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "san": "Bd3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 10,
+               "share_at_position": 0.1587,
+               "reach": 0.0024,
+               "score_me": 0.2,
+               "score_ci95": [
+                0.057,
+                0.51
+               ],
+               "in_course": true,
+               "note": "",
+               "children": [
+                {
+                 "san": "Bxd3",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "rn1qkbnr/pp3ppp/2p1p3/3pPb2/3P4/2NB4/PPP2PPP/R1BQK1NR b KQkq - 1 5",
+                 "n_position": 12,
+                 "n": 7,
+                 "score_me": 0.286,
+                 "score_ci95": [
+                  0.082,
+                  0.641
+                 ],
+                 "reach": 0.0024,
+                 "in_course": true,
+                 "note": "course move",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "Bxd3",
+                   "n": 7,
+                   "share": 0.5833,
+                   "score_me": 0.286,
+                   "score_ci95": [
+                    0.082,
+                    0.641
+                   ]
+                  },
+                  {
+                   "san": "c5",
+                   "n": 2,
+                   "share": 0.1667,
+                   "score_me": 0.5,
+                   "score_ci95": [
+                    0.095,
+                    0.905
+                   ]
+                  },
+                  {
+                   "san": "Bg6",
+                   "n": 2,
+                   "share": 0.1667,
+                   "score_me": 0.0,
+                   "score_ci95": [
+                    0.0,
+                    0.658
+                   ]
+                  },
+                  {
+                   "san": "Qa5",
+                   "n": 1,
+                   "share": 0.0833,
+                   "score_me": 0.0,
+                   "score_ci95": [
+                    0.0,
+                    0.793
+                   ]
+                  }
+                 ],
+                 "children": []
+                }
+               ]
+              },
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0059
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "g4",
+           "by": "opponent",
+           "ply": 7,
+           "n": 34,
+           "share_at_position": 0.0695,
+           "reach": 0.0084,
+           "score_me": 0.441,
+           "score_ci95": [
+            0.289,
+            0.605
+           ],
+           "in_course": true,
+           "note": "",
+           "children": [
+            {
+             "san": "Bg6",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rn1qkbnr/pp2pppp/2p5/3pPb2/3P2P1/8/PPP2P1P/RNBQKBNR b KQkq - 0 4",
+             "n_position": 34,
+             "n": 16,
+             "score_me": 0.469,
+             "score_ci95": [
+              0.255,
+              0.694
+             ],
+             "reach": 0.0084,
+             "in_course": true,
+             "note": "course move",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Be4",
+               "n": 18,
+               "share": 0.5294,
+               "score_me": 0.417,
+               "score_ci95": [
+                0.224,
+                0.639
+               ]
+              },
+              {
+               "san": "Bg6",
+               "n": 16,
+               "share": 0.4706,
+               "score_me": 0.469,
+               "score_ci95": [
+                0.255,
+                0.694
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0084
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "c3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 21,
+           "share_at_position": 0.0429,
+           "reach": 0.0052,
+           "score_me": 0.405,
+           "score_ci95": [
+            0.226,
+            0.613
+           ],
+           "in_course": true,
+           "note": "",
+           "children": [
+            {
+             "san": "e6",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rn1qkbnr/pp2pppp/2p5/3pPb2/3P4/2P5/PP3PPP/RNBQKBNR b KQkq - 0 4",
+             "n_position": 24,
+             "n": 21,
+             "score_me": 0.405,
+             "score_ci95": [
+              0.226,
+              0.613
+             ],
+             "reach": 0.0052,
+             "in_course": true,
+             "note": "course move",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "e6",
+               "n": 21,
+               "share": 0.875,
+               "score_me": 0.405,
+               "score_ci95": [
+                0.226,
+                0.613
+               ]
+              },
+              {
+               "san": "c5",
+               "n": 1,
+               "share": 0.0417,
+               "score_me": 1.0,
+               "score_ci95": [
+                0.207,
+                1.0
+               ]
+              },
+              {
+               "san": "f6",
+               "n": 1,
+               "share": 0.0417,
+               "score_me": 1.0,
+               "score_ci95": [
+                0.207,
+                1.0
+               ]
+              },
+              {
+               "san": "Nd7",
+               "n": 1,
+               "share": 0.0417,
+               "score_me": 1.0,
+               "score_ci95": [
+                0.207,
+                1.0
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0052
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "f4",
+           "by": "opponent",
+           "ply": 7,
+           "n": 21,
+           "share_at_position": 0.0429,
+           "reach": 0.0052,
+           "score_me": 0.381,
+           "score_ci95": [
+            0.208,
+            0.591
+           ],
+           "in_course": false,
+           "note": "GAP: the course has no answer to this move",
+           "children": [
+            {
+             "san": "e6",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rn1qkbnr/pp2pppp/2p5/3pPb2/3P1P2/8/PPP3PP/RNBQKBNR b KQkq - 0 4",
+             "n_position": 27,
+             "n": 25,
+             "score_me": 0.4,
+             "score_ci95": [
+              0.234,
+              0.593
+             ],
+             "reach": 0.0052,
+             "in_course": false,
+             "note": "outside the course: most common move at 1000-1300",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "e6",
+               "n": 25,
+               "share": 0.9259,
+               "score_me": 0.4,
+               "score_ci95": [
+                0.234,
+                0.593
+               ]
+              },
+              {
+               "san": "f6",
+               "n": 1,
+               "share": 0.037,
+               "score_me": 0.0,
+               "score_ci95": [
+                0.0,
+                0.793
+               ]
+              },
+              {
+               "san": "c5",
+               "n": 1,
+               "share": 0.037,
+               "score_me": 1.0,
+               "score_ci95": [
+                0.207,
+                1.0
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "Nf3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 13,
+               "share_at_position": 0.5417,
+               "reach": 0.0028,
+               "score_me": 0.385,
+               "score_ci95": [
+                0.177,
+                0.645
+               ],
+               "in_course": false,
+               "note": "",
+               "children": []
+              },
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0024
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "h3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 14,
+           "share_at_position": 0.0286,
+           "reach": 0.0035,
+           "score_me": 0.464,
+           "score_ci95": [
+            0.24,
+            0.704
+           ],
+           "in_course": false,
+           "note": "GAP: the course has no answer to this move",
+           "children": []
+          },
+          {
+           "san": "c4",
+           "by": "opponent",
+           "ply": 7,
+           "n": 12,
+           "share_at_position": 0.0245,
+           "reach": 0.003,
+           "score_me": 0.333,
+           "score_ci95": [
+            0.138,
+            0.609
+           ],
+           "in_course": false,
+           "note": "GAP: the course has no answer to this move",
+           "children": [
+            {
+             "san": "e6",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rn1qkbnr/pp2pppp/2p5/3pPb2/2PP4/8/PP3PPP/RNBQKBNR b KQkq - 0 4",
+             "n_position": 12,
+             "n": 10,
+             "score_me": 0.3,
+             "score_ci95": [
+              0.108,
+              0.603
+             ],
+             "reach": 0.003,
+             "in_course": false,
+             "note": "outside the course: most common move at 1000-1300",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "e6",
+               "n": 10,
+               "share": 0.8333,
+               "score_me": 0.3,
+               "score_ci95": [
+                0.108,
+                0.603
+               ]
+              },
+              {
+               "san": "dxc4",
+               "n": 1,
+               "share": 0.0833,
+               "score_me": 1.0,
+               "score_ci95": [
+                0.207,
+                1.0
+               ]
+              },
+              {
+               "san": "c5",
+               "n": 1,
+               "share": 0.0833,
+               "score_me": 0.0,
+               "score_ci95": [
+                0.0,
+                0.793
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.003
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "Bf4",
+           "by": "opponent",
+           "ply": 7,
+           "n": 11,
+           "share_at_position": 0.0225,
+           "reach": 0.0027,
+           "score_me": 0.455,
+           "score_ci95": [
+            0.213,
+            0.72
+           ],
+           "in_course": false,
+           "note": "GAP: the course has no answer to this move",
+           "children": []
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0107
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "Nc3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 397,
+       "share_at_position": 0.2252,
+       "reach": 0.0572,
+       "score_me": 0.472,
+       "score_ci95": [
+        0.424,
+        0.521
+       ],
+       "in_course": true,
+       "note": "",
+       "children": [
+        {
+         "san": "dxe4",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq - 1 3",
+         "n_position": 491,
+         "n": 237,
+         "score_me": 0.487,
+         "score_ci95": [
+          0.424,
+          0.551
+         ],
+         "reach": 0.0572,
+         "in_course": true,
+         "note": "course move",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "dxe4",
+           "n": 237,
+           "share": 0.4827,
+           "score_me": 0.487,
+           "score_ci95": [
+            0.424,
+            0.551
+           ]
+          },
+          {
+           "san": "Nf6",
+           "n": 99,
+           "share": 0.2016,
+           "score_me": 0.449,
+           "score_ci95": [
+            0.355,
+            0.548
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 70,
+           "share": 0.1426,
+           "score_me": 0.521,
+           "score_ci95": [
+            0.406,
+            0.634
+           ]
+          },
+          {
+           "san": "c5",
+           "n": 24,
+           "share": 0.0489,
+           "score_me": 0.417,
+           "score_ci95": [
+            0.245,
+            0.612
+           ]
+          },
+          {
+           "san": "g6",
+           "n": 12,
+           "share": 0.0244,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.254,
+            0.746
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Nxe4",
+           "by": "opponent",
+           "ply": 7,
+           "n": 230,
+           "share_at_position": 0.9623,
+           "reach": 0.055,
+           "score_me": 0.485,
+           "score_ci95": [
+            0.421,
+            0.549
+           ],
+           "in_course": true,
+           "note": "",
+           "children": [
+            {
+             "san": "Bf5",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkbnr/pp2pppp/2p5/8/3PN3/8/PPP2PPP/R1BQKBNR b KQkq - 0 4",
+             "n_position": 238,
+             "n": 122,
+             "score_me": 0.467,
+             "score_ci95": [
+              0.381,
+              0.555
+             ],
+             "reach": 0.055,
+             "in_course": true,
+             "note": "course move",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Bf5",
+               "n": 122,
+               "share": 0.5126,
+               "score_me": 0.467,
+               "score_ci95": [
+                0.381,
+                0.555
+               ]
+              },
+              {
+               "san": "Nf6",
+               "n": 83,
+               "share": 0.3487,
+               "score_me": 0.506,
+               "score_ci95": [
+                0.401,
+                0.611
+               ]
+              },
+              {
+               "san": "e5",
+               "n": 8,
+               "share": 0.0336,
+               "score_me": 0.25,
+               "score_ci95": [
+                0.071,
+                0.591
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 7,
+               "share": 0.0294,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.202,
+                0.798
+               ]
+              },
+              {
+               "san": "Nd7",
+               "n": 6,
+               "share": 0.0252,
+               "score_me": 0.667,
+               "score_ci95": [
+                0.3,
+                0.903
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "Bd3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 46,
+               "share_at_position": 0.3866,
+               "reach": 0.0213,
+               "score_me": 0.457,
+               "score_ci95": [
+                0.322,
+                0.598
+               ],
+               "in_course": false,
+               "note": "GAP: the course has no answer to this move",
+               "children": [
+                {
+                 "san": "Qxd4",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "rn1qkbnr/pp2pppp/2p5/5b2/3PN3/3B4/PPP2PPP/R1BQK1NR b KQkq - 2 5",
+                 "n_position": 46,
+                 "n": 18,
+                 "score_me": 0.361,
+                 "score_ci95": [
+                  0.183,
+                  0.588
+                 ],
+                 "reach": 0.0213,
+                 "in_course": false,
+                 "note": "outside the course: most common move at 1000-1300",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "Qxd4",
+                   "n": 18,
+                   "share": 0.3913,
+                   "score_me": 0.361,
+                   "score_ci95": [
+                    0.183,
+                    0.588
+                   ]
+                  },
+                  {
+                   "san": "e6",
+                   "n": 11,
+                   "share": 0.2391,
+                   "score_me": 0.455,
+                   "score_ci95": [
+                    0.213,
+                    0.72
+                   ]
+                  },
+                  {
+                   "san": "Bxe4",
+                   "n": 9,
+                   "share": 0.1957,
+                   "score_me": 0.444,
+                   "score_ci95": [
+                    0.189,
+                    0.733
+                   ]
+                  },
+                  {
+                   "san": "Nf6",
+                   "n": 3,
+                   "share": 0.0652,
+                   "score_me": 0.667,
+                   "score_ci95": [
+                    0.208,
+                    0.939
+                   ]
+                  },
+                  {
+                   "san": "Nd7",
+                   "n": 2,
+                   "share": 0.0435,
+                   "score_me": 0.75,
+                   "score_ci95": [
+                    0.198,
+                    0.973
+                   ]
+                  }
+                 ],
+                 "children": [
+                  {
+                   "san": "Nf3",
+                   "by": "opponent",
+                   "ply": 11,
+                   "n": 10,
+                   "share_at_position": 0.5882,
+                   "reach": 0.0125,
+                   "score_me": 0.3,
+                   "score_ci95": [
+                    0.108,
+                    0.603
+                   ],
+                   "in_course": false,
+                   "note": "",
+                   "children": []
+                  },
+                  {
+                   "san": "(other moves, each under 0.2% of games)",
+                   "by": "opponent",
+                   "reach": 0.0088
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "san": "Ng3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 28,
+               "share_at_position": 0.2353,
+               "reach": 0.0129,
+               "score_me": 0.482,
+               "score_ci95": [
+                0.311,
+                0.658
+               ],
+               "in_course": true,
+               "note": "",
+               "children": [
+                {
+                 "san": "Bg6",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "rn1qkbnr/pp2pppp/2p5/5b2/3P4/6N1/PPP2PPP/R1BQKBNR b KQkq - 2 5",
+                 "n_position": 28,
+                 "n": 17,
+                 "score_me": 0.353,
+                 "score_ci95": [
+                  0.173,
+                  0.587
+                 ],
+                 "reach": 0.0129,
+                 "in_course": true,
+                 "note": "course move",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "Bg6",
+                   "n": 17,
+                   "share": 0.6071,
+                   "score_me": 0.353,
+                   "score_ci95": [
+                    0.173,
+                    0.587
+                   ]
+                  },
+                  {
+                   "san": "e6",
+                   "n": 7,
+                   "share": 0.25,
+                   "score_me": 0.643,
+                   "score_ci95": [
+                    0.303,
+                    0.882
+                   ]
+                  },
+                  {
+                   "san": "Qa5+",
+                   "n": 2,
+                   "share": 0.0714,
+                   "score_me": 0.5,
+                   "score_ci95": [
+                    0.095,
+                    0.905
+                   ]
+                  },
+                  {
+                   "san": "Be6",
+                   "n": 1,
+                   "share": 0.0357,
+                   "score_me": 1.0,
+                   "score_ci95": [
+                    0.207,
+                    1.0
+                   ]
+                  },
+                  {
+                   "san": "Bd7",
+                   "n": 1,
+                   "share": 0.0357,
+                   "score_me": 1.0,
+                   "score_ci95": [
+                    0.207,
+                    1.0
+                   ]
+                  }
+                 ],
+                 "children": [
+                  {
+                   "san": "(other moves, each under 0.2% of games)",
+                   "by": "opponent",
+                   "reach": 0.0129
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "san": "f3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 17,
+               "share_at_position": 0.1429,
+               "reach": 0.0079,
+               "score_me": 0.471,
+               "score_ci95": [
+                0.262,
+                0.69
+               ],
+               "in_course": false,
+               "note": "GAP: the course has no answer to this move",
+               "children": []
+              },
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0129
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0022
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "exd5",
+       "by": "opponent",
+       "ply": 5,
+       "n": 378,
+       "share_at_position": 0.2144,
+       "reach": 0.0544,
+       "score_me": 0.54,
+       "score_ci95": [
+        0.489,
+        0.589
+       ],
+       "in_course": true,
+       "note": "",
+       "children": [
+        {
+         "san": "cxd5",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3P4/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3",
+         "n_position": 379,
+         "n": 350,
+         "score_me": 0.537,
+         "score_ci95": [
+          0.485,
+          0.589
+         ],
+         "reach": 0.0544,
+         "in_course": true,
+         "note": "course move",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "cxd5",
+           "n": 350,
+           "share": 0.9235,
+           "score_me": 0.537,
+           "score_ci95": [
+            0.485,
+            0.589
+           ]
+          },
+          {
+           "san": "Qxd5",
+           "n": 20,
+           "share": 0.0528,
+           "score_me": 0.525,
+           "score_ci95": [
+            0.32,
+            0.721
+           ]
+          },
+          {
+           "san": "Qa5+",
+           "n": 3,
+           "share": 0.0079,
+           "score_me": 0.667,
+           "score_ci95": [
+            0.208,
+            0.939
+           ]
+          },
+          {
+           "san": "Nf6",
+           "n": 3,
+           "share": 0.0079,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.125,
+            0.875
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 2,
+           "share": 0.0053,
+           "score_me": 1.0,
+           "score_ci95": [
+            0.342,
+            1.0
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Nc3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 161,
+           "share_at_position": 0.4535,
+           "reach": 0.0247,
+           "score_me": 0.522,
+           "score_ci95": [
+            0.445,
+            0.597
+           ],
+           "in_course": true,
+           "note": "",
+           "children": [
+            {
+             "san": "Nc6",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkbnr/pp2pppp/8/3p4/3P4/2N5/PPP2PPP/R1BQKBNR b KQkq - 1 4",
+             "n_position": 257,
+             "n": 72,
+             "score_me": 0.507,
+             "score_ci95": [
+              0.394,
+              0.619
+             ],
+             "reach": 0.0247,
+             "in_course": true,
+             "note": "course move",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Nf6",
+               "n": 104,
+               "share": 0.4047,
+               "score_me": 0.529,
+               "score_ci95": [
+                0.434,
+                0.622
+               ]
+              },
+              {
+               "san": "Nc6",
+               "n": 72,
+               "share": 0.2802,
+               "score_me": 0.507,
+               "score_ci95": [
+                0.394,
+                0.619
+               ]
+              },
+              {
+               "san": "Bf5",
+               "n": 42,
+               "share": 0.1634,
+               "score_me": 0.56,
+               "score_ci95": [
+                0.411,
+                0.698
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 25,
+               "share": 0.0973,
+               "score_me": 0.58,
+               "score_ci95": [
+                0.389,
+                0.75
+               ]
+              },
+              {
+               "san": "a6",
+               "n": 6,
+               "share": 0.0233,
+               "score_me": 0.667,
+               "score_ci95": [
+                0.3,
+                0.903
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "Nf3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 42,
+               "share_at_position": 0.5833,
+               "reach": 0.0144,
+               "score_me": 0.476,
+               "score_ci95": [
+                0.334,
+                0.623
+               ],
+               "in_course": true,
+               "note": "",
+               "children": [
+                {
+                 "san": "Bg4",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "r1bqkbnr/pp2pppp/2n5/3p4/3P4/2N2N2/PPP2PPP/R1BQKB1R b KQkq - 3 5",
+                 "n_position": 97,
+                 "n": 39,
+                 "score_me": 0.551,
+                 "score_ci95": [
+                  0.398,
+                  0.696
+                 ],
+                 "reach": 0.0144,
+                 "in_course": true,
+                 "note": "course move",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "Bg4",
+                   "n": 39,
+                   "share": 0.4021,
+                   "score_me": 0.551,
+                   "score_ci95": [
+                    0.398,
+                    0.696
+                   ]
+                  },
+                  {
+                   "san": "Nf6",
+                   "n": 26,
+                   "share": 0.268,
+                   "score_me": 0.558,
+                   "score_ci95": [
+                    0.372,
+                    0.729
+                   ]
+                  },
+                  {
+                   "san": "Bf5",
+                   "n": 12,
+                   "share": 0.1237,
+                   "score_me": 0.458,
+                   "score_ci95": [
+                    0.223,
+                    0.714
+                   ]
+                  },
+                  {
+                   "san": "e6",
+                   "n": 10,
+                   "share": 0.1031,
+                   "score_me": 0.6,
+                   "score_ci95": [
+                    0.313,
+                    0.832
+                   ]
+                  },
+                  {
+                   "san": "a6",
+                   "n": 4,
+                   "share": 0.0412,
+                   "score_me": 0.5,
+                   "score_ci95": [
+                    0.15,
+                    0.85
+                   ]
+                  }
+                 ],
+                 "children": [
+                  {
+                   "san": "Be2",
+                   "by": "opponent",
+                   "ply": 11,
+                   "n": 17,
+                   "share_at_position": 0.3778,
+                   "reach": 0.0054,
+                   "score_me": 0.529,
+                   "score_ci95": [
+                    0.31,
+                    0.738
+                   ],
+                   "in_course": false,
+                   "note": "GAP: the course has no answer to this move",
+                   "children": []
+                  },
+                  {
+                   "san": "h3",
+                   "by": "opponent",
+                   "ply": 11,
+                   "n": 15,
+                   "share_at_position": 0.3333,
+                   "reach": 0.0048,
+                   "score_me": 0.667,
+                   "score_ci95": [
+                    0.417,
+                    0.848
+                   ],
+                   "in_course": true,
+                   "note": "",
+                   "children": [
+                    {
+                     "san": "Bxf3",
+                     "by": "me",
+                     "ply": 12,
+                     "fen_before": "r2qkbnr/pp2pppp/2n5/3p4/3P2b1/2N2N1P/PPP2PP1/R1BQKB1R b KQkq - 0 6",
+                     "n_position": 15,
+                     "n": 12,
+                     "score_me": 0.667,
+                     "score_ci95": [
+                      0.391,
+                      0.862
+                     ],
+                     "reach": 0.0048,
+                     "in_course": true,
+                     "note": "course move",
+                     "what_1000_1300_players_play_here": [
+                      {
+                       "san": "Bxf3",
+                       "n": 12,
+                       "share": 0.8,
+                       "score_me": 0.667,
+                       "score_ci95": [
+                        0.391,
+                        0.862
+                       ]
+                      },
+                      {
+                       "san": "Bh5",
+                       "n": 2,
+                       "share": 0.1333,
+                       "score_me": 0.5,
+                       "score_ci95": [
+                        0.095,
+                        0.905
+                       ]
+                      },
+                      {
+                       "san": "Bf5",
+                       "n": 1,
+                       "share": 0.0667,
+                       "score_me": 1.0,
+                       "score_ci95": [
+                        0.207,
+                        1.0
+                       ]
+                      }
+                     ],
+                     "children": [
+                      {
+                       "san": "Qxf3",
+                       "by": "opponent",
+                       "ply": 13,
+                       "n": 11,
+                       "share_at_position": 0.9167,
+                       "reach": 0.0044,
+                       "score_me": 0.636,
+                       "score_ci95": [
+                        0.354,
+                        0.848
+                       ],
+                       "in_course": true,
+                       "note": "",
+                       "children": [
+                        {
+                         "san": "e6",
+                         "by": "me",
+                         "ply": 14,
+                         "fen_before": "r2qkbnr/pp2pppp/2n5/3p4/3P4/2N2Q1P/PPP2PP1/R1B1KB1R b KQkq - 0 7",
+                         "n_position": 11,
+                         "n": 3,
+                         "score_me": 0.833,
+                         "score_ci95": [
+                          0.31,
+                          0.982
+                         ],
+                         "reach": 0.0044,
+                         "in_course": true,
+                         "note": "course move",
+                         "what_1000_1300_players_play_here": [
+                          {
+                           "san": "Nf6",
+                           "n": 5,
+                           "share": 0.4545,
+                           "score_me": 0.6,
+                           "score_ci95": [
+                            0.231,
+                            0.882
+                           ]
+                          },
+                          {
+                           "san": "e6",
+                           "n": 3,
+                           "share": 0.2727,
+                           "score_me": 0.833,
+                           "score_ci95": [
+                            0.31,
+                            0.982
+                           ]
+                          },
+                          {
+                           "san": "Nxd4",
+                           "n": 2,
+                           "share": 0.1818,
+                           "score_me": 0.5,
+                           "score_ci95": [
+                            0.095,
+                            0.905
+                           ]
+                          },
+                          {
+                           "san": "e5",
+                           "n": 1,
+                           "share": 0.0909,
+                           "score_me": 0.5,
+                           "score_ci95": [
+                            0.055,
+                            0.945
+                           ]
+                          }
+                         ],
+                         "children": []
+                        }
+                       ]
+                      },
+                      {
+                       "san": "(other moves, each under 0.2% of games)",
+                       "by": "opponent",
+                       "reach": 0.0004
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "san": "(other moves, each under 0.2% of games)",
+                   "by": "opponent",
+                   "reach": 0.0042
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "san": "Bb5",
+               "by": "opponent",
+               "ply": 9,
+               "n": 18,
+               "share_at_position": 0.25,
+               "reach": 0.0062,
+               "score_me": 0.639,
+               "score_ci95": [
+                0.412,
+                0.817
+               ],
+               "in_course": false,
+               "note": "GAP: the course has no answer to this move",
+               "children": []
+              },
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0041
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "Nf3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 102,
+           "share_at_position": 0.2873,
+           "reach": 0.0156,
+           "score_me": 0.549,
+           "score_ci95": [
+            0.452,
+            0.642
+           ],
+           "in_course": true,
+           "note": "",
+           "children": [
+            {
+             "san": "Nc6",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkbnr/pp2pppp/8/3p4/3P4/5N2/PPP2PPP/RNBQKB1R b KQkq - 1 4",
+             "n_position": 363,
+             "n": 129,
+             "score_me": 0.508,
+             "score_ci95": [
+              0.423,
+              0.593
+             ],
+             "reach": 0.0156,
+             "in_course": true,
+             "note": "course move",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Nc6",
+               "n": 129,
+               "share": 0.3554,
+               "score_me": 0.508,
+               "score_ci95": [
+                0.423,
+                0.593
+               ]
+              },
+              {
+               "san": "Nf6",
+               "n": 81,
+               "share": 0.2231,
+               "score_me": 0.506,
+               "score_ci95": [
+                0.4,
+                0.612
+               ]
+              },
+              {
+               "san": "Bg4",
+               "n": 70,
+               "share": 0.1928,
+               "score_me": 0.436,
+               "score_ci95": [
+                0.326,
+                0.552
+               ]
+              },
+              {
+               "san": "Bf5",
+               "n": 51,
+               "share": 0.1405,
+               "score_me": 0.539,
+               "score_ci95": [
+                0.405,
+                0.668
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 18,
+               "share": 0.0496,
+               "score_me": 0.583,
+               "score_ci95": [
+                0.361,
+                0.776
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "Nc3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 45,
+               "share_at_position": 0.3409,
+               "reach": 0.0053,
+               "score_me": 0.567,
+               "score_ci95": [
+                0.422,
+                0.7
+               ],
+               "in_course": true,
+               "note": "",
+               "children": [
+                {
+                 "san": "Bg4",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "r1bqkbnr/pp2pppp/2n5/3p4/3P4/2N2N2/PPP2PPP/R1BQKB1R b KQkq - 3 5",
+                 "n_position": 97,
+                 "n": 39,
+                 "score_me": 0.551,
+                 "score_ci95": [
+                  0.398,
+                  0.696
+                 ],
+                 "reach": 0.0053,
+                 "in_course": true,
+                 "note": "course move",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "Bg4",
+                   "n": 39,
+                   "share": 0.4021,
+                   "score_me": 0.551,
+                   "score_ci95": [
+                    0.398,
+                    0.696
+                   ]
+                  },
+                  {
+                   "san": "Nf6",
+                   "n": 26,
+                   "share": 0.268,
+                   "score_me": 0.558,
+                   "score_ci95": [
+                    0.372,
+                    0.729
+                   ]
+                  },
+                  {
+                   "san": "Bf5",
+                   "n": 12,
+                   "share": 0.1237,
+                   "score_me": 0.458,
+                   "score_ci95": [
+                    0.223,
+                    0.714
+                   ]
+                  },
+                  {
+                   "san": "e6",
+                   "n": 10,
+                   "share": 0.1031,
+                   "score_me": 0.6,
+                   "score_ci95": [
+                    0.313,
+                    0.832
+                   ]
+                  },
+                  {
+                   "san": "a6",
+                   "n": 4,
+                   "share": 0.0412,
+                   "score_me": 0.5,
+                   "score_ci95": [
+                    0.15,
+                    0.85
+                   ]
+                  }
+                 ],
+                 "children": [
+                  {
+                   "san": "Be2",
+                   "by": "opponent",
+                   "ply": 11,
+                   "n": 17,
+                   "share_at_position": 0.3778,
+                   "reach": 0.002,
+                   "score_me": 0.529,
+                   "score_ci95": [
+                    0.31,
+                    0.738
+                   ],
+                   "in_course": false,
+                   "note": "GAP: the course has no answer to this move",
+                   "children": []
+                  },
+                  {
+                   "san": "(other moves, each under 0.2% of games)",
+                   "by": "opponent",
+                   "reach": 0.0033
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "san": "Bb5",
+               "by": "opponent",
+               "ply": 9,
+               "n": 42,
+               "share_at_position": 0.3182,
+               "reach": 0.005,
+               "score_me": 0.571,
+               "score_ci95": [
+                0.422,
+                0.709
+               ],
+               "in_course": true,
+               "note": "",
+               "children": [
+                {
+                 "san": "Bd7",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "r1bqkbnr/pp2pppp/2n5/1B1p4/3P4/5N2/PPP2PPP/RNBQK2R b KQkq - 3 5",
+                 "n_position": 51,
+                 "n": 11,
+                 "score_me": 0.545,
+                 "score_ci95": [
+                  0.28,
+                  0.787
+                 ],
+                 "reach": 0.005,
+                 "in_course": true,
+                 "note": "course move",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "Bg4",
+                   "n": 13,
+                   "share": 0.2549,
+                   "score_me": 0.462,
+                   "score_ci95": [
+                    0.232,
+                    0.709
+                   ]
+                  },
+                  {
+                   "san": "Bd7",
+                   "n": 11,
+                   "share": 0.2157,
+                   "score_me": 0.545,
+                   "score_ci95": [
+                    0.28,
+                    0.787
+                   ]
+                  },
+                  {
+                   "san": "a6",
+                   "n": 11,
+                   "share": 0.2157,
+                   "score_me": 0.818,
+                   "score_ci95": [
+                    0.523,
+                    0.949
+                   ]
+                  },
+                  {
+                   "san": "Bf5",
+                   "n": 8,
+                   "share": 0.1569,
+                   "score_me": 0.438,
+                   "score_ci95": [
+                    0.174,
+                    0.741
+                   ]
+                  },
+                  {
+                   "san": "Nf6",
+                   "n": 5,
+                   "share": 0.098,
+                   "score_me": 0.8,
+                   "score_ci95": [
+                    0.376,
+                    0.964
+                   ]
+                  }
+                 ],
+                 "children": [
+                  {
+                   "san": "(other moves, each under 0.2% of games)",
+                   "by": "opponent",
+                   "reach": 0.005
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0053
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "Bb5+",
+           "by": "opponent",
+           "ply": 7,
+           "n": 30,
+           "share_at_position": 0.0845,
+           "reach": 0.0046,
+           "score_me": 0.767,
+           "score_ci95": [
+            0.591,
+            0.882
+           ],
+           "in_course": true,
+           "note": "",
+           "children": [
+            {
+             "san": "Bd7",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkbnr/pp2pppp/8/1B1p4/3P4/8/PPP2PPP/RNBQK1NR b KQkq - 1 4",
+             "n_position": 31,
+             "n": 14,
+             "score_me": 0.75,
+             "score_ci95": [
+              0.488,
+              0.904
+             ],
+             "reach": 0.0046,
+             "in_course": true,
+             "note": "course move",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Nc6",
+               "n": 16,
+               "share": 0.5161,
+               "score_me": 0.781,
+               "score_ci95": [
+                0.537,
+                0.917
+               ]
+              },
+              {
+               "san": "Bd7",
+               "n": 14,
+               "share": 0.4516,
+               "score_me": 0.75,
+               "score_ci95": [
+                0.488,
+                0.904
+               ]
+              },
+              {
+               "san": "Nd7",
+               "n": 1,
+               "share": 0.0323,
+               "score_me": 1.0,
+               "score_ci95": [
+                0.207,
+                1.0
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0046
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "c4",
+           "by": "opponent",
+           "ply": 7,
+           "n": 17,
+           "share_at_position": 0.0479,
+           "reach": 0.0026,
+           "score_me": 0.559,
+           "score_ci95": [
+            0.335,
+            0.761
+           ],
+           "in_course": true,
+           "note": "",
+           "children": [
+            {
+             "san": "Nf6",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkbnr/pp2pppp/8/3p4/2PP4/8/PP3PPP/RNBQKBNR b KQkq - 0 4",
+             "n_position": 21,
+             "n": 13,
+             "score_me": 0.423,
+             "score_ci95": [
+              0.204,
+              0.677
+             ],
+             "reach": 0.0026,
+             "in_course": true,
+             "note": "course move",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Nf6",
+               "n": 13,
+               "share": 0.619,
+               "score_me": 0.423,
+               "score_ci95": [
+                0.204,
+                0.677
+               ]
+              },
+              {
+               "san": "dxc4",
+               "n": 3,
+               "share": 0.1429,
+               "score_me": 0.0,
+               "score_ci95": [
+                0.0,
+                0.562
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 3,
+               "share": 0.1429,
+               "score_me": 0.667,
+               "score_ci95": [
+                0.208,
+                0.939
+               ]
+              },
+              {
+               "san": "Nc6",
+               "n": 1,
+               "share": 0.0476,
+               "score_me": 1.0,
+               "score_ci95": [
+                0.207,
+                1.0
+               ]
+              },
+              {
+               "san": "a6",
+               "n": 1,
+               "share": 0.0476,
+               "score_me": 1.0,
+               "score_ci95": [
+                0.207,
+                1.0
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0026
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "Bd3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 15,
+           "share_at_position": 0.0423,
+           "reach": 0.0023,
+           "score_me": 0.4,
+           "score_ci95": [
+            0.198,
+            0.643
+           ],
+           "in_course": true,
+           "note": "",
+           "children": [
+            {
+             "san": "Nc6",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkbnr/pp2pppp/8/3p4/3P4/3B4/PPP2PPP/RNBQK1NR b KQkq - 1 4",
+             "n_position": 15,
+             "n": 12,
+             "score_me": 0.417,
+             "score_ci95": [
+              0.193,
+              0.68
+             ],
+             "reach": 0.0023,
+             "in_course": true,
+             "note": "course move",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Nc6",
+               "n": 12,
+               "share": 0.8,
+               "score_me": 0.417,
+               "score_ci95": [
+                0.193,
+                0.68
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 2,
+               "share": 0.1333,
+               "score_me": 0.0,
+               "score_ci95": [
+                0.0,
+                0.658
+               ]
+              },
+              {
+               "san": "Nf6",
+               "n": 1,
+               "share": 0.0667,
+               "score_me": 1.0,
+               "score_ci95": [
+                0.207,
+                1.0
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0023
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0046
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "f3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 49,
+       "share_at_position": 0.0278,
+       "reach": 0.0071,
+       "score_me": 0.531,
+       "score_ci95": [
+        0.394,
+        0.663
+       ],
+       "in_course": true,
+       "note": "",
+       "children": [
+        {
+         "san": "dxe4",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/5P2/PPP3PP/RNBQKBNR b KQkq - 0 3",
+         "n_position": 58,
+         "n": 24,
+         "score_me": 0.5,
+         "score_ci95": [
+          0.314,
+          0.686
+         ],
+         "reach": 0.0071,
+         "in_course": true,
+         "note": "course move",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "dxe4",
+           "n": 24,
+           "share": 0.4138,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.314,
+            0.686
+           ]
+          },
+          {
+           "san": "Nf6",
+           "n": 9,
+           "share": 0.1552,
+           "score_me": 0.556,
+           "score_ci95": [
+            0.267,
+            0.811
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 8,
+           "share": 0.1379,
+           "score_me": 0.75,
+           "score_ci95": [
+            0.409,
+            0.929
+           ]
+          },
+          {
+           "san": "Nd7",
+           "n": 5,
+           "share": 0.0862,
+           "score_me": 1.0,
+           "score_ci95": [
+            0.566,
+            1.0
+           ]
+          },
+          {
+           "san": "e5",
+           "n": 3,
+           "share": 0.0517,
+           "score_me": 0.333,
+           "score_ci95": [
+            0.061,
+            0.792
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "fxe4",
+           "by": "opponent",
+           "ply": 7,
+           "n": 23,
+           "share_at_position": 0.9583,
+           "reach": 0.0068,
+           "score_me": 0.522,
+           "score_ci95": [
+            0.33,
+            0.708
+           ],
+           "in_course": true,
+           "note": "",
+           "children": [
+            {
+             "san": "e5",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkbnr/pp2pppp/2p5/8/3PP3/8/PPP3PP/RNBQKBNR b KQkq - 0 4",
+             "n_position": 23,
+             "n": 6,
+             "score_me": 0.333,
+             "score_ci95": [
+              0.097,
+              0.7
+             ],
+             "reach": 0.0068,
+             "in_course": true,
+             "note": "course move",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Nf6",
+               "n": 7,
+               "share": 0.3043,
+               "score_me": 0.857,
+               "score_ci95": [
+                0.487,
+                0.974
+               ]
+              },
+              {
+               "san": "e5",
+               "n": 6,
+               "share": 0.2609,
+               "score_me": 0.333,
+               "score_ci95": [
+                0.097,
+                0.7
+               ]
+              },
+              {
+               "san": "c5",
+               "n": 4,
+               "share": 0.1739,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.15,
+                0.85
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 4,
+               "share": 0.1739,
+               "score_me": 0.25,
+               "score_ci95": [
+                0.046,
+                0.699
+               ]
+              },
+              {
+               "san": "Nd7",
+               "n": 2,
+               "share": 0.087,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.095,
+                0.905
+               ]
+              }
+             ],
+             "children": []
+            }
+           ]
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0003
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "Bd3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 32,
+       "share_at_position": 0.0182,
+       "reach": 0.0046,
+       "score_me": 0.688,
+       "score_ci95": [
+        0.514,
+        0.82
+       ],
+       "in_course": true,
+       "note": "",
+       "children": [
+        {
+         "san": "dxe4",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/3B4/PPP2PPP/RNBQK1NR b KQkq - 1 3",
+         "n_position": 32,
+         "n": 17,
+         "score_me": 0.706,
+         "score_ci95": [
+          0.469,
+          0.867
+         ],
+         "reach": 0.0046,
+         "in_course": true,
+         "note": "course move",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "dxe4",
+           "n": 17,
+           "share": 0.5312,
+           "score_me": 0.706,
+           "score_ci95": [
+            0.469,
+            0.867
+           ]
+          },
+          {
+           "san": "Nf6",
+           "n": 7,
+           "share": 0.2188,
+           "score_me": 0.571,
+           "score_ci95": [
+            0.25,
+            0.842
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 2,
+           "share": 0.0625,
+           "score_me": 1.0,
+           "score_ci95": [
+            0.342,
+            1.0
+           ]
+          },
+          {
+           "san": "Nd7",
+           "n": 2,
+           "share": 0.0625,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.095,
+            0.905
+           ]
+          },
+          {
+           "san": "e5",
+           "n": 1,
+           "share": 0.0312,
+           "score_me": 1.0,
+           "score_ci95": [
+            0.207,
+            1.0
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Bxe4",
+           "by": "opponent",
+           "ply": 7,
+           "n": 17,
+           "share_at_position": 1.0,
+           "reach": 0.0046,
+           "score_me": 0.706,
+           "score_ci95": [
+            0.469,
+            0.867
+           ],
+           "in_course": true,
+           "note": "",
+           "children": [
+            {
+             "san": "Nf6",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkbnr/pp2pppp/2p5/8/3PB3/8/PPP2PPP/RNBQK1NR b KQkq - 0 4",
+             "n_position": 17,
+             "n": 10,
+             "score_me": 0.7,
+             "score_ci95": [
+              0.397,
+              0.892
+             ],
+             "reach": 0.0046,
+             "in_course": true,
+             "note": "course move",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Nf6",
+               "n": 10,
+               "share": 0.5882,
+               "score_me": 0.7,
+               "score_ci95": [
+                0.397,
+                0.892
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 4,
+               "share": 0.2353,
+               "score_me": 0.75,
+               "score_ci95": [
+                0.301,
+                0.954
+               ]
+              },
+              {
+               "san": "Be6",
+               "n": 2,
+               "share": 0.1176,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.095,
+                0.905
+               ]
+              },
+              {
+               "san": "c5",
+               "n": 1,
+               "share": 0.0588,
+               "score_me": 1.0,
+               "score_ci95": [
+                0.207,
+                1.0
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0046
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "Nd2",
+       "by": "opponent",
+       "ply": 5,
+       "n": 23,
+       "share_at_position": 0.013,
+       "reach": 0.0033,
+       "score_me": 0.587,
+       "score_ci95": [
+        0.388,
+        0.761
+       ],
+       "in_course": true,
+       "note": "",
+       "children": [
+        {
+         "san": "dxe4",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/8/PPPN1PPP/R1BQKBNR b KQkq - 1 3",
+         "n_position": 23,
+         "n": 8,
+         "score_me": 0.438,
+         "score_ci95": [
+          0.174,
+          0.741
+         ],
+         "reach": 0.0033,
+         "in_course": true,
+         "note": "course move",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "dxe4",
+           "n": 8,
+           "share": 0.3478,
+           "score_me": 0.438,
+           "score_ci95": [
+            0.174,
+            0.741
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 4,
+           "share": 0.1739,
+           "score_me": 1.0,
+           "score_ci95": [
+            0.51,
+            1.0
+           ]
+          },
+          {
+           "san": "Nf6",
+           "n": 4,
+           "share": 0.1739,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.15,
+            0.85
+           ]
+          },
+          {
+           "san": "Nd7",
+           "n": 2,
+           "share": 0.087,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.095,
+            0.905
+           ]
+          },
+          {
+           "san": "Be6",
+           "n": 2,
+           "share": 0.087,
+           "score_me": 1.0,
+           "score_ci95": [
+            0.342,
+            1.0
+           ]
+          }
+         ],
+         "children": []
+        }
+       ]
+      },
+      {
+       "san": "Nf3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 20,
+       "share_at_position": 0.0113,
+       "reach": 0.0029,
+       "score_me": 0.6,
+       "score_ci95": [
+        0.387,
+        0.781
+       ],
+       "in_course": true,
+       "note": "",
+       "children": [
+        {
+         "san": "dxe4",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 1 3",
+         "n_position": 76,
+         "n": 46,
+         "score_me": 0.5,
+         "score_ci95": [
+          0.361,
+          0.639
+         ],
+         "reach": 0.0029,
+         "in_course": true,
+         "note": "course move",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "dxe4",
+           "n": 46,
+           "share": 0.6053,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.361,
+            0.639
+           ]
+          },
+          {
+           "san": "Bg4",
+           "n": 16,
+           "share": 0.2105,
+           "score_me": 0.469,
+           "score_ci95": [
+            0.255,
+            0.694
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 6,
+           "share": 0.0789,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.188,
+            0.812
+           ]
+          },
+          {
+           "san": "c5",
+           "n": 3,
+           "share": 0.0395,
+           "score_me": 0.667,
+           "score_ci95": [
+            0.208,
+            0.939
+           ]
+          },
+          {
+           "san": "a6",
+           "n": 2,
+           "share": 0.0263,
+           "score_me": 1.0,
+           "score_ci95": [
+            0.342,
+            1.0
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0029
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "(other moves, each under 0.2% of games)",
+       "by": "opponent",
+       "reach": 0.0033
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "san": "Bf4",
+   "by": "opponent",
+   "ply": 3,
+   "n": 190,
+   "share_at_position": 0.25,
+   "reach": 0.25,
+   "score_me": 0.447,
+   "score_ci95": [
+    0.378,
+    0.518
+   ],
+   "in_course": false,
+   "note": "GAP: the course has no answer to this move",
+   "children": [
+    {
+     "san": "d5",
+     "by": "me",
+     "ply": 4,
+     "fen_before": "rnbqkbnr/pp1ppppp/2p5/8/3P1B2/8/PPP1PPPP/RN1QKBNR b KQkq - 1 2",
+     "n_position": 189,
+     "n": 153,
+     "score_me": 0.467,
+     "score_ci95": [
+      0.39,
+      0.546
+     ],
+     "reach": 0.25,
+     "in_course": false,
+     "note": "outside the course: most common move at 1000-1300",
+     "what_1000_1300_players_play_here": [
+      {
+       "san": "d5",
+       "n": 153,
+       "share": 0.8095,
+       "score_me": 0.467,
+       "score_ci95": [
+        0.39,
+        0.546
+       ]
+      },
+      {
+       "san": "d6",
+       "n": 10,
+       "share": 0.0529,
+       "score_me": 0.15,
+       "score_ci95": [
+        0.035,
+        0.459
+       ]
+      },
+      {
+       "san": "Nf6",
+       "n": 7,
+       "share": 0.037,
+       "score_me": 0.429,
+       "score_ci95": [
+        0.158,
+        0.75
+       ]
+      },
+      {
+       "san": "Na6",
+       "n": 6,
+       "share": 0.0317,
+       "score_me": 0.667,
+       "score_ci95": [
+        0.3,
+        0.903
+       ]
+      },
+      {
+       "san": "Qb6",
+       "n": 4,
+       "share": 0.0212,
+       "score_me": 0.5,
+       "score_ci95": [
+        0.15,
+        0.85
+       ]
+      }
+     ],
+     "children": [
+      {
+       "san": "e3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 123,
+       "share_at_position": 0.5419,
+       "reach": 0.1355,
+       "score_me": 0.378,
+       "score_ci95": [
+        0.297,
+        0.466
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Bf5",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3P1B2/4P3/PPP2PPP/RN1QKBNR b KQkq - 0 3",
+         "n_position": 123,
+         "n": 46,
+         "score_me": 0.304,
+         "score_ci95": [
+          0.191,
+          0.448
+         ],
+         "reach": 0.1355,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Bf5",
+           "n": 46,
+           "share": 0.374,
+           "score_me": 0.304,
+           "score_ci95": [
+            0.191,
+            0.448
+           ]
+          },
+          {
+           "san": "Nf6",
+           "n": 36,
+           "share": 0.2927,
+           "score_me": 0.431,
+           "score_ci95": [
+            0.283,
+            0.591
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 10,
+           "share": 0.0813,
+           "score_me": 0.3,
+           "score_ci95": [
+            0.108,
+            0.603
+           ]
+          },
+          {
+           "san": "Nd7",
+           "n": 8,
+           "share": 0.065,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.215,
+            0.785
+           ]
+          },
+          {
+           "san": "g6",
+           "n": 4,
+           "share": 0.0325,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.15,
+            0.85
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Nf3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 32,
+           "share_at_position": 0.5818,
+           "reach": 0.0788,
+           "score_me": 0.344,
+           "score_ci95": [
+            0.204,
+            0.517
+           ],
+           "in_course": false,
+           "note": "",
+           "children": [
+            {
+             "san": "e6",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rn1qkbnr/pp2pppp/2p5/3p1b2/3P1B2/4PN2/PPP2PPP/RN1QKB1R b KQkq - 2 4",
+             "n_position": 51,
+             "n": 23,
+             "score_me": 0.457,
+             "score_ci95": [
+              0.274,
+              0.651
+             ],
+             "reach": 0.0788,
+             "in_course": false,
+             "note": "outside the course: most common move at 1000-1300",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "e6",
+               "n": 23,
+               "share": 0.451,
+               "score_me": 0.457,
+               "score_ci95": [
+                0.274,
+                0.651
+               ]
+              },
+              {
+               "san": "Nd7",
+               "n": 10,
+               "share": 0.1961,
+               "score_me": 0.0,
+               "score_ci95": [
+                -0.0,
+                0.278
+               ]
+              },
+              {
+               "san": "Nf6",
+               "n": 6,
+               "share": 0.1176,
+               "score_me": 0.167,
+               "score_ci95": [
+                0.03,
+                0.564
+               ]
+              },
+              {
+               "san": "f6",
+               "n": 4,
+               "share": 0.0784,
+               "score_me": 0.875,
+               "score_ci95": [
+                0.396,
+                0.987
+               ]
+              },
+              {
+               "san": "Bg4",
+               "n": 2,
+               "share": 0.0392,
+               "score_me": 0.25,
+               "score_ci95": [
+                0.027,
+                0.802
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "Bd3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 12,
+               "share_at_position": 0.4286,
+               "reach": 0.0338,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.254,
+                0.746
+               ],
+               "in_course": false,
+               "note": "",
+               "children": []
+              },
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.045
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0566
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "Nf3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 62,
+       "share_at_position": 0.2731,
+       "reach": 0.0683,
+       "score_me": 0.524,
+       "score_ci95": [
+        0.402,
+        0.643
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Nf6",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R b KQkq - 1 3",
+         "n_position": 107,
+         "n": 25,
+         "score_me": 0.38,
+         "score_ci95": [
+          0.218,
+          0.574
+         ],
+         "reach": 0.0683,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Nf6",
+           "n": 25,
+           "share": 0.2336,
+           "score_me": 0.38,
+           "score_ci95": [
+            0.218,
+            0.574
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 25,
+           "share": 0.2336,
+           "score_me": 0.42,
+           "score_ci95": [
+            0.25,
+            0.611
+           ]
+          },
+          {
+           "san": "Bg4",
+           "n": 20,
+           "share": 0.1869,
+           "score_me": 0.6,
+           "score_ci95": [
+            0.387,
+            0.781
+           ]
+          },
+          {
+           "san": "Nd7",
+           "n": 12,
+           "share": 0.1121,
+           "score_me": 0.583,
+           "score_ci95": [
+            0.32,
+            0.807
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 8,
+           "share": 0.0748,
+           "score_me": 0.562,
+           "score_ci95": [
+            0.259,
+            0.826
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "e3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 22,
+           "share_at_position": 0.7097,
+           "reach": 0.0485,
+           "score_me": 0.432,
+           "score_ci95": [
+            0.251,
+            0.633
+           ],
+           "in_course": false,
+           "note": "",
+           "children": [
+            {
+             "san": "Bg4",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkb1r/pp2pppp/2p2n2/3p4/3P1B2/4PN2/PPP2PPP/RN1QKB1R b KQkq - 0 4",
+             "n_position": 44,
+             "n": 18,
+             "score_me": 0.417,
+             "score_ci95": [
+              0.224,
+              0.639
+             ],
+             "reach": 0.0485,
+             "in_course": false,
+             "note": "outside the course: most common move at 1000-1300",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Bg4",
+               "n": 18,
+               "share": 0.4091,
+               "score_me": 0.417,
+               "score_ci95": [
+                0.224,
+                0.639
+               ]
+              },
+              {
+               "san": "Bf5",
+               "n": 10,
+               "share": 0.2273,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.237,
+                0.763
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 6,
+               "share": 0.1364,
+               "score_me": 0.167,
+               "score_ci95": [
+                0.03,
+                0.564
+               ]
+              },
+              {
+               "san": "g6",
+               "n": 2,
+               "share": 0.0455,
+               "score_me": 0.0,
+               "score_ci95": [
+                0.0,
+                0.658
+               ]
+              },
+              {
+               "san": "h6",
+               "n": 2,
+               "share": 0.0455,
+               "score_me": 0.75,
+               "score_ci95": [
+                0.198,
+                0.973
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0485
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0198
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "Nc3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 27,
+       "share_at_position": 0.1189,
+       "reach": 0.0297,
+       "score_me": 0.704,
+       "score_ci95": [
+        0.515,
+        0.841
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Bf5",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3P1B2/2N5/PPP1PPPP/R2QKBNR b KQkq - 1 3",
+         "n_position": 96,
+         "n": 28,
+         "score_me": 0.571,
+         "score_ci95": [
+          0.391,
+          0.735
+         ],
+         "reach": 0.0297,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Bf5",
+           "n": 28,
+           "share": 0.2917,
+           "score_me": 0.571,
+           "score_ci95": [
+            0.391,
+            0.735
+           ]
+          },
+          {
+           "san": "Nf6",
+           "n": 17,
+           "share": 0.1771,
+           "score_me": 0.588,
+           "score_ci95": [
+            0.36,
+            0.784
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 14,
+           "share": 0.1458,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.268,
+            0.732
+           ]
+          },
+          {
+           "san": "Nd7",
+           "n": 13,
+           "share": 0.1354,
+           "score_me": 0.385,
+           "score_ci95": [
+            0.177,
+            0.645
+           ]
+          },
+          {
+           "san": "Na6",
+           "n": 5,
+           "share": 0.0521,
+           "score_me": 0.7,
+           "score_ci95": [
+            0.299,
+            0.927
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "e3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 16,
+           "share_at_position": 0.5,
+           "reach": 0.0149,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.28,
+            0.72
+           ],
+           "in_course": false,
+           "note": "",
+           "children": []
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0149
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "(other moves, each under 0.2% of games)",
+       "by": "opponent",
+       "reach": 0.0165
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "san": "c4",
+   "by": "opponent",
+   "ply": 3,
+   "n": 120,
+   "share_at_position": 0.1579,
+   "reach": 0.1579,
+   "score_me": 0.496,
+   "score_ci95": [
+    0.408,
+    0.584
+   ],
+   "in_course": false,
+   "note": "GAP: the course has no answer to this move",
+   "children": [
+    {
+     "san": "d5",
+     "by": "me",
+     "ply": 4,
+     "fen_before": "rnbqkbnr/pp1ppppp/2p5/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2",
+     "n_position": 130,
+     "n": 107,
+     "score_me": 0.5,
+     "score_ci95": [
+      0.407,
+      0.593
+     ],
+     "reach": 0.1579,
+     "in_course": false,
+     "note": "outside the course: most common move at 1000-1300",
+     "what_1000_1300_players_play_here": [
+      {
+       "san": "d5",
+       "n": 107,
+       "share": 0.8231,
+       "score_me": 0.5,
+       "score_ci95": [
+        0.407,
+        0.593
+       ]
+      },
+      {
+       "san": "e6",
+       "n": 5,
+       "share": 0.0385,
+       "score_me": 0.6,
+       "score_ci95": [
+        0.231,
+        0.882
+       ]
+      },
+      {
+       "san": "d6",
+       "n": 4,
+       "share": 0.0308,
+       "score_me": 0.375,
+       "score_ci95": [
+        0.092,
+        0.781
+       ]
+      },
+      {
+       "san": "c5",
+       "n": 4,
+       "share": 0.0308,
+       "score_me": 0.5,
+       "score_ci95": [
+        0.15,
+        0.85
+       ]
+      },
+      {
+       "san": "g6",
+       "n": 2,
+       "share": 0.0154,
+       "score_me": 0.0,
+       "score_ci95": [
+        0.0,
+        0.658
+       ]
+      }
+     ],
+     "children": [
+      {
+       "san": "Nc3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 235,
+       "share_at_position": 0.4796,
+       "reach": 0.0757,
+       "score_me": 0.502,
+       "score_ci95": [
+        0.439,
+        0.566
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Nf6",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3",
+         "n_position": 236,
+         "n": 110,
+         "score_me": 0.482,
+         "score_ci95": [
+          0.391,
+          0.574
+         ],
+         "reach": 0.0757,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Nf6",
+           "n": 110,
+           "share": 0.4661,
+           "score_me": 0.482,
+           "score_ci95": [
+            0.391,
+            0.574
+           ]
+          },
+          {
+           "san": "dxc4",
+           "n": 43,
+           "share": 0.1822,
+           "score_me": 0.43,
+           "score_ci95": [
+            0.294,
+            0.578
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 36,
+           "share": 0.1525,
+           "score_me": 0.528,
+           "score_ci95": [
+            0.37,
+            0.68
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 31,
+           "share": 0.1314,
+           "score_me": 0.581,
+           "score_ci95": [
+            0.408,
+            0.736
+           ]
+          },
+          {
+           "san": "a6",
+           "n": 2,
+           "share": 0.0085,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.095,
+            0.905
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Nf3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 57,
+           "share_at_position": 0.3826,
+           "reach": 0.029,
+           "score_me": 0.404,
+           "score_ci95": [
+            0.286,
+            0.533
+           ],
+           "in_course": false,
+           "note": "",
+           "children": [
+            {
+             "san": "Bf5",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 3 4",
+             "n_position": 74,
+             "n": 24,
+             "score_me": 0.479,
+             "score_ci95": [
+              0.296,
+              0.668
+             ],
+             "reach": 0.029,
+             "in_course": false,
+             "note": "outside the course: most common move at 1000-1300",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Bf5",
+               "n": 24,
+               "share": 0.3243,
+               "score_me": 0.479,
+               "score_ci95": [
+                0.296,
+                0.668
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 13,
+               "share": 0.1757,
+               "score_me": 0.538,
+               "score_ci95": [
+                0.291,
+                0.768
+               ]
+              },
+              {
+               "san": "Bg4",
+               "n": 13,
+               "share": 0.1757,
+               "score_me": 0.346,
+               "score_ci95": [
+                0.151,
+                0.611
+               ]
+              },
+              {
+               "san": "dxc4",
+               "n": 7,
+               "share": 0.0946,
+               "score_me": 0.429,
+               "score_ci95": [
+                0.158,
+                0.75
+               ]
+              },
+              {
+               "san": "g6",
+               "n": 6,
+               "share": 0.0811,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.188,
+                0.812
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.029
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "Bg5",
+           "by": "opponent",
+           "ply": 7,
+           "n": 31,
+           "share_at_position": 0.2081,
+           "reach": 0.0158,
+           "score_me": 0.452,
+           "score_ci95": [
+            0.292,
+            0.622
+           ],
+           "in_course": false,
+           "note": "",
+           "children": []
+          },
+          {
+           "san": "e3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 16,
+           "share_at_position": 0.1074,
+           "reach": 0.0081,
+           "score_me": 0.625,
+           "score_ci95": [
+            0.386,
+            0.815
+           ],
+           "in_course": false,
+           "note": "",
+           "children": []
+          },
+          {
+           "san": "Bf4",
+           "by": "opponent",
+           "ply": 7,
+           "n": 16,
+           "share_at_position": 0.1074,
+           "reach": 0.0081,
+           "score_me": 0.344,
+           "score_ci95": [
+            0.163,
+            0.585
+           ],
+           "in_course": false,
+           "note": "",
+           "children": []
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0147
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "Nf3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 77,
+       "share_at_position": 0.1571,
+       "reach": 0.0248,
+       "score_me": 0.461,
+       "score_ci95": [
+        0.354,
+        0.572
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Nf6",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq - 1 3",
+         "n_position": 91,
+         "n": 25,
+         "score_me": 0.58,
+         "score_ci95": [
+          0.389,
+          0.75
+         ],
+         "reach": 0.0248,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Nf6",
+           "n": 25,
+           "share": 0.2747,
+           "score_me": 0.58,
+           "score_ci95": [
+            0.389,
+            0.75
+           ]
+          },
+          {
+           "san": "dxc4",
+           "n": 18,
+           "share": 0.1978,
+           "score_me": 0.389,
+           "score_ci95": [
+            0.203,
+            0.614
+           ]
+          },
+          {
+           "san": "Bg4",
+           "n": 16,
+           "share": 0.1758,
+           "score_me": 0.469,
+           "score_ci95": [
+            0.255,
+            0.694
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 16,
+           "share": 0.1758,
+           "score_me": 0.375,
+           "score_ci95": [
+            0.185,
+            0.614
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 8,
+           "share": 0.0879,
+           "score_me": 0.438,
+           "score_ci95": [
+            0.174,
+            0.741
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Nc3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 17,
+           "share_at_position": 0.4722,
+           "reach": 0.0117,
+           "score_me": 0.706,
+           "score_ci95": [
+            0.469,
+            0.867
+           ],
+           "in_course": false,
+           "note": "",
+           "children": [
+            {
+             "san": "Bf5",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 3 4",
+             "n_position": 74,
+             "n": 24,
+             "score_me": 0.479,
+             "score_ci95": [
+              0.296,
+              0.668
+             ],
+             "reach": 0.0117,
+             "in_course": false,
+             "note": "outside the course: most common move at 1000-1300",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Bf5",
+               "n": 24,
+               "share": 0.3243,
+               "score_me": 0.479,
+               "score_ci95": [
+                0.296,
+                0.668
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 13,
+               "share": 0.1757,
+               "score_me": 0.538,
+               "score_ci95": [
+                0.291,
+                0.768
+               ]
+              },
+              {
+               "san": "Bg4",
+               "n": 13,
+               "share": 0.1757,
+               "score_me": 0.346,
+               "score_ci95": [
+                0.151,
+                0.611
+               ]
+              },
+              {
+               "san": "dxc4",
+               "n": 7,
+               "share": 0.0946,
+               "score_me": 0.429,
+               "score_ci95": [
+                0.158,
+                0.75
+               ]
+              },
+              {
+               "san": "g6",
+               "n": 6,
+               "share": 0.0811,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.188,
+                0.812
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0117
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0131
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "e3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 64,
+       "share_at_position": 0.1306,
+       "reach": 0.0206,
+       "score_me": 0.477,
+       "score_ci95": [
+        0.359,
+        0.597
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Nf6",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/4P3/PP3PPP/RNBQKBNR b KQkq - 0 3",
+         "n_position": 81,
+         "n": 28,
+         "score_me": 0.5,
+         "score_ci95": [
+          0.326,
+          0.674
+         ],
+         "reach": 0.0206,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Nf6",
+           "n": 28,
+           "share": 0.3457,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.326,
+            0.674
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 26,
+           "share": 0.321,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.321,
+            0.679
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 12,
+           "share": 0.1481,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.254,
+            0.746
+           ]
+          },
+          {
+           "san": "f6",
+           "n": 3,
+           "share": 0.037,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.125,
+            0.875
+           ]
+          },
+          {
+           "san": "dxc4",
+           "n": 3,
+           "share": 0.037,
+           "score_me": 0.0,
+           "score_ci95": [
+            0.0,
+            0.562
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Nf3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 21,
+           "share_at_position": 0.4667,
+           "reach": 0.0096,
+           "score_me": 0.476,
+           "score_ci95": [
+            0.283,
+            0.676
+           ],
+           "in_course": false,
+           "note": "",
+           "children": [
+            {
+             "san": "Bg4",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/4PN2/PP3PPP/RNBQKB1R b KQkq - 2 4",
+             "n_position": 33,
+             "n": 12,
+             "score_me": 0.542,
+             "score_ci95": [
+              0.286,
+              0.777
+             ],
+             "reach": 0.0096,
+             "in_course": false,
+             "note": "outside the course: most common move at 1000-1300",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Bg4",
+               "n": 12,
+               "share": 0.3636,
+               "score_me": 0.542,
+               "score_ci95": [
+                0.286,
+                0.777
+               ]
+              },
+              {
+               "san": "Bf5",
+               "n": 8,
+               "share": 0.2424,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.215,
+                0.785
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 5,
+               "share": 0.1515,
+               "score_me": 0.6,
+               "score_ci95": [
+                0.231,
+                0.882
+               ]
+              },
+              {
+               "san": "dxc4",
+               "n": 3,
+               "share": 0.0909,
+               "score_me": 0.0,
+               "score_ci95": [
+                0.0,
+                0.562
+               ]
+              },
+              {
+               "san": "g6",
+               "n": 2,
+               "share": 0.0606,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.095,
+                0.905
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0096
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.011
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "cxd5",
+       "by": "opponent",
+       "ply": 5,
+       "n": 63,
+       "share_at_position": 0.1286,
+       "reach": 0.0203,
+       "score_me": 0.437,
+       "score_ci95": [
+        0.321,
+        0.559
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "cxd5",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3P4/3P4/8/PP2PPPP/RNBQKBNR b KQkq - 0 3",
+         "n_position": 63,
+         "n": 58,
+         "score_me": 0.457,
+         "score_ci95": [
+          0.335,
+          0.584
+         ],
+         "reach": 0.0203,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "cxd5",
+           "n": 58,
+           "share": 0.9206,
+           "score_me": 0.457,
+           "score_ci95": [
+            0.335,
+            0.584
+           ]
+          },
+          {
+           "san": "Qxd5",
+           "n": 3,
+           "share": 0.0476,
+           "score_me": 0.333,
+           "score_ci95": [
+            0.061,
+            0.792
+           ]
+          },
+          {
+           "san": "Qa5+",
+           "n": 2,
+           "share": 0.0317,
+           "score_me": 0.0,
+           "score_ci95": [
+            0.0,
+            0.658
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Nc3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 43,
+           "share_at_position": 0.6935,
+           "reach": 0.0141,
+           "score_me": 0.43,
+           "score_ci95": [
+            0.294,
+            0.578
+           ],
+           "in_course": false,
+           "note": "",
+           "children": [
+            {
+             "san": "Nf6",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkbnr/pp2pppp/8/3p4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 4",
+             "n_position": 45,
+             "n": 26,
+             "score_me": 0.442,
+             "score_ci95": [
+              0.271,
+              0.628
+             ],
+             "reach": 0.0141,
+             "in_course": false,
+             "note": "outside the course: most common move at 1000-1300",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Nf6",
+               "n": 26,
+               "share": 0.5778,
+               "score_me": 0.442,
+               "score_ci95": [
+                0.271,
+                0.628
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 8,
+               "share": 0.1778,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.215,
+                0.785
+               ]
+              },
+              {
+               "san": "Nc6",
+               "n": 6,
+               "share": 0.1333,
+               "score_me": 0.333,
+               "score_ci95": [
+                0.097,
+                0.7
+               ]
+              },
+              {
+               "san": "Bf5",
+               "n": 4,
+               "share": 0.0889,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.15,
+                0.85
+               ]
+              },
+              {
+               "san": "f6",
+               "n": 1,
+               "share": 0.0222,
+               "score_me": 0.0,
+               "score_ci95": [
+                0.0,
+                0.793
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0141
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "Nf3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 12,
+           "share_at_position": 0.1935,
+           "reach": 0.0039,
+           "score_me": 0.417,
+           "score_ci95": [
+            0.193,
+            0.68
+           ],
+           "in_course": false,
+           "note": "",
+           "children": []
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0023
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "c5",
+       "by": "opponent",
+       "ply": 5,
+       "n": 26,
+       "share_at_position": 0.0531,
+       "reach": 0.0084,
+       "score_me": 0.808,
+       "score_ci95": [
+        0.621,
+        0.915
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Nf6",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/2Pp4/3P4/8/PP2PPPP/RNBQKBNR b KQkq - 0 3",
+         "n_position": 27,
+         "n": 11,
+         "score_me": 0.818,
+         "score_ci95": [
+          0.523,
+          0.949
+         ],
+         "reach": 0.0084,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Nf6",
+           "n": 11,
+           "share": 0.4074,
+           "score_me": 0.818,
+           "score_ci95": [
+            0.523,
+            0.949
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 8,
+           "share": 0.2963,
+           "score_me": 0.938,
+           "score_ci95": [
+            0.598,
+            0.993
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 3,
+           "share": 0.1111,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.125,
+            0.875
+           ]
+          },
+          {
+           "san": "b6",
+           "n": 3,
+           "share": 0.1111,
+           "score_me": 1.0,
+           "score_ci95": [
+            0.438,
+            1.0
+           ]
+          },
+          {
+           "san": "Na6",
+           "n": 1,
+           "share": 0.037,
+           "score_me": 1.0,
+           "score_ci95": [
+            0.207,
+            1.0
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0084
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "(other moves, each under 0.2% of games)",
+       "by": "opponent",
+       "reach": 0.0081
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "san": "Nf3",
+   "by": "opponent",
+   "ply": 3,
+   "n": 91,
+   "share_at_position": 0.1197,
+   "reach": 0.1197,
+   "score_me": 0.511,
+   "score_ci95": [
+    0.41,
+    0.611
+   ],
+   "in_course": false,
+   "note": "GAP: the course has no answer to this move",
+   "children": [
+    {
+     "san": "d5",
+     "by": "me",
+     "ply": 4,
+     "fen_before": "rnbqkbnr/pp1ppppp/2p5/8/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq - 1 2",
+     "n_position": 117,
+     "n": 97,
+     "score_me": 0.474,
+     "score_ci95": [
+      0.378,
+      0.573
+     ],
+     "reach": 0.1197,
+     "in_course": false,
+     "note": "outside the course: most common move at 1000-1300",
+     "what_1000_1300_players_play_here": [
+      {
+       "san": "d5",
+       "n": 97,
+       "share": 0.8291,
+       "score_me": 0.474,
+       "score_ci95": [
+        0.378,
+        0.573
+       ]
+      },
+      {
+       "san": "f6",
+       "n": 4,
+       "share": 0.0342,
+       "score_me": 0.5,
+       "score_ci95": [
+        0.15,
+        0.85
+       ]
+      },
+      {
+       "san": "e6",
+       "n": 4,
+       "share": 0.0342,
+       "score_me": 0.625,
+       "score_ci95": [
+        0.219,
+        0.908
+       ]
+      },
+      {
+       "san": "Nf6",
+       "n": 3,
+       "share": 0.0256,
+       "score_me": 0.833,
+       "score_ci95": [
+        0.31,
+        0.982
+       ]
+      },
+      {
+       "san": "g6",
+       "n": 2,
+       "share": 0.0171,
+       "score_me": 0.5,
+       "score_ci95": [
+        0.095,
+        0.905
+       ]
+      }
+     ],
+     "children": [
+      {
+       "san": "e3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 45,
+       "share_at_position": 0.2903,
+       "reach": 0.0348,
+       "score_me": 0.422,
+       "score_ci95": [
+        0.29,
+        0.567
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Bg4",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3P4/4PN2/PPP2PPP/RNBQKB1R b KQkq - 0 3",
+         "n_position": 76,
+         "n": 29,
+         "score_me": 0.5,
+         "score_ci95": [
+          0.329,
+          0.671
+         ],
+         "reach": 0.0348,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Bg4",
+           "n": 29,
+           "share": 0.3816,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.329,
+            0.671
+           ]
+          },
+          {
+           "san": "Nf6",
+           "n": 19,
+           "share": 0.25,
+           "score_me": 0.421,
+           "score_ci95": [
+            0.231,
+            0.637
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 8,
+           "share": 0.1053,
+           "score_me": 0.625,
+           "score_ci95": [
+            0.306,
+            0.863
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 8,
+           "share": 0.1053,
+           "score_me": 0.25,
+           "score_ci95": [
+            0.071,
+            0.591
+           ]
+          },
+          {
+           "san": "f6",
+           "n": 3,
+           "share": 0.0395,
+           "score_me": 0.0,
+           "score_ci95": [
+            0.0,
+            0.562
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0348
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "Bf4",
+       "by": "opponent",
+       "ply": 5,
+       "n": 45,
+       "share_at_position": 0.2903,
+       "reach": 0.0348,
+       "score_me": 0.444,
+       "score_ci95": [
+        0.309,
+        0.588
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Nf6",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R b KQkq - 1 3",
+         "n_position": 107,
+         "n": 25,
+         "score_me": 0.38,
+         "score_ci95": [
+          0.218,
+          0.574
+         ],
+         "reach": 0.0348,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Nf6",
+           "n": 25,
+           "share": 0.2336,
+           "score_me": 0.38,
+           "score_ci95": [
+            0.218,
+            0.574
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 25,
+           "share": 0.2336,
+           "score_me": 0.42,
+           "score_ci95": [
+            0.25,
+            0.611
+           ]
+          },
+          {
+           "san": "Bg4",
+           "n": 20,
+           "share": 0.1869,
+           "score_me": 0.6,
+           "score_ci95": [
+            0.387,
+            0.781
+           ]
+          },
+          {
+           "san": "Nd7",
+           "n": 12,
+           "share": 0.1121,
+           "score_me": 0.583,
+           "score_ci95": [
+            0.32,
+            0.807
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 8,
+           "share": 0.0748,
+           "score_me": 0.562,
+           "score_ci95": [
+            0.259,
+            0.826
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "e3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 22,
+           "share_at_position": 0.7097,
+           "reach": 0.0247,
+           "score_me": 0.432,
+           "score_ci95": [
+            0.251,
+            0.633
+           ],
+           "in_course": false,
+           "note": "",
+           "children": [
+            {
+             "san": "Bg4",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkb1r/pp2pppp/2p2n2/3p4/3P1B2/4PN2/PPP2PPP/RN1QKB1R b KQkq - 0 4",
+             "n_position": 44,
+             "n": 18,
+             "score_me": 0.417,
+             "score_ci95": [
+              0.224,
+              0.639
+             ],
+             "reach": 0.0247,
+             "in_course": false,
+             "note": "outside the course: most common move at 1000-1300",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Bg4",
+               "n": 18,
+               "share": 0.4091,
+               "score_me": 0.417,
+               "score_ci95": [
+                0.224,
+                0.639
+               ]
+              },
+              {
+               "san": "Bf5",
+               "n": 10,
+               "share": 0.2273,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.237,
+                0.763
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 6,
+               "share": 0.1364,
+               "score_me": 0.167,
+               "score_ci95": [
+                0.03,
+                0.564
+               ]
+              },
+              {
+               "san": "g6",
+               "n": 2,
+               "share": 0.0455,
+               "score_me": 0.0,
+               "score_ci95": [
+                0.0,
+                0.658
+               ]
+              },
+              {
+               "san": "h6",
+               "n": 2,
+               "share": 0.0455,
+               "score_me": 0.75,
+               "score_ci95": [
+                0.198,
+                0.973
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0247
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0101
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "Nc3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 21,
+       "share_at_position": 0.1355,
+       "reach": 0.0162,
+       "score_me": 0.5,
+       "score_ci95": [
+        0.303,
+        0.697
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Nf6",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3P4/2N2N2/PPP1PPPP/R1BQKB1R b KQkq - 1 3",
+         "n_position": 75,
+         "n": 18,
+         "score_me": 0.417,
+         "score_ci95": [
+          0.224,
+          0.639
+         ],
+         "reach": 0.0162,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Nf6",
+           "n": 18,
+           "share": 0.24,
+           "score_me": 0.417,
+           "score_ci95": [
+            0.224,
+            0.639
+           ]
+          },
+          {
+           "san": "Bg4",
+           "n": 16,
+           "share": 0.2133,
+           "score_me": 0.469,
+           "score_ci95": [
+            0.255,
+            0.694
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 14,
+           "share": 0.1867,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.268,
+            0.732
+           ]
+          },
+          {
+           "san": "f6",
+           "n": 8,
+           "share": 0.1067,
+           "score_me": 0.75,
+           "score_ci95": [
+            0.409,
+            0.929
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 8,
+           "share": 0.1067,
+           "score_me": 0.625,
+           "score_ci95": [
+            0.306,
+            0.863
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Bf4",
+           "by": "opponent",
+           "ply": 7,
+           "n": 12,
+           "share_at_position": 0.375,
+           "reach": 0.0061,
+           "score_me": 0.375,
+           "score_ci95": [
+            0.165,
+            0.646
+           ],
+           "in_course": false,
+           "note": "",
+           "children": []
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0101
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "g3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 18,
+       "share_at_position": 0.1161,
+       "reach": 0.0139,
+       "score_me": 0.444,
+       "score_ci95": [
+        0.246,
+        0.663
+       ],
+       "in_course": false,
+       "note": "",
+       "children": []
+      },
+      {
+       "san": "c4",
+       "by": "opponent",
+       "ply": 5,
+       "n": 12,
+       "share_at_position": 0.0774,
+       "reach": 0.0093,
+       "score_me": 0.417,
+       "score_ci95": [
+        0.193,
+        0.68
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Nf6",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq - 0 3",
+         "n_position": 91,
+         "n": 25,
+         "score_me": 0.58,
+         "score_ci95": [
+          0.389,
+          0.75
+         ],
+         "reach": 0.0093,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Nf6",
+           "n": 25,
+           "share": 0.2747,
+           "score_me": 0.58,
+           "score_ci95": [
+            0.389,
+            0.75
+           ]
+          },
+          {
+           "san": "dxc4",
+           "n": 18,
+           "share": 0.1978,
+           "score_me": 0.389,
+           "score_ci95": [
+            0.203,
+            0.614
+           ]
+          },
+          {
+           "san": "Bg4",
+           "n": 16,
+           "share": 0.1758,
+           "score_me": 0.469,
+           "score_ci95": [
+            0.255,
+            0.694
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 16,
+           "share": 0.1758,
+           "score_me": 0.375,
+           "score_ci95": [
+            0.185,
+            0.614
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 8,
+           "share": 0.0879,
+           "score_me": 0.438,
+           "score_ci95": [
+            0.174,
+            0.741
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Nc3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 17,
+           "share_at_position": 0.4722,
+           "reach": 0.0044,
+           "score_me": 0.706,
+           "score_ci95": [
+            0.469,
+            0.867
+           ],
+           "in_course": false,
+           "note": "",
+           "children": [
+            {
+             "san": "Bf5",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 2 4",
+             "n_position": 74,
+             "n": 24,
+             "score_me": 0.479,
+             "score_ci95": [
+              0.296,
+              0.668
+             ],
+             "reach": 0.0044,
+             "in_course": false,
+             "note": "outside the course: most common move at 1000-1300",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Bf5",
+               "n": 24,
+               "share": 0.3243,
+               "score_me": 0.479,
+               "score_ci95": [
+                0.296,
+                0.668
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 13,
+               "share": 0.1757,
+               "score_me": 0.538,
+               "score_ci95": [
+                0.291,
+                0.768
+               ]
+              },
+              {
+               "san": "Bg4",
+               "n": 13,
+               "share": 0.1757,
+               "score_me": 0.346,
+               "score_ci95": [
+                0.151,
+                0.611
+               ]
+              },
+              {
+               "san": "dxc4",
+               "n": 7,
+               "share": 0.0946,
+               "score_me": 0.429,
+               "score_ci95": [
+                0.158,
+                0.75
+               ]
+              },
+              {
+               "san": "g6",
+               "n": 6,
+               "share": 0.0811,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.188,
+                0.812
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0044
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0049
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "(other moves, each under 0.2% of games)",
+       "by": "opponent",
+       "reach": 0.0108
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "san": "Nc3",
+   "by": "opponent",
+   "ply": 3,
+   "n": 57,
+   "share_at_position": 0.075,
+   "reach": 0.075,
+   "score_me": 0.535,
+   "score_ci95": [
+    0.408,
+    0.658
+   ],
+   "in_course": false,
+   "note": "GAP: the course has no answer to this move",
+   "children": [
+    {
+     "san": "d5",
+     "by": "me",
+     "ply": 4,
+     "fen_before": "rnbqkbnr/pp1ppppp/2p5/8/3P4/2N5/PPP1PPPP/R1BQKBNR b KQkq - 1 2",
+     "n_position": 72,
+     "n": 53,
+     "score_me": 0.538,
+     "score_ci95": [
+      0.406,
+      0.665
+     ],
+     "reach": 0.075,
+     "in_course": false,
+     "note": "outside the course: most common move at 1000-1300",
+     "what_1000_1300_players_play_here": [
+      {
+       "san": "d5",
+       "n": 53,
+       "share": 0.7361,
+       "score_me": 0.538,
+       "score_ci95": [
+        0.406,
+        0.665
+       ]
+      },
+      {
+       "san": "e6",
+       "n": 5,
+       "share": 0.0694,
+       "score_me": 0.3,
+       "score_ci95": [
+        0.073,
+        0.701
+       ]
+      },
+      {
+       "san": "d6",
+       "n": 3,
+       "share": 0.0417,
+       "score_me": 0.667,
+       "score_ci95": [
+        0.208,
+        0.939
+       ]
+      },
+      {
+       "san": "Nf6",
+       "n": 3,
+       "share": 0.0417,
+       "score_me": 0.833,
+       "score_ci95": [
+        0.31,
+        0.982
+       ]
+      },
+      {
+       "san": "b5",
+       "n": 3,
+       "share": 0.0417,
+       "score_me": 0.667,
+       "score_ci95": [
+        0.208,
+        0.939
+       ]
+      }
+     ],
+     "children": [
+      {
+       "san": "Bf4",
+       "by": "opponent",
+       "ply": 5,
+       "n": 69,
+       "share_at_position": 0.3632,
+       "reach": 0.0272,
+       "score_me": 0.42,
+       "score_ci95": [
+        0.311,
+        0.538
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Bf5",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3P1B2/2N5/PPP1PPPP/R2QKBNR b KQkq - 1 3",
+         "n_position": 96,
+         "n": 28,
+         "score_me": 0.571,
+         "score_ci95": [
+          0.391,
+          0.735
+         ],
+         "reach": 0.0272,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Bf5",
+           "n": 28,
+           "share": 0.2917,
+           "score_me": 0.571,
+           "score_ci95": [
+            0.391,
+            0.735
+           ]
+          },
+          {
+           "san": "Nf6",
+           "n": 17,
+           "share": 0.1771,
+           "score_me": 0.588,
+           "score_ci95": [
+            0.36,
+            0.784
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 14,
+           "share": 0.1458,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.268,
+            0.732
+           ]
+          },
+          {
+           "san": "Nd7",
+           "n": 13,
+           "share": 0.1354,
+           "score_me": 0.385,
+           "score_ci95": [
+            0.177,
+            0.645
+           ]
+          },
+          {
+           "san": "Na6",
+           "n": 5,
+           "share": 0.0521,
+           "score_me": 0.7,
+           "score_ci95": [
+            0.299,
+            0.927
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "e3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 16,
+           "share_at_position": 0.5,
+           "reach": 0.0136,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.28,
+            0.72
+           ],
+           "in_course": false,
+           "note": "",
+           "children": []
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0136
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "e4",
+       "by": "opponent",
+       "ply": 5,
+       "n": 48,
+       "share_at_position": 0.2526,
+       "reach": 0.0189,
+       "score_me": 0.51,
+       "score_ci95": [
+        0.374,
+        0.646
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "dxe4",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq - 0 3",
+         "n_position": 491,
+         "n": 237,
+         "score_me": 0.487,
+         "score_ci95": [
+          0.424,
+          0.551
+         ],
+         "reach": 0.0189,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "dxe4",
+           "n": 237,
+           "share": 0.4827,
+           "score_me": 0.487,
+           "score_ci95": [
+            0.424,
+            0.551
+           ]
+          },
+          {
+           "san": "Nf6",
+           "n": 99,
+           "share": 0.2016,
+           "score_me": 0.449,
+           "score_ci95": [
+            0.355,
+            0.548
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 70,
+           "share": 0.1426,
+           "score_me": 0.521,
+           "score_ci95": [
+            0.406,
+            0.634
+           ]
+          },
+          {
+           "san": "c5",
+           "n": 24,
+           "share": 0.0489,
+           "score_me": 0.417,
+           "score_ci95": [
+            0.245,
+            0.612
+           ]
+          },
+          {
+           "san": "g6",
+           "n": 12,
+           "share": 0.0244,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.254,
+            0.746
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Nxe4",
+           "by": "opponent",
+           "ply": 7,
+           "n": 230,
+           "share_at_position": 0.9623,
+           "reach": 0.0182,
+           "score_me": 0.485,
+           "score_ci95": [
+            0.421,
+            0.549
+           ],
+           "in_course": false,
+           "note": "",
+           "children": [
+            {
+             "san": "Bf5",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkbnr/pp2pppp/2p5/8/3PN3/8/PPP2PPP/R1BQKBNR b KQkq - 0 4",
+             "n_position": 238,
+             "n": 122,
+             "score_me": 0.467,
+             "score_ci95": [
+              0.381,
+              0.555
+             ],
+             "reach": 0.0182,
+             "in_course": false,
+             "note": "outside the course: most common move at 1000-1300",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Bf5",
+               "n": 122,
+               "share": 0.5126,
+               "score_me": 0.467,
+               "score_ci95": [
+                0.381,
+                0.555
+               ]
+              },
+              {
+               "san": "Nf6",
+               "n": 83,
+               "share": 0.3487,
+               "score_me": 0.506,
+               "score_ci95": [
+                0.401,
+                0.611
+               ]
+              },
+              {
+               "san": "e5",
+               "n": 8,
+               "share": 0.0336,
+               "score_me": 0.25,
+               "score_ci95": [
+                0.071,
+                0.591
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 7,
+               "share": 0.0294,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.202,
+                0.798
+               ]
+              },
+              {
+               "san": "Nd7",
+               "n": 6,
+               "share": 0.0252,
+               "score_me": 0.667,
+               "score_ci95": [
+                0.3,
+                0.903
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "Bd3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 46,
+               "share_at_position": 0.3866,
+               "reach": 0.007,
+               "score_me": 0.457,
+               "score_ci95": [
+                0.322,
+                0.598
+               ],
+               "in_course": false,
+               "note": "",
+               "children": [
+                {
+                 "san": "Qxd4",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "rn1qkbnr/pp2pppp/2p5/5b2/3PN3/3B4/PPP2PPP/R1BQK1NR b KQkq - 2 5",
+                 "n_position": 46,
+                 "n": 18,
+                 "score_me": 0.361,
+                 "score_ci95": [
+                  0.183,
+                  0.588
+                 ],
+                 "reach": 0.007,
+                 "in_course": false,
+                 "note": "outside the course: most common move at 1000-1300",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "Qxd4",
+                   "n": 18,
+                   "share": 0.3913,
+                   "score_me": 0.361,
+                   "score_ci95": [
+                    0.183,
+                    0.588
+                   ]
+                  },
+                  {
+                   "san": "e6",
+                   "n": 11,
+                   "share": 0.2391,
+                   "score_me": 0.455,
+                   "score_ci95": [
+                    0.213,
+                    0.72
+                   ]
+                  },
+                  {
+                   "san": "Bxe4",
+                   "n": 9,
+                   "share": 0.1957,
+                   "score_me": 0.444,
+                   "score_ci95": [
+                    0.189,
+                    0.733
+                   ]
+                  },
+                  {
+                   "san": "Nf6",
+                   "n": 3,
+                   "share": 0.0652,
+                   "score_me": 0.667,
+                   "score_ci95": [
+                    0.208,
+                    0.939
+                   ]
+                  },
+                  {
+                   "san": "Nd7",
+                   "n": 2,
+                   "share": 0.0435,
+                   "score_me": 0.75,
+                   "score_ci95": [
+                    0.198,
+                    0.973
+                   ]
+                  }
+                 ],
+                 "children": [
+                  {
+                   "san": "Nf3",
+                   "by": "opponent",
+                   "ply": 11,
+                   "n": 10,
+                   "share_at_position": 0.5882,
+                   "reach": 0.0041,
+                   "score_me": 0.3,
+                   "score_ci95": [
+                    0.108,
+                    0.603
+                   ],
+                   "in_course": false,
+                   "note": "",
+                   "children": []
+                  },
+                  {
+                   "san": "(other moves, each under 0.2% of games)",
+                   "by": "opponent",
+                   "reach": 0.0029
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "san": "Ng3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 28,
+               "share_at_position": 0.2353,
+               "reach": 0.0043,
+               "score_me": 0.482,
+               "score_ci95": [
+                0.311,
+                0.658
+               ],
+               "in_course": false,
+               "note": "",
+               "children": [
+                {
+                 "san": "Bg6",
+                 "by": "me",
+                 "ply": 10,
+                 "fen_before": "rn1qkbnr/pp2pppp/2p5/5b2/3P4/6N1/PPP2PPP/R1BQKBNR b KQkq - 2 5",
+                 "n_position": 28,
+                 "n": 17,
+                 "score_me": 0.353,
+                 "score_ci95": [
+                  0.173,
+                  0.587
+                 ],
+                 "reach": 0.0043,
+                 "in_course": false,
+                 "note": "outside the course: most common move at 1000-1300",
+                 "what_1000_1300_players_play_here": [
+                  {
+                   "san": "Bg6",
+                   "n": 17,
+                   "share": 0.6071,
+                   "score_me": 0.353,
+                   "score_ci95": [
+                    0.173,
+                    0.587
+                   ]
+                  },
+                  {
+                   "san": "e6",
+                   "n": 7,
+                   "share": 0.25,
+                   "score_me": 0.643,
+                   "score_ci95": [
+                    0.303,
+                    0.882
+                   ]
+                  },
+                  {
+                   "san": "Qa5+",
+                   "n": 2,
+                   "share": 0.0714,
+                   "score_me": 0.5,
+                   "score_ci95": [
+                    0.095,
+                    0.905
+                   ]
+                  },
+                  {
+                   "san": "Be6",
+                   "n": 1,
+                   "share": 0.0357,
+                   "score_me": 1.0,
+                   "score_ci95": [
+                    0.207,
+                    1.0
+                   ]
+                  },
+                  {
+                   "san": "Bd7",
+                   "n": 1,
+                   "share": 0.0357,
+                   "score_me": 1.0,
+                   "score_ci95": [
+                    0.207,
+                    1.0
+                   ]
+                  }
+                 ],
+                 "children": [
+                  {
+                   "san": "(other moves, each under 0.2% of games)",
+                   "by": "opponent",
+                   "reach": 0.0043
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "san": "f3",
+               "by": "opponent",
+               "ply": 9,
+               "n": 17,
+               "share_at_position": 0.1429,
+               "reach": 0.0026,
+               "score_me": 0.471,
+               "score_ci95": [
+                0.262,
+                0.69
+               ],
+               "in_course": false,
+               "note": "",
+               "children": []
+              },
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0043
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0007
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "Nf3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 40,
+       "share_at_position": 0.2105,
+       "reach": 0.0158,
+       "score_me": 0.6,
+       "score_ci95": [
+        0.446,
+        0.737
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Nf6",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3P4/2N2N2/PPP1PPPP/R1BQKB1R b KQkq - 1 3",
+         "n_position": 75,
+         "n": 18,
+         "score_me": 0.417,
+         "score_ci95": [
+          0.224,
+          0.639
+         ],
+         "reach": 0.0158,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Nf6",
+           "n": 18,
+           "share": 0.24,
+           "score_me": 0.417,
+           "score_ci95": [
+            0.224,
+            0.639
+           ]
+          },
+          {
+           "san": "Bg4",
+           "n": 16,
+           "share": 0.2133,
+           "score_me": 0.469,
+           "score_ci95": [
+            0.255,
+            0.694
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 14,
+           "share": 0.1867,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.268,
+            0.732
+           ]
+          },
+          {
+           "san": "f6",
+           "n": 8,
+           "share": 0.1067,
+           "score_me": 0.75,
+           "score_ci95": [
+            0.409,
+            0.929
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 8,
+           "share": 0.1067,
+           "score_me": 0.625,
+           "score_ci95": [
+            0.306,
+            0.863
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Bf4",
+           "by": "opponent",
+           "ply": 7,
+           "n": 12,
+           "share_at_position": 0.375,
+           "reach": 0.0059,
+           "score_me": 0.375,
+           "score_ci95": [
+            0.165,
+            0.646
+           ],
+           "in_course": false,
+           "note": "",
+           "children": []
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0099
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "e3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 12,
+       "share_at_position": 0.0632,
+       "reach": 0.0047,
+       "score_me": 0.708,
+       "score_ci95": [
+        0.428,
+        0.887
+       ],
+       "in_course": false,
+       "note": "",
+       "children": []
+      },
+      {
+       "san": "(other moves, each under 0.2% of games)",
+       "by": "opponent",
+       "reach": 0.0083
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "san": "e3",
+   "by": "opponent",
+   "ply": 3,
+   "n": 48,
+   "share_at_position": 0.0632,
+   "reach": 0.0632,
+   "score_me": 0.51,
+   "score_ci95": [
+    0.374,
+    0.646
+   ],
+   "in_course": false,
+   "note": "GAP: the course has no answer to this move",
+   "children": [
+    {
+     "san": "d5",
+     "by": "me",
+     "ply": 4,
+     "fen_before": "rnbqkbnr/pp1ppppp/2p5/8/3P4/4P3/PPP2PPP/RNBQKBNR b KQkq - 0 2",
+     "n_position": 69,
+     "n": 59,
+     "score_me": 0.534,
+     "score_ci95": [
+      0.408,
+      0.655
+     ],
+     "reach": 0.0632,
+     "in_course": false,
+     "note": "outside the course: most common move at 1000-1300",
+     "what_1000_1300_players_play_here": [
+      {
+       "san": "d5",
+       "n": 59,
+       "share": 0.8551,
+       "score_me": 0.534,
+       "score_ci95": [
+        0.408,
+        0.655
+       ]
+      },
+      {
+       "san": "Nf6",
+       "n": 5,
+       "share": 0.0725,
+       "score_me": 0.5,
+       "score_ci95": [
+        0.17,
+        0.83
+       ]
+      },
+      {
+       "san": "e6",
+       "n": 3,
+       "share": 0.0435,
+       "score_me": 0.333,
+       "score_ci95": [
+        0.061,
+        0.792
+       ]
+      },
+      {
+       "san": "d6",
+       "n": 1,
+       "share": 0.0145,
+       "score_me": 0.0,
+       "score_ci95": [
+        0.0,
+        0.793
+       ]
+      },
+      {
+       "san": "Qc7",
+       "n": 1,
+       "share": 0.0145,
+       "score_me": 0.0,
+       "score_ci95": [
+        0.0,
+        0.793
+       ]
+      }
+     ],
+     "children": [
+      {
+       "san": "Nf3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 29,
+       "share_at_position": 0.2397,
+       "reach": 0.0151,
+       "score_me": 0.534,
+       "score_ci95": [
+        0.36,
+        0.701
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Bg4",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3P4/4PN2/PPP2PPP/RNBQKB1R b KQkq - 1 3",
+         "n_position": 76,
+         "n": 29,
+         "score_me": 0.5,
+         "score_ci95": [
+          0.329,
+          0.671
+         ],
+         "reach": 0.0151,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Bg4",
+           "n": 29,
+           "share": 0.3816,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.329,
+            0.671
+           ]
+          },
+          {
+           "san": "Nf6",
+           "n": 19,
+           "share": 0.25,
+           "score_me": 0.421,
+           "score_ci95": [
+            0.231,
+            0.637
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 8,
+           "share": 0.1053,
+           "score_me": 0.625,
+           "score_ci95": [
+            0.306,
+            0.863
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 8,
+           "share": 0.1053,
+           "score_me": 0.25,
+           "score_ci95": [
+            0.071,
+            0.591
+           ]
+          },
+          {
+           "san": "f6",
+           "n": 3,
+           "share": 0.0395,
+           "score_me": 0.0,
+           "score_ci95": [
+            0.0,
+            0.562
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0151
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "Bd3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 21,
+       "share_at_position": 0.1736,
+       "reach": 0.011,
+       "score_me": 0.381,
+       "score_ci95": [
+        0.208,
+        0.591
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Nf6",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3P4/3BP3/PPP2PPP/RNBQK1NR b KQkq - 1 3",
+         "n_position": 21,
+         "n": 16,
+         "score_me": 0.375,
+         "score_ci95": [
+          0.185,
+          0.614
+         ],
+         "reach": 0.011,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Nf6",
+           "n": 16,
+           "share": 0.7619,
+           "score_me": 0.375,
+           "score_ci95": [
+            0.185,
+            0.614
+           ]
+          },
+          {
+           "san": "c5",
+           "n": 2,
+           "share": 0.0952,
+           "score_me": 0.0,
+           "score_ci95": [
+            0.0,
+            0.658
+           ]
+          },
+          {
+           "san": "Nd7",
+           "n": 2,
+           "share": 0.0952,
+           "score_me": 1.0,
+           "score_ci95": [
+            0.342,
+            1.0
+           ]
+          },
+          {
+           "san": "g6",
+           "n": 1,
+           "share": 0.0476,
+           "score_me": 0.0,
+           "score_ci95": [
+            0.0,
+            0.793
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.011
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "c4",
+       "by": "opponent",
+       "ply": 5,
+       "n": 15,
+       "share_at_position": 0.124,
+       "reach": 0.0078,
+       "score_me": 0.467,
+       "score_ci95": [
+        0.248,
+        0.699
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Nf6",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/4P3/PP3PPP/RNBQKBNR b KQkq - 0 3",
+         "n_position": 81,
+         "n": 28,
+         "score_me": 0.5,
+         "score_ci95": [
+          0.326,
+          0.674
+         ],
+         "reach": 0.0078,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Nf6",
+           "n": 28,
+           "share": 0.3457,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.326,
+            0.674
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 26,
+           "share": 0.321,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.321,
+            0.679
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 12,
+           "share": 0.1481,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.254,
+            0.746
+           ]
+          },
+          {
+           "san": "f6",
+           "n": 3,
+           "share": 0.037,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.125,
+            0.875
+           ]
+          },
+          {
+           "san": "dxc4",
+           "n": 3,
+           "share": 0.037,
+           "score_me": 0.0,
+           "score_ci95": [
+            0.0,
+            0.562
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "Nf3",
+           "by": "opponent",
+           "ply": 7,
+           "n": 21,
+           "share_at_position": 0.4667,
+           "reach": 0.0037,
+           "score_me": 0.476,
+           "score_ci95": [
+            0.283,
+            0.676
+           ],
+           "in_course": false,
+           "note": "",
+           "children": [
+            {
+             "san": "Bg4",
+             "by": "me",
+             "ply": 8,
+             "fen_before": "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/4PN2/PP3PPP/RNBQKB1R b KQkq - 2 4",
+             "n_position": 33,
+             "n": 12,
+             "score_me": 0.542,
+             "score_ci95": [
+              0.286,
+              0.777
+             ],
+             "reach": 0.0037,
+             "in_course": false,
+             "note": "outside the course: most common move at 1000-1300",
+             "what_1000_1300_players_play_here": [
+              {
+               "san": "Bg4",
+               "n": 12,
+               "share": 0.3636,
+               "score_me": 0.542,
+               "score_ci95": [
+                0.286,
+                0.777
+               ]
+              },
+              {
+               "san": "Bf5",
+               "n": 8,
+               "share": 0.2424,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.215,
+                0.785
+               ]
+              },
+              {
+               "san": "e6",
+               "n": 5,
+               "share": 0.1515,
+               "score_me": 0.6,
+               "score_ci95": [
+                0.231,
+                0.882
+               ]
+              },
+              {
+               "san": "dxc4",
+               "n": 3,
+               "share": 0.0909,
+               "score_me": 0.0,
+               "score_ci95": [
+                0.0,
+                0.562
+               ]
+              },
+              {
+               "san": "g6",
+               "n": 2,
+               "share": 0.0606,
+               "score_me": 0.5,
+               "score_ci95": [
+                0.095,
+                0.905
+               ]
+              }
+             ],
+             "children": [
+              {
+               "san": "(other moves, each under 0.2% of games)",
+               "by": "opponent",
+               "reach": 0.0037
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0042
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "c3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 15,
+       "share_at_position": 0.124,
+       "reach": 0.0078,
+       "score_me": 0.367,
+       "score_ci95": [
+        0.175,
+        0.613
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Nf6",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3P4/2P1P3/PP3PPP/RNBQKBNR b KQkq - 0 3",
+         "n_position": 26,
+         "n": 12,
+         "score_me": 0.5,
+         "score_ci95": [
+          0.254,
+          0.746
+         ],
+         "reach": 0.0078,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Nf6",
+           "n": 12,
+           "share": 0.4615,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.254,
+            0.746
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 6,
+           "share": 0.2308,
+           "score_me": 0.167,
+           "score_ci95": [
+            0.03,
+            0.564
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 3,
+           "share": 0.1154,
+           "score_me": 0.667,
+           "score_ci95": [
+            0.208,
+            0.939
+           ]
+          },
+          {
+           "san": "a6",
+           "n": 2,
+           "share": 0.0769,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.095,
+            0.905
+           ]
+          },
+          {
+           "san": "Nd7",
+           "n": 1,
+           "share": 0.0385,
+           "score_me": 1.0,
+           "score_ci95": [
+            0.207,
+            1.0
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0078
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "Nc3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 14,
+       "share_at_position": 0.1157,
+       "reach": 0.0073,
+       "score_me": 0.321,
+       "score_ci95": [
+        0.14,
+        0.58
+       ],
+       "in_course": false,
+       "note": "",
+       "children": []
+      },
+      {
+       "san": "(other moves, each under 0.2% of games)",
+       "by": "opponent",
+       "reach": 0.0141
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "san": "d5",
+   "by": "opponent",
+   "ply": 3,
+   "n": 17,
+   "share_at_position": 0.0224,
+   "reach": 0.0224,
+   "score_me": 0.206,
+   "score_ci95": [
+    0.078,
+    0.442
+   ],
+   "in_course": false,
+   "note": "GAP: the course has no answer to this move",
+   "children": []
+  },
+  {
+   "san": "c3",
+   "by": "opponent",
+   "ply": 3,
+   "n": 15,
+   "share_at_position": 0.0197,
+   "reach": 0.0197,
+   "score_me": 0.667,
+   "score_ci95": [
+    0.417,
+    0.848
+   ],
+   "in_course": false,
+   "note": "GAP: the course has no answer to this move",
+   "children": [
+    {
+     "san": "d5",
+     "by": "me",
+     "ply": 4,
+     "fen_before": "rnbqkbnr/pp1ppppp/2p5/8/3P4/2P5/PP2PPPP/RNBQKBNR b KQkq - 0 2",
+     "n_position": 18,
+     "n": 15,
+     "score_me": 0.6,
+     "score_ci95": [
+      0.357,
+      0.802
+     ],
+     "reach": 0.0197,
+     "in_course": false,
+     "note": "outside the course: most common move at 1000-1300",
+     "what_1000_1300_players_play_here": [
+      {
+       "san": "d5",
+       "n": 15,
+       "share": 0.8333,
+       "score_me": 0.6,
+       "score_ci95": [
+        0.357,
+        0.802
+       ]
+      },
+      {
+       "san": "d6",
+       "n": 1,
+       "share": 0.0556,
+       "score_me": 1.0,
+       "score_ci95": [
+        0.207,
+        1.0
+       ]
+      },
+      {
+       "san": "Nf6",
+       "n": 1,
+       "share": 0.0556,
+       "score_me": 0.0,
+       "score_ci95": [
+        0.0,
+        0.793
+       ]
+      },
+      {
+       "san": "b6",
+       "n": 1,
+       "share": 0.0556,
+       "score_me": 1.0,
+       "score_ci95": [
+        0.207,
+        1.0
+       ]
+      }
+     ],
+     "children": [
+      {
+       "san": "e3",
+       "by": "opponent",
+       "ply": 5,
+       "n": 10,
+       "share_at_position": 0.2703,
+       "reach": 0.0053,
+       "score_me": 0.5,
+       "score_ci95": [
+        0.237,
+        0.763
+       ],
+       "in_course": false,
+       "note": "",
+       "children": [
+        {
+         "san": "Nf6",
+         "by": "me",
+         "ply": 6,
+         "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3P4/2P1P3/PP3PPP/RNBQKBNR b KQkq - 0 3",
+         "n_position": 26,
+         "n": 12,
+         "score_me": 0.5,
+         "score_ci95": [
+          0.254,
+          0.746
+         ],
+         "reach": 0.0053,
+         "in_course": false,
+         "note": "outside the course: most common move at 1000-1300",
+         "what_1000_1300_players_play_here": [
+          {
+           "san": "Nf6",
+           "n": 12,
+           "share": 0.4615,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.254,
+            0.746
+           ]
+          },
+          {
+           "san": "Bf5",
+           "n": 6,
+           "share": 0.2308,
+           "score_me": 0.167,
+           "score_ci95": [
+            0.03,
+            0.564
+           ]
+          },
+          {
+           "san": "e6",
+           "n": 3,
+           "share": 0.1154,
+           "score_me": 0.667,
+           "score_ci95": [
+            0.208,
+            0.939
+           ]
+          },
+          {
+           "san": "a6",
+           "n": 2,
+           "share": 0.0769,
+           "score_me": 0.5,
+           "score_ci95": [
+            0.095,
+            0.905
+           ]
+          },
+          {
+           "san": "Nd7",
+           "n": 1,
+           "share": 0.0385,
+           "score_me": 1.0,
+           "score_ci95": [
+            0.207,
+            1.0
+           ]
+          }
+         ],
+         "children": [
+          {
+           "san": "(other moves, each under 0.2% of games)",
+           "by": "opponent",
+           "reach": 0.0053
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "san": "(other moves, each under 0.2% of games)",
+       "by": "opponent",
+       "reach": 0.0144
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "san": "(other moves, each under 0.2% of games)",
+   "by": "opponent",
+   "reach": 0.0382
+  }
+ ]
+}

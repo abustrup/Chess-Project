@@ -1,0 +1,32 @@
+(1) rule on Lichess evals vs Lichess labels: {(None, None): 291, ('Blunder', 'Blunder'): 64, ('Mistake', 'Mistake'): 28, ('Inaccuracy', 'Inaccuracy'): 45}
+    exact agreement 428/428
+
+(2) sf_250000.jsonl: moves 429  both-blunder 58  ours-only 5  lichess-only 6
+    precision 0.921  recall 0.906  total ours 63 vs lichess 64
+    |cp diff| median 13  p90 58  n 382
+    owner only: ours 34 vs lichess 32 blunders in 215 of his moves -> per100 ours 15.81 lichess 14.88
+      ('XLCmExKA', 'opp', 7, 11, 41)
+      ('XLCmExKA', 'me', 8, 8, 41)
+      ('KC803zNe', 'me', 13, 13, 43)
+      ('KC803zNe', 'opp', 13, 11, 42)
+      ('YqqVv08X', 'opp', 0, 0, 43)
+      ('YqqVv08X', 'me', 1, 1, 42)
+      ('yXoWmgsR', 'me', 4, 4, 42)
+      ('yXoWmgsR', 'opp', 2, 2, 41)
+      ('pEKoVG79', 'opp', 3, 4, 22)
+      ('pEKoVG79', 'me', 4, 4, 21)
+      ('tf4EY5pN', 'me', 4, 2, 26)
+      ('tf4EY5pN', 'opp', 4, 4, 25)
+    ours-only: [('XLCmExKA', 56, 'Rc3', 'Mistake', 15.6), ('KC803zNe', 6, 'e5', 'Mistake', 16.5), ('KC803zNe', 36, 'Qc7', 'Mistake', 15.6), ('tf4EY5pN', 17, 'Bg5', 'Mistake', 15.6), ('tf4EY5pN', 23, 'Qg4', 'Mistake', 15.5)]
+    lichess-only: [('XLCmExKA', 11, 'g3', 'Mistake', 14.5), ('XLCmExKA', 25, 'exd5', 'Mistake', 14.2), ('XLCmExKA', 64, 'Ra1+', 'Mistake', 14.7), ('XLCmExKA', 77, 'Ra7+', 'Mistake', 10.3), ('XLCmExKA', 79, 'Rxh7', 'Mistake', 13.9), ('pEKoVG79', 33, 'Bf2', 'Mistake', 11.8)]
+
+(2) sf_1000000.jsonl: moves 167  both-blunder 40  ours-only 4  lichess-only 3
+    precision 0.909  recall 0.930  total ours 44 vs lichess 43
+    |cp diff| median 14  p90 57  n 152
+    owner only: ours 20 vs lichess 21 blunders in 84 of his moves -> per100 ours 23.81 lichess 25.00
+      ('XLCmExKA', 'opp', 10, 11, 41)
+      ('XLCmExKA', 'me', 8, 8, 41)
+      ('KC803zNe', 'me', 12, 13, 43)
+      ('KC803zNe', 'opp', 14, 11, 42)
+    ours-only: [('XLCmExKA', 60, 'Rxa3', 'Inaccuracy', 15.9), ('KC803zNe', 6, 'e5', 'Mistake', 17.9), ('KC803zNe', 30, 'Be3+', 'Mistake', 16.3), ('KC803zNe', 36, 'Qc7', 'Mistake', 15.6)]
+    lichess-only: [('XLCmExKA', 76, 'Kf7', 'Mistake', 11.6), ('XLCmExKA', 77, 'Ra7+', None, 3.1), ('KC803zNe', 65, 'Nc5', 'Mistake', 6.5)]

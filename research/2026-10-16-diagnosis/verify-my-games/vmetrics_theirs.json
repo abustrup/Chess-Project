@@ -1,0 +1,165 @@
+{
+ "source": "theirs",
+ "baseline": {
+  "him_blunders": 111,
+  "him_moves": 891,
+  "him_per100": 12.46,
+  "him_per100_game_bootstrap95": [
+   9.4,
+   15.9
+  ],
+  "him_mistakes": 49,
+  "him_inaccuracies": 71,
+  "opp_blunders": 86,
+  "opp_moves": 897,
+  "opp_per100": 9.59,
+  "per_game_median": 9.8,
+  "n_games_10plus": 30
+ },
+ "big": {
+  "big": 45,
+  "in_moves_1_12": 10,
+  "share": 0.222,
+  "wilson95": [
+   0.125,
+   0.363
+  ],
+  "all_blunders_in_moves_1_12": 26
+ },
+ "threat": {
+  "him_tested": 763,
+  "him_threat_moves": 114,
+  "him_blunders_facing_threat": 35,
+  "him_rate": 0.307,
+  "him_wilson": [
+   0.23,
+   0.397
+  ],
+  "him_nothreat": [
+   67,
+   649,
+   0.103
+  ],
+  "opp_tested": 862,
+  "opp_threat_moves": 135,
+  "opp_blunders_facing_threat": 22,
+  "opp_rate": 0.163,
+  "opp_wilson": [
+   0.11,
+   0.234
+  ],
+  "opp_nothreat": [
+   59,
+   727,
+   0.081
+  ],
+  "diff_threat_boot95_points": [
+   1.5,
+   29.8
+  ],
+  "diff_nothreat_boot95_points": [
+   -0.8,
+   4.7
+  ],
+  "sensitivity": {
+   "drop>=10,gain>=2": "him 36/121 = 0.30; opp 22/145 = 0.15",
+   "drop>=15,gain>=2": "him 35/114 = 0.31; opp 22/135 = 0.16",
+   "drop>=20,gain>=2": "him 33/110 = 0.30; opp 22/128 = 0.17",
+   "drop>=15,gain>=3": "him 22/80 = 0.28; opp 19/102 = 0.19",
+   "drop>=15,gain>=1": "him 45/153 = 0.29; opp 30/179 = 0.17"
+  }
+ },
+ "openings": {
+  "white": {
+   "games": 15,
+   "reached_move12": 14,
+   "below25": 1,
+   "median_w12": 55.2,
+   "per_game": {
+    "bdOFlcdq": 9.7,
+    "uUCQ83zH": 97.0,
+    "FWvViwBk": 64.3,
+    "KC803zNe": 82.7,
+    "Rw8CfgsO": 53.9,
+    "msCRozP2": null,
+    "bkKIi4iM": 47.5,
+    "yXoWmgsR": 49.8,
+    "W6Nhrt3P": 86.8,
+    "oTRkBfJ0": 95.9,
+    "4z8iRBwu": 56.4,
+    "ioPKeFeP": 68.3,
+    "h2CvZgjE": 52.5,
+    "tf4EY5pN": 36.4,
+    "gKsIWaAv": 47.4
+   }
+  },
+  "black_other": {
+   "games": 5,
+   "reached_move12": 4,
+   "below25": 0,
+   "median_w12": 44.4,
+   "per_game": {
+    "B4575r7G": 47.5,
+    "EMxzd6WS": null,
+    "XLCmExKA": 41.3,
+    "9Kgsnfwd": 38.8,
+    "i4ehkEq3": 61.5
+   }
+  },
+  "caro": {
+   "games": 11,
+   "reached_move12": 10,
+   "below25": 7,
+   "median_w12": 14.6,
+   "per_game": {
+    "hHlIiQJZ": null,
+    "tSVRiDh0": 95.0,
+    "YqqVv08X": 3.5,
+    "u820NzSm": 17.8,
+    "WwmpftBa": 4.1,
+    "USKGIQT0": 4.0,
+    "TLcQymUZ": 11.5,
+    "K0WK1qZB": 7.6,
+    "pEKoVG79": 26.6,
+    "gugQaOdT": 24.5,
+    "pfUcWPlw": 30.6
+   }
+  },
+  "fisher_two_sided_caro_vs_white": 0.0023
+ },
+ "thrown": {
+  "him_reached75": 16,
+  "him_not_won": 9,
+  "him_share": 0.562,
+  "him_wilson": [
+   0.332,
+   0.769
+  ],
+  "him_games": [
+   "FWvViwBk",
+   "tSVRiDh0",
+   "USKGIQT0",
+   "4z8iRBwu",
+   "ioPKeFeP",
+   "i4ehkEq3",
+   "h2CvZgjE",
+   "pEKoVG79",
+   "pfUcWPlw"
+  ],
+  "opp_reached75": 27,
+  "opp_not_won": 6,
+  "opp_share": 0.222,
+  "fisher_him_vs_opp": 0.0453,
+  "him_sustained90": [
+   7,
+   3
+  ]
+ },
+ "clock": {
+  "median_blunder_s": 6.62,
+  "median_unjudged_s": 3.96,
+  "share_blunders_le2s": 0.126,
+  "share_all_le2s": 0.219,
+  "median_all_s": 5.08
+ }
+}

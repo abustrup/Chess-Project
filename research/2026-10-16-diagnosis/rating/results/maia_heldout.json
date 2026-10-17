@@ -1,0 +1,1214 @@
+{
+ "grid": [
+  600,
+  1000,
+  1400,
+  1800,
+  2200,
+  2600
+ ],
+ "model": {
+  "measurement": {
+   "c0": -114.91661520557537,
+   "c_rapid": 215.43350682384877,
+   "c1": 1.0212036848547525,
+   "s_inf": 144.5754426872217,
+   "s1": 254.92503200926546,
+   "mu": 1567.388489208633,
+   "sd0": 527.0517861530933,
+   "resid_var_by_n": {
+    "1": [
+     86021,
+     834
+    ],
+    "2": [
+     52130,
+     407
+    ],
+    "3": [
+     43964,
+     258
+    ],
+    "5": [
+     35426,
+     148
+    ],
+    "10": [
+     24412,
+     61
+    ]
+   }
+  },
+  "bayes": {
+   "k": 0.4,
+   "shift_blitz": 125,
+   "shift_rapid": -150,
+   "mu": 1567.388489208633,
+   "sd": 527.0517861530933,
+   "logscore_by_k": {
+    "0.1": -4263.2,
+    "0.15": -4152.1,
+    "0.2": -4081.7,
+    "0.25": -4036.8,
+    "0.3": -4010.5,
+    "0.35": -3998.8,
+    "0.4": -3998.2,
+    "0.5": -4020.0,
+    "0.6": -4065.9,
+    "0.8": -4206.0,
+    "1.0": -4388.8
+   }
+  },
+  "linear": {
+   "1": {
+    "a": 369.70148301660265,
+    "b": 0.7808866961589676,
+    "q": {
+     "0.025": -653.1266644655007,
+     "0.1": -340.8748753345379,
+     "0.9": 299.32618059379917,
+     "0.975": 476.91086028985455
+    },
+    "n_cal": 834
+   },
+   "5": {
+    "a": 216.1667174449169,
+    "b": 0.8811997764088356,
+    "q": {
+     "0.025": -418.84382321002545,
+     "0.1": -228.8636260731722,
+     "0.9": 219.2597300537317,
+     "0.975": 304.9371568205189
+    },
+    "n_cal": 148
+   },
+   "10": {
+    "a": 194.44015225403564,
+    "b": 0.9011182663250384,
+    "q": {
+     "0.025": -267.3363831848915,
+     "0.1": -207.2672302009746,
+     "0.9": 187.32512809593163,
+     "0.975": 231.65564691630993
+    },
+    "n_cal": 61
+   }
+  }
+ },
+ "calibration": {
+  "games": 834,
+  "players": 44
+ },
+ "test": {
+  "games": 840,
+  "players": 84
+ },
+ "results": {
+  "1": {
+   "all": {
+    "constant (calibration mean)": {
+     "n_estimates": 840,
+     "n_players": 84,
+     "mae": 390,
+     "bias": 280,
+     "mae_95ci": [
+      342,
+      437
+     ]
+    },
+    "opponents average (pairing artifact)": {
+     "n_estimates": 840,
+     "n_players": 84,
+     "mae": 69,
+     "bias": 11,
+     "mae_95ci": [
+      51,
+      94
+     ]
+    },
+    "maia raw": {
+     "n_estimates": 840,
+     "n_players": 84,
+     "mae": 238,
+     "bias": 17,
+     "mae_95ci": [
+      217,
+      261
+     ]
+    },
+    "PRIMARY maia measurement model": {
+     "n_estimates": 840,
+     "n_players": 84,
+     "mae": 227,
+     "bias": 62,
+     "mae_95ci": [
+      203,
+      251
+     ],
+     "coverage_80": 0.761,
+     "median_halfwidth_80": 323,
+     "coverage_95": 0.924,
+     "median_halfwidth_95": 494
+    },
+    "maia linear recal": {
+     "n_estimates": 840,
+     "n_players": 84,
+     "mae": 218,
+     "bias": 101,
+     "mae_95ci": [
+      194,
+      243
+     ],
+     "coverage_80": 0.786,
+     "median_halfwidth_80": 320,
+     "coverage_95": 0.96,
+     "median_halfwidth_95": 565
+    },
+    "maia tempered bayes": {
+     "n_estimates": 840,
+     "n_players": 84,
+     "mae": 233,
+     "bias": 89,
+     "mae_95ci": [
+      209,
+      260
+     ],
+     "coverage_80": 0.767,
+     "median_halfwidth_80": 345,
+     "coverage_95": 0.95,
+     "median_halfwidth_95": 518
+    }
+   },
+   "subsets": {
+    "band 800-1400": {
+     "constant": {
+      "n_estimates": 547,
+      "n_players": 55,
+      "mae": 453,
+      "bias": 453,
+      "mae_95ci": [
+       409,
+       493
+      ]
+     },
+     "opponents average": {
+      "n_estimates": 547,
+      "n_players": 55,
+      "mae": 64,
+      "bias": 23,
+      "mae_95ci": [
+       46,
+       89
+      ]
+     },
+     "PRIMARY maia measurement model": {
+      "n_estimates": 547,
+      "n_players": 55,
+      "mae": 223,
+      "bias": 152,
+      "mae_95ci": [
+       192,
+       253
+      ],
+      "coverage_80": 0.762,
+      "median_halfwidth_80": 323,
+      "coverage_95": 0.912,
+      "median_halfwidth_95": 494
+     },
+     "maia linear recal": {
+      "n_estimates": 547,
+      "n_players": 55,
+      "mae": 225,
+      "bias": 181,
+      "mae_95ci": [
+       194,
+       256
+      ],
+      "coverage_80": 0.786,
+      "median_halfwidth_80": 320,
+      "coverage_95": 0.956,
+      "median_halfwidth_95": 565
+     },
+     "maia tempered bayes": {
+      "n_estimates": 547,
+      "n_players": 55,
+      "mae": 237,
+      "bias": 190,
+      "mae_95ci": [
+       206,
+       268
+      ],
+      "coverage_80": 0.768,
+      "median_halfwidth_80": 340,
+      "coverage_95": 0.958,
+      "median_halfwidth_95": 515
+     }
+    },
+    "rapid": {
+     "constant": {
+      "n_estimates": 420,
+      "n_players": 42,
+      "mae": 387,
+      "bias": 271,
+      "mae_95ci": [
+       319,
+       461
+      ]
+     },
+     "opponents average": {
+      "n_estimates": 420,
+      "n_players": 42,
+      "mae": 71,
+      "bias": -5,
+      "mae_95ci": [
+       45,
+       111
+      ]
+     },
+     "PRIMARY maia measurement model": {
+      "n_estimates": 420,
+      "n_players": 42,
+      "mae": 207,
+      "bias": -45,
+      "mae_95ci": [
+       177,
+       237
+      ],
+      "coverage_80": 0.812,
+      "median_halfwidth_80": 323,
+      "coverage_95": 0.95,
+      "median_halfwidth_95": 494
+     },
+     "maia linear recal": {
+      "n_estimates": 420,
+      "n_players": 42,
+      "mae": 206,
+      "bias": 75,
+      "mae_95ci": [
+       173,
+       241
+      ],
+      "coverage_80": 0.798,
+      "median_halfwidth_80": 320,
+      "coverage_95": 0.967,
+      "median_halfwidth_95": 565
+     },
+     "maia tempered bayes": {
+      "n_estimates": 420,
+      "n_players": 42,
+      "mae": 202,
+      "bias": -32,
+      "mae_95ci": [
+       173,
+       229
+      ],
+      "coverage_80": 0.829,
+      "median_halfwidth_80": 345,
+      "coverage_95": 0.969,
+      "median_halfwidth_95": 520
+     }
+    },
+    "blitz": {
+     "constant": {
+      "n_estimates": 420,
+      "n_players": 42,
+      "mae": 392,
+      "bias": 288,
+      "mae_95ci": [
+       330,
+       453
+      ]
+     },
+     "opponents average": {
+      "n_estimates": 420,
+      "n_players": 42,
+      "mae": 67,
+      "bias": 27,
+      "mae_95ci": [
+       45,
+       98
+      ]
+     },
+     "PRIMARY maia measurement model": {
+      "n_estimates": 420,
+      "n_players": 42,
+      "mae": 246,
+      "bias": 169,
+      "mae_95ci": [
+       211,
+       285
+      ],
+      "coverage_80": 0.71,
+      "median_halfwidth_80": 323,
+      "coverage_95": 0.898,
+      "median_halfwidth_95": 494
+     },
+     "maia linear recal": {
+      "n_estimates": 420,
+      "n_players": 42,
+      "mae": 229,
+      "bias": 127,
+      "mae_95ci": [
+       196,
+       267
+      ],
+      "coverage_80": 0.774,
+      "median_halfwidth_80": 320,
+      "coverage_95": 0.952,
+      "median_halfwidth_95": 565
+     },
+     "maia tempered bayes": {
+      "n_estimates": 420,
+      "n_players": 42,
+      "mae": 265,
+      "bias": 211,
+      "mae_95ci": [
+       228,
+       305
+      ],
+      "coverage_80": 0.705,
+      "median_halfwidth_80": 342,
+      "coverage_95": 0.931,
+      "median_halfwidth_95": 515
+     }
+    }
+   },
+   "in_sample_calibration": {
+    "PRIMARY maia measurement model": {
+     "n_estimates": 834,
+     "n_players": 44,
+     "mae": 187,
+     "bias": 0,
+     "mae_95ci": [
+      165,
+      215
+     ],
+     "coverage_80": 0.848,
+     "median_halfwidth_80": 323,
+     "coverage_95": 0.953,
+     "median_halfwidth_95": 494
+    },
+    "maia linear recal": {
+     "n_estimates": 834,
+     "n_players": 44,
+     "mae": 206,
+     "bias": 0,
+     "mae_95ci": [
+      179,
+      238
+     ],
+     "coverage_80": 0.799,
+     "median_halfwidth_80": 320,
+     "coverage_95": 0.95,
+     "median_halfwidth_95": 565
+    },
+    "maia tempered bayes": {
+     "n_estimates": 834,
+     "n_players": 44,
+     "mae": 189,
+     "bias": 30,
+     "mae_95ci": [
+      162,
+      221
+     ],
+     "coverage_80": 0.872,
+     "median_halfwidth_80": 340,
+     "coverage_95": 0.968,
+     "median_halfwidth_95": 515
+    }
+   }
+  },
+  "5": {
+   "all": {
+    "constant (calibration mean)": {
+     "n_estimates": 168,
+     "n_players": 84,
+     "mae": 389,
+     "bias": 280,
+     "mae_95ci": [
+      342,
+      437
+     ]
+    },
+    "opponents average (pairing artifact)": {
+     "n_estimates": 168,
+     "n_players": 84,
+     "mae": 47,
+     "bias": 11,
+     "mae_95ci": [
+      30,
+      71
+     ]
+    },
+    "maia raw": {
+     "n_estimates": 168,
+     "n_players": 84,
+     "mae": 172,
+     "bias": -3,
+     "mae_95ci": [
+      148,
+      199
+     ]
+    },
+    "PRIMARY maia measurement model": {
+     "n_estimates": 168,
+     "n_players": 84,
+     "mae": 193,
+     "bias": 9,
+     "mae_95ci": [
+      168,
+      219
+     ],
+     "coverage_80": 0.655,
+     "median_halfwidth_80": 219,
+     "coverage_95": 0.827,
+     "median_halfwidth_95": 334
+    },
+    "maia linear recal": {
+     "n_estimates": 168,
+     "n_players": 84,
+     "mae": 167,
+     "bias": 61,
+     "mae_95ci": [
+      143,
+      195
+     ],
+     "coverage_80": 0.708,
+     "median_halfwidth_80": 224,
+     "coverage_95": 0.917,
+     "median_halfwidth_95": 362
+    },
+    "maia tempered bayes": {
+     "n_estimates": 168,
+     "n_players": 84,
+     "mae": 208,
+     "bias": 7,
+     "mae_95ci": [
+      181,
+      237
+     ],
+     "coverage_80": 0.452,
+     "median_halfwidth_80": 170,
+     "coverage_95": 0.661,
+     "median_halfwidth_95": 255
+    }
+   },
+   "subsets": {
+    "band 800-1400": {
+     "constant": {
+      "n_estimates": 110,
+      "n_players": 55,
+      "mae": 454,
+      "bias": 454,
+      "mae_95ci": [
+       410,
+       495
+      ]
+     },
+     "opponents average": {
+      "n_estimates": 110,
+      "n_players": 55,
+      "mae": 38,
+      "bias": 23,
+      "mae_95ci": [
+       21,
+       62
+      ]
+     },
+     "PRIMARY maia measurement model": {
+      "n_estimates": 110,
+      "n_players": 55,
+      "mae": 180,
+      "bias": 83,
+      "mae_95ci": [
+       148,
+       210
+      ],
+      "coverage_80": 0.709,
+      "median_halfwidth_80": 219,
+      "coverage_95": 0.855,
+      "median_halfwidth_95": 334
+     },
+     "maia linear recal": {
+      "n_estimates": 110,
+      "n_players": 55,
+      "mae": 172,
+      "bias": 125,
+      "mae_95ci": [
+       139,
+       203
+      ],
+      "coverage_80": 0.691,
+      "median_halfwidth_80": 224,
+      "coverage_95": 0.936,
+      "median_halfwidth_95": 362
+     },
+     "maia tempered bayes": {
+      "n_estimates": 110,
+      "n_players": 55,
+      "mae": 199,
+      "bias": 75,
+      "mae_95ci": [
+       163,
+       234
+      ],
+      "coverage_80": 0.491,
+      "median_halfwidth_80": 170,
+      "coverage_95": 0.7,
+      "median_halfwidth_95": 252
+     }
+    },
+    "rapid": {
+     "constant": {
+      "n_estimates": 84,
+      "n_players": 42,
+      "mae": 387,
+      "bias": 271,
+      "mae_95ci": [
+       319,
+       461
+      ]
+     },
+     "opponents average": {
+      "n_estimates": 84,
+      "n_players": 42,
+      "mae": 48,
+      "bias": -5,
+      "mae_95ci": [
+       22,
+       90
+      ]
+     },
+     "PRIMARY maia measurement model": {
+      "n_estimates": 84,
+      "n_players": 42,
+      "mae": 185,
+      "bias": -108,
+      "mae_95ci": [
+       153,
+       220
+      ],
+      "coverage_80": 0.667,
+      "median_halfwidth_80": 219,
+      "coverage_95": 0.81,
+      "median_halfwidth_95": 334
+     },
+     "maia linear recal": {
+      "n_estimates": 84,
+      "n_players": 42,
+      "mae": 148,
+      "bias": 38,
+      "mae_95ci": [
+       112,
+       185
+      ],
+      "coverage_80": 0.762,
+      "median_halfwidth_80": 224,
+      "coverage_95": 0.929,
+      "median_halfwidth_95": 362
+     },
+     "maia tempered bayes": {
+      "n_estimates": 84,
+      "n_players": 42,
+      "mae": 204,
+      "bias": -148,
+      "mae_95ci": [
+       169,
+       239
+      ],
+      "coverage_80": 0.452,
+      "median_halfwidth_80": 170,
+      "coverage_95": 0.655,
+      "median_halfwidth_95": 255
+     }
+    },
+    "blitz": {
+     "constant": {
+      "n_estimates": 84,
+      "n_players": 42,
+      "mae": 392,
+      "bias": 288,
+      "mae_95ci": [
+       330,
+       453
+      ]
+     },
+     "opponents average": {
+      "n_estimates": 84,
+      "n_players": 42,
+      "mae": 45,
+      "bias": 27,
+      "mae_95ci": [
+       26,
+       75
+      ]
+     },
+     "PRIMARY maia measurement model": {
+      "n_estimates": 84,
+      "n_players": 42,
+      "mae": 201,
+      "bias": 126,
+      "mae_95ci": [
+       164,
+       245
+      ],
+      "coverage_80": 0.643,
+      "median_halfwidth_80": 219,
+      "coverage_95": 0.845,
+      "median_halfwidth_95": 334
+     },
+     "maia linear recal": {
+      "n_estimates": 84,
+      "n_players": 42,
+      "mae": 186,
+      "bias": 84,
+      "mae_95ci": [
+       153,
+       224
+      ],
+      "coverage_80": 0.655,
+      "median_halfwidth_80": 224,
+      "coverage_95": 0.905,
+      "median_halfwidth_95": 362
+     },
+     "maia tempered bayes": {
+      "n_estimates": 84,
+      "n_players": 42,
+      "mae": 211,
+      "bias": 162,
+      "mae_95ci": [
+       169,
+       262
+      ],
+      "coverage_80": 0.452,
+      "median_halfwidth_80": 172,
+      "coverage_95": 0.667,
+      "median_halfwidth_95": 255
+     }
+    }
+   },
+   "in_sample_calibration": {
+    "PRIMARY maia measurement model": {
+     "n_estimates": 148,
+     "n_players": 44,
+     "mae": 127,
+     "bias": 1,
+     "mae_95ci": [
+      106,
+      151
+     ],
+     "coverage_80": 0.838,
+     "median_halfwidth_80": 219,
+     "coverage_95": 0.973,
+     "median_halfwidth_95": 334
+    },
+    "maia linear recal": {
+     "n_estimates": 148,
+     "n_players": 44,
+     "mae": 148,
+     "bias": 0,
+     "mae_95ci": [
+      125,
+      177
+     ],
+     "coverage_80": 0.797,
+     "median_halfwidth_80": 224,
+     "coverage_95": 0.946,
+     "median_halfwidth_95": 362
+    },
+    "maia tempered bayes": {
+     "n_estimates": 148,
+     "n_players": 44,
+     "mae": 129,
+     "bias": 30,
+     "mae_95ci": [
+      106,
+      158
+     ],
+     "coverage_80": 0.662,
+     "median_halfwidth_80": 165,
+     "coverage_95": 0.872,
+     "median_halfwidth_95": 245
+    }
+   }
+  },
+  "10": {
+   "all": {
+    "constant (calibration mean)": {
+     "n_estimates": 84,
+     "n_players": 84,
+     "mae": 389,
+     "bias": 280,
+     "mae_95ci": [
+      342,
+      437
+     ]
+    },
+    "opponents average (pairing artifact)": {
+     "n_estimates": 84,
+     "n_players": 84,
+     "mae": 39,
+     "bias": 11,
+     "mae_95ci": [
+      22,
+      62
+     ]
+    },
+    "maia raw": {
+     "n_estimates": 84,
+     "n_players": 84,
+     "mae": 164,
+     "bias": -4,
+     "mae_95ci": [
+      138,
+      191
+     ]
+    },
+    "PRIMARY maia measurement model": {
+     "n_estimates": 84,
+     "n_players": 84,
+     "mae": 190,
+     "bias": 3,
+     "mae_95ci": [
+      165,
+      217
+     ],
+     "coverage_80": 0.595,
+     "median_halfwidth_80": 199,
+     "coverage_95": 0.81,
+     "median_halfwidth_95": 304
+    },
+    "maia linear recal": {
+     "n_estimates": 84,
+     "n_players": 84,
+     "mae": 161,
+     "bias": 63,
+     "mae_95ci": [
+      135,
+      191
+     ],
+     "coverage_80": 0.702,
+     "median_halfwidth_80": 197,
+     "coverage_95": 0.798,
+     "median_halfwidth_95": 249
+    },
+    "maia tempered bayes": {
+     "n_estimates": 84,
+     "n_players": 84,
+     "mae": 213,
+     "bias": -2,
+     "mae_95ci": [
+      184,
+      244
+     ],
+     "coverage_80": 0.274,
+     "median_halfwidth_80": 102,
+     "coverage_95": 0.464,
+     "median_halfwidth_95": 180
+    }
+   },
+   "subsets": {
+    "band 800-1400": {
+     "constant": {
+      "n_estimates": 55,
+      "n_players": 55,
+      "mae": 454,
+      "bias": 454,
+      "mae_95ci": [
+       410,
+       495
+      ]
+     },
+     "opponents average": {
+      "n_estimates": 55,
+      "n_players": 55,
+      "mae": 32,
+      "bias": 23,
+      "mae_95ci": [
+       14,
+       57
+      ]
+     },
+     "PRIMARY maia measurement model": {
+      "n_estimates": 55,
+      "n_players": 55,
+      "mae": 174,
+      "bias": 73,
+      "mae_95ci": [
+       143,
+       203
+      ],
+      "coverage_80": 0.673,
+      "median_halfwidth_80": 199,
+      "coverage_95": 0.836,
+      "median_halfwidth_95": 304
+     },
+     "maia linear recal": {
+      "n_estimates": 55,
+      "n_players": 55,
+      "mae": 165,
+      "bias": 125,
+      "mae_95ci": [
+       132,
+       196
+      ],
+      "coverage_80": 0.727,
+      "median_halfwidth_80": 197,
+      "coverage_95": 0.782,
+      "median_halfwidth_95": 249
+     },
+     "maia tempered bayes": {
+      "n_estimates": 55,
+      "n_players": 55,
+      "mae": 204,
+      "bias": 58,
+      "mae_95ci": [
+       167,
+       239
+      ],
+      "coverage_80": 0.291,
+      "median_halfwidth_80": 105,
+      "coverage_95": 0.527,
+      "median_halfwidth_95": 180
+     }
+    },
+    "rapid": {
+     "constant": {
+      "n_estimates": 42,
+      "n_players": 42,
+      "mae": 387,
+      "bias": 271,
+      "mae_95ci": [
+       319,
+       461
+      ]
+     },
+     "opponents average": {
+      "n_estimates": 42,
+      "n_players": 42,
+      "mae": 43,
+      "bias": -5,
+      "mae_95ci": [
+       16,
+       86
+      ]
+     },
+     "PRIMARY maia measurement model": {
+      "n_estimates": 42,
+      "n_players": 42,
+      "mae": 185,
+      "bias": -117,
+      "mae_95ci": [
+       151,
+       221
+      ],
+      "coverage_80": 0.619,
+      "median_halfwidth_80": 199,
+      "coverage_95": 0.81,
+      "median_halfwidth_95": 304
+     },
+     "maia linear recal": {
+      "n_estimates": 42,
+      "n_players": 42,
+      "mae": 138,
+      "bias": 40,
+      "mae_95ci": [
+       99,
+       178
+      ],
+      "coverage_80": 0.762,
+      "median_halfwidth_80": 197,
+      "coverage_95": 0.833,
+      "median_halfwidth_95": 249
+     },
+     "maia tempered bayes": {
+      "n_estimates": 42,
+      "n_players": 42,
+      "mae": 215,
+      "bias": -161,
+      "mae_95ci": [
+       178,
+       251
+      ],
+      "coverage_80": 0.238,
+      "median_halfwidth_80": 110,
+      "coverage_95": 0.452,
+      "median_halfwidth_95": 185
+     }
+    },
+    "blitz": {
+     "constant": {
+      "n_estimates": 42,
+      "n_players": 42,
+      "mae": 392,
+      "bias": 288,
+      "mae_95ci": [
+       330,
+       453
+      ]
+     },
+     "opponents average": {
+      "n_estimates": 42,
+      "n_players": 42,
+      "mae": 34,
+      "bias": 27,
+      "mae_95ci": [
+       14,
+       64
+      ]
+     },
+     "PRIMARY maia measurement model": {
+      "n_estimates": 42,
+      "n_players": 42,
+      "mae": 195,
+      "bias": 122,
+      "mae_95ci": [
+       158,
+       238
+      ],
+      "coverage_80": 0.571,
+      "median_halfwidth_80": 199,
+      "coverage_95": 0.81,
+      "median_halfwidth_95": 304
+     },
+     "maia linear recal": {
+      "n_estimates": 42,
+      "n_players": 42,
+      "mae": 183,
+      "bias": 87,
+      "mae_95ci": [
+       150,
+       222
+      ],
+      "coverage_80": 0.643,
+      "median_halfwidth_80": 197,
+      "coverage_95": 0.762,
+      "median_halfwidth_95": 249
+     },
+     "maia tempered bayes": {
+      "n_estimates": 42,
+      "n_players": 42,
+      "mae": 211,
+      "bias": 158,
+      "mae_95ci": [
+       167,
+       261
+      ],
+      "coverage_80": 0.31,
+      "median_halfwidth_80": 100,
+      "coverage_95": 0.476,
+      "median_halfwidth_95": 180
+     }
+    }
+   },
+   "in_sample_calibration": {
+    "PRIMARY maia measurement model": {
+     "n_estimates": 61,
+     "n_players": 44,
+     "mae": 106,
+     "bias": -4,
+     "mae_95ci": [
+      81,
+      132
+     ],
+     "coverage_80": 0.869,
+     "median_halfwidth_80": 199,
+     "coverage_95": 0.984,
+     "median_halfwidth_95": 304
+    },
+    "maia linear recal": {
+     "n_estimates": 61,
+     "n_players": 44,
+     "mae": 120,
+     "bias": 0,
+     "mae_95ci": [
+      94,
+      148
+     ],
+     "coverage_80": 0.803,
+     "median_halfwidth_80": 197,
+     "coverage_95": 0.934,
+     "median_halfwidth_95": 249
+    },
+    "maia tempered bayes": {
+     "n_estimates": 61,
+     "n_players": 44,
+     "mae": 132,
+     "bias": 30,
+     "mae_95ci": [
+      101,
+      163
+     ],
+     "coverage_80": 0.492,
+     "median_halfwidth_80": 100,
+     "coverage_95": 0.689,
+     "median_halfwidth_95": 175
+    }
+   }
+  }
+ },
+ "ai_games": {
+  "1": {
+   "constant": {
+    "n_estimates": 198,
+    "n_players": 37,
+    "mae": 436,
+    "bias": 354,
+    "mae_95ci": [
+     360,
+     508
+    ]
+   },
+   "PRIMARY maia measurement model": {
+    "n_estimates": 198,
+    "n_players": 37,
+    "mae": 284,
+    "bias": -125,
+    "mae_95ci": [
+     219,
+     360
+    ],
+    "coverage_80": 0.687,
+    "median_halfwidth_80": 323,
+    "coverage_95": 0.828,
+    "median_halfwidth_95": 494
+   },
+   "maia linear recal": {
+    "n_estimates": 198,
+    "n_players": 37,
+    "mae": 264,
+    "bias": -69,
+    "mae_95ci": [
+     198,
+     337
+    ],
+    "coverage_80": 0.712,
+    "median_halfwidth_80": 320,
+    "coverage_95": 0.864,
+    "median_halfwidth_95": 565
+   },
+   "maia tempered bayes": {
+    "n_estimates": 198,
+    "n_players": 37,
+    "mae": 285,
+    "bias": -84,
+    "mae_95ci": [
+     222,
+     363
+    ],
+    "coverage_80": 0.707,
+    "median_halfwidth_80": 320,
+    "coverage_95": 0.838,
+    "median_halfwidth_95": 482
+   }
+  },
+  "5": {
+   "constant": {
+    "n_estimates": 27,
+    "n_players": 19,
+    "mae": 438,
+    "bias": 410,
+    "mae_95ci": [
+     344,
+     525
+    ]
+   },
+   "PRIMARY maia measurement model": {
+    "n_estimates": 27,
+    "n_players": 19,
+    "mae": 329,
+    "bias": -267,
+    "mae_95ci": [
+     221,
+     447
+    ],
+    "coverage_80": 0.37,
+    "median_halfwidth_80": 219,
+    "coverage_95": 0.741,
+    "median_halfwidth_95": 334
+   },
+   "maia linear recal": {
+    "n_estimates": 27,
+    "n_players": 19,
+    "mae": 246,
+    "bias": -172,
+    "mae_95ci": [
+     145,
+     365
+    ],
+    "coverage_80": 0.667,
+    "median_halfwidth_80": 224,
+    "coverage_95": 0.741,
+    "median_halfwidth_95": 362
+   },
+   "maia tempered bayes": {
+    "n_estimates": 27,
+    "n_players": 19,
+    "mae": 353,
+    "bias": -287,
+    "mae_95ci": [
+     234,
+     486
+    ],
+    "coverage_80": 0.296,
+    "median_halfwidth_80": 135,
+    "coverage_95": 0.444,
+    "median_halfwidth_95": 210
+   }
+  },
+  "10": {
+   "constant": {
+    "n_estimates": 8,
+    "n_players": 8,
+    "mae": 453,
+    "bias": 453,
+    "mae_95ci": [
+     326,
+     589
+    ]
+   },
+   "PRIMARY maia measurement model": {
+    "n_estimates": 8,
+    "n_players": 8,
+    "mae": 338,
+    "bias": -338,
+    "mae_95ci": [
+     211,
+     510
+    ],
+    "coverage_80": 0.125,
+    "median_halfwidth_80": 199,
+    "coverage_95": 0.625,
+    "median_halfwidth_95": 304
+   },
+   "maia linear recal": {
+    "n_estimates": 8,
+    "n_players": 8,
+    "mae": 208,
+    "bias": -208,
+    "mae_95ci": [
+     106,
+     368
+    ],
+    "coverage_80": 0.75,
+    "median_halfwidth_80": 197,
+    "coverage_95": 0.75,
+    "median_halfwidth_95": 249
+   },
+   "maia tempered bayes": {
+    "n_estimates": 8,
+    "n_players": 8,
+    "mae": 376,
+    "bias": -376,
+    "mae_95ci": [
+     221,
+     572
+    ],
+    "coverage_80": 0.125,
+    "median_halfwidth_80": 88,
+    "coverage_95": 0.125,
+    "median_halfwidth_95": 140
+   }
+  }
+ }
+}

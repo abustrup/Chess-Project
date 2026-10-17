@@ -1,0 +1,195 @@
+{
+ "summary": {
+  "note": "Stopped after 17 of 31 planned positions (all 7 the investigation flagged as worse than 0.25 pawn, plus 10 random) to spare a shared, loaded machine. Depth 22, Threads 2, single-PV best move, then each resulting position searched at depth 22.",
+  "checked": 17,
+  "flagged_included": 7,
+  "random": 10,
+  "over_50cp_by_me": [
+   {
+    "course": "london",
+    "line": "d4 b6",
+    "course_move": "Nf3",
+    "my_best": "e4",
+    "my_loss_cp": 57,
+    "their_best": "e4",
+    "their_loss_cp": 57,
+    "flagged_by_them": true
+   }
+  ],
+  "within_50cp_by_me": 16,
+  "agree_on_side_of_50cp": 17,
+  "max_abs_diff_cp": 15
+ },
+ "rows": [
+  {
+   "course": "london",
+   "line": "d4 d6",
+   "course_move": "Bf4",
+   "my_best": "e4",
+   "my_loss_cp": 25,
+   "their_best": "Nf3",
+   "their_loss_cp": 29,
+   "flagged_by_them": true
+  },
+  {
+   "course": "london",
+   "line": "d4 b6",
+   "course_move": "Nf3",
+   "my_best": "e4",
+   "my_loss_cp": 57,
+   "their_best": "e4",
+   "their_loss_cp": 57,
+   "flagged_by_them": true
+  },
+  {
+   "course": "caro-kann",
+   "line": "e4 c6 Nf3 d5 e5",
+   "course_move": "Bf5",
+   "my_best": "Bg4",
+   "my_loss_cp": 14,
+   "their_best": "Bg4",
+   "their_loss_cp": 29,
+   "flagged_by_them": true
+  },
+  {
+   "course": "caro-kann",
+   "line": "e4 c6 d4 d5 exd5 cxd5 Nf3 Nc6 Bb5",
+   "course_move": "Bd7",
+   "my_best": "Qa5+",
+   "my_loss_cp": 38,
+   "their_best": "Qa5+",
+   "their_loss_cp": 38,
+   "flagged_by_them": true
+  },
+  {
+   "course": "slav",
+   "line": "d4 d5 Bf4",
+   "course_move": "c6",
+   "my_best": "c5",
+   "my_loss_cp": 30,
+   "their_best": "c5",
+   "their_loss_cp": 29,
+   "flagged_by_them": true
+  },
+  {
+   "course": "slav",
+   "line": "d4 d5 Nc3",
+   "course_move": "c6",
+   "my_best": "Nf6",
+   "my_loss_cp": 42,
+   "their_best": "Nf6",
+   "their_loss_cp": 28,
+   "flagged_by_them": true
+  },
+  {
+   "course": "slav",
+   "line": "d4 d5 e4 dxe4 Nc3 Nf6 f3 exf3 Nxf3",
+   "course_move": "Bf5",
+   "my_best": "g6",
+   "my_loss_cp": 29,
+   "their_best": "c6",
+   "their_loss_cp": 32,
+   "flagged_by_them": true
+  },
+  {
+   "course": "slav",
+   "line": "d4 d5 Bg5",
+   "course_move": "c6",
+   "my_best": "f6",
+   "my_loss_cp": 28,
+   "their_best": "c5",
+   "their_loss_cp": 24,
+   "flagged_by_them": false
+  },
+  {
+   "course": "caro-kann",
+   "line": "e4 c6 d4 d5 Bd3 dxe4 Bxe4",
+   "course_move": "Nf6",
+   "my_best": "Nf6",
+   "my_loss_cp": 0,
+   "their_best": "Nf6",
+   "their_loss_cp": 0,
+   "flagged_by_them": false
+  },
+  {
+   "course": "caro-kann",
+   "line": "e4 c6 d4 d5 Nc3 dxe4 Nxe4 Bf5 Ng3 Bg6 Nf3",
+   "course_move": "Nd7",
+   "my_best": "Nd7",
+   "my_loss_cp": 0,
+   "their_best": "Nd7",
+   "their_loss_cp": 0,
+   "flagged_by_them": false
+  },
+  {
+   "course": "caro-kann",
+   "line": "e4 c6 d4 d5 e5 Bf5 Nf3 e6 Bd3 Bxd3 Qxd3 c5 c3",
+   "course_move": "Nc6",
+   "my_best": "Nd7",
+   "my_loss_cp": 11,
+   "their_best": "Nd7",
+   "their_loss_cp": 13,
+   "flagged_by_them": false
+  },
+  {
+   "course": "london",
+   "line": "d4 d5 Bf4 Nf6 e3 Bf5 Nf3 e6",
+   "course_move": "Bd3",
+   "my_best": "Bd3",
+   "my_loss_cp": 0,
+   "their_best": "Bd3",
+   "their_loss_cp": 0,
+   "flagged_by_them": false
+  },
+  {
+   "course": "caro-kann",
+   "line": "e4 c6 Bc4",
+   "course_move": "d5",
+   "my_best": "d5",
+   "my_loss_cp": 0,
+   "their_best": "d5",
+   "their_loss_cp": 0,
+   "flagged_by_them": false
+  },
+  {
+   "course": "caro-kann",
+   "line": "e4 c6 Nc3 d5 exd5",
+   "course_move": "cxd5",
+   "my_best": "cxd5",
+   "my_loss_cp": 0,
+   "their_best": "cxd5",
+   "their_loss_cp": 0,
+   "flagged_by_them": false
+  },
+  {
+   "course": "caro-kann",
+   "line": "e4 c6 Bc4 d5 exd5 cxd5 Bb5+ Bd7 Bxd7+ Nxd7 d4",
+   "course_move": "Ngf6",
+   "my_best": "e6",
+   "my_loss_cp": 7,
+   "their_best": "e6",
+   "their_loss_cp": 11,
+   "flagged_by_them": false
+  },
+  {
+   "course": "slav",
+   "line": "d4 d5 c4 c6 cxd5 cxd5 Nc3",
+   "course_move": "Nf6",
+   "my_best": "Nc6",
+   "my_loss_cp": -3,
+   "their_best": "Nf6",
+   "their_loss_cp": 0,
+   "flagged_by_them": false
+  },
+  {
+   "course": "london",
+   "line": "d4 d5 Bf4 Nf6 e3 Bf5 Nf3 Nc6",
+   "course_move": "Bb5",
+   "my_best": "Bb5",
+   "my_loss_cp": 0,
+   "their_best": "Bb5",
+   "their_loss_cp": 0,
+   "flagged_by_them": false
+  }
+ ]
+}

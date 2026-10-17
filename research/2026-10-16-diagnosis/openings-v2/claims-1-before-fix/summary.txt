@@ -1,0 +1,104 @@
+CLAIM CHECK OF THE APP'S TEACHING TEXT (run 2026-10-16)
+
+What this is: a program read every opening comment and every tactics text in the app, picked out
+sentences that state something about the board that a program can test ("the knight attacks the
+queen", "the bishop is pinned", "you are a pawn up", "Rf1 is checkmate"), and tested each one on the
+position the text belongs to. Rerun it any time with: npm run check:claims
+
+How to read the verdicts:
+  true             the board agrees with the sentence (under at least one reasonable reading of it)
+  false            the board disagrees under every reasonable reading the program could find
+  could-not-parse  the program was not sure what the sentence means, or which position it is about
+                   (a plan, an "if", a question, a hedge); it never calls those false
+
+Text checked: 3378 pieces of text, 5643 sentences.
+Board claims read: 2263. True: 1913. False: 3. Read but not judged: 347.
+Clauses with a claim word ("attacks", "safe", "check", ...) that matched no pattern: 742 (most are not board claims: "safety check", "your king is safe").
+Stockfish: /opt/homebrew/bin/stockfish, 1 thread (so runs repeat exactly), depth 14 for material and safety look-ahead. Run time: 23 s.
+
+Coverage: 1575 of 2411 sentences with a claim word got at least one claim judged true or false.
+Limits: the program understands a small, fixed set of sentence patterns. Plans, ideas, comparisons
+("better", "active", "weak") and stories it cannot replay move by move are not checked at all. A "true"
+here is a board fact, not a judgement that the move or the advice is good (that is the engine audit's job).
+
+By content area (true / false / not judged / unread):
+  london                    279 /   2 /   42 /  146
+  caro-kann                 486 /   0 /   57 /  163
+  slav                      376 /   1 /   31 /  154
+  fork                       64 /   0 /   13 /   33
+  discovered-attack          60 /   0 /   15 /   30
+  pin                        64 /   0 /   28 /   19
+  skewer                     37 /   0 /   19 /   15
+  back-rank-mate             45 /   0 /   16 /   18
+  removing-the-defender      81 /   0 /   19 /   25
+  deflection                 68 /   0 /   19 /   24
+  trapped-piece              46 /   0 /   15 /   19
+  loose-pieces               73 /   0 /   17 /   28
+  attraction                 71 /   0 /   19 /   17
+  zwischenzug                69 /   0 /   28 /   22
+  mate-patterns              94 /   0 /    9 /   29
+
+By claim type (true / false / not judged):
+  attacks                   418 /   1 /   63
+  takes                     302 /   0 /  121
+  guards                    392 /   1 /   29
+  check                     172 /   0 /   46
+  wins material              75 /   0 /   26
+  pinned                     73 /   1 /    9
+  checkmate                  75 /   0 /    7
+  covers                     74 /   0 /    0
+  undefended                 58 /   0 /   11
+  material                   62 /   0 /    4
+  aims-at                    52 /   0 /    7
+  safe                       30 /   0 /    5
+  cannot be taken            28 /   0 /    0
+  guarded only by            25 /   0 /    0
+  guarded                    18 /   0 /    2
+  attacked                   13 /   0 /    2
+  does not guard             11 /   0 /    4
+  fork                       10 /   0 /    2
+  discovered check            9 /   0 /    2
+  trapped                     2 /   0 /    4
+  guarded Nx                  6 /   0 /    0
+  double check                3 /   0 /    1
+  attacked Nx                 2 /   0 /    0
+  not pinned                  2 /   0 /    0
+  does not attack             1 /   0 /    1
+  hanging                     0 /   0 /    1
+
+Why claims were read but not judged:
+   186  talks about a position after moves that are not written out
+    43  this text has no board position
+    33  question, not a statement
+    27  instruction about a future move
+    13  advice, not a statement about this position
+     8  past tense
+     7  could not tell which piece is meant
+     3  the moves Nc7+ cannot be replayed from this line
+     2  hedged wording
+     2  the text continues a story the checker could not replay
+     1  white knight on f3 stands in front of a less valuable piece only [after Bg4]
+     1  material balance +2 now, +1 once the exchange in progress ends; quiet points of Stockfish's line +1 +1 +1 +1 +10
+
+FALSE CLAIMS (3). Look at each on a board before editing the text: "medium confidence" ones rest on a rule of thumb or a short engine line.
+
+- src/data/openings/london.ts line 180
+  where: london / classic-pyramid / 1.d4 d5 2.Bf4 Nf6 3.e3 e6 4.Nf3 Bd6 5.Bg3 O-O 6.Nbd2 c5 7.c3 Nc6 8.Bd3 Bxg3 9.hxg3 Qe7 10.Ne5 g6 11.Qe2
+  text:  "Your queen steps aside so that you can castle long later, and it guards the knight on e5."
+  claim: guards(it -> the knight on e5)   (high confidence)
+  board: white queen on e2 does not guard e5 [after Qe2]
+  FEN:   r1b2rk1/pp2qp1p/2n1pnp1/2ppN3/3P4/2PBP1P1/PP1NQPP1/R3K2R b KQ - 1 11
+
+- src/data/openings/london.ts line 306
+  where: london / bishop-harassment / 1.d4 d5 2.Bf4 Nf6 3.e3 Ne4 4.Nd2 Nxd2 5.Qxd2 c5 6.dxc5 e6 7.O-O-O Nc6 8.Bb5 f6 9.e4 dxe4 10.Qxd8+ Kf7 11.Bxc6
+  text:  "Take the pinned knight."
+  claim: pinned(the pinned knight)   (high confidence)
+  board: white knight on g1 is not pinned [after Bxc6]; black knight on c6 is not pinned [before Bxc6]; white knight on g1 is not pinned [before Bxc6]
+  FEN:   r1bQ1b1r/pp3kpp/2B1pp2/2P5/4pB2/8/PPP2PPP/2KR2NR b - - 0 11
+
+- src/data/openings/slav.ts line 580
+  where: slav / main-slav / 1.d4 d5 2.c4 c6 3.Nf3 Nf6 4.Nc3 dxc4 5.a4 Bf5 6.Nh4 Bg6 7.Nxg6 hxg6 8.e3 e6 9.Bxc4 Bb4 10.O-O Qc7 11.Qb3
+  text:  "White hits b7 but forgets about h2."
+  claim: attacks(white -> b7)   (high confidence)
+  board: white queen on b3 does not attack b7 [after Qb3]; white rook on a1 does not attack b7 [after Qb3]; white pawn on a4 does not attack b7 [after Qb3]
+  FEN:   rn2k2r/ppq2pp1/2p1pnp1/8/PbBP4/1QN1P3/1P3PPP/R1B2RK1 b kq - 4 11

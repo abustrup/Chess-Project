@@ -1,0 +1,78 @@
+{
+ "n_rated": 31,
+ "speeds": {
+  "blitz": 31
+ },
+ "score": 9.0,
+ "rating_after_last_game_from_export": 1017,
+ "profile": {
+  "blitz": {
+   "games": 31,
+   "rating": 1017,
+   "rd": 64,
+   "prog": -117
+  },
+  "puzzle": {
+   "games": 2,
+   "rating": 1989,
+   "rd": 384,
+   "prog": 0,
+   "prov": true
+  }
+ },
+ "lichess_interval_2rd": [
+  889,
+  1145
+ ],
+ "change_over_last_12_from_export": -101,
+ "all": {
+  "games": 31,
+  "score": 9.0,
+  "opp_avg": 1163.5,
+  "mle_no_dummy": 995,
+  "mle_no_dummy_se": 70,
+  "mle_dummy_draw": 1001,
+  "mle_dummy_draw_se": 69,
+  "bootstrap_sd_dummy": 70,
+  "bootstrap_95": [
+   848,
+   1127
+  ],
+  "linear_dp_approx": 996
+ },
+ "last15": {
+  "games": 15,
+  "score": 3.0,
+  "opp_avg": 1109.6,
+  "mle_no_dummy": 865,
+  "mle_no_dummy_se": 113,
+  "mle_dummy_draw": 885,
+  "mle_dummy_draw_se": 106,
+  "bootstrap_sd_dummy": 115,
+  "bootstrap_95": [
+   519,
+   1055
+  ],
+  "linear_dp_approx": 870
+ },
+ "first16": {
+  "games": 16,
+  "score": 6.0,
+  "opp_avg": 1214.1,
+  "mle_no_dummy": 1114,
+  "mle_no_dummy_se": 94,
+  "mle_dummy_draw": 1121,
+  "mle_dummy_draw_se": 90,
+  "bootstrap_sd_dummy": 82,
+  "bootstrap_95": [
+   946,
+   1263
+  ],
+  "linear_dp_approx": 1114
+ },
+ "halves_difference": {
+  "diff": -236,
+  "se": 139,
+  "z": -1.7
+ }
+}

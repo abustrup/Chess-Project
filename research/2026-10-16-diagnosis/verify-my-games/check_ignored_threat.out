@@ -1,0 +1,11 @@
+4z8iRBwu ply 29 exf4 | threat d8h4 real(d16)= True (drop 47, gain 3) | engine best reply = threat: True | opponent actually played it: True
+B4575r7G ply 40 Qf6 | threat h5g6 real(d16)= True (drop 43, gain 2) | engine best reply = threat: True | opponent actually played it: False
+B4575r7G ply 42 Be6 | threat h5g6 real(d16)= True (drop 39, gain 2) | engine best reply = threat: True | opponent actually played it: False
+B4575r7G ply 44 Rae8 | threat h5g6 real(d16)= False (drop 30, gain 1) | engine best reply = threat: True | opponent actually played it: False
+B4575r7G ply 46 b5 | threat h5g6 real(d16)= True (drop 43, gain 2) | engine best reply = threat: True | opponent actually played it: False
+B4575r7G ply 48 a6 | threat h5g6 real(d16)= True (drop 41, gain 2) | engine best reply = threat: True | opponent actually played it: False
+B4575r7G ply 50 c5 | threat g4g5 real(d16)= True (drop 42, gain 2) | engine best reply = threat: True | opponent actually played it: True
+K0WK1qZB ply 22 exd4 | threat d3g6 real(d16)= True (drop 21, gain 2) | engine best reply = threat: True | opponent actually played it: True
+W6Nhrt3P ply 43 g6 | threat h8h2 real(d16)= True (drop 17, gain 4) | engine best reply = threat: True | opponent actually played it: False
+yXoWmgsR ply 27 c4 | threat d5e4 real(d16)= True (drop 41, gain 3) | engine best reply = threat: True | opponent actually played it: False
+10 records: threat real by my test 9, engine best reply is the threat 10, opponent actually played it 3

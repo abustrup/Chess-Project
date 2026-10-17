@@ -1,0 +1,12 @@
+['best_line_san', 'best_move_san', 'best_move_uci', 'category', 'category_group', 'clock_left_s', 'color', 'engine_takes_flagged_piece', 'eval_after', 'eval_before', 'eval_pov', 'fen_before', 'first_12_moves', 'flags', 'game_id', 'hung_squares', 'judgment', 'lichess_eval_after', 'lichess_judgment', 'long_lines', 'material', 'move_number', 'move_san', 'move_uci', 'opponent_best_reply_line_san', 'opponent_mate_in', 'phase_lichess_division', 'phase_research', 'ply', 'research_category', 'speed', 'threat_before', 'threat_executed_next', 'threat_was_real', 'time_control', 'time_spent_s', 'url', 'win_pct_after', 'win_pct_before', 'win_pct_drop']
+('bal', False) me [39, 373] opp [36, 385]
+('bal', True) me [33, 93] opp [13, 79]
+('lose', False) me [5, 161] opp [1, 77]
+('lose', True) me [0, 2] opp [0, 5]
+('win', False) me [19, 88] opp [22, 240]
+('win', True) me [6, 31] opp [9, 60]
+totals me 748 102 opp 846 81
+('bal', True) point 19.0 95% 4.2 to 35.4 his blunders in 18 games max per game 9
+('win', False) point 12.4 95% 0.5 to 30.7 his blunders in 12 games max per game 3
+('any', True) point 15.7 95% 3.9 to 29.0 his blunders in 19 games max per game 9
+('any', False) point 1.7 95% -1.3 to 4.4 his blunders in 25 games max per game 6

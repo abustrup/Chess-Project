@@ -1,0 +1,127 @@
+{
+ "what": "Share of the owner's games still inside the course after the opponent's 2nd and 3rd move, September 2026 Lichess sample (both players 1000-1300), before narrowing (40 chapters) and after (20). walk = analyse_courses.py (low-high range), km = km.py (Kaplan-Meier). Pass: after >= before - 0.02 by both methods.",
+ "note": "slav before = the old course with 1...d5. black-vs-d4-with-1c6 = Slav plus Caro-Kann chapters after 1.d4 c6 (his move order); the narrowed Slav course itself starts 1.d4 c6. km.py's slav row counts games that start 1.d4 d5 and reach the course by transposition.",
+ "courses": {
+  "london": {
+   "after_opponent_move_2": {
+    "ply": 4,
+    "walk_before": [
+     0.5335,
+     0.5335
+    ],
+    "walk_after": [
+     0.5851,
+     0.5851
+    ],
+    "km_before": 0.5364,
+    "km_after": 0.587,
+    "pass": true
+   },
+   "after_opponent_move_3": {
+    "ply": 6,
+    "walk_before": [
+     0.4017,
+     0.4093
+    ],
+    "walk_after": [
+     0.4798,
+     0.4874
+    ],
+    "km_before": 0.412,
+    "km_after": 0.5009,
+    "pass": true
+   }
+  },
+  "caro-kann": {
+   "after_opponent_move_2": {
+    "ply": 3,
+    "walk_before": [
+     0.9131,
+     0.9131
+    ],
+    "walk_after": [
+     0.9769,
+     0.9769
+    ],
+    "km_before": 0.9131,
+    "km_after": 0.9769,
+    "pass": true
+   },
+   "after_opponent_move_3": {
+    "ply": 5,
+    "walk_before": [
+     0.8427,
+     0.8429
+    ],
+    "walk_after": [
+     0.895,
+     0.8952
+    ],
+    "km_before": 0.8456,
+    "km_after": 0.898,
+    "pass": true
+   }
+  },
+  "slav": {
+   "after_opponent_move_2": {
+    "ply": 3,
+    "walk_before": [
+     0.9436,
+     0.9436
+    ],
+    "walk_after": [
+     0.9521,
+     0.9521
+    ],
+    "km_before": 0.9436,
+    "km_after": 0.9602,
+    "pass": true
+   },
+   "after_opponent_move_3": {
+    "ply": 5,
+    "walk_before": [
+     0.7064,
+     0.7169
+    ],
+    "walk_after": [
+     0.7839,
+     0.7907
+    ],
+    "km_before": 0.7141,
+    "km_after": 0.7746,
+    "pass": true
+   }
+  },
+  "black-vs-d4-with-1c6": {
+   "after_opponent_move_2": {
+    "ply": 3,
+    "walk_before": [
+     0.9359,
+     0.9359
+    ],
+    "walk_after": [
+     0.9521,
+     0.9521
+    ],
+    "km_before": 0.9347,
+    "km_after": 0.9521,
+    "pass": true
+   },
+   "after_opponent_move_3": {
+    "ply": 5,
+    "walk_before": [
+     0.7717,
+     0.7784
+    ],
+    "walk_after": [
+     0.7908,
+     0.7975
+    ],
+    "km_before": 0.7564,
+    "km_after": 0.7786,
+    "pass": true
+   }
+  }
+ },
+ "all_pass": true
+}

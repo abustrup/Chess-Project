@@ -1,0 +1,755 @@
+{
+ "summary": {
+  "Blunder": {
+   "n": 15,
+   "depth20_blunder": 15,
+   "depth20_drop_at_least_0_2": 15
+  },
+  "none": {
+   "n": 15,
+   "depth20_blunder": 0,
+   "depth20_drop_at_least_0_2": 0
+  }
+ },
+ "moves": [
+  {
+   "ply": 49,
+   "lichess_label": "Blunder",
+   "fen_before": "3rr1k1/1p3qb1/pnpB2pp/2N1p3/8/1P2Q3/P4PPP/3R1RK1 w - - 6 25",
+   "move": "Nxb7",
+   "lichess_best": "c5e4",
+   "lichess_eval_before": {
+    "eval": -42
+   },
+   "lichess_eval_after": {
+    "eval": -529
+   },
+   "depth20_before": [
+    "cp",
+    -50
+   ],
+   "depth20_after": [
+    "cp",
+    -628
+   ],
+   "depth20_winning_chance_drop": 0.728,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 42,
+   "lichess_label": "Blunder",
+   "fen_before": "r5k1/pp3npp/2p1N3/3q4/3p2QP/8/PPP3P1/R5K1 b - - 1 21",
+   "move": "g6",
+   "lichess_best": "d5e5",
+   "lichess_eval_before": {
+    "eval": -185,
+    "best": "e6c7",
+    "variation": "Nc7 Qc5 Nxa8 d3+ Kh1 dxc2 Qe1 Ne5 Rc1 h6 Qe4 Qd6",
+    "judgment": {
+     "name": "Blunder",
+     "comment": "Blunder. Nc7 was best."
+    }
+   },
+   "lichess_eval_after": {
+    "eval": 484
+   },
+   "depth20_before": [
+    "cp",
+    -197
+   ],
+   "depth20_after": [
+    "cp",
+    608
+   ],
+   "depth20_winning_chance_drop": 1.155,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 63,
+   "lichess_label": "Blunder",
+   "fen_before": "8/2k3p1/2p4p/pP6/2R3K1/7P/5PP1/1r6 w - - 1 32",
+   "move": "bxc6",
+   "lichess_best": "c4c6",
+   "lichess_eval_before": {
+    "eval": -1
+   },
+   "lichess_eval_after": {
+    "eval": -629
+   },
+   "depth20_before": [
+    "cp",
+    6
+   ],
+   "depth20_after": [
+    "cp",
+    -728
+   ],
+   "depth20_winning_chance_drop": 0.883,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 16,
+   "lichess_label": "Blunder",
+   "fen_before": "r2qkb1r/pbpppppp/1pn5/4P3/2PP4/P2Q4/1P3PPP/RNB1K1NR b KQkq - 0 8",
+   "move": "e6",
+   "lichess_best": "c6e5",
+   "lichess_eval_before": {
+    "eval": -304
+   },
+   "lichess_eval_after": {
+    "eval": -43
+   },
+   "depth20_before": [
+    "cp",
+    -364
+   ],
+   "depth20_after": [
+    "cp",
+    -47
+   ],
+   "depth20_winning_chance_drop": 0.499,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 9,
+   "lichess_label": "Blunder",
+   "fen_before": "rnb1kb1r/ppppqp1p/5np1/4p3/P3P3/5Q2/1PPP1PPP/RNB1KBNR w KQkq - 2 5",
+   "move": "Qc3",
+   "lichess_best": "f1c4",
+   "lichess_eval_before": {
+    "eval": -32
+   },
+   "lichess_eval_after": {
+    "eval": -346
+   },
+   "depth20_before": [
+    "cp",
+    -30
+   ],
+   "depth20_after": [
+    "cp",
+    -344
+   ],
+   "depth20_winning_chance_drop": 0.505,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 32,
+   "lichess_label": "Blunder",
+   "fen_before": "r3r1k1/pp1nbp1p/2p2np1/5p2/2PP4/5NBP/PP2BPP1/2KRR3 b - - 2 16",
+   "move": "Nb6",
+   "lichess_best": "e7b4",
+   "lichess_eval_before": {
+    "eval": -295,
+    "best": "h1f1",
+    "variation": "Rhf1 Ne4 Bf4 g5 Bh2 Bf6 Bd3 Rad8 Bc7 Rc8 Bh2 Rcd8",
+    "judgment": {
+     "name": "Blunder",
+     "comment": "Blunder. Rhf1 was best."
+    }
+   },
+   "lichess_eval_after": {
+    "eval": 34
+   },
+   "depth20_before": [
+    "cp",
+    -294
+   ],
+   "depth20_after": [
+    "cp",
+    28
+   ],
+   "depth20_winning_chance_drop": 0.545,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 57,
+   "lichess_label": "Blunder",
+   "fen_before": "8/2Q4p/p4ppk/Pp1q4/2nB4/2P2P2/2P3PP/2K5 w - - 2 29",
+   "move": "Bxf6",
+   "lichess_best": "c7e7",
+   "lichess_eval_before": {
+    "eval": 29
+   },
+   "lichess_eval_after": {
+    "mate": -4
+   },
+   "depth20_before": [
+    "cp",
+    24
+   ],
+   "depth20_after": [
+    "mate",
+    -4
+   ],
+   "depth20_winning_chance_drop": 1.044,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 12,
+   "lichess_label": "Blunder",
+   "fen_before": "r1b1kbnr/1pp2ppp/p1p5/4N2Q/3qP3/8/PPPP1PPP/RNB1K2R b KQkq - 2 6",
+   "move": "Bd6",
+   "lichess_best": "g7g6",
+   "lichess_eval_before": {
+    "eval": -248,
+    "best": "e5g4",
+    "variation": "Ng4 Qxe4+ Ne3 h5 Nc3 Qg6 d3 Be6 Bd2 O-O-O",
+    "judgment": {
+     "name": "Blunder",
+     "comment": "Blunder. Ng4 was best."
+    }
+   },
+   "lichess_eval_after": {
+    "eval": 39
+   },
+   "depth20_before": [
+    "cp",
+    -315
+   ],
+   "depth20_after": [
+    "cp",
+    28
+   ],
+   "depth20_winning_chance_drop": 0.574,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 28,
+   "lichess_label": "Blunder",
+   "fen_before": "r3k2r/pp2b1pp/2p2n2/3p3b/8/BP1B1P2/P1PP2PP/RN2R1K1 b kq - 2 14",
+   "move": "c5",
+   "lichess_best": "f6g8",
+   "lichess_eval_before": {
+    "eval": 261
+   },
+   "lichess_eval_after": {
+    "eval": 632
+   },
+   "depth20_before": [
+    "cp",
+    265
+   ],
+   "depth20_after": [
+    "cp",
+    651
+   ],
+   "depth20_winning_chance_drop": 0.381,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 45,
+   "lichess_label": "Blunder",
+   "fen_before": "1r3rk1/R4pp1/3q4/2p1p1p1/1p2n3/1B5P/1PP2PP1/Q4RK1 w - - 0 23",
+   "move": "Qe1",
+   "lichess_best": "a7f7",
+   "lichess_eval_before": {
+    "eval": 0
+   },
+   "lichess_eval_after": {
+    "eval": -427
+   },
+   "depth20_before": [
+    "cp",
+    0
+   ],
+   "depth20_after": [
+    "cp",
+    -447
+   ],
+   "depth20_winning_chance_drop": 0.677,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 22,
+   "lichess_label": "Blunder",
+   "fen_before": "r2q3r/pp2pkbp/2pp1np1/4n3/4P3/2N4P/PPPPQPP1/R1B1R1K1 b - - 1 11",
+   "move": "Nh5",
+   "lichess_best": "c6c5",
+   "lichess_eval_before": {
+    "eval": -394
+   },
+   "lichess_eval_after": {
+    "eval": 18
+   },
+   "depth20_before": [
+    "cp",
+    -495
+   ],
+   "depth20_after": [
+    "cp",
+    15
+   ],
+   "depth20_winning_chance_drop": 0.749,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 16,
+   "lichess_label": "Blunder",
+   "fen_before": "rn1qkbnr/p1pp3p/1p2p1p1/8/2PPN3/5N2/PP3PPP/R1BQK2R b KQkq - 1 8",
+   "move": "d5",
+   "lichess_best": "g8f6",
+   "lichess_eval_before": {
+    "eval": 207
+   },
+   "lichess_eval_after": {
+    "eval": 603
+   },
+   "depth20_before": [
+    "cp",
+    204
+   ],
+   "depth20_after": [
+    "cp",
+    639
+   ],
+   "depth20_winning_chance_drop": 0.467,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 51,
+   "lichess_label": "Blunder",
+   "fen_before": "3r1rk1/p1p1n2p/6p1/4P3/P1n2B2/2P2B2/2K2PPP/R3R3 w - - 3 26",
+   "move": "Be2",
+   "lichess_best": "e1e4",
+   "lichess_eval_before": {
+    "eval": 519,
+    "best": "f8f4",
+    "variation": "Rxf4 a5 Nc4 Ra4 Rd2+ Kc1 Rxf2 Rb4 Ra2 Kb1 Rxa5 Rd1",
+    "judgment": {
+     "name": "Blunder",
+     "comment": "Blunder. Rxf4 was best."
+    }
+   },
+   "lichess_eval_after": {
+    "eval": -413
+   },
+   "depth20_before": [
+    "cp",
+    621
+   ],
+   "depth20_after": [
+    "cp",
+    -507
+   ],
+   "depth20_winning_chance_drop": 1.548,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 29,
+   "lichess_label": "Blunder",
+   "fen_before": "2kr3r/pbp3bp/1pn2p1n/4pp2/5B2/N1PB1N1P/PP3PP1/3R1RK1 w - - 0 15",
+   "move": "Bxe5",
+   "lichess_best": "f4h6",
+   "lichess_eval_before": {
+    "eval": -7,
+    "best": "c6e5",
+    "variation": "Ne5 Nxe5 fxe5 Bg5 Rd5 Bc4 Nf7 Bh4 f4 g3 Rg8 Kh2",
+    "judgment": {
+     "name": "Mistake",
+     "comment": "Mistake. Ne5 was best."
+    }
+   },
+   "lichess_eval_after": {
+    "eval": -648
+   },
+   "depth20_before": [
+    "cp",
+    -15
+   ],
+   "depth20_after": [
+    "cp",
+    -658
+   ],
+   "depth20_winning_chance_drop": 0.809,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 15,
+   "lichess_label": "Blunder",
+   "fen_before": "r1b2rk1/1ppp1ppp/p1nb1q2/4pQ2/4P3/5N2/PPPP1PPP/R1B1KB1R w KQ - 0 8",
+   "move": "Qh3",
+   "lichess_best": "f5f6",
+   "lichess_eval_before": {
+    "eval": 37
+   },
+   "lichess_eval_after": {
+    "eval": -286
+   },
+   "depth20_before": [
+    "cp",
+    34
+   ],
+   "depth20_after": [
+    "cp",
+    -282
+   ],
+   "depth20_winning_chance_drop": 0.54,
+   "depth20_says_blunder": true
+  },
+  {
+   "ply": 41,
+   "lichess_label": "none",
+   "fen_before": "r3r1k1/p4ppp/1pp5/3p4/3P1Pb1/8/PPK4P/R2B3R w - - 0 21",
+   "move": "Bxg4",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": 111,
+    "best": "e8e4",
+    "variation": "Re4 Bxe2 Rxe2+ Kb3 Re3+ Ka4 Re4 Rhd1 Rxf4 Rac1 Rc8 h3",
+    "judgment": {
+     "name": "Blunder",
+     "comment": "Blunder. Re4 was best."
+    }
+   },
+   "lichess_eval_after": {
+    "eval": 114
+   },
+   "depth20_before": [
+    "cp",
+    117
+   ],
+   "depth20_after": [
+    "cp",
+    136
+   ],
+   "depth20_winning_chance_drop": -0.033,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 3,
+   "lichess_label": "none",
+   "fen_before": "rnbqkbnr/pppp1ppp/4p3/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
+   "move": "Nf3",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": 42
+   },
+   "lichess_eval_after": {
+    "eval": 8
+   },
+   "depth20_before": [
+    "cp",
+    34
+   ],
+   "depth20_after": [
+    "cp",
+    22
+   ],
+   "depth20_winning_chance_drop": 0.022,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 5,
+   "lichess_label": "none",
+   "fen_before": "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+   "move": "Nxe5",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": 34
+   },
+   "lichess_eval_after": {
+    "eval": 29
+   },
+   "depth20_before": [
+    "cp",
+    38
+   ],
+   "depth20_after": [
+    "cp",
+    37
+   ],
+   "depth20_winning_chance_drop": 0.002,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 71,
+   "lichess_label": "none",
+   "fen_before": "3kr3/pp6/n1p5/2P2QNp/4P3/3B4/P3K2q/6R1 w - - 1 36",
+   "move": "Kf1",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": 439
+   },
+   "lichess_eval_after": {
+    "eval": 457
+   },
+   "depth20_before": [
+    "cp",
+    612
+   ],
+   "depth20_after": [
+    "cp",
+    660
+   ],
+   "depth20_winning_chance_drop": -0.028,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 31,
+   "lichess_label": "none",
+   "fen_before": "r4r1k/4qppp/p7/2pQN3/1b3B2/2N1P2P/PP3P1P/2KR1B1R w - - 1 16",
+   "move": "Bg2",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": 1171
+   },
+   "lichess_eval_after": {
+    "eval": 1096
+   },
+   "depth20_before": [
+    "cp",
+    1147
+   ],
+   "depth20_after": [
+    "cp",
+    1090
+   ],
+   "depth20_winning_chance_drop": 0.0,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 48,
+   "lichess_label": "none",
+   "fen_before": "3rr1k1/pp4pp/2b2q2/3pp3/5p2/6RP/PPPQN1P1/5R1K b - - 0 24",
+   "move": "Qd6",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": -492
+   },
+   "lichess_eval_after": {
+    "eval": -479
+   },
+   "depth20_before": [
+    "cp",
+    -683
+   ],
+   "depth20_after": [
+    "cp",
+    -695
+   ],
+   "depth20_winning_chance_drop": -0.006,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 42,
+   "lichess_label": "none",
+   "fen_before": "r3Qb1r/p1k1pppp/N7/3q4/3p4/2P5/5PPP/1R4K1 b - - 1 21",
+   "move": "Kd6",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": -320,
+    "best": "c3c4",
+    "variation": "c4 Qd6 Qb5 Rxb8 Qxb8+ Kd7 Qxa7+ Ke6 Rb6 d3 Rxd6+ exd6",
+    "judgment": {
+     "name": "Blunder",
+     "comment": "Blunder. c4 was best."
+    }
+   },
+   "lichess_eval_after": {
+    "eval": -301
+   },
+   "depth20_before": [
+    "cp",
+    -377
+   ],
+   "depth20_after": [
+    "cp",
+    -454
+   ],
+   "depth20_winning_chance_drop": -0.083,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 13,
+   "lichess_label": "none",
+   "fen_before": "rnbqk2r/ppp1pp1p/5bp1/8/3Pp3/2N2N2/PPP2PPP/R2QKB1R w KQkq - 0 7",
+   "move": "Nxe4",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": 3
+   },
+   "lichess_eval_after": {
+    "eval": 0
+   },
+   "depth20_before": [
+    "cp",
+    -1
+   ],
+   "depth20_after": [
+    "cp",
+    2
+   ],
+   "depth20_winning_chance_drop": -0.006,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 32,
+   "lichess_label": "none",
+   "fen_before": "r3k2r/pp1b1p1p/3bpnp1/8/2P5/2N2P2/PPP1N1PP/2KR3R b kq - 1 16",
+   "move": "Bb4",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": -604
+   },
+   "lichess_eval_after": {
+    "eval": -608
+   },
+   "depth20_before": [
+    "cp",
+    -610
+   ],
+   "depth20_after": [
+    "cp",
+    -592
+   ],
+   "depth20_winning_chance_drop": 0.012,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 13,
+   "lichess_label": "none",
+   "fen_before": "r1bqk2r/ppp2ppp/5n2/2bPp1N1/2Bn4/2N5/PPPP1PPP/R1BQK2R w KQkq - 1 7",
+   "move": "d3",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": 88
+   },
+   "lichess_eval_after": {
+    "eval": 61
+   },
+   "depth20_before": [
+    "cp",
+    73
+   ],
+   "depth20_after": [
+    "cp",
+    77
+   ],
+   "depth20_winning_chance_drop": -0.007,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 26,
+   "lichess_label": "none",
+   "fen_before": "rnb2rk1/p1p2p1p/1pq1p1p1/4B1N1/3P4/2N5/PPP2PPP/R2Q2K1 b - - 0 13",
+   "move": "Bb7",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": -291,
+    "best": "d4e5",
+    "variation": "dxe5 Bb7 Nce4 Kg7 f3 Nd7 Qd2 Rad8 Rd1 Qb5 a4 Qxb2",
+    "judgment": {
+     "name": "Blunder",
+     "comment": "Blunder. dxe5 was best."
+    }
+   },
+   "lichess_eval_after": {
+    "eval": -309
+   },
+   "depth20_before": [
+    "cp",
+    -339
+   ],
+   "depth20_after": [
+    "cp",
+    -371
+   ],
+   "depth20_winning_chance_drop": -0.039,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 49,
+   "lichess_label": "none",
+   "fen_before": "r4rk1/p3q1bp/2p1p3/2NnPp2/2bP1p2/P1p1B1P1/2Q4P/1R1R2K1 w - - 0 25",
+   "move": "Bxf4",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": -755
+   },
+   "lichess_eval_after": {
+    "eval": -742
+   },
+   "depth20_before": [
+    "cp",
+    -755
+   ],
+   "depth20_after": [
+    "cp",
+    -746
+   ],
+   "depth20_winning_chance_drop": -0.004,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 8,
+   "lichess_label": "none",
+   "fen_before": "r2qkbnr/ppp1pppp/2n5/3p1b2/3P1B2/4PN2/PPP2PPP/RN1QKB1R b KQkq - 2 4",
+   "move": "Qd7",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": 24
+   },
+   "lichess_eval_after": {
+    "eval": 71
+   },
+   "depth20_before": [
+    "cp",
+    10
+   ],
+   "depth20_after": [
+    "cp",
+    86
+   ],
+   "depth20_winning_chance_drop": 0.139,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 15,
+   "lichess_label": "none",
+   "fen_before": "rnb1kb1r/pp3ppp/2pqpn2/1B6/8/2N2N2/PPPP1PPP/R1BQ1RK1 w kq - 0 8",
+   "move": "Ba4",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": 57
+   },
+   "lichess_eval_after": {
+    "eval": 25
+   },
+   "depth20_before": [
+    "cp",
+    46
+   ],
+   "depth20_after": [
+    "cp",
+    17
+   ],
+   "depth20_winning_chance_drop": 0.053,
+   "depth20_says_blunder": false
+  },
+  {
+   "ply": 51,
+   "lichess_label": "none",
+   "fen_before": "4r1k1/5p1p/6p1/p3rp2/2R5/P1N2P2/1PP2KPP/3R4 w - - 3 26",
+   "move": "Rcd4",
+   "lichess_best": null,
+   "lichess_eval_before": {
+    "eval": 715
+   },
+   "lichess_eval_after": {
+    "eval": 711
+   },
+   "depth20_before": [
+    "cp",
+    721
+   ],
+   "depth20_after": [
+    "cp",
+    715
+   ],
+   "depth20_winning_chance_drop": 0.003,
+   "depth20_says_blunder": false
+  }
+ ],
+ "note": "Lichess game ids removed before committing; each position is fully given by fen_before and move."
+}

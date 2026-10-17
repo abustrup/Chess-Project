@@ -1,0 +1,20 @@
+{
+ "time_control": "600+0",
+ "band": "950-1250 own rating",
+ "engine": "Stockfish 19 native, Threads 2, 30000 nodes per position",
+ "player_games_analysed": 121,
+ "player_games_not_analysed": 120,
+ "sf_blunders_per_100_analysed": 7.413,
+ "sf_blunders_per_100_not_analysed": 6.8,
+ "ratio_not_over_analysed": 0.917,
+ "ratio_ci95": [
+  0.743,
+  1.133
+ ],
+ "calibration": {
+  "lichess_nag_per_100": 6.966,
+  "sf_per_100_same_games": 7.413,
+  "per_game_exact_match": 0.595,
+  "per_game_within_1": 0.876
+ }
+}

@@ -1,0 +1,1304 @@
+{
+ "blitz+rapid": {
+  "games": 316537,
+  "first_move_share": {
+   "e4": 0.6565,
+   "d4": 0.2264,
+   "Nf3": 0.0237,
+   "e3": 0.0221,
+   "c4": 0.0172,
+   "g3": 0.0116,
+   "f4": 0.0082,
+   "b3": 0.0079
+  },
+  "after_1d4_black_replies": {
+   "d5": 0.5438,
+   "Nf6": 0.0964,
+   "e6": 0.0907,
+   "e5": 0.0838,
+   "c6": 0.0353,
+   "g6": 0.034,
+   "d6": 0.0337,
+   "c5": 0.0223,
+   "b6": 0.0172,
+   "f5": 0.015
+  },
+  "after_1d4_d5_white_systems": {
+   "n": 38679,
+   "rows": [
+    {
+     "name": "London: Bf4 by move 3",
+     "games": 11006,
+     "share": 0.2845,
+     "score_black": 0.46
+    },
+    {
+     "name": "Queen's Gambit family: c4 by move 3",
+     "games": 10919,
+     "share": 0.2823,
+     "score_black": 0.455
+    },
+    {
+     "name": "Colle / Stonewall type: e3 by move 3",
+     "games": 5748,
+     "share": 0.1486,
+     "score_black": 0.478
+    },
+    {
+     "name": "Nc3 systems (Veresov-type without Bg5, Jobava without Bf4)",
+     "games": 3489,
+     "share": 0.0902,
+     "score_black": 0.495
+    },
+    {
+     "name": "Jobava London: Nc3 + Bf4 by move 3",
+     "games": 3158,
+     "share": 0.0816,
+     "score_black": 0.426
+    },
+    {
+     "name": "2.Nf3 / 3.Nf3 other (g3, Bf4 later, etc.)",
+     "games": 1374,
+     "share": 0.0355,
+     "score_black": 0.479
+    },
+    {
+     "name": "other",
+     "games": 1159,
+     "share": 0.03,
+     "score_black": 0.52
+    },
+    {
+     "name": "Blackmar-Diemer / 2.e4 gambit",
+     "games": 1001,
+     "share": 0.0259,
+     "score_black": 0.504
+    },
+    {
+     "name": "Bg5 systems (Levitsky / Torre / Veresov)",
+     "games": 825,
+     "share": 0.0213,
+     "score_black": 0.487
+    }
+   ]
+  },
+  "after_1d4_d5_with_black_c6_by_move3_white_systems": {
+   "n": 3564,
+   "rows": [
+    {
+     "name": "Queen's Gambit family: c4 by move 3",
+     "games": 1869,
+     "share": 0.5244,
+     "score_black": 0.471
+    },
+    {
+     "name": "London: Bf4 by move 3",
+     "games": 426,
+     "share": 0.1195,
+     "score_black": 0.466
+    },
+    {
+     "name": "Colle / Stonewall type: e3 by move 3",
+     "games": 370,
+     "share": 0.1038,
+     "score_black": 0.472
+    },
+    {
+     "name": "Nc3 systems (Veresov-type without Bg5, Jobava without Bf4)",
+     "games": 345,
+     "share": 0.0968,
+     "score_black": 0.481
+    },
+    {
+     "name": "Jobava London: Nc3 + Bf4 by move 3",
+     "games": 265,
+     "share": 0.0744,
+     "score_black": 0.425
+    },
+    {
+     "name": "Blackmar-Diemer / 2.e4 gambit",
+     "games": 112,
+     "share": 0.0314,
+     "score_black": 0.442
+    },
+    {
+     "name": "other",
+     "games": 90,
+     "share": 0.0253,
+     "score_black": 0.506
+    },
+    {
+     "name": "2.Nf3 / 3.Nf3 other (g3, Bf4 later, etc.)",
+     "games": 49,
+     "share": 0.0137,
+     "score_black": 0.5
+    },
+    {
+     "name": "Bg5 systems (Levitsky / Torre / Veresov)",
+     "games": 38,
+     "share": 0.0107,
+     "score_black": 0.461
+    }
+   ]
+  },
+  "real_slav_structure_by_ply8_among_1d4_d5_games_where_black_plays_c6_by_move3": 0.4885,
+  "real_slav_structure_by_ply8_among_all_1d4_d5_games": 0.0495,
+  "white_c4_by_move3_after_1d4_d5": 0.2823,
+  "after_1e4_share_c6": 0.069,
+  "after_1e4_c6_white_move2": {
+   "n": 14333,
+   "rows": [
+    {
+     "name": "d4",
+     "games": 5082,
+     "share": 0.3546,
+     "score_black": 0.482
+    },
+    {
+     "name": "Nf3",
+     "games": 4665,
+     "share": 0.3255,
+     "score_black": 0.516
+    },
+    {
+     "name": "Bc4",
+     "games": 1626,
+     "share": 0.1134,
+     "score_black": 0.545
+    },
+    {
+     "name": "Nc3",
+     "games": 1045,
+     "share": 0.0729,
+     "score_black": 0.52
+    },
+    {
+     "name": "d3",
+     "games": 336,
+     "share": 0.0234,
+     "score_black": 0.463
+    },
+    {
+     "name": "Qf3",
+     "games": 330,
+     "share": 0.023,
+     "score_black": 0.515
+    },
+    {
+     "name": "e5",
+     "games": 302,
+     "share": 0.0211,
+     "score_black": 0.475
+    },
+    {
+     "name": "f4",
+     "games": 282,
+     "share": 0.0197,
+     "score_black": 0.498
+    },
+    {
+     "name": "c4",
+     "games": 168,
+     "share": 0.0117,
+     "score_black": 0.455
+    },
+    {
+     "name": "Qh5",
+     "games": 121,
+     "share": 0.0084,
+     "score_black": 0.537
+    },
+    {
+     "name": "c3",
+     "games": 110,
+     "share": 0.0077,
+     "score_black": 0.532
+    },
+    {
+     "name": "g3",
+     "games": 54,
+     "share": 0.0038,
+     "score_black": 0.454
+    },
+    {
+     "name": "b3",
+     "games": 47,
+     "share": 0.0033,
+     "score_black": 0.426
+    },
+    {
+     "name": "f3",
+     "games": 44,
+     "share": 0.0031,
+     "score_black": 0.5
+    },
+    {
+     "name": "h3",
+     "games": 20,
+     "share": 0.0014,
+     "score_black": 0.425
+    },
+    {
+     "name": "Bd3",
+     "games": 16,
+     "share": 0.0011,
+     "score_black": 0.406
+    },
+    {
+     "name": "a3",
+     "games": 13,
+     "share": 0.0009,
+     "score_black": 0.5
+    },
+    {
+     "name": "h4",
+     "games": 11,
+     "share": 0.0008,
+     "score_black": 0.318
+    },
+    {
+     "name": "Qg4",
+     "games": 11,
+     "share": 0.0008,
+     "score_black": 0.636
+    },
+    {
+     "name": "Be2",
+     "games": 10,
+     "share": 0.0007,
+     "score_black": 0.6
+    },
+    {
+     "name": "Ne2",
+     "games": 9,
+     "share": 0.0006,
+     "score_black": 0.222
+    },
+    {
+     "name": "g4",
+     "games": 7,
+     "share": 0.0005,
+     "score_black": 0.571
+    },
+    {
+     "name": "b4",
+     "games": 7,
+     "share": 0.0005,
+     "score_black": 0.857
+    },
+    {
+     "name": "a4",
+     "games": 6,
+     "share": 0.0004,
+     "score_black": 0.583
+    },
+    {
+     "name": "Nh3",
+     "games": 4,
+     "share": 0.0003,
+     "score_black": 0.375
+    },
+    {
+     "name": "Qe2",
+     "games": 3,
+     "share": 0.0002,
+     "score_black": 0.333
+    },
+    {
+     "name": "Ba6",
+     "games": 2,
+     "share": 0.0001,
+     "score_black": 1.0
+    },
+    {
+     "name": "Na3",
+     "games": 1,
+     "share": 0.0001,
+     "score_black": 1.0
+    },
+    {
+     "name": "Bb5",
+     "games": 1,
+     "share": 0.0001,
+     "score_black": 1.0
+    }
+   ]
+  },
+  "after_1e4_c6_2d4_d5_white_move3": {
+   "n": 4739,
+   "rows": [
+    {
+     "name": "e5",
+     "games": 2482,
+     "share": 0.5237,
+     "score_black": 0.48
+    },
+    {
+     "name": "exd5",
+     "games": 1036,
+     "share": 0.2186,
+     "score_black": 0.503
+    },
+    {
+     "name": "Nc3",
+     "games": 874,
+     "share": 0.1844,
+     "score_black": 0.468
+    },
+    {
+     "name": "f3",
+     "games": 118,
+     "share": 0.0249,
+     "score_black": 0.445
+    },
+    {
+     "name": "Nd2",
+     "games": 72,
+     "share": 0.0152,
+     "score_black": 0.521
+    },
+    {
+     "name": "Bd3",
+     "games": 64,
+     "share": 0.0135,
+     "score_black": 0.5
+    },
+    {
+     "name": "Nf3",
+     "games": 51,
+     "share": 0.0108,
+     "score_black": 0.559
+    },
+    {
+     "name": "c4",
+     "games": 11,
+     "share": 0.0023,
+     "score_black": 0.545
+    },
+    {
+     "name": "c3",
+     "games": 9,
+     "share": 0.0019,
+     "score_black": 0.556
+    },
+    {
+     "name": "Be3",
+     "games": 5,
+     "share": 0.0011,
+     "score_black": 0.5
+    },
+    {
+     "name": "Qf3",
+     "games": 5,
+     "share": 0.0011,
+     "score_black": 0.6
+    },
+    {
+     "name": "f4",
+     "games": 3,
+     "share": 0.0006,
+     "score_black": 0.667
+    },
+    {
+     "name": "Bf4",
+     "games": 2,
+     "share": 0.0004,
+     "score_black": 0.5
+    },
+    {
+     "name": "Bc4",
+     "games": 2,
+     "share": 0.0004,
+     "score_black": 0.5
+    },
+    {
+     "name": "Qd3",
+     "games": 1,
+     "share": 0.0002,
+     "score_black": 1.0
+    },
+    {
+     "name": "g3",
+     "games": 1,
+     "share": 0.0002,
+     "score_black": 0.0
+    },
+    {
+     "name": "Bd2",
+     "games": 1,
+     "share": 0.0002,
+     "score_black": 1.0
+    },
+    {
+     "name": "b4",
+     "games": 1,
+     "share": 0.0002,
+     "score_black": 1.0
+    },
+    {
+     "name": "h3",
+     "games": 1,
+     "share": 0.0002,
+     "score_black": 0.0
+    }
+   ]
+  },
+  "after_1e4_c6_reaching_2d4_d5_share": 0.3306,
+  "after_1e4_c6_black_move2": {
+   "d5": 0.9178,
+   "e6": 0.0213,
+   "d6": 0.0141,
+   "Nf6": 0.0114,
+   "b5": 0.0059,
+   "e5": 0.0051
+  }
+ },
+ "rapid only": {
+  "games": 103700,
+  "first_move_share": {
+   "e4": 0.6799,
+   "d4": 0.214,
+   "Nf3": 0.0228,
+   "e3": 0.0212,
+   "c4": 0.0164,
+   "g3": 0.0088,
+   "f4": 0.0072,
+   "b3": 0.006
+  },
+  "after_1d4_black_replies": {
+   "d5": 0.5854,
+   "Nf6": 0.0927,
+   "e6": 0.0803,
+   "e5": 0.0706,
+   "c6": 0.0342,
+   "d6": 0.0329,
+   "g6": 0.026,
+   "Nc6": 0.0185,
+   "c5": 0.0179,
+   "f5": 0.0156
+  },
+  "after_1d4_d5_white_systems": {
+   "n": 12891,
+   "rows": [
+    {
+     "name": "London: Bf4 by move 3",
+     "games": 3753,
+     "share": 0.2911,
+     "score_black": 0.459
+    },
+    {
+     "name": "Queen's Gambit family: c4 by move 3",
+     "games": 3351,
+     "share": 0.2599,
+     "score_black": 0.447
+    },
+    {
+     "name": "Colle / Stonewall type: e3 by move 3",
+     "games": 1754,
+     "share": 0.1361,
+     "score_black": 0.481
+    },
+    {
+     "name": "Nc3 systems (Veresov-type without Bg5, Jobava without Bf4)",
+     "games": 1422,
+     "share": 0.1103,
+     "score_black": 0.495
+    },
+    {
+     "name": "Jobava London: Nc3 + Bf4 by move 3",
+     "games": 1154,
+     "share": 0.0895,
+     "score_black": 0.431
+    },
+    {
+     "name": "2.Nf3 / 3.Nf3 other (g3, Bf4 later, etc.)",
+     "games": 482,
+     "share": 0.0374,
+     "score_black": 0.501
+    },
+    {
+     "name": "other",
+     "games": 448,
+     "share": 0.0348,
+     "score_black": 0.547
+    },
+    {
+     "name": "Blackmar-Diemer / 2.e4 gambit",
+     "games": 264,
+     "share": 0.0205,
+     "score_black": 0.578
+    },
+    {
+     "name": "Bg5 systems (Levitsky / Torre / Veresov)",
+     "games": 263,
+     "share": 0.0204,
+     "score_black": 0.483
+    }
+   ]
+  },
+  "after_1d4_d5_with_black_c6_by_move3_white_systems": {
+   "n": 1141,
+   "rows": [
+    {
+     "name": "Queen's Gambit family: c4 by move 3",
+     "games": 543,
+     "share": 0.4759,
+     "score_black": 0.488
+    },
+    {
+     "name": "Nc3 systems (Veresov-type without Bg5, Jobava without Bf4)",
+     "games": 148,
+     "share": 0.1297,
+     "score_black": 0.524
+    },
+    {
+     "name": "London: Bf4 by move 3",
+     "games": 134,
+     "share": 0.1174,
+     "score_black": 0.451
+    },
+    {
+     "name": "Colle / Stonewall type: e3 by move 3",
+     "games": 116,
+     "share": 0.1017,
+     "score_black": 0.427
+    },
+    {
+     "name": "Jobava London: Nc3 + Bf4 by move 3",
+     "games": 102,
+     "share": 0.0894,
+     "score_black": 0.417
+    },
+    {
+     "name": "other",
+     "games": 43,
+     "share": 0.0377,
+     "score_black": 0.558
+    },
+    {
+     "name": "Blackmar-Diemer / 2.e4 gambit",
+     "games": 28,
+     "share": 0.0245,
+     "score_black": 0.518
+    },
+    {
+     "name": "2.Nf3 / 3.Nf3 other (g3, Bf4 later, etc.)",
+     "games": 15,
+     "share": 0.0131,
+     "score_black": 0.5
+    },
+    {
+     "name": "Bg5 systems (Levitsky / Torre / Veresov)",
+     "games": 12,
+     "share": 0.0105,
+     "score_black": 0.5
+    }
+   ]
+  },
+  "real_slav_structure_by_ply8_among_1d4_d5_games_where_black_plays_c6_by_move3": 0.4408,
+  "real_slav_structure_by_ply8_among_all_1d4_d5_games": 0.0429,
+  "white_c4_by_move3_after_1d4_d5": 0.2599,
+  "after_1e4_share_c6": 0.0665,
+  "after_1e4_c6_white_move2": {
+   "n": 4690,
+   "rows": [
+    {
+     "name": "d4",
+     "games": 1699,
+     "share": 0.3623,
+     "score_black": 0.477
+    },
+    {
+     "name": "Nf3",
+     "games": 1437,
+     "share": 0.3064,
+     "score_black": 0.513
+    },
+    {
+     "name": "Bc4",
+     "games": 550,
+     "share": 0.1173,
+     "score_black": 0.505
+    },
+    {
+     "name": "Nc3",
+     "games": 393,
+     "share": 0.0838,
+     "score_black": 0.515
+    },
+    {
+     "name": "e5",
+     "games": 118,
+     "share": 0.0252,
+     "score_black": 0.436
+    },
+    {
+     "name": "Qf3",
+     "games": 115,
+     "share": 0.0245,
+     "score_black": 0.543
+    },
+    {
+     "name": "d3",
+     "games": 92,
+     "share": 0.0196,
+     "score_black": 0.457
+    },
+    {
+     "name": "f4",
+     "games": 53,
+     "share": 0.0113,
+     "score_black": 0.491
+    },
+    {
+     "name": "Qh5",
+     "games": 53,
+     "share": 0.0113,
+     "score_black": 0.575
+    },
+    {
+     "name": "c4",
+     "games": 52,
+     "share": 0.0111,
+     "score_black": 0.346
+    },
+    {
+     "name": "c3",
+     "games": 35,
+     "share": 0.0075,
+     "score_black": 0.586
+    },
+    {
+     "name": "g3",
+     "games": 17,
+     "share": 0.0036,
+     "score_black": 0.412
+    },
+    {
+     "name": "f3",
+     "games": 15,
+     "share": 0.0032,
+     "score_black": 0.633
+    },
+    {
+     "name": "b3",
+     "games": 12,
+     "share": 0.0026,
+     "score_black": 0.5
+    },
+    {
+     "name": "a3",
+     "games": 7,
+     "share": 0.0015,
+     "score_black": 0.214
+    },
+    {
+     "name": "Qg4",
+     "games": 6,
+     "share": 0.0013,
+     "score_black": 0.5
+    },
+    {
+     "name": "h4",
+     "games": 6,
+     "share": 0.0013,
+     "score_black": 0.25
+    },
+    {
+     "name": "b4",
+     "games": 5,
+     "share": 0.0011,
+     "score_black": 0.8
+    },
+    {
+     "name": "Bd3",
+     "games": 5,
+     "share": 0.0011,
+     "score_black": 0.4
+    },
+    {
+     "name": "g4",
+     "games": 3,
+     "share": 0.0006,
+     "score_black": 0.333
+    },
+    {
+     "name": "Ne2",
+     "games": 3,
+     "share": 0.0006,
+     "score_black": 0.333
+    },
+    {
+     "name": "a4",
+     "games": 3,
+     "share": 0.0006,
+     "score_black": 0.833
+    },
+    {
+     "name": "Be2",
+     "games": 3,
+     "share": 0.0006,
+     "score_black": 0.333
+    },
+    {
+     "name": "Nh3",
+     "games": 3,
+     "share": 0.0006,
+     "score_black": 0.333
+    },
+    {
+     "name": "h3",
+     "games": 2,
+     "share": 0.0004,
+     "score_black": 0.25
+    },
+    {
+     "name": "Na3",
+     "games": 1,
+     "share": 0.0002,
+     "score_black": 1.0
+    },
+    {
+     "name": "Qe2",
+     "games": 1,
+     "share": 0.0002,
+     "score_black": 0.0
+    },
+    {
+     "name": "Bb5",
+     "games": 1,
+     "share": 0.0002,
+     "score_black": 1.0
+    }
+   ]
+  },
+  "after_1e4_c6_2d4_d5_white_move3": {
+   "n": 1580,
+   "rows": [
+    {
+     "name": "e5",
+     "games": 750,
+     "share": 0.4747,
+     "score_black": 0.439
+    },
+    {
+     "name": "Nc3",
+     "games": 359,
+     "share": 0.2272,
+     "score_black": 0.471
+    },
+    {
+     "name": "exd5",
+     "games": 350,
+     "share": 0.2215,
+     "score_black": 0.544
+    },
+    {
+     "name": "f3",
+     "games": 42,
+     "share": 0.0266,
+     "score_black": 0.571
+    },
+    {
+     "name": "Bd3",
+     "games": 28,
+     "share": 0.0177,
+     "score_black": 0.643
+    },
+    {
+     "name": "Nd2",
+     "games": 20,
+     "share": 0.0127,
+     "score_black": 0.6
+    },
+    {
+     "name": "Nf3",
+     "games": 17,
+     "share": 0.0108,
+     "score_black": 0.588
+    },
+    {
+     "name": "c3",
+     "games": 3,
+     "share": 0.0019,
+     "score_black": 0.333
+    },
+    {
+     "name": "c4",
+     "games": 3,
+     "share": 0.0019,
+     "score_black": 1.0
+    },
+    {
+     "name": "Qf3",
+     "games": 2,
+     "share": 0.0013,
+     "score_black": 0.5
+    },
+    {
+     "name": "Qd3",
+     "games": 1,
+     "share": 0.0006,
+     "score_black": 1.0
+    },
+    {
+     "name": "Be3",
+     "games": 1,
+     "share": 0.0006,
+     "score_black": 0.0
+    },
+    {
+     "name": "Bf4",
+     "games": 1,
+     "share": 0.0006,
+     "score_black": 0.0
+    },
+    {
+     "name": "b4",
+     "games": 1,
+     "share": 0.0006,
+     "score_black": 1.0
+    },
+    {
+     "name": "h3",
+     "games": 1,
+     "share": 0.0006,
+     "score_black": 0.0
+    },
+    {
+     "name": "f4",
+     "games": 1,
+     "share": 0.0006,
+     "score_black": 0.0
+    }
+   ]
+  },
+  "after_1e4_c6_reaching_2d4_d5_share": 0.3369,
+  "after_1e4_c6_black_move2": {
+   "d5": 0.9066,
+   "e6": 0.022,
+   "Nf6": 0.0173,
+   "d6": 0.0122,
+   "e5": 0.0075,
+   "b5": 0.0064
+  }
+ },
+ "rapid 10+0 only": {
+  "games": 77241,
+  "first_move_share": {
+   "e4": 0.6749,
+   "d4": 0.2137,
+   "e3": 0.0238,
+   "Nf3": 0.0232,
+   "c4": 0.0158,
+   "g3": 0.0098,
+   "f4": 0.0073,
+   "Nc3": 0.0062
+  },
+  "after_1d4_black_replies": {
+   "d5": 0.5726,
+   "Nf6": 0.0901,
+   "e6": 0.0845,
+   "e5": 0.0755,
+   "c6": 0.0353,
+   "d6": 0.0348,
+   "g6": 0.027,
+   "Nc6": 0.0196,
+   "c5": 0.018,
+   "f5": 0.0154
+  },
+  "after_1d4_d5_white_systems": {
+   "n": 9366,
+   "rows": [
+    {
+     "name": "London: Bf4 by move 3",
+     "games": 2711,
+     "share": 0.2895,
+     "score_black": 0.453
+    },
+    {
+     "name": "Queen's Gambit family: c4 by move 3",
+     "games": 2303,
+     "share": 0.2459,
+     "score_black": 0.431
+    },
+    {
+     "name": "Colle / Stonewall type: e3 by move 3",
+     "games": 1295,
+     "share": 0.1383,
+     "score_black": 0.479
+    },
+    {
+     "name": "Nc3 systems (Veresov-type without Bg5, Jobava without Bf4)",
+     "games": 1087,
+     "share": 0.1161,
+     "score_black": 0.477
+    },
+    {
+     "name": "Jobava London: Nc3 + Bf4 by move 3",
+     "games": 857,
+     "share": 0.0915,
+     "score_black": 0.434
+    },
+    {
+     "name": "2.Nf3 / 3.Nf3 other (g3, Bf4 later, etc.)",
+     "games": 364,
+     "share": 0.0389,
+     "score_black": 0.519
+    },
+    {
+     "name": "other",
+     "games": 333,
+     "share": 0.0356,
+     "score_black": 0.577
+    },
+    {
+     "name": "Bg5 systems (Levitsky / Torre / Veresov)",
+     "games": 210,
+     "share": 0.0224,
+     "score_black": 0.483
+    },
+    {
+     "name": "Blackmar-Diemer / 2.e4 gambit",
+     "games": 206,
+     "share": 0.022,
+     "score_black": 0.553
+    }
+   ]
+  },
+  "after_1d4_d5_with_black_c6_by_move3_white_systems": {
+   "n": 796,
+   "rows": [
+    {
+     "name": "Queen's Gambit family: c4 by move 3",
+     "games": 353,
+     "share": 0.4435,
+     "score_black": 0.514
+    },
+    {
+     "name": "Nc3 systems (Veresov-type without Bg5, Jobava without Bf4)",
+     "games": 116,
+     "share": 0.1457,
+     "score_black": 0.522
+    },
+    {
+     "name": "London: Bf4 by move 3",
+     "games": 102,
+     "share": 0.1281,
+     "score_black": 0.436
+    },
+    {
+     "name": "Colle / Stonewall type: e3 by move 3",
+     "games": 84,
+     "share": 0.1055,
+     "score_black": 0.417
+    },
+    {
+     "name": "Jobava London: Nc3 + Bf4 by move 3",
+     "games": 70,
+     "share": 0.0879,
+     "score_black": 0.407
+    },
+    {
+     "name": "other",
+     "games": 31,
+     "share": 0.0389,
+     "score_black": 0.548
+    },
+    {
+     "name": "Blackmar-Diemer / 2.e4 gambit",
+     "games": 18,
+     "share": 0.0226,
+     "score_black": 0.361
+    },
+    {
+     "name": "2.Nf3 / 3.Nf3 other (g3, Bf4 later, etc.)",
+     "games": 12,
+     "share": 0.0151,
+     "score_black": 0.542
+    },
+    {
+     "name": "Bg5 systems (Levitsky / Torre / Veresov)",
+     "games": 10,
+     "share": 0.0126,
+     "score_black": 0.5
+    }
+   ]
+  },
+  "real_slav_structure_by_ply8_among_1d4_d5_games_where_black_plays_c6_by_move3": 0.4095,
+  "real_slav_structure_by_ply8_among_all_1d4_d5_games": 0.038,
+  "white_c4_by_move3_after_1d4_d5": 0.2459,
+  "after_1e4_share_c6": 0.0642,
+  "after_1e4_c6_white_move2": {
+   "n": 3347,
+   "rows": [
+    {
+     "name": "d4",
+     "games": 1159,
+     "share": 0.3463,
+     "score_black": 0.456
+    },
+    {
+     "name": "Nf3",
+     "games": 1016,
+     "share": 0.3036,
+     "score_black": 0.522
+    },
+    {
+     "name": "Bc4",
+     "games": 402,
+     "share": 0.1201,
+     "score_black": 0.495
+    },
+    {
+     "name": "Nc3",
+     "games": 278,
+     "share": 0.0831,
+     "score_black": 0.502
+    },
+    {
+     "name": "Qf3",
+     "games": 101,
+     "share": 0.0302,
+     "score_black": 0.52
+    },
+    {
+     "name": "e5",
+     "games": 96,
+     "share": 0.0287,
+     "score_black": 0.443
+    },
+    {
+     "name": "d3",
+     "games": 76,
+     "share": 0.0227,
+     "score_black": 0.454
+    },
+    {
+     "name": "Qh5",
+     "games": 43,
+     "share": 0.0128,
+     "score_black": 0.57
+    },
+    {
+     "name": "f4",
+     "games": 42,
+     "share": 0.0125,
+     "score_black": 0.464
+    },
+    {
+     "name": "c4",
+     "games": 34,
+     "share": 0.0102,
+     "score_black": 0.382
+    },
+    {
+     "name": "c3",
+     "games": 24,
+     "share": 0.0072,
+     "score_black": 0.521
+    },
+    {
+     "name": "g3",
+     "games": 15,
+     "share": 0.0045,
+     "score_black": 0.4
+    },
+    {
+     "name": "f3",
+     "games": 13,
+     "share": 0.0039,
+     "score_black": 0.577
+    },
+    {
+     "name": "b3",
+     "games": 9,
+     "share": 0.0027,
+     "score_black": 0.333
+    },
+    {
+     "name": "a3",
+     "games": 6,
+     "share": 0.0018,
+     "score_black": 0.25
+    },
+    {
+     "name": "Qg4",
+     "games": 5,
+     "share": 0.0015,
+     "score_black": 0.4
+    },
+    {
+     "name": "Bd3",
+     "games": 5,
+     "share": 0.0015,
+     "score_black": 0.4
+    },
+    {
+     "name": "b4",
+     "games": 4,
+     "share": 0.0012,
+     "score_black": 0.75
+    },
+    {
+     "name": "Be2",
+     "games": 3,
+     "share": 0.0009,
+     "score_black": 0.333
+    },
+    {
+     "name": "Nh3",
+     "games": 3,
+     "share": 0.0009,
+     "score_black": 0.333
+    },
+    {
+     "name": "g4",
+     "games": 2,
+     "share": 0.0006,
+     "score_black": 0.5
+    },
+    {
+     "name": "h3",
+     "games": 2,
+     "share": 0.0006,
+     "score_black": 0.25
+    },
+    {
+     "name": "a4",
+     "games": 2,
+     "share": 0.0006,
+     "score_black": 1.0
+    },
+    {
+     "name": "Ne2",
+     "games": 2,
+     "share": 0.0006,
+     "score_black": 0.0
+    },
+    {
+     "name": "h4",
+     "games": 2,
+     "share": 0.0006,
+     "score_black": 0.5
+    },
+    {
+     "name": "Na3",
+     "games": 1,
+     "share": 0.0003,
+     "score_black": 1.0
+    },
+    {
+     "name": "Qe2",
+     "games": 1,
+     "share": 0.0003,
+     "score_black": 0.0
+    },
+    {
+     "name": "Bb5",
+     "games": 1,
+     "share": 0.0003,
+     "score_black": 1.0
+    }
+   ]
+  },
+  "after_1e4_c6_2d4_d5_white_move3": {
+   "n": 1064,
+   "rows": [
+    {
+     "name": "e5",
+     "games": 527,
+     "share": 0.4953,
+     "score_black": 0.428
+    },
+    {
+     "name": "exd5",
+     "games": 230,
+     "share": 0.2162,
+     "score_black": 0.526
+    },
+    {
+     "name": "Nc3",
+     "games": 228,
+     "share": 0.2143,
+     "score_black": 0.441
+    },
+    {
+     "name": "f3",
+     "games": 25,
+     "share": 0.0235,
+     "score_black": 0.6
+    },
+    {
+     "name": "Bd3",
+     "games": 20,
+     "share": 0.0188,
+     "score_black": 0.55
+    },
+    {
+     "name": "Nd2",
+     "games": 15,
+     "share": 0.0141,
+     "score_black": 0.667
+    },
+    {
+     "name": "Nf3",
+     "games": 10,
+     "share": 0.0094,
+     "score_black": 0.6
+    },
+    {
+     "name": "c3",
+     "games": 3,
+     "share": 0.0028,
+     "score_black": 0.333
+    },
+    {
+     "name": "Qd3",
+     "games": 1,
+     "share": 0.0009,
+     "score_black": 1.0
+    },
+    {
+     "name": "Qf3",
+     "games": 1,
+     "share": 0.0009,
+     "score_black": 1.0
+    },
+    {
+     "name": "b4",
+     "games": 1,
+     "share": 0.0009,
+     "score_black": 1.0
+    },
+    {
+     "name": "c4",
+     "games": 1,
+     "share": 0.0009,
+     "score_black": 1.0
+    },
+    {
+     "name": "h3",
+     "games": 1,
+     "share": 0.0009,
+     "score_black": 0.0
+    },
+    {
+     "name": "f4",
+     "games": 1,
+     "share": 0.0009,
+     "score_black": 0.0
+    }
+   ]
+  },
+  "after_1e4_c6_reaching_2d4_d5_share": 0.3179,
+  "after_1e4_c6_black_move2": {
+   "d5": 0.8972,
+   "e6": 0.023,
+   "Nf6": 0.0188,
+   "d6": 0.014,
+   "e5": 0.0081,
+   "g6": 0.0081
+  }
+ }
+}

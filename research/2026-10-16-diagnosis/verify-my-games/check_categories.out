@@ -1,0 +1,29 @@
+ignored_threat CONFIRMED 4z8iRBwu ply 29 exf4 | our reply PV: d8h4 e1d1 e4f2 d1c2 | material swing for him -1 | opp next move d8h4 | claimed opp line: Qh4+ Kd1 Nf2+ Kc2 Nxh1 cxd5 Ng3
+hung_piece CONFIRMED 9Kgsnfwd ply 32 e5 | our reply PV: g6d6 h8e8 e2d3 e5e4 | material swing for him -10 | opp next move g6d6 | claimed opp line: Qxd6 Rhe8 dxe5 Nxe5 Qxh6 Rh8 Qe6+
+ignored_threat NOT CONFIRMED B4575r7G ply 40 Qf6 | our reply PV: h5g6 h6g7 h1h7 b7b5 | material swing for him -2 | opp next move d1f1 | claimed opp line: hxg6 Bg7 Rxh7 Qe5 Qxe5 Bxe5 f4
+ignored_threat NOT CONFIRMED B4575r7G ply 42 Be6 | our reply PV: h5g6 h6g7 h1h7 a8e8 | material swing for him -2 | opp next move f2f4 | claimed opp line: hxg6 Bg7 Rxh7 Rae8 Qh5 Re7 g4
+ignored_threat NOT CONFIRMED B4575r7G ply 44 Rae8 | our reply PV: h5g6 e6h3 h1h3 e8e2 | material swing for him 2 | opp next move e2d1 | claimed opp line: hxg6 Bh3 Rxh3 Rxe2 Rxh6 Re3 gxh7+
+ignored_threat NOT CONFIRMED B4575r7G ply 46 b5 | our reply PV: h5g6 h6g7 d1h5 h7h6 | material swing for him 0 | opp next move a2a3 | claimed opp line: hxg6 Bg7 f5 Bc8 Rxh7 Qg5 a3
+ignored_threat NOT CONFIRMED B4575r7G ply 48 a6 | our reply PV: h5g6 h6g7 f4f5 e6d7 | material swing for him -2 | opp next move g3g4 | claimed opp line: hxg6 Bg7 f5 Bc8 Rxh7 Qg5 g4
+ignored_threat CONFIRMED B4575r7G ply 50 c5 | our reply PV: g4g5 f6d8 h5g6 c5c4 | material swing for him -1 | opp next move g4g5 | claimed opp line: g5 Qd4 gxh6 c4 Ne2 Qf6 Bxg6
+allowed_short_mate CONFIRMED EMxzd6WS ply 20 c6 | our reply PV: d5c7 e8f8 d1d8 | material swing for him 0 | opp next move d5c7 | claimed opp line: Nc7+ Kf8 Rd8#
+ignored_threat CONFIRMED K0WK1qZB ply 22 exd4 | our reply PV: d3g6 e8e7 h7f6 d7f6 | material swing for him -1 | opp next move d3g6 | claimed opp line: Bxg6+ Ke7 Nxf6 Nxf6 Qxd4 Qg8 Qc5+
+allowed_short_mate CONFIRMED K0WK1qZB ply 28 Kc5 | our reply PV: c3a4 | material swing for him 0 | opp next move b2b4 | claimed opp line: Na4#
+hung_piece CONFIRMED KC803zNe ply 57 Kxg2 | our reply PV: f1a1 e3d3 c7d8 d3c4 | material swing for him -2 | opp next move f1a1 | claimed opp line: Rxa1 e5 Qf7 e6 Qg6+ Kf3 h5
+hung_piece CONFIRMED Rw8CfgsO ply 31 h3 | our reply PV: d6g3 h3g4 g3e1 h1e1 | material swing for him -2 | opp next move g4h5 | claimed opp line: Bxg3 hxg4 Bxe1 Rxe1 Nc6 Rf1 g6
+hung_piece CONFIRMED USKGIQT0 ply 20 Bb4 | our reply PV: d5b4 f6e4 c2c3 e8g8 | material swing for him -3 | opp next move d5f6 | claimed opp line: Nxb4 Ne4 a3 Nc6 Qe3 Qb6 f3
+ignored_threat NOT CONFIRMED W6Nhrt3P ply 43 g6 | our reply PV: h8h2 e2f1 b4d2 c1c5 | material swing for him -5 | opp next move f8d7 | claimed opp line: Rxh2+ Kf3 Nxg6 Nb3 Kd7 Bxa5 Bxa5
+hung_piece CONFIRMED WwmpftBa ply 22 e5 | our reply PV: d4f5 d5d4 a2a3 d4c3 | material swing for him -2 | opp next move d4f5 | claimed opp line: Nxf5 d4 Qg4 h5 Qg7 Rf8 O-O
+hung_piece CONFIRMED XLCmExKA ply 38 Ne4 | our reply PV: c3e4 e7f5 e4d6 c8c1 | material swing for him -3 | opp next move c3e4 | claimed opp line: Nxe4 Nf5 Nd6 Rxc1 Rxc1 Bf8 Rc6
+hung_piece CONFIRMED bdOFlcdq ply 21 b4 | our reply PV: e5f4 f3f4 d6d5 a2a4 | material swing for him -2 | opp next move e5f4 | claimed opp line: exf4 Qxf4 d5 a4 Nb6 b5 c5
+hung_piece CONFIRMED bkKIi4iM ply 25 f4 | our reply PV: e4d3 e2d2 c6e7 g3h4 | material swing for him -3 | opp next move e4d3 | claimed opp line: exd3 Qf2 Be4 Bh4 Rg8 Rd1 h6
+hung_piece CONFIRMED gKsIWaAv ply 55 gxf6 | our reply PV: e7e1 c1c2 e1f1 d2f1 | material swing for him -4 | opp next move g7f6 | claimed opp line: Rxe1+ Rxe1 Rxe1+ Kc2 Bxf6 cxd4 Rg1
+hung_piece CONFIRMED gKsIWaAv ply 57 Rxf6 | our reply PV: e7e1 c1c2 d4c3 c2c3 | material swing for him -2 | opp next move e7e1 | claimed opp line: Rxe1+ Kc2 dxc3 Kxc3 R1e6 Rf4 Re3+
+hung_piece CONFIRMED ioPKeFeP ply 43 c3 | our reply PV: b6b3 f4f6 b3b5 h5f3 | material swing for him -3 | opp next move a5a4 | claimed opp line: Qxb3 Rf6 Qb5 a4 Qd3 R1f3 Qh7
+hung_piece CONFIRMED msCRozP2 ply 21 O-O | our reply PV: c3d1 f1e1 e8f8 f4g5 | material swing for him -9 | opp next move c3d1 | claimed opp line: Nxd1 Bg5 Qd7 Re1+ Kf8 Raxd1 Qf7
+hung_piece CONFIRMED pEKoVG79 ply 40 Qd8 | our reply PV: d4c5 g5f4 g3f4 a8c8 | material swing for him -3 | opp next move d4c5 | claimed opp line: Bxc5 Rc8 Qd4 Qc7 b4 Nxa3 hxg5
+hung_piece CONFIRMED tSVRiDh0 ply 84 d4 | our reply PV: a5f5 b4d5 g3f2 d4d3 | material swing for him -3 | opp next move a5f5 | claimed opp line: Rxf5 Nd5 Kf2 Kh7 Rf8 Kg6 Ke2
+hung_piece CONFIRMED tSVRiDh0 ply 98 Kg7 | our reply PV: c6a6 g6g5 h4h5 g7h8 | material swing for him -3 | opp next move c6a6 | claimed opp line: Rxa6 Kf7 Kg4 Kg7 Kg5 Kf7 Rxg6
+hung_piece CONFIRMED u820NzSm ply 40 fxg5 | our reply PV: f1f5 e6f5 g3g5 g7f8 | material swing for him -5 | opp next move f1f5 | claimed opp line: Rxf5 exf5 Qxg5+ Kf7 Qxf5+ Ke7 Qe5+
+ignored_threat NOT CONFIRMED yXoWmgsR ply 27 c4 | our reply PV: d5e4 d3e4 b7e4 d1d8 | material swing for him -3 | opp next move b5c4 | claimed opp line: dxe4 Bxe4 Qxd1+ Rxd1 Bxe4 Ke2 Nc6
+{('ignored_threat', True): 3, ('hung_piece', True): 16, ('ignored_threat', False): 7, ('allowed_short_mate', True): 2}

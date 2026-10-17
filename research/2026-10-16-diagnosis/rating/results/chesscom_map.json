@@ -1,0 +1,459 @@
+{
+ "about": "Lichess rating -> chess.com rating among players with accounts on both sites (same username, plus a matching country flag, real name or profile link). Built 2026-10-16 by research/2026-10-16-diagnosis/rating/scripts/pairs_analysis.py. center = straight-line fit over Lichess 700-1700; p10/p90 = 8 in 10 matched players fall between them. Use only for an established (non-provisional) Lichess rating between 800 and 1600; interpolate between rows.",
+ "source_date": "2026-10-16",
+ "lichess_range": [
+  800,
+  1600
+ ],
+ "maps": {
+  "blitz_to_chesscom_blitz": {
+   "pairs": 79,
+   "pairs_within_150_of_1017": 37,
+   "line": {
+    "a": -496.7,
+    "b": 0.963
+   },
+   "rows": [
+    {
+     "lichess": 800,
+     "center": 270,
+     "p10": 100,
+     "p90": 470
+    },
+    {
+     "lichess": 850,
+     "center": 320,
+     "p10": 100,
+     "p90": 520
+    },
+    {
+     "lichess": 900,
+     "center": 370,
+     "p10": 140,
+     "p90": 560
+    },
+    {
+     "lichess": 950,
+     "center": 420,
+     "p10": 190,
+     "p90": 610
+    },
+    {
+     "lichess": 1000,
+     "center": 470,
+     "p10": 240,
+     "p90": 660
+    },
+    {
+     "lichess": 1050,
+     "center": 520,
+     "p10": 290,
+     "p90": 710
+    },
+    {
+     "lichess": 1100,
+     "center": 560,
+     "p10": 330,
+     "p90": 760
+    },
+    {
+     "lichess": 1150,
+     "center": 610,
+     "p10": 380,
+     "p90": 800
+    },
+    {
+     "lichess": 1200,
+     "center": 660,
+     "p10": 430,
+     "p90": 850
+    },
+    {
+     "lichess": 1250,
+     "center": 710,
+     "p10": 480,
+     "p90": 900
+    },
+    {
+     "lichess": 1300,
+     "center": 760,
+     "p10": 530,
+     "p90": 950
+    },
+    {
+     "lichess": 1350,
+     "center": 800,
+     "p10": 580,
+     "p90": 1000
+    },
+    {
+     "lichess": 1400,
+     "center": 850,
+     "p10": 620,
+     "p90": 1040
+    },
+    {
+     "lichess": 1450,
+     "center": 900,
+     "p10": 670,
+     "p90": 1090
+    },
+    {
+     "lichess": 1500,
+     "center": 950,
+     "p10": 720,
+     "p90": 1140
+    },
+    {
+     "lichess": 1550,
+     "center": 1000,
+     "p10": 770,
+     "p90": 1190
+    },
+    {
+     "lichess": 1600,
+     "center": 1040,
+     "p10": 820,
+     "p90": 1240
+    }
+   ]
+  },
+  "rapid_to_chesscom_rapid": {
+   "pairs": 103,
+   "pairs_within_150_of_1017": 42,
+   "line": {
+    "a": -609.7,
+    "b": 1.113
+   },
+   "rows": [
+    {
+     "lichess": 800,
+     "center": 280,
+     "p10": 100,
+     "p90": 460
+    },
+    {
+     "lichess": 850,
+     "center": 340,
+     "p10": 150,
+     "p90": 520
+    },
+    {
+     "lichess": 900,
+     "center": 390,
+     "p10": 200,
+     "p90": 570
+    },
+    {
+     "lichess": 950,
+     "center": 450,
+     "p10": 260,
+     "p90": 630
+    },
+    {
+     "lichess": 1000,
+     "center": 500,
+     "p10": 310,
+     "p90": 690
+    },
+    {
+     "lichess": 1050,
+     "center": 560,
+     "p10": 370,
+     "p90": 740
+    },
+    {
+     "lichess": 1100,
+     "center": 620,
+     "p10": 430,
+     "p90": 800
+    },
+    {
+     "lichess": 1150,
+     "center": 670,
+     "p10": 480,
+     "p90": 850
+    },
+    {
+     "lichess": 1200,
+     "center": 730,
+     "p10": 540,
+     "p90": 910
+    },
+    {
+     "lichess": 1250,
+     "center": 780,
+     "p10": 590,
+     "p90": 960
+    },
+    {
+     "lichess": 1300,
+     "center": 840,
+     "p10": 650,
+     "p90": 1020
+    },
+    {
+     "lichess": 1350,
+     "center": 890,
+     "p10": 700,
+     "p90": 1080
+    },
+    {
+     "lichess": 1400,
+     "center": 950,
+     "p10": 760,
+     "p90": 1130
+    },
+    {
+     "lichess": 1450,
+     "center": 1000,
+     "p10": 820,
+     "p90": 1190
+    },
+    {
+     "lichess": 1500,
+     "center": 1060,
+     "p10": 870,
+     "p90": 1240
+    },
+    {
+     "lichess": 1550,
+     "center": 1120,
+     "p10": 930,
+     "p90": 1300
+    },
+    {
+     "lichess": 1600,
+     "center": 1170,
+     "p10": 980,
+     "p90": 1350
+    }
+   ]
+  },
+  "blitz_to_chesscom_rapid": {
+   "pairs": 86,
+   "pairs_within_150_of_1017": 43,
+   "line": {
+    "a": -238.6,
+    "b": 0.935
+   },
+   "rows": [
+    {
+     "lichess": 800,
+     "center": 510,
+     "p10": 220,
+     "p90": 730
+    },
+    {
+     "lichess": 850,
+     "center": 560,
+     "p10": 270,
+     "p90": 780
+    },
+    {
+     "lichess": 900,
+     "center": 600,
+     "p10": 310,
+     "p90": 830
+    },
+    {
+     "lichess": 950,
+     "center": 650,
+     "p10": 360,
+     "p90": 870
+    },
+    {
+     "lichess": 1000,
+     "center": 700,
+     "p10": 410,
+     "p90": 920
+    },
+    {
+     "lichess": 1050,
+     "center": 740,
+     "p10": 450,
+     "p90": 970
+    },
+    {
+     "lichess": 1100,
+     "center": 790,
+     "p10": 500,
+     "p90": 1010
+    },
+    {
+     "lichess": 1150,
+     "center": 840,
+     "p10": 550,
+     "p90": 1060
+    },
+    {
+     "lichess": 1200,
+     "center": 880,
+     "p10": 590,
+     "p90": 1110
+    },
+    {
+     "lichess": 1250,
+     "center": 930,
+     "p10": 640,
+     "p90": 1150
+    },
+    {
+     "lichess": 1300,
+     "center": 980,
+     "p10": 690,
+     "p90": 1200
+    },
+    {
+     "lichess": 1350,
+     "center": 1020,
+     "p10": 730,
+     "p90": 1250
+    },
+    {
+     "lichess": 1400,
+     "center": 1070,
+     "p10": 780,
+     "p90": 1290
+    },
+    {
+     "lichess": 1450,
+     "center": 1120,
+     "p10": 830,
+     "p90": 1340
+    },
+    {
+     "lichess": 1500,
+     "center": 1160,
+     "p10": 870,
+     "p90": 1390
+    },
+    {
+     "lichess": 1550,
+     "center": 1210,
+     "p10": 920,
+     "p90": 1430
+    },
+    {
+     "lichess": 1600,
+     "center": 1260,
+     "p10": 970,
+     "p90": 1480
+    }
+   ]
+  },
+  "rapid_to_chesscom_blitz": {
+   "pairs": 54,
+   "pairs_within_150_of_1017": 20,
+   "line": {
+    "a": -580.2,
+    "b": 0.877
+   },
+   "rows": [
+    {
+     "lichess": 800,
+     "center": 120,
+     "p10": 100,
+     "p90": 290
+    },
+    {
+     "lichess": 850,
+     "center": 160,
+     "p10": 100,
+     "p90": 330
+    },
+    {
+     "lichess": 900,
+     "center": 210,
+     "p10": 100,
+     "p90": 380
+    },
+    {
+     "lichess": 950,
+     "center": 250,
+     "p10": 100,
+     "p90": 420
+    },
+    {
+     "lichess": 1000,
+     "center": 300,
+     "p10": 100,
+     "p90": 460
+    },
+    {
+     "lichess": 1050,
+     "center": 340,
+     "p10": 130,
+     "p90": 510
+    },
+    {
+     "lichess": 1100,
+     "center": 380,
+     "p10": 180,
+     "p90": 550
+    },
+    {
+     "lichess": 1150,
+     "center": 430,
+     "p10": 220,
+     "p90": 600
+    },
+    {
+     "lichess": 1200,
+     "center": 470,
+     "p10": 260,
+     "p90": 640
+    },
+    {
+     "lichess": 1250,
+     "center": 520,
+     "p10": 310,
+     "p90": 680
+    },
+    {
+     "lichess": 1300,
+     "center": 560,
+     "p10": 350,
+     "p90": 730
+    },
+    {
+     "lichess": 1350,
+     "center": 600,
+     "p10": 400,
+     "p90": 770
+    },
+    {
+     "lichess": 1400,
+     "center": 650,
+     "p10": 440,
+     "p90": 820
+    },
+    {
+     "lichess": 1450,
+     "center": 690,
+     "p10": 480,
+     "p90": 860
+    },
+    {
+     "lichess": 1500,
+     "center": 740,
+     "p10": 530,
+     "p90": 900
+    },
+    {
+     "lichess": 1550,
+     "center": 780,
+     "p10": 570,
+     "p90": 950
+    },
+    {
+     "lichess": 1600,
+     "center": 820,
+     "p10": 610,
+     "p90": 990
+    }
+   ]
+  }
+ },
+ "note_floor": "chess.com ratings cannot go below 100, so lower ends are cut at 100."
+}

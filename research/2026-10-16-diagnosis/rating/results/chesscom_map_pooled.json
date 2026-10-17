@@ -1,0 +1,1257 @@
+{
+ "about": "Lichess rating -> chess.com rating among players with accounts on both sites, checked to be the same person (profile link, matching real name or matching country flag). Pooled from two samples: the September 2026 and August 2026 Lichess databases, profiles looked up 2026-10-16. center = local straight-line fit at that Lichess rating (tricube, half-width 200); p10/p90 = 8 in 10 of the players within 100 Lichess points fall between them; near = how many such players. A translation, never a player's chess.com rating. Use only for an established (non-provisional) Lichess rating inside lichess_range; interpolate between rows.",
+ "built_by": "research/2026-10-16-diagnosis/rating/scripts/build_pooled_map.py",
+ "source_date": "2026-10-16",
+ "as_of_unix": 1792108800,
+ "rules": {
+  "lichess": "not provisional, RD < 110, 20+ games, rating 700-1700",
+  "chesscom": "RD < 150, 20+ games, last game within 365 days",
+  "identity": "profile link, same real name, or same country flag; no titled players",
+  "min_similar_players_per_row": 20,
+  "similar_means_within": 100,
+  "kernel_half_width": 200,
+  "bootstrap": {
+   "resamples": 1000,
+   "seed": 2026
+  }
+ },
+ "usernames_in_both_samples": 0,
+ "repeated_usernames_dropped": {
+  "september_2026": 22,
+  "august_2026": 0
+ },
+ "maps": {
+  "blitz_to_chesscom_blitz": {
+   "pairs": 139,
+   "pairs_by_sample": {
+    "september_2026": 78,
+    "august_2026": 61
+   },
+   "lichess_range": [
+    860,
+    1320
+   ],
+   "rows": [
+    {
+     "lichess": 860,
+     "center": 321,
+     "p10": 233,
+     "p90": 540,
+     "near": 21,
+     "center_95ci": [
+      282,
+      365
+     ]
+    },
+    {
+     "lichess": 870,
+     "center": 334,
+     "p10": 232,
+     "p90": 542,
+     "near": 20,
+     "center_95ci": [
+      297,
+      376
+     ]
+    },
+    {
+     "lichess": 880,
+     "center": 347,
+     "p10": 234,
+     "p90": 531,
+     "near": 23,
+     "center_95ci": [
+      312,
+      388
+     ]
+    },
+    {
+     "lichess": 890,
+     "center": 360,
+     "p10": 234,
+     "p90": 527,
+     "near": 24,
+     "center_95ci": [
+      327,
+      400
+     ]
+    },
+    {
+     "lichess": 900,
+     "center": 373,
+     "p10": 234,
+     "p90": 518,
+     "near": 26,
+     "center_95ci": [
+      341,
+      410
+     ]
+    },
+    {
+     "lichess": 910,
+     "center": 386,
+     "p10": 237,
+     "p90": 649,
+     "near": 32,
+     "center_95ci": [
+      355,
+      422
+     ]
+    },
+    {
+     "lichess": 920,
+     "center": 399,
+     "p10": 245,
+     "p90": 633,
+     "near": 34,
+     "center_95ci": [
+      368,
+      434
+     ]
+    },
+    {
+     "lichess": 930,
+     "center": 411,
+     "p10": 260,
+     "p90": 664,
+     "near": 39,
+     "center_95ci": [
+      381,
+      446
+     ]
+    },
+    {
+     "lichess": 940,
+     "center": 423,
+     "p10": 302,
+     "p90": 659,
+     "near": 41,
+     "center_95ci": [
+      393,
+      459
+     ]
+    },
+    {
+     "lichess": 950,
+     "center": 435,
+     "p10": 317,
+     "p90": 676,
+     "near": 44,
+     "center_95ci": [
+      405,
+      472
+     ]
+    },
+    {
+     "lichess": 960,
+     "center": 447,
+     "p10": 334,
+     "p90": 671,
+     "near": 46,
+     "center_95ci": [
+      416,
+      484
+     ]
+    },
+    {
+     "lichess": 970,
+     "center": 458,
+     "p10": 320,
+     "p90": 669,
+     "near": 47,
+     "center_95ci": [
+      427,
+      497
+     ]
+    },
+    {
+     "lichess": 980,
+     "center": 469,
+     "p10": 321,
+     "p90": 666,
+     "near": 48,
+     "center_95ci": [
+      436,
+      509
+     ]
+    },
+    {
+     "lichess": 990,
+     "center": 479,
+     "p10": 343,
+     "p90": 666,
+     "near": 48,
+     "center_95ci": [
+      447,
+      520
+     ]
+    },
+    {
+     "lichess": 1000,
+     "center": 489,
+     "p10": 345,
+     "p90": 664,
+     "near": 49,
+     "center_95ci": [
+      456,
+      530
+     ]
+    },
+    {
+     "lichess": 1010,
+     "center": 499,
+     "p10": 375,
+     "p90": 669,
+     "near": 47,
+     "center_95ci": [
+      465,
+      538
+     ]
+    },
+    {
+     "lichess": 1020,
+     "center": 508,
+     "p10": 367,
+     "p90": 669,
+     "near": 47,
+     "center_95ci": [
+      475,
+      546
+     ]
+    },
+    {
+     "lichess": 1030,
+     "center": 517,
+     "p10": 370,
+     "p90": 689,
+     "near": 49,
+     "center_95ci": [
+      484,
+      554
+     ]
+    },
+    {
+     "lichess": 1040,
+     "center": 526,
+     "p10": 363,
+     "p90": 709,
+     "near": 52,
+     "center_95ci": [
+      492,
+      563
+     ]
+    },
+    {
+     "lichess": 1050,
+     "center": 535,
+     "p10": 358,
+     "p90": 739,
+     "near": 54,
+     "center_95ci": [
+      500,
+      571
+     ]
+    },
+    {
+     "lichess": 1060,
+     "center": 544,
+     "p10": 371,
+     "p90": 790,
+     "near": 59,
+     "center_95ci": [
+      509,
+      580
+     ]
+    },
+    {
+     "lichess": 1070,
+     "center": 552,
+     "p10": 374,
+     "p90": 799,
+     "near": 64,
+     "center_95ci": [
+      518,
+      588
+     ]
+    },
+    {
+     "lichess": 1080,
+     "center": 560,
+     "p10": 370,
+     "p90": 792,
+     "near": 68,
+     "center_95ci": [
+      525,
+      597
+     ]
+    },
+    {
+     "lichess": 1090,
+     "center": 568,
+     "p10": 373,
+     "p90": 786,
+     "near": 72,
+     "center_95ci": [
+      533,
+      606
+     ]
+    },
+    {
+     "lichess": 1100,
+     "center": 576,
+     "p10": 376,
+     "p90": 816,
+     "near": 74,
+     "center_95ci": [
+      541,
+      614
+     ]
+    },
+    {
+     "lichess": 1110,
+     "center": 584,
+     "p10": 378,
+     "p90": 832,
+     "near": 73,
+     "center_95ci": [
+      549,
+      622
+     ]
+    },
+    {
+     "lichess": 1120,
+     "center": 592,
+     "p10": 385,
+     "p90": 836,
+     "near": 74,
+     "center_95ci": [
+      556,
+      629
+     ]
+    },
+    {
+     "lichess": 1130,
+     "center": 600,
+     "p10": 376,
+     "p90": 837,
+     "near": 70,
+     "center_95ci": [
+      563,
+      637
+     ]
+    },
+    {
+     "lichess": 1140,
+     "center": 608,
+     "p10": 373,
+     "p90": 838,
+     "near": 67,
+     "center_95ci": [
+      570,
+      646
+     ]
+    },
+    {
+     "lichess": 1150,
+     "center": 615,
+     "p10": 372,
+     "p90": 841,
+     "near": 66,
+     "center_95ci": [
+      577,
+      654
+     ]
+    },
+    {
+     "lichess": 1160,
+     "center": 623,
+     "p10": 372,
+     "p90": 852,
+     "near": 66,
+     "center_95ci": [
+      583,
+      664
+     ]
+    },
+    {
+     "lichess": 1170,
+     "center": 631,
+     "p10": 378,
+     "p90": 853,
+     "near": 65,
+     "center_95ci": [
+      588,
+      674
+     ]
+    },
+    {
+     "lichess": 1180,
+     "center": 639,
+     "p10": 378,
+     "p90": 856,
+     "near": 63,
+     "center_95ci": [
+      595,
+      684
+     ]
+    },
+    {
+     "lichess": 1190,
+     "center": 646,
+     "p10": 378,
+     "p90": 856,
+     "near": 63,
+     "center_95ci": [
+      601,
+      693
+     ]
+    },
+    {
+     "lichess": 1200,
+     "center": 653,
+     "p10": 378,
+     "p90": 853,
+     "near": 65,
+     "center_95ci": [
+      606,
+      704
+     ]
+    },
+    {
+     "lichess": 1210,
+     "center": 659,
+     "p10": 378,
+     "p90": 856,
+     "near": 63,
+     "center_95ci": [
+      611,
+      712
+     ]
+    },
+    {
+     "lichess": 1220,
+     "center": 663,
+     "p10": 382,
+     "p90": 858,
+     "near": 62,
+     "center_95ci": [
+      614,
+      718
+     ]
+    },
+    {
+     "lichess": 1230,
+     "center": 666,
+     "p10": 380,
+     "p90": 859,
+     "near": 60,
+     "center_95ci": [
+      614,
+      727
+     ]
+    },
+    {
+     "lichess": 1240,
+     "center": 667,
+     "p10": 390,
+     "p90": 860,
+     "near": 56,
+     "center_95ci": [
+      612,
+      733
+     ]
+    },
+    {
+     "lichess": 1250,
+     "center": 667,
+     "p10": 407,
+     "p90": 860,
+     "near": 53,
+     "center_95ci": [
+      606,
+      741
+     ]
+    },
+    {
+     "lichess": 1260,
+     "center": 668,
+     "p10": 429,
+     "p90": 881,
+     "near": 49,
+     "center_95ci": [
+      600,
+      750
+     ]
+    },
+    {
+     "lichess": 1270,
+     "center": 668,
+     "p10": 378,
+     "p90": 860,
+     "near": 44,
+     "center_95ci": [
+      592,
+      756
+     ]
+    },
+    {
+     "lichess": 1280,
+     "center": 668,
+     "p10": 453,
+     "p90": 912,
+     "near": 36,
+     "center_95ci": [
+      584,
+      766
+     ]
+    },
+    {
+     "lichess": 1290,
+     "center": 668,
+     "p10": 465,
+     "p90": 963,
+     "near": 31,
+     "center_95ci": [
+      575,
+      776
+     ]
+    },
+    {
+     "lichess": 1300,
+     "center": 668,
+     "p10": 440,
+     "p90": 985,
+     "near": 28,
+     "center_95ci": [
+      565,
+      788
+     ]
+    },
+    {
+     "lichess": 1310,
+     "center": 668,
+     "p10": 469,
+     "p90": 942,
+     "near": 23,
+     "center_95ci": [
+      556,
+      795
+     ]
+    },
+    {
+     "lichess": 1320,
+     "center": 669,
+     "p10": 455,
+     "p90": 1066,
+     "near": 20,
+     "center_95ci": [
+      548,
+      801
+     ]
+    }
+   ],
+   "check_at_1017": {
+    "center": 505,
+    "p10": 367,
+    "p90": 669,
+    "near": 47
+   },
+   "band_variants_at_1017": {
+    "within_100_as_is": [
+     367,
+     669
+    ],
+    "within_100_moved_along_local_line": [
+     376,
+     696
+    ],
+    "kernel_weighted_residuals_h200": [
+     364,
+     704
+    ]
+   }
+  },
+  "rapid_to_chesscom_rapid": {
+   "pairs": 136,
+   "pairs_by_sample": {
+    "september_2026": 100,
+    "august_2026": 36
+   },
+   "lichess_range": [
+    910,
+    1490
+   ],
+   "rows": [
+    {
+     "lichess": 910,
+     "center": 418,
+     "p10": 313,
+     "p90": 535,
+     "near": 21,
+     "center_95ci": [
+      379,
+      463
+     ]
+    },
+    {
+     "lichess": 920,
+     "center": 426,
+     "p10": 314,
+     "p90": 534,
+     "near": 22,
+     "center_95ci": [
+      388,
+      469
+     ]
+    },
+    {
+     "lichess": 930,
+     "center": 434,
+     "p10": 318,
+     "p90": 566,
+     "near": 27,
+     "center_95ci": [
+      397,
+      477
+     ]
+    },
+    {
+     "lichess": 940,
+     "center": 442,
+     "p10": 318,
+     "p90": 584,
+     "near": 27,
+     "center_95ci": [
+      405,
+      486
+     ]
+    },
+    {
+     "lichess": 950,
+     "center": 450,
+     "p10": 321,
+     "p90": 587,
+     "near": 26,
+     "center_95ci": [
+      412,
+      495
+     ]
+    },
+    {
+     "lichess": 960,
+     "center": 459,
+     "p10": 327,
+     "p90": 593,
+     "near": 24,
+     "center_95ci": [
+      420,
+      505
+     ]
+    },
+    {
+     "lichess": 970,
+     "center": 468,
+     "p10": 332,
+     "p90": 611,
+     "near": 27,
+     "center_95ci": [
+      428,
+      514
+     ]
+    },
+    {
+     "lichess": 980,
+     "center": 477,
+     "p10": 336,
+     "p90": 653,
+     "near": 29,
+     "center_95ci": [
+      437,
+      523
+     ]
+    },
+    {
+     "lichess": 990,
+     "center": 487,
+     "p10": 336,
+     "p90": 653,
+     "near": 29,
+     "center_95ci": [
+      446,
+      533
+     ]
+    },
+    {
+     "lichess": 1000,
+     "center": 497,
+     "p10": 354,
+     "p90": 653,
+     "near": 29,
+     "center_95ci": [
+      455,
+      543
+     ]
+    },
+    {
+     "lichess": 1010,
+     "center": 508,
+     "p10": 357,
+     "p90": 627,
+     "near": 31,
+     "center_95ci": [
+      465,
+      554
+     ]
+    },
+    {
+     "lichess": 1020,
+     "center": 519,
+     "p10": 357,
+     "p90": 627,
+     "near": 31,
+     "center_95ci": [
+      476,
+      566
+     ]
+    },
+    {
+     "lichess": 1030,
+     "center": 530,
+     "p10": 364,
+     "p90": 758,
+     "near": 30,
+     "center_95ci": [
+      487,
+      578
+     ]
+    },
+    {
+     "lichess": 1040,
+     "center": 541,
+     "p10": 367,
+     "p90": 802,
+     "near": 33,
+     "center_95ci": [
+      497,
+      590
+     ]
+    },
+    {
+     "lichess": 1050,
+     "center": 552,
+     "p10": 370,
+     "p90": 790,
+     "near": 37,
+     "center_95ci": [
+      509,
+      601
+     ]
+    },
+    {
+     "lichess": 1060,
+     "center": 564,
+     "p10": 373,
+     "p90": 778,
+     "near": 40,
+     "center_95ci": [
+      520,
+      612
+     ]
+    },
+    {
+     "lichess": 1070,
+     "center": 576,
+     "p10": 374,
+     "p90": 774,
+     "near": 41,
+     "center_95ci": [
+      532,
+      623
+     ]
+    },
+    {
+     "lichess": 1080,
+     "center": 588,
+     "p10": 376,
+     "p90": 843,
+     "near": 42,
+     "center_95ci": [
+      544,
+      635
+     ]
+    },
+    {
+     "lichess": 1090,
+     "center": 600,
+     "p10": 380,
+     "p90": 840,
+     "near": 44,
+     "center_95ci": [
+      558,
+      644
+     ]
+    },
+    {
+     "lichess": 1100,
+     "center": 613,
+     "p10": 405,
+     "p90": 863,
+     "near": 45,
+     "center_95ci": [
+      572,
+      655
+     ]
+    },
+    {
+     "lichess": 1110,
+     "center": 625,
+     "p10": 387,
+     "p90": 893,
+     "near": 47,
+     "center_95ci": [
+      585,
+      665
+     ]
+    },
+    {
+     "lichess": 1120,
+     "center": 638,
+     "p10": 416,
+     "p90": 920,
+     "near": 48,
+     "center_95ci": [
+      597,
+      676
+     ]
+    },
+    {
+     "lichess": 1130,
+     "center": 650,
+     "p10": 431,
+     "p90": 920,
+     "near": 49,
+     "center_95ci": [
+      610,
+      688
+     ]
+    },
+    {
+     "lichess": 1140,
+     "center": 663,
+     "p10": 432,
+     "p90": 924,
+     "near": 50,
+     "center_95ci": [
+      624,
+      699
+     ]
+    },
+    {
+     "lichess": 1150,
+     "center": 676,
+     "p10": 437,
+     "p90": 925,
+     "near": 54,
+     "center_95ci": [
+      637,
+      711
+     ]
+    },
+    {
+     "lichess": 1160,
+     "center": 689,
+     "p10": 476,
+     "p90": 925,
+     "near": 55,
+     "center_95ci": [
+      650,
+      724
+     ]
+    },
+    {
+     "lichess": 1170,
+     "center": 703,
+     "p10": 501,
+     "p90": 953,
+     "near": 56,
+     "center_95ci": [
+      663,
+      738
+     ]
+    },
+    {
+     "lichess": 1180,
+     "center": 717,
+     "p10": 496,
+     "p90": 969,
+     "near": 58,
+     "center_95ci": [
+      677,
+      751
+     ]
+    },
+    {
+     "lichess": 1190,
+     "center": 731,
+     "p10": 497,
+     "p90": 966,
+     "near": 59,
+     "center_95ci": [
+      692,
+      768
+     ]
+    },
+    {
+     "lichess": 1200,
+     "center": 745,
+     "p10": 512,
+     "p90": 964,
+     "near": 60,
+     "center_95ci": [
+      706,
+      784
+     ]
+    },
+    {
+     "lichess": 1210,
+     "center": 760,
+     "p10": 523,
+     "p90": 986,
+     "near": 60,
+     "center_95ci": [
+      720,
+      801
+     ]
+    },
+    {
+     "lichess": 1220,
+     "center": 775,
+     "p10": 535,
+     "p90": 999,
+     "near": 62,
+     "center_95ci": [
+      734,
+      818
+     ]
+    },
+    {
+     "lichess": 1230,
+     "center": 790,
+     "p10": 535,
+     "p90": 1024,
+     "near": 62,
+     "center_95ci": [
+      747,
+      836
+     ]
+    },
+    {
+     "lichess": 1240,
+     "center": 805,
+     "p10": 531,
+     "p90": 1030,
+     "near": 60,
+     "center_95ci": [
+      760,
+      854
+     ]
+    },
+    {
+     "lichess": 1250,
+     "center": 819,
+     "p10": 531,
+     "p90": 1058,
+     "near": 59,
+     "center_95ci": [
+      772,
+      872
+     ]
+    },
+    {
+     "lichess": 1260,
+     "center": 833,
+     "p10": 562,
+     "p90": 1069,
+     "near": 54,
+     "center_95ci": [
+      783,
+      887
+     ]
+    },
+    {
+     "lichess": 1270,
+     "center": 847,
+     "p10": 562,
+     "p90": 1071,
+     "near": 53,
+     "center_95ci": [
+      795,
+      903
+     ]
+    },
+    {
+     "lichess": 1280,
+     "center": 859,
+     "p10": 563,
+     "p90": 1067,
+     "near": 55,
+     "center_95ci": [
+      808,
+      917
+     ]
+    },
+    {
+     "lichess": 1290,
+     "center": 871,
+     "p10": 569,
+     "p90": 1113,
+     "near": 52,
+     "center_95ci": [
+      819,
+      932
+     ]
+    },
+    {
+     "lichess": 1300,
+     "center": 882,
+     "p10": 574,
+     "p90": 1117,
+     "near": 51,
+     "center_95ci": [
+      829,
+      948
+     ]
+    },
+    {
+     "lichess": 1310,
+     "center": 894,
+     "p10": 644,
+     "p90": 1120,
+     "near": 46,
+     "center_95ci": [
+      840,
+      960
+     ]
+    },
+    {
+     "lichess": 1320,
+     "center": 905,
+     "p10": 625,
+     "p90": 1122,
+     "near": 43,
+     "center_95ci": [
+      850,
+      971
+     ]
+    },
+    {
+     "lichess": 1330,
+     "center": 915,
+     "p10": 679,
+     "p90": 1145,
+     "near": 39,
+     "center_95ci": [
+      860,
+      982
+     ]
+    },
+    {
+     "lichess": 1340,
+     "center": 924,
+     "p10": 680,
+     "p90": 1129,
+     "near": 40,
+     "center_95ci": [
+      868,
+      992
+     ]
+    },
+    {
+     "lichess": 1350,
+     "center": 930,
+     "p10": 682,
+     "p90": 1174,
+     "near": 36,
+     "center_95ci": [
+      876,
+      997
+     ]
+    },
+    {
+     "lichess": 1360,
+     "center": 934,
+     "p10": 682,
+     "p90": 1198,
+     "near": 34,
+     "center_95ci": [
+      879,
+      999
+     ]
+    },
+    {
+     "lichess": 1370,
+     "center": 938,
+     "p10": 685,
+     "p90": 1232,
+     "near": 31,
+     "center_95ci": [
+      880,
+      1001
+     ]
+    },
+    {
+     "lichess": 1380,
+     "center": 941,
+     "p10": 762,
+     "p90": 1163,
+     "near": 27,
+     "center_95ci": [
+      878,
+      1006
+     ]
+    },
+    {
+     "lichess": 1390,
+     "center": 944,
+     "p10": 782,
+     "p90": 1186,
+     "near": 26,
+     "center_95ci": [
+      877,
+      1012
+     ]
+    },
+    {
+     "lichess": 1400,
+     "center": 948,
+     "p10": 802,
+     "p90": 1213,
+     "near": 23,
+     "center_95ci": [
+      877,
+      1019
+     ]
+    },
+    {
+     "lichess": 1410,
+     "center": 953,
+     "p10": 793,
+     "p90": 1232,
+     "near": 20,
+     "center_95ci": [
+      876,
+      1027
+     ]
+    },
+    {
+     "lichess": 1420,
+     "center": 957,
+     "p10": 659,
+     "p90": 1148,
+     "near": 20,
+     "center_95ci": [
+      875,
+      1036
+     ]
+    },
+    {
+     "lichess": 1430,
+     "center": 963,
+     "p10": 659,
+     "p90": 1119,
+     "near": 20,
+     "center_95ci": [
+      875,
+      1044
+     ]
+    },
+    {
+     "lichess": 1440,
+     "center": 968,
+     "p10": 696,
+     "p90": 1137,
+     "near": 22,
+     "center_95ci": [
+      877,
+      1055
+     ]
+    },
+    {
+     "lichess": 1450,
+     "center": 972,
+     "p10": 659,
+     "p90": 1157,
+     "near": 20,
+     "center_95ci": [
+      874,
+      1060
+     ]
+    },
+    {
+     "lichess": 1460,
+     "center": 976,
+     "p10": 685,
+     "p90": 1139,
+     "near": 21,
+     "center_95ci": [
+      872,
+      1067
+     ]
+    },
+    {
+     "lichess": 1470,
+     "center": 980,
+     "p10": 685,
+     "p90": 1139,
+     "near": 21,
+     "center_95ci": [
+      871,
+      1073
+     ]
+    },
+    {
+     "lichess": 1480,
+     "center": 983,
+     "p10": 659,
+     "p90": 1207,
+     "near": 20,
+     "center_95ci": [
+      872,
+      1080
+     ]
+    },
+    {
+     "lichess": 1490,
+     "center": 988,
+     "p10": 659,
+     "p90": 1207,
+     "near": 20,
+     "center_95ci": [
+      869,
+      1089
+     ]
+    }
+   ],
+   "check_at_1017": {
+    "center": 515,
+    "p10": 358,
+    "p90": 626,
+    "near": 32
+   },
+   "band_variants_at_1017": {
+    "within_100_as_is": [
+     358,
+     626
+    ],
+    "within_100_moved_along_local_line": [
+     349,
+     605
+    ],
+    "kernel_weighted_residuals_h200": [
+     348,
+     689
+    ]
+   }
+  }
+ }
+}

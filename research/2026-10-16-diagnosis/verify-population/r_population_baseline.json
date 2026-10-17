@@ -1,0 +1,157 @@
+{
+ "source": "db.jsonl",
+ "slices": 96,
+ "groups": {
+  "rapid_10+0": {
+   "player_games": 83939,
+   "analysed": 13484,
+   "analysed_share": 0.1606,
+   "own_moves_per_game": 30.5,
+   "game_page_rule_per100": 9.476,
+   "game_page_rule_ci95_slice_bootstrap": [
+    9.303,
+    9.636
+   ],
+   "glyph_per100": 7.548,
+   "glyph_ci95_slice_bootstrap": [
+    7.392,
+    7.699
+   ],
+   "glyph_over_game_page": 0.7966,
+   "player_games_equal_counts": 0.4608,
+   "share_of_moves_with_eval": 0.9929,
+   "per_game_rate_sd_all_players": 7.49,
+   "share_blunders_moves_1_12": 0.348,
+   "anova_game_page_rule_players_2plus_games_any_slice": {
+    "players": 1711,
+    "games": 4101,
+    "within_sd": 7.17,
+    "between_sd": 1.81,
+    "icc": 0.06
+   },
+   "anova_game_page_rule_same_slice_players": {
+    "players": 336,
+    "games": 688,
+    "within_sd": 7.61,
+    "between_sd": 0.9,
+    "icc": 0.014
+   },
+   "sub_bands": {
+    "950-1049": {
+     "n": 3471,
+     "per100": 9.951,
+     "ci95": [
+      9.648,
+      10.244
+     ]
+    },
+    "1050-1149": {
+     "n": 4662,
+     "per100": 9.482,
+     "ci95": [
+      9.234,
+      9.745
+     ]
+    },
+    "1150-1250": {
+     "n": 5351,
+     "per100": 9.171,
+     "ci95": [
+      8.939,
+      9.415
+     ]
+    }
+   },
+   "visible_analysed": {
+    "n": 13484,
+    "mean_rating": 1115.4,
+    "score": 0.5002,
+    "own_moves": 30.5,
+    "time_forfeit": 0.0944
+   },
+   "visible_not_analysed": {
+    "n": 70455,
+    "mean_rating": 1114.2,
+    "score": 0.4957,
+    "own_moves": 29.0,
+    "time_forfeit": 0.121
+   }
+  },
+  "blitz_all": {
+   "player_games": 223898,
+   "analysed": 23161,
+   "analysed_share": 0.1034,
+   "own_moves_per_game": 30.7,
+   "game_page_rule_per100": 9.056,
+   "game_page_rule_ci95_slice_bootstrap": [
+    8.95,
+    9.17
+   ],
+   "glyph_per100": 6.993,
+   "glyph_ci95_slice_bootstrap": [
+    6.901,
+    7.079
+   ],
+   "glyph_over_game_page": 0.7722,
+   "player_games_equal_counts": 0.4544,
+   "share_of_moves_with_eval": 0.994,
+   "per_game_rate_sd_all_players": 7.2,
+   "share_blunders_moves_1_12": 0.303,
+   "anova_game_page_rule_players_2plus_games_any_slice": {
+    "players": 3145,
+    "games": 7699,
+    "within_sd": 7.13,
+    "between_sd": 1.35,
+    "icc": 0.034
+   },
+   "anova_game_page_rule_same_slice_players": {
+    "players": 841,
+    "games": 1751,
+    "within_sd": 7.36,
+    "between_sd": 1.07,
+    "icc": 0.021
+   },
+   "sub_bands": {
+    "950-1049": {
+     "n": 6133,
+     "per100": 9.477,
+     "ci95": [
+      9.276,
+      9.698
+     ]
+    },
+    "1050-1149": {
+     "n": 7738,
+     "per100": 9.017,
+     "ci95": [
+      8.83,
+      9.213
+     ]
+    },
+    "1150-1250": {
+     "n": 9290,
+     "per100": 8.821,
+     "ci95": [
+      8.666,
+      8.968
+     ]
+    }
+   },
+   "visible_analysed": {
+    "n": 23161,
+    "mean_rating": 1115.2,
+    "score": 0.499,
+    "own_moves": 30.7,
+    "time_forfeit": 0.2037
+   },
+   "visible_not_analysed": {
+    "n": 200737,
+    "mean_rating": 1119.6,
+    "score": 0.4938,
+    "own_moves": 30.4,
+    "time_forfeit": 0.2302
+   }
+  }
+ },
+ "slices_with_games": 96
+}

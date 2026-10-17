@@ -1,0 +1,2 @@
+OPPONENTS in the 6 Lichess-analysed games: {'lichess': 32, '250k': 29, 'd16': 35, 'moves': 214}
+opponent moves (250k blunder, d16 blunder): {(False, False): 799, (True, True): 84, (False, True): 12, (True, False): 2}

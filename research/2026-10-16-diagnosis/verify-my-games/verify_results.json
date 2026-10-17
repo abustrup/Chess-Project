@@ -1,0 +1,28 @@
+{
+ "written": "2026-10-16",
+ "checked": "research/2026-10-16-diagnosis/my-games (summary as relayed to the checker, mistakes.json, engine/, out/)",
+ "paths": {
+  "A": "their raw engine output engine/sf_250k_bothnull.jsonl (Stockfish 19, 250k nodes, fresh hash) fed to my own rule and definitions (vrule.py, vanalyse.py, vmetrics.py) -> vmetrics_theirs.json",
+  "B": "my own engine pass veng.py: Stockfish 19, depth 16, 1 thread, 64 MB, hash kept within a game -> eng_w0.jsonl, eng_w1.jsonl, vmetrics_mine.json",
+  "C": "Lichess's own evals and labels on the 6 analysed games -> check_rule.out, compare_labels.out",
+  "D": "1.5M-node re-search, 2 threads, fresh hash, of 10 random claimed blunders (seed 16) and all 16 moves where A and B disagree -> deep_check.json",
+  "E": "population from two other byte ranges of the 2026-09 Lichess database (5.00e9-5.07e9 and 25.00e9-25.07e9; 4,029 games 950-1250 vs 950-1250 with Lichess evals) -> vpop_results.json"
+ },
+ "results": {
+  "his_blunders_per_100": {"A": "111/891 = 12.46", "B": "111/891 = 12.46 (103 moves shared with A, 8 only in A, 8 only in B); game bootstrap 9.3-16.1", "C": "Lichess 32 vs 34 ours in his 215 moves of the 6 analysed games, both settings", "D": "9 of 10 random claimed blunders still Blunder; disputed moves split 4/8 and 5/8"},
+  "opponent_blunders_per_100": {"A": "86/897 = 9.59", "B": "96/897 = 10.70", "C": "6 analysed games, opponents: Lichess 32, A 29, B 35 in 214 moves"},
+  "rule_replication": "421/422 raw on Lichess evals; the 1 miss (pEKoVG79 ply 34 Bb7) is the engine's best move at both settings, so 422/422 with the best-move rule; with a +-1000 cp clamp 420/422",
+  "threat_test_my_definition": {"A": "him 35/114 = 31%, opp 22/135 = 16%; no threat 10.3% vs 8.1%; diff bootstrap +1.5 to +29.8 points", "B": "him 40/125 = 32%, opp 25/141 = 18%; no threat 9.9% vs 9.3%; diff bootstrap +1.3 to +28.7 points"},
+  "ignored_threat_records": "10 blunders: 6 (not 7) from B4575r7G; threat real by my test in 9; engine's best reply is the threat in 10; opponent actually played it in only 3",
+  "hung_piece_records": "16 of 16 confirmed by independent engine line (best reply captures, he ends 2+ down)",
+  "caro_vs_white_move12": {"A": "7/10 vs 1/14, medians 14.6% vs 55.2%", "B": "7/10 vs 1/14, medians 14.9% vs 55.1%", "fisher_two_sided": 0.0023},
+  "losses_below_25_at_move12": "8 of 20, 7 Caro-Kann (A and B)",
+  "thrown_75": {"A": "him 9/16, opp 6/27, Fisher 0.045", "B": "same", "population_E_blitz": "1050/2930 = 35.8% (95% 34.1-37.6)", "binomial_vs_population": "one-sided 0.077, two-sided 0.116"},
+  "sustained_90_not_won": {"A": "3/7", "B": "2/8"},
+  "big_blunders_moves_1_12": {"A": "10/45 = 22%", "B": "11/45 = 24%", "population_E": "blitz 23.2% (22.1-24.4), rapid 28.5%"},
+  "population_E_blitz": {"blunders_per_100": 9.25, "per_player_game_median": 8.33, "his_median_9.8_percentile": 0.586},
+  "clock": {"A": "blunder median 6.6 s vs unjudged 4.0 s; <=2 s: 12.6% of blunders vs 21.9% of moves", "B": "7.7 s vs 4.0 s; 10.8% vs 21.9%"},
+  "sample_size": "per-game SD 9.19 (30 games): 77 games per period for a one-third drop, 35 for a halving (80% power, 5% two-sided)",
+  "raw_facts": "31 rated blitz games (23 at 5+3, 7 at 3+2, 1 at 3+0), 2026-10-10 to 2026-10-15; 9 wins 22 losses; 15 White 16 Black; 891 / 897 moves; 6 with Lichess analysis; 4 losses on time; mean pre-game rating 1149 vs opponents 1164; performance rating 995 by logistic expectation (claimed about 1008)"
+ }
+}

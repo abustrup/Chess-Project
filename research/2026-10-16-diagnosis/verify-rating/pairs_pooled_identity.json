@@ -1,0 +1,34 @@
+{
+ "blitz->chess_blitz": {
+  "pairs_pooled": 140,
+  "near_pm100": 48,
+  "median_pm100": 507,
+  "median_95ci": [
+   455,
+   544
+  ],
+  "p10_pm100": 368,
+  "p90_pm100": 666,
+  "loclin_h200": 504,
+  "loclin_95ci": [
+   473,
+   539
+  ]
+ },
+ "blitz->chess_rapid": {
+  "pairs_pooled": 148,
+  "near_pm100": 56,
+  "median_pm100": 722,
+  "median_95ci": [
+   668,
+   830
+  ],
+  "p10_pm100": 427,
+  "p90_pm100": 1052,
+  "loclin_h200": 742,
+  "loclin_95ci": [
+   695,
+   785
+  ]
+ }
+}

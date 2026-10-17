@@ -1,0 +1,106 @@
+{
+ "games_in_both": 2400,
+ "games_identical_eval_sequence": 2400,
+ "groups": {
+  "rapid_10+0": {
+   "player_games": 2543,
+   "api_count_equals_glyph_count": 1187,
+   "api_count_equals_rule_on_db_evals": 2530,
+   "blunders_api": 7347,
+   "blunders_glyph": 5912,
+   "glyph_fewer_than_api_pct": 19.5,
+   "api_per100_direct": 9.443,
+   "api_per100_ci95_game_bootstrap": [
+    9.078,
+    9.827
+   ],
+   "glyph_per100": 7.599
+  },
+  "blitz": {
+   "player_games": 1508,
+   "api_count_equals_glyph_count": 692,
+   "api_count_equals_rule_on_db_evals": 1495,
+   "blunders_api": 4158,
+   "blunders_glyph": 3224,
+   "glyph_fewer_than_api_pct": 22.5,
+   "api_per100_direct": 9.176,
+   "api_per100_ci95_game_bootstrap": [
+    8.737,
+    9.606
+   ],
+   "glyph_per100": 7.115
+  },
+  "all": {
+   "player_games": 4051,
+   "api_count_equals_glyph_count": 1879,
+   "api_count_equals_rule_on_db_evals": 4025,
+   "blunders_api": 11505,
+   "blunders_glyph": 9136,
+   "glyph_fewer_than_api_pct": 20.6,
+   "api_per100_direct": 9.345,
+   "api_per100_ci95_game_bootstrap": [
+    9.067,
+    9.621
+   ],
+   "glyph_per100": 7.421
+  }
+ },
+ "game_page_blunders_without_glyph": {
+  "examined": 400,
+  "both_centipawn": 400,
+  "share_cp_loss_under_300": 1.0,
+  "glyph_given_instead": {
+   "M": 400
+  },
+  "sample_before_after_cp_mover_pov": [
+   [
+    -4,
+    -212
+   ],
+   [
+    -195,
+    -438
+   ],
+   [
+    28,
+    -164
+   ],
+   [
+    24,
+    -240
+   ],
+   [
+    -23,
+    -252
+   ],
+   [
+    -11,
+    -185
+   ],
+   [
+    129,
+    -98
+   ],
+   [
+    -1,
+    -194
+   ],
+   [
+    78,
+    -98
+   ],
+   [
+    523,
+    255
+   ],
+   [
+    0,
+    -264
+   ],
+   [
+    192,
+    -1
+   ]
+  ]
+ }
+}

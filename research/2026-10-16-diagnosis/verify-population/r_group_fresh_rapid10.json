@@ -1,0 +1,229 @@
+{
+ "dir": "grp_rapid",
+ "perf": "rapid10",
+ "players": 89,
+ "variance_components": {
+  "players": 82,
+  "analysed_games": 4394,
+  "mean_rate": 9.53,
+  "within_sd": 7.38,
+  "within_sd_ci95": [
+   7.04,
+   7.65
+  ],
+  "between_sd": 1.6,
+  "between_sd_ci95": [
+   1.16,
+   1.96
+  ]
+ },
+ "rating_change": {
+  "after_50_games": {
+   "n": 52,
+   "mean": 3.8,
+   "mean_ci95": [
+    -5.3,
+    13.5
+   ],
+   "sd": 34.2,
+   "p95": 67.4,
+   "share_100_plus": 0.0
+  },
+  "after_100_games": {
+   "n": 43,
+   "mean": 18.7,
+   "mean_ci95": [
+    2.9,
+    33.9
+   ],
+   "sd": 51.4,
+   "p95": 102.9,
+   "share_100_plus": 0.07
+  },
+  "after_150_games": {
+   "n": 34,
+   "mean": 30.9,
+   "mean_ci95": [
+    12.5,
+    50.1
+   ],
+   "sd": 56.7,
+   "p95": 114.1,
+   "share_100_plus": 0.118
+  }
+ },
+ "variogram_rise_over_1_10": {
+  "11-30": {
+   "pairs": 37157,
+   "pooled_rise": 0.56,
+   "pooled_rise_ci95": [
+    -1.36,
+    2.28
+   ],
+   "balanced_rise": 0.03,
+   "balanced_players": 79,
+   "balanced_rise_ci95": [
+    -2.93,
+    2.53
+   ]
+  },
+  "31-60": {
+   "pairs": 44961,
+   "pooled_rise": -0.36,
+   "pooled_rise_ci95": [
+    -2.42,
+    1.5
+   ],
+   "balanced_rise": 0.62,
+   "balanced_players": 75,
+   "balanced_rise_ci95": [
+    -3.04,
+    3.87
+   ]
+  },
+  "61-100": {
+   "pairs": 43281,
+   "pooled_rise": 0.37,
+   "pooled_rise_ci95": [
+    -2.43,
+    2.84
+   ],
+   "balanced_rise": 2.88,
+   "balanced_players": 72,
+   "balanced_rise_ci95": [
+    -0.86,
+    6.83
+   ]
+  },
+  "101-160": {
+   "pairs": 40256,
+   "pooled_rise": 0.63,
+   "pooled_rise_ci95": [
+    -3.83,
+    5.1
+   ],
+   "balanced_rise": 3.75,
+   "balanced_players": 57,
+   "balanced_rise_ci95": [
+    -0.32,
+    7.48
+   ]
+  },
+  "161-250": {
+   "pairs": 29104,
+   "pooled_rise": 0.32,
+   "pooled_rise_ci95": [
+    -6.71,
+    6.92
+   ],
+   "balanced_rise": 1.51,
+   "balanced_players": 43,
+   "balanced_rise_ci95": [
+    -3.95,
+    7.7
+   ]
+  }
+ },
+ "variogram_same_players_every_bin": {
+  "players": 33,
+  "rise_over_1_10": {
+   "11-30": {
+    "rise": 1.35,
+    "ci95": [
+     -0.91,
+     4.81
+    ]
+   },
+   "31-60": {
+    "rise": 1.72,
+    "ci95": [
+     -1.52,
+     4.27
+    ]
+   },
+   "61-100": {
+    "rise": 1.89,
+    "ci95": [
+     -1.49,
+     4.87
+    ]
+   },
+   "101-160": {
+    "rise": 1.0,
+    "ci95": [
+     -2.56,
+     4.33
+    ]
+   },
+   "161-250": {
+    "rise": 2.86,
+    "ci95": [
+     -0.77,
+     6.8
+    ]
+   }
+  }
+ },
+ "variogram_note": "drift SD between two moments = sqrt(2 x rise); rise 2.99 -> 2.45",
+ "block_method": {
+  "blocks_50_games_apart": {
+   "players": 70,
+   "mean_difference": -0.45,
+   "drift_variance": 0.87,
+   "drift_sd": 0.93,
+   "drift_variance_ci95": [
+    -2.62,
+    4.67
+   ],
+   "drift_sd_upper95": 1.99
+  },
+  "blocks_100_games_apart": {
+   "players": 53,
+   "mean_difference": -0.69,
+   "drift_variance": 0.8,
+   "drift_sd": 0.89,
+   "drift_variance_ci95": [
+    -3.62,
+    6.23
+   ],
+   "drift_sd_upper95": 2.32
+  },
+  "blocks_150_games_apart": {
+   "players": 38,
+   "mean_difference": -0.19,
+   "drift_variance": 2.26,
+   "drift_sd": 1.5,
+   "drift_variance_ci95": [
+    -3.59,
+    11.66
+   ],
+   "drift_sd_upper95": 3.15
+  }
+ },
+ "before_after_blunders": {
+  "after_games_1_50": {
+   "n": 34,
+   "mean_change_per100": -0.12,
+   "ci95": [
+    -1.29,
+    0.92
+   ]
+  },
+  "after_games_1_100": {
+   "n": 31,
+   "mean_change_per100": -0.21,
+   "ci95": [
+    -1.26,
+    0.78
+   ]
+  },
+  "after_games_1_150": {
+   "n": 25,
+   "mean_change_per100": 0.34,
+   "ci95": [
+    -1.0,
+    1.7
+   ]
+  }
+ }
+}

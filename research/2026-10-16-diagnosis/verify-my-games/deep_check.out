@@ -1,0 +1,29 @@
+{'game': 'USKGIQT0', 'ply': 20, 'move': 'Bb4', 'why': 'random sample of claimed blunders', 'label_1.5M': 'Blunder', 'drop_1.5M': 75.5, 'eval_before': {'cp': -396}, 'eval_after': {'cp': 765}}
+{'game': 'XLCmExKA', 'ply': 56, 'move': 'Rc3', 'why': 'random sample of claimed blunders', 'label_1.5M': 'Mistake', 'drop_1.5M': 13.6, 'eval_before': {'cp': 224}, 'eval_after': {'cp': 434}}
+{'game': 'XLCmExKA', 'ply': 62, 'move': 'Bb4', 'why': 'random sample of claimed blunders', 'label_1.5M': 'Blunder', 'drop_1.5M': 23.0, 'eval_before': {'cp': 135}, 'eval_after': {'cp': 475}}
+{'game': 'KC803zNe', 'ply': 69, 'move': 'Kf3', 'why': 'random sample of claimed blunders', 'label_1.5M': 'Blunder', 'drop_1.5M': 10.6, 'eval_before': {'cp': -579}, 'eval_after': {'mate': -4}}
+{'game': 'W6Nhrt3P', 'ply': 47, 'move': 'Rf1+', 'why': 'random sample of claimed blunders', 'label_1.5M': 'Blunder', 'drop_1.5M': 29.5, 'eval_before': {'cp': -46}, 'eval_after': {'cp': -444}}
+{'game': 'KC803zNe', 'ply': 37, 'move': 'a3', 'why': 'random sample of claimed blunders', 'label_1.5M': 'Blunder', 'drop_1.5M': 25.2, 'eval_before': {'cp': 608}, 'eval_after': {'cp': 170}}
+{'game': 'XLCmExKA', 'ply': 12, 'move': 'Ne7', 'why': 'random sample of claimed blunders', 'label_1.5M': 'Blunder', 'drop_1.5M': 24.4, 'eval_before': {'cp': -51}, 'eval_after': {'cp': 226}}
+{'game': '4z8iRBwu', 'ply': 27, 'move': 'Qxb4', 'why': 'random sample of claimed blunders', 'label_1.5M': 'Blunder', 'drop_1.5M': 27.3, 'eval_before': {'cp': 496}, 'eval_after': {'cp': 97}}
+{'game': 'W6Nhrt3P', 'ply': 43, 'move': 'g6', 'why': 'random sample of claimed blunders', 'label_1.5M': 'Blunder', 'drop_1.5M': 16.5, 'eval_before': {'cp': -286}, 'eval_after': {'cp': -618}}
+{'game': 'yXoWmgsR', 'ply': 45, 'move': 'Be7', 'why': 'random sample of claimed blunders', 'label_1.5M': 'Blunder', 'drop_1.5M': 18.2, 'eval_before': {'cp': 0}, 'eval_after': {'cp': -207}}
+{'game': 'FWvViwBk', 'ply': 49, 'move': 'Bd3', 'why': '250k only', 'label_1.5M': 'Blunder', 'drop_1.5M': 8.2, 'eval_before': {'cp': -657}, 'eval_after': {'mate': -7}}
+{'game': 'XLCmExKA', 'ply': 28, 'move': 'Bxe2', 'why': '250k only', 'label_1.5M': 'Blunder', 'drop_1.5M': 19.1, 'eval_before': {'cp': -445}, 'eval_after': {'cp': -164}}
+{'game': 'XLCmExKA', 'ply': 56, 'move': 'Rc3', 'why': '250k only', 'label_1.5M': 'Mistake', 'drop_1.5M': 12.5, 'eval_before': {'cp': 226}, 'eval_after': {'cp': 415}}
+{'game': 'XLCmExKA', 'ply': 64, 'move': 'Ra1+', 'why': 'depth16 only', 'label_1.5M': 'Blunder', 'drop_1.5M': 20.1, 'eval_before': {'cp': 0}, 'eval_after': {'cp': 231}}
+{'game': 'tSVRiDh0', 'ply': 98, 'move': 'Kg7', 'why': '250k only', 'label_1.5M': 'Blunder', 'drop_1.5M': 8.3, 'eval_before': {'cp': 652}, 'eval_after': {'mate': 10}}
+{'game': 'Rw8CfgsO', 'ply': 29, 'move': 'Bc4+', 'why': '250k only', 'label_1.5M': 'Blunder', 'drop_1.5M': 19.3, 'eval_before': {'cp': 403}, 'eval_after': {'cp': 135}}
+{'game': 'yXoWmgsR', 'ply': 29, 'move': 'bxc4', 'why': 'depth16 only', 'label_1.5M': 'Mistake', 'drop_1.5M': 14.5, 'eval_before': {'cp': -354}, 'eval_after': {'cp': -710}}
+{'game': 'W6Nhrt3P', 'ply': 21, 'move': 'Qc6+', 'why': 'depth16 only', 'label_1.5M': 'Blunder', 'drop_1.5M': 23.1, 'eval_before': {'cp': 522}, 'eval_after': {'cp': 158}}
+{'game': 'W6Nhrt3P', 'ply': 27, 'move': 'f4', 'why': 'depth16 only', 'label_1.5M': 'Blunder', 'drop_1.5M': 22.3, 'eval_before': {'cp': 523}, 'eval_after': {'cp': 168}}
+{'game': 'W6Nhrt3P', 'ply': 41, 'move': 'Qc1', 'why': '250k only', 'label_1.5M': 'Mistake', 'drop_1.5M': 12.5, 'eval_before': {'cp': -231}, 'eval_after': {'cp': -422}}
+{'game': 'W6Nhrt3P', 'ply': 43, 'move': 'g6', 'why': '250k only', 'label_1.5M': 'Mistake', 'drop_1.5M': 14.7, 'eval_before': {'cp': -314}, 'eval_after': {'cp': -621}}
+{'game': 'ioPKeFeP', 'ply': 91, 'move': 'Kh4', 'why': '250k only', 'label_1.5M': 'Mistake', 'drop_1.5M': 4.6, 'eval_before': {'cp': -822}, 'eval_after': {'mate': -6}}
+{'game': 'h2CvZgjE', 'ply': 25, 'move': 'Ba4', 'why': 'depth16 only', 'label_1.5M': 'Blunder', 'drop_1.5M': 19.2, 'eval_before': {'cp': 46}, 'eval_after': {'cp': -168}}
+{'game': 'gugQaOdT', 'ply': 68, 'move': 'Rh1+', 'why': 'depth16 only', 'label_1.5M': 'Mistake', 'drop_1.5M': 12.1, 'eval_before': {'cp': 193}, 'eval_after': {'cp': 363}}
+{'game': 'gKsIWaAv', 'ply': 47, 'move': 'a4', 'why': 'depth16 only', 'label_1.5M': 'Blunder', 'drop_1.5M': 20.1, 'eval_before': {'cp': -6}, 'eval_after': {'cp': -239}}
+{'game': 'pfUcWPlw', 'ply': 30, 'move': 'f6', 'why': 'depth16 only', 'label_1.5M': None, 'drop_1.5M': -1.0, 'eval_before': {'cp': 112}, 'eval_after': {'cp': 101}}
+random sample: still Blunder at 1.5M: 9 of 10
+250k only : Blunder at 1.5M 4 of 8
+depth16 only : Blunder at 1.5M 5 of 8

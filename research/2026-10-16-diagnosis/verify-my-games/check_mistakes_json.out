@@ -1,0 +1,5 @@
+records 163 {'Mistake': 49, 'Blunder': 111, 'Inaccuracy': 3} {'ours_game_not_analysed_by_lichess': 112, 'ours_lichess_disagrees': 3, 'lichess_only': 3, 'both': 45}
+FEN/move/colour mismatches: []
+blunders 111 big (drop>=30) 45 big in first 12 10
+blunder categories Counter({'positional_or_endgame': 31, 'allowed_longer_tactic': 20, 'hung_piece': 16, 'opening_positional': 12, 'missed_own_tactic': 12, 'ignored_threat': 10, 'missed_free_material': 8, 'allowed_short_mate': 2})
+something_to_defend 39 nothing_to_win 16
