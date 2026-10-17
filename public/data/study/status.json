@@ -1,13 +1,13 @@
 {
- "about": "Written by the daily measuring job (.github/workflows/measure.yml). Counts and dates only: no blunder numbers appear before a verdict exists (verdict.json, from game 110).",
- "asOf": "2026-10-16T21:13:38Z",
+ "about": "Written by the daily measuring job (.github/workflows/measure.yml). Counts and dates only: no blunder numbers appear here or on the website before a verdict exists (verdict.json, from game 110); a check that does not decide keeps its numbers in data/measure/interim-look-N.json (SHA-256 under interimChecks).",
+ "asOf": "2026-10-17T01:58:05Z",
  "eligibleGames": 0,
  "phase": "warm-up",
  "phaseLabel": "Warm-up (not counted)",
  "unlockAfterGame": 40,
  "unlocked": false,
  "U": 40,
- "trainerOnMainSince": null,
+ "trainerOnMainSince": "2026-10-17T01:55:21Z",
  "nextMilestone": {
   "game": 10,
   "label": "the warm-up ends and your \"before\" games start"
@@ -32,38 +32,47 @@
    ]
   ]
  },
- "newcomersBinding": false,
+ "newcomersBinding": true,
  "newcomers": {
-  "binding": false,
+  "binding": true,
   "file": "research/2026-10-16-diagnosis/newcomers/newcomers.json",
-  "commit": null,
-  "committedAt": null,
-  "players": null,
-  "sha256": null,
+  "commit": "d8eb7d4bdc70cb2ec411e55b28b018ddf586f64a",
+  "committedAt": "2026-10-17T01:55:21Z",
+  "players": 100,
+  "sha256": "c3ca7bbe73779d10fdc23f7533db495c6233f83311cee0d02201ac964516ae8a",
   "preregisteredSha256": "c3ca7bbe73779d10fdc23f7533db495c6233f83311cee0d02201ac964516ae8a",
-  "matchesPreregistered": false,
+  "matchesPreregistered": true,
   "deadlineGame": 41,
   "deadline": null,
   "changedAfterDeadline": false,
   "atDeadline": null,
-  "note": "not binding yet: no committed newcomers.json with 30+ players (deadline: the start of game 41)"
+  "note": "matched newcomers bind (100 players, the pre-registered version): \"worked\" also needs the newcomer-adjusted test"
  },
  "lastRunOk": true,
  "problems": [],
  "instrumentCheck": {
   "passed": true,
-  "at": "2026-10-16T21:10:33Z",
+  "at": "2026-10-17T01:57:12Z",
   "stockfish": "Stockfish 19",
-  "binarySha256": "dc2f18c34ae962dff591b66147d220ec06e61d756b93d8a4f5e04fd8e55c251f",
-  "platform": "Darwin arm64",
-  "python": "3.9.6",
+  "binarySha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
+  "platform": "Linux x86_64",
+  "python": "3.12.15",
   "pythonChess": "1.11.2",
   "fixture": "fixture check passed: 31 games, 111/891 blunders, threat 39/126 and 63/622, winning with no threat 19/88, opponents 86/897, all games match",
   "engineCheck": "engine check passed: 117 of 117 positions re-searched identically (scores, best moves, threat probes)",
-  "seconds": 176.9
+  "seconds": 52.6
  },
  "newGames": 0,
  "lastGameAt": null,
  "verdict": null,
+ "interimChecks": null,
+ "judgeSha256": {
+  "scripts/measure/daily.py": "dc4e63878ddb68e4c61e7d07729b150871825bfce93fdd30acdbd6530c41e87b",
+  "scripts/measure/common.py": "c22d9bf96b09b54fe069c1a689c4773970eaed7db49a3539b548d5a1f7727e58",
+  "scripts/measure/run_instrument.py": "073e7e434418e49214d71f971aef1baa1ea6d5b362dc33f4a1a59fb9e60a3028",
+  "scripts/measure/verify_prereg.py": "d92f303531ad352b265c4e2cc037ba6fb4923bb8f83f41882aa7ceee71331b89",
+  "scripts/measure/config.json": "9c8aed7a0304fcc23c2674bca8e02b738bc8ced4d6784a92589d4243fd0a10a3",
+  ".github/workflows/measure.yml": "a2183d41daa37ae25449620bc371b139351425f6843807d1bd21dd50c30ba838"
+ },
  "notes": []
 }

@@ -1,3 +1,4 @@
 run_at,as_of,event,run_id,eligible_games,new_games,new_export_games,U,phase,instrument,engine,verdict,notes
 2026-10-16T17:01:12Z,2026-10-16T17:01:11Z,local,,0,0,0,40,warm-up,passed,Stockfish 19,,
 2026-10-16T21:13:39Z,2026-10-16T21:13:38Z,local,,0,0,0,40,warm-up,passed,Stockfish 19,,
+2026-10-17T01:58:06Z,2026-10-17T01:58:05Z,workflow_dispatch,38992968791,0,0,0,40,warm-up,passed,Stockfish 19,,
