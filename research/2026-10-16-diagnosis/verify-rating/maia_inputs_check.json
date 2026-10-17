@@ -1,0 +1,91 @@
+{
+ "integrity": {
+  "games_stored": 1038,
+  "games_returned_by_lichess": 1038,
+  "checked": {
+   "rated": 840,
+   "ai": 198
+  },
+  "problems": [],
+  "n_problems": 0
+ },
+ "rescore_sample": {
+  "games": 12,
+  "max_abs_diff_nats_any_game": 0.0598,
+  "moves_match": true,
+  "per_game": [
+   {
+    "moves": 49,
+    "max_abs_diff": 0,
+    "peak_6pt_parabola": 1070,
+    "peak_fine_100": 1000
+   },
+   {
+    "moves": 27,
+    "max_abs_diff": 0,
+    "peak_6pt_parabola": 1111,
+    "peak_fine_100": 1100
+   },
+   {
+    "moves": 18,
+    "max_abs_diff": 0.0236,
+    "peak_6pt_parabola": 1519,
+    "peak_fine_100": 1600
+   },
+   {
+    "moves": 13,
+    "max_abs_diff": 0.029,
+    "peak_6pt_parabola": 1813,
+    "peak_fine_100": 1900
+   },
+   {
+    "moves": 21,
+    "max_abs_diff": 0.0308,
+    "peak_6pt_parabola": 847,
+    "peak_fine_100": 800
+   },
+   {
+    "moves": 10,
+    "max_abs_diff": 0.0342,
+    "peak_6pt_parabola": 1134,
+    "peak_fine_100": 1100
+   },
+   {
+    "moves": 11,
+    "max_abs_diff": 0.0167,
+    "peak_6pt_parabola": 2600,
+    "peak_fine_100": 2600
+   },
+   {
+    "moves": 67,
+    "max_abs_diff": 0,
+    "peak_6pt_parabola": 600,
+    "peak_fine_100": 700
+   },
+   {
+    "moves": 27,
+    "max_abs_diff": 0,
+    "peak_6pt_parabola": 1552,
+    "peak_fine_100": 1600
+   },
+   {
+    "moves": 52,
+    "max_abs_diff": 0,
+    "peak_6pt_parabola": 1086,
+    "peak_fine_100": 900
+   },
+   {
+    "moves": 29,
+    "max_abs_diff": 0,
+    "peak_6pt_parabola": 1497,
+    "peak_fine_100": 1500
+   },
+   {
+    "moves": 20,
+    "max_abs_diff": 0.0598,
+    "peak_6pt_parabola": 600,
+    "peak_fine_100": 600
+   }
+  ]
+ }
+}

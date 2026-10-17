@@ -1,0 +1,6104 @@
+{
+ "method": "How many moves deep do real 1000-1300 games stay inside each course? (Kaplan-Meier over plies)\n\nUsage: .venv/bin/python -I km.py COURSES.json OUT.json IN1.jsonl [IN2.jsonl ...]\nFor each course, take every sample game that starts with the course's first move(s)\n(London: 1.d4; Caro-Kann: 1.e4 c6; Slav: 1.d4 d5). Replay it while both sides stay in the course\n(a move listed in any chapter, or a move that lands on any course position).\n - the opponent's move leaves the course -> 'event' at that ply (the owner would be on his own from here);\n - the owner's side leaves the course -> 'censored' (this game cannot tell us more; the player was not following the course);\n - still inside after ply 24 -> survived.\nSurvival S(k) = product over plies <= k of (1 - events / games still inside and not censored).\nThis pools positions by ply instead of needing 30 games in each exact position, so it reaches deeper than the walk.\nIt assumes the opponent's behaviour does not depend on whether this White/Black player happens to follow the course.\nPer chapter: games that touched a position found only in that chapter (or its signature position), followed from that ply.\n",
+ "courses": {
+  "london": {
+   "games": 71763,
+   "status_counts": {
+    "event": 21195,
+    "censored": 50568
+   },
+   "survival": [
+    {
+     "ply": 2,
+     "after_move": 1,
+     "still_in_course": 0.7793,
+     "at_risk": 71637,
+     "events": 15810
+    },
+    {
+     "ply": 3,
+     "after_move": 2,
+     "still_in_course": 0.7793,
+     "at_risk": 14371,
+     "events": 0
+    },
+    {
+     "ply": 4,
+     "after_move": 2,
+     "still_in_course": 0.587,
+     "at_risk": 14348,
+     "events": 3540
+    },
+    {
+     "ply": 5,
+     "after_move": 3,
+     "still_in_course": 0.587,
+     "at_risk": 5806,
+     "events": 0
+    },
+    {
+     "ply": 6,
+     "after_move": 3,
+     "still_in_course": 0.5009,
+     "at_risk": 5802,
+     "events": 851
+    },
+    {
+     "ply": 7,
+     "after_move": 4,
+     "still_in_course": 0.5009,
+     "at_risk": 1857,
+     "events": 0
+    },
+    {
+     "ply": 8,
+     "after_move": 4,
+     "still_in_course": 0.2803,
+     "at_risk": 1855,
+     "events": 817
+    },
+    {
+     "ply": 9,
+     "after_move": 5,
+     "still_in_course": 0.2803,
+     "at_risk": 258,
+     "events": 0
+    },
+    {
+     "ply": 10,
+     "after_move": 5,
+     "still_in_course": 0.1184,
+     "at_risk": 258,
+     "events": 149
+    },
+    {
+     "ply": 11,
+     "after_move": 6,
+     "still_in_course": 0.1184,
+     "at_risk": 44,
+     "events": 0
+    },
+    {
+     "ply": 12,
+     "after_move": 6,
+     "still_in_course": 0.0511,
+     "at_risk": 44,
+     "events": 25
+    },
+    {
+     "ply": 13,
+     "after_move": 7,
+     "still_in_course": 0.0511,
+     "at_risk": 5,
+     "events": 0
+    },
+    {
+     "ply": 14,
+     "after_move": 7,
+     "still_in_course": 0.0307,
+     "at_risk": 5,
+     "events": 2
+    },
+    {
+     "ply": 15,
+     "after_move": 8,
+     "still_in_course": 0.0307,
+     "at_risk": 2,
+     "events": 0
+    },
+    {
+     "ply": 16,
+     "after_move": 8,
+     "still_in_course": 0.0153,
+     "at_risk": 2,
+     "events": 1
+    },
+    {
+     "ply": 17,
+     "after_move": 9,
+     "still_in_course": 0.0153,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 18,
+     "after_move": 9,
+     "still_in_course": 0.0153,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 19,
+     "after_move": 10,
+     "still_in_course": 0.0153,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 20,
+     "after_move": 10,
+     "still_in_course": 0.0153,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 21,
+     "after_move": 11,
+     "still_in_course": 0.0153,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 22,
+     "after_move": 11,
+     "still_in_course": 0.0153,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 23,
+     "after_move": 12,
+     "still_in_course": 0.0153,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 24,
+     "after_move": 12,
+     "still_in_course": 0.0153,
+     "at_risk": 0,
+     "events": 0
+    }
+   ],
+   "survival_rapid_only": [
+    {
+     "ply": 2,
+     "after_move": 1,
+     "still_in_course": 0.8049,
+     "at_risk": 22170,
+     "events": 4326
+    },
+    {
+     "ply": 3,
+     "after_move": 2,
+     "still_in_course": 0.8049,
+     "at_risk": 4717,
+     "events": 0
+    },
+    {
+     "ply": 4,
+     "after_move": 2,
+     "still_in_course": 0.6146,
+     "at_risk": 4708,
+     "events": 1113
+    },
+    {
+     "ply": 5,
+     "after_move": 3,
+     "still_in_course": 0.6146,
+     "at_risk": 2015,
+     "events": 0
+    },
+    {
+     "ply": 6,
+     "after_move": 3,
+     "still_in_course": 0.5276,
+     "at_risk": 2013,
+     "events": 285
+    },
+    {
+     "ply": 7,
+     "after_move": 4,
+     "still_in_course": 0.5276,
+     "at_risk": 560,
+     "events": 0
+    },
+    {
+     "ply": 8,
+     "after_move": 4,
+     "still_in_course": 0.2958,
+     "at_risk": 560,
+     "events": 246
+    },
+    {
+     "ply": 9,
+     "after_move": 5,
+     "still_in_course": 0.2958,
+     "at_risk": 75,
+     "events": 0
+    },
+    {
+     "ply": 10,
+     "after_move": 5,
+     "still_in_course": 0.142,
+     "at_risk": 75,
+     "events": 39
+    },
+    {
+     "ply": 11,
+     "after_move": 6,
+     "still_in_course": 0.142,
+     "at_risk": 12,
+     "events": 0
+    },
+    {
+     "ply": 12,
+     "after_move": 6,
+     "still_in_course": 0.0355,
+     "at_risk": 12,
+     "events": 9
+    },
+    {
+     "ply": 13,
+     "after_move": 7,
+     "still_in_course": 0.0355,
+     "at_risk": 1,
+     "events": 0
+    },
+    {
+     "ply": 14,
+     "after_move": 7,
+     "still_in_course": 0.0,
+     "at_risk": 1,
+     "events": 1
+    },
+    {
+     "ply": 15,
+     "after_move": 8,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 16,
+     "after_move": 8,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 17,
+     "after_move": 9,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 18,
+     "after_move": 9,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 19,
+     "after_move": 10,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 20,
+     "after_move": 10,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 21,
+     "after_move": 11,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 22,
+     "after_move": 11,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 23,
+     "after_move": 12,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 24,
+     "after_move": 12,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    }
+   ],
+   "chapters": {
+    "classic-pyramid": {
+     "games_touching": 756,
+     "share_of_root_games_touching": 0.0105,
+     "median_touch_ply": 6,
+     "still_in_course_after_move_6": 0.033,
+     "after_move_8": 0.033,
+     "after_move_10": 0.033,
+     "after_move_12": 0.033,
+     "survival": [
+      {
+       "ply": 5,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 649,
+       "events": 0
+      },
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 0.9398,
+       "at_risk": 648,
+       "events": 39
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.9398,
+       "at_risk": 282,
+       "events": 0
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.5199,
+       "at_risk": 282,
+       "events": 126
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.5199,
+       "at_risk": 84,
+       "events": 0
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.1981,
+       "at_risk": 84,
+       "events": 52
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1981,
+       "at_risk": 6,
+       "events": 0
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.033,
+       "at_risk": 6,
+       "events": 5
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.033,
+       "at_risk": 1,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.033,
+       "at_risk": 1,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.033,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.033,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.033,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.033,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.033,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.033,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.033,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.033,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.033,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.033,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "vs-nc6-e5": {
+     "games_touching": 4225,
+     "share_of_root_games_touching": 0.0589,
+     "median_touch_ply": 4,
+     "still_in_course_after_move_6": 0.0925,
+     "after_move_8": 0.0308,
+     "after_move_10": 0.0308,
+     "after_move_12": 0.0308,
+     "survival": [
+      {
+       "ply": 5,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 2679,
+       "events": 0
+      },
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 0.9623,
+       "at_risk": 2678,
+       "events": 101
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.9623,
+       "at_risk": 953,
+       "events": 0
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.5044,
+       "at_risk": 952,
+       "events": 453
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.5044,
+       "at_risk": 100,
+       "events": 0
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.2673,
+       "at_risk": 100,
+       "events": 47
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.2673,
+       "at_risk": 26,
+       "events": 0
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.0925,
+       "at_risk": 26,
+       "events": 17
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0925,
+       "at_risk": 3,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0617,
+       "at_risk": 3,
+       "events": 1
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0617,
+       "at_risk": 2,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0308,
+       "at_risk": 2,
+       "events": 1
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0308,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0308,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0308,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0308,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0308,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0308,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0308,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0308,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "mirror-bf5": {
+     "games_touching": 1684,
+     "share_of_root_games_touching": 0.0235,
+     "median_touch_ply": 4,
+     "still_in_course_after_move_6": 0.0988,
+     "after_move_8": 0.0988,
+     "after_move_10": 0.0988,
+     "after_move_12": 0.0988,
+     "survival": [
+      {
+       "ply": 5,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 1074,
+       "events": 0
+      },
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 0.8873,
+       "at_risk": 1074,
+       "events": 121
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.8873,
+       "at_risk": 315,
+       "events": 0
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.4873,
+       "at_risk": 315,
+       "events": 142
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.4873,
+       "at_risk": 37,
+       "events": 0
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.1317,
+       "at_risk": 37,
+       "events": 27
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1317,
+       "at_risk": 8,
+       "events": 0
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.0988,
+       "at_risk": 8,
+       "events": 2
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0988,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0988,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0988,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0988,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0988,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0988,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0988,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0988,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0988,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0988,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0988,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0988,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "keep-calm-weird-moves": {
+     "games_touching": 5354,
+     "share_of_root_games_touching": 0.0746,
+     "median_touch_ply": 2,
+     "still_in_course_after_move_6": 0.0867,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 3,
+       "after_move": 2,
+       "still_in_course": 1.0,
+       "at_risk": 1486,
+       "events": 0
+      },
+      {
+       "ply": 4,
+       "after_move": 2,
+       "still_in_course": 0.7574,
+       "at_risk": 1484,
+       "events": 360
+      },
+      {
+       "ply": 5,
+       "after_move": 3,
+       "still_in_course": 0.7574,
+       "at_risk": 606,
+       "events": 0
+      },
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 0.3612,
+       "at_risk": 606,
+       "events": 317
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.3612,
+       "at_risk": 140,
+       "events": 0
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.2709,
+       "at_risk": 140,
+       "events": 35
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.2709,
+       "at_risk": 25,
+       "events": 0
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.0867,
+       "at_risk": 25,
+       "events": 17
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.0867,
+       "at_risk": 1,
+       "events": 0
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.0867,
+       "at_risk": 1,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0867,
+       "at_risk": 1,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 1,
+       "events": 1
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "vs-kings-indian": {
+     "games_touching": 9397,
+     "share_of_root_games_touching": 0.1309,
+     "median_touch_ply": 2,
+     "still_in_course_after_move_6": 0.0,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 3,
+       "after_move": 2,
+       "still_in_course": 1.0,
+       "at_risk": 2374,
+       "events": 0
+      },
+      {
+       "ply": 4,
+       "after_move": 2,
+       "still_in_course": 0.9347,
+       "at_risk": 2372,
+       "events": 155
+      },
+      {
+       "ply": 5,
+       "after_move": 3,
+       "still_in_course": 0.9347,
+       "at_risk": 937,
+       "events": 0
+      },
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 0.6718,
+       "at_risk": 935,
+       "events": 263
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.6718,
+       "at_risk": 339,
+       "events": 0
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.4617,
+       "at_risk": 339,
+       "events": 106
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.4617,
+       "at_risk": 35,
+       "events": 0
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.1979,
+       "at_risk": 35,
+       "events": 20
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1979,
+       "at_risk": 4,
+       "events": 0
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.0,
+       "at_risk": 4,
+       "events": 4
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "early-c5": {
+     "games_touching": 2095,
+     "share_of_root_games_touching": 0.0292,
+     "median_touch_ply": 2,
+     "still_in_course_after_move_6": 0.116,
+     "after_move_8": 0.116,
+     "after_move_10": 0.116,
+     "after_move_12": 0.116,
+     "survival": [
+      {
+       "ply": 3,
+       "after_move": 2,
+       "still_in_course": 1.0,
+       "at_risk": 756,
+       "events": 0
+      },
+      {
+       "ply": 4,
+       "after_move": 2,
+       "still_in_course": 0.7566,
+       "at_risk": 756,
+       "events": 184
+      },
+      {
+       "ply": 5,
+       "after_move": 3,
+       "still_in_course": 0.7566,
+       "at_risk": 282,
+       "events": 0
+      },
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 0.5581,
+       "at_risk": 282,
+       "events": 74
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.5581,
+       "at_risk": 92,
+       "events": 0
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.4004,
+       "at_risk": 92,
+       "events": 26
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.4004,
+       "at_risk": 23,
+       "events": 0
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.1741,
+       "at_risk": 23,
+       "events": 13
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1741,
+       "at_risk": 3,
+       "events": 0
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.116,
+       "at_risk": 3,
+       "events": 1
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.116,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.116,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.116,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.116,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.116,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.116,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.116,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.116,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.116,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.116,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.116,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.116,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "vs-dutch": {
+     "games_touching": 1078,
+     "share_of_root_games_touching": 0.015,
+     "median_touch_ply": 2,
+     "still_in_course_after_move_6": 0.1428,
+     "after_move_8": 0.1428,
+     "after_move_10": 0.1428,
+     "after_move_12": 0.1428,
+     "survival": [
+      {
+       "ply": 3,
+       "after_move": 2,
+       "still_in_course": 1.0,
+       "at_risk": 309,
+       "events": 0
+      },
+      {
+       "ply": 4,
+       "after_move": 2,
+       "still_in_course": 0.5599,
+       "at_risk": 309,
+       "events": 136
+      },
+      {
+       "ply": 5,
+       "after_move": 3,
+       "still_in_course": 0.5599,
+       "at_risk": 99,
+       "events": 0
+      },
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 0.3846,
+       "at_risk": 99,
+       "events": 31
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.3846,
+       "at_risk": 36,
+       "events": 0
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.1428,
+       "at_risk": 35,
+       "events": 22
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.1428,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    }
+   }
+  },
+  "caro-kann": {
+   "games": 14365,
+   "status_counts": {
+    "censored": 10080,
+    "event": 4285
+   },
+   "survival": [
+    {
+     "ply": 3,
+     "after_move": 2,
+     "still_in_course": 0.9769,
+     "at_risk": 14342,
+     "events": 332
+    },
+    {
+     "ply": 4,
+     "after_move": 2,
+     "still_in_course": 0.9769,
+     "at_risk": 12900,
+     "events": 0
+    },
+    {
+     "ply": 5,
+     "after_move": 3,
+     "still_in_course": 0.898,
+     "at_risk": 12889,
+     "events": 1041
+    },
+    {
+     "ply": 6,
+     "after_move": 3,
+     "still_in_course": 0.898,
+     "at_risk": 8521,
+     "events": 0
+    },
+    {
+     "ply": 7,
+     "after_move": 4,
+     "still_in_course": 0.7672,
+     "at_risk": 8513,
+     "events": 1240
+    },
+    {
+     "ply": 8,
+     "after_move": 4,
+     "still_in_course": 0.7672,
+     "at_risk": 3158,
+     "events": 0
+    },
+    {
+     "ply": 9,
+     "after_move": 5,
+     "still_in_course": 0.5093,
+     "at_risk": 3154,
+     "events": 1060
+    },
+    {
+     "ply": 10,
+     "after_move": 5,
+     "still_in_course": 0.5093,
+     "at_risk": 945,
+     "events": 0
+    },
+    {
+     "ply": 11,
+     "after_move": 6,
+     "still_in_course": 0.253,
+     "at_risk": 944,
+     "events": 475
+    },
+    {
+     "ply": 12,
+     "after_move": 6,
+     "still_in_course": 0.253,
+     "at_risk": 205,
+     "events": 0
+    },
+    {
+     "ply": 13,
+     "after_move": 7,
+     "still_in_course": 0.1407,
+     "at_risk": 205,
+     "events": 91
+    },
+    {
+     "ply": 14,
+     "after_move": 7,
+     "still_in_course": 0.1407,
+     "at_risk": 70,
+     "events": 0
+    },
+    {
+     "ply": 15,
+     "after_move": 8,
+     "still_in_course": 0.0469,
+     "at_risk": 69,
+     "events": 46
+    },
+    {
+     "ply": 16,
+     "after_move": 8,
+     "still_in_course": 0.0469,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 17,
+     "after_move": 9,
+     "still_in_course": 0.0469,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 18,
+     "after_move": 9,
+     "still_in_course": 0.0469,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 19,
+     "after_move": 10,
+     "still_in_course": 0.0469,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 20,
+     "after_move": 10,
+     "still_in_course": 0.0469,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 21,
+     "after_move": 11,
+     "still_in_course": 0.0469,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 22,
+     "after_move": 11,
+     "still_in_course": 0.0469,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 23,
+     "after_move": 12,
+     "still_in_course": 0.0469,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 24,
+     "after_move": 12,
+     "still_in_course": 0.0469,
+     "at_risk": 0,
+     "events": 0
+    }
+   ],
+   "survival_rapid_only": [
+    {
+     "ply": 3,
+     "after_move": 2,
+     "still_in_course": 0.9727,
+     "at_risk": 4693,
+     "events": 128
+    },
+    {
+     "ply": 4,
+     "after_move": 2,
+     "still_in_course": 0.9727,
+     "at_risk": 4155,
+     "events": 0
+    },
+    {
+     "ply": 5,
+     "after_move": 3,
+     "still_in_course": 0.8818,
+     "at_risk": 4150,
+     "events": 388
+    },
+    {
+     "ply": 6,
+     "after_move": 3,
+     "still_in_course": 0.8818,
+     "at_risk": 2562,
+     "events": 0
+    },
+    {
+     "ply": 7,
+     "after_move": 4,
+     "still_in_course": 0.7384,
+     "at_risk": 2559,
+     "events": 416
+    },
+    {
+     "ply": 8,
+     "after_move": 4,
+     "still_in_course": 0.7384,
+     "at_risk": 949,
+     "events": 0
+    },
+    {
+     "ply": 9,
+     "after_move": 5,
+     "still_in_course": 0.4649,
+     "at_risk": 945,
+     "events": 350
+    },
+    {
+     "ply": 10,
+     "after_move": 5,
+     "still_in_course": 0.4649,
+     "at_risk": 235,
+     "events": 0
+    },
+    {
+     "ply": 11,
+     "after_move": 6,
+     "still_in_course": 0.2186,
+     "at_risk": 234,
+     "events": 124
+    },
+    {
+     "ply": 12,
+     "after_move": 6,
+     "still_in_course": 0.2186,
+     "at_risk": 49,
+     "events": 0
+    },
+    {
+     "ply": 13,
+     "after_move": 7,
+     "still_in_course": 0.1427,
+     "at_risk": 49,
+     "events": 17
+    },
+    {
+     "ply": 14,
+     "after_move": 7,
+     "still_in_course": 0.1427,
+     "at_risk": 15,
+     "events": 0
+    },
+    {
+     "ply": 15,
+     "after_move": 8,
+     "still_in_course": 0.0381,
+     "at_risk": 15,
+     "events": 11
+    },
+    {
+     "ply": 16,
+     "after_move": 8,
+     "still_in_course": 0.0381,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 17,
+     "after_move": 9,
+     "still_in_course": 0.0381,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 18,
+     "after_move": 9,
+     "still_in_course": 0.0381,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 19,
+     "after_move": 10,
+     "still_in_course": 0.0381,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 20,
+     "after_move": 10,
+     "still_in_course": 0.0381,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 21,
+     "after_move": 11,
+     "still_in_course": 0.0381,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 22,
+     "after_move": 11,
+     "still_in_course": 0.0381,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 23,
+     "after_move": 12,
+     "still_in_course": 0.0381,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 24,
+     "after_move": 12,
+     "still_in_course": 0.0381,
+     "at_risk": 0,
+     "events": 0
+    }
+   ],
+   "chapters": {
+    "exchange-others": {
+     "games_touching": 1339,
+     "share_of_root_games_touching": 0.0932,
+     "median_touch_ply": 5,
+     "still_in_course_after_move_6": 0.1882,
+     "after_move_8": 0.0505,
+     "after_move_10": 0.0505,
+     "after_move_12": 0.0505,
+     "survival": [
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 1294,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.9698,
+       "at_risk": 1293,
+       "events": 39
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.9698,
+       "at_risk": 633,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.7308,
+       "at_risk": 633,
+       "events": 156
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.7308,
+       "at_risk": 233,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1882,
+       "at_risk": 233,
+       "events": 173
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.1882,
+       "at_risk": 41,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.1515,
+       "at_risk": 41,
+       "events": 8
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.1515,
+       "at_risk": 18,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0505,
+       "at_risk": 18,
+       "events": 12
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0505,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0505,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0505,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0505,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0505,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0505,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0505,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0505,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0505,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "two-knights": {
+     "games_touching": 5350,
+     "share_of_root_games_touching": 0.3724,
+     "median_touch_ply": 3,
+     "still_in_course_after_move_6": 0.2322,
+     "after_move_8": 0.0317,
+     "after_move_10": 0.0317,
+     "after_move_12": 0.0317,
+     "survival": [
+      {
+       "ply": 4,
+       "after_move": 2,
+       "still_in_course": 1.0,
+       "at_risk": 5028,
+       "events": 0
+      },
+      {
+       "ply": 5,
+       "after_move": 3,
+       "still_in_course": 0.9552,
+       "at_risk": 5022,
+       "events": 225
+      },
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 0.9552,
+       "at_risk": 3449,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.7962,
+       "at_risk": 3443,
+       "events": 573
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.7962,
+       "at_risk": 1047,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.6015,
+       "at_risk": 1047,
+       "events": 256
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.6015,
+       "at_risk": 317,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.2322,
+       "at_risk": 316,
+       "events": 194
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.2322,
+       "at_risk": 60,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.1161,
+       "at_risk": 60,
+       "events": 30
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.1161,
+       "at_risk": 22,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0317,
+       "at_risk": 22,
+       "events": 16
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0317,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0317,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0317,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0317,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0317,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0317,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0317,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0317,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0317,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "sidelines": {
+     "games_touching": 3326,
+     "share_of_root_games_touching": 0.2315,
+     "median_touch_ply": 3,
+     "still_in_course_after_move_6": 0.2295,
+     "after_move_8": 0.054,
+     "after_move_10": 0.054,
+     "after_move_12": 0.054,
+     "survival": [
+      {
+       "ply": 4,
+       "after_move": 2,
+       "still_in_course": 1.0,
+       "at_risk": 2970,
+       "events": 0
+      },
+      {
+       "ply": 5,
+       "after_move": 3,
+       "still_in_course": 0.8081,
+       "at_risk": 2965,
+       "events": 569
+      },
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 0.8081,
+       "at_risk": 2134,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.6369,
+       "at_risk": 2133,
+       "events": 452
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.6369,
+       "at_risk": 623,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.4229,
+       "at_risk": 622,
+       "events": 209
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.4229,
+       "at_risk": 129,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.2295,
+       "at_risk": 129,
+       "events": 59
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.2295,
+       "at_risk": 17,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.054,
+       "at_risk": 17,
+       "events": 13
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.054,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.054,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.054,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.054,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.054,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.054,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.054,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.054,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.054,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.054,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.054,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "gambits": {
+     "games_touching": 436,
+     "share_of_root_games_touching": 0.0304,
+     "median_touch_ply": 5,
+     "still_in_course_after_move_6": 0.0,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 243,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.657,
+       "at_risk": 242,
+       "events": 83
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.657,
+       "at_risk": 60,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.2519,
+       "at_risk": 60,
+       "events": 37
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.2519,
+       "at_risk": 7,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.0,
+       "at_risk": 7,
+       "events": 7
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "advance-short": {
+     "games_touching": 561,
+     "share_of_root_games_touching": 0.0391,
+     "median_touch_ply": 7,
+     "still_in_course_after_move_6": 0.4123,
+     "after_move_8": 0.0878,
+     "after_move_10": 0.0878,
+     "after_move_12": 0.0878,
+     "survival": [
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 1.0,
+       "at_risk": 454,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.7048,
+       "at_risk": 454,
+       "events": 134
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.7048,
+       "at_risk": 159,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.4123,
+       "at_risk": 159,
+       "events": 66
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.4123,
+       "at_risk": 50,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.2886,
+       "at_risk": 50,
+       "events": 15
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.2886,
+       "at_risk": 23,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0878,
+       "at_risk": 23,
+       "events": 16
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0878,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0878,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0878,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0878,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0878,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0878,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0878,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0878,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0878,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "advance-others": {
+     "games_touching": 413,
+     "share_of_root_games_touching": 0.0288,
+     "median_touch_ply": 7,
+     "still_in_course_after_move_6": 0.6862,
+     "after_move_8": 0.1307,
+     "after_move_10": 0.1307,
+     "after_move_12": 0.1307,
+     "survival": [
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 1.0,
+       "at_risk": 235,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.8766,
+       "at_risk": 235,
+       "events": 29
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.8766,
+       "at_risk": 175,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.6862,
+       "at_risk": 175,
+       "events": 38
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.6862,
+       "at_risk": 70,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.4314,
+       "at_risk": 70,
+       "events": 26
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.4314,
+       "at_risk": 34,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.1307,
+       "at_risk": 33,
+       "events": 23
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.1307,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.1307,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.1307,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.1307,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.1307,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.1307,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.1307,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.1307,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.1307,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "classical-quiet": {
+     "games_touching": 1038,
+     "share_of_root_games_touching": 0.0723,
+     "median_touch_ply": 5,
+     "still_in_course_after_move_6": 0.1929,
+     "after_move_8": 0.0857,
+     "after_move_10": 0.0857,
+     "after_move_12": 0.0857,
+     "survival": [
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 595,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.9916,
+       "at_risk": 595,
+       "events": 5
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.9916,
+       "at_risk": 298,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.2555,
+       "at_risk": 295,
+       "events": 219
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.2555,
+       "at_risk": 49,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1929,
+       "at_risk": 49,
+       "events": 12
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.1929,
+       "at_risk": 9,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0857,
+       "at_risk": 9,
+       "events": 5
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0857,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0857,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0857,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0857,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0857,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0857,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0857,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0857,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0857,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0857,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0857,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "advance-nc3": {
+     "games_touching": 283,
+     "share_of_root_games_touching": 0.0197,
+     "median_touch_ply": 7,
+     "still_in_course_after_move_6": 0.1159,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 1.0,
+       "at_risk": 265,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.8113,
+       "at_risk": 265,
+       "events": 50
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.8113,
+       "at_risk": 98,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1159,
+       "at_risk": 98,
+       "events": 84
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.1159,
+       "at_risk": 9,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 9,
+       "events": 9
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    }
+   }
+  },
+  "slav": {
+   "games": 38981,
+   "status_counts": {
+    "censored": 36767,
+    "event": 2214
+   },
+   "survival": [
+    {
+     "ply": 3,
+     "after_move": 2,
+     "still_in_course": 0.9602,
+     "at_risk": 38917,
+     "events": 1550
+    },
+    {
+     "ply": 4,
+     "after_move": 2,
+     "still_in_course": 0.9602,
+     "at_risk": 2337,
+     "events": 0
+    },
+    {
+     "ply": 5,
+     "after_move": 3,
+     "still_in_course": 0.7746,
+     "at_risk": 2333,
+     "events": 451
+    },
+    {
+     "ply": 6,
+     "after_move": 3,
+     "still_in_course": 0.7746,
+     "at_risk": 667,
+     "events": 0
+    },
+    {
+     "ply": 7,
+     "after_move": 4,
+     "still_in_course": 0.6294,
+     "at_risk": 667,
+     "events": 125
+    },
+    {
+     "ply": 8,
+     "after_move": 4,
+     "still_in_course": 0.6294,
+     "at_risk": 178,
+     "events": 0
+    },
+    {
+     "ply": 9,
+     "after_move": 5,
+     "still_in_course": 0.4267,
+     "at_risk": 177,
+     "events": 57
+    },
+    {
+     "ply": 10,
+     "after_move": 5,
+     "still_in_course": 0.4267,
+     "at_risk": 43,
+     "events": 0
+    },
+    {
+     "ply": 11,
+     "after_move": 6,
+     "still_in_course": 0.1885,
+     "at_risk": 43,
+     "events": 24
+    },
+    {
+     "ply": 12,
+     "after_move": 6,
+     "still_in_course": 0.1885,
+     "at_risk": 7,
+     "events": 0
+    },
+    {
+     "ply": 13,
+     "after_move": 7,
+     "still_in_course": 0.0269,
+     "at_risk": 7,
+     "events": 6
+    },
+    {
+     "ply": 14,
+     "after_move": 7,
+     "still_in_course": 0.0269,
+     "at_risk": 1,
+     "events": 0
+    },
+    {
+     "ply": 15,
+     "after_move": 8,
+     "still_in_course": 0.0,
+     "at_risk": 1,
+     "events": 1
+    },
+    {
+     "ply": 16,
+     "after_move": 8,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 17,
+     "after_move": 9,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 18,
+     "after_move": 9,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 19,
+     "after_move": 10,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 20,
+     "after_move": 10,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 21,
+     "after_move": 11,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 22,
+     "after_move": 11,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 23,
+     "after_move": 12,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 24,
+     "after_move": 12,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    }
+   ],
+   "survival_rapid_only": [
+    {
+     "ply": 3,
+     "after_move": 2,
+     "still_in_course": 0.9543,
+     "at_risk": 12971,
+     "events": 593
+    },
+    {
+     "ply": 4,
+     "after_move": 2,
+     "still_in_course": 0.9543,
+     "at_risk": 732,
+     "events": 0
+    },
+    {
+     "ply": 5,
+     "after_move": 3,
+     "still_in_course": 0.736,
+     "at_risk": 730,
+     "events": 167
+    },
+    {
+     "ply": 6,
+     "after_move": 3,
+     "still_in_course": 0.736,
+     "at_risk": 209,
+     "events": 0
+    },
+    {
+     "ply": 7,
+     "after_move": 4,
+     "still_in_course": 0.5705,
+     "at_risk": 209,
+     "events": 47
+    },
+    {
+     "ply": 8,
+     "after_move": 4,
+     "still_in_course": 0.5705,
+     "at_risk": 61,
+     "events": 0
+    },
+    {
+     "ply": 9,
+     "after_move": 5,
+     "still_in_course": 0.3518,
+     "at_risk": 60,
+     "events": 23
+    },
+    {
+     "ply": 10,
+     "after_move": 5,
+     "still_in_course": 0.3518,
+     "at_risk": 17,
+     "events": 0
+    },
+    {
+     "ply": 11,
+     "after_move": 6,
+     "still_in_course": 0.0828,
+     "at_risk": 17,
+     "events": 13
+    },
+    {
+     "ply": 12,
+     "after_move": 6,
+     "still_in_course": 0.0828,
+     "at_risk": 2,
+     "events": 0
+    },
+    {
+     "ply": 13,
+     "after_move": 7,
+     "still_in_course": 0.0,
+     "at_risk": 2,
+     "events": 2
+    },
+    {
+     "ply": 14,
+     "after_move": 7,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 15,
+     "after_move": 8,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 16,
+     "after_move": 8,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 17,
+     "after_move": 9,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 18,
+     "after_move": 9,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 19,
+     "after_move": 10,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 20,
+     "after_move": 10,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 21,
+     "after_move": 11,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 22,
+     "after_move": 11,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 23,
+     "after_move": 12,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 24,
+     "after_move": 12,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    }
+   ],
+   "chapters": {
+    "slow-slav": {
+     "games_touching": 408,
+     "share_of_root_games_touching": 0.0105,
+     "median_touch_ply": 5,
+     "still_in_course_after_move_6": 0.3872,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 240,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.9375,
+       "at_risk": 240,
+       "events": 15
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.9375,
+       "at_risk": 92,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.7745,
+       "at_risk": 92,
+       "events": 16
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.7745,
+       "at_risk": 24,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.3872,
+       "at_risk": 24,
+       "events": 12
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.3872,
+       "at_risk": 5,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0774,
+       "at_risk": 5,
+       "events": 4
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0774,
+       "at_risk": 1,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 1,
+       "events": 1
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "vs-london": {
+     "games_touching": 173,
+     "share_of_root_games_touching": 0.0044,
+     "median_touch_ply": 5,
+     "still_in_course_after_move_6": 0.33,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 56,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.6071,
+       "at_risk": 56,
+       "events": 22
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.6071,
+       "at_risk": 23,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.396,
+       "at_risk": 23,
+       "events": 8
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.396,
+       "at_risk": 6,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.33,
+       "at_risk": 6,
+       "events": 1
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.33,
+       "at_risk": 2,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 2,
+       "events": 2
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "vs-colle-catalan": {
+     "games_touching": 185,
+     "share_of_root_games_touching": 0.0047,
+     "median_touch_ply": 5,
+     "still_in_course_after_move_6": 0.1347,
+     "after_move_8": 0.1347,
+     "after_move_10": 0.1347,
+     "after_move_12": 0.1347,
+     "survival": [
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 50,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.64,
+       "at_risk": 50,
+       "events": 18
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.64,
+       "at_risk": 19,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.2695,
+       "at_risk": 19,
+       "events": 11
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.2695,
+       "at_risk": 2,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1347,
+       "at_risk": 2,
+       "events": 1
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.1347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.1347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.1347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.1347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.1347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.1347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.1347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.1347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.1347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.1347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.1347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.1347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.1347,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "third-move-sidelines": {
+     "games_touching": 665,
+     "share_of_root_games_touching": 0.0171,
+     "median_touch_ply": 5,
+     "still_in_course_after_move_6": 0.1023,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 347,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.8098,
+       "at_risk": 347,
+       "events": 66
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.8098,
+       "at_risk": 76,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.4859,
+       "at_risk": 75,
+       "events": 30
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.4859,
+       "at_risk": 19,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1023,
+       "at_risk": 19,
+       "events": 15
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.1023,
+       "at_risk": 1,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 1,
+       "events": 1
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "other-second-moves": {
+     "games_touching": 175,
+     "share_of_root_games_touching": 0.0045,
+     "median_touch_ply": 5,
+     "still_in_course_after_move_6": 0.1667,
+     "after_move_8": 0.1667,
+     "after_move_10": 0.1667,
+     "after_move_12": 0.1667,
+     "survival": [
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 12,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.6667,
+       "at_risk": 12,
+       "events": 4
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.6667,
+       "at_risk": 4,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.1667,
+       "at_risk": 4,
+       "events": 3
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.1667,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    }
+   }
+  },
+  "black-vs-d4-with-1c6": {
+   "games": 2528,
+   "status_counts": {
+    "censored": 1718,
+    "event": 810
+   },
+   "survival": [
+    {
+     "ply": 3,
+     "after_move": 2,
+     "still_in_course": 0.9521,
+     "at_risk": 2526,
+     "events": 121
+    },
+    {
+     "ply": 4,
+     "after_move": 2,
+     "still_in_course": 0.9521,
+     "at_risk": 1999,
+     "events": 0
+    },
+    {
+     "ply": 5,
+     "after_move": 3,
+     "still_in_course": 0.7786,
+     "at_risk": 1998,
+     "events": 364
+    },
+    {
+     "ply": 6,
+     "after_move": 3,
+     "still_in_course": 0.7786,
+     "at_risk": 725,
+     "events": 0
+    },
+    {
+     "ply": 7,
+     "after_move": 4,
+     "still_in_course": 0.5961,
+     "at_risk": 725,
+     "events": 170
+    },
+    {
+     "ply": 8,
+     "after_move": 4,
+     "still_in_course": 0.5961,
+     "at_risk": 287,
+     "events": 0
+    },
+    {
+     "ply": 9,
+     "after_move": 5,
+     "still_in_course": 0.3676,
+     "at_risk": 287,
+     "events": 110
+    },
+    {
+     "ply": 10,
+     "after_move": 5,
+     "still_in_course": 0.3676,
+     "at_risk": 78,
+     "events": 0
+    },
+    {
+     "ply": 11,
+     "after_move": 6,
+     "still_in_course": 0.2168,
+     "at_risk": 78,
+     "events": 32
+    },
+    {
+     "ply": 12,
+     "after_move": 6,
+     "still_in_course": 0.2168,
+     "at_risk": 15,
+     "events": 0
+    },
+    {
+     "ply": 13,
+     "after_move": 7,
+     "still_in_course": 0.0723,
+     "at_risk": 15,
+     "events": 10
+    },
+    {
+     "ply": 14,
+     "after_move": 7,
+     "still_in_course": 0.0723,
+     "at_risk": 3,
+     "events": 0
+    },
+    {
+     "ply": 15,
+     "after_move": 8,
+     "still_in_course": 0.0,
+     "at_risk": 3,
+     "events": 3
+    },
+    {
+     "ply": 16,
+     "after_move": 8,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 17,
+     "after_move": 9,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 18,
+     "after_move": 9,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 19,
+     "after_move": 10,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 20,
+     "after_move": 10,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 21,
+     "after_move": 11,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 22,
+     "after_move": 11,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 23,
+     "after_move": 12,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 24,
+     "after_move": 12,
+     "still_in_course": 0.0,
+     "at_risk": 0,
+     "events": 0
+    }
+   ],
+   "survival_rapid_only": [
+    {
+     "ply": 3,
+     "after_move": 2,
+     "still_in_course": 0.9447,
+     "at_risk": 760,
+     "events": 42
+    },
+    {
+     "ply": 4,
+     "after_move": 2,
+     "still_in_course": 0.9447,
+     "at_risk": 589,
+     "events": 0
+    },
+    {
+     "ply": 5,
+     "after_move": 3,
+     "still_in_course": 0.7696,
+     "at_risk": 588,
+     "events": 109
+    },
+    {
+     "ply": 6,
+     "after_move": 3,
+     "still_in_course": 0.7696,
+     "at_risk": 194,
+     "events": 0
+    },
+    {
+     "ply": 7,
+     "after_move": 4,
+     "still_in_course": 0.6228,
+     "at_risk": 194,
+     "events": 37
+    },
+    {
+     "ply": 8,
+     "after_move": 4,
+     "still_in_course": 0.6228,
+     "at_risk": 78,
+     "events": 0
+    },
+    {
+     "ply": 9,
+     "after_move": 5,
+     "still_in_course": 0.3992,
+     "at_risk": 78,
+     "events": 28
+    },
+    {
+     "ply": 10,
+     "after_move": 5,
+     "still_in_course": 0.3992,
+     "at_risk": 22,
+     "events": 0
+    },
+    {
+     "ply": 11,
+     "after_move": 6,
+     "still_in_course": 0.1452,
+     "at_risk": 22,
+     "events": 14
+    },
+    {
+     "ply": 12,
+     "after_move": 6,
+     "still_in_course": 0.1452,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 13,
+     "after_move": 7,
+     "still_in_course": 0.1452,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 14,
+     "after_move": 7,
+     "still_in_course": 0.1452,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 15,
+     "after_move": 8,
+     "still_in_course": 0.1452,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 16,
+     "after_move": 8,
+     "still_in_course": 0.1452,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 17,
+     "after_move": 9,
+     "still_in_course": 0.1452,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 18,
+     "after_move": 9,
+     "still_in_course": 0.1452,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 19,
+     "after_move": 10,
+     "still_in_course": 0.1452,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 20,
+     "after_move": 10,
+     "still_in_course": 0.1452,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 21,
+     "after_move": 11,
+     "still_in_course": 0.1452,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 22,
+     "after_move": 11,
+     "still_in_course": 0.1452,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 23,
+     "after_move": 12,
+     "still_in_course": 0.1452,
+     "at_risk": 0,
+     "events": 0
+    },
+    {
+     "ply": 24,
+     "after_move": 12,
+     "still_in_course": 0.1452,
+     "at_risk": 0,
+     "events": 0
+    }
+   ],
+   "chapters": {
+    "slav:slow-slav": {
+     "games_touching": 142,
+     "share_of_root_games_touching": 0.0562,
+     "median_touch_ply": 5,
+     "still_in_course_after_move_6": 0.3467,
+     "after_move_8": 0.3467,
+     "after_move_10": 0.3467,
+     "after_move_12": 0.3467,
+     "survival": [
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 81,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.963,
+       "at_risk": 81,
+       "events": 3
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.963,
+       "at_risk": 25,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.8089,
+       "at_risk": 25,
+       "events": 4
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.8089,
+       "at_risk": 7,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.3467,
+       "at_risk": 7,
+       "events": 4
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.3467,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.3467,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.3467,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.3467,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.3467,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.3467,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.3467,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.3467,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.3467,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.3467,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.3467,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.3467,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.3467,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "slav:vs-london": {
+     "games_touching": 646,
+     "share_of_root_games_touching": 0.2555,
+     "median_touch_ply": 3,
+     "still_in_course_after_move_6": 0.3345,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 4,
+       "after_move": 2,
+       "still_in_course": 1.0,
+       "at_risk": 521,
+       "events": 0
+      },
+      {
+       "ply": 5,
+       "after_move": 3,
+       "still_in_course": 0.8426,
+       "at_risk": 521,
+       "events": 82
+      },
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 0.8426,
+       "at_risk": 190,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.51,
+       "at_risk": 190,
+       "events": 75
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.51,
+       "at_risk": 74,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.3791,
+       "at_risk": 74,
+       "events": 19
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.3791,
+       "at_risk": 17,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.3345,
+       "at_risk": 17,
+       "events": 2
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.3345,
+       "at_risk": 6,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 6,
+       "events": 6
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "slav:vs-colle-catalan": {
+     "games_touching": 591,
+     "share_of_root_games_touching": 0.2338,
+     "median_touch_ply": 3,
+     "still_in_course_after_move_6": 0.1788,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 4,
+       "after_move": 2,
+       "still_in_course": 1.0,
+       "at_risk": 513,
+       "events": 0
+      },
+      {
+       "ply": 5,
+       "after_move": 3,
+       "still_in_course": 0.7622,
+       "at_risk": 513,
+       "events": 122
+      },
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 0.7622,
+       "at_risk": 108,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.4799,
+       "at_risk": 108,
+       "events": 40
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.4799,
+       "at_risk": 34,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.2682,
+       "at_risk": 34,
+       "events": 15
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.2682,
+       "at_risk": 6,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1788,
+       "at_risk": 6,
+       "events": 2
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.1788,
+       "at_risk": 1,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 1,
+       "events": 1
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "slav:third-move-sidelines": {
+     "games_touching": 193,
+     "share_of_root_games_touching": 0.0763,
+     "median_touch_ply": 5,
+     "still_in_course_after_move_6": 0.3347,
+     "after_move_8": 0.3347,
+     "after_move_10": 0.3347,
+     "after_move_12": 0.3347,
+     "survival": [
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 92,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.7065,
+       "at_risk": 92,
+       "events": 27
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.7065,
+       "at_risk": 19,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.3347,
+       "at_risk": 19,
+       "events": 10
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.3347,
+       "at_risk": 3,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.3347,
+       "at_risk": 3,
+       "events": 0
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.3347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.3347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.3347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.3347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.3347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.3347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.3347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.3347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.3347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.3347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.3347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.3347,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.3347,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "slav:other-second-moves": {
+     "games_touching": 228,
+     "share_of_root_games_touching": 0.0902,
+     "median_touch_ply": 3,
+     "still_in_course_after_move_6": 0.1402,
+     "after_move_8": 0.1402,
+     "after_move_10": 0.1402,
+     "after_move_12": 0.1402,
+     "survival": [
+      {
+       "ply": 4,
+       "after_move": 2,
+       "still_in_course": 1.0,
+       "at_risk": 190,
+       "events": 0
+      },
+      {
+       "ply": 5,
+       "after_move": 3,
+       "still_in_course": 0.4421,
+       "at_risk": 190,
+       "events": 106
+      },
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 0.4421,
+       "at_risk": 46,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.2979,
+       "at_risk": 46,
+       "events": 15
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.2979,
+       "at_risk": 17,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.1402,
+       "at_risk": 17,
+       "events": 9
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.1402,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "caro:exchange-others": {
+     "games_touching": 75,
+     "share_of_root_games_touching": 0.0297,
+     "median_touch_ply": 5,
+     "still_in_course_after_move_6": 0.08,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 70,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.9143,
+       "at_risk": 70,
+       "events": 6
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.9143,
+       "at_risk": 20,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.64,
+       "at_risk": 20,
+       "events": 6
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.64,
+       "at_risk": 8,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.08,
+       "at_risk": 8,
+       "events": 7
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.08,
+       "at_risk": 1,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 1,
+       "events": 1
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "caro:two-knights": {
+     "games_touching": 1,
+     "share_of_root_games_touching": 0.0004,
+     "median_touch_ply": 9,
+     "still_in_course_after_move_6": 1.0,
+     "after_move_8": 1.0,
+     "after_move_10": 1.0,
+     "after_move_12": 1.0,
+     "survival": [
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 1.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "caro:sidelines": {
+     "games_touching": 14,
+     "share_of_root_games_touching": 0.0055,
+     "median_touch_ply": 7,
+     "still_in_course_after_move_6": 0.3333,
+     "after_move_8": 0.3333,
+     "after_move_10": 0.3333,
+     "after_move_12": 0.3333,
+     "survival": [
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 1.0,
+       "at_risk": 12,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.3333,
+       "at_risk": 12,
+       "events": 8
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.3333,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "caro:gambits": {
+     "games_touching": 32,
+     "share_of_root_games_touching": 0.0127,
+     "median_touch_ply": 5,
+     "still_in_course_after_move_6": 0.0,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 23,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 0.7391,
+       "at_risk": 23,
+       "events": 6
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 0.7391,
+       "at_risk": 13,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.3411,
+       "at_risk": 13,
+       "events": 7
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.3411,
+       "at_risk": 3,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.0,
+       "at_risk": 3,
+       "events": 3
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "caro:advance-short": {
+     "games_touching": 53,
+     "share_of_root_games_touching": 0.021,
+     "median_touch_ply": 7,
+     "still_in_course_after_move_6": 0.4244,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 1.0,
+       "at_risk": 41,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.7073,
+       "at_risk": 41,
+       "events": 12
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.7073,
+       "at_risk": 15,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.4244,
+       "at_risk": 15,
+       "events": 6
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.4244,
+       "at_risk": 3,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.2829,
+       "at_risk": 3,
+       "events": 1
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.2829,
+       "at_risk": 1,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 1,
+       "events": 1
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "caro:advance-others": {
+     "games_touching": 37,
+     "share_of_root_games_touching": 0.0146,
+     "median_touch_ply": 7,
+     "still_in_course_after_move_6": 0.5811,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 1.0,
+       "at_risk": 25,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.92,
+       "at_risk": 25,
+       "events": 2
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.92,
+       "at_risk": 19,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.5811,
+       "at_risk": 19,
+       "events": 7
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.5811,
+       "at_risk": 5,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.4648,
+       "at_risk": 5,
+       "events": 1
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.4648,
+       "at_risk": 3,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 3,
+       "events": 3
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "caro:classical-quiet": {
+     "games_touching": 109,
+     "share_of_root_games_touching": 0.0431,
+     "median_touch_ply": 5,
+     "still_in_course_after_move_6": 0.1351,
+     "after_move_8": 0.0,
+     "after_move_10": 0.0,
+     "after_move_12": 0.0,
+     "survival": [
+      {
+       "ply": 6,
+       "after_move": 3,
+       "still_in_course": 1.0,
+       "at_risk": 61,
+       "events": 0
+      },
+      {
+       "ply": 7,
+       "after_move": 4,
+       "still_in_course": 1.0,
+       "at_risk": 61,
+       "events": 0
+      },
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 1.0,
+       "at_risk": 37,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.2703,
+       "at_risk": 37,
+       "events": 27
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.2703,
+       "at_risk": 4,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.1351,
+       "at_risk": 4,
+       "events": 2
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.1351,
+       "at_risk": 1,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 1,
+       "events": 1
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.0,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    },
+    "caro:advance-nc3": {
+     "games_touching": 32,
+     "share_of_root_games_touching": 0.0127,
+     "median_touch_ply": 7,
+     "still_in_course_after_move_6": 0.15,
+     "after_move_8": 0.15,
+     "after_move_10": 0.15,
+     "after_move_12": 0.15,
+     "survival": [
+      {
+       "ply": 8,
+       "after_move": 4,
+       "still_in_course": 1.0,
+       "at_risk": 28,
+       "events": 0
+      },
+      {
+       "ply": 9,
+       "after_move": 5,
+       "still_in_course": 0.75,
+       "at_risk": 28,
+       "events": 7
+      },
+      {
+       "ply": 10,
+       "after_move": 5,
+       "still_in_course": 0.75,
+       "at_risk": 10,
+       "events": 0
+      },
+      {
+       "ply": 11,
+       "after_move": 6,
+       "still_in_course": 0.15,
+       "at_risk": 10,
+       "events": 8
+      },
+      {
+       "ply": 12,
+       "after_move": 6,
+       "still_in_course": 0.15,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 13,
+       "after_move": 7,
+       "still_in_course": 0.15,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 14,
+       "after_move": 7,
+       "still_in_course": 0.15,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 15,
+       "after_move": 8,
+       "still_in_course": 0.15,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 16,
+       "after_move": 8,
+       "still_in_course": 0.15,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 17,
+       "after_move": 9,
+       "still_in_course": 0.15,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 18,
+       "after_move": 9,
+       "still_in_course": 0.15,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 19,
+       "after_move": 10,
+       "still_in_course": 0.15,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 20,
+       "after_move": 10,
+       "still_in_course": 0.15,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 21,
+       "after_move": 11,
+       "still_in_course": 0.15,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 22,
+       "after_move": 11,
+       "still_in_course": 0.15,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 23,
+       "after_move": 12,
+       "still_in_course": 0.15,
+       "at_risk": 0,
+       "events": 0
+      },
+      {
+       "ply": 24,
+       "after_move": 12,
+       "still_in_course": 0.15,
+       "at_risk": 0,
+       "events": 0
+      }
+     ]
+    }
+   }
+  }
+ }
+}

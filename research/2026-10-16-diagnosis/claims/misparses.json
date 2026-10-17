@@ -1,0 +1,4 @@
+{
+  "note": "False verdicts of scripts/check-claims.ts that a person checked on a board and found to be the checker's misreading, not a wrong sentence. check:claims --strict lists them but does not fail on them. Each entry: sentence (exactly as in report.json), optional claim and file (as in report.json) to narrow it, and reason (who checked it, on which position, and why the sentence is right). Empty on 2026-10-16: all 3 false verdicts found that day were real errors and were fixed in the text.",
+  "entries": []
+}

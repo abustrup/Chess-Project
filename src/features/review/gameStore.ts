@@ -2,6 +2,7 @@ import { useCallback, useMemo } from 'react'
 import type { AnalysedMove, GameAnalysis, GameRecord } from '../../types'
 import { KEYS, readStored, useStored, writeStored } from '../../lib/storage'
 import { identifyOpening } from '../../lib/openingName'
+import { withLichessLabels } from './labels'
 import { replayPgn, sansOf } from './pgnGame'
 
 // Small helpers around the stored game list (KEYS.games). Everything that adds, removes or
@@ -57,12 +58,39 @@ function cleanGame(g: GameRecord): GameRecord {
   return rest
 }
 
+const labelledLists = new WeakMap<unknown[], GameRecord[]>()
+
+/**
+ * Analyses saved before Review followed Lichess's labels get them now (labels.ts), so every page that counts
+ * blunders sees the same labels. The list is kept as it is when nothing changes, and remembered per stored list.
+ */
+function withCurrentLabels(stored: unknown[], games: GameRecord[]): GameRecord[] {
+  const known = labelledLists.get(stored)
+  if (known) return known
+  let changed = false
+  const next = games.map((g) => {
+    if (!g.analysis) return g
+    let analysis = g.analysis
+    try {
+      analysis = withLichessLabels(g.analysis)
+    } catch {
+      /* damaged numbers: keep the saved labels rather than break every page that lists games */
+    }
+    if (analysis === g.analysis) return g
+    changed = true
+    return { ...g, analysis }
+  })
+  const result = changed ? next : games
+  labelledLists.set(stored, result)
+  return result
+}
+
 /** Stored data can be old or damaged: keep only entries that look like real games, so a page never crashes on them. */
 function cleanGames(value: unknown): GameRecord[] {
   if (!Array.isArray(value)) return NO_GAMES
   const games = value.filter(isGame)
   const ok = games.length === value.length && games.every((g) => g.analysis === undefined || isAnalysis(g.analysis))
-  return ok ? (value as GameRecord[]) : games.map(cleanGame)
+  return withCurrentLabels(value, ok ? (value as GameRecord[]) : games.map(cleanGame))
 }
 
 export function readGames(): GameRecord[] {

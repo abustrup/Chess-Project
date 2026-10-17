@@ -7,7 +7,7 @@ import { GAMES_SIZE_WARNING } from '../review/gameStore'
 import type { RunState } from '../review/useAnalysisRun'
 import AddGames, { type AddMode } from './AddGames'
 
-// "Your games": every stored game with a checkbox (counts for the estimate or not), plus the buttons to add and analyse games.
+// "Your games": every stored game with a checkbox (used in "What to work on" or not), plus the buttons to add and analyse games.
 
 const SHOWN_AT_FIRST = 10
 /** Typical time to analyse one game on a normal laptop (measured: 4 to 9 seconds for a 40-move game). */
@@ -57,7 +57,7 @@ function GameRow({
     <li className={`rt-game ${counted ? '' : 'off'}`}>
       <label className="rt-game-check">
         <input type="checkbox" checked={counted} onChange={onToggle} />
-        <span className="rt-sr">Count this game in my estimate</span>
+        <span className="rt-sr">Use this game in What to work on</span>
       </label>
       <span className={`chip ${result.tone}`}>{result.text}</span>
       <div className="rt-game-main">
@@ -129,7 +129,7 @@ export default function GamesPanel({
       <div className="row between wrap">
         <h2 id="rt-games-title">Your games</h2>
         <span className="faint small">
-          {games.length} saved · {counted} counted
+          {games.length} saved · {counted} used in What to work on
         </span>
       </div>
 
@@ -181,7 +181,7 @@ export default function GamesPanel({
           )}
 
           <div className="row wrap rt-select-row">
-            <span className="faint small">Tick the games that should count for your estimate.</span>
+            <span className="faint small">Tick the games that should count in "What to work on" below.</span>
             <span className="spacer" />
             <button className="btn small ghost" onClick={() => onSetAll(true)}>
               Select all

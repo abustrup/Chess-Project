@@ -1,0 +1,12 @@
+his moves, (250k blunder, depth16 blunder): {(False, False): 772, (True, True): 103, (True, False): 8, (False, True): 8}
+both 103 250k only 8 d16 only 8
+('250k', False, 'lichess', False) 180
+('250k', False, 'lichess', True) 1
+('250k', True, 'lichess', False) 3
+('250k', True, 'lichess', True) 31
+('d16', False, 'lichess', False) 180
+('d16', False, 'lichess', True) 1
+('d16', True, 'lichess', False) 3
+('d16', True, 'lichess', True) 31
+pEKoVG79 ply 34 played c8b7 depth-16 best c8b7
+pEKoVG79 ply 34 played c8b7 250k best c8b7

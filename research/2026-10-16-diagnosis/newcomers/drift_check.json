@@ -1,0 +1,23 @@
+{
+ "what": "drift_sd from newcomers.json against the same estimator on shuffled games (no drift by construction)",
+ "players": 100,
+ "shuffles": 1000,
+ "seed": 20261017,
+ "real": {
+  "drift_sd": 2.3485,
+  "drift_variance_before_floor": 5.5154
+ },
+ "shuffled": {
+  "drift_sd_median": 0.3876,
+  "drift_sd_95th_percentile": 1.7558,
+  "share_floored_at_0": 0.459,
+  "drift_variance_mean": 0.229
+ },
+ "share_of_shuffles_at_or_above_real": 0.003,
+ "began_10_0_in_2025_or_2026": {
+  "players": 70,
+  "mean_change": -0.1691,
+  "mean_change_se": 0.4048,
+  "drift_sd": 1.8342
+ }
+}

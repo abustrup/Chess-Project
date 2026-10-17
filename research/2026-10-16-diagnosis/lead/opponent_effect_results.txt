@@ -1,0 +1,6 @@
+opp-own +300..+399 n 515 rate 6.73
+within 300: 17278
+beta [-2.3581, -0.0557, 0.0062] rate ratio per +100 opp 1.006 per +100 own 0.946
+95% cluster bootstrap 0.994 1.018
+
+[exited with code 0]

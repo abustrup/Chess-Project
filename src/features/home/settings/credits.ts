@@ -47,6 +47,12 @@ export const CREDITS: Credit[] = [
     url: 'https://github.com/Clariity/react-chessboard',
   },
   {
+    name: 'ts-fsrs',
+    use: 'Decides when each Safety-check position comes back: the next day after a miss, otherwise days or weeks later.',
+    licence: 'MIT',
+    url: 'https://github.com/open-spaced-repetition/ts-fsrs',
+  },
+  {
     name: 'React and React Router',
     use: 'The foundations of the app itself.',
     licence: 'MIT',

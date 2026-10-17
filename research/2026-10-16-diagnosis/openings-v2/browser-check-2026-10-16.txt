@@ -1,0 +1,33 @@
+ok   1360px /openings/london: all 7 chapter titles shown, no errors
+ok   1360px /openings/caro-kann: all 8 chapter titles shown, no errors
+ok   1360px /openings/slav: all 5 chapter titles shown, no errors
+ok   1360px old link /openings/slav/main-slav/study shows the friendly "not found" page
+ok   390px /openings/london: all 7 chapter titles shown, no errors
+ok   390px /openings/caro-kann: all 8 chapter titles shown, no errors
+ok   390px /openings/slav: all 5 chapter titles shown, no errors
+ok   390px old link /openings/slav/main-slav/study shows the friendly "not found" page
+ok   drill london/classic-pyramid: line complete after your moves d4 Bf4 e3 Nf3
+ok   drill london/vs-nc6-e5: line complete after your moves d4 Bf4 e3 Nf3 Bg3
+ok   drill london/mirror-bf5: line complete after your moves d4 Bf4 e3 Nf3 Bd3 Qxd3
+ok   drill london/keep-calm-weird-moves: line complete after your moves d4 Bf4 e3 Nf3 c4
+ok   drill london/vs-kings-indian: line complete after your moves d4 Bf4 Nf3 e3
+ok   drill london/early-c5: line complete after your moves d4 d5 Nc3 e4
+ok   drill london/vs-dutch: line complete after your moves d4 Bf4 Bxg5 Bxf6
+ok   drill caro-kann/exchange-others: line complete after your moves c6 d5 cxd5 Nc6 Nf6 Bg4 Qd7
+ok   drill caro-kann/two-knights: line complete after your moves c6 d5 dxe4 Bf5
+ok   drill caro-kann/sidelines: line complete after your moves c6 d5 dxe4 Nf6 e5 Bd6
+ok   drill caro-kann/gambits: line complete after your moves c6 d5 dxe4 e5 Bg4 Nd7 Ngf6
+ok   drill caro-kann/advance-short: line complete after your moves c6 d5 Bf5 e6 c5 Bxd3 Nc6
+ok   drill caro-kann/advance-others: line complete after your moves c6 d5 Bf5 h5 Bxd3 e6 Qa5+
+ok   drill caro-kann/classical-quiet: line complete after your moves c6 d5 dxe4 Bf5 Bg6
+ok   drill caro-kann/advance-nc3: line complete after your moves c6 d5 Bf5 e6 Bxd3 c5 cxd4
+ok   drill slav/slow-slav: line complete after your moves c6 d5 cxd5 Nf6 Nc6 Ne4 e6
+ok   drill slav/vs-london: line complete after your moves c6 d5 Bf5 e6 Nd7 Ngf6 Be7
+ok   drill slav/vs-colle-catalan: line complete after your moves c6 d5
+ok   drill slav/third-move-sidelines: line complete after your moves c6 d5 Bf5 e6 Be7 Bxd3 Nf6
+ok   drill slav/other-second-moves: line complete after your moves c6 d5
+ok   practise slav/other-second-moves: the computer opened with 1.c4, 1.d4, 1.Nf3 (4 games)
+ok   practise slav (any chapter), after 1...c6 the board shows: bP@c6 wP@c4
+ok   practise caro-kann: e4:wP c6:bP d4:wP f3: c4: c3:
+ok   practise london: d4:wP d5:bP f6: c6: g6: f5: | d4:wP d5: f6:bN c6: g6: f5:
+0 problem(s)

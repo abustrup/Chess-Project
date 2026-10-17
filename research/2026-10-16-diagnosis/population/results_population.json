@@ -1,0 +1,1115 @@
+{
+ "source": "lichess_db_standard_rated_2026-09.pgn.zst, 96 byte-range samples spread evenly over the file",
+ "band": "player pre-game rating 950-1250",
+ "groups": {
+  "blitz_all": {
+   "player_games": 293801,
+   "analysed": 30937,
+   "analysed_share": 0.1053,
+   "distinct_players": 92331,
+   "distinct_players_analysed": 23544,
+   "game_page_rule": {
+    "blunders_per_100_moves_pooled": 8.955,
+    "ci95_cluster_bootstrap": [
+     8.847,
+     9.058
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 8.95,
+    "per_game_rate_mean": 9.253,
+    "per_game_rate_median": 8.0,
+    "per_game_rate_sd": 7.189,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     4.0,
+     13.33,
+     18.75
+    ],
+    "share_games_zero_blunders": 0.13,
+    "blunders_per_game_mean": 2.756,
+    "blunders_per_game_sd": 2.3,
+    "mistakes_per_100": 4.693,
+    "inaccuracies_per_100": 9.778,
+    "share_of_blunders_in_moves_1_12": 0.306,
+    "share_of_blunders_with_under_10pct_clock": 0.06,
+    "variance_components_within_sample": {
+     "players_with_2plus": 4793,
+     "games_in_those": 12186,
+     "within_sd_per_game": 6.95,
+     "total_sd_per_game": 7.19,
+     "between_sd_true_rate": 1.84,
+     "icc": 0.065
+    }
+   },
+   "database_glyphs": {
+    "blunders_per_100_moves_pooled": 6.898,
+    "ci95_cluster_bootstrap": [
+     6.805,
+     6.998
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 6.895,
+    "per_game_rate_mean": 7.098,
+    "per_game_rate_median": 5.882,
+    "per_game_rate_sd": 6.144,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     2.78,
+     10.53,
+     15.38
+    ],
+    "share_games_zero_blunders": 0.196,
+    "blunders_per_game_mean": 2.123,
+    "blunders_per_game_sd": 1.943,
+    "mistakes_per_100": 10.381,
+    "inaccuracies_per_100": 5.959,
+    "share_of_blunders_in_moves_1_12": 0.244,
+    "share_of_blunders_with_under_10pct_clock": 0.075,
+    "variance_components_within_sample": {
+     "players_with_2plus": 4793,
+     "games_in_those": 12186,
+     "within_sd_per_game": 5.98,
+     "total_sd_per_game": 6.14,
+     "between_sd_true_rate": 1.4,
+     "icc": 0.052
+    }
+   },
+   "own_moves_per_game_mean": 30.8,
+   "database_glyph_rule_replication": {
+    "glyph_blunders": 65692,
+    "replicated_rule_blunders": 65791,
+    "player_games_exact_match": 0.995,
+    "glyph_mistakes": 98856,
+    "replicated_rule_mistakes": 99597
+   },
+   "game_page_vs_glyph_blunders_same_games": {
+    "game_page_rule": 85274,
+    "database_glyphs": 65692,
+    "ratio": 1.298,
+    "player_games_equal": 0.4553
+   },
+   "games_with_missing_evals_share": 0.0009,
+   "selection": {
+    "analysed": {
+     "n": 30937,
+     "mean_rating": 1114.7,
+     "mean_opp_rating": 1133.5,
+     "score": 0.5016,
+     "loss_share": 0.4873,
+     "mean_plies": 61.6,
+     "time_forfeit_share": 0.2032
+    },
+    "not_analysed": {
+     "n": 262864,
+     "mean_rating": 1119.9,
+     "mean_opp_rating": 1131.7,
+     "score": 0.4932,
+     "loss_share": 0.4886,
+     "mean_plies": 60.8,
+     "time_forfeit_share": 0.2325
+    }
+   },
+   "analysed_share_by_result": {
+    "win": 0.1085,
+    "draw": 0.0673,
+    "loss": 0.1053
+   }
+  },
+  "blitz_3+0": {
+   "player_games": 80623,
+   "analysed": 6459,
+   "analysed_share": 0.0801,
+   "distinct_players": 22781,
+   "distinct_players_analysed": 5035,
+   "game_page_rule": {
+    "blunders_per_100_moves_pooled": 9.39,
+    "ci95_cluster_bootstrap": [
+     9.174,
+     9.621
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 9.384,
+    "per_game_rate_mean": 9.711,
+    "per_game_rate_median": 8.333,
+    "per_game_rate_sd": 7.558,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     4.17,
+     13.79,
+     20.0
+    ],
+    "share_games_zero_blunders": 0.119,
+    "blunders_per_game_mean": 2.837,
+    "blunders_per_game_sd": 2.332,
+    "mistakes_per_100": 4.805,
+    "inaccuracies_per_100": 10.211,
+    "share_of_blunders_in_moves_1_12": 0.334,
+    "share_of_blunders_with_under_10pct_clock": 0.048,
+    "variance_components_within_sample": {
+     "players_with_2plus": 985,
+     "games_in_those": 2409,
+     "within_sd_per_game": 7.3,
+     "total_sd_per_game": 7.56,
+     "between_sd_true_rate": 1.95,
+     "icc": 0.066
+    }
+   },
+   "database_glyphs": {
+    "blunders_per_100_moves_pooled": 7.402,
+    "ci95_cluster_bootstrap": [
+     7.195,
+     7.615
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 7.398,
+    "per_game_rate_mean": 7.612,
+    "per_game_rate_median": 6.25,
+    "per_game_rate_sd": 6.468,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     3.12,
+     11.11,
+     16.13
+    ],
+    "share_games_zero_blunders": 0.177,
+    "blunders_per_game_mean": 2.236,
+    "blunders_per_game_sd": 1.974,
+    "mistakes_per_100": 10.642,
+    "inaccuracies_per_100": 6.175,
+    "share_of_blunders_in_moves_1_12": 0.267,
+    "share_of_blunders_with_under_10pct_clock": 0.06,
+    "variance_components_within_sample": {
+     "players_with_2plus": 985,
+     "games_in_those": 2409,
+     "within_sd_per_game": 6.37,
+     "total_sd_per_game": 6.47,
+     "between_sd_true_rate": 1.14,
+     "icc": 0.031
+    }
+   },
+   "own_moves_per_game_mean": 30.2,
+   "database_glyph_rule_replication": {
+    "glyph_blunders": 14442,
+    "replicated_rule_blunders": 14454,
+    "player_games_exact_match": 0.9967,
+    "glyph_mistakes": 20762,
+    "replicated_rule_mistakes": 20924
+   },
+   "game_page_vs_glyph_blunders_same_games": {
+    "game_page_rule": 18321,
+    "database_glyphs": 14442,
+    "ratio": 1.269,
+    "player_games_equal": 0.4575
+   },
+   "games_with_missing_evals_share": 0.0005,
+   "selection": {
+    "analysed": {
+     "n": 6459,
+     "mean_rating": 1118.6,
+     "mean_opp_rating": 1154.5,
+     "score": 0.5077,
+     "loss_share": 0.4854,
+     "mean_plies": 60.4,
+     "time_forfeit_share": 0.2603
+    },
+    "not_analysed": {
+     "n": 74164,
+     "mean_rating": 1124.9,
+     "mean_opp_rating": 1142.4,
+     "score": 0.4892,
+     "loss_share": 0.4928,
+     "mean_plies": 61.1,
+     "time_forfeit_share": 0.306
+    }
+   },
+   "analysed_share_by_result": {
+    "win": 0.0849,
+    "draw": 0.0324,
+    "loss": 0.0791
+   }
+  },
+  "blitz_3+2": {
+   "player_games": 54828,
+   "analysed": 6401,
+   "analysed_share": 0.1167,
+   "distinct_players": 19892,
+   "distinct_players_analysed": 4979,
+   "game_page_rule": {
+    "blunders_per_100_moves_pooled": 8.977,
+    "ci95_cluster_bootstrap": [
+     8.741,
+     9.215
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 8.97,
+    "per_game_rate_mean": 9.323,
+    "per_game_rate_median": 8.163,
+    "per_game_rate_sd": 7.241,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     4.0,
+     13.33,
+     18.75
+    ],
+    "share_games_zero_blunders": 0.131,
+    "blunders_per_game_mean": 2.772,
+    "blunders_per_game_sd": 2.337,
+    "mistakes_per_100": 4.564,
+    "inaccuracies_per_100": 9.452,
+    "share_of_blunders_in_moves_1_12": 0.29,
+    "share_of_blunders_with_under_10pct_clock": 0.087,
+    "variance_components_within_sample": {
+     "players_with_2plus": 967,
+     "games_in_those": 2389,
+     "within_sd_per_game": 7.09,
+     "total_sd_per_game": 7.24,
+     "between_sd_true_rate": 1.48,
+     "icc": 0.042
+    }
+   },
+   "database_glyphs": {
+    "blunders_per_100_moves_pooled": 6.868,
+    "ci95_cluster_bootstrap": [
+     6.675,
+     7.063
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 6.862,
+    "per_game_rate_mean": 7.096,
+    "per_game_rate_median": 5.882,
+    "per_game_rate_sd": 6.171,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     2.78,
+     10.53,
+     15.38
+    ],
+    "share_games_zero_blunders": 0.197,
+    "blunders_per_game_mean": 2.121,
+    "blunders_per_game_sd": 1.984,
+    "mistakes_per_100": 10.19,
+    "inaccuracies_per_100": 5.766,
+    "share_of_blunders_in_moves_1_12": 0.231,
+    "share_of_blunders_with_under_10pct_clock": 0.108,
+    "variance_components_within_sample": {
+     "players_with_2plus": 967,
+     "games_in_those": 2389,
+     "within_sd_per_game": 5.97,
+     "total_sd_per_game": 6.17,
+     "between_sd_true_rate": 1.55,
+     "icc": 0.063
+    }
+   },
+   "own_moves_per_game_mean": 30.9,
+   "database_glyph_rule_replication": {
+    "glyph_blunders": 13575,
+    "replicated_rule_blunders": 13600,
+    "player_games_exact_match": 0.9941,
+    "glyph_mistakes": 20140,
+    "replicated_rule_mistakes": 20292
+   },
+   "game_page_vs_glyph_blunders_same_games": {
+    "game_page_rule": 17744,
+    "database_glyphs": 13575,
+    "ratio": 1.307,
+    "player_games_equal": 0.4566
+   },
+   "games_with_missing_evals_share": 0.0014,
+   "selection": {
+    "analysed": {
+     "n": 6401,
+     "mean_rating": 1117.7,
+     "mean_opp_rating": 1128.5,
+     "score": 0.5005,
+     "loss_share": 0.4868,
+     "mean_plies": 61.8,
+     "time_forfeit_share": 0.2051
+    },
+    "not_analysed": {
+     "n": 48427,
+     "mean_rating": 1121.4,
+     "mean_opp_rating": 1130.6,
+     "score": 0.4954,
+     "loss_share": 0.4876,
+     "mean_plies": 59.4,
+     "time_forfeit_share": 0.2141
+    }
+   },
+   "analysed_share_by_result": {
+    "win": 0.119,
+    "draw": 0.0895,
+    "loss": 0.1168
+   }
+  },
+  "blitz_5+0": {
+   "player_games": 103261,
+   "analysed": 9060,
+   "analysed_share": 0.0877,
+   "distinct_players": 33003,
+   "distinct_players_analysed": 7173,
+   "game_page_rule": {
+    "blunders_per_100_moves_pooled": 9.134,
+    "ci95_cluster_bootstrap": [
+     8.95,
+     9.318
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 9.128,
+    "per_game_rate_mean": 9.417,
+    "per_game_rate_median": 8.333,
+    "per_game_rate_sd": 7.267,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     4.17,
+     13.58,
+     19.06
+    ],
+    "share_games_zero_blunders": 0.128,
+    "blunders_per_game_mean": 2.797,
+    "blunders_per_game_sd": 2.287,
+    "mistakes_per_100": 4.91,
+    "inaccuracies_per_100": 9.996,
+    "share_of_blunders_in_moves_1_12": 0.31,
+    "share_of_blunders_with_under_10pct_clock": 0.037,
+    "variance_components_within_sample": {
+     "players_with_2plus": 1252,
+     "games_in_those": 3139,
+     "within_sd_per_game": 6.94,
+     "total_sd_per_game": 7.27,
+     "between_sd_true_rate": 2.16,
+     "icc": 0.089
+    }
+   },
+   "database_glyphs": {
+    "blunders_per_100_moves_pooled": 7.022,
+    "ci95_cluster_bootstrap": [
+     6.865,
+     7.173
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 7.018,
+    "per_game_rate_mean": 7.231,
+    "per_game_rate_median": 6.061,
+    "per_game_rate_sd": 6.22,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     2.86,
+     10.53,
+     15.38
+    ],
+    "share_games_zero_blunders": 0.191,
+    "blunders_per_game_mean": 2.15,
+    "blunders_per_game_sd": 1.919,
+    "mistakes_per_100": 10.713,
+    "inaccuracies_per_100": 6.097,
+    "share_of_blunders_in_moves_1_12": 0.248,
+    "share_of_blunders_with_under_10pct_clock": 0.044,
+    "variance_components_within_sample": {
+     "players_with_2plus": 1252,
+     "games_in_those": 3139,
+     "within_sd_per_game": 5.95,
+     "total_sd_per_game": 6.22,
+     "between_sd_true_rate": 1.81,
+     "icc": 0.085
+    }
+   },
+   "own_moves_per_game_mean": 30.6,
+   "database_glyph_rule_replication": {
+    "glyph_blunders": 19482,
+    "replicated_rule_blunders": 19513,
+    "player_games_exact_match": 0.9956,
+    "glyph_mistakes": 29723,
+    "replicated_rule_mistakes": 29950
+   },
+   "game_page_vs_glyph_blunders_same_games": {
+    "game_page_rule": 25343,
+    "database_glyphs": 19482,
+    "ratio": 1.301,
+    "player_games_equal": 0.4486
+   },
+   "games_with_missing_evals_share": 0.0009,
+   "selection": {
+    "analysed": {
+     "n": 9060,
+     "mean_rating": 1112.2,
+     "mean_opp_rating": 1132.7,
+     "score": 0.5033,
+     "loss_share": 0.4872,
+     "mean_plies": 61.2,
+     "time_forfeit_share": 0.1864
+    },
+    "not_analysed": {
+     "n": 94201,
+     "mean_rating": 1118.2,
+     "mean_opp_rating": 1127.6,
+     "score": 0.495,
+     "loss_share": 0.4869,
+     "mean_plies": 61.6,
+     "time_forfeit_share": 0.216
+    }
+   },
+   "analysed_share_by_result": {
+    "win": 0.0908,
+    "draw": 0.0481,
+    "loss": 0.088
+   }
+  },
+  "blitz_5+3": {
+   "player_games": 51734,
+   "analysed": 8434,
+   "analysed_share": 0.163,
+   "distinct_players": 20566,
+   "distinct_players_analysed": 6263,
+   "game_page_rule": {
+    "blunders_per_100_moves_pooled": 8.454,
+    "ci95_cluster_bootstrap": [
+     8.265,
+     8.627
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 8.453,
+    "per_game_rate_mean": 8.702,
+    "per_game_rate_median": 7.692,
+    "per_game_rate_sd": 6.724,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     3.77,
+     12.5,
+     17.95
+    ],
+    "share_games_zero_blunders": 0.138,
+    "blunders_per_game_mean": 2.646,
+    "blunders_per_game_sd": 2.261,
+    "mistakes_per_100": 4.486,
+    "inaccuracies_per_100": 9.464,
+    "share_of_blunders_in_moves_1_12": 0.287,
+    "share_of_blunders_with_under_10pct_clock": 0.079,
+    "variance_components_within_sample": {
+     "players_with_2plus": 1341,
+     "games_in_those": 3512,
+     "within_sd_per_game": 6.5,
+     "total_sd_per_game": 6.72,
+     "between_sd_true_rate": 1.72,
+     "icc": 0.066
+    }
+   },
+   "database_glyphs": {
+    "blunders_per_100_moves_pooled": 6.414,
+    "ci95_cluster_bootstrap": [
+     6.243,
+     6.578
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 6.41,
+    "per_game_rate_mean": 6.557,
+    "per_game_rate_median": 5.556,
+    "per_game_rate_sd": 5.719,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     2.38,
+     10.0,
+     14.29
+    ],
+    "share_games_zero_blunders": 0.216,
+    "blunders_per_game_mean": 2.008,
+    "blunders_per_game_sd": 1.906,
+    "mistakes_per_100": 10.021,
+    "inaccuracies_per_100": 5.785,
+    "share_of_blunders_in_moves_1_12": 0.223,
+    "share_of_blunders_with_under_10pct_clock": 0.098,
+    "variance_components_within_sample": {
+     "players_with_2plus": 1341,
+     "games_in_those": 3512,
+     "within_sd_per_game": 5.67,
+     "total_sd_per_game": 5.72,
+     "between_sd_true_rate": 0.76,
+     "icc": 0.017
+    }
+   },
+   "own_moves_per_game_mean": 31.3,
+   "database_glyph_rule_replication": {
+    "glyph_blunders": 16933,
+    "replicated_rule_blunders": 16963,
+    "player_games_exact_match": 0.9936,
+    "glyph_mistakes": 26456,
+    "replicated_rule_mistakes": 26648
+   },
+   "game_page_vs_glyph_blunders_same_games": {
+    "game_page_rule": 22318,
+    "database_glyphs": 16933,
+    "ratio": 1.318,
+    "player_games_equal": 0.4572
+   },
+   "games_with_missing_evals_share": 0.0007,
+   "selection": {
+    "analysed": {
+     "n": 8434,
+     "mean_rating": 1112.5,
+     "mean_opp_rating": 1118.5,
+     "score": 0.4963,
+     "loss_share": 0.4887,
+     "mean_plies": 62.6,
+     "time_forfeit_share": 0.1783
+    },
+    "not_analysed": {
+     "n": 43300,
+     "mean_rating": 1113.3,
+     "mean_opp_rating": 1118.8,
+     "score": 0.4973,
+     "loss_share": 0.4838,
+     "mean_plies": 60.5,
+     "time_forfeit_share": 0.1688
+    }
+   },
+   "analysed_share_by_result": {
+    "win": 0.1641,
+    "draw": 0.1342,
+    "loss": 0.1647
+   }
+  },
+  "rapid_all": {
+   "player_games": 155557,
+   "analysed": 27840,
+   "analysed_share": 0.179,
+   "distinct_players": 66024,
+   "distinct_players_analysed": 21608,
+   "game_page_rule": {
+    "blunders_per_100_moves_pooled": 9.089,
+    "ci95_cluster_bootstrap": [
+     8.986,
+     9.198
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 9.075,
+    "per_game_rate_mean": 9.467,
+    "per_game_rate_median": 8.333,
+    "per_game_rate_sd": 7.422,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     4.08,
+     13.64,
+     19.44
+    ],
+    "share_games_zero_blunders": 0.131,
+    "blunders_per_game_mean": 2.79,
+    "blunders_per_game_sd": 2.351,
+    "mistakes_per_100": 4.623,
+    "inaccuracies_per_100": 9.554,
+    "share_of_blunders_in_moves_1_12": 0.349,
+    "share_of_blunders_with_under_10pct_clock": 0.021,
+    "variance_components_within_sample": {
+     "players_with_2plus": 4163,
+     "games_in_those": 10395,
+     "within_sd_per_game": 7.22,
+     "total_sd_per_game": 7.42,
+     "between_sd_true_rate": 1.72,
+     "icc": 0.054
+    }
+   },
+   "database_glyphs": {
+    "blunders_per_100_moves_pooled": 7.181,
+    "ci95_cluster_bootstrap": [
+     7.079,
+     7.272
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 7.174,
+    "per_game_rate_mean": 7.418,
+    "per_game_rate_median": 6.25,
+    "per_game_rate_sd": 6.43,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     2.86,
+     10.81,
+     16.0
+    ],
+    "share_games_zero_blunders": 0.193,
+    "blunders_per_game_mean": 2.204,
+    "blunders_per_game_sd": 2.034,
+    "mistakes_per_100": 10.166,
+    "inaccuracies_per_100": 5.727,
+    "share_of_blunders_in_moves_1_12": 0.281,
+    "share_of_blunders_with_under_10pct_clock": 0.027,
+    "variance_components_within_sample": {
+     "players_with_2plus": 4163,
+     "games_in_those": 10395,
+     "within_sd_per_game": 6.15,
+     "total_sd_per_game": 6.43,
+     "between_sd_true_rate": 1.89,
+     "icc": 0.087
+    }
+   },
+   "own_moves_per_game_mean": 30.7,
+   "database_glyph_rule_replication": {
+    "glyph_blunders": 61365,
+    "replicated_rule_blunders": 61450,
+    "player_games_exact_match": 0.9929,
+    "glyph_mistakes": 86875,
+    "replicated_rule_mistakes": 87443
+   },
+   "game_page_vs_glyph_blunders_same_games": {
+    "game_page_rule": 77666,
+    "database_glyphs": 61365,
+    "ratio": 1.266,
+    "player_games_equal": 0.4684
+   },
+   "games_with_missing_evals_share": 0.0028,
+   "selection": {
+    "analysed": {
+     "n": 27840,
+     "mean_rating": 1114.7,
+     "mean_opp_rating": 1129.8,
+     "score": 0.5005,
+     "loss_share": 0.4851,
+     "mean_plies": 61.4,
+     "time_forfeit_share": 0.0899
+    },
+    "not_analysed": {
+     "n": 127717,
+     "mean_rating": 1113.3,
+     "mean_opp_rating": 1123.6,
+     "score": 0.4959,
+     "loss_share": 0.482,
+     "mean_plies": 58.0,
+     "time_forfeit_share": 0.1118
+    }
+   },
+   "analysed_share_by_result": {
+    "win": 0.1832,
+    "draw": 0.1243,
+    "loss": 0.1803
+   }
+  },
+  "rapid_10+0": {
+   "player_games": 111337,
+   "analysed": 17903,
+   "analysed_share": 0.1608,
+   "distinct_players": 44817,
+   "distinct_players_analysed": 13982,
+   "game_page_rule": {
+    "blunders_per_100_moves_pooled": 9.312,
+    "ci95_cluster_bootstrap": [
+     9.189,
+     9.441
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 9.298,
+    "per_game_rate_mean": 9.691,
+    "per_game_rate_median": 8.333,
+    "per_game_rate_sd": 7.488,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     4.26,
+     13.79,
+     20.0
+    ],
+    "share_games_zero_blunders": 0.127,
+    "blunders_per_game_mean": 2.837,
+    "blunders_per_game_sd": 2.363,
+    "mistakes_per_100": 4.717,
+    "inaccuracies_per_100": 9.792,
+    "share_of_blunders_in_moves_1_12": 0.352,
+    "share_of_blunders_with_under_10pct_clock": 0.018,
+    "variance_components_within_sample": {
+     "players_with_2plus": 2650,
+     "games_in_those": 6571,
+     "within_sd_per_game": 7.23,
+     "total_sd_per_game": 7.49,
+     "between_sd_true_rate": 1.94,
+     "icc": 0.067
+    }
+   },
+   "database_glyphs": {
+    "blunders_per_100_moves_pooled": 7.379,
+    "ci95_cluster_bootstrap": [
+     7.261,
+     7.49
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 7.371,
+    "per_game_rate_mean": 7.625,
+    "per_game_rate_median": 6.452,
+    "per_game_rate_sd": 6.479,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     3.03,
+     11.11,
+     16.67
+    ],
+    "share_games_zero_blunders": 0.186,
+    "blunders_per_game_mean": 2.248,
+    "blunders_per_game_sd": 2.036,
+    "mistakes_per_100": 10.386,
+    "inaccuracies_per_100": 5.862,
+    "share_of_blunders_in_moves_1_12": 0.283,
+    "share_of_blunders_with_under_10pct_clock": 0.023,
+    "variance_components_within_sample": {
+     "players_with_2plus": 2650,
+     "games_in_those": 6571,
+     "within_sd_per_game": 6.16,
+     "total_sd_per_game": 6.48,
+     "between_sd_true_rate": 2.0,
+     "icc": 0.095
+    }
+   },
+   "own_moves_per_game_mean": 30.5,
+   "database_glyph_rule_replication": {
+    "glyph_blunders": 40247,
+    "replicated_rule_blunders": 40307,
+    "player_games_exact_match": 0.9935,
+    "glyph_mistakes": 56650,
+    "replicated_rule_mistakes": 57028
+   },
+   "game_page_vs_glyph_blunders_same_games": {
+    "game_page_rule": 50792,
+    "database_glyphs": 40247,
+    "ratio": 1.262,
+    "player_games_equal": 0.4647
+   },
+   "games_with_missing_evals_share": 0.002,
+   "selection": {
+    "analysed": {
+     "n": 17903,
+     "mean_rating": 1115.4,
+     "mean_opp_rating": 1132.0,
+     "score": 0.5018,
+     "loss_share": 0.4855,
+     "mean_plies": 60.9,
+     "time_forfeit_share": 0.0924
+    },
+    "not_analysed": {
+     "n": 93434,
+     "mean_rating": 1115.2,
+     "mean_opp_rating": 1124.9,
+     "score": 0.4962,
+     "loss_share": 0.4818,
+     "mean_plies": 58.1,
+     "time_forfeit_share": 0.1155
+    }
+   },
+   "analysed_share_by_result": {
+    "win": 0.1654,
+    "draw": 0.0994,
+    "loss": 0.1622
+   }
+  },
+  "rapid_10+5": {
+   "player_games": 24735,
+   "analysed": 5503,
+   "analysed_share": 0.2225,
+   "distinct_players": 12784,
+   "distinct_players_analysed": 4347,
+   "game_page_rule": {
+    "blunders_per_100_moves_pooled": 8.795,
+    "ci95_cluster_bootstrap": [
+     8.575,
+     8.993
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 8.785,
+    "per_game_rate_mean": 9.137,
+    "per_game_rate_median": 7.895,
+    "per_game_rate_sd": 7.212,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     3.85,
+     13.04,
+     18.75
+    ],
+    "share_games_zero_blunders": 0.134,
+    "blunders_per_game_mean": 2.743,
+    "blunders_per_game_sd": 2.34,
+    "mistakes_per_100": 4.47,
+    "inaccuracies_per_100": 9.228,
+    "share_of_blunders_in_moves_1_12": 0.331,
+    "share_of_blunders_with_under_10pct_clock": 0.03,
+    "variance_components_within_sample": {
+     "players_with_2plus": 762,
+     "games_in_those": 1918,
+     "within_sd_per_game": 7.14,
+     "total_sd_per_game": 7.21,
+     "between_sd_true_rate": 1.0,
+     "icc": 0.019
+    }
+   },
+   "database_glyphs": {
+    "blunders_per_100_moves_pooled": 6.915,
+    "ci95_cluster_bootstrap": [
+     6.728,
+     7.106
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 6.909,
+    "per_game_rate_mean": 7.118,
+    "per_game_rate_median": 5.882,
+    "per_game_rate_sd": 6.249,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     2.63,
+     10.53,
+     15.38
+    ],
+    "share_games_zero_blunders": 0.204,
+    "blunders_per_game_mean": 2.157,
+    "blunders_per_game_sd": 2.04,
+    "mistakes_per_100": 9.853,
+    "inaccuracies_per_100": 5.564,
+    "share_of_blunders_in_moves_1_12": 0.265,
+    "share_of_blunders_with_under_10pct_clock": 0.038,
+    "variance_components_within_sample": {
+     "players_with_2plus": 762,
+     "games_in_those": 1918,
+     "within_sd_per_game": 6.03,
+     "total_sd_per_game": 6.25,
+     "between_sd_true_rate": 1.65,
+     "icc": 0.07
+    }
+   },
+   "own_moves_per_game_mean": 31.2,
+   "database_glyph_rule_replication": {
+    "glyph_blunders": 11871,
+    "replicated_rule_blunders": 11885,
+    "player_games_exact_match": 0.9915,
+    "glyph_mistakes": 16913,
+    "replicated_rule_mistakes": 17007
+   },
+   "game_page_vs_glyph_blunders_same_games": {
+    "game_page_rule": 15097,
+    "database_glyphs": 11871,
+    "ratio": 1.272,
+    "player_games_equal": 0.4656
+   },
+   "games_with_missing_evals_share": 0.0044,
+   "selection": {
+    "analysed": {
+     "n": 5503,
+     "mean_rating": 1115.8,
+     "mean_opp_rating": 1124.3,
+     "score": 0.4965,
+     "loss_share": 0.4868,
+     "mean_plies": 62.4,
+     "time_forfeit_share": 0.0869
+    },
+    "not_analysed": {
+     "n": 19232,
+     "mean_rating": 1109.8,
+     "mean_opp_rating": 1114.9,
+     "score": 0.5004,
+     "loss_share": 0.4781,
+     "mean_plies": 58.1,
+     "time_forfeit_share": 0.1019
+    }
+   },
+   "analysed_share_by_result": {
+    "win": 0.2233,
+    "draw": 0.1827,
+    "loss": 0.2262
+   }
+  },
+  "rapid_15+10": {
+   "player_games": 8151,
+   "analysed": 2521,
+   "analysed_share": 0.3093,
+   "distinct_players": 4737,
+   "distinct_players_analysed": 1966,
+   "game_page_rule": {
+    "blunders_per_100_moves_pooled": 8.596,
+    "ci95_cluster_bootstrap": [
+     8.258,
+     8.924
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 8.593,
+    "per_game_rate_mean": 9.013,
+    "per_game_rate_median": 7.692,
+    "per_game_rate_sd": 7.312,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     3.85,
+     12.9,
+     18.52
+    ],
+    "share_games_zero_blunders": 0.148,
+    "blunders_per_game_mean": 2.647,
+    "blunders_per_game_sd": 2.254,
+    "mistakes_per_100": 4.419,
+    "inaccuracies_per_100": 8.842,
+    "share_of_blunders_in_moves_1_12": 0.338,
+    "share_of_blunders_with_under_10pct_clock": 0.023,
+    "variance_components_within_sample": {
+     "players_with_2plus": 377,
+     "games_in_those": 932,
+     "within_sd_per_game": 7.13,
+     "total_sd_per_game": 7.31,
+     "between_sd_true_rate": 1.63,
+     "icc": 0.05
+    }
+   },
+   "database_glyphs": {
+    "blunders_per_100_moves_pooled": 6.652,
+    "ci95_cluster_bootstrap": [
+     6.345,
+     6.933
+    ],
+    "blunders_per_100_moves_pooled_10plus_moves": 6.654,
+    "per_game_rate_mean": 6.907,
+    "per_game_rate_median": 5.556,
+    "per_game_rate_sd": 6.273,
+    "per_game_rate_p10_p25_p75_p90": [
+     0.0,
+     2.44,
+     10.26,
+     15.15
+    ],
+    "share_games_zero_blunders": 0.218,
+    "blunders_per_game_mean": 2.049,
+    "blunders_per_game_sd": 1.919,
+    "mistakes_per_100": 9.719,
+    "inaccuracies_per_100": 5.295,
+    "share_of_blunders_in_moves_1_12": 0.271,
+    "share_of_blunders_with_under_10pct_clock": 0.027,
+    "variance_components_within_sample": {
+     "players_with_2plus": 377,
+     "games_in_those": 932,
+     "within_sd_per_game": 6.21,
+     "total_sd_per_game": 6.27,
+     "between_sd_true_rate": 0.91,
+     "icc": 0.021
+    }
+   },
+   "own_moves_per_game_mean": 30.8,
+   "database_glyph_rule_replication": {
+    "glyph_blunders": 5165,
+    "replicated_rule_blunders": 5172,
+    "player_games_exact_match": 0.9901,
+    "glyph_mistakes": 7546,
+    "replicated_rule_mistakes": 7600
+   },
+   "game_page_vs_glyph_blunders_same_games": {
+    "game_page_rule": 6674,
+    "database_glyphs": 5165,
+    "ratio": 1.292,
+    "player_games_equal": 0.48
+   },
+   "games_with_missing_evals_share": 0.0048,
+   "selection": {
+    "analysed": {
+     "n": 2521,
+     "mean_rating": 1112.1,
+     "mean_opp_rating": 1117.3,
+     "score": 0.4954,
+     "loss_share": 0.4851,
+     "mean_plies": 61.6,
+     "time_forfeit_share": 0.0726
+    },
+    "not_analysed": {
+     "n": 5630,
+     "mean_rating": 1102.6,
+     "mean_opp_rating": 1104.3,
+     "score": 0.501,
+     "loss_share": 0.4766,
+     "mean_plies": 56.0,
+     "time_forfeit_share": 0.0975
+    }
+   },
+   "analysed_share_by_result": {
+    "win": 0.3087,
+    "draw": 0.28,
+    "loss": 0.3137
+   }
+  }
+ },
+ "sub_bands": {
+  "blitz_all_950-1050": {
+   "game_page_rule": {
+    "n": 8164,
+    "per100": 9.454,
+    "ci95": [
+     9.256,
+     9.654
+    ]
+   },
+   "database_glyphs": {
+    "n": 8164,
+    "per100": 7.507,
+    "ci95": [
+     7.324,
+     7.66
+    ]
+   }
+  },
+  "blitz_all_1050-1150": {
+   "game_page_rule": {
+    "n": 10488,
+    "per100": 8.914,
+    "ci95": [
+     8.766,
+     9.059
+    ]
+   },
+   "database_glyphs": {
+    "n": 10488,
+    "per100": 6.88,
+    "ci95": [
+     6.745,
+     7.005
+    ]
+   }
+  },
+  "blitz_all_1150-1250": {
+   "game_page_rule": {
+    "n": 12285,
+    "per100": 8.668,
+    "ci95": [
+     8.499,
+     8.821
+    ]
+   },
+   "database_glyphs": {
+    "n": 12285,
+    "per100": 6.523,
+    "ci95": [
+     6.395,
+     6.649
+    ]
+   }
+  },
+  "rapid_10+0_950-1050": {
+   "game_page_rule": {
+    "n": 4728,
+    "per100": 9.844,
+    "ci95": [
+     9.603,
+     10.093
+    ]
+   },
+   "database_glyphs": {
+    "n": 4728,
+    "per100": 8.045,
+    "ci95": [
+     7.85,
+     8.259
+    ]
+   }
+  },
+  "rapid_10+0_1050-1150": {
+   "game_page_rule": {
+    "n": 5969,
+    "per100": 9.444,
+    "ci95": [
+     9.224,
+     9.657
+    ]
+   },
+   "database_glyphs": {
+    "n": 5969,
+    "per100": 7.488,
+    "ci95": [
+     7.296,
+     7.67
+    ]
+   }
+  },
+  "rapid_10+0_1150-1250": {
+   "game_page_rule": {
+    "n": 7206,
+    "per100": 8.871,
+    "ci95": [
+     8.673,
+     9.053
+    ]
+   },
+   "database_glyphs": {
+    "n": 7206,
+    "per100": 6.87,
+    "ci95": [
+     6.692,
+     7.032
+    ]
+   }
+  }
+ }
+}

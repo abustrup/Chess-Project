@@ -1,0 +1,76 @@
+{
+ "analysed_games_in_sample": 40101,
+ "lichess_eval_games_lasting_24_plies": {
+  "games": 38668,
+  "black_below_30": 0.3061,
+  "black_ci95": [
+   0.301,
+   0.311
+  ],
+  "white_below_30": 0.1846,
+  "white_ci95": [
+   0.181,
+   0.189
+  ]
+ },
+ "lichess_eval_counting_early_finishes_by_result": {
+  "games": 40063,
+  "ended_before_ply24": 1395,
+  "black_below_30_or_lost_early": 0.3168,
+  "black_ci95": [
+   0.312,
+   0.321
+  ],
+  "white_below_30_or_lost_early": 0.1915,
+  "white_ci95": [
+   0.188,
+   0.195
+  ]
+ },
+ "lichess_eval_blitz_lasting_24": {
+  "games": 20559,
+  "black_below_30": 0.2866,
+  "ci95": [
+   0.28,
+   0.293
+  ]
+ },
+ "lichess_eval_rapid_lasting_24": {
+  "games": 18109,
+  "black_below_30": 0.3281,
+  "ci95": [
+   0.321,
+   0.335
+  ]
+ },
+ "stockfish_on_unanalysed_random_games": {
+  "depth": 14,
+  "sampled": 500,
+  "lasting_24": 440,
+  "ended_before_24": 60,
+  "black_below_30_lasting_24": 0.3273,
+  "black_ci95": [
+   0.285,
+   0.372
+  ],
+  "white_below_30_lasting_24": 0.1955,
+  "white_ci95": [
+   0.161,
+   0.235
+  ],
+  "black_below_30_or_lost_early": 0.352,
+  "black_or_early_ci95": [
+   0.311,
+   0.395
+  ],
+  "white_below_30_or_lost_early": 0.214
+ },
+ "binomial_P_at_least_9_of_16": {
+  "0.25": 0.0075,
+  "0.28": 0.0163,
+  "0.31": 0.0317,
+  "0.34": 0.0564,
+  "0.37": 0.0926,
+  "0.4": 0.1423
+ }
+}

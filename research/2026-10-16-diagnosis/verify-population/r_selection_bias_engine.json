@@ -1,0 +1,23 @@
+{
+ "time_control": "600+0",
+ "band": "950-1250 own rating",
+ "engine": "Stockfish 19, Threads 1, Hash 64, depth 14, game-page rule",
+ "games_analysed": 150,
+ "games_not_analysed": 150,
+ "player_games_analysed": 248,
+ "player_games_not_analysed": 256,
+ "sf_per100_analysed": 9.748,
+ "sf_per100_not_analysed": 9.677,
+ "ratio_not_over_analysed": 0.993,
+ "ratio_ci95_game_bootstrap": [
+  0.844,
+  1.17
+ ],
+ "calibration_on_analysed": {
+  "player_games": 248,
+  "lichess_api_per100": 9.236,
+  "sf_per100": 9.748,
+  "exact_match": 0.601,
+  "within_one": 0.919
+ }
+}

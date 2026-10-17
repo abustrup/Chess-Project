@@ -138,7 +138,13 @@ function openingRows(games: GameRecord[]): OpeningRow[] {
 
 /* ------------------------------------------------------------------------------------------ */
 
-export function computeInsights(games: GameRecord[]): Insights {
+/**
+ * `showNumbers: false` (the default, and the setting during the study) words the advice without counts or accuracy
+ * percentages: his blunder rate is what the study measures, so no running number of it, or one division away from it,
+ * is on screen until the verdict (preregistration.md answer 4; build-plan.md, "Not built"). The same habits are found
+ * and ranked either way; only the wording changes.
+ */
+export function computeInsights(games: GameRecord[], opts: { showNumbers?: boolean } = {}): Insights {
   const analysed = games.filter((g) => g.analysis)
   const phaseSums: Record<Phase, { moves: number; acc: number; loss: number }> = {
     opening: { moves: 0, acc: 0, loss: 0 },
@@ -199,13 +205,13 @@ export function computeInsights(games: GameRecord[]): Insights {
     openings: openingRows(games),
     suggestions: [],
   }
-  insights.suggestions = suggest(insights)
+  insights.suggestions = suggest(insights, opts.showNumbers ?? false)
   return insights
 }
 
 /* ------------------------------------------------------------------------------------------ */
 
-function suggest(ins: Insights): Suggestion[] {
+function suggest(ins: Insights, showNumbers: boolean): Suggestion[] {
   if (!ins.gamesAnalysed) return []
   const n = ins.gamesAnalysed
   const found: (Suggestion & { priority: number })[] = []
@@ -216,7 +222,7 @@ function suggest(ins: Insights): Suggestion[] {
       id: 'hung',
       priority: 0.6 + Math.min(0.4, hungPerGame * 0.3),
       title: 'Check that nothing hangs before you move',
-      text: `In ${ins.hungPieces.games} of ${n} games you left a piece where it could be taken for free (${ins.hungPieces.count} time${ins.hungPieces.count === 1 ? '' : 's'}). Before each move, look at the square you move to and ask: "Can my opponent simply take something of mine?"`,
+      text: `${showNumbers ? `In ${ins.hungPieces.games} of ${n} games you left a piece where it could be taken for free (${ins.hungPieces.count} time${ins.hungPieces.count === 1 ? '' : 's'}).` : 'In your analysed games you sometimes left a piece where it could be taken for free.'} Before each move, look at the square you move to and ask: "Can my opponent simply take something of mine?"`,
       links: [
         { to: '/tactics', label: 'Tactics lessons' },
         { to: '/puzzles?theme=hangingPiece', label: 'Hanging-piece puzzles' },
@@ -229,7 +235,8 @@ function suggest(ins: Insights): Suggestion[] {
       id: 'blunders',
       priority: 0.55 + Math.min(0.35, ins.blunderRate / 20),
       title: 'Slow down on the moves that matter',
-      text: `You made about ${ins.blunderRate.toFixed(1)} big blunders per 100 moves. Most of them are one-move oversights. When the position gets sharp (captures, checks, threats), take an extra breath and look at what your opponent threatens.`,
+      // a count, not the rate: the study keeps his running blunder rate off the screen until its verdict
+      text: `${showNumbers ? `You made ${ins.blunders} big blunder${ins.blunders === 1 ? '' : 's'} in ${n} analysed game${n === 1 ? '' : 's'}. Most of them are` : 'Big blunders show up in your analysed games, and most big blunders are'} one-move oversights. When the position gets sharp (captures, checks, threats), take an extra breath and look at what your opponent threatens.`,
       links: [{ to: '/puzzles?theme=defensiveMove', label: 'Defending puzzles' }],
     })
   }
@@ -240,7 +247,11 @@ function suggest(ins: Insights): Suggestion[] {
       id: 'missed',
       priority: 0.5 + Math.min(0.35, missedPerGame * 0.25),
       title: 'Spot your chances: checks, captures, threats',
-      text: `In ${ins.missedChances.games} of ${n} games there was a move that would have won a lot (at least a pawn and a half), and you played something else (${ins.missedChances.count} time${ins.missedChances.count === 1 ? '' : 's'}). Before a quiet move, always look at every check, capture and threat first.`,
+      text: `${
+        showNumbers
+          ? `In ${ins.missedChances.games} of ${n} games there was a move that would have won a lot (at least a pawn and a half), and you played something else (${ins.missedChances.count} time${ins.missedChances.count === 1 ? '' : 's'}).`
+          : 'In your analysed games there was sometimes a move that would have won a lot (at least a pawn and a half), and you played something else.'
+      } Before a quiet move, always look at every check, capture and threat first.`,
       links: [
         { to: '/puzzles?theme=crushing', label: 'Winning-chance puzzles' },
         { to: '/tactics', label: 'Tactics lessons' },
@@ -271,7 +282,7 @@ function suggest(ins: Insights): Suggestion[] {
         id: `phase-${worst.phase}`,
         priority: 0.4 + Math.min(0.3, gap / 40),
         title: `Your ${PHASE_LABEL[worst.phase].toLowerCase()} needs love`,
-        text: `Your accuracy in the ${PHASE_LABEL[worst.phase].toLowerCase()} is ${Math.round(worst.accuracy)}%, compared with ${Math.round(otherAvg)}% in the rest of the game. ${text[worst.phase]}`,
+        text: `${showNumbers ? `Your accuracy in the ${PHASE_LABEL[worst.phase].toLowerCase()} is ${Math.round(worst.accuracy)}%, compared with ${Math.round(otherAvg)}% in the rest of the game.` : `Your moves are least accurate in the ${PHASE_LABEL[worst.phase].toLowerCase()}.`} ${text[worst.phase]}`,
         links: links[worst.phase],
       })
     }

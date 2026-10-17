@@ -1,0 +1,100 @@
+# Builds the matched-newcomer group for the study (research/2026-10-16-diagnosis/preregistration.md 3.6) from other
+# Lichess players' public games, and commits research/2026-10-16-diagnosis/newcomers/newcomers.json.
+# Start it by hand: GitHub -> Actions -> "Matched newcomers" -> Run workflow (mode "full"). It must be committed
+# before Alexander's 41st rated 10+0 game to count (the daily measuring job records that as newcomersBinding).
+#
+# One job, not a matrix: the slow part is waiting on the Lichess API, which must be asked one request at a time, so
+# parallel jobs would break Lichess's rule; and handing the usernames from job to job would need artifacts, which
+# anyone can download on a public repository. Progress (the saved Lichess answers, with usernames) lives only in the
+# Actions cache: never committed, never an artifact, and nothing in the logs names a player. Workflow runs in this
+# repository can restore that cache, and so can pull-request runs (GitHub asks the owner to approve them only for
+# first-time contributors), so do not approve or merge a stranger's pull request that edits workflows. The names in
+# it are public Lichess data either way. If GitHub's 6-hour job limit comes near, the job saves its progress and starts
+# the next run itself (at most max_rounds runs). The "Run workflow" button appears once this file is on the default
+# branch.
+# A newcomers.json that is already committed is never overwritten: the run then rebuilds it and reports whether it
+# came out byte for byte the same.
+# Every step is research/2026-10-16-diagnosis/newcomers/ci.sh, which also runs on a Mac (DRY_RUN=1, see its header).
+
+name: Matched newcomers
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'full = build and commit newcomers.json; pilot = a 2-minute test on 2 database ranges, commits nothing'
+        type: choice
+        options: [full, pilot]
+        default: full
+      round:
+        description: 'Run number in a chain of runs (the workflow sets it itself when it continues)'
+        default: '1'
+      max_rounds:
+        description: 'Stop starting new runs after this many'
+        default: '6'
+
+permissions:
+  contents: write   # commit newcomers.json
+  actions: write    # start the next run when one is not enough
+
+concurrency:
+  group: newcomers
+  cancel-in-progress: false
+
+jobs:
+  newcomers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      PY: python
+      MODE: ${{ inputs.mode }}
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v5
+
+      - name: Install Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # python-chess because the prereg filter (measure.py) imports it; zstandard reads the Lichess database file
+      - name: Install the two Python packages
+        run: python -m pip install --disable-pip-version-check chess==1.11.2 zstandard==0.25.0
+
+      - name: Self-test (mock Lichess, no network)
+        run: python -I research/2026-10-16-diagnosis/newcomers/newcomers.py selftest
+
+      - name: Restore the saved Lichess answers from earlier runs
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.cache/chess-project-newcomers
+          key: newcomers-${{ inputs.mode }}-v1-${{ github.run_id }}
+          restore-keys: newcomers-${{ inputs.mode }}-v1-
+
+      - name: Sample the database, ask Lichess (one request at a time), build
+        id: run
+        env:
+          OUT: ${{ runner.temp }}/newcomers-out
+          BUDGET_MINUTES: '300'
+        run: bash research/2026-10-16-diagnosis/newcomers/ci.sh run "$MODE"
+
+      - name: Save the Lichess answers for the next run (kept only in this repository's Actions cache)
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.cache/chess-project-newcomers
+          key: newcomers-${{ inputs.mode }}-v1-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Commit newcomers.json (never over a committed one)
+        if: steps.run.outputs.code == '0'
+        env:
+          OUT: ${{ runner.temp }}/newcomers-out
+        run: bash research/2026-10-16-diagnosis/newcomers/ci.sh publish "$MODE"
+
+      - name: Not finished yet, so start the next run
+        if: steps.run.outputs.code == '3' && inputs.mode == 'full'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ROUND: ${{ inputs.round }}            # free-text inputs reach the shell as variables, never as script text
+          MAX_ROUNDS: ${{ inputs.max_rounds }}
+        run: bash research/2026-10-16-diagnosis/newcomers/ci.sh chain "$MODE" "$ROUND" "$MAX_ROUNDS"

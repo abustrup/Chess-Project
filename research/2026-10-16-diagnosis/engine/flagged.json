@@ -1,0 +1,177 @@
+{
+ "generated": "2026-10-16T17:12:32Z",
+ "settings": {
+  "engine": "Stockfish 19 (every search read from the cache)",
+  "enginePath": "/opt/homebrew/bin/stockfish",
+  "nnue": "default net bundled with the binary",
+  "pass1": {
+   "nodes": 3000000,
+   "multipv": 3,
+   "threads": 2,
+   "hashMB": 512
+  },
+  "confirmation": {
+   "nodes": 30000000,
+   "threads": 2,
+   "hashMB": 512,
+   "rootMoves": "only the pass-1 top 3, the cloud's best move and the move under test",
+   "multipv": "one line per root move, so best and tested move come from one search",
+   "lineEnds": "MultiPV 1, unrestricted"
+  },
+  "tiebreak": {
+   "nodes": 150000000,
+   "when": "confirmed engine verdict and cloud verdict disagree",
+   "method": "same restricted search as the confirmation, root moves = confirmation lines + cloud best + the move"
+  },
+  "moveNotInTop3": "second search with only {best move, this move} as root moves, MultiPV 2, same nodes",
+  "hashPolicy": "ucinewgame (hash cleared) before each new position; kept between the searches of one position",
+  "scores": "centipawns from the side to move, clamped to +-1000; mate = +-1000 (Lichess convention)",
+  "winPercent": "50 + 50*(2/(1+exp(-0.00368208*cp))-1)  (lila WinPercent); a win-chance point = 1 on this 0-100 scale",
+  "lichessLabels": "inaccuracy >= 5, mistake >= 10, blunder >= 15 win-chance points lost (lila Advice: 0.1/0.2/0.3)",
+  "thresholds": {
+   "recommendedCp": 50,
+   "recommendedWinChance": 5.0,
+   "opponentMistakeCp": 40,
+   "lineEndBadCp": -50,
+   "confirmIfNear": {
+    "recommendedCp": 30,
+    "recommendedWinChance": 3.0,
+    "opponentCp": 70,
+    "lineEndCp": -30
+   }
+  },
+  "cloud": {
+   "url": "https://lichess.org/api/cloud-eval",
+   "params": "fen, multiPv=3 (fallback multiPv=1 when the 3-line entry is missing)",
+   "minSecondsBetweenRequests": 3.0,
+   "userAgent": "ChessCoach-deep-check/1.0 (+https://github.com/abustrup/Chess-Project)",
+   "notStored": "a 404 is cached only after a stored position answered 200 in the same run",
+   "moveNotInCloudLines": "eval of the position after the move (its best line, negated); if missing, a lower bound from the third cloud line"
+  },
+  "determinism": "Threads > 1 makes Stockfish non-deterministic: re-runs can differ by a few cp and, rarely, in the move order of close lines.",
+  "cacheLookup": "a stored search of the same position, node count, MultiPV and root moves is reused whatever thread count and hash size it was made with (the first one stored wins)",
+  "cacheFrom": null,
+  "offline": true,
+  "cloudRun": {
+   "requestsThisRun": 0,
+   "secondsWaitedOn429": 0.0,
+   "gaveUpOnRateLimit": false
+  },
+  "engineRun": {
+   "searchesReused": 698,
+   "newSearches": 0,
+   "skippedForTimeBudget": 0
+  }
+ },
+ "taughtMovesFlagged": [
+  {
+   "course": "london",
+   "chapters": [
+    "london/keep-calm-weird-moves"
+   ],
+   "line": "1. d4 b6 2. Nf3",
+   "fen": "rnbqkbnr/p1pppppp/1p6/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
+   "move": "Nf3",
+   "kind": "recommended",
+   "enginePrefers": "e4",
+   "engine": {
+    "cpLoss": 59,
+    "wcLoss": 5.37,
+    "bestCp": 84,
+    "moveCp": 25,
+    "depth": 26,
+    "nodes": 30000000,
+    "method": "confirm-restricted-multipv4"
+   },
+   "cloud": {
+    "bestMove": "e2e4",
+    "bestCp": 88,
+    "depth": 50,
+    "multipv": 3,
+    "knodes": 3066165,
+    "moveCp": 24,
+    "cpLoss": 64,
+    "wcLoss": 5.82,
+    "method": "cloud-position-after",
+    "moveDepth": 40
+   },
+   "verdict": {
+    "flaggedByEngine": true,
+    "flaggedByCloud": true,
+    "agreement": "engine and cloud agree",
+    "lichessLabelEngine": "inaccuracy",
+    "lichessLabelCloud": "inaccuracy"
+   }
+  },
+  {
+   "course": "london",
+   "chapters": [
+    "london/vs-dutch"
+   ],
+   "line": "1. d4 f5 2. Bf4 Nf6 3. e3 g6 4. Nf3",
+   "fen": "rnbqkb1r/ppppp2p/5np1/5p2/3P1B2/4P3/PPP2PPP/RN1QKBNR w KQkq - 0 4",
+   "move": "Nf3",
+   "kind": "recommended",
+   "enginePrefers": "h4",
+   "engine": {
+    "cpLoss": 52,
+    "wcLoss": 4.72,
+    "bestCp": 87,
+    "moveCp": 35,
+    "depth": 30,
+    "nodes": 150000000,
+    "method": "confirm-restricted-multipv4"
+   },
+   "cloud": {
+    "bestMove": "b1c3",
+    "bestCp": 89,
+    "depth": 32,
+    "multipv": 3,
+    "knodes": 402313,
+    "moveCp": 32,
+    "cpLoss": 57,
+    "wcLoss": 5.18,
+    "method": "cloud-position-after",
+    "moveDepth": 46
+   },
+   "verdict": {
+    "flaggedByEngine": true,
+    "flaggedByCloud": true,
+    "agreement": "engine and cloud agree",
+    "lichessLabelEngine": "ok",
+    "lichessLabelCloud": "inaccuracy"
+   }
+  },
+  {
+   "course": "london",
+   "chapters": [
+    "london/vs-kings-indian"
+   ],
+   "line": "1. d4 g6 2. Bf4",
+   "fen": "rnbqkbnr/pppppp1p/6p1/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
+   "move": "Bf4",
+   "kind": "recommended",
+   "enginePrefers": "e4",
+   "engine": {
+    "cpLoss": 51,
+    "wcLoss": 4.67,
+    "bestCp": 59,
+    "moveCp": 8,
+    "depth": 29,
+    "nodes": 30000000,
+    "method": "confirm-restricted-multipv4"
+   },
+   "cloud": null,
+   "verdict": {
+    "flaggedByEngine": true,
+    "flaggedByCloud": null,
+    "agreement": "engine only (no cloud data)",
+    "lichessLabelEngine": "ok",
+    "lichessLabelCloud": null
+   }
+  }
+ ],
+ "opponentMarksNotMistakes": [],
+ "badLineEnds": [],
+ "conflicts": []
+}

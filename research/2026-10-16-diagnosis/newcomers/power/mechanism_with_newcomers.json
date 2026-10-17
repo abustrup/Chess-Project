@@ -1,0 +1,62 @@
+[
+ {
+  "mu": 9.8,
+  "scenario": "no effect",
+  "mechanism_supported": 0.051,
+  "main_worked_with_newcomers": 0.018
+ },
+ {
+  "mu": 9.8,
+  "scenario": "same 20%",
+  "mechanism_supported": 0.051,
+  "main_worked_with_newcomers": 0.083
+ },
+ {
+  "mu": 9.8,
+  "scenario": "threat -30%",
+  "mechanism_supported": 0.355,
+  "main_worked_with_newcomers": 0.033
+ },
+ {
+  "mu": 9.8,
+  "scenario": "threat halved",
+  "mechanism_supported": 0.786,
+  "main_worked_with_newcomers": 0.084
+ },
+ {
+  "mu": 9.8,
+  "scenario": "threat halved, others -15%",
+  "mechanism_supported": 0.581,
+  "main_worked_with_newcomers": 0.155
+ },
+ {
+  "mu": 12.5,
+  "scenario": "no effect",
+  "mechanism_supported": 0.048,
+  "main_worked_with_newcomers": 0.022
+ },
+ {
+  "mu": 12.5,
+  "scenario": "same 20%",
+  "mechanism_supported": 0.054,
+  "main_worked_with_newcomers": 0.132
+ },
+ {
+  "mu": 12.5,
+  "scenario": "threat -30%",
+  "mechanism_supported": 0.416,
+  "main_worked_with_newcomers": 0.053
+ },
+ {
+  "mu": 12.5,
+  "scenario": "threat halved",
+  "mechanism_supported": 0.852,
+  "main_worked_with_newcomers": 0.113
+ },
+ {
+  "mu": 12.5,
+  "scenario": "threat halved, others -15%",
+  "mechanism_supported": 0.653,
+  "main_worked_with_newcomers": 0.238
+ }
+]

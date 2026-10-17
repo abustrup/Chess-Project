@@ -306,3 +306,187 @@ export interface PuzzleStats {
   history: { date: string; puzzleId: string; solved: boolean; puzzleRating: number; ratingAfter: number; theme?: string }[]
   byTheme: Record<string, { solved: number; failed: number }>
 }
+
+/* ------------------------------------------------------------------ */
+/* Safety check (the study's trainer, src/features/safety/)            */
+/* ------------------------------------------------------------------ */
+
+// public/data/safety/cards.json, written by scripts/safety/build_cards.py. The exact format, with every rule, is
+// scripts/safety/cards.schema.json; only the fields the app reads are named here.
+
+/** An engine evaluation from WHITE's point of view, like Lichess: centipawns or a forced mate (mate > 0 = White mates). */
+export type SafetyEval = { cp: number; mate?: undefined } | { mate: number; cp?: undefined }
+
+export type SafetyKind = 'own' | 'held' | 'quiet'
+export type SafetyPiece = 'p' | 'n' | 'b' | 'r' | 'q' | 'k'
+
+export interface SafetyTopMove {
+  uci: string
+  san: string
+  /** The trainee's win% (0..100) on Lichess's "Learn from your mistakes" scale after this move. */
+  win: number
+  eval: SafetyEval
+  /** Engine line starting with this move; pv[1..] is the opponent's answer. */
+  pv: string[]
+}
+
+/**
+ * Held and quiet cards: one legal move, as the card builder's safety rule needs it (scripts/safety/build_cards.py,
+ * move_entry). A move within 4 points of the best carries only its eval; any other also its settled line (starting with
+ * the move), the material he gives away along it (null when the line still ends mid-exchange) and `safe`: under 15
+ * points lost, no mate against him, and under 2 points of material given away.
+ */
+export interface SafetyMoveEntry {
+  uci: string
+  eval: SafetyEval
+  line?: string[]
+  gain?: number | null
+  safe?: boolean
+}
+
+/** "What there was to see": facts computed and re-checked by the card builder, turned into sentences by facts.ts. */
+export type SafetyFact =
+  | {
+      t: 'threat'
+      reply: string
+      line: string[]
+      lineSan: string[]
+      wins?: { piece: SafetyPiece; square: string }
+      mateIn?: number
+      gain?: number
+    }
+  | {
+      t: 'allowed'
+      move: string
+      reply: string
+      line: string[]
+      lineSan: string[]
+      wins?: { piece: SafetyPiece; square: string }
+      mateIn?: number
+      gain?: number
+    }
+  | { t: 'free'; piece: SafetyPiece; square: string; line: string[]; lineSan: string[]; gain: number }
+  | { t: 'quiet' }
+
+export interface SafetyCard {
+  /** 'own:<gameId>:<ply>' and the like */
+  id: string
+  kind: SafetyKind
+  /** own cards: the my-games category of the mistake; 'held' and 'quiet' otherwise */
+  cls: string
+  /** The position BEFORE the opponent's last move. */
+  fenBefore: string
+  /** The opponent's last move (UCI); after it the trainee is to move. */
+  lastMove: string
+  lastMoveSan: string
+  side: Side
+  phase: 'opening' | 'middlegame' | 'endgame'
+  facingThreat: boolean
+  nothingToWin: boolean
+  /** His win% before the move was 75 or more. */
+  wasWinning: boolean
+  winBefore: number
+  /** Up to 5 moves, best first. */
+  top: SafetyTopMove[]
+  /** True when the last `top` move already fails the 4-point rule, so any move outside `top` fails at once. */
+  topComplete: boolean
+  /** Held and quiet cards: every legal move, so each is decided from stored data (right when within 4 points or safe). */
+  moves?: SafetyMoveEntry[]
+  /** The move he played in the game. */
+  human: {
+    uci: string
+    san: string
+    win: number
+    eval: SafetyEval
+    passes: boolean
+    judgment: 'Inaccuracy' | 'Mistake' | 'Blunder' | null
+    lichessJudgment: 'Inaccuracy' | 'Mistake' | 'Blunder' | null
+    drop: number
+  }
+  threat: { loss: number; material: number; mateIn: number | null; real: boolean; line: string[]; lineSan: string[] } | null
+  facts: SafetyFact[]
+  context: {
+    gameId: string
+    date: string // YYYY-MM-DD
+    tc: string // '600+0'
+    speed: string
+    rated: boolean
+    moveNumber: number
+    clockMs: number | null
+    spentMs: number | null
+  }
+}
+
+export interface SafetyCardFile {
+  version: 1
+  generatedAt: string
+  pipeline: string
+  source: string
+  cards: SafetyCard[]
+}
+
+/** KEYS.safetyState: the review schedule of one card (ts-fsrs's card, with dates as ISO text). */
+export interface StoredSafetyCard {
+  due: string
+  stability: number
+  difficulty: number
+  elapsed_days: number
+  scheduled_days: number
+  learning_steps: number
+  reps: number
+  lapses: number
+  state: 0 | 1 | 2 | 3
+  last_review?: string
+  /** Answered right after 14 days or more: it has left the queue for good. */
+  retired?: string
+}
+export type SafetyState = Record<string, StoredSafetyCard>
+
+/** KEYS.safetyLog: one row per answer, newest last. */
+export interface SafetyAttempt {
+  cardId: string
+  at: string
+  /** The move he confirmed (UCI); missing when he looked at the answer first. */
+  move?: string
+  ok: boolean
+  /** Win% points lost against the best move; null when only "worse than the 5th best" is known. */
+  loss: number | null
+  /** The line he wrote on what he checked (2..140 characters; empty when he looked at the answer first). */
+  checked: string
+  msToMove: number
+  msToWrite: number
+  /** 1 Again, 2 Hard, 3 Good: only on the first answer of the day, which is the one that moves the schedule. */
+  grade?: 1 | 2 | 3
+  shownAnswer: boolean
+  /** first answer of the day, the repeat at the end of a session after a miss, or a retry after a miss */
+  how: 'first' | 'repeat' | 'retry'
+  /** how the verdict was reached: in the stored top moves, the game move, outside a complete list, the browser engine,
+   *  or (held and quiet cards) the stored list of every legal move */
+  by?: 'top' | 'game' | 'complete' | 'engine' | 'moves'
+}
+
+/** KEYS.safetySettings */
+export interface SafetySettings {
+  newPerDay: number
+  maxReviews: number
+  /** A right answer slower than this counts as Hard. */
+  slowMs: number
+}
+export const DEFAULT_SAFETY_SETTINGS: SafetySettings = { newPerDay: 10, maxReviews: 10, slowMs: 90_000 }
+
+/** KEYS.safetyDay: today's queue, so a reload keeps the order and what is left. */
+export interface SafetyDay {
+  /** local date, YYYY-MM-DD */
+  date: string
+  /** first answers planned today, in order */
+  ids: string[]
+  /** which of `ids` were new cards when planned */
+  newIds: string[]
+  /** cards whose first answer today is done */
+  done: string[]
+  /** missed today: shown once more at the end of the session (no schedule change) */
+  repeats: string[]
+  repeatsDone: string[]
+  /** [newPerDay, maxReviews] the plan was made with */
+  caps: [number, number]
+}

@@ -1,0 +1,1299 @@
+{
+ "speeds": "all",
+ "games": 322704,
+ "min_node": 30,
+ "courses": {
+  "london": {
+   "strict": {
+    "still_in_course_after_opponent_move_N_low_high": {
+     "1": [
+      0.7303,
+      0.7303
+     ],
+     "2": [
+      0.5368,
+      0.5368
+     ],
+     "3": [
+      0.4063,
+      0.4114
+     ],
+     "4": [
+      0.2252,
+      0.2382
+     ],
+     "5": [
+      0.0389,
+      0.1996
+     ],
+     "6": [
+      0.0093,
+      0.1916
+     ],
+     "7": [
+      0,
+      0.1916
+     ],
+     "8": [
+      0,
+      0.1916
+     ]
+    },
+    "decisions_total_unique_positions": 449,
+    "decisions_used_ge_1_in_100": 31,
+    "decisions_used_ge_1_in_200": 41,
+    "decisions_used_ge_1_in_500": 59,
+    "slav_structure_mass": 0.0,
+    "end_reasons": {
+     "gap": 0.8078,
+     "too rare": 0.1916,
+     "course runs out": 0.0007,
+     "reached ply 24": 0,
+     "pruned": 0
+    },
+    "top_gaps": [
+     {
+      "line": "d4 e6",
+      "mass": 0.0901,
+      "n_move": 6617,
+      "n_pos": 73443,
+      "mover_score": 0.528
+     },
+     {
+      "line": "d4 d5 Bf4 e6",
+      "mass": 0.0853,
+      "n_move": 1684,
+      "n_pos": 10744,
+      "mover_score": 0.539
+     },
+     {
+      "line": "d4 e5",
+      "mass": 0.0833,
+      "n_move": 6115,
+      "n_pos": 73443,
+      "mover_score": 0.5
+     },
+     {
+      "line": "d4 c6",
+      "mass": 0.0352,
+      "n_move": 2586,
+      "n_pos": 73443,
+      "mover_score": 0.526
+     },
+     {
+      "line": "d4 g6",
+      "mass": 0.0347,
+      "n_move": 2546,
+      "n_pos": 73443,
+      "mover_score": 0.504
+     },
+     {
+      "line": "d4 d5 Bf4 Nc6 e3 e6",
+      "mass": 0.0212,
+      "n_move": 244,
+      "n_pos": 2240,
+      "mover_score": 0.557
+     },
+     {
+      "line": "d4 d5 Bf4 Nc6 e3 Bf5 c4 dxc4",
+      "mass": 0.0196,
+      "n_move": 24,
+      "n_pos": 70,
+      "mover_score": 0.625
+     },
+     {
+      "line": "d4 d5 Bf4 Nc6 e3 f6",
+      "mass": 0.0155,
+      "n_move": 178,
+      "n_pos": 2240,
+      "mover_score": 0.522
+     },
+     {
+      "line": "d4 Nc6",
+      "mass": 0.0149,
+      "n_move": 1097,
+      "n_pos": 73443,
+      "mover_score": 0.572
+     },
+     {
+      "line": "d4 d5 Bf4 f6",
+      "mass": 0.0127,
+      "n_move": 251,
+      "n_pos": 10744,
+      "mover_score": 0.548
+     },
+     {
+      "line": "d4 d5 Bf4 c6",
+      "mass": 0.0125,
+      "n_move": 246,
+      "n_pos": 10744,
+      "mover_score": 0.51
+     },
+     {
+      "line": "d4 d5 Bf4 Nc6 e3 Nf6 c3 Bg4",
+      "mass": 0.0112,
+      "n_move": 37,
+      "n_pos": 256,
+      "mover_score": 0.581
+     },
+     {
+      "line": "d4 d5 Bf4 Nc6 e3 a6",
+      "mass": 0.0107,
+      "n_move": 123,
+      "n_pos": 2240,
+      "mover_score": 0.496
+     },
+     {
+      "line": "d4 d5 Bf4 Nc6 e3 Bf5 c4 Nb4",
+      "mass": 0.0106,
+      "n_move": 13,
+      "n_pos": 70,
+      "mover_score": 0.308
+     },
+     {
+      "line": "d4 d5 Bf4 Bf5 e3 e6 Nf3 Nc6",
+      "mass": 0.0075,
+      "n_move": 78,
+      "n_pos": 387,
+      "mover_score": 0.532
+     }
+    ]
+   },
+   "with_rescue": {
+    "still_in_course_after_opponent_move_N_low_high": {
+     "1": [
+      0.7303,
+      0.7303
+     ],
+     "2": [
+      0.5368,
+      0.5368
+     ],
+     "3": [
+      0.4107,
+      0.4157
+     ],
+     "4": [
+      0.2309,
+      0.2448
+     ],
+     "5": [
+      0.0409,
+      0.2049
+     ],
+     "6": [
+      0.0098,
+      0.197
+     ],
+     "7": [
+      0,
+      0.197
+     ],
+     "8": [
+      0,
+      0.197
+     ]
+    },
+    "decisions_total_unique_positions": 449,
+    "decisions_used_ge_1_in_100": 31,
+    "decisions_used_ge_1_in_200": 41,
+    "decisions_used_ge_1_in_500": 59,
+    "slav_structure_mass": 0.0,
+    "end_reasons": {
+     "gap": 0.8024,
+     "too rare": 0.197,
+     "course runs out": 0.0007,
+     "reached ply 24": 0,
+     "pruned": 0
+    },
+    "top_gaps": [
+     {
+      "line": "d4 e6",
+      "mass": 0.0901,
+      "n_move": 6617,
+      "n_pos": 73443,
+      "mover_score": 0.528
+     },
+     {
+      "line": "d4 d5 Bf4 e6",
+      "mass": 0.0853,
+      "n_move": 1684,
+      "n_pos": 10744,
+      "mover_score": 0.539
+     },
+     {
+      "line": "d4 e5",
+      "mass": 0.0833,
+      "n_move": 6115,
+      "n_pos": 73443,
+      "mover_score": 0.5
+     },
+     {
+      "line": "d4 c6",
+      "mass": 0.0352,
+      "n_move": 2586,
+      "n_pos": 73443,
+      "mover_score": 0.526
+     },
+     {
+      "line": "d4 g6",
+      "mass": 0.0347,
+      "n_move": 2546,
+      "n_pos": 73443,
+      "mover_score": 0.504
+     },
+     {
+      "line": "d4 d5 Bf4 Nc6 e3 e6",
+      "mass": 0.0212,
+      "n_move": 244,
+      "n_pos": 2240,
+      "mover_score": 0.557
+     },
+     {
+      "line": "d4 d5 Bf4 Nc6 e3 Bf5 c4 dxc4",
+      "mass": 0.0196,
+      "n_move": 24,
+      "n_pos": 70,
+      "mover_score": 0.625
+     },
+     {
+      "line": "d4 d5 Bf4 Nc6 e3 f6",
+      "mass": 0.0155,
+      "n_move": 178,
+      "n_pos": 2240,
+      "mover_score": 0.522
+     },
+     {
+      "line": "d4 Nc6",
+      "mass": 0.0149,
+      "n_move": 1097,
+      "n_pos": 73443,
+      "mover_score": 0.572
+     },
+     {
+      "line": "d4 d5 Bf4 f6",
+      "mass": 0.0127,
+      "n_move": 251,
+      "n_pos": 10744,
+      "mover_score": 0.548
+     },
+     {
+      "line": "d4 d5 Bf4 c6",
+      "mass": 0.0125,
+      "n_move": 246,
+      "n_pos": 10744,
+      "mover_score": 0.51
+     },
+     {
+      "line": "d4 d5 Bf4 Nc6 e3 Nf6 c3 Bg4",
+      "mass": 0.0112,
+      "n_move": 37,
+      "n_pos": 256,
+      "mover_score": 0.581
+     },
+     {
+      "line": "d4 d5 Bf4 Nc6 e3 a6",
+      "mass": 0.0107,
+      "n_move": 123,
+      "n_pos": 2240,
+      "mover_score": 0.496
+     },
+     {
+      "line": "d4 d5 Bf4 Nc6 e3 Bf5 c4 Nb4",
+      "mass": 0.0106,
+      "n_move": 13,
+      "n_pos": 70,
+      "mover_score": 0.308
+     },
+     {
+      "line": "d4 d5 Bf4 Bf5 e3 e6 Nf3 Nc6",
+      "mass": 0.0075,
+      "n_move": 78,
+      "n_pos": 387,
+      "mover_score": 0.532
+     }
+    ]
+   },
+   "kaplan_meier_real_games": [
+    {
+     "black_move": 1,
+     "at_risk": 73443,
+     "left": 19805,
+     "S": 0.7303
+    },
+    {
+     "black_move": 2,
+     "at_risk": 13957,
+     "left": 3626,
+     "S": 0.5406
+    },
+    {
+     "black_move": 3,
+     "at_risk": 5695,
+     "left": 1252,
+     "S": 0.4217
+    },
+    {
+     "black_move": 4,
+     "at_risk": 1878,
+     "left": 759,
+     "S": 0.2513
+    },
+    {
+     "black_move": 5,
+     "at_risk": 229,
+     "left": 116,
+     "S": 0.124
+    },
+    {
+     "black_move": 6,
+     "at_risk": 56,
+     "left": 35,
+     "S": 0.0465
+    },
+    {
+     "black_move": 7,
+     "at_risk": 1,
+     "left": 1,
+     "S": 0.0
+    }
+   ]
+  },
+  "caro-kann": {
+   "strict": {
+    "still_in_course_after_opponent_move_N_low_high": {
+     "1": [
+      1.0,
+      1.0
+     ],
+     "2": [
+      0.9151,
+      0.9151
+     ],
+     "3": [
+      0.8492,
+      0.8495
+     ],
+     "4": [
+      0.6007,
+      0.6092
+     ],
+     "5": [
+      0.3675,
+      0.4355
+     ],
+     "6": [
+      0.1268,
+      0.2474
+     ],
+     "7": [
+      0.0423,
+      0.2182
+     ],
+     "8": [
+      0.0088,
+      0.2053
+     ]
+    },
+    "decisions_total_unique_positions": 552,
+    "decisions_used_ge_1_in_100": 38,
+    "decisions_used_ge_1_in_200": 61,
+    "decisions_used_ge_1_in_500": 83,
+    "slav_structure_mass": 0.0,
+    "end_reasons": {
+     "gap": 0.7947,
+     "too rare": 0.2053,
+     "course runs out": 0,
+     "reached ply 24": 0,
+     "pruned": 0
+    },
+    "top_gaps": [
+     {
+      "line": "e4 c6 Bc4 d5 exd5 cxd5 Bb3",
+      "mass": 0.0545,
+      "n_move": 699,
+      "n_pos": 1347,
+      "mover_score": 0.531
+     },
+     {
+      "line": "e4 c6 Nf3 d5 exd5 cxd5 Nc3",
+      "mass": 0.0325,
+      "n_move": 432,
+      "n_pos": 2405,
+      "mover_score": 0.536
+     },
+     {
+      "line": "e4 c6 Nf3 d5 exd5 cxd5 Bb5+",
+      "mass": 0.0248,
+      "n_move": 330,
+      "n_pos": 2405,
+      "mover_score": 0.53
+     },
+     {
+      "line": "e4 c6 e5",
+      "mass": 0.0216,
+      "n_move": 315,
+      "n_pos": 14606,
+      "mover_score": 0.513
+     },
+     {
+      "line": "e4 c6 Qf3",
+      "mass": 0.0192,
+      "n_move": 281,
+      "n_pos": 14606,
+      "mover_score": 0.523
+     },
+     {
+      "line": "e4 c6 f4",
+      "mass": 0.0186,
+      "n_move": 272,
+      "n_pos": 14606,
+      "mover_score": 0.482
+     },
+     {
+      "line": "e4 c6 d4 d5 Nc3 dxe4 Nxe4 Bf5 Bd3",
+      "mass": 0.0183,
+      "n_move": 101,
+      "n_pos": 322,
+      "mover_score": 0.475
+     },
+     {
+      "line": "e4 c6 Nf3 d5 exd5 cxd5 d4 Nc6 Nc3 Bg4 Be2",
+      "mass": 0.0161,
+      "n_move": 86,
+      "n_pos": 221,
+      "mover_score": 0.517
+     },
+     {
+      "line": "e4 c6 Bc4 d5 exd5 cxd5 Bb5+ Bd7 Bxd7+ Nxd7 Nf3",
+      "mass": 0.014,
+      "n_move": 46,
+      "n_pos": 100,
+      "mover_score": 0.522
+     },
+     {
+      "line": "e4 c6 d4 d5 Nc3 dxe4 Nxe4 Bf5 Ng5",
+      "mass": 0.0114,
+      "n_move": 63,
+      "n_pos": 322,
+      "mover_score": 0.437
+     },
+     {
+      "line": "e4 c6 Nf3 d5 exd5 cxd5 d4 Nc6 Bb5 Bd7 Nc3",
+      "mass": 0.0112,
+      "n_move": 12,
+      "n_pos": 32,
+      "mover_score": 0.333
+     },
+     {
+      "line": "e4 c6 d4 d5 e5 Bf5 f4",
+      "mass": 0.011,
+      "n_move": 97,
+      "n_pos": 1644,
+      "mover_score": 0.459
+     },
+     {
+      "line": "e4 c6 Nf3 d5 exd5 cxd5 d4 Nc6 Nc3 Bg4 Bb5",
+      "mass": 0.009,
+      "n_move": 48,
+      "n_pos": 221,
+      "mover_score": 0.542
+     },
+     {
+      "line": "e4 c6 Nf3 d5 exd5 cxd5 d4 Nc6 Bb5 Bd7 O-O",
+      "mass": 0.0084,
+      "n_move": 9,
+      "n_pos": 32,
+      "mover_score": 0.333
+     },
+     {
+      "line": "e4 c6 Qh5",
+      "mass": 0.0084,
+      "n_move": 123,
+      "n_pos": 14606,
+      "mover_score": 0.533
+     }
+    ]
+   },
+   "with_rescue": {
+    "still_in_course_after_opponent_move_N_low_high": {
+     "1": [
+      1.0,
+      1.0
+     ],
+     "2": [
+      0.9151,
+      0.9151
+     ],
+     "3": [
+      0.8492,
+      0.8495
+     ],
+     "4": [
+      0.6007,
+      0.6092
+     ],
+     "5": [
+      0.3699,
+      0.4379
+     ],
+     "6": [
+      0.1347,
+      0.2576
+     ],
+     "7": [
+      0.0423,
+      0.2284
+     ],
+     "8": [
+      0.0088,
+      0.2155
+     ]
+    },
+    "decisions_total_unique_positions": 552,
+    "decisions_used_ge_1_in_100": 38,
+    "decisions_used_ge_1_in_200": 61,
+    "decisions_used_ge_1_in_500": 83,
+    "slav_structure_mass": 0.0,
+    "end_reasons": {
+     "gap": 0.7845,
+     "too rare": 0.2155,
+     "course runs out": 0,
+     "reached ply 24": 0,
+     "pruned": 0
+    },
+    "top_gaps": [
+     {
+      "line": "e4 c6 Bc4 d5 exd5 cxd5 Bb3",
+      "mass": 0.0545,
+      "n_move": 699,
+      "n_pos": 1347,
+      "mover_score": 0.531
+     },
+     {
+      "line": "e4 c6 Nf3 d5 exd5 cxd5 Nc3",
+      "mass": 0.0325,
+      "n_move": 432,
+      "n_pos": 2405,
+      "mover_score": 0.536
+     },
+     {
+      "line": "e4 c6 Nf3 d5 exd5 cxd5 Bb5+",
+      "mass": 0.0248,
+      "n_move": 330,
+      "n_pos": 2405,
+      "mover_score": 0.53
+     },
+     {
+      "line": "e4 c6 e5",
+      "mass": 0.0216,
+      "n_move": 315,
+      "n_pos": 14606,
+      "mover_score": 0.513
+     },
+     {
+      "line": "e4 c6 Qf3",
+      "mass": 0.0192,
+      "n_move": 281,
+      "n_pos": 14606,
+      "mover_score": 0.523
+     },
+     {
+      "line": "e4 c6 f4",
+      "mass": 0.0186,
+      "n_move": 272,
+      "n_pos": 14606,
+      "mover_score": 0.482
+     },
+     {
+      "line": "e4 c6 d4 d5 Nc3 dxe4 Nxe4 Bf5 Bd3",
+      "mass": 0.0183,
+      "n_move": 101,
+      "n_pos": 322,
+      "mover_score": 0.475
+     },
+     {
+      "line": "e4 c6 Nf3 d5 exd5 cxd5 d4 Nc6 Nc3 Bg4 Be2",
+      "mass": 0.0161,
+      "n_move": 86,
+      "n_pos": 221,
+      "mover_score": 0.517
+     },
+     {
+      "line": "e4 c6 Bc4 d5 exd5 cxd5 Bb5+ Bd7 Bxd7+ Nxd7 Nf3",
+      "mass": 0.014,
+      "n_move": 46,
+      "n_pos": 100,
+      "mover_score": 0.522
+     },
+     {
+      "line": "e4 c6 d4 d5 Nc3 dxe4 Nxe4 Bf5 Ng5",
+      "mass": 0.0114,
+      "n_move": 63,
+      "n_pos": 322,
+      "mover_score": 0.437
+     },
+     {
+      "line": "e4 c6 Nf3 d5 exd5 cxd5 d4 Nc6 Bb5 Bd7 Nc3",
+      "mass": 0.0112,
+      "n_move": 12,
+      "n_pos": 32,
+      "mover_score": 0.333
+     },
+     {
+      "line": "e4 c6 d4 d5 e5 Bf5 f4",
+      "mass": 0.011,
+      "n_move": 97,
+      "n_pos": 1644,
+      "mover_score": 0.459
+     },
+     {
+      "line": "e4 c6 Nf3 d5 exd5 cxd5 d4 Nc6 Nc3 Bg4 Bb5",
+      "mass": 0.009,
+      "n_move": 48,
+      "n_pos": 221,
+      "mover_score": 0.542
+     },
+     {
+      "line": "e4 c6 Nf3 d5 exd5 cxd5 d4 Nc6 Bb5 Bd7 O-O",
+      "mass": 0.0084,
+      "n_move": 9,
+      "n_pos": 32,
+      "mover_score": 0.333
+     },
+     {
+      "line": "e4 c6 Qh5",
+      "mass": 0.0084,
+      "n_move": 123,
+      "n_pos": 14606,
+      "mover_score": 0.533
+     }
+    ]
+   }
+  },
+  "slav": {
+   "strict": {
+    "still_in_course_after_opponent_move_N_low_high": {
+     "1": [
+      1.0,
+      1.0
+     ],
+     "2": [
+      0.9446,
+      0.9446
+     ],
+     "3": [
+      0.7163,
+      0.728
+     ],
+     "4": [
+      0.4741,
+      0.5035
+     ],
+     "5": [
+      0.1892,
+      0.3945
+     ],
+     "6": [
+      0.0735,
+      0.3848
+     ],
+     "7": [
+      0.0027,
+      0.3183
+     ],
+     "8": [
+      0,
+      0.3183
+     ]
+    },
+    "decisions_total_unique_positions": 424,
+    "decisions_used_ge_1_in_100": 36,
+    "decisions_used_ge_1_in_200": 46,
+    "decisions_used_ge_1_in_500": 57,
+    "slav_structure_mass": 0.3289,
+    "end_reasons": {
+     "gap": 0.6817,
+     "too rare": 0.3183,
+     "course runs out": 0,
+     "reached ply 24": 0,
+     "pruned": 0
+    },
+    "top_gaps": [
+     {
+      "line": "d4 d5 Nc3 c6 Bf4",
+      "mass": 0.0553,
+      "n_move": 236,
+      "n_pos": 470,
+      "mover_score": 0.5
+     },
+     {
+      "line": "d4 d5 Bf4 c6 e3 Bf5 Bd3",
+      "mass": 0.0407,
+      "n_move": 48,
+      "n_pos": 194,
+      "mover_score": 0.417
+     },
+     {
+      "line": "d4 d5 Bf4 c6 Nc3",
+      "mass": 0.0196,
+      "n_move": 55,
+      "n_pos": 755,
+      "mover_score": 0.473
+     },
+     {
+      "line": "d4 d5 c3",
+      "mass": 0.0181,
+      "n_move": 723,
+      "n_pos": 39908,
+      "mover_score": 0.498
+     },
+     {
+      "line": "d4 d5 e3 c6 Bd3",
+      "mass": 0.0175,
+      "n_move": 62,
+      "n_pos": 430,
+      "mover_score": 0.371
+     },
+     {
+      "line": "d4 d5 c4 c6 c5",
+      "mass": 0.0146,
+      "n_move": 99,
+      "n_pos": 1704,
+      "mover_score": 0.495
+     },
+     {
+      "line": "d4 d5 Bf4 c6 e3 Bf5 c4",
+      "mass": 0.0144,
+      "n_move": 17,
+      "n_pos": 194,
+      "mover_score": 0.441
+     },
+     {
+      "line": "d4 d5 Bf4 c6 e3 Bf5 c3",
+      "mass": 0.0144,
+      "n_move": 17,
+      "n_pos": 194,
+      "mover_score": 0.5
+     },
+     {
+      "line": "d4 d5 Bf4 c6 e3 Bf5 Nf3 e6 c3",
+      "mass": 0.0137,
+      "n_move": 21,
+      "n_pos": 124,
+      "mover_score": 0.476
+     },
+     {
+      "line": "d4 d5 c4 c6 Nc3 Nf6 Bf4",
+      "mass": 0.0115,
+      "n_move": 47,
+      "n_pos": 465,
+      "mover_score": 0.351
+     },
+     {
+      "line": "d4 d5 c4 c6 Nc3 Nf6 cxd5",
+      "mass": 0.0108,
+      "n_move": 44,
+      "n_pos": 465,
+      "mover_score": 0.409
+     },
+     {
+      "line": "d4 d5 e3 c6 Nc3",
+      "mass": 0.0104,
+      "n_move": 37,
+      "n_pos": 430,
+      "mover_score": 0.405
+     },
+     {
+      "line": "d4 d5 e3 c6 c3",
+      "mass": 0.0101,
+      "n_move": 36,
+      "n_pos": 430,
+      "mover_score": 0.528
+     },
+     {
+      "line": "d4 d5 Bf4 c6 e3 Bf5 Nf3 e6 Bd3 Bxd3 Qxd3 Nf6 O-O",
+      "mass": 0.0098,
+      "n_move": 9,
+      "n_pos": 30,
+      "mover_score": 0.444
+     },
+     {
+      "line": "d4 d5 Bf4 c6 Nf3 Bf5 e3 e6 c3",
+      "mass": 0.0088,
+      "n_move": 21,
+      "n_pos": 124,
+      "mover_score": 0.476
+     }
+    ]
+   },
+   "with_rescue": {
+    "still_in_course_after_opponent_move_N_low_high": {
+     "1": [
+      1.0,
+      1.0
+     ],
+     "2": [
+      0.9446,
+      0.9446
+     ],
+     "3": [
+      0.7167,
+      0.7284
+     ],
+     "4": [
+      0.4955,
+      0.5254
+     ],
+     "5": [
+      0.2013,
+      0.4175
+     ],
+     "6": [
+      0.0736,
+      0.4079
+     ],
+     "7": [
+      0.0027,
+      0.3414
+     ],
+     "8": [
+      0,
+      0.3414
+     ]
+    },
+    "decisions_total_unique_positions": 424,
+    "decisions_used_ge_1_in_100": 37,
+    "decisions_used_ge_1_in_200": 47,
+    "decisions_used_ge_1_in_500": 57,
+    "slav_structure_mass": 0.3289,
+    "end_reasons": {
+     "gap": 0.6586,
+     "too rare": 0.3414,
+     "course runs out": 0,
+     "reached ply 24": 0,
+     "pruned": 0
+    },
+    "top_gaps": [
+     {
+      "line": "d4 d5 Nc3 c6 Bf4",
+      "mass": 0.0553,
+      "n_move": 236,
+      "n_pos": 470,
+      "mover_score": 0.5
+     },
+     {
+      "line": "d4 d5 Bf4 c6 e3 Bf5 Bd3",
+      "mass": 0.0407,
+      "n_move": 48,
+      "n_pos": 194,
+      "mover_score": 0.417
+     },
+     {
+      "line": "d4 d5 Bf4 c6 Nc3",
+      "mass": 0.0196,
+      "n_move": 55,
+      "n_pos": 755,
+      "mover_score": 0.473
+     },
+     {
+      "line": "d4 d5 c3",
+      "mass": 0.0181,
+      "n_move": 723,
+      "n_pos": 39908,
+      "mover_score": 0.498
+     },
+     {
+      "line": "d4 d5 e3 c6 Bd3",
+      "mass": 0.0175,
+      "n_move": 62,
+      "n_pos": 430,
+      "mover_score": 0.371
+     },
+     {
+      "line": "d4 d5 c4 c6 c5",
+      "mass": 0.0146,
+      "n_move": 99,
+      "n_pos": 1704,
+      "mover_score": 0.495
+     },
+     {
+      "line": "d4 d5 Bf4 c6 e3 Bf5 c4",
+      "mass": 0.0144,
+      "n_move": 17,
+      "n_pos": 194,
+      "mover_score": 0.441
+     },
+     {
+      "line": "d4 d5 Bf4 c6 e3 Bf5 c3",
+      "mass": 0.0144,
+      "n_move": 17,
+      "n_pos": 194,
+      "mover_score": 0.5
+     },
+     {
+      "line": "d4 d5 Bf4 c6 e3 Bf5 Nf3 e6 c3",
+      "mass": 0.0137,
+      "n_move": 21,
+      "n_pos": 124,
+      "mover_score": 0.476
+     },
+     {
+      "line": "d4 d5 c4 c6 Nc3 Nf6 Bf4",
+      "mass": 0.0115,
+      "n_move": 47,
+      "n_pos": 465,
+      "mover_score": 0.351
+     },
+     {
+      "line": "d4 d5 e3 c6 Nc3",
+      "mass": 0.0104,
+      "n_move": 37,
+      "n_pos": 430,
+      "mover_score": 0.405
+     },
+     {
+      "line": "d4 d5 e3 c6 c3",
+      "mass": 0.0101,
+      "n_move": 36,
+      "n_pos": 430,
+      "mover_score": 0.528
+     },
+     {
+      "line": "d4 d5 Bf4 c6 e3 Bf5 Nf3 e6 Bd3 Bxd3 Qxd3 Nf6 O-O",
+      "mass": 0.0098,
+      "n_move": 9,
+      "n_pos": 30,
+      "mover_score": 0.444
+     },
+     {
+      "line": "d4 d5 Bf4 c6 Nf3 Bf5 e3 e6 c3",
+      "mass": 0.0088,
+      "n_move": 21,
+      "n_pos": 124,
+      "mover_score": 0.476
+     },
+     {
+      "line": "d4 d5 Bf4 c6 e3 Bf5 Nf3 e6 Bd3 Bxd3 Qxd3 Nf6 Nbd2",
+      "mass": 0.0087,
+      "n_move": 8,
+      "n_pos": 30,
+      "mover_score": 0.25
+     }
+    ]
+   }
+  },
+  "d4-c6": {
+   "strict": {
+    "still_in_course_after_opponent_move_N_low_high": {
+     "1": [
+      1.0,
+      1.0
+     ],
+     "2": [
+      0.2088,
+      0.2088
+     ],
+     "3": [
+      0.2076,
+      0.2076
+     ],
+     "4": [
+      0.1843,
+      0.1861
+     ],
+     "5": [
+      0.1159,
+      0.1306
+     ],
+     "6": [
+      0.0495,
+      0.0784
+     ],
+     "7": [
+      0.0187,
+      0.0583
+     ],
+     "8": [
+      0.0037,
+      0.0529
+     ]
+    },
+    "decisions_total_unique_positions": null,
+    "decisions_used_ge_1_in_100": 16,
+    "decisions_used_ge_1_in_200": 19,
+    "decisions_used_ge_1_in_500": 40,
+    "slav_structure_mass": 0.0011,
+    "end_reasons": {
+     "gap": 0.9471,
+     "too rare": 0.0529,
+     "course runs out": 0,
+     "reached ply 24": 0,
+     "pruned": 0
+    },
+    "top_gaps": [
+     {
+      "line": "d4 c6 Bf4",
+      "mass": 0.2529,
+      "n_move": 653,
+      "n_pos": 2582,
+      "mover_score": 0.443
+     },
+     {
+      "line": "d4 c6 c4",
+      "mass": 0.201,
+      "n_move": 519,
+      "n_pos": 2582,
+      "mover_score": 0.487
+     },
+     {
+      "line": "d4 c6 Nf3",
+      "mass": 0.1224,
+      "n_move": 316,
+      "n_pos": 2582,
+      "mover_score": 0.468
+     },
+     {
+      "line": "d4 c6 e3",
+      "mass": 0.0821,
+      "n_move": 212,
+      "n_pos": 2582,
+      "mover_score": 0.486
+     },
+     {
+      "line": "d4 c6 Nc3",
+      "mass": 0.0639,
+      "n_move": 165,
+      "n_pos": 2582,
+      "mover_score": 0.542
+     },
+     {
+      "line": "d4 c6 d5",
+      "mass": 0.0194,
+      "n_move": 50,
+      "n_pos": 2582,
+      "mover_score": 0.47
+     },
+     {
+      "line": "d4 c6 c3",
+      "mass": 0.017,
+      "n_move": 44,
+      "n_pos": 2582,
+      "mover_score": 0.58
+     },
+     {
+      "line": "d4 c6 e4 d5 Nc3 dxe4 Nxe4 Nf6 Ng5",
+      "mass": 0.0074,
+      "n_move": 50,
+      "n_pos": 233,
+      "mover_score": 0.4
+     },
+     {
+      "line": "d4 c6 g3",
+      "mass": 0.007,
+      "n_move": 18,
+      "n_pos": 2582,
+      "mover_score": 0.611
+     },
+     {
+      "line": "d4 c6 Bg5",
+      "mass": 0.007,
+      "n_move": 18,
+      "n_pos": 2582,
+      "mover_score": 0.361
+     },
+     {
+      "line": "d4 c6 e4 d5 e5 Bf5 f4",
+      "mass": 0.0065,
+      "n_move": 97,
+      "n_pos": 1644,
+      "mover_score": 0.459
+     },
+     {
+      "line": "d4 c6 e4 d5 exd5 cxd5 Nc3 Nc6 Nf3 Bg4 Be2",
+      "mass": 0.0047,
+      "n_move": 86,
+      "n_pos": 221,
+      "mover_score": 0.517
+     },
+     {
+      "line": "d4 c6 e4 d5 Nc3 dxe4 Nxe4 Nf6 Bd3",
+      "mass": 0.0044,
+      "n_move": 30,
+      "n_pos": 233,
+      "mover_score": 0.383
+     },
+     {
+      "line": "d4 c6 Nd2",
+      "mass": 0.0039,
+      "n_move": 10,
+      "n_pos": 2582,
+      "mover_score": 0.5
+     },
+     {
+      "line": "d4 c6 e4 d5 e5 Bf5 h3",
+      "mass": 0.0035,
+      "n_move": 52,
+      "n_pos": 1644,
+      "mover_score": 0.433
+     }
+    ]
+   },
+   "with_rescue": {
+    "still_in_course_after_opponent_move_N_low_high": {
+     "1": [
+      1.0,
+      1.0
+     ],
+     "2": [
+      0.938,
+      0.938
+     ],
+     "3": [
+      0.7846,
+      0.7916
+     ],
+     "4": [
+      0.58,
+      0.6028
+     ],
+     "5": [
+      0.2818,
+      0.4623
+     ],
+     "6": [
+      0.1165,
+      0.4054
+     ],
+     "7": [
+      0.021,
+      0.3259
+     ],
+     "8": [
+      0.0037,
+      0.3206
+     ]
+    },
+    "decisions_total_unique_positions": null,
+    "decisions_used_ge_1_in_100": 40,
+    "decisions_used_ge_1_in_200": 49,
+    "decisions_used_ge_1_in_500": 78,
+    "slav_structure_mass": 0.2626,
+    "end_reasons": {
+     "gap": 0.6794,
+     "too rare": 0.3206,
+     "course runs out": 0,
+     "reached ply 24": 0,
+     "pruned": 0
+    },
+    "top_gaps": [
+     {
+      "line": "d4 c6 Bf4 d5 e3 Bf5 Bd3",
+      "mass": 0.0382,
+      "n_move": 48,
+      "n_pos": 194,
+      "mover_score": 0.417
+     },
+     {
+      "line": "d4 c6 Nc3 d5 Bf4",
+      "mass": 0.0321,
+      "n_move": 236,
+      "n_pos": 470,
+      "mover_score": 0.5
+     },
+     {
+      "line": "d4 c6 d5",
+      "mass": 0.0194,
+      "n_move": 50,
+      "n_pos": 2582,
+      "mover_score": 0.47
+     },
+     {
+      "line": "d4 c6 Bf4 d5 Nc3",
+      "mass": 0.0184,
+      "n_move": 55,
+      "n_pos": 755,
+      "mover_score": 0.473
+     },
+     {
+      "line": "d4 c6 c3",
+      "mass": 0.017,
+      "n_move": 44,
+      "n_pos": 2582,
+      "mover_score": 0.58
+     },
+     {
+      "line": "d4 c6 Bf4 d5 e3 Bf5 c4",
+      "mass": 0.0135,
+      "n_move": 17,
+      "n_pos": 194,
+      "mover_score": 0.441
+     },
+     {
+      "line": "d4 c6 Bf4 d5 e3 Bf5 c3",
+      "mass": 0.0135,
+      "n_move": 17,
+      "n_pos": 194,
+      "mover_score": 0.5
+     },
+     {
+      "line": "d4 c6 Bf4 d5 e3 Bf5 Nf3 e6 c3",
+      "mass": 0.0128,
+      "n_move": 21,
+      "n_pos": 124,
+      "mover_score": 0.476
+     },
+     {
+      "line": "d4 c6 e3 d5 Bd3",
+      "mass": 0.0118,
+      "n_move": 62,
+      "n_pos": 430,
+      "mover_score": 0.371
+     },
+     {
+      "line": "d4 c6 c4 d5 c5",
+      "mass": 0.0117,
+      "n_move": 99,
+      "n_pos": 1704,
+      "mover_score": 0.495
+     },
+     {
+      "line": "d4 c6 c4 d5 Nc3 Nf6 Bf4",
+      "mass": 0.0092,
+      "n_move": 47,
+      "n_pos": 465,
+      "mover_score": 0.351
+     },
+     {
+      "line": "d4 c6 Bf4 d5 e3 Bf5 Nf3 e6 Bd3 Bxd3 Qxd3 Nf6 O-O",
+      "mass": 0.0091,
+      "n_move": 9,
+      "n_pos": 30,
+      "mover_score": 0.444
+     },
+     {
+      "line": "d4 c6 Bf4 d5 Nf3 Bf5 e3 e6 c3",
+      "mass": 0.0083,
+      "n_move": 21,
+      "n_pos": 124,
+      "mover_score": 0.476
+     },
+     {
+      "line": "d4 c6 Bf4 d5 e3 Bf5 Nf3 e6 Bd3 Bxd3 Qxd3 Nf6 Nbd2",
+      "mass": 0.0081,
+      "n_move": 8,
+      "n_pos": 30,
+      "mover_score": 0.25
+     },
+     {
+      "line": "d4 c6 e4 d5 Nc3 dxe4 Nxe4 Nf6 Ng5",
+      "mass": 0.0074,
+      "n_move": 50,
+      "n_pos": 233,
+      "mover_score": 0.4
+     }
+    ]
+   }
+  }
+ }
+}

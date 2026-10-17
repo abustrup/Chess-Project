@@ -1,0 +1,28 @@
+{
+ "api_games_with_analysis": 11017,
+ "replicating_the_api": {
+  "api_rule": {
+   "moves": 678029,
+   "move_label_agreement": 0.996,
+   "blunders_rule": 61915,
+   "blunders_api": 61903,
+   "player_games_blunder_count_equal": "21903 of 22034"
+  },
+  "db_rule": {
+   "moves": 678029,
+   "move_label_agreement": 0.9287,
+   "blunders_rule": 47997,
+   "blunders_api": 61903,
+   "player_games_blunder_count_equal": "10076 of 22034"
+  }
+ },
+ "games_in_both_sources": {
+  "player_games": 571,
+  "games_with_identical_eval_sequence": "277 of 285",
+  "api_count_equals_database_glyph_count": 259,
+  "api_count_equals_game_page_rule_on_database_evals": 566,
+  "glyph_count_equals_glyph_rule_on_database_evals": 568,
+  "blunders_api": 1584,
+  "blunders_database_glyphs": 1202
+ }
+}

@@ -2,10 +2,11 @@
 // Run: npx tsx src/features/home/sanitize.check.ts
 import assert from 'node:assert/strict'
 import { OPENING_COURSES } from '../../data/openings'
-import { TACTIC_LESSONS } from '../../data/tactics'
 import { authoredText, dayKey } from './format'
 import { buildContinue, buildPlan, currentStreak, longestStreak, practiceDays, summariseCourse, summarisePuzzles } from './progress'
 import { cleanEstimate, cleanGames, cleanOpeningProgress, cleanProfile, cleanPuzzleStats, cleanTacticsProgress } from './sanitize'
+import { KEYS, writeStored } from '../../lib/storage'
+import { safetyTodayFrom } from './useSafetyToday'
 
 const junk: unknown[] = [null, undefined, 'str', 5, [], [null], { a: null }, { history: [null], byTheme: { fork: null } }, { rating: 'x' }]
 const now = new Date('2026-10-13T20:00:00')
@@ -21,8 +22,10 @@ for (const value of junk) {
   const puzzles = summarisePuzzles(puzzleStats, now)
   assert.ok(Number.isFinite(puzzles.rating))
   practiceDays({ games, puzzleStats, openingProgress, tacticsProgress })
-  assert.equal(buildPlan({ summaries, lessons: TACTIC_LESSONS, tacticsProgress, puzzles, games, now }).length, 3)
-  buildContinue({ courses: OPENING_COURSES, summaries, progress: openingProgress, unfinishedMoves: null, now })
+  // the study plan: always the puzzle block and a rated 10+0 game on Lichess, whatever the saved data looks like
+  const plan = buildPlan({ puzzleStats, games, now })
+  assert.deepEqual(plan.map((item) => item.id), ['puzzles', 'lichess'])
+  buildContinue({ courses: OPENING_COURSES, summaries, progress: openingProgress, unfinishedMoves: null, now, firstStep: plan[0] })
 }
 
 assert.deepEqual(cleanGames([null, { id: 1 }, { id: 'g', date: '2026-10-13' }]).length, 1)
@@ -66,5 +69,23 @@ assert.equal(longestStreak(run(new Date(2026, 9, 20), 10)), 10)
 assert.equal(longestStreak(run(new Date(2026, 11, 28), 8)), 8)
 assert.equal(longestStreak(run(new Date(2027, 2, 25), 6)), 6)
 assert.equal(currentStreak(run(new Date(2026, 9, 20), 10), new Date(2026, 9, 29, 23, 30)), 10)
+
+// Damaged Safety-check data in the browser (once the trainer is open) never breaks Home's plan or count.
+const mem = new Map<string, string>()
+;(globalThis as { localStorage?: unknown }).localStorage = {
+  getItem: (k: string) => mem.get(k) ?? null,
+  setItem: (k: string, v: string) => void mem.set(k, v),
+  removeItem: (k: string) => void mem.delete(k),
+}
+for (const value of [...junk, { date: '2026-10-13', ids: 'x', caps: [1] }, { date: '2026-10-13', ids: [1], newIds: [], done: [], repeats: [], repeatsDone: [], caps: [10, 10] }]) {
+  for (const key of [KEYS.safetyDay, KEYS.safetyState, KEYS.safetySettings]) writeStored(key, value)
+  for (const cards of [null, []]) {
+    const safety = safetyTodayFrom(cards, now)
+    assert.ok(safety.left === null || (Number.isInteger(safety.left) && safety.left >= 0))
+    assert.ok(Number.isInteger(safety.answered) && safety.answered >= 0)
+    const plan = buildPlan({ puzzleStats: cleanPuzzleStats(null), games: [], now, safety })
+    assert.deepEqual(plan.map((item) => item.id), ['safety', 'puzzles', 'lichess'])
+  }
+}
 
 console.log('sanitize.check: all good')

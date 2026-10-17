@@ -32,6 +32,7 @@ Games imported from Lichess are read through Lichess's public API. They stay in 
 | **React** and **React Router** | The app itself | MIT | https://react.dev/ |
 | **Vite** | Building the website | MIT | https://vite.dev/ |
 | **Lucide** | Icons | ISC | https://lucide.dev/ |
+| **ts-fsrs** | Decides when each Safety-check position comes back: the next day after a miss, otherwise days or weeks later | MIT | https://github.com/open-spaced-repetition/ts-fsrs |
 
 ## Fonts
 

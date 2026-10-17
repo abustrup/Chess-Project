@@ -1,0 +1,13 @@
+{
+ "summary": {
+  "games": 4756,
+  "player_sides": 9512,
+  "share_of_player_sides_below_30_after_move12": 0.2423,
+  "share_of_player_sides_above_70_after_move12": 0.2423,
+  "black_below_30": 0.3118,
+  "white_below_30": 0.1728,
+  "score_of_side_below_30": null,
+  "share_of_below_30_sides_that_lost": 0.696
+ },
+ "note": "Population check: how often is a 1000-1300 player already below 30% (or above 70%) winning chance after move 12?\n\nUsage: .venv/bin/python -I eval_at_move12.py OUT.json SLICE_INDEXES (comma list, of 64 equal slices of the Sept 2026 file)\nUses only games that Lichess analysed (they carry [%eval] comments), both players 1000-1300, blitz or rapid.\nWinning chance uses Lichess's formula. Note: analysed games are a selected subset (someone asked for analysis).\n"
+}

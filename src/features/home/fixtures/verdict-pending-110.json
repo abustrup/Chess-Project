@@ -1,0 +1,132 @@
+{
+ "design": {
+  "version": "prereg-2026-10-16-v2",
+  "game_filter": "rated, standard chess, 10+0 (600 s, no increment), Lichess account abustrup",
+  "run_in": [
+   1,
+   10
+  ],
+  "baseline": [
+   11,
+   40
+  ],
+  "unlock_after_game": 40,
+  "min_baseline_games": 30,
+  "wash_in_games": 20,
+  "looks": [
+   {
+    "name": "look 1",
+    "measured_games": 50,
+    "worked_z": 2.33,
+    "not_worked_z": 2.33
+   },
+   {
+    "name": "look 2 (final)",
+    "measured_games": 100,
+    "worked_z": 1.7,
+    "not_worked_z": 1.7
+   }
+  ],
+  "tau": 1.6,
+  "tau_sensitivity": [
+   0.0,
+   2.6
+  ],
+  "natural_change": 0.0,
+  "sesoi_fraction": 0.3333333333333333,
+  "newcomers_min_players": 30,
+  "mechanism_z": 1.645,
+  "min_games_lichess_own": 20,
+  "rating_comparison_points": {
+   "50": [
+    6.2,
+    50.4,
+    74.0
+   ],
+   "100": [
+    17.5,
+    57.4,
+    104.1
+   ],
+   "150": [
+    25.8,
+    65.4,
+    115.4
+   ]
+  }
+ },
+ "primary": {
+  "games_played": 110,
+  "windows": {
+   "baseline": [
+    11,
+    40
+   ],
+   "wash_in": [
+    41,
+    60
+   ],
+   "looks": [
+    {
+     "name": "look 1",
+     "measured_games": 50,
+     "worked_z": 2.33,
+     "not_worked_z": 2.33,
+     "window": [
+      61,
+      110
+     ]
+    },
+    {
+     "name": "look 2 (final)",
+     "measured_games": 100,
+     "worked_z": 1.7,
+     "not_worked_z": 1.7,
+     "window": [
+      61,
+      160
+     ]
+    }
+   ]
+  },
+  "baseline": {
+   "rate": 10.0,
+   "var": 0.3831417624521073,
+   "se": 0.6189844605901729,
+   "games": 30,
+   "events": 90,
+   "moves": 900
+  },
+  "looks": [
+   {
+    "look": "look 1",
+    "window": [
+     61,
+     110
+    ],
+    "training": {
+     "rate": 8.333333333333332,
+     "var": 0.056689342403628114,
+     "se": 0.23809523809523808,
+     "games": 50,
+     "events": 125,
+     "moves": 1500
+    },
+    "drop_per100": 1.6666666666666679,
+    "drop_relative": 0.1666666666666668,
+    "se_sampling": 0.6631976363466138,
+    "se_total": 1.7320020510541365,
+    "z": 0.9622775363645187,
+    "range90": [
+     -1.1824767073173867,
+     4.515810040650722
+    ],
+    "verdict": null
+   }
+  ],
+  "verdict": "not yet: next look after game 160",
+  "decided_at_game": null,
+  "newcomer_condition": "not available (main rule only)",
+  "sesoi": 3.333333333333333
+ }
+}

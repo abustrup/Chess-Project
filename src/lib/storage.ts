@@ -26,11 +26,11 @@ export function readStored<T>(key: string, fallback: T): T {
   if (raw != null) {
     try {
       const parsed = JSON.parse(raw)
-      // shallow-merge defaults for plain objects so newly added fields get their default
-      value =
-        fallback && typeof fallback === 'object' && !Array.isArray(fallback) && parsed && typeof parsed === 'object'
-          ? ({ ...fallback, ...parsed } as T)
-          : (parsed as T)
+      // shallow-merge defaults for plain objects so newly added fields get their default;
+      // a damaged value of the wrong shape (e.g. null where an object belongs) falls back to the default
+      const objectFallback = fallback && typeof fallback === 'object' && !Array.isArray(fallback)
+      const objectParsed = parsed && typeof parsed === 'object' && !Array.isArray(parsed)
+      value = objectFallback ? (objectParsed ? ({ ...fallback, ...parsed } as T) : fallback) : (parsed as T)
     } catch {
       value = fallback
     }
@@ -104,4 +104,9 @@ export const KEYS = {
   tacticsProgress: 'tacticsProgress', // owned by the tactics feature
   puzzleStats: 'puzzleStats', // owned by the puzzles feature
   ratingEstimate: 'ratingEstimate', // RatingEstimate | null
+  // Safety check (src/features/safety/); all under cc.safety.*, so Settings backup covers them
+  safetyState: 'safety.state', // SafetyState: review schedule per card
+  safetyLog: 'safety.log', // SafetyAttempt[], newest last, capped
+  safetySettings: 'safety.settings', // SafetySettings
+  safetyDay: 'safety.day', // SafetyDay: today's queue
 } as const

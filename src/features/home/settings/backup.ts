@@ -74,6 +74,18 @@ export function backupFileName(now = new Date()): string {
   return `chess-coach-backup-${now.getFullYear()}-${month}-${day}.json`
 }
 
+/** Saves a backup file through the browser's normal download (Settings and the study card on Home both use it). */
+export function downloadBackup(now = new Date()): void {
+  const blob = new Blob([JSON.stringify(createBackup(now), null, 2)], { type: 'application/json' })
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.download = backupFileName(now)
+  link.click()
+  // freed a minute later, not at once: some browsers (older Safari among them) still read the file after click() returns
+  setTimeout(() => URL.revokeObjectURL(url), 60_000)
+}
+
 /* --------------------------------------------------------------- validation */
 
 function isRecord(value: unknown): value is Record<string, unknown> {

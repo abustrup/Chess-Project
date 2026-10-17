@@ -1,0 +1,111 @@
+{
+ "what": "Matched Lichess newcomers: their own change in Lichess blunders per 100 moves between rated 10+0 games 11-40 and 61-160 (preregistration.md 3.6, S6). Read by prereg/verdict.py --newcomers.",
+ "pipeline": "newcomers-2",
+ "players": 100,
+ "mean_change": 0.1593,
+ "mean_change_se": 0.3742,
+ "drift_sd": 2.3485,
+ "binding_if": "committed before the start of his game U+1 (41 when U = 40) with 30+ players (verdict.py needs players >= 30); this file: 100 players",
+ "status": {
+  "complete": true,
+  "state": "complete",
+  "finalized_early": false,
+  "pilot": false,
+  "target_players": 60,
+  "stop_at_players": 100
+ },
+ "rule": {
+  "candidates": "non-BOT players rated 900-1300 (own pre-game rating) in a rated 600+0 game of the database sample, months tried in this order: 2026-09",
+  "newcomer": "account created at most 60 days before the first rated 10+0 game; at least 160 rated 10+0 games, numbered with prereg measure.py eligible()",
+  "blunders": "Lichess's own count (players.<colour>.analysis.blunder) on games Lichess analysed; rates per 100 own moves pooled per window with prereg verdict.py ratio()",
+  "windows": {
+   "baseline": [
+    11,
+    40
+   ],
+   "training": [
+    61,
+    160
+   ],
+   "look_1_descriptive": [
+    61,
+    110
+   ]
+  },
+  "keep": "5+ analysed games in 11-40 and 10+ in 61-160",
+  "order": "sha256(\"chess-project-newcomers-2026-10-16|\" + user id), ascending; stop at 100 players",
+  "mean_change": "mean over players of (rate in 61-160 minus rate in 11-40); negative = they improve",
+  "mean_change_se": "player bootstrap, 10000 resamples, seed 20261016",
+  "drift_sd": "sqrt(max(0, sample variance of the change minus mean ratio-method sampling variance))"
+ },
+ "steps": {
+  "candidates_in_sample": 57511,
+  "candidates_tried": 411,
+  "dropped: account closed or not found (creation date not public)": 4,
+  "dropped: fewer than 160 rated rapid games on the account (cannot have 160 rated 10+0 games)": 137,
+  "dropped: first rated 10+0 game more than 60 days after the account was created": 60,
+  "dropped: fewer than 5 Lichess-analysed games in their games 11-40": 32,
+  "dropped: fewer than 160 rated 10+0 games": 7,
+  "dropped: fewer than 10 Lichess-analysed games in their games 61-160": 71,
+  "kept": 100
+ },
+ "database_sample": [
+  {
+   "month": "2026-09",
+   "file_bytes": 29224520887,
+   "etag": "\"6ac08d73-6cdeaccb7\"",
+   "points_used": 96,
+   "points_of": 96,
+   "range_mb": 10,
+   "games": 2359333,
+   "rated_10_0_games": 295893,
+   "in_band_player_games": 146953,
+   "candidates": 57511,
+   "utc_span": [
+    "2026.09.01 06:22:45",
+    "2026.09.30 20:08:28"
+   ]
+  }
+ ],
+ "descriptive": {
+  "baseline_rate_mean": 9.9755,
+  "training_rate_mean": 10.1347,
+  "mean_change_range90_bootstrap": [
+   -0.4502,
+   0.7765
+  ],
+  "sd_of_change_across_players": 3.7734,
+  "sampling_sd_of_change": 2.9535,
+  "drift_variance_before_floor": 5.5154,
+  "drift_sd_upper95_bootstrap": 2.9457,
+  "analysed_games_per_player_median": {
+   "11-40": 10.0,
+   "61-160": 14.0
+  },
+  "days_from_account_to_first_10_0_game_median": 0.3514,
+  "year_of_first_rated_10_0_game": {
+   "2017": 1,
+   "2018": 1,
+   "2019": 1,
+   "2020": 2,
+   "2021": 4,
+   "2022": 6,
+   "2023": 8,
+   "2024": 7,
+   "2025": 19,
+   "2026": 51
+  },
+  "kept_accounts_marked_for_terms_violation": 1,
+  "look_1_window_61_110": {
+   "players": 99,
+   "mean_change": 0.2919,
+   "mean_change_se": 0.4011,
+   "drift_sd": 1.8571
+  }
+ },
+ "answers_saved": {
+  "first_utc_day": "2026-10-16",
+  "last_utc_day": "2026-10-16",
+  "fetch_runs": 4
+ }
+}

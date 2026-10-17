@@ -6,7 +6,11 @@ import { useProfile } from './useProfile'
 
 const LICHESS_NAME = /^[A-Za-z0-9_-]{2,30}$/
 
-/** A number box that only saves a sensible value and gives a clear message otherwise. */
+/**
+ * "Bot starting strength": the number box that used to be "My rating". It only sets which computer level Play picks
+ * by default (`levelIdFor` in features/play/session.ts); the rating itself now comes from Lichess.
+ * Saves only a sensible value and gives a clear message otherwise.
+ */
 function RatingField({ value, onSave }: { value: number; onSave: (next: number) => void }) {
   const [text, setText] = useState(String(value))
   // follow outside changes, such as restoring a backup
@@ -15,7 +19,7 @@ function RatingField({ value, onSave }: { value: number; onSave: (next: number) 
   const valid = text.trim() !== '' && Number.isInteger(parsed) && parsed >= MIN_RATING && parsed <= MAX_RATING
   return (
     <div className="field">
-      <label htmlFor="set-rating">My rating</label>
+      <label htmlFor="set-rating">Bot starting strength</label>
       <input
         id="set-rating"
         className="input"
@@ -32,7 +36,7 @@ function RatingField({ value, onSave }: { value: number; onSave: (next: number) 
       />
       <span id="set-rating-hint" className={`small ${valid ? 'faint' : 'field-error'}`}>
         {valid
-          ? 'About how strong you think you are. It is the starting point for your rating estimate.'
+          ? 'How strong the computer is when you start a game in Play, until you pick a level there. Your rating comes from Lichess.'
           : `Please type a whole number from ${MIN_RATING} to ${MAX_RATING}.`}
       </span>
     </div>
@@ -48,7 +52,7 @@ export default function ProfileSection() {
     <SettingsCard
       icon={User}
       title="Profile"
-      intro="This is only used to greet you and to bring in your games. It never leaves this device."
+      intro="Used to greet you, to show your Lichess rating and to bring in your games. It stays on this device; only your Lichess username is sent, to lichess.org."
       className="zen-hide"
     >
       <div className="grid cols-3">
@@ -81,7 +85,7 @@ export default function ProfileSection() {
           />
           <span id="set-lichess-hint" className={`small ${usernameOk ? 'faint' : 'field-error'}`}>
             {usernameOk
-              ? 'So I can bring in your games from lichess.org.'
+              ? 'So I can show your Lichess rating and bring in your games from lichess.org.'
               : 'Lichess names have 2 to 30 letters, numbers, dashes or underscores.'}
           </span>
         </div>

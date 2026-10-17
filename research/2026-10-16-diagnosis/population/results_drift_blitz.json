@@ -1,0 +1,425 @@
+{
+ "perf": "blitz",
+ "design": "anchor = a September 2026 game rated 950-1250; before = last 50 games up to the anchor; after = following games",
+ "players_with_data": 53,
+ "api_summary_equals_per_move_judgments": "3402 of 3402 analysed player-games",
+ "variance_components": {
+  "players": 47,
+  "analysed_games": 2778,
+  "mean_rate_per100": 8.511,
+  "within_player_sd_per_game": 6.94,
+  "between_player_sd_of_true_rate": 1.09,
+  "icc": 0.024,
+  "lag1_autocorrelation": -0.024
+ },
+ "analysed_share_per_player": {
+  "n": 52,
+  "median": 0.21,
+  "p25": 0.07,
+  "p75": 0.32
+ },
+ "games_after_anchor": {
+  "median": 248.0,
+  "share_with_50": 0.811,
+  "share_with_100": 0.774,
+  "share_with_150": 0.679
+ },
+ "drift": {
+  "before_50_vs_after_games_1_50": {
+   "players": 41,
+   "rating_change": {
+    "n": 41,
+    "mean": 16.22,
+    "sd": 41.56,
+    "p05": -43.0,
+    "p10": -20.0,
+    "p50": 4.0,
+    "p90": 82.0,
+    "p95": 100.0,
+    "mean_ci95": [
+     3.976,
+     29.415
+    ],
+    "share_up_50_plus": 0.171,
+    "share_up_100_plus": 0.073
+   },
+   "score_minus_expected_change": {
+    "n": 41,
+    "mean": 0.0163,
+    "sd": 0.1126
+   },
+   "blunder_change_per100": {
+    "n": 22,
+    "mean": -0.47,
+    "sd": 2.67,
+    "p05": -4.13,
+    "p10": -3.23,
+    "p50": -0.17,
+    "p90": 1.68,
+    "p95": 3.09,
+    "mean_ci95": [
+     -1.631,
+     0.582
+    ],
+    "baseline_rate_mean": 8.24,
+    "analysed_games_median_before_after": [
+     19.0,
+     17.5
+    ],
+    "sd_from_sampling_noise": 2.57,
+    "sd_true_drift_estimate": 0.74,
+    "sd_true_drift_upper95": 2.43,
+    "relative_change_median": -0.01,
+    "relative_change_p05": -0.4,
+    "relative_change_p95": 0.41
+   }
+  },
+  "before_50_vs_after_games_51_100": {
+   "players": 39,
+   "rating_change": {
+    "n": 39,
+    "mean": 24.38,
+    "sd": 59.63,
+    "p05": -46.7,
+    "p10": -30.0,
+    "p50": 12.0,
+    "p90": 93.0,
+    "p95": 150.1,
+    "mean_ci95": [
+     5.744,
+     43.231
+    ],
+    "share_up_50_plus": 0.282,
+    "share_up_100_plus": 0.103
+   },
+   "score_minus_expected_change": {
+    "n": 39,
+    "mean": 0.0135,
+    "sd": 0.1053
+   },
+   "blunder_change_per100": {
+    "n": 19,
+    "mean": 0.08,
+    "sd": 2.63,
+    "p05": -4.43,
+    "p10": -4.24,
+    "p50": 0.88,
+    "p90": 3.28,
+    "p95": 3.37,
+    "mean_ci95": [
+     -1.105,
+     1.229
+    ],
+    "baseline_rate_mean": 8.27,
+    "analysed_games_median_before_after": [
+     20,
+     18
+    ],
+    "sd_from_sampling_noise": 2.38,
+    "sd_true_drift_estimate": 1.13,
+    "sd_true_drift_upper95": 1.93,
+    "relative_change_median": 0.11,
+    "relative_change_p05": -0.45,
+    "relative_change_p95": 0.92
+   }
+  },
+  "before_50_vs_after_games_1_100": {
+   "players": 39,
+   "rating_change": {
+    "n": 39,
+    "mean": 24.38,
+    "sd": 59.63,
+    "p05": -46.7,
+    "p10": -30.0,
+    "p50": 12.0,
+    "p90": 93.0,
+    "p95": 150.1,
+    "mean_ci95": [
+     7.179,
+     43.154
+    ],
+    "share_up_50_plus": 0.282,
+    "share_up_100_plus": 0.103
+   },
+   "score_minus_expected_change": {
+    "n": 39,
+    "mean": 0.0133,
+    "sd": 0.0949
+   },
+   "blunder_change_per100": {
+    "n": 21,
+    "mean": 0.32,
+    "sd": 3.54,
+    "p05": -3.81,
+    "p10": -2.8,
+    "p50": 0.87,
+    "p90": 1.81,
+    "p95": 3.15,
+    "mean_ci95": [
+     -0.973,
+     1.99
+    ],
+    "baseline_rate_mean": 8.27,
+    "analysed_games_median_before_after": [
+     18,
+     33
+    ],
+    "sd_from_sampling_noise": 2.29,
+    "sd_true_drift_estimate": 2.69,
+    "sd_true_drift_upper95": 4.21,
+    "relative_change_median": 0.1,
+    "relative_change_p05": -0.32,
+    "relative_change_p95": 0.52
+   }
+  },
+  "before_50_vs_after_games_101_150": {
+   "players": 35,
+   "rating_change": {
+    "n": 35,
+    "mean": 30.51,
+    "sd": 68.54,
+    "p05": -66.9,
+    "p10": -42.2,
+    "p50": 21.0,
+    "p90": 125.4,
+    "p95": 139.5,
+    "mean_ci95": [
+     8,
+     53.943
+    ],
+    "share_up_50_plus": 0.314,
+    "share_up_100_plus": 0.171
+   },
+   "score_minus_expected_change": {
+    "n": 35,
+    "mean": -0.0021,
+    "sd": 0.1108
+   },
+   "blunder_change_per100": {
+    "n": 15,
+    "mean": -0.22,
+    "sd": 2.47,
+    "p05": -4.04,
+    "p10": -3.6,
+    "p50": 0.22,
+    "p90": 2.73,
+    "p95": 3.38,
+    "mean_ci95": [
+     -1.533,
+     0.929
+    ],
+    "baseline_rate_mean": 8.07,
+    "analysed_games_median_before_after": [
+     18,
+     23
+    ],
+    "sd_from_sampling_noise": 2.05,
+    "sd_true_drift_estimate": 1.37,
+    "sd_true_drift_upper95": 1.99,
+    "relative_change_median": 0.03,
+    "relative_change_p05": -0.55,
+    "relative_change_p95": 0.64
+   }
+  },
+  "before_50_vs_after_games_1_150": {
+   "players": 35,
+   "rating_change": {
+    "n": 35,
+    "mean": 30.51,
+    "sd": 68.54,
+    "p05": -66.9,
+    "p10": -42.2,
+    "p50": 21.0,
+    "p90": 125.4,
+    "p95": 139.5,
+    "mean_ci95": [
+     8.257,
+     53.571
+    ],
+    "share_up_50_plus": 0.314,
+    "share_up_100_plus": 0.171
+   },
+   "score_minus_expected_change": {
+    "n": 35,
+    "mean": 0.0068,
+    "sd": 0.0924
+   },
+   "blunder_change_per100": {
+    "n": 19,
+    "mean": 0.45,
+    "sd": 3.12,
+    "p05": -3.92,
+    "p10": -3.18,
+    "p50": 0.64,
+    "p90": 3.71,
+    "p95": 5.53,
+    "mean_ci95": [
+     -0.875,
+     1.867
+    ],
+    "baseline_rate_mean": 8.09,
+    "analysed_games_median_before_after": [
+     15,
+     58
+    ],
+    "sd_from_sampling_noise": 2.19,
+    "sd_true_drift_estimate": 2.22,
+    "sd_true_drift_upper95": 3.08,
+    "relative_change_median": 0.08,
+    "relative_change_p05": -0.33,
+    "relative_change_p95": 0.85
+   }
+  }
+ },
+ "variogram_per_game_rate": {
+  "1-10_games_apart": {
+   "pairs": 15042,
+   "semivariance": 47.6,
+   "rise_over_first_bin": 0.0,
+   "rise_ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "11-30_games_apart": {
+   "pairs": 26990,
+   "semivariance": 46.97,
+   "rise_over_first_bin": -0.63,
+   "rise_ci95": [
+    -1.97,
+    1.3
+   ]
+  },
+  "31-60_games_apart": {
+   "pairs": 36597,
+   "semivariance": 48.37,
+   "rise_over_first_bin": 0.77,
+   "rise_ci95": [
+    -0.91,
+    2.41
+   ]
+  },
+  "61-100_games_apart": {
+   "pairs": 41608,
+   "semivariance": 48.04,
+   "rise_over_first_bin": 0.44,
+   "rise_ci95": [
+    -0.94,
+    2.17
+   ]
+  },
+  "101-160_games_apart": {
+   "pairs": 47801,
+   "semivariance": 47.25,
+   "rise_over_first_bin": -0.35,
+   "rise_ci95": [
+    -1.81,
+    1.38
+   ]
+  },
+  "161-250_games_apart": {
+   "pairs": 42027,
+   "semivariance": 47.75,
+   "rise_over_first_bin": 0.15,
+   "rise_ci95": [
+    -3.06,
+    3.04
+   ]
+  }
+ },
+ "detectable_drop_one_player": {
+  "assumes": "within-player SD 6.94 per game, mean 8.511, one-sided 5%, 80% power; drift SD scenarios {'no_drift': 0.0, 'variogram_point': 0.0, 'variogram_upper95': 1.66, 'window_method_upper95': 2.43} (medians over the windows above)",
+  "table": {
+   "20_analysed_games_before_and_after": {
+    "no_drift": {
+     "per100": 5.46,
+     "pct_of_mean": 64
+    },
+    "variogram_point": {
+     "per100": 5.46,
+     "pct_of_mean": 64
+    },
+    "variogram_upper95": {
+     "per100": 6.84,
+     "pct_of_mean": 80
+    },
+    "window_method_upper95": {
+     "per100": 8.14,
+     "pct_of_mean": 96
+    }
+   },
+   "30_analysed_games_before_and_after": {
+    "no_drift": {
+     "per100": 4.46,
+     "pct_of_mean": 52
+    },
+    "variogram_point": {
+     "per100": 4.46,
+     "pct_of_mean": 52
+    },
+    "variogram_upper95": {
+     "per100": 6.07,
+     "pct_of_mean": 71
+    },
+    "window_method_upper95": {
+     "per100": 7.51,
+     "pct_of_mean": 88
+    }
+   },
+   "50_analysed_games_before_and_after": {
+    "no_drift": {
+     "per100": 3.45,
+     "pct_of_mean": 41
+    },
+    "variogram_point": {
+     "per100": 3.45,
+     "pct_of_mean": 41
+    },
+    "variogram_upper95": {
+     "per100": 5.38,
+     "pct_of_mean": 63
+    },
+    "window_method_upper95": {
+     "per100": 6.96,
+     "pct_of_mean": 82
+    }
+   },
+   "100_analysed_games_before_and_after": {
+    "no_drift": {
+     "per100": 2.44,
+     "pct_of_mean": 29
+    },
+    "variogram_point": {
+     "per100": 2.44,
+     "pct_of_mean": 29
+    },
+    "variogram_upper95": {
+     "per100": 4.8,
+     "pct_of_mean": 56
+    },
+    "window_method_upper95": {
+     "per100": 6.52,
+     "pct_of_mean": 77
+    }
+   },
+   "150_analysed_games_before_and_after": {
+    "no_drift": {
+     "per100": 1.99,
+     "pct_of_mean": 23
+    },
+    "variogram_point": {
+     "per100": 1.99,
+     "pct_of_mean": 23
+    },
+    "variogram_upper95": {
+     "per100": 4.58,
+     "pct_of_mean": 54
+    },
+    "window_method_upper95": {
+     "per100": 6.36,
+     "pct_of_mean": 75
+    }
+   }
+  }
+ }
+}

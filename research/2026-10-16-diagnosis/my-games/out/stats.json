@@ -1,0 +1,1359 @@
+{
+ "games": {
+  "n": 31,
+  "by_speed": {
+   "blitz": 31
+  },
+  "by_tc": {
+   "180+2": 7,
+   "300+3": 23,
+   "180+0": 1
+  },
+  "results": {
+   "loss": 22,
+   "win": 9
+  },
+  "by_status": {
+   "loss:mate": 6,
+   "win:resign": 5,
+   "loss:outoftime": 4,
+   "loss:resign": 12,
+   "win:timeout": 1,
+   "win:outoftime": 2,
+   "win:mate": 1
+  },
+  "colors": {
+   "white": 15,
+   "black": 16
+  },
+  "lichess_analysed": 6,
+  "his_moves": 891,
+  "his_moves_in_lichess_analysed": 215
+ },
+ "blunders_per_100": {
+  "blunders": 111,
+  "moves": 891,
+  "per100": 12.46,
+  "game_bootstrap95": [
+   9.4,
+   16.0
+  ],
+  "per_game_median": 9.76,
+  "games_with_10plus_moves": 30,
+  "population_blitz_pooled": 9.03,
+  "population_blitz_per_game_median": 8.0,
+  "his_median_game_percentile_in_population": 59.6,
+  "research_blitz_pooled": 8.38,
+  "research_rapid_pooled": 8.74,
+  "mistakes": 49,
+  "inaccuracies": 71,
+  "opponents_same_games": {
+   "blunders": 86,
+   "moves": 897,
+   "per100": 9.59,
+   "game_bootstrap95": [
+    6.7,
+    13.1
+   ],
+   "mean_opponent_rating": 1164
+  },
+  "his_minus_opponents_per100_game_bootstrap95": [
+   1.79,
+   4.02
+  ]
+ },
+ "games_needed": {
+  "note": "games per period (before and after each) to detect a drop in per-game blunders per 100 moves; normal approximation, unpaired",
+  "his_blitz": {
+   "mean": 12.65,
+   "sd": 9.19,
+   "n_games": 30,
+   "drop_25pct": 133,
+   "drop_33pct": 77,
+   "drop_50pct": 34
+  },
+  "population_rapid_950_1250_between_and_within_players": {
+   "mean": 9.63,
+   "sd": 7.5,
+   "n_player_games": 3753,
+   "drop_25pct": 153,
+   "drop_33pct": 88,
+   "drop_50pct": 39
+  }
+ },
+ "lichess_vs_ours_on_analysed": {
+  "his_moves": 215,
+  "lichess_blunders": 32,
+  "our_blunders": 34,
+  "both": 31,
+  "lichess_summary_counts": 32,
+  "per_game": [
+   {
+    "id": "KC803zNe",
+    "lichess": 13,
+    "ours": 13,
+    "moves": 43
+   },
+   {
+    "id": "XLCmExKA",
+    "lichess": 8,
+    "ours": 8,
+    "moves": 41
+   },
+   {
+    "id": "YqqVv08X",
+    "lichess": 1,
+    "ours": 1,
+    "moves": 42
+   },
+   {
+    "id": "pEKoVG79",
+    "lichess": 4,
+    "ours": 4,
+    "moves": 21
+   },
+   {
+    "id": "tf4EY5pN",
+    "lichess": 2,
+    "ours": 4,
+    "moves": 26
+   },
+   {
+    "id": "yXoWmgsR",
+    "lichess": 4,
+    "ours": 4,
+    "moves": 42
+   }
+  ],
+  "confusion_his_moves": {
+   "lichess=- ours=-": 137,
+   "lichess=- ours=Inaccuracy": 5,
+   "lichess=Blunder ours=Blunder": 31,
+   "lichess=Blunder ours=Mistake": 1,
+   "lichess=Inaccuracy ours=-": 4,
+   "lichess=Inaccuracy ours=Inaccuracy": 18,
+   "lichess=Inaccuracy ours=Mistake": 3,
+   "lichess=Mistake ours=Blunder": 3,
+   "lichess=Mistake ours=Inaccuracy": 3,
+   "lichess=Mistake ours=Mistake": 10
+  }
+ },
+ "H1_safety": {
+  "big_blunders": 45,
+  "blunders": 111,
+  "research_def_3cats_big": {
+   "k": 11,
+   "n": 45,
+   "share": 0.244,
+   "wilson95": [
+    0.142,
+    0.387
+   ],
+   "game_bootstrap95": [
+    0.13,
+    0.4
+   ]
+  },
+  "research_def_plus_missed_free_big": {
+   "k": 16,
+   "n": 45,
+   "share": 0.356,
+   "wilson95": [
+    0.232,
+    0.502
+   ],
+   "game_bootstrap95": [
+    0.225,
+    0.5
+   ]
+  },
+  "engine_checked_3cats_big": {
+   "k": 20,
+   "n": 45,
+   "share": 0.444,
+   "wilson95": [
+    0.309,
+    0.588
+   ],
+   "game_bootstrap95": [
+    0.289,
+    0.623
+   ]
+  },
+  "engine_checked_plus_missed_free_big": {
+   "k": 26,
+   "n": 45,
+   "share": 0.578,
+   "wilson95": [
+    0.433,
+    0.71
+   ],
+   "game_bootstrap95": [
+    0.422,
+    0.738
+   ]
+  },
+  "research_def_3cats_all_blunders": {
+   "k": 22,
+   "n": 111,
+   "share": 0.198,
+   "wilson95": [
+    0.135,
+    0.282
+   ],
+   "game_bootstrap95": [
+    0.137,
+    0.274
+   ]
+  },
+  "engine_checked_3cats_all_blunders": {
+   "k": 28,
+   "n": 111,
+   "share": 0.252,
+   "wilson95": [
+    0.181,
+    0.34
+   ],
+   "game_bootstrap95": [
+    0.165,
+    0.36
+   ]
+  },
+  "engine_checked_plus_missed_free_all_blunders": {
+   "k": 36,
+   "n": 111,
+   "share": 0.324,
+   "wilson95": [
+    0.244,
+    0.416
+   ],
+   "game_bootstrap95": [
+    0.222,
+    0.446
+   ]
+  },
+  "population_research": {
+   "blitz": {
+    "three": 0.389,
+    "plus_missed": 0.472
+   },
+   "rapid": {
+    "three": 0.415,
+    "plus_missed": 0.502
+   }
+  },
+  "research_category_counts_big": {
+   "ignored_attacked_piece": 4,
+   "other_tactic_or_positional": 29,
+   "hung_material_new": 6,
+   "missed_free_material": 5,
+   "allowed_forced_mate": 1
+  },
+  "category_counts_big": {
+   "hung_piece": 13,
+   "missed_own_tactic": 5,
+   "ignored_threat": 6,
+   "allowed_longer_tactic": 7,
+   "positional_or_endgame": 4,
+   "missed_free_material": 6,
+   "opening_positional": 3,
+   "allowed_short_mate": 1
+  },
+  "category_counts_blunders": {
+   "hung_piece": 16,
+   "missed_own_tactic": 12,
+   "opening_positional": 12,
+   "missed_free_material": 8,
+   "allowed_longer_tactic": 20,
+   "positional_or_endgame": 31,
+   "ignored_threat": 10,
+   "allowed_short_mate": 2
+  },
+  "category_group_counts_blunders": {
+   "hung or left a piece en prise": 16,
+   "longer tactic missed": 32,
+   "opening-theory-type mistake": 12,
+   "missed free material or a short mate": 8,
+   "other (positional or endgame play)": 31,
+   "ignored opponent's threat / allowed a short mate": 12
+  }
+ },
+ "H2_first12": {
+  "big_in_first12": {
+   "k": 10,
+   "n": 45,
+   "share": 0.222,
+   "wilson95": [
+    0.125,
+    0.363
+   ],
+   "game_bootstrap95": [
+    0.087,
+    0.4
+   ]
+  },
+  "blunders_in_first12": {
+   "k": 26,
+   "n": 111,
+   "share": 0.234,
+   "wilson95": [
+    0.165,
+    0.321
+   ],
+   "game_bootstrap95": [
+    0.137,
+    0.367
+   ]
+  },
+  "first12_big_by_category": {
+   "hung_piece": 4,
+   "allowed_longer_tactic": 2,
+   "opening_positional": 3,
+   "missed_free_material": 1
+  },
+  "first12_blunders_by_category": {
+   "hung_piece": 4,
+   "opening_positional": 12,
+   "allowed_longer_tactic": 4,
+   "allowed_short_mate": 1,
+   "missed_own_tactic": 3,
+   "missed_free_material": 1,
+   "ignored_threat": 1
+  },
+  "lost_games": 22,
+  "lost_decider_in_first12": {
+   "k": 6,
+   "n": 22,
+   "share": 0.273,
+   "wilson95": [
+    0.132,
+    0.482
+   ]
+  },
+  "lost_and_below25_at_move12": {
+   "k": 8,
+   "n": 20,
+   "wilson95": [
+    0.219,
+    0.613
+   ]
+  },
+  "all_games_wp_at_move12": [
+   9.7,
+   97.0,
+   47.5,
+   64.3,
+   41.3,
+   95.0,
+   82.7,
+   53.9,
+   3.5,
+   17.8,
+   4.1,
+   47.5,
+   49.8,
+   86.8,
+   4.0,
+   11.5,
+   95.9,
+   7.6,
+   56.4,
+   68.3,
+   38.8,
+   61.5,
+   52.5,
+   26.6,
+   24.5,
+   36.4,
+   47.4,
+   30.6
+  ],
+  "population": {
+   "research_blitz_big_first12": 0.233,
+   "research_rapid_big_first12": 0.267,
+   "slice_blitz_big_first12": 0.234,
+   "slice_rapid_big_first12": 0.298,
+   "research_blitz_decider_first12": 0.31,
+   "research_rapid_decider_first12": 0.356,
+   "research_blitz_lost_by12": 0.269,
+   "research_rapid_lost_by12": 0.346
+  }
+ },
+ "H3_thrown": {
+  "games_with_sustained_90": 7,
+  "of_which_not_won": 3,
+  "share_not_won": [
+   0.158,
+   0.75
+  ],
+  "losses": 22,
+  "losses_after_sustained_90": 3,
+  "share_losses_after_sustained_90": [
+   0.047,
+   0.333
+  ],
+  "games_ever_75": 16,
+  "ever75_not_won": 9,
+  "thrown_games": [
+   {
+    "id": "tSVRiDh0",
+    "result": "loss",
+    "status": "resign"
+   },
+   {
+    "id": "i4ehkEq3",
+    "result": "loss",
+    "status": "outoftime"
+   },
+   {
+    "id": "pfUcWPlw",
+    "result": "loss",
+    "status": "outoftime"
+   }
+  ],
+  "ever75_not_won_wilson95": [
+   0.332,
+   0.769
+  ],
+  "opponents_same_games": {
+   "ever75": 27,
+   "ever75_not_won": 6,
+   "sustained90": 20,
+   "sustained90_not_won": 3
+  },
+  "blunders_flagged_threw_away_win": 11,
+  "population_slice": {
+   "blitz": {
+    "sus90_not_won": 0.22,
+    "losses_after_sus90": 0.172,
+    "ever75_not_won": 0.361
+   },
+   "rapid": {
+    "sus90_not_won": 0.209,
+    "losses_after_sus90": 0.176,
+    "ever75_not_won": 0.347
+   }
+  }
+ },
+ "H4_openings": {
+  "white_first_moves": {
+   "d4": 15
+  },
+  "white_games": [
+   {
+    "id": "bdOFlcdq",
+    "first": "d4 g6 Bf4 Bg7 e3 Nf6",
+    "opening": "London System",
+    "left": {
+     "ply": 2,
+     "who": "opponent",
+     "san": "g6",
+     "course_moves": [
+      "d5",
+      "Nf6",
+      "f5",
+      "c5",
+      "d6",
+      "b6",
+      "h6"
+     ],
+     "transposed_back_at_ply": 8,
+     "fm": 1,
+     "eval_before_leaving_my_pov": "+0.23",
+     "eval_after_leaving_my_pov": "+0.58"
+    },
+    "wp12": 9.7,
+    "ev12": "-6.07",
+    "result": "loss"
+   },
+   {
+    "id": "uUCQ83zH",
+    "first": "d4 d5 Bf4 Nf6 e3 Nc6",
+    "opening": "Queen's Pawn Game: Accelerated London System",
+    "left": {
+     "ply": 6,
+     "who": "opponent",
+     "san": "Nc6",
+     "course_moves": [
+      "e6",
+      "c6",
+      "Bf5",
+      "Ne4",
+      "c5",
+      "Bg4",
+      "g6"
+     ],
+     "transposed_back_at_ply": 7,
+     "fm": 3,
+     "eval_before_leaving_my_pov": "+0.15",
+     "eval_after_leaving_my_pov": "+0.32"
+    },
+    "wp12": 97.0,
+    "ev12": "+9.46",
+    "result": "win"
+   },
+   {
+    "id": "FWvViwBk",
+    "first": "d4 Nf6 Bf4 g6 e3 Bg7",
+    "opening": "London System",
+    "left": {
+     "ply": 5,
+     "who": "me",
+     "san": "e3",
+     "course_moves": [
+      "Nf3"
+     ],
+     "transposed_back_at_ply": 8,
+     "fm": 3,
+     "eval_before_leaving_my_pov": "+0.14",
+     "eval_after_leaving_my_pov": "+0.14"
+    },
+    "wp12": 64.3,
+    "ev12": "+1.60",
+    "result": "loss"
+   },
+   {
+    "id": "KC803zNe",
+    "first": "d4 c5 Nf3 Nc6 c3 e5",
+    "opening": "Benoni Defense: Old Benoni",
+    "left": {
+     "ply": 3,
+     "who": "me",
+     "san": "Nf3",
+     "course_moves": [
+      "d5"
+     ],
+     "fm": 2,
+     "eval_before_leaving_my_pov": "+0.72",
+     "eval_after_leaving_my_pov": "-0.04"
+    },
+    "wp12": 82.7,
+    "ev12": "+4.25",
+    "result": "win"
+   },
+   {
+    "id": "Rw8CfgsO",
+    "first": "d4 e5 c3 d6 Nf3 e4",
+    "opening": "Englund Gambit",
+    "left": {
+     "ply": 2,
+     "who": "opponent",
+     "san": "e5",
+     "course_moves": [
+      "d5",
+      "Nf6",
+      "f5",
+      "c5",
+      "d6",
+      "b6",
+      "h6"
+     ],
+     "fm": 1,
+     "eval_before_leaving_my_pov": "+0.23",
+     "eval_after_leaving_my_pov": "+1.39"
+    },
+    "wp12": 53.9,
+    "ev12": "+0.43",
+    "result": "win"
+   },
+   {
+    "id": "msCRozP2",
+    "first": "d4 e5 dxe5 Bc5 Bf4 f6",
+    "opening": "Englund Gambit",
+    "left": {
+     "ply": 2,
+     "who": "opponent",
+     "san": "e5",
+     "course_moves": [
+      "d5",
+      "Nf6",
+      "f5",
+      "c5",
+      "d6",
+      "b6",
+      "h6"
+     ],
+     "fm": 1,
+     "eval_before_leaving_my_pov": "+0.23",
+     "eval_after_leaving_my_pov": "+1.39"
+    },
+    "wp12": null,
+    "ev12": null,
+    "result": "loss"
+   },
+   {
+    "id": "bkKIi4iM",
+    "first": "d4 d5 Bf4 Nc6 e3 Bf5",
+    "opening": "Queen's Pawn Game: Accelerated London System",
+    "left": {
+     "ply": 7,
+     "who": "me",
+     "san": "Nf3",
+     "course_moves": [
+      "c4"
+     ],
+     "fm": 4,
+     "eval_before_leaving_my_pov": "+0.42",
+     "eval_after_leaving_my_pov": "+0.16"
+    },
+    "wp12": 47.5,
+    "ev12": "-0.27",
+    "result": "loss"
+   },
+   {
+    "id": "yXoWmgsR",
+    "first": "d4 d5 Bf4 Nc6 e3 g6",
+    "opening": "Queen's Pawn Game: Accelerated London System",
+    "left": {
+     "ply": 6,
+     "who": "opponent",
+     "san": "g6",
+     "course_moves": [
+      "Nf6",
+      "e5",
+      "Bg4",
+      "Bf5"
+     ],
+     "fm": 3,
+     "eval_before_leaving_my_pov": "+0.37",
+     "eval_after_leaving_my_pov": "+0.83"
+    },
+    "wp12": 49.8,
+    "ev12": "-0.02",
+    "result": "win"
+   },
+   {
+    "id": "W6Nhrt3P",
+    "first": "d4 d5 Bf4 Nc6 e3 Bf5",
+    "opening": "Queen's Pawn Game: Accelerated London System",
+    "left": {
+     "ply": 7,
+     "who": "me",
+     "san": "Nf3",
+     "course_moves": [
+      "c4"
+     ],
+     "fm": 4,
+     "eval_before_leaving_my_pov": "+0.42",
+     "eval_after_leaving_my_pov": "+0.16"
+    },
+    "wp12": 86.8,
+    "ev12": "+5.12",
+    "result": "win"
+   },
+   {
+    "id": "oTRkBfJ0",
+    "first": "d4 d5 Bf4 e6 Nf3 h6",
+    "opening": "Queen's Pawn Game: London System, with e6",
+    "left": {
+     "ply": 4,
+     "who": "opponent",
+     "san": "e6",
+     "course_moves": [
+      "Nf6",
+      "Bf5",
+      "c5",
+      "Nc6"
+     ],
+     "transposed_back_at_ply": 9,
+     "fm": 2,
+     "eval_before_leaving_my_pov": "+0.13",
+     "eval_after_leaving_my_pov": "+0.09"
+    },
+    "wp12": 95.9,
+    "ev12": "+8.56",
+    "result": "win"
+   },
+   {
+    "id": "4z8iRBwu",
+    "first": "d4 d5 Bf4 Nf6 Nf3 Bf5",
+    "opening": "Queen's Pawn Game: London System",
+    "left": {
+     "ply": 5,
+     "who": "me",
+     "san": "Nf3",
+     "course_moves": [
+      "e3"
+     ],
+     "transposed_back_at_ply": 8,
+     "fm": 3,
+     "eval_before_leaving_my_pov": "+0.08",
+     "eval_after_leaving_my_pov": "+0.06"
+    },
+    "wp12": 56.4,
+    "ev12": "+0.70",
+    "result": "loss"
+   },
+   {
+    "id": "ioPKeFeP",
+    "first": "d4 c6 Bf4 d5 e3 e6",
+    "opening": "Queen's Pawn Game",
+    "left": {
+     "ply": 2,
+     "who": "opponent",
+     "san": "c6",
+     "course_moves": [
+      "d5",
+      "Nf6",
+      "f5",
+      "c5",
+      "d6",
+      "b6",
+      "h6"
+     ],
+     "fm": 1,
+     "eval_before_leaving_my_pov": "+0.23",
+     "eval_after_leaving_my_pov": "+0.33"
+    },
+    "wp12": 68.3,
+    "ev12": "+2.08",
+    "result": "loss"
+   },
+   {
+    "id": "h2CvZgjE",
+    "first": "d4 e6 Bf4 d5 e3 f6",
+    "opening": "Horwitz Defense",
+    "left": {
+     "ply": 2,
+     "who": "opponent",
+     "san": "e6",
+     "course_moves": [
+      "d5",
+      "Nf6",
+      "f5",
+      "c5",
+      "d6",
+      "b6",
+      "h6"
+     ],
+     "fm": 1,
+     "eval_before_leaving_my_pov": "+0.23",
+     "eval_after_leaving_my_pov": "+0.33"
+    },
+    "wp12": 52.5,
+    "ev12": "+0.27",
+    "result": "loss"
+   },
+   {
+    "id": "tf4EY5pN",
+    "first": "d4 d5 Bf4 Nc6 e3 Nf6",
+    "opening": "Queen's Pawn Game: Accelerated London System",
+    "left": {
+     "ply": 8,
+     "who": "opponent",
+     "san": "e6",
+     "course_moves": [
+      "Bg4",
+      "Bf5",
+      "Nh5"
+     ],
+     "fm": 4,
+     "eval_before_leaving_my_pov": "+0.37",
+     "eval_after_leaving_my_pov": "+0.44"
+    },
+    "wp12": 36.4,
+    "ev12": "-1.51",
+    "result": "win"
+   },
+   {
+    "id": "gKsIWaAv",
+    "first": "d4 Nf6 Bf4 d6 e3 g6",
+    "opening": "London System",
+    "left": {
+     "ply": 4,
+     "who": "opponent",
+     "san": "d6",
+     "course_moves": [
+      "g6",
+      "e6",
+      "d5",
+      "c5",
+      "b6"
+     ],
+     "transposed_back_at_ply": 5,
+     "fm": 2,
+     "eval_before_leaving_my_pov": "+0.11",
+     "eval_after_leaving_my_pov": "+0.36"
+    },
+    "wp12": 47.4,
+    "ev12": "-0.28",
+    "result": "loss"
+   }
+  ],
+  "black_vs": {
+   "d4": 3,
+   "e4": 11,
+   "c4": 1,
+   "Nf3": 1
+  },
+  "black_games": [
+   {
+    "id": "B4575r7G",
+    "first": "d4 c6 Nc3 d5 Bf4 Nd7",
+    "opening": "Queen's Pawn Game",
+    "course": "slav",
+    "left": {
+     "ply": 2,
+     "who": "me",
+     "san": "c6",
+     "course_moves": [
+      "d5"
+     ],
+     "transposed_back_at_ply": 5,
+     "fm": 1,
+     "eval_before_leaving_my_pov": "-0.23",
+     "eval_after_leaving_my_pov": "-0.33"
+    },
+    "wp12": 47.5,
+    "ev12": "-0.27",
+    "result": "loss"
+   },
+   {
+    "id": "EMxzd6WS",
+    "first": "d4 g6 Nc3 Bg7 e4 d6",
+    "opening": "Modern Defense: Standard Defense",
+    "course": "slav",
+    "left": {
+     "ply": 2,
+     "who": "me",
+     "san": "g6",
+     "course_moves": [
+      "d5"
+     ],
+     "fm": 1,
+     "eval_before_leaving_my_pov": "-0.23",
+     "eval_after_leaving_my_pov": "-0.58"
+    },
+    "wp12": null,
+    "ev12": null,
+    "result": "loss"
+   },
+   {
+    "id": "hHlIiQJZ",
+    "first": "e4 c6 Nc3 d5 exd5 cxd5",
+    "opening": "Caro-Kann Defense",
+    "course": "caro-kann",
+    "left": {
+     "ply": 8,
+     "who": "me",
+     "san": "Bf5",
+     "course_moves": [
+      "Nc6"
+     ],
+     "fm": 4,
+     "eval_before_leaving_my_pov": "-0.02",
+     "eval_after_leaving_my_pov": "+0.06"
+    },
+    "wp12": null,
+    "ev12": null,
+    "result": "win"
+   },
+   {
+    "id": "XLCmExKA",
+    "first": "c4 c6 Nc3 d5 c5 e6",
+    "opening": "English Opening: Caro-Kann Defensive System",
+    "course": null,
+    "left": null,
+    "wp12": 41.3,
+    "ev12": "-0.96",
+    "result": "win"
+   },
+   {
+    "id": "tSVRiDh0",
+    "first": "e4 c6 d4 d5 e5 Nd7",
+    "opening": "Caro-Kann Defense: Advance Variation",
+    "course": "caro-kann",
+    "left": {
+     "ply": 6,
+     "who": "me",
+     "san": "Nd7",
+     "course_moves": [
+      "Bf5"
+     ],
+     "fm": 3,
+     "eval_before_leaving_my_pov": "-0.25",
+     "eval_after_leaving_my_pov": "-1.48"
+    },
+    "wp12": 95.0,
+    "ev12": "+7.99",
+    "result": "loss"
+   },
+   {
+    "id": "YqqVv08X",
+    "first": "e4 c6 d4 d5 e5 Bf5",
+    "opening": "Caro-Kann Defense: Advance Variation, Tal Variation",
+    "course": "caro-kann",
+    "left": {
+     "ply": 8,
+     "who": "me",
+     "san": "e6",
+     "course_moves": [
+      "h5"
+     ],
+     "fm": 4,
+     "eval_before_leaving_my_pov": "-0.35",
+     "eval_after_leaving_my_pov": "-4.27"
+    },
+    "wp12": 3.5,
+    "ev12": "-9.03",
+    "result": "loss"
+   },
+   {
+    "id": "u820NzSm",
+    "first": "e4 c6 Bc4 d5 exd5 cxd5",
+    "opening": "Caro-Kann Defense: Hillbilly Attack",
+    "course": "caro-kann",
+    "left": {
+     "ply": 8,
+     "who": "me",
+     "san": "Nc6",
+     "course_moves": [
+      "Bd7"
+     ],
+     "fm": 4,
+     "eval_before_leaving_my_pov": "+0.29",
+     "eval_after_leaving_my_pov": "+0.35"
+    },
+    "wp12": 17.8,
+    "ev12": "-4.16",
+    "result": "loss"
+   },
+   {
+    "id": "WwmpftBa",
+    "first": "e4 c6 Bc4 d5 exd5 cxd5",
+    "opening": "Caro-Kann Defense: Hillbilly Attack",
+    "course": "caro-kann",
+    "left": {
+     "ply": 7,
+     "who": "opponent",
+     "san": "Bb3",
+     "course_moves": [
+      "Bb5+"
+     ],
+     "fm": 4,
+     "eval_before_leaving_my_pov": "+0.31",
+     "eval_after_leaving_my_pov": "+0.32"
+    },
+    "wp12": 4.1,
+    "ev12": "-8.56",
+    "result": "loss"
+   },
+   {
+    "id": "USKGIQT0",
+    "first": "e4 c6 Nc3 d5 exd5 cxd5",
+    "opening": "Caro-Kann Defense",
+    "course": "caro-kann",
+    "left": {
+     "ply": 8,
+     "who": "me",
+     "san": "Bf5",
+     "course_moves": [
+      "Nc6"
+     ],
+     "fm": 4,
+     "eval_before_leaving_my_pov": "-0.02",
+     "eval_after_leaving_my_pov": "+0.06"
+    },
+    "wp12": 4.0,
+    "ev12": "-8.60",
+    "result": "loss"
+   },
+   {
+    "id": "TLcQymUZ",
+    "first": "e4 c6 Nf3 d5 e5 Nd7",
+    "opening": "Caro-Kann Defense",
+    "course": "caro-kann",
+    "left": {
+     "ply": 6,
+     "who": "me",
+     "san": "Nd7",
+     "course_moves": [
+      "Bf5"
+     ],
+     "fm": 3,
+     "eval_before_leaving_my_pov": "-0.14",
+     "eval_after_leaving_my_pov": "-1.05"
+    },
+    "wp12": 11.5,
+    "ev12": "-5.54",
+    "result": "loss"
+   },
+   {
+    "id": "K0WK1qZB",
+    "first": "e4 c6 d4 d5 Nc3 Nf6",
+    "opening": "Caro-Kann Defense: Campomanes Attack",
+    "course": "caro-kann",
+    "left": {
+     "ply": 6,
+     "who": "me",
+     "san": "Nf6",
+     "course_moves": [
+      "dxe4"
+     ],
+     "fm": 3,
+     "eval_before_leaving_my_pov": "-0.21",
+     "eval_after_leaving_my_pov": "-1.18"
+    },
+    "wp12": 7.6,
+    "ev12": "-6.79",
+    "result": "loss"
+   },
+   {
+    "id": "9Kgsnfwd",
+    "first": "Nf3 c6 d4 d5 Nc3 Bf5",
+    "opening": "Zukertort Opening: Slav Invitation",
+    "course": null,
+    "left": null,
+    "wp12": 38.8,
+    "ev12": "-1.24",
+    "result": "loss"
+   },
+   {
+    "id": "i4ehkEq3",
+    "first": "d4 c6 e3 d5 Nf3 Bf5",
+    "opening": "Queen's Pawn Game",
+    "course": "slav",
+    "left": {
+     "ply": 2,
+     "who": "me",
+     "san": "c6",
+     "course_moves": [
+      "d5"
+     ],
+     "transposed_back_at_ply": 5,
+     "fm": 1,
+     "eval_before_leaving_my_pov": "-0.23",
+     "eval_after_leaving_my_pov": "-0.33"
+    },
+    "wp12": 61.5,
+    "ev12": "+1.27",
+    "result": "loss"
+   },
+   {
+    "id": "pEKoVG79",
+    "first": "e4 c6 d4 d5 f3 Nf6",
+    "opening": "Caro-Kann Defense: Mar\u00f3czy Variation",
+    "course": "caro-kann",
+    "left": {
+     "ply": 6,
+     "who": "me",
+     "san": "Nf6",
+     "course_moves": [
+      "dxe4"
+     ],
+     "fm": 3,
+     "eval_before_leaving_my_pov": "-0.19",
+     "eval_after_leaving_my_pov": "-0.51"
+    },
+    "wp12": 26.6,
+    "ev12": "-2.75",
+    "result": "loss"
+   },
+   {
+    "id": "gugQaOdT",
+    "first": "e4 c6 d4 d5 exd5 cxd5",
+    "opening": "Caro-Kann Defense: Exchange Variation",
+    "course": "caro-kann",
+    "left": {
+     "ply": 7,
+     "who": "opponent",
+     "san": "c3",
+     "course_moves": [
+      "Bd3",
+      "Nf3",
+      "Bf4",
+      "Nc3",
+      "Bb5+",
+      "c4"
+     ],
+     "transposed_back_at_ply": 8,
+     "fm": 4,
+     "eval_before_leaving_my_pov": "-0.20",
+     "eval_after_leaving_my_pov": "-0.17"
+    },
+    "wp12": 24.5,
+    "ev12": "-3.05",
+    "result": "loss"
+   },
+   {
+    "id": "pfUcWPlw",
+    "first": "e4 c6 Nf3 d5 Nc3 dxe4",
+    "opening": "Caro-Kann Defense: Two Knights Attack",
+    "course": "caro-kann",
+    "left": {
+     "ply": 6,
+     "who": "me",
+     "san": "dxe4",
+     "course_moves": [
+      "Bg4"
+     ],
+     "fm": 3,
+     "eval_before_leaving_my_pov": "-0.28",
+     "eval_after_leaving_my_pov": "-0.36"
+    },
+    "wp12": 30.6,
+    "ev12": "-2.23",
+    "result": "loss"
+   }
+  ],
+  "by_course": {
+   "white:london": {
+    "games": 15,
+    "score": 7,
+    "reached_move12": 14,
+    "median_win_pct_at_move12": 55.1,
+    "below25_at_move12": 1,
+    "left_course_by": {
+     "opponent": 10,
+     "me": 5
+    },
+    "left_course_median_move": 2
+   },
+   "black:slav": {
+    "games": 3,
+    "score": 0,
+    "reached_move12": 2,
+    "median_win_pct_at_move12": 54.5,
+    "below25_at_move12": 0,
+    "left_course_by": {
+     "me": 3
+    },
+    "left_course_median_move": 1
+   },
+   "black:caro-kann": {
+    "games": 11,
+    "score": 1,
+    "reached_move12": 10,
+    "median_win_pct_at_move12": 14.7,
+    "below25_at_move12": 7,
+    "left_course_by": {
+     "me": 9,
+     "opponent": 2
+    },
+    "left_course_median_move": 4
+   },
+   "black:None": {
+    "games": 2,
+    "score": 1,
+    "reached_move12": 2,
+    "median_win_pct_at_move12": 40.0,
+    "below25_at_move12": 0,
+    "left_course_by": {
+     "null": 2
+    },
+    "left_course_median_move": null
+   }
+  },
+  "caro_vs_london_below25_fisher_p": 0.0023
+ },
+ "H5_clock": {
+  "median_spent_all": 5.1,
+  "p25_spent_all": 2.3,
+  "p75_spent_all": 11.6,
+  "n_moves": 860,
+  "median_spent_by_tc": {
+   "180+2": {
+    "n": 217,
+    "median": 3.1
+   },
+   "300+3": {
+    "n": 624,
+    "median": 6.2
+   },
+   "180+0": {
+    "n": 19,
+    "median": 4.5
+   }
+  },
+  "median_spent_on_blunders": 6.6,
+  "n_blunders": 111,
+  "median_spent_on_unjudged_moves": 4.0,
+  "blunders_moved_fast_le2s": {
+   "k": 14,
+   "n": 111,
+   "share": 0.126,
+   "wilson95": [
+    0.077,
+    0.201
+   ],
+   "game_bootstrap95": [
+    0.068,
+    0.185
+   ]
+  },
+  "all_moves_fast_le2s": {
+   "k": 188,
+   "n": 860,
+   "share": 0.219,
+   "wilson95": [
+    0.192,
+    0.247
+   ],
+   "game_bootstrap95": [
+    0.172,
+    0.273
+   ]
+  },
+  "blunders_in_time_trouble": {
+   "k": 12,
+   "n": 111,
+   "share": 0.108,
+   "wilson95": [
+    0.063,
+    0.18
+   ],
+   "game_bootstrap95": [
+    0.034,
+    0.184
+   ]
+  },
+  "moves_in_time_trouble": {
+   "k": 106,
+   "n": 891,
+   "share": 0.119,
+   "wilson95": [
+    0.099,
+    0.142
+   ],
+   "game_bootstrap95": [
+    0.059,
+    0.182
+   ]
+  },
+  "losses_on_time": 4,
+  "losses": 22,
+  "wins_on_time": 2,
+  "lost_games_clock_fraction_left_at_end_median": 0.342,
+  "n_lost_not_timeout": 18,
+  "population_research": {
+   "blitz": {
+    "median_spent_all": 3.0,
+    "median_spent_bl": 6.0,
+    "loser_clock_frac_end": 0.472,
+    "bl_lowclock_share": 0.059
+   }
+  }
+ },
+ "threat_habit": {
+  "his_moves_probed": 748,
+  "moves_where_opponent_had_a_real_threat": 126,
+  "of_those_he_blundered": {
+   "k": 39,
+   "n": 126,
+   "share": 0.31,
+   "wilson95": [
+    0.235,
+    0.395
+   ],
+   "game_bootstrap95": [
+    0.204,
+    0.421
+   ]
+  },
+  "moves_without_real_threat_he_blundered": {
+   "k": 63,
+   "n": 622,
+   "share": 0.101,
+   "wilson95": [
+    0.08,
+    0.127
+   ],
+   "game_bootstrap95": [
+    0.075,
+    0.129
+   ]
+  },
+  "blunders_with_a_real_threat_before": {
+   "k": 39,
+   "n": 102,
+   "share": 0.382,
+   "wilson95": [
+    0.294,
+    0.479
+   ],
+   "game_bootstrap95": [
+    0.261,
+    0.516
+   ]
+  },
+  "blunders_where_best_move_is_not_a_capture": {
+   "k": 79,
+   "n": 111,
+   "share": 0.712,
+   "wilson95": [
+    0.621,
+    0.788
+   ],
+   "game_bootstrap95": [
+    0.585,
+    0.816
+   ]
+  },
+  "opponents": {
+   "moves_probed": 846,
+   "moves_with_real_threat": 144,
+   "of_those_they_blundered": {
+    "k": 22,
+    "n": 144,
+    "share": 0.153,
+    "wilson95": [
+     0.103,
+     0.22
+    ],
+    "game_bootstrap95": [
+     0.08,
+     0.229
+    ]
+   },
+   "without_threat_they_blundered": {
+    "k": 59,
+    "n": 702,
+    "share": 0.084,
+    "wilson95": [
+     0.066,
+     0.107
+    ],
+    "game_bootstrap95": [
+     0.057,
+     0.116
+    ]
+   },
+   "blunders_with_a_real_threat_before": {
+    "k": 22,
+    "n": 81,
+    "share": 0.272,
+    "wilson95": [
+     0.187,
+     0.377
+    ],
+    "game_bootstrap95": [
+     0.158,
+     0.385
+    ]
+   },
+   "blunders_per_100": 9.57,
+   "note": "opponent moves in check are not probed, so this is not the same denominator as blunders per 100 moves"
+  },
+  "him_minus_opponents_when_threatened_game_bootstrap95": [
+   0.039,
+   0.289
+  ],
+  "him_minus_opponents_without_threat_game_bootstrap95": [
+   -0.013,
+   0.044
+  ]
+ },
+ "rating": {
+  "rated_games": 31,
+  "score": 9,
+  "expected_by_pre_game_ratings": 14.9,
+  "mean_opponent": 1164,
+  "performance_rating_logistic": 1008,
+  "first_game_rating": 1500,
+  "last_game_rating_plus_diff": 1017,
+  "score_wilson95": [
+   0.161,
+   0.466
+  ]
+ }
+}

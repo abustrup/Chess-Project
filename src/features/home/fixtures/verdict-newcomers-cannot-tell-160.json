@@ -1,0 +1,403 @@
+{
+ "design": {
+  "version": "prereg-2026-10-16-v2",
+  "game_filter": "rated, standard chess, 10+0 (600 s, no increment), Lichess account abustrup",
+  "run_in": [
+   1,
+   10
+  ],
+  "baseline": [
+   11,
+   40
+  ],
+  "unlock_after_game": 40,
+  "min_baseline_games": 30,
+  "wash_in_games": 20,
+  "looks": [
+   {
+    "name": "look 1",
+    "measured_games": 50,
+    "worked_z": 2.33,
+    "not_worked_z": 2.33
+   },
+   {
+    "name": "look 2 (final)",
+    "measured_games": 100,
+    "worked_z": 1.7,
+    "not_worked_z": 1.7
+   }
+  ],
+  "tau": 1.6,
+  "tau_sensitivity": [
+   0.0,
+   2.6
+  ],
+  "natural_change": 0.0,
+  "sesoi_fraction": 0.3333333333333333,
+  "newcomers_min_players": 30,
+  "mechanism_z": 1.645,
+  "min_games_lichess_own": 20,
+  "rating_comparison_points": {
+   "50": [
+    6.2,
+    50.4,
+    74.0
+   ],
+   "100": [
+    17.5,
+    57.4,
+    104.1
+   ],
+   "150": [
+    25.8,
+    65.4,
+    115.4
+   ]
+  }
+ },
+ "primary": {
+  "games_played": 160,
+  "windows": {
+   "baseline": [
+    11,
+    40
+   ],
+   "wash_in": [
+    41,
+    60
+   ],
+   "looks": [
+    {
+     "name": "look 1",
+     "measured_games": 50,
+     "worked_z": 2.33,
+     "not_worked_z": 2.33,
+     "window": [
+      61,
+      110
+     ]
+    },
+    {
+     "name": "look 2 (final)",
+     "measured_games": 100,
+     "worked_z": 1.7,
+     "not_worked_z": 1.7,
+     "window": [
+      61,
+      160
+     ]
+    }
+   ]
+  },
+  "baseline": {
+   "rate": 11.666666666666666,
+   "var": 0.09578544061302682,
+   "se": 0.30949223029508643,
+   "games": 30,
+   "events": 105,
+   "moves": 900
+  },
+  "looks": [
+   {
+    "look": "look 1",
+    "window": [
+     61,
+     110
+    ],
+    "training": {
+     "rate": 8.333333333333332,
+     "var": 0.056689342403628114,
+     "se": 0.23809523809523808,
+     "games": 50,
+     "events": 125,
+     "moves": 1500
+    },
+    "drop_per100": 3.333333333333334,
+    "drop_relative": 0.28571428571428575,
+    "se_sampling": 0.39048019542181,
+    "se_total": 1.6469592535993887,
+    "z": 2.02393187691099,
+    "range90": [
+     0.6240853611623396,
+     6.042581305504328
+    ],
+    "newcomer_adjusted": {
+     "drop_per100": 0.8333333333333339,
+     "se": 2.4107830227991602,
+     "z": 0.34566915622532907,
+     "passes": false,
+     "range90": [
+      -3.132404739171285,
+      4.799071405837953
+     ]
+    },
+    "verdict": null
+   },
+   {
+    "look": "look 2 (final)",
+    "window": [
+     61,
+     160
+    ],
+    "training": {
+     "rate": 8.333333333333332,
+     "var": 0.028058361391694726,
+     "se": 0.167506302543202,
+     "games": 100,
+     "events": 250,
+     "moves": 3000
+    },
+    "drop_per100": 3.333333333333334,
+    "drop_relative": 0.28571428571428575,
+    "se_sampling": 0.35191448109550927,
+    "se_total": 1.6382441216145787,
+    "z": 2.034698790829875,
+    "range90": [
+     0.6384217532773522,
+     6.028244913389315
+    ],
+    "newcomer_adjusted": {
+     "drop_per100": 0.8333333333333339,
+     "se": 2.404837583290132,
+     "z": 0.3465237482662863,
+     "passes": false,
+     "range90": [
+      -3.122624491178933,
+      4.789291157845601
+     ]
+    },
+    "verdict": null,
+    "note": "the main test passed, but not after subtracting what matched newcomers improve by themselves"
+   }
+  ],
+  "verdict": "cannot tell",
+  "decided_at_game": 160,
+  "newcomer_condition": "binding",
+  "sesoi": 3.8888888888888884
+ },
+ "secondary": {
+  "K_mechanism": {
+   "S1": {
+    "baseline": {
+     "rate": 20.0,
+     "var": 9.195402298850576,
+     "se": 3.0323921743156137,
+     "games": 30,
+     "events": 30,
+     "moves": 150
+    },
+    "training": {
+     "rate": 20.0,
+     "var": 2.6666666666666674,
+     "se": 1.6329931618554523,
+     "games": 100,
+     "events": 100,
+     "moves": 500
+    },
+    "drop": 0.0,
+    "drop_relative": 0.0,
+    "range90_sampling_only": [
+     -5.665602807505464,
+     5.665602807505464
+    ]
+   },
+   "S2": {
+    "baseline": {
+     "rate": 2.5,
+     "var": 0.2155172413793103,
+     "se": 0.4642383454426296,
+     "games": 30,
+     "events": 15,
+     "moves": 600
+    },
+    "training": {
+     "rate": 2.5,
+     "var": 0.06313131313131315,
+     "se": 0.2512594538148031,
+     "games": 100,
+     "events": 50,
+     "moves": 2000
+    },
+    "drop": 0.0,
+    "drop_relative": 0.0,
+    "range90_sampling_only": [
+     -0.8683489821031689,
+     0.8683489821031689
+    ]
+   },
+   "M_log_ratio_of_ratios": 0.0,
+   "se": 0.27320867764317674,
+   "z": 0.0,
+   "S1_relative_change": 0.0,
+   "S2_relative_change": 0.0,
+   "reading": "mechanism not supported"
+  },
+  "S1_threat_blunders_per100_threatened_moves": {
+   "baseline": {
+    "rate": 20.0,
+    "var": 9.195402298850576,
+    "se": 3.0323921743156137,
+    "games": 30,
+    "events": 30,
+    "moves": 150
+   },
+   "training": {
+    "rate": 20.0,
+    "var": 2.6666666666666674,
+    "se": 1.6329931618554523,
+    "games": 100,
+    "events": 100,
+    "moves": 500
+   },
+   "drop": 0.0,
+   "drop_relative": 0.0,
+   "range90_sampling_only": [
+    -5.665602807505464,
+    5.665602807505464
+   ]
+  },
+  "S2_blunders_per100_tested_moves_without_threat": {
+   "baseline": {
+    "rate": 2.5,
+    "var": 0.2155172413793103,
+    "se": 0.4642383454426296,
+    "games": 30,
+    "events": 15,
+    "moves": 600
+   },
+   "training": {
+    "rate": 2.5,
+    "var": 0.06313131313131315,
+    "se": 0.2512594538148031,
+    "games": 100,
+    "events": 50,
+    "moves": 2000
+   },
+   "drop": 0.0,
+   "drop_relative": 0.0,
+   "range90_sampling_only": [
+    -0.8683489821031689,
+    0.8683489821031689
+   ]
+  },
+  "S7_winning_no_threat": {
+   "baseline": {
+    "rate": 6.666666666666667,
+    "var": 4.214559386973179,
+    "se": 2.0529392068381322,
+    "games": 30,
+    "events": 8,
+    "moves": 120
+   },
+   "training": {
+    "rate": 6.25,
+    "var": 1.183712121212121,
+    "se": 1.0879853497231113,
+    "games": 100,
+    "events": 25,
+    "moves": 400
+   },
+   "drop": 0.41666666666666696,
+   "drop_relative": 0.06250000000000004,
+   "range90_sampling_only": [
+    -3.4053560514679497,
+    4.238689384801283
+   ]
+  },
+  "S3_lichess_own_count": {
+   "note": "too few Lichess-analysed games (0 baseline, 0 training; needs 20 in each)"
+  },
+  "instrument_check": {
+   "games_lichess_analysed": 0,
+   "lichess_blunders": 0,
+   "replication_blunders": 0,
+   "games_with_equal_count": 0
+  },
+  "S4_opponents_negative_control": {
+   "baseline": {
+    "rate": 10.0,
+    "var": 0.0,
+    "se": 0.0,
+    "games": 30,
+    "events": 90,
+    "moves": 900
+   },
+   "training": {
+    "rate": 10.0,
+    "var": 0.0,
+    "se": 0.0,
+    "games": 100,
+    "events": 300,
+    "moves": 3000
+   },
+   "drop": 0.0,
+   "drop_relative": 0.0,
+   "range90_sampling_only": [
+    0.0,
+    0.0
+   ]
+  },
+  "S5_rating": {
+   "rating_after_baseline": 1101,
+   "provisional_at_end_of_baseline": "False",
+   "look 1": {
+    "rating_after": 1101,
+    "change": 0,
+    "games_since_baseline": 70,
+    "comparison": {
+     "mean": 10.7,
+     "sd": 53.2,
+     "p95": 86.0
+    },
+    "percentile_vs_comparison": 42.0,
+    "reading": "rating does not stand out"
+   },
+   "look 2 (final)": {
+    "rating_after": 1101,
+    "change": 0,
+    "games_since_baseline": 120,
+    "comparison": {
+     "mean": 20.8,
+     "sd": 60.6,
+     "p95": 108.6
+    },
+    "percentile_vs_comparison": 36.6,
+    "reading": "rating does not stand out"
+   },
+   "score_minus_expected_baseline": {
+    "mean": 0.044356181028750837,
+    "games": 30
+   },
+   "score_minus_expected_training": {
+    "mean": 0.04363649175001666,
+    "games": 100
+   }
+  },
+  "baseline_trend_per_50_games": {
+   "slope": -0.5561735261401558,
+   "range90": [
+    -3.544242214963536,
+    2.431895162683224
+   ],
+   "flag_still_improving": false
+  },
+  "sensitivity_tau": {
+   "0.0": "worked",
+   "2.6": "cannot tell"
+  },
+  "sensitivity_main_rule_without_newcomers": "worked",
+  "sensitivity_per_game_median_rate": {
+   "baseline": 11.666666666666668,
+   "training": 8.333333333333334
+  },
+  "sensitivity_opponent_adjusted": {
+   "rate_ratio_training_vs_baseline": 0.7142605426812138,
+   "range90": [
+    0.6766679510442185,
+    0.7539416076141661
+   ],
+   "per_100_rating_points_of_opponent": 0.9929843515935063,
+   "note": "sampling only; natural ups and downs not included"
+  }
+ }
+}

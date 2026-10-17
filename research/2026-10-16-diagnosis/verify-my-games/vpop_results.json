@@ -1,0 +1,56 @@
+{
+ "rapid": {
+  "games": 1989,
+  "player_games": 3978,
+  "moves": 122108,
+  "blunders": 11455,
+  "big": 4921,
+  "big12": 1402,
+  "ever75": 2856,
+  "ever75_notwon": 988,
+  "s90": 1913,
+  "s90_notwon": 395,
+  "per100_pooled": 9.38,
+  "per_game_median": 8.7,
+  "share_big12": 0.285,
+  "share_big12_wilson": [
+   0.272,
+   0.298
+  ],
+  "share_ever75_notwon": 0.346,
+  "ever75_wilson": [
+   0.329,
+   0.364
+  ],
+  "share_s90_notwon": 0.206,
+  "pct_rank_of_9_8": 0.562,
+  "pct_rank_of_9_8_le": 0.562
+ },
+ "blitz": {
+  "games": 2040,
+  "player_games": 4080,
+  "moves": 127795,
+  "blunders": 11820,
+  "big": 5045,
+  "big12": 1171,
+  "ever75": 2930,
+  "ever75_notwon": 1050,
+  "s90": 1878,
+  "s90_notwon": 425,
+  "per100_pooled": 9.25,
+  "per_game_median": 8.33,
+  "share_big12": 0.232,
+  "share_big12_wilson": [
+   0.221,
+   0.244
+  ],
+  "share_ever75_notwon": 0.358,
+  "ever75_wilson": [
+   0.341,
+   0.376
+  ],
+  "share_s90_notwon": 0.226,
+  "pct_rank_of_9_8": 0.586,
+  "pct_rank_of_9_8_le": 0.586
+ }
+}

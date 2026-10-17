@@ -1,0 +1,524 @@
+{
+ "file_format": "aug",
+ "records": 820,
+ "evidence_counts": {
+  "unknown": 656,
+  "country": 107,
+  "mismatch": 47,
+  "name": 9,
+  "link": 1
+ },
+ "maps": {
+  "lichess_blitz->chess_blitz": {
+   "identity-supported": {
+    "n_pairs": 61,
+    "n_700_1700": 61,
+    "ols": {
+     "a": 30.2,
+     "b": 0.486,
+     "at_x0": 525,
+     "p10": 356,
+     "p90": 768
+    },
+    "theil_sen_at_x0": 508,
+    "loclin_h200_at_x0": 520,
+    "local_pm75": {
+     "n": 24,
+     "mean_lichess": 1033,
+     "mean": 538,
+     "median": 526,
+     "p10": 396,
+     "p90": 730
+    },
+    "local_pm100": {
+     "n": 27,
+     "mean_lichess": 1035,
+     "mean": 526,
+     "median": 525,
+     "p10": 388,
+     "p90": 710
+    },
+    "ols_95ci": [
+     470,
+     581
+    ],
+    "loclin_95ci": [
+     464,
+     577
+    ],
+    "median100_95ci": [
+     455,
+     565
+    ]
+   },
+   "link-or-name-only": {
+    "n_pairs": 6,
+    "n_700_1700": 6
+   },
+   "all-same-name": {
+    "n_pairs": 338,
+    "n_700_1700": 337,
+    "ols": {
+     "a": -198.7,
+     "b": 0.715,
+     "at_x0": 529,
+     "p10": 287,
+     "p90": 750
+    },
+    "theil_sen_at_x0": 498,
+    "loclin_h200_at_x0": 528,
+    "local_pm75": {
+     "n": 124,
+     "mean_lichess": 1030,
+     "mean": 537,
+     "median": 522,
+     "p10": 329,
+     "p90": 735
+    },
+    "local_pm100": {
+     "n": 165,
+     "mean_lichess": 1039,
+     "mean": 547,
+     "median": 526,
+     "p10": 318,
+     "p90": 769
+    },
+    "ols_95ci": [
+     502,
+     557
+    ],
+    "loclin_95ci": [
+     503,
+     556
+    ],
+    "median100_95ci": [
+     496,
+     550
+    ]
+   },
+   "mismatch-only": {
+    "n_pairs": 14,
+    "n_700_1700": 14,
+    "ols": {
+     "a": 909.0,
+     "b": -0.26,
+     "at_x0": 645,
+     "p10": 329,
+     "p90": 926
+    },
+    "theil_sen_at_x0": 547,
+    "loclin_h200_at_x0": 527,
+    "local_pm75": {
+     "n": 5,
+     "mean_lichess": 1034,
+     "mean": 614,
+     "median": 485,
+     "p10": 374,
+     "p90": 908
+    },
+    "local_pm100": {
+     "n": 5,
+     "mean_lichess": 1034,
+     "mean": 614,
+     "median": 485,
+     "p10": 374,
+     "p90": 908
+    },
+    "ols_95ci": [
+     424,
+     996
+    ],
+    "loclin_95ci": [
+     369,
+     897
+    ],
+    "median100_95ci": [
+     327,
+     916
+    ]
+   },
+   "unknown-only": {
+    "n_pairs": 263,
+    "n_700_1700": 262,
+    "ols": {
+     "a": -335.5,
+     "b": 0.848,
+     "at_x0": 527,
+     "p10": 281,
+     "p90": 745
+    },
+    "theil_sen_at_x0": 498,
+    "loclin_h200_at_x0": 529,
+    "local_pm75": {
+     "n": 95,
+     "mean_lichess": 1029,
+     "mean": 532,
+     "median": 514,
+     "p10": 320,
+     "p90": 729
+    },
+    "local_pm100": {
+     "n": 133,
+     "mean_lichess": 1040,
+     "mean": 549,
+     "median": 532,
+     "p10": 315,
+     "p90": 758
+    },
+    "ols_95ci": [
+     497,
+     560
+    ],
+    "loclin_95ci": [
+     498,
+     559
+    ],
+    "median100_95ci": [
+     496,
+     553
+    ]
+   }
+  },
+  "lichess_blitz->chess_rapid": {
+   "identity-supported": {
+    "n_pairs": 62,
+    "n_700_1700": 62,
+    "ols": {
+     "a": 136.5,
+     "b": 0.618,
+     "at_x0": 765,
+     "p10": 479,
+     "p90": 1082
+    },
+    "theil_sen_at_x0": 753,
+    "loclin_h200_at_x0": 751,
+    "local_pm75": {
+     "n": 24,
+     "mean_lichess": 1028,
+     "mean": 755,
+     "median": 716,
+     "p10": 435,
+     "p90": 1068
+    },
+    "local_pm100": {
+     "n": 28,
+     "mean_lichess": 1020,
+     "mean": 747,
+     "median": 708,
+     "p10": 428,
+     "p90": 1060
+    },
+    "ols_95ci": [
+     691,
+     833
+    ],
+    "loclin_95ci": [
+     668,
+     826
+    ],
+    "median100_95ci": [
+     631,
+     906
+    ]
+   },
+   "link-or-name-only": {
+    "n_pairs": 5,
+    "n_700_1700": 5
+   },
+   "all-same-name": {
+    "n_pairs": 370,
+    "n_700_1700": 369,
+    "ols": {
+     "a": 43.5,
+     "b": 0.695,
+     "at_x0": 750,
+     "p10": 364,
+     "p90": 1096
+    },
+    "theil_sen_at_x0": 724,
+    "loclin_h200_at_x0": 729,
+    "local_pm75": {
+     "n": 139,
+     "mean_lichess": 1025,
+     "mean": 728,
+     "median": 722,
+     "p10": 406,
+     "p90": 1063
+    },
+    "local_pm100": {
+     "n": 183,
+     "mean_lichess": 1030,
+     "mean": 745,
+     "median": 723,
+     "p10": 408,
+     "p90": 1079
+    },
+    "ols_95ci": [
+     713,
+     789
+    ],
+    "loclin_95ci": [
+     693,
+     768
+    ],
+    "median100_95ci": [
+     685,
+     764
+    ]
+   },
+   "mismatch-only": {
+    "n_pairs": 17,
+    "n_700_1700": 17,
+    "ols": {
+     "a": 627.1,
+     "b": 0.217,
+     "at_x0": 848,
+     "p10": 283,
+     "p90": 1548
+    },
+    "theil_sen_at_x0": 701,
+    "loclin_h200_at_x0": 761,
+    "local_pm75": {
+     "n": 9,
+     "mean_lichess": 1037,
+     "mean": 905,
+     "median": 723,
+     "p10": 452,
+     "p90": 1534
+    },
+    "local_pm100": {
+     "n": 10,
+     "mean_lichess": 1045,
+     "mean": 931,
+     "median": 894,
+     "p10": 473,
+     "p90": 1516
+    },
+    "ols_95ci": [
+     618,
+     1183
+    ],
+    "loclin_95ci": [
+     529,
+     1028
+    ],
+    "median100_95ci": [
+     532,
+     1223
+    ]
+   },
+   "unknown-only": {
+    "n_pairs": 291,
+    "n_700_1700": 290,
+    "ols": {
+     "a": 3.8,
+     "b": 0.727,
+     "at_x0": 744,
+     "p10": 365,
+     "p90": 1086
+    },
+    "theil_sen_at_x0": 725,
+    "loclin_h200_at_x0": 719,
+    "local_pm75": {
+     "n": 106,
+     "mean_lichess": 1024,
+     "mean": 706,
+     "median": 714,
+     "p10": 377,
+     "p90": 1016
+    },
+    "local_pm100": {
+     "n": 145,
+     "mean_lichess": 1031,
+     "mean": 732,
+     "median": 734,
+     "p10": 381,
+     "p90": 1062
+    },
+    "ols_95ci": [
+     700,
+     787
+    ],
+    "loclin_95ci": [
+     678,
+     759
+    ],
+    "median100_95ci": [
+     659,
+     769
+    ]
+   }
+  },
+  "lichess_rapid->chess_rapid": {
+   "identity-supported": {
+    "n_pairs": 38,
+    "n_700_1700": 36,
+    "ols": {
+     "a": 194.5,
+     "b": 0.503,
+     "at_x0": 706,
+     "p10": 402,
+     "p90": 1000
+    },
+    "theil_sen_at_x0": 600,
+    "loclin_h200_at_x0": 912,
+    "ols_95ci": [
+     479,
+     887
+    ],
+    "loclin_95ci": [
+     330,
+     1086
+    ],
+    "median100_95ci": [
+     465,
+     1052
+    ]
+   },
+   "link-or-name-only": {
+    "n_pairs": 2,
+    "n_700_1700": 2
+   },
+   "all-same-name": {
+    "n_pairs": 207,
+    "n_700_1700": 203,
+    "ols": {
+     "a": -153.3,
+     "b": 0.766,
+     "at_x0": 626,
+     "p10": 327,
+     "p90": 875
+    },
+    "theil_sen_at_x0": 616,
+    "loclin_h200_at_x0": 593,
+    "local_pm75": {
+     "n": 26,
+     "mean_lichess": 1029,
+     "mean": 597,
+     "median": 598,
+     "p10": 377,
+     "p90": 774
+    },
+    "local_pm100": {
+     "n": 31,
+     "mean_lichess": 1041,
+     "mean": 600,
+     "median": 586,
+     "p10": 413,
+     "p90": 785
+    },
+    "ols_95ci": [
+     567,
+     693
+    ],
+    "loclin_95ci": [
+     537,
+     650
+    ],
+    "median100_95ci": [
+     522,
+     658
+    ]
+   },
+   "mismatch-only": {
+    "n_pairs": 10,
+    "n_700_1700": 10,
+    "ols": {
+     "a": -1086.5,
+     "b": 1.551,
+     "at_x0": 491,
+     "p10": 156,
+     "p90": 1061
+    },
+    "theil_sen_at_x0": 370,
+    "loclin_h200_at_x0": 526,
+    "ols_95ci": [
+     10,
+     1026
+    ],
+    "loclin_95ci": [
+     -1785,
+     1432
+    ],
+    "median100_95ci": [
+     532,
+     532
+    ]
+   },
+   "unknown-only": {
+    "n_pairs": 159,
+    "n_700_1700": 157,
+    "ols": {
+     "a": -127.2,
+     "b": 0.737,
+     "at_x0": 623,
+     "p10": 327,
+     "p90": 867
+    },
+    "theil_sen_at_x0": 630,
+    "loclin_h200_at_x0": 582,
+    "local_pm75": {
+     "n": 23,
+     "mean_lichess": 1025,
+     "mean": 574,
+     "median": 586,
+     "p10": 355,
+     "p90": 748
+    },
+    "local_pm100": {
+     "n": 26,
+     "mean_lichess": 1034,
+     "mean": 584,
+     "median": 598,
+     "p10": 377,
+     "p90": 756
+    },
+    "ols_95ci": [
+     560,
+     691
+    ],
+    "loclin_95ci": [
+     530,
+     629
+    ],
+    "median100_95ci": [
+     511,
+     658
+    ]
+   }
+  }
+ },
+ "country_check": {
+  "known_country_pairs": 154,
+  "mismatch_share": 0.305,
+  "chance_agreement_if_different_people": 0.045,
+  "implied_share_different_people_among_known": 0.32,
+  "implied_false_matches_among_country_matches": 0.021,
+  "top_countries_lichess": [
+   [
+    "RU",
+    25
+   ],
+   [
+    "FR",
+    13
+   ],
+   [
+    "DE",
+    10
+   ],
+   [
+    "TR",
+    10
+   ],
+   [
+    "ES",
+    10
+   ],
+   [
+    "IT",
+    9
+   ]
+  ]
+ }
+}

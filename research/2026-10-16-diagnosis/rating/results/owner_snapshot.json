@@ -1,0 +1,45 @@
+{
+ "fetched": "2026-10-16T11:38+00:00",
+ "perfs": {
+  "blitz": {
+   "games": 31,
+   "rating": 1017,
+   "rd": 64,
+   "prog": -117
+  },
+  "puzzle": {
+   "games": 2,
+   "rating": 1989,
+   "rd": 384,
+   "prog": 0,
+   "prov": true
+  }
+ },
+ "rated_games": 31,
+ "speeds": {
+  "blitz": 31
+ },
+ "score": 9.0,
+ "first_game": "2026-10-10",
+ "performance all games": {
+  "performance_rating": 1001,
+  "se": 69,
+  "opponents_average": 1164,
+  "games": 31,
+  "score": 9.0
+ },
+ "performance last 15 games": {
+  "performance_rating": 885,
+  "se": 106,
+  "opponents_average": 1110,
+  "games": 15,
+  "score": 3.0
+ },
+ "performance first 16 games": {
+  "performance_rating": 1121,
+  "se": 90,
+  "opponents_average": 1214,
+  "games": 16,
+  "score": 6.0
+ }
+}

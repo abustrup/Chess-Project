@@ -1,0 +1,44 @@
+{
+ "games": 11007,
+ "moves": 677498,
+ "move_label_agreement": 0.9961,
+ "blunder_confusion": {
+  "rule B / lichess -": 78,
+  "rule B / lichess B": 61816,
+  "rule M / lichess B": 50
+ },
+ "player_games": 22014,
+ "player_games_rule_blunders_equal_summary": 21888,
+ "player_games_per_move_labels_equal_summary": 22014,
+ "blunders_rule": 61894,
+ "blunders_per_move_labels": 61866,
+ "blunders_summary": 61866,
+ "example_mismatches": [
+  [
+   "black",
+   19,
+   20
+  ],
+  [
+   "black",
+   2,
+   1
+  ],
+  [
+   "white",
+   1,
+   2
+  ],
+  [
+   "white",
+   4,
+   3
+  ],
+  [
+   "white",
+   3,
+   2
+  ]
+ ],
+ "note": "example_mismatches: [colour, rule count, Lichess count]; game ids removed"
+}

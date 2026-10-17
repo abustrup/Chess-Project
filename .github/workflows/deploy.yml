@@ -4,6 +4,8 @@
 # One-time setup in GitHub: Settings -> Pages -> Build and deployment -> Source: "GitHub Actions".
 # The site is built with relative links (base './') and uses "#" addresses, so it works under
 # https://<you>.github.io/<repository-name>/ without any extra configuration.
+# Until Pages is switched on, the site is still built (so a broken build still shows red), but publishing is skipped
+# with a yellow note instead of failing. The daily measurement (measure.yml) starts this workflow after each commit.
 
 name: Deploy to GitHub Pages
 
@@ -26,6 +28,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      pages_on: ${{ steps.pages.outputs.on }}
     steps:
       - name: Get the code
         uses: actions/checkout@v5
@@ -44,16 +48,41 @@ jobs:
       - name: Build the website
         run: npm run build
 
+      # Asks GitHub whether Pages is switched on for this repository, and set to publish from GitHub Actions.
+      # Off (404) or set to publish from a branch: skip publishing with a note. Any other answer: publish as before.
+      - name: Is GitHub Pages switched on?
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
+          if kind=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq .build_type 2>"$RUNNER_TEMP/pages.err"); then
+            if [ "$kind" = "workflow" ]; then
+              echo "on=true" >> "$GITHUB_OUTPUT"; echo "GitHub Pages is on and publishes from GitHub Actions."
+            else
+              echo "on=false" >> "$GITHUB_OUTPUT"
+              echo "::warning title=GitHub Pages publishes from a branch::The website was built but not published. In GitHub: Settings, Pages, Build and deployment, Source: GitHub Actions."
+            fi
+          elif grep -q 'HTTP 404' "$RUNNER_TEMP/pages.err"; then
+            echo "on=false" >> "$GITHUB_OUTPUT"
+            echo "::warning title=GitHub Pages is off::The website was built but not published. Switch it on once in GitHub: Settings, Pages, Build and deployment, Source: GitHub Actions."
+          else
+            echo "on=true" >> "$GITHUB_OUTPUT"; echo "Could not ask GitHub about Pages ($(cat "$RUNNER_TEMP/pages.err")); publishing as usual."
+          fi
+
       - name: Prepare GitHub Pages
+        if: steps.pages.outputs.on == 'true'
         uses: actions/configure-pages@v5
 
       - name: Upload the built website
+        if: steps.pages.outputs.on == 'true'
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 
   deploy:
     needs: build
+    if: needs.build.outputs.pages_on == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

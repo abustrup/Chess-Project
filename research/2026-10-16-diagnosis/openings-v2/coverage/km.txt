@@ -1,0 +1,45 @@
+== london games 71763 {'event': 21195, 'censored': 50568}
+   S: 2:0.779(71637) 4:0.587(14348) 6:0.501(5802) 8:0.280(1855) 10:0.118(258) 12:0.051(44) 14:0.031(5) 16:0.015(2) 18:0.015(0) 20:0.015(0) 22:0.015(0) 24:0.015(0)
+   rapid S: 2:0.805 4:0.615 6:0.528 8:0.296 10:0.142 12:0.035 14:0.000 16:0.000 18:0.000 20:0.000 22:0.000 24:0.000
+   classic-pyramid            touch    756 (0.011) at ply 6  m6 0.033 m8 0.033 m10 0.033 m12 0.033
+   vs-nc6-e5                  touch   4225 (0.059) at ply 4  m6 0.0925 m8 0.0308 m10 0.0308 m12 0.0308
+   mirror-bf5                 touch   1684 (0.024) at ply 4  m6 0.0988 m8 0.0988 m10 0.0988 m12 0.0988
+   keep-calm-weird-moves      touch   5354 (0.075) at ply 2  m6 0.0867 m8 0.0 m10 0.0 m12 0.0
+   vs-kings-indian            touch   9397 (0.131) at ply 2  m6 0.0 m8 0.0 m10 0.0 m12 0.0
+   early-c5                   touch   2095 (0.029) at ply 2  m6 0.116 m8 0.116 m10 0.116 m12 0.116
+   vs-dutch                   touch   1078 (0.015) at ply 2  m6 0.1428 m8 0.1428 m10 0.1428 m12 0.1428
+== caro-kann games 14365 {'censored': 10080, 'event': 4285}
+   S: 4:0.977(12900) 6:0.898(8521) 8:0.767(3158) 10:0.509(945) 12:0.253(205) 14:0.141(70) 16:0.047(0) 18:0.047(0) 20:0.047(0) 22:0.047(0) 24:0.047(0)
+   rapid S: 4:0.973 6:0.882 8:0.738 10:0.465 12:0.219 14:0.143 16:0.038 18:0.038 20:0.038 22:0.038 24:0.038
+   exchange-others            touch   1339 (0.093) at ply 5  m6 0.1882 m8 0.0505 m10 0.0505 m12 0.0505
+   two-knights                touch   5350 (0.372) at ply 3  m6 0.2322 m8 0.0317 m10 0.0317 m12 0.0317
+   sidelines                  touch   3326 (0.232) at ply 3  m6 0.2295 m8 0.054 m10 0.054 m12 0.054
+   gambits                    touch    436 (0.030) at ply 5  m6 0.0 m8 0.0 m10 0.0 m12 0.0
+   advance-short              touch    561 (0.039) at ply 7  m6 0.4123 m8 0.0878 m10 0.0878 m12 0.0878
+   advance-others             touch    413 (0.029) at ply 7  m6 0.6862 m8 0.1307 m10 0.1307 m12 0.1307
+   classical-quiet            touch   1038 (0.072) at ply 5  m6 0.1929 m8 0.0857 m10 0.0857 m12 0.0857
+   advance-nc3                touch    283 (0.020) at ply 7  m6 0.1159 m8 0.0 m10 0.0 m12 0.0
+== slav games 38981 {'censored': 36767, 'event': 2214}
+   S: 4:0.960(2337) 6:0.775(667) 8:0.629(178) 10:0.427(43) 12:0.189(7) 14:0.027(1) 16:0.000(0) 18:0.000(0) 20:0.000(0) 22:0.000(0) 24:0.000(0)
+   rapid S: 4:0.954 6:0.736 8:0.571 10:0.352 12:0.083 14:0.000 16:0.000 18:0.000 20:0.000 22:0.000 24:0.000
+   slow-slav                  touch    408 (0.011) at ply 5  m6 0.3872 m8 0.0 m10 0.0 m12 0.0
+   vs-london                  touch    173 (0.004) at ply 5  m6 0.33 m8 0.0 m10 0.0 m12 0.0
+   vs-colle-catalan           touch    185 (0.005) at ply 5  m6 0.1347 m8 0.1347 m10 0.1347 m12 0.1347
+   third-move-sidelines       touch    665 (0.017) at ply 5  m6 0.1023 m8 0.0 m10 0.0 m12 0.0
+   other-second-moves         touch    175 (0.004) at ply 5  m6 0.1667 m8 0.1667 m10 0.1667 m12 0.1667
+== black-vs-d4-with-1c6 games 2528 {'censored': 1718, 'event': 810}
+   S: 4:0.952(1999) 6:0.779(725) 8:0.596(287) 10:0.368(78) 12:0.217(15) 14:0.072(3) 16:0.000(0) 18:0.000(0) 20:0.000(0) 22:0.000(0) 24:0.000(0)
+   rapid S: 4:0.945 6:0.770 8:0.623 10:0.399 12:0.145 14:0.145 16:0.145 18:0.145 20:0.145 22:0.145 24:0.145
+   slav:slow-slav             touch    142 (0.056) at ply 5  m6 0.3467 m8 0.3467 m10 0.3467 m12 0.3467
+   slav:vs-london             touch    646 (0.256) at ply 3  m6 0.3345 m8 0.0 m10 0.0 m12 0.0
+   slav:vs-colle-catalan      touch    591 (0.234) at ply 3  m6 0.1788 m8 0.0 m10 0.0 m12 0.0
+   slav:third-move-sidelines  touch    193 (0.076) at ply 5  m6 0.3347 m8 0.3347 m10 0.3347 m12 0.3347
+   slav:other-second-moves    touch    228 (0.090) at ply 3  m6 0.1402 m8 0.1402 m10 0.1402 m12 0.1402
+   caro:exchange-others       touch     75 (0.030) at ply 5  m6 0.08 m8 0.0 m10 0.0 m12 0.0
+   caro:two-knights           touch      1 (0.000) at ply 9  m6 1.0 m8 1.0 m10 1.0 m12 1.0
+   caro:sidelines             touch     14 (0.005) at ply 7  m6 0.3333 m8 0.3333 m10 0.3333 m12 0.3333
+   caro:gambits               touch     32 (0.013) at ply 5  m6 0.0 m8 0.0 m10 0.0 m12 0.0
+   caro:advance-short         touch     53 (0.021) at ply 7  m6 0.4244 m8 0.0 m10 0.0 m12 0.0
+   caro:advance-others        touch     37 (0.015) at ply 7  m6 0.5811 m8 0.0 m10 0.0 m12 0.0
+   caro:classical-quiet       touch    109 (0.043) at ply 5  m6 0.1351 m8 0.0 m10 0.0 m12 0.0
+   caro:advance-nc3           touch     32 (0.013) at ply 7  m6 0.15 m8 0.15 m10 0.15 m12 0.15

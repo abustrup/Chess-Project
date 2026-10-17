@@ -1,0 +1,11 @@
+{
+  "note": "Taught moves kept on purpose although Stockfish prefers another move. check.py --strict lists them as notes and does not fail on them. Each entry: fen (the position before the move), uci (the taught move), line (for people), reason (why it stays, with its evidence and date). Matched by position and move, so an entry survives chapters being merged or renamed. Add an entry only with a reason a reader can check.",
+  "entries": [
+    {
+      "line": "1. d4 b6 2. Nf3",
+      "fen": "rnbqkbnr/p1pppppp/1p6/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
+      "uci": "g1f3",
+      "reason": "A choice of set-up, not an error: 2.Nf3 keeps the London set-up he learns everywhere else, while Stockfish's 2.e4 starts a different opening. The cost is small (Stockfish 19: 71 cp at 3M nodes, 59 cp / 5.4 win-chance points at 30M; Lichess cloud 64 cp; Lichess would call it at most an inaccuracy), and players at his level score better with it: 55% with 2.Nf3 (177 games) against 46% with 2.e4 (244 games) in rated blitz and rapid games between 1000-1300 players (Lichess database sample, September 2026). Evidence: research/2026-10-16-diagnosis/openings/PROPOSAL.md and engine/summary.md, 2026-10-16."
+    }
+  ]
+}

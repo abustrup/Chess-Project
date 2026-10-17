@@ -1,10 +1,12 @@
 import { Component, lazy, Suspense, useEffect, type ReactNode } from 'react'
 import { NavLink, Route, Routes, useLocation } from 'react-router-dom'
-import { BarChart3, BookOpen, Crosshair, Home as HomeIcon, Puzzle, Settings as SettingsIcon, Swords } from 'lucide-react'
+import { BarChart3, BookOpen, Crosshair, Home as HomeIcon, Puzzle, Settings as SettingsIcon, ShieldCheck, Swords } from 'lucide-react'
 import { DEFAULT_PROFILE } from './types'
 import { KEYS, useStored } from './lib/storage'
+import { readGateSync, useStudyGate } from './lib/studyGate'
 import { getBoardTheme } from './lib/themes'
 import ZenToggle from './components/ZenToggle'
+import './features/safety/nav.css'
 
 // Every page is its own download. The first visit only fetches the app frame and the page you
 // opened, so the app appears quickly even on a phone. The other pages are fetched quietly a moment
@@ -18,6 +20,7 @@ const PAGE_LOADERS = {
   rating: () => import('./pages/Rating'),
   review: () => import('./pages/Review'),
   settings: () => import('./pages/Settings'),
+  safety: () => import('./pages/Safety'),
 }
 const Home = lazy(PAGE_LOADERS.home)
 const Play = lazy(PAGE_LOADERS.play)
@@ -27,6 +30,7 @@ const Puzzles = lazy(PAGE_LOADERS.puzzles)
 const Rating = lazy(PAGE_LOADERS.rating)
 const Review = lazy(PAGE_LOADERS.review)
 const Settings = lazy(PAGE_LOADERS.settings)
+const Safety = lazy(PAGE_LOADERS.safety)
 // The dev lab is a tool for testing the board and engine while building the app. It only exists
 // in development (npm run dev); the public site leaves it out completely.
 const Dev = import.meta.env.DEV ? lazy(() => import('./pages/Dev')) : null
@@ -40,6 +44,7 @@ const PAGE_TITLES: Record<string, string> = {
   rating: 'My rating',
   review: 'Game review',
   settings: 'Settings',
+  safety: 'Safety check',
 }
 
 const KNIGHT_PATH =
@@ -53,6 +58,9 @@ const NAV = [
   { to: '/puzzles', label: 'Puzzles', icon: Puzzle },
   { to: '/rating', label: 'My rating', icon: BarChart3 },
 ]
+// The Safety-check trainer joins the menu only once the study gate opens (after his 40th rated 10+0 game);
+// before that /safety still answers, with a page that says when it opens.
+const SAFETY_NAV = { to: '/safety', label: 'Safety', icon: ShieldCheck, end: false }
 
 /** Shown in the page area while a page is being fetched. It fades in after a short pause, so a fast load shows nothing. */
 function PageLoading() {
@@ -106,7 +114,9 @@ function usePreloadPages() {
   useEffect(() => {
     if (!import.meta.env.PROD) return
     const preload = () => {
-      for (const load of Object.values(PAGE_LOADERS)) load().catch(() => undefined)
+      // the trainer's code is fetched only once it is open; its page asks for nothing else while locked
+      for (const [page, load] of Object.entries(PAGE_LOADERS))
+        if (page !== 'safety' || readGateSync().unlocked) load().catch(() => undefined)
     }
     const timer = window.setTimeout(() => {
       if ('requestIdleCallback' in window) window.requestIdleCallback(preload, { timeout: 3000 })
@@ -119,6 +129,9 @@ function usePreloadPages() {
 export default function App() {
   const [profile] = useStored(KEYS.profile, DEFAULT_PROFILE)
   const { pathname } = useLocation()
+  // renders at once from the last known count, then checks Lichess in the background (at most every 10 minutes)
+  const gate = useStudyGate()
+  const nav = gate.unlocked ? [NAV[0], SAFETY_NAV, ...NAV.slice(1)] : NAV
   usePreloadPages()
 
   // a new page starts at the top and names the browser tab after itself
@@ -155,8 +168,8 @@ export default function App() {
           </svg>
           <span>Chess Coach</span>
         </NavLink>
-        <nav className="topnav" aria-label="Main">
-          {NAV.map(({ to, label, icon: Icon, end }) => (
+        <nav className={`topnav ${gate.unlocked ? 'with-safety' : ''}`} aria-label="Main">
+          {nav.map(({ to, label, icon: Icon, end }) => (
             <NavLink key={to} to={to} end={end} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
               <Icon size={18} />
               <span>{label}</span>
@@ -181,6 +194,7 @@ export default function App() {
               <Route path="/rating/*" element={<Rating />} />
               <Route path="/review/:gameId" element={<Review />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/safety" element={<Safety />} />
               {Dev && <Route path="/dev" element={<Dev />} />}
               <Route path="*" element={<Home />} />
             </Routes>

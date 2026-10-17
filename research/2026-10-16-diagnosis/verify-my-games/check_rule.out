@@ -1,0 +1,6 @@
+clamp=None: agreement 421/422 {(None, None): 284, ('Blunder', 'Blunder'): 64, ('Mistake', 'Mistake'): 28, ('Inaccuracy', 'Inaccuracy'): 45, ('Inaccuracy', None): 1}
+   disagree ('pEKoVG79', 34, 'Bb7', 'Inaccuracy', None, {'cp': 91}, {'cp': 177})
+clamp=1000: agreement 420/422 {(None, None): 284, ('Blunder', 'Blunder'): 64, ('Mistake', 'Mistake'): 28, ('Inaccuracy', 'Inaccuracy'): 44, (None, 'Inaccuracy'): 1, ('Inaccuracy', None): 1}
+   disagree ('yXoWmgsR', 77, 'h4', None, 'Inaccuracy', {'cp': -708}, {'cp': -1093})
+   disagree ('pEKoVG79', 34, 'Bb7', 'Inaccuracy', None, {'cp': 91}, {'cp': 177})
+Lichess own blunder count for him in the 6 games: 32 in 215 of his moves 14.88 per 100
