@@ -12,7 +12,7 @@
   "lineNodes": 250000,
   "extendNodes": 250000
  },
- "source": "Lichess games of abustrup: 31 rated games (31 blitz), 2026-10-10 to 2026-10-15",
+ "source": "Lichess games of abustrup: 33 rated games (32 blitz, 1 rapid), 2026-10-10 to 2026-10-17",
  "games": [
   "bdOFlcdq",
   "uUCQ83zH",
@@ -44,11 +44,13 @@
   "gugQaOdT",
   "tf4EY5pN",
   "gKsIWaAv",
-  "pfUcWPlw"
+  "pfUcWPlw",
+  "DIAF9sk6",
+  "H8rFUMXt"
  ],
  "counts": {
-  "own": 81,
-  "held": 80,
+  "own": 90,
+  "held": 96,
   "quiet": 21
  },
  "excluded": [
@@ -426,16 +428,31 @@
    "id": "quiet:gKsIWaAv:69",
    "taken": true,
    "why": null
+  },
+  {
+   "id": "quiet:H8rFUMXt:99",
+   "taken": false,
+   "why": "he had a forced mate"
+  },
+  {
+   "id": "quiet:H8rFUMXt:95",
+   "taken": false,
+   "why": "he had a forced mate"
+  },
+  {
+   "id": "quiet:H8rFUMXt:91",
+   "taken": false,
+   "why": "he had a forced mate"
   }
  ],
  "safetyRule": {
   "held": {
-   "cards": 80,
-   "moves": 2826,
-   "within4": 170,
-   "safeOnly": 102,
-   "wrong": 2554,
-   "wrongMaterial": 2141
+   "cards": 96,
+   "moves": 3296,
+   "within4": 207,
+   "safeOnly": 115,
+   "wrong": 2974,
+   "wrongMaterial": 2523
   },
   "quiet": {
    "cards": 21,
