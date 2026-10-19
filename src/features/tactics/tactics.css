@@ -450,14 +450,26 @@
 }
 
 /* ----------------------------------------------------------------- zen mode
-   In zen the page header is gone, but the feedback text and the main buttons must still fit under
-   the board without scrolling, so the board gets a little smaller. */
-:root[data-zen='on'] .board-col.tx-board-col {
-  width: min(100%, calc(100vh - 320px));
+   In zen the page header is gone; theme.css sizes the board. On a portrait screen the feedback text and the
+   main buttons usually need this much room under it (a longer text takes a little more from the board). */
+:root[data-zen='on'] .page.tx-page {
+  --zen-below: 255px; /* Practice: the feedback, a hint and the buttons */
+}
+:root[data-zen='on'] .page.tx-page:has(.tx-explain) {
+  --zen-below: 276px; /* Watch: the explanation and the step buttons */
 }
 :root[data-zen='on'] .tx-prompt,
 :root[data-zen='on'] .tx-explain {
   min-height: 0;
+}
+/* when the column runs out of room, the text gives way and scrolls inside itself, so the buttons under it stay */
+:root[data-zen='on'] .side-col > :is(.tx-prompt, .tx-explain) {
+  flex-shrink: 1;
+  overflow-y: auto;
+}
+/* the main button and Retry share a row, as on a wide screen */
+:root[data-zen='on'] .tx-actions .btn.big {
+  flex: 0 1 auto;
 }
 :root[data-zen='on'] .tx-actions,
 :root[data-zen='on'] .tx-control-row,
@@ -496,8 +508,9 @@
     white-space: normal;
     text-align: center;
   }
-  /* the floating zen button sits in the top-right corner: leave it some room above the content */
-  :root[data-zen='on'] .page.tx-page,
+  /* the floating zen button sits in the top-right corner: leave it some room above the content
+     (pages with a board get theirs from theme.css) */
+  :root[data-zen='on'] .page.tx-page:not(:has(.board-layout)),
   :root[data-zen='on'] .page.tx-home {
     padding-top: 58px;
   }

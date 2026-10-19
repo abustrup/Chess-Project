@@ -725,9 +725,238 @@ button.op-ply:hover {
 }
 
 /* --------------------------------------------------------------- zen mode */
-:root[data-zen='on'] .board-col.op-board-col {
-  width: min(100%, calc(100vh - 300px));
-  min-width: 280px;
+/* theme.css sizes the board. On a portrait screen this much room under it holds the step buttons and the coach's
+   text at every ordinary step, so the board and the Next button stay put; a branch point or the end of a line takes
+   a little more from the board. */
+:root[data-zen='on'] .page.op-page {
+  --zen-below: 270px;
+}
+/* the drill: its buttons, the prompt and the opponent's reply after a right move */
+:root[data-zen='on'] .page.op-page:has(.op-prompt) {
+  --zen-below: 335px;
+}
+@media (max-width: 500px) {
+  /* on a phone the same text needs more lines; this covers nine in ten drill states */
+  :root[data-zen='on'] .page.op-page:has(.op-prompt) {
+    --zen-below: 409px;
+  }
+}
+:root[data-zen='on'] .op-controls {
+  flex-wrap: wrap;
+  container-type: inline-size;
+}
+/* In the narrow column beside the board on a nearly square window (about 200-240 px) the four step buttons keep to one
+   row: the icon buttons lose some padding. */
+@container (max-width: 240px) {
+  :root[data-zen='on'] .op-controls > .btn {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  :root[data-zen='on'] .op-controls > .btn.icon {
+    padding: 10px 7px;
+  }
+  :root[data-zen='on'] .op-controls > .op-next-btn {
+    gap: 2px;
+  }
+}
+/* When the column runs out of room (a long comment above a branch point or the end of a line, a phone held
+   sideways), the coach's card gives way first: its text scrolls inside it, with the Try it button kept at its
+   bottom, and the cards below keep their place. The button sits on the card's bottom edge, and the text that scrolls
+   under it fades out instead of being cut through a line. */
+:root[data-zen='on'] .side-col > .op-coach {
+  flex-shrink: 1;
+  min-height: 112px;
+  overflow-y: auto;
+  padding-bottom: 0;
+}
+:root[data-zen='on'] .side-col > .op-coach > .op-coach-foot {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  padding: 6px 0 8px;
+  background: var(--zen-dock-bg);
+}
+:root[data-zen='on'] .side-col > .op-coach > .op-coach-foot::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 12px; /* the card's gap above the button, so it covers no text while nothing scrolls */
+  background: var(--zen-dock-bg);
+  -webkit-mask-image: linear-gradient(to top, #000, transparent);
+  mask-image: linear-gradient(to top, #000, transparent);
+  pointer-events: none;
+}
+/* at a branch point or at the end of a line the buttons stay in view while a long text above them scrolls */
+:root[data-zen='on'] .side-col > :is(.op-choices, .op-end) > .row {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  margin-top: -8px;
+  padding-top: 8px;
+  background: var(--zen-dock-bg);
+}
+/* Zen hides the "Lines seen" card, and so the end of a line skips its count of lines seen ("You have seen 3 of 21
+   lines..."). It keeps the sentence that comes once every line is seen, which has no See another variation button. */
+:root[data-zen='on'] .side-col > .op-end:has(> .row > button) > p {
+  display: none;
+}
+/* the end of a line is a set of ways on, so its heading and buttons are small in zen, leaving the room to the comment */
+:root[data-zen='on'] .side-col > .op-end > h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+:root[data-zen='on'] .side-col > .op-end .btn {
+  padding: 7px 14px;
+  font-size: 13.5px;
+}
+/* The choices and the end-of-line buttons are smaller where room is short: on a phone, on a phone held sideways and in
+   the narrow column beside the board on a nearly square window. On a phone the end-of-line buttons drop their icons,
+   so two fit in a row. */
+@media (orientation: portrait), (orientation: landscape) and (max-height: 500px) {
+  :root[data-zen='on'] .side-col > .op-choices .btn {
+    padding: 7px 14px;
+    font-size: 13.5px;
+  }
+  :root[data-zen='on'] .side-col > .op-choices > p {
+    display: none; /* how the choices work ("Next follows the first one"); the buttons say it themselves */
+  }
+}
+@media (orientation: portrait) {
+  :root[data-zen='on'] .op-coach-text {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 500px) {
+  :root[data-zen='on'] .side-col > .op-coach {
+    gap: 8px;
+  }
+  :root[data-zen='on'] .side-col > .op-end > h2 {
+    margin-bottom: 6px;
+  }
+  :root[data-zen='on'] .side-col > .op-end > .row {
+    gap: 6px;
+  }
+  :root[data-zen='on'] .side-col > .op-end > .row .btn {
+    padding: 7px 12px;
+    white-space: normal;
+  }
+  :root[data-zen='on'] .side-col > .op-end > .row .btn > svg {
+    display: none;
+  }
+}
+/* In the narrow column (300 px or less) the text is a little smaller, the move's tag shares its line with the move,
+   and the end-of-line buttons stand one under the other, the full width of the column, without their icons. */
+@container zen-col (max-width: 300px) {
+  :root[data-zen='on'] .op-coach-text {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  :root[data-zen='on'] .side-col > .op-coach {
+    gap: 8px;
+  }
+  :root[data-zen='on'] .side-col > .op-end > h2 {
+    margin-bottom: 6px;
+  }
+  :root[data-zen='on'] .op-coach-head {
+    gap: 6px 10px;
+  }
+  :root[data-zen='on'] .op-tag {
+    padding: 3px 9px;
+    font-size: 11px;
+  }
+  :root[data-zen='on'] .op-move-big {
+    font-size: 22px;
+  }
+  :root[data-zen='on'] .side-col > :is(.op-choices, .op-end) .btn {
+    padding: 7px 12px;
+    font-size: 13.5px;
+  }
+  :root[data-zen='on'] .side-col > :is(.op-choices, .op-end) .row {
+    gap: 6px;
+  }
+  :root[data-zen='on'] .side-col > .op-end > h2 {
+    font-size: 19px;
+  }
+  :root[data-zen='on'] .side-col > .op-choices > p {
+    display: none;
+  }
+  :root[data-zen='on'] .side-col > .op-end > .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  :root[data-zen='on'] .side-col > .op-end > .row .btn {
+    padding: 6px 10px;
+  }
+  :root[data-zen='on'] .side-col > .op-end > .row .btn > svg {
+    display: none;
+  }
+}
+/* A phone held sideways has only about 250 px of column beside the board. The choices or the end-of-line buttons come
+   first, and the coach's comment follows at its full length: the column scrolls, not the card, so the comment is
+   never squeezed into a few lines. The end of a line skips its heading (Next is greyed out there), the choices their
+   one-line explanation and the comment its Your move tag. */
+@media (orientation: landscape) and (max-height: 500px) {
+  :root[data-zen='on'] .side-col > :is(.op-choices, .op-end) {
+    order: -1;
+  }
+  :root[data-zen='on'] .side-col > .op-coach {
+    flex-shrink: 0;
+    min-height: 0;
+    overflow: visible;
+    gap: 8px;
+  }
+  :root[data-zen='on'] .side-col > .op-coach > .op-coach-foot {
+    position: static;
+    padding-top: 0;
+  }
+  :root[data-zen='on'] .side-col > .op-coach > .op-coach-foot::before {
+    content: none;
+  }
+  :root[data-zen='on'] .side-col > .op-end > h2,
+  :root[data-zen='on'] .side-col > .op-choices > p,
+  :root[data-zen='on'] .side-col > .op-coach .op-tag {
+    display: none;
+  }
+  :root[data-zen='on'] .op-coach-text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  :root[data-zen='on'] .op-move-big {
+    font-size: 22px;
+  }
+}
+/* the drill's Line complete card keeps the verdict and the moves worth another look; the streak is a statistic */
+:root[data-zen='on'] .op-complete .op-streak {
+  display: none;
+}
+/* on a phone the drill's prompt and Line complete card sit a little tighter, so the opponent's last comment and the
+   verdict both fit under the board */
+@media (max-width: 500px) {
+  :root[data-zen='on'] .side-col > .op-prompt {
+    gap: 8px;
+  }
+  :root[data-zen='on'] .side-col > .op-complete {
+    gap: 4px;
+  }
+  :root[data-zen='on'] .op-complete-head h2 {
+    font-size: 20px;
+  }
+}
+/* A phone held sideways: Line complete comes first (Next line is under it), and after a wrong move Try again stands
+   right under the note's title, so a long explanation of the idea never pushes it out of view. */
+@media (orientation: landscape) and (max-height: 500px) {
+  :root[data-zen='on'] .side-col > .op-complete {
+    order: -1;
+  }
+  :root[data-zen='on'] .side-col .op-note > .btn {
+    order: -1;
+  }
+  :root[data-zen='on'] .side-col .op-note > strong {
+    order: -2;
+  }
 }
 :root[data-zen='on'] .op-coach-head {
   justify-content: center;
@@ -745,8 +974,8 @@ button.op-ply:hover {
   min-height: 0;
 }
 @media (max-width: 820px) {
-  /* leave room for the floating zen button above the board */
-  :root[data-zen='on'] .page.op-page {
+  /* leave room for the floating zen button above the content (pages with a board get theirs from theme.css) */
+  :root[data-zen='on'] .page.op-page:not(:has(.board-layout)) {
     padding-top: 56px;
   }
 }
