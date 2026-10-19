@@ -822,6 +822,10 @@ button.op-ply:hover {
   :root[data-zen='on'] .side-col > .op-choices > p {
     display: none; /* how the choices work ("Next follows the first one"); the buttons say it themselves */
   }
+  /* without that line the heading needs its own room above the buttons' row, which reaches 8 px up over what is above it */
+  :root[data-zen='on'] .side-col > .op-choices > h3 {
+    margin-bottom: 8px;
+  }
 }
 @media (orientation: portrait) {
   :root[data-zen='on'] .op-coach-text {
@@ -883,6 +887,9 @@ button.op-ply:hover {
   :root[data-zen='on'] .side-col > .op-choices > p {
     display: none;
   }
+  :root[data-zen='on'] .side-col > .op-choices > h3 {
+    margin-bottom: 8px;
+  }
   :root[data-zen='on'] .side-col > .op-end > .row {
     flex-direction: column;
     align-items: stretch;
@@ -894,31 +901,65 @@ button.op-ply:hover {
     display: none;
   }
 }
-/* A phone held sideways has only about 250 px of column beside the board. The choices or the end-of-line buttons come
-   first, and the coach's comment follows at its full length: the column scrolls, not the card, so the comment is
-   never squeezed into a few lines. The end of a line skips its heading (Next is greyed out there), the choices their
+/* A phone held sideways has only about 250 px of column beside the board. The coach's move and its Try it button
+   share one line at the top of the card, and the comment under them scrolls inside the card when it is longer than
+   the room left, fading out at its lower edge; so every button (Try it, the choices, the end-of-line buttons, the
+   step buttons) stays in view. The end of a line skips its heading (Next is greyed out there), the choices their
    one-line explanation and the comment its Your move tag. */
 @media (orientation: landscape) and (max-height: 500px) {
-  :root[data-zen='on'] .side-col > :is(.op-choices, .op-end) {
-    order: -1;
+  :root[data-zen='on'] .side-col > .card.op-coach {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 6px 12px;
+    min-height: 80px; /* the move, Try it and a line and a half of the comment */
+    overflow: hidden;
+    padding: 0;
   }
-  :root[data-zen='on'] .side-col > .op-coach {
-    flex-shrink: 0;
-    min-height: 0;
-    overflow: visible;
-    gap: 8px;
+  :root[data-zen='on'] .side-col > .op-coach > .op-coach-head {
+    grid-area: 1 / 1;
+    justify-content: flex-start;
   }
   :root[data-zen='on'] .side-col > .op-coach > .op-coach-foot {
+    grid-area: 1 / 2;
     position: static;
-    padding-top: 0;
+    margin: 0;
+    padding: 0;
+    background: none;
   }
   :root[data-zen='on'] .side-col > .op-coach > .op-coach-foot::before {
     content: none;
+  }
+  /* at the start there is no move to show beside it, so Try it stays under the text */
+  :root[data-zen='on'] .side-col > .card.op-coach:not(:has(.op-move-big)) {
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+  :root[data-zen='on'] .side-col > .op-coach:not(:has(.op-move-big)) > .op-coach-foot {
+    grid-area: 3 / 1 / 4 / 3;
+    justify-self: center;
+  }
+  :root[data-zen='on'] .side-col > .op-coach > .op-coach-text {
+    grid-area: 2 / 1 / 3 / 3;
+    align-self: stretch;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-bottom: 10px; /* empty while the comment fits, so the fade below only shows on a comment that scrolls */
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 12px), transparent);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 12px), transparent);
   }
   :root[data-zen='on'] .side-col > .op-end > h2,
   :root[data-zen='on'] .side-col > .op-choices > p,
   :root[data-zen='on'] .side-col > .op-coach .op-tag {
     display: none;
+  }
+  /* up to ten choices take three rows; slimmer buttons leave the comment above them a line and a half */
+  :root[data-zen='on'] .side-col > .op-choices .btn {
+    padding: 4px 10px;
+  }
+  :root[data-zen='on'] .side-col > .op-choices > .row {
+    gap: 6px;
   }
   :root[data-zen='on'] .op-coach-text {
     font-size: 16px;
@@ -927,6 +968,19 @@ button.op-ply:hover {
   :root[data-zen='on'] .op-move-big {
     font-size: 22px;
   }
+}
+/* The drill's prompt gives way like the coach's card: when a note or the opponent's comment is longer than the room
+   left, it scrolls inside the card and fades out at its lower edge, so the Line complete card and the buttons keep
+   their place. The extra padding is empty while the text fits, so the fade only shows on a text that scrolls. */
+:root[data-zen='on'] .side-col > .card.op-prompt:has(> :is(.op-note, .op-reply)) {
+  flex-shrink: 1;
+  min-height: 96px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: 12px;
+  margin-bottom: -4px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 12px), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 12px), transparent);
 }
 /* the drill's Line complete card keeps the verdict and the moves worth another look; the streak is a statistic */
 :root[data-zen='on'] .op-complete .op-streak {

@@ -667,8 +667,11 @@ kbd {
 :root[data-zen='on'] .puzzles-page > .puzzle-notice {
   display: none;
 }
+/* Puzzle Rush's card (the clock, the score and the strikes, about 180 px) never changes height, so on a portrait
+   screen its reserve is set below that: the board then takes exactly the room the card leaves (theme.css lets it
+   shrink to fit) instead of a fixed guess */
 :root[data-zen='on'] .page.puzzles-page:has(.rush-board) {
-  --zen-below: 200px; /* the clock, the score and the strikes */
+  --zen-below: 150px;
 }
 @media (orientation: landscape) {
   /* the board's column is not a box here (theme.css), so the Puzzle Rush cover sits on the board's own grid cell */

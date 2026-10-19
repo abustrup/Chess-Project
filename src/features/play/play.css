@@ -336,6 +336,12 @@
   gap: 4px;
   white-space: nowrap;
 }
+/* a name too long for the strip ends in "..." instead of running under the clock */
+.pl-name > strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .pl-captured {
   display: flex;
   align-items: center;
@@ -476,6 +482,7 @@
   z-index: 80;
   display: grid;
   place-items: center;
+  overflow-y: auto; /* a pop-up taller than the screen (a phone held sideways) scrolls instead of losing its last buttons */
   padding: 16px;
   background: rgba(8, 12, 18, 0.62);
   backdrop-filter: blur(3px);
@@ -483,6 +490,7 @@
 .pl-modal {
   position: relative;
   width: min(440px, 100%);
+  margin: auto; /* centred while it fits, from the top when it does not */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -547,7 +555,7 @@
   white-space: normal;
 }
 :root[data-zen='on'] .pl-strip .pl-name > strong {
-  min-width: 0;
+  overflow: visible;
   overflow-wrap: break-word;
 }
 :root[data-zen='on'] .pl-strip .pl-name > .pl-thinking {
@@ -637,14 +645,8 @@
     padding: 26px 18px 20px;
   }
 }
-/* In zen, a pop-up taller than the screen scrolls instead of losing its last buttons, and on a phone held sideways it
-   drops its big icon and some padding so all its buttons fit. */
-:root[data-zen='on'] .pl-modal-backdrop {
-  overflow-y: auto;
-}
-:root[data-zen='on'] .pl-modal {
-  margin: auto; /* centred while it fits, from the top when it does not */
-}
+/* In zen, on a phone held sideways, the pop-up drops its big icon and some padding so all its buttons fit without
+   scrolling. */
 @media (max-height: 500px) {
   :root[data-zen='on'] .pl-modal {
     gap: 10px;

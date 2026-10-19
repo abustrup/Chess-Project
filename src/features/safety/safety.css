@@ -325,6 +325,21 @@
     bottom: 104px;
   }
 }
+/* When the line box opens, CheckedLine scrolls it into view. Zen has no top bar to keep clear of, and that bar's
+   margin made the box too tall to bring into view on a short phone (320x568): its buttons opened below the column's
+   visible bottom. In zen the box only keeps clear of the column's 6 px edge. */
+:root[data-zen='on'] .safety-page .safety-line {
+  scroll-margin: 0 0 6px;
+}
+/* ... and its Confirm and Change move dock like the verdict's buttons, in case the column is scrolled back up */
+:root[data-zen='on'] .safety-page .side-col .safety-line > .safety-buttons {
+  position: sticky;
+  bottom: -6px;
+  z-index: 2;
+  margin: -8px 0 -6px;
+  padding: 8px 0 6px;
+  background: var(--zen-dock-bg);
+}
 /* while the positions load, the board's place leaves room for the reminder strip that will stand above it, so
    the board does not jump down when they arrive (one row of reminders on a tablet, two on a phone) */
 @media (orientation: portrait) {

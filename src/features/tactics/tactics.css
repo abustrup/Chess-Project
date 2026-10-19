@@ -450,13 +450,18 @@
 }
 
 /* ----------------------------------------------------------------- zen mode
-   In zen the page header is gone; theme.css sizes the board. On a portrait screen the feedback text and the
-   main buttons usually need this much room under it (a longer text takes a little more from the board). */
+   In zen the page header is gone; theme.css sizes the board. On a portrait screen the controls go under the
+   board, which takes all the height they leave, up to the screen's width: the least room they need (the
+   exercise prompt and its buttons) is the reserve, and a hint or a longer text takes more from the board. */
 :root[data-zen='on'] .page.tx-page {
-  --zen-below: 255px; /* Practice: the feedback, a hint and the buttons */
+  --zen-below: 148px;
 }
-:root[data-zen='on'] .page.tx-page:has(.tx-explain) {
-  --zen-below: 276px; /* Watch: the explanation and the step buttons */
+/* The board may shrink to three quarters of what a 270 px reserve leaves (the room a hint or a long explanation
+   needs), rather than of its largest size, so on a small phone a long text still fits instead of scrolling. */
+@media (orientation: portrait) {
+  :root[data-zen='on'] .page.tx-page:has(.board-layout) {
+    --zen-board-min: min(var(--zen-board), max(200px, min(100vw, var(--zen-vh) - var(--zen-top) - 282px) * 0.75));
+  }
 }
 :root[data-zen='on'] .tx-prompt,
 :root[data-zen='on'] .tx-explain {

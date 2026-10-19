@@ -281,10 +281,12 @@
 }
 
 /* Zen mode: the board (sized by theme.css), its move buttons and the comment for the current move. On a portrait
-   screen the buttons and the longest comments of five real games fit in this much room under the board, so the
-   board keeps its size and the move buttons stay put while you step through the game. */
+   tablet the move buttons and the coach's longest comment (your own blunder: two reasons, the winning chances and
+   "Try it"; or a blunder by your opponent: three reasons and the winning chances) fit in this much room under the
+   board, so the board keeps one size and the move buttons stay put while you step through the game. A comment that
+   needs more room (a narrow phone, where lines wrap) shrinks the board a little instead (theme.css). */
 :root[data-zen='on'] .page.review-page {
-  --zen-below: 309px;
+  --zen-below: 264px;
 }
 /* "Try it" and the other buttons in the comment stay in view when a long comment makes the column scroll */
 :root[data-zen='on'] .review-page .side-col > .coach > .row,
@@ -315,9 +317,10 @@
 :root[data-zen='on'] .review-page .coach-head {
   justify-content: center;
 }
-/* A phone held sideways leaves the comment about 260 px beside the board: the comment keeps its lines and gives up
-   some of the space between them, so even the longest comments (a blunder with its winning chances) fit. */
-@media (orientation: landscape) and (max-height: 500px) {
+/* Where room is short (under the board on a portrait screen, beside it on a phone held sideways) the comment keeps
+   its lines and gives up some of the space between them: the longest comments fit in the column, and on a portrait
+   screen the board is that much bigger. */
+@media (orientation: portrait), (orientation: landscape) and (max-height: 500px) {
   :root[data-zen='on'] .review-page .side-col > .coach {
     padding: 0;
   }
@@ -326,5 +329,14 @@
   }
   :root[data-zen='on'] .review-page .coach p {
     margin-bottom: 6px;
+  }
+  :root[data-zen='on'] .review-page .coach > :last-child {
+    margin-bottom: 0;
+  }
+  /* the docked button row starts right under the text, so it never covers the last line */
+  :root[data-zen='on'] .review-page .side-col > .coach > .row,
+  :root[data-zen='on'] .review-page .side-col > .coach > .try-panel > .row {
+    margin-top: -6px;
+    padding-top: 6px;
   }
 }
