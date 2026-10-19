@@ -9,6 +9,22 @@ Labels: **[verified]** = run or read by D1 on 2026-10-17 (01:20-02:10 CEST, the 
 **[reported]** = from a task's own verified report of 2026-10-16/17, not re-run by D1; **[inferred]** = follows from
 those; **[assumed]** = not checked.
 
+## PAUSED 2026-10-19 (owner's request)
+
+Development is paused. Live site = `main` at the zen merge (#3, 898012e). Nothing is being built.
+- **Still running on its own, on purpose:** the daily measurement job (`measure.yml`) and the card rebuild after it.
+  They are the study's judge, not development; do not switch them off.
+- **Study state on 2026-10-19:** 0 counted games. All of his 4 rapid games since 2026-10-16 were 10+5, which does not
+  count. He chose to keep 10+0 and play it from now. He has NOT time-stamped on AsPredicted yet (do it before his
+  11th counted game).
+- **Zen full-height board (#3):** wide screens verified (the board is exactly the window height, no scroll). Known
+  limits: long texts on narrow or near-square windows can push a button below the fold; in timed Play games at
+  1024x768 the name can run under the clock; in the locked Safety trainer at 1024x768 the view chips can overlap
+  the verdict. An unfinished, unverified third fix round is on branch `zen-fill-wip`. Defect lists from the last
+  verifiers are in that branch's commit message context and the PR #3 description.
+- **Freeze reminder:** once he has 11 counted 10+0 games, changes to teaching folders wait until game 160 (see below).
+  Zen layout fixes then count as a change to the "before" phase, so finish them before game 11 or after game 160.
+
 ## Read this first: the app is in a study
 
 The owner, Alexander (Lichess **abustrup**), is testing whether a Safety-check trainer cuts his blunders in rated
