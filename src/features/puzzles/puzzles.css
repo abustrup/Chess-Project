@@ -649,9 +649,53 @@ kbd {
 
 /* ---------------------------------------------------------------- zen mode */
 /* The prompt card stays (zen-keep); the extra details inside it are hidden by .zen-hide.
-   The board is a bit smaller than elsewhere so the message and the buttons fit under it without scrolling. */
-:root[data-zen='on'] .puzzles-page .board-col {
-  width: min(100%, calc(100vh - 250px));
+   theme.css sizes the board; on a portrait screen the message and the buttons usually need this much room under it. */
+:root[data-zen='on'] .page.puzzles-page {
+  --zen-below: 160px;
+}
+/* the buttons stay in view when a long message makes the column scroll */
+:root[data-zen='on'] .side-col > .prompt-card > .prompt-buttons {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  margin-top: -8px;
+  padding-top: 8px;
+  background: var(--zen-dock-bg);
+}
+/* a link to a topic we do not have shows the last topic instead; zen skips the note that says so, as it skips the
+   other notes here, because above the board it would push the board off the screen */
+:root[data-zen='on'] .puzzles-page > .puzzle-notice {
+  display: none;
+}
+:root[data-zen='on'] .page.puzzles-page:has(.rush-board) {
+  --zen-below: 200px; /* the clock, the score and the strikes */
+}
+@media (orientation: landscape) {
+  /* the board's column is not a box here (theme.css), so the Puzzle Rush cover sits on the board's own grid cell */
+  :root[data-zen='on'] .rush-board > .rush-overlay {
+    position: relative;
+    inset: auto;
+  }
+}
+@media (orientation: portrait) {
+  /* the Puzzle Rush cover needs a box the size of the board, so here the board's column stays one (the square
+     the board would be, see theme.css) instead of handing its children to the layout */
+  :root[data-zen='on'] .board-col.rush-board {
+    display: block;
+    flex: 1 1 0;
+    width: auto;
+    max-width: 100%;
+    min-width: 0;
+    min-height: var(--zen-board-min);
+    max-height: var(--zen-board);
+    aspect-ratio: 1 / 1;
+    margin: 0;
+  }
+  :root[data-zen='on'] .board-col.rush-board > .board-frame {
+    width: 100%;
+    max-height: none;
+    min-height: 0;
+  }
 }
 :root[data-zen='on'] .prompt-card {
   border-left-color: transparent;
@@ -689,12 +733,10 @@ kbd {
   .page.puzzles-page {
     padding-top: 14px;
   }
-  /* In zen mode the round zen button floats in the top corner, so leave it a little room above the board. */
-  :root[data-zen='on'] .page.puzzles-page {
+  /* In zen mode the round zen button floats in the top corner, so leave it a little room above the content
+     (with a board, theme.css does that). */
+  :root[data-zen='on'] .page.puzzles-page:not(:has(.board-layout)) {
     padding-top: 58px;
-  }
-  :root[data-zen='on'] .puzzles-page .board-col {
-    width: 100%;
   }
   .puzzles-page .page-head h1 {
     font-size: 24px;

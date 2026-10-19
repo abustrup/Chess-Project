@@ -280,15 +280,31 @@
   }
 }
 
-/* Zen mode: one calm column, board first, then the comment for the current move. */
+/* Zen mode: the board (sized by theme.css), its move buttons and the comment for the current move. On a portrait
+   screen the buttons and the longest comments of five real games fit in this much room under the board, so the
+   board keeps its size and the move buttons stay put while you step through the game. */
+:root[data-zen='on'] .page.review-page {
+  --zen-below: 309px;
+}
+/* "Try it" and the other buttons in the comment stay in view when a long comment makes the column scroll */
+:root[data-zen='on'] .review-page .side-col > .coach > .row,
+:root[data-zen='on'] .review-page .side-col > .coach > .try-panel > .row {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  margin-top: -8px;
+  padding-top: 8px;
+  background: var(--zen-dock-bg);
+}
 :root[data-zen='on'] .review-page .board-col {
-  width: min(100%, calc(100vh - 330px));
   position: static;
 }
 :root[data-zen='on'] .review-page .side-col {
   position: static;
   max-height: none;
-  overflow: visible;
+}
+:root[data-zen='on'] .review-page .board-nav {
+  flex-wrap: wrap;
 }
 :root[data-zen='on'] .review-page .coach {
   position: static;
@@ -298,4 +314,17 @@
 :root[data-zen='on'] .review-page .coach .row,
 :root[data-zen='on'] .review-page .coach-head {
   justify-content: center;
+}
+/* A phone held sideways leaves the comment about 260 px beside the board: the comment keeps its lines and gives up
+   some of the space between them, so even the longest comments (a blunder with its winning chances) fit. */
+@media (orientation: landscape) and (max-height: 500px) {
+  :root[data-zen='on'] .review-page .side-col > .coach {
+    padding: 0;
+  }
+  :root[data-zen='on'] .review-page .coach .coach-head {
+    margin-bottom: 6px;
+  }
+  :root[data-zen='on'] .review-page .coach p {
+    margin-bottom: 6px;
+  }
 }

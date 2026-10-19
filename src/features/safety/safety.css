@@ -287,3 +287,53 @@
 :root[data-zen='on'] .safety-page .safety-prompt {
   border-left-color: transparent;
 }
+/* theme.css sizes the board; on a portrait screen the strip above it, the prompt and the line box below usually
+   need this much room (a verdict takes more from the board, down to the smallest board theme.css allows) */
+:root[data-zen='on'] .page.safety-page {
+  --zen-below: 270px;
+}
+/* A verdict is often longer than the screen has room for. Its view switches and its buttons stay in view at the
+   bottom of the column while the text above them scrolls. The buttons cover the column's 6 px bottom edge too
+   (theme.css), so no line of text shows under them. The switches sit just above the buttons: one row of buttons
+   (44 px and its 8 px edge), or, in a column 300 px wide or less, Next and Try again stacked in two rows. */
+:root[data-zen='on'] .safety-page .side-col > .safety-verdict > :is(.safety-board-modes, .safety-buttons) {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  margin-top: -8px;
+  padding-top: 8px;
+  background: var(--zen-dock-bg);
+}
+:root[data-zen='on'] .safety-page .side-col > .safety-verdict > .safety-buttons {
+  flex-wrap: nowrap;
+  bottom: -6px;
+  margin-bottom: -6px;
+  padding-bottom: 6px;
+}
+/* a good or bad verdict keeps its tinted card in zen, which ends in --bg-2 */
+:root[data-zen='on'] .safety-page .side-col > .safety-verdict:is(.tone-good, .tone-bad) > :is(.safety-board-modes, .safety-buttons) {
+  background: var(--bg-2);
+}
+:root[data-zen='on'] .safety-page .side-col > .safety-verdict > .safety-board-modes {
+  bottom: 52px;
+}
+@container zen-col (max-width: 300px) {
+  :root[data-zen='on'] .safety-page .side-col > .safety-verdict > .safety-buttons {
+    flex-direction: column;
+  }
+  :root[data-zen='on'] .safety-page .side-col > .safety-verdict:has(> .safety-buttons > .btn + .btn) > .safety-board-modes {
+    bottom: 104px;
+  }
+}
+/* while the positions load, the board's place leaves room for the reminder strip that will stand above it, so
+   the board does not jump down when they arrive (one row of reminders on a tablet, two on a phone) */
+@media (orientation: portrait) {
+  :root[data-zen='on'] .safety-layout[aria-busy='true'] .safety-skeleton {
+    margin-top: 50px;
+  }
+}
+@media (orientation: portrait) and (max-width: 540px) {
+  :root[data-zen='on'] .safety-layout[aria-busy='true'] .safety-skeleton {
+    margin-top: 75px;
+  }
+}
