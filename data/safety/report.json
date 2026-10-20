@@ -12,7 +12,7 @@
   "lineNodes": 250000,
   "extendNodes": 250000
  },
- "source": "Lichess games of abustrup: 37 rated games (33 blitz, 4 rapid), 2026-10-10 to 2026-10-18",
+ "source": "Lichess games of abustrup: 38 rated games (34 blitz, 4 rapid), 2026-10-10 to 2026-10-19",
  "games": [
   "bdOFlcdq",
   "uUCQ83zH",
@@ -50,12 +50,13 @@
   "PQPV4Yvm",
   "SW8s7w7e",
   "DpmRb2GQ",
-  "5bJOGvds"
+  "5bJOGvds",
+  "har583Jf"
  ],
  "counts": {
   "own": 103,
-  "held": 114,
-  "quiet": 24
+  "held": 117,
+  "quiet": 25
  },
  "excluded": [
   {
@@ -489,24 +490,29 @@
    "id": "quiet:DpmRb2GQ:13",
    "taken": true,
    "why": null
+  },
+  {
+   "id": "quiet:har583Jf:81",
+   "taken": true,
+   "why": null
   }
  ],
  "safetyRule": {
   "held": {
-   "cards": 114,
-   "moves": 4005,
-   "within4": 251,
-   "safeOnly": 134,
-   "wrong": 3620,
-   "wrongMaterial": 3110
+   "cards": 117,
+   "moves": 4095,
+   "within4": 254,
+   "safeOnly": 138,
+   "wrong": 3703,
+   "wrongMaterial": 3182
   },
   "quiet": {
-   "cards": 24,
-   "moves": 865,
-   "within4": 324,
+   "cards": 25,
+   "moves": 874,
+   "within4": 331,
    "safeOnly": 296,
-   "wrong": 245,
-   "wrongMaterial": 201
+   "wrong": 247,
+   "wrongMaterial": 203
   }
  },
  "checks": {
