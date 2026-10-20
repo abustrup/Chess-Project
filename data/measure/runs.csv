@@ -5,3 +5,4 @@ run_at,as_of,event,run_id,eligible_games,new_games,new_export_games,U,phase,inst
 2026-10-17T08:41:27Z,2026-10-17T08:41:26Z,schedule,39018241466,0,0,0,40,warm-up,passed,Stockfish 19,,
 2026-10-18T08:57:43Z,2026-10-18T08:57:43Z,schedule,39113390926,0,0,2,40,warm-up,passed,Stockfish 19,,
 2026-10-19T10:05:32Z,2026-10-19T10:05:31Z,schedule,39234756399,0,0,4,40,warm-up,passed,Stockfish 19,,
+2026-10-20T09:32:40Z,2026-10-20T09:32:40Z,schedule,39401305276,0,0,1,40,warm-up,passed,Stockfish 19,,
