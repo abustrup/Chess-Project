@@ -1,7 +1,7 @@
 {
  "about": "Written by the daily measuring job (.github/workflows/measure.yml). Counts and dates only: no blunder numbers appear here or on the website before a verdict exists (verdict.json, from game 110); a check that does not decide keeps its numbers in data/measure/interim-look-N.json (SHA-256 under interimChecks).",
- "asOf": "2026-11-05T12:34:50Z",
- "eligibleGames": 0,
+ "asOf": "2026-11-06T12:18:07Z",
+ "eligibleGames": 2,
  "phase": "warm-up",
  "phaseLabel": "Warm-up (not counted)",
  "unlockAfterGame": 40,
@@ -52,18 +52,18 @@
  "problems": [],
  "instrumentCheck": {
   "passed": true,
-  "at": "2026-11-05T12:33:58Z",
+  "at": "2026-11-06T12:17:22Z",
   "stockfish": "Stockfish 19",
   "binarySha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19",
   "platform": "Linux x86_64",
-  "python": "3.12.15",
+  "python": "3.12.16",
   "pythonChess": "1.11.2",
   "fixture": "fixture check passed: 31 games, 111/891 blunders, threat 39/126 and 63/622, winning with no threat 19/88, opponents 86/897, all games match",
   "engineCheck": "engine check passed: 117 of 117 positions re-searched identically (scores, best moves, threat probes)",
-  "seconds": 50.8
+  "seconds": 44.4
  },
- "newGames": 0,
- "lastGameAt": null,
+ "newGames": 2,
+ "lastGameAt": "2026-11-05T20:59:32Z",
  "verdict": null,
  "interimChecks": null,
  "judgeSha256": {
