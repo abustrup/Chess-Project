@@ -12,7 +12,7 @@
   "lineNodes": 250000,
   "extendNodes": 250000
  },
- "source": "Lichess games of abustrup: 47 rated games (43 blitz, 4 rapid), 2026-10-10 to 2026-10-21",
+ "source": "Lichess games of abustrup: 52 rated games (46 blitz, 6 rapid), 2026-10-10 to 2026-11-05",
  "games": [
   "bdOFlcdq",
   "uUCQ83zH",
@@ -60,12 +60,17 @@
   "uiZ9NNxx",
   "zfN9qZF6",
   "6MVJbNbZ",
-  "iZYgGNrh"
+  "iZYgGNrh",
+  "o4Ykj0UT",
+  "DmKYuYjz",
+  "9HcitYqu",
+  "H6Qe9lJb",
+  "X6671FHq"
  ],
  "counts": {
-  "own": 133,
-  "held": 146,
-  "quiet": 33
+  "own": 142,
+  "held": 163,
+  "quiet": 35
  },
  "excluded": [
   {
@@ -356,6 +361,28 @@
    "reasons": [
     "not a \"Learn from your mistakes\" move: win% swing 8.3 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
    ]
+  },
+  {
+   "id": "own:o4Ykj0UT:69",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "hung_piece",
+   "reasons": [
+    "already lost: his win% before the move was 4.1 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 3.0 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:X6671FHq:43",
+   "kind": "own",
+   "judgment": "Blunder",
+   "lichessJudgment": "Blunder",
+   "category": "allowed_short_mate",
+   "reasons": [
+    "already lost: his win% before the move was 8.2 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 8.1 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
   }
  ],
  "quietTried": [
@@ -603,24 +630,49 @@
    "id": "quiet:iZYgGNrh:32",
    "taken": true,
    "why": null
+  },
+  {
+   "id": "quiet:o4Ykj0UT:55",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:DmKYuYjz:110",
+   "taken": false,
+   "why": "he had a forced mate"
+  },
+  {
+   "id": "quiet:DmKYuYjz:88",
+   "taken": false,
+   "why": "his move is more than 4 points below the best in the card search"
+  },
+  {
+   "id": "quiet:DmKYuYjz:98",
+   "taken": false,
+   "why": "he had a forced mate"
+  },
+  {
+   "id": "quiet:X6671FHq:15",
+   "taken": true,
+   "why": null
   }
  ],
  "safetyRule": {
   "held": {
-   "cards": 146,
-   "moves": 5164,
-   "within4": 361,
-   "safeOnly": 166,
-   "wrong": 4637,
-   "wrongMaterial": 4033
+   "cards": 163,
+   "moves": 5740,
+   "within4": 395,
+   "safeOnly": 174,
+   "wrong": 5171,
+   "wrongMaterial": 4482
   },
   "quiet": {
-   "cards": 33,
-   "moves": 1148,
-   "within4": 461,
-   "safeOnly": 361,
-   "wrong": 326,
-   "wrongMaterial": 270
+   "cards": 35,
+   "moves": 1214,
+   "within4": 485,
+   "safeOnly": 380,
+   "wrong": 349,
+   "wrongMaterial": 289
   }
  },
  "checks": {
