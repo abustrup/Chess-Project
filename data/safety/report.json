@@ -12,7 +12,7 @@
   "lineNodes": 250000,
   "extendNodes": 250000
  },
- "source": "Lichess games of abustrup: 52 rated games (46 blitz, 6 rapid), 2026-10-10 to 2026-11-05",
+ "source": "Lichess games of abustrup: 63 rated games (47 blitz, 16 rapid), 2026-10-10 to 2026-11-08",
  "games": [
   "bdOFlcdq",
   "uUCQ83zH",
@@ -65,12 +65,23 @@
   "DmKYuYjz",
   "9HcitYqu",
   "H6Qe9lJb",
-  "X6671FHq"
+  "X6671FHq",
+  "lyNiVNHd",
+  "fw2Lo9Z7",
+  "fks72kQg",
+  "2Ie7W1LP",
+  "1l2wUMNK",
+  "hDAHAPXU",
+  "v9qvqSjY",
+  "jwWUrfLF",
+  "c4HOPE0m",
+  "FmieXes5",
+  "OHJuZ1HE"
  ],
  "counts": {
-  "own": 142,
-  "held": 163,
-  "quiet": 35
+  "own": 162,
+  "held": 191,
+  "quiet": 40
  },
  "excluded": [
   {
@@ -383,6 +394,28 @@
     "already lost: his win% before the move was 8.2 (below 10)",
     "not a \"Learn from your mistakes\" move: win% swing 8.1 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
    ]
+  },
+  {
+   "id": "own:2Ie7W1LP:45",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": "Mistake",
+   "category": "missed_free_material",
+   "reasons": [
+    "already lost: his win% before the move was 4.5 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 3.7 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:FmieXes5:49",
+   "kind": "own",
+   "judgment": "Blunder",
+   "lichessJudgment": "Blunder",
+   "category": "hung_piece",
+   "reasons": [
+    "already lost: his win% before the move was 8.1 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 7.6 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
   }
  ],
  "quietTried": [
@@ -655,24 +688,64 @@
    "id": "quiet:X6671FHq:15",
    "taken": true,
    "why": null
+  },
+  {
+   "id": "quiet:lyNiVNHd:11",
+   "taken": false,
+   "why": "his move is more than 4 points below the best in the card search"
+  },
+  {
+   "id": "quiet:fks72kQg:66",
+   "taken": false,
+   "why": "his move is more than 4 points below the best in the card search"
+  },
+  {
+   "id": "quiet:fks72kQg:62",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:hDAHAPXU:14",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:jwWUrfLF:40",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:FmieXes5:29",
+   "taken": false,
+   "why": "his move is more than 4 points below the best in the card search"
+  },
+  {
+   "id": "quiet:FmieXes5:35",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:OHJuZ1HE:12",
+   "taken": true,
+   "why": null
   }
  ],
  "safetyRule": {
   "held": {
-   "cards": 163,
-   "moves": 5740,
-   "within4": 395,
-   "safeOnly": 174,
-   "wrong": 5171,
-   "wrongMaterial": 4482
+   "cards": 191,
+   "moves": 6875,
+   "within4": 456,
+   "safeOnly": 212,
+   "wrong": 6207,
+   "wrongMaterial": 5349
   },
   "quiet": {
-   "cards": 35,
-   "moves": 1214,
-   "within4": 485,
-   "safeOnly": 380,
-   "wrong": 349,
-   "wrongMaterial": 289
+   "cards": 40,
+   "moves": 1404,
+   "within4": 568,
+   "safeOnly": 421,
+   "wrong": 415,
+   "wrongMaterial": 335
   }
  },
  "checks": {
