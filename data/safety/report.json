@@ -12,7 +12,7 @@
   "lineNodes": 250000,
   "extendNodes": 250000
  },
- "source": "Lichess games of abustrup: 63 rated games (47 blitz, 16 rapid), 2026-10-10 to 2026-11-08",
+ "source": "Lichess games of abustrup: 71 rated games (48 blitz, 23 rapid), 2026-10-10 to 2026-11-08",
  "games": [
   "bdOFlcdq",
   "uUCQ83zH",
@@ -76,12 +76,20 @@
   "jwWUrfLF",
   "c4HOPE0m",
   "FmieXes5",
-  "OHJuZ1HE"
+  "OHJuZ1HE",
+  "cdYYKgTY",
+  "vyeBB3Vy",
+  "r1CMNsin",
+  "gCFNBAuL",
+  "Hjexyjod",
+  "vphp0SB9",
+  "3oUJd6Bk",
+  "PvT3ETQr"
  ],
  "counts": {
-  "own": 162,
-  "held": 191,
-  "quiet": 40
+  "own": 176,
+  "held": 227,
+  "quiet": 46
  },
  "excluded": [
   {
@@ -416,6 +424,26 @@
     "already lost: his win% before the move was 8.1 (below 10)",
     "not a \"Learn from your mistakes\" move: win% swing 7.6 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
    ]
+  },
+  {
+   "id": "own:vyeBB3Vy:93",
+   "kind": "own",
+   "judgment": "Blunder",
+   "lichessJudgment": null,
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "the card search (1M nodes, MultiPV 5) puts the game move within 4 points of the best (1.71 vs 4.91)"
+   ]
+  },
+  {
+   "id": "own:Hjexyjod:48",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": "Mistake",
+   "category": "missed_own_tactic",
+   "reasons": [
+    "not a \"Learn from your mistakes\" move: win% swing 5.9 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
   }
  ],
  "quietTried": [
@@ -728,24 +756,69 @@
    "id": "quiet:OHJuZ1HE:12",
    "taken": true,
    "why": null
+  },
+  {
+   "id": "quiet:cdYYKgTY:49",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:vyeBB3Vy:71",
+   "taken": false,
+   "why": "his move is more than 4 points below the best in the card search"
+  },
+  {
+   "id": "quiet:vyeBB3Vy:81",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:r1CMNsin:11",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:gCFNBAuL:22",
+   "taken": false,
+   "why": "his move is more than 4 points below the best in the card search"
+  },
+  {
+   "id": "quiet:gCFNBAuL:20",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:3oUJd6Bk:77",
+   "taken": false,
+   "why": "he had a forced mate"
+  },
+  {
+   "id": "quiet:3oUJd6Bk:63",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:PvT3ETQr:55",
+   "taken": true,
+   "why": null
   }
  ],
  "safetyRule": {
   "held": {
-   "cards": 191,
-   "moves": 6875,
-   "within4": 456,
-   "safeOnly": 212,
-   "wrong": 6207,
-   "wrongMaterial": 5349
+   "cards": 227,
+   "moves": 8184,
+   "within4": 541,
+   "safeOnly": 236,
+   "wrong": 7407,
+   "wrongMaterial": 6355
   },
   "quiet": {
-   "cards": 40,
-   "moves": 1404,
-   "within4": 568,
-   "safeOnly": 421,
-   "wrong": 415,
-   "wrongMaterial": 335
+   "cards": 46,
+   "moves": 1588,
+   "within4": 640,
+   "safeOnly": 478,
+   "wrong": 470,
+   "wrongMaterial": 375
   }
  },
  "checks": {
