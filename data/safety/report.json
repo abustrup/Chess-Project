@@ -12,7 +12,7 @@
   "lineNodes": 250000,
   "extendNodes": 250000
  },
- "source": "Lichess games of abustrup: 86 rated games (59 blitz, 27 rapid), 2026-10-10 to 2026-11-12",
+ "source": "Lichess games of abustrup: 96 rated games (69 blitz, 27 rapid), 2026-10-10 to 2026-11-13",
  "games": [
   "bdOFlcdq",
   "uUCQ83zH",
@@ -99,12 +99,22 @@
   "68mk7dH4",
   "qaO5x37o",
   "zcMEYxsL",
-  "wkCZKK5V"
+  "wkCZKK5V",
+  "7cFLpVWM",
+  "hjaUSJmB",
+  "K9Z0psJz",
+  "LUm3ToHe",
+  "qle2sGQ3",
+  "BOo6SCIj",
+  "qHDLw2ee",
+  "rVwBv3T5",
+  "Px13eWck",
+  "vXFpt0Pf"
  ],
  "counts": {
-  "own": 203,
-  "held": 273,
-  "quiet": 60
+  "own": 225,
+  "held": 295,
+  "quiet": 67
  },
  "excluded": [
   {
@@ -973,24 +983,79 @@
    "id": "quiet:wkCZKK5V:24",
    "taken": true,
    "why": null
+  },
+  {
+   "id": "quiet:hjaUSJmB:42",
+   "taken": false,
+   "why": "his move is more than 4 points below the best in the card search"
+  },
+  {
+   "id": "quiet:hjaUSJmB:44",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:K9Z0psJz:71",
+   "taken": false,
+   "why": "the best move wins material"
+  },
+  {
+   "id": "quiet:K9Z0psJz:77",
+   "taken": false,
+   "why": "he had a forced mate"
+  },
+  {
+   "id": "quiet:K9Z0psJz:91",
+   "taken": false,
+   "why": "he had a forced mate"
+  },
+  {
+   "id": "quiet:LUm3ToHe:14",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:BOo6SCIj:13",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:qHDLw2ee:138",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:rVwBv3T5:23",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:Px13eWck:51",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:vXFpt0Pf:12",
+   "taken": true,
+   "why": null
   }
  ],
  "safetyRule": {
   "held": {
-   "cards": 273,
-   "moves": 9727,
-   "within4": 645,
-   "safeOnly": 303,
-   "wrong": 8779,
-   "wrongMaterial": 7499
+   "cards": 295,
+   "moves": 10548,
+   "within4": 696,
+   "safeOnly": 338,
+   "wrong": 9514,
+   "wrongMaterial": 8157
   },
   "quiet": {
-   "cards": 60,
-   "moves": 2092,
-   "within4": 899,
-   "safeOnly": 580,
-   "wrong": 613,
-   "wrongMaterial": 490
+   "cards": 67,
+   "moves": 2324,
+   "within4": 993,
+   "safeOnly": 657,
+   "wrong": 674,
+   "wrongMaterial": 538
   }
  },
  "checks": {
