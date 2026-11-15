@@ -4,3 +4,4 @@ seq,game_id,created_at_ms,colour,my_rating,my_rating_diff,my_provisional,opp_rat
 3,ALouBrvC,1794429448161,black,1526,-15,False,1532,0.0,mate,59,29,3,3,2,6,1,17,1,6,1,6,30,2,False,,Stockfish 19,250000,prereg-measure-2
 4,d4aZk4mb,1794430294838,white,1511,-14,False,1529,0.0,resign,54,27,2,1,2,3,0,18,2,0,0,6,27,0,False,,Stockfish 19,250000,prereg-measure-2
 5,1NlVhovB,1794434713317,black,1497,-19,False,1392,0.0,mate,69,34,4,0,3,3,0,24,3,2,2,7,35,3,False,,Stockfish 19,250000,prereg-measure-2
+6,FFLvKKzz,1794657425736,white,1453,-13,False,1452,0.0,resign,58,29,4,0,4,5,1,23,3,0,0,1,29,2,True,3,Stockfish 19,250000,prereg-measure-2
