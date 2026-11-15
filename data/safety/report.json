@@ -12,7 +12,7 @@
   "lineNodes": 250000,
   "extendNodes": 250000
  },
- "source": "Lichess games of abustrup: 96 rated games (69 blitz, 27 rapid), 2026-10-10 to 2026-11-13",
+ "source": "Lichess games of abustrup: 103 rated games (71 blitz, 32 rapid), 2026-10-10 to 2026-11-15",
  "games": [
   "bdOFlcdq",
   "uUCQ83zH",
@@ -109,12 +109,19 @@
   "qHDLw2ee",
   "rVwBv3T5",
   "Px13eWck",
-  "vXFpt0Pf"
+  "vXFpt0Pf",
+  "GPLEYvb0",
+  "DUPiz9kD",
+  "WPlIeTFq",
+  "FFLvKKzz",
+  "tUZpWf13",
+  "MnaUMFfu",
+  "Ywq8tJfH"
  ],
  "counts": {
-  "own": 225,
-  "held": 295,
-  "quiet": 67
+  "own": 235,
+  "held": 319,
+  "quiet": 73
  },
  "excluded": [
   {
@@ -545,6 +552,17 @@
    "reasons": [
     "already lost: his win% before the move was 3.2 (below 10)",
     "not a \"Learn from your mistakes\" move: win% swing 2.4 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:GPLEYvb0:38",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "allowed_short_mate",
+   "reasons": [
+    "already lost: his win% before the move was 4.4 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 4.3 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
    ]
   }
  ],
@@ -1038,24 +1056,64 @@
    "id": "quiet:vXFpt0Pf:12",
    "taken": true,
    "why": null
+  },
+  {
+   "id": "quiet:DUPiz9kD:46",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:WPlIeTFq:41",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:FFLvKKzz:41",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:tUZpWf13:36",
+   "taken": false,
+   "why": "his move is more than 4 points below the best in the card search"
+  },
+  {
+   "id": "quiet:tUZpWf13:62",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:MnaUMFfu:35",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:Ywq8tJfH:58",
+   "taken": false,
+   "why": "the best move wins material"
+  },
+  {
+   "id": "quiet:Ywq8tJfH:12",
+   "taken": true,
+   "why": null
   }
  ],
  "safetyRule": {
   "held": {
-   "cards": 295,
-   "moves": 10548,
-   "within4": 696,
-   "safeOnly": 338,
-   "wrong": 9514,
-   "wrongMaterial": 8157
+   "cards": 319,
+   "moves": 11465,
+   "within4": 754,
+   "safeOnly": 386,
+   "wrong": 10325,
+   "wrongMaterial": 8891
   },
   "quiet": {
-   "cards": 67,
-   "moves": 2324,
-   "within4": 993,
-   "safeOnly": 657,
-   "wrong": 674,
-   "wrongMaterial": 538
+   "cards": 73,
+   "moves": 2549,
+   "within4": 1111,
+   "safeOnly": 716,
+   "wrong": 722,
+   "wrongMaterial": 583
   }
  },
  "checks": {
