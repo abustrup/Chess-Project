@@ -12,7 +12,7 @@
   "lineNodes": 250000,
   "extendNodes": 250000
  },
- "source": "Lichess games of abustrup: 103 rated games (71 blitz, 32 rapid), 2026-10-10 to 2026-11-15",
+ "source": "Lichess games of abustrup: 112 rated games (76 blitz, 1 classical, 35 rapid), 2026-10-10 to 2026-11-15",
  "games": [
   "bdOFlcdq",
   "uUCQ83zH",
@@ -116,12 +116,21 @@
   "FFLvKKzz",
   "tUZpWf13",
   "MnaUMFfu",
-  "Ywq8tJfH"
+  "Ywq8tJfH",
+  "h0FrwCt8",
+  "tU5ziPU3",
+  "CFvZsgXm",
+  "guqV8pdW",
+  "d6pbKsKr",
+  "jT9JVogO",
+  "nqnssYXc",
+  "ErOWfCvJ",
+  "A8g5SHQ3"
  ],
  "counts": {
-  "own": 235,
-  "held": 319,
-  "quiet": 73
+  "own": 250,
+  "held": 343,
+  "quiet": 80
  },
  "excluded": [
   {
@@ -563,6 +572,48 @@
    "reasons": [
     "already lost: his win% before the move was 4.4 (below 10)",
     "not a \"Learn from your mistakes\" move: win% swing 4.3 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:CFvZsgXm:57",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "missed_own_tactic",
+   "reasons": [
+    "not a \"Learn from your mistakes\" move: win% swing 4.6 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:CFvZsgXm:73",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "missed_short_mate",
+   "reasons": [
+    "the card search (1M nodes, MultiPV 5) puts the game move within 4 points of the best (97.54 vs 99.91)"
+   ]
+  },
+  {
+   "id": "own:guqV8pdW:56",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "already lost: his win% before the move was 3.2 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 2.4 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
+   ]
+  },
+  {
+   "id": "own:guqV8pdW:66",
+   "kind": "own",
+   "judgment": "Mistake",
+   "lichessJudgment": null,
+   "category": "allowed_longer_tactic",
+   "reasons": [
+    "already lost: his win% before the move was 3.7 (below 10)",
+    "not a \"Learn from your mistakes\" move: win% swing 3.4 points on the +-1000 scale (needs more than 10, or a lost mate in 3 or fewer)"
    ]
   }
  ],
@@ -1096,24 +1147,69 @@
    "id": "quiet:Ywq8tJfH:12",
    "taken": true,
    "why": null
+  },
+  {
+   "id": "quiet:h0FrwCt8:27",
+   "taken": false,
+   "why": "his move is more than 4 points below the best in the card search"
+  },
+  {
+   "id": "quiet:h0FrwCt8:13",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:tU5ziPU3:49",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:CFvZsgXm:39",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:guqV8pdW:14",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:d6pbKsKr:20",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:jT9JVogO:18",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:nqnssYXc:31",
+   "taken": true,
+   "why": null
+  },
+  {
+   "id": "quiet:A8g5SHQ3:22",
+   "taken": false,
+   "why": "the best move wins material"
   }
  ],
  "safetyRule": {
   "held": {
-   "cards": 319,
-   "moves": 11465,
-   "within4": 754,
-   "safeOnly": 386,
-   "wrong": 10325,
-   "wrongMaterial": 8891
+   "cards": 343,
+   "moves": 12416,
+   "within4": 806,
+   "safeOnly": 417,
+   "wrong": 11193,
+   "wrongMaterial": 9639
   },
   "quiet": {
-   "cards": 73,
-   "moves": 2549,
-   "within4": 1111,
-   "safeOnly": 716,
-   "wrong": 722,
-   "wrongMaterial": 583
+   "cards": 80,
+   "moves": 2822,
+   "within4": 1280,
+   "safeOnly": 763,
+   "wrong": 779,
+   "wrongMaterial": 636
   }
  },
  "checks": {
